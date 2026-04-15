@@ -1,0 +1,3216 @@
+{
+  "meta": {
+    "url": "https://flutter.dev/docs/reference/flutter-cli",
+    "description": [
+      "Flutter - UI library from Google"
+    ]
+  },
+  "root": [
+    {
+      "name": "analyze",
+      "alias": [
+        "an"
+      ],
+      "tip": [
+        "U: analyze|a",
+        "Analyze the project's Dart source code."
+      ],
+      "option": [
+        {
+          "name": "--analyzer-optimizations",
+          "tip": [
+            "U: --analyzer-optimizations <optimizations>",
+            "Space separated list of static analyzer optimizations to enable or disable."
+          ]
+        },
+        {
+          "name": "--analyzer-stats",
+          "tip": [
+            "Print detailed analyzer usage statistics."
+          ]
+        },
+        {
+          "name": "--define",
+          "alias": [
+            "-D"
+          ],
+          "tip": [
+            "U: --define, -D <key=value>",
+            "Define environment variables."
+          ]
+        },
+        {
+          "name": "--exclude",
+          "alias": [
+            "-e"
+          ],
+          "tip": [
+            "U: --exclude, -e <pattern>",
+            "Exclude files that match the given pattern."
+          ]
+        },
+        {
+          "name": "--flutter-repo",
+          "tip": [
+            "Analyze Flutter repository files."
+          ]
+        },
+        {
+          "name": "--ignore",
+          "tip": [
+            "U: --ignore <warning>",
+            "Ignore a specific warning."
+          ]
+        },
+        {
+          "name": "--no-fatal-infos",
+          "tip": [
+            "Infos do not cause exit code to be non-zero."
+          ]
+        },
+        {
+          "name": "--no-fatal-warnings",
+          "tip": [
+            "Warnings do not cause exit code to be non-zero."
+          ]
+        },
+        {
+          "name": "--no-pub",
+          "tip": [
+            "Do not run pub."
+          ]
+        },
+        {
+          "name": "--preamble",
+          "tip": [
+            "U: --preamble <label>",
+            "Display the given preamble."
+          ]
+        },
+        {
+          "name": "--reporter",
+          "tip": [
+            "U: --reporter <mode>",
+            "Output reporter mode (console, compact, json)."
+          ],
+          "next": [
+            {
+              "name": "compact"
+            },
+            {
+              "name": "console"
+            },
+            {
+              "name": "json"
+            }
+          ]
+        },
+        {
+          "name": "--suggestions",
+          "tip": [
+            "U: --suggestions <suggestion>",
+            "Comma separated list of enabled suggestions."
+          ]
+        },
+        {
+          "name": "--warning",
+          "tip": [
+            "U: --warning <warning>",
+            "Treat a warning as an error."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "assemble",
+      "alias": [
+        "as"
+      ],
+      "tip": [
+        "U: assemble|as",
+        "Assemble and build Flutter resources."
+      ],
+      "option": [
+        {
+          "name": "--build-cache",
+          "tip": [
+            "Whether to build the cache."
+          ]
+        },
+        {
+          "name": "--build-inputs",
+          "tip": [
+            "List the inputs used in this build."
+          ]
+        },
+        {
+          "name": "--clang",
+          "tip": [
+            "Generate code using clang."
+          ]
+        },
+        {
+          "name": "--dag",
+          "tip": [
+            "Print a DAG of the build rules."
+          ]
+        },
+        {
+          "name": "--define",
+          "alias": [
+            "-D"
+          ],
+          "tip": [
+            "U: --define, -D <key=value>",
+            "Sets a global build argument."
+          ]
+        },
+        {
+          "name": "--depfile",
+          "tip": [
+            "U: --depfile <path>",
+            "Path to a depfile to use for this build."
+          ]
+        },
+        {
+          "name": "--dir",
+          "tip": [
+            "U: --dir <directory>",
+            "The output directory to put the build artifacts in."
+          ]
+        },
+        {
+          "name": "--dry-run",
+          "tip": [
+            "Only show the name of the build rule. Do not actually build."
+          ]
+        },
+        {
+          "name": "--engine",
+          "tip": [
+            "Override the engine to use."
+          ]
+        },
+        {
+          "name": "--expected-outputs-file",
+          "tip": [
+            "U: --expected-outputs-file <path>",
+            "A file containing the list of expected outputs."
+          ]
+        },
+        {
+          "name": "--link-model-library",
+          "tip": [
+            "Link the shared library from the engine."
+          ]
+        },
+        {
+          "name": "--no-build-cache",
+          "tip": [
+            "Do not build the cache."
+          ]
+        },
+        {
+          "name": "--no-clang",
+          "tip": [
+            "Do not generate code using clang."
+          ]
+        },
+        {
+          "name": "--no-dart-plugin",
+          "tip": [
+            "Do not build the dart plugin."
+          ]
+        },
+        {
+          "name": "--no-link-model-library",
+          "tip": [
+            "Do not link the shared library from the engine."
+          ]
+        },
+        {
+          "name": "--output",
+          "alias": [
+            "-o"
+          ],
+          "tip": [
+            "U: --output, -o <path>",
+            "The output artifact to generate from this build."
+          ]
+        },
+        {
+          "name": "--perf",
+          "tip": [
+            "Save build timing information to a local JSON file."
+          ]
+        },
+        {
+          "name": "--target-platform",
+          "tip": [
+            "U: --target-platform <platform>",
+            "Target platform."
+          ],
+          "next": [
+            {
+              "name": "android"
+            },
+            {
+              "name": "fuchsia"
+            },
+            {
+              "name": "ios"
+            },
+            {
+              "name": "linux"
+            },
+            {
+              "name": "macos"
+            },
+            {
+              "name": "windows"
+            }
+          ]
+        },
+        {
+          "name": "--tree-shake-icons",
+          "tip": [
+            "Tree shaking icons."
+          ]
+        },
+        {
+          "name": "--verbose",
+          "alias": [
+            "-v"
+          ],
+          "tip": [
+            "U: --verbose, -v",
+            "Print verbose output."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "attach",
+      "alias": [
+        "at"
+      ],
+      "tip": [
+        "U: attach|at",
+        "Attach to a running application."
+      ],
+      "option": [
+        {
+          "name": "--app-id",
+          "tip": [
+            "U: --app-id <app-id>",
+            "The Android package name or iOS bundle id to look for."
+          ]
+        },
+        {
+          "name": "--bind",
+          "alias": [
+            "-b"
+          ],
+          "tip": [
+            "U: --bind, -b <address>",
+            "Bind to this address (defaults to all interfaces)."
+          ]
+        },
+        {
+          "name": "--bind-output",
+          "tip": [
+            "U: --bind-output <path>",
+            "A file to write the socket address to."
+          ]
+        },
+        {
+          "name": "--cert",
+          "tip": [
+            "U: --cert <path>",
+            "Path to DER encoded root certificate to trust for HTTPS."
+          ]
+        },
+        {
+          "name": "--debug-port",
+          "alias": [
+            "-d"
+          ],
+          "tip": [
+            "U: --debug-port, -d <port>",
+            "The debug port to attach to."
+          ]
+        },
+        {
+          "name": "--device-vmservice-port",
+          "tip": [
+            "U: --device-vmservice-port <port>",
+            "The vmservice port to use on the device."
+          ]
+        },
+        {
+          "name": "--flutter-isolate-params",
+          "tip": [
+            "U: --flutter-isolate-params <params>",
+            "The params to pass to the Flutter application."
+          ]
+        },
+        {
+          "name": "--force-ipv4",
+          "tip": [
+            "Force connecting to IPv4 localhost."
+          ]
+        },
+        {
+          "name": "--force-ipv6",
+          "tip": [
+            "Force connecting to IPv6 localhost."
+          ]
+        },
+        {
+          "name": "--host-vmservice-port",
+          "tip": [
+            "U: --host-vmservice-port <port>",
+            "The vmservice port the phone will connect to."
+          ]
+        },
+        {
+          "name": "--observe",
+          "alias": [
+            "-o"
+          ],
+          "tip": [
+            "U: --observe, -o",
+            "The Observatory and diagnostic bytes debugger."
+          ]
+        },
+        {
+          "name": "--pid-file",
+          "tip": [
+            "U: --pid-file <path>",
+            "A file to write the pid of the process to."
+          ]
+        },
+        {
+          "name": "--project-roots",
+          "tip": [
+            "Comma-delimited directory roots to search for project."
+          ]
+        },
+        {
+          "name": "--pub",
+          "tip": [
+            "Run pub before attaching."
+          ]
+        },
+        {
+          "name": "--support-text",
+          "tip": [
+            "U: --support-text <text>",
+            "Text to display in the console."
+          ]
+        },
+        {
+          "name": "--target",
+          "alias": [
+            "-t"
+          ],
+          "tip": [
+            "U: --target, -t <file>",
+            "Path to main Dart file in the project."
+          ]
+        },
+        {
+          "name": "--tree-shake-icons",
+          "tip": [
+            "Tree shake icons for the project."
+          ]
+        },
+        {
+          "name": "--use-application-binary",
+          "tip": [
+            "U: --use-application-binary <path>",
+            "Run directly from this file/binary."
+          ]
+        },
+        {
+          "name": "--vmservice-signature",
+          "tip": [
+            "U: --vmservice-signature <signature>",
+            "The vmservice artifact SHA256 signature."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bash-completion",
+      "tip": [
+        "Output command line shell completion setup scripts."
+      ]
+    },
+    {
+      "name": "build",
+      "alias": [
+        "b"
+      ],
+      "tip": [
+        "U: build|b",
+        "Build an executable app or install bundle."
+      ],
+      "option": [
+        {
+          "name": "--allow-pkg-config",
+          "tip": [
+            "Build packages that use package config."
+          ]
+        },
+        {
+          "name": "--analyze-size",
+          "tip": [
+            "Output build size analytics."
+          ]
+        },
+        {
+          "name": "--build-cache",
+          "tip": [
+            "Use cache to speed up the build."
+          ]
+        },
+        {
+          "name": "--build-name",
+          "tip": [
+            "Set the build name."
+          ]
+        },
+        {
+          "name": "--build-number",
+          "tip": [
+            "U: --build-number <number>",
+            "Set the build number."
+          ]
+        },
+        {
+          "name": "--build-shared-library",
+          "tip": [
+            "Build a shared Dart library."
+          ]
+        },
+        {
+          "name": "--compilation-metrics",
+          "tip": [
+            "Output compilation metrics."
+          ]
+        },
+        {
+          "name": "--creduce-dart-defines",
+          "tip": [
+            "Reduce the number of dart defines."
+          ]
+        },
+        {
+          "name": "--dart-define",
+          "alias": [
+            "-D"
+          ],
+          "tip": [
+            "U: --dart-define, -D <key=value>",
+            "Key value pair to substitute in the manifest."
+          ]
+        },
+        {
+          "name": "--dart-entrypoint-args",
+          "tip": [
+            "U: --dart-entrypoint-args <args>",
+            "Args for the entrypoint main."
+          ]
+        },
+        {
+          "name": "--define",
+          "tip": [
+            "U: --define <key=value>",
+            "A key value pair to substitute in the manifest."
+          ]
+        },
+        {
+          "name": "--exclude-assets",
+          "tip": [
+            "U: --exclude-assets <paths>",
+            "Comma separated paths to exclude from assets."
+          ]
+        },
+        {
+          "name": "--flavor",
+          "tip": [
+            "U: --flavor <name>",
+            "Build a custom app flavor."
+          ]
+        },
+        {
+          "name": "--ignore-build-cache",
+          "tip": [
+            "Ignore build cache."
+          ]
+        },
+        {
+          "name": "--include-assets",
+          "tip": [
+            "U: --include-assets <paths>",
+            "Comma separated paths to include in assets."
+          ]
+        },
+        {
+          "name": "--no-build-cache",
+          "tip": [
+            "Do not use cache to speed up the build."
+          ]
+        },
+        {
+          "name": "--no-build-shared-library",
+          "tip": [
+            "Do not build a shared Dart library."
+          ]
+        },
+        {
+          "name": "--no-pub",
+          "tip": [
+            "Do not run pub."
+          ]
+        },
+        {
+          "name": "--no-tree-shake-icons",
+          "tip": [
+            "Do not tree shake icons."
+          ]
+        },
+        {
+          "name": "--no-version-check",
+          "tip": [
+            "Do not check version numbers."
+          ]
+        },
+        {
+          "name": "--obfuscate",
+          "tip": [
+            "Obfuscate the Dart Dart classes."
+          ]
+        },
+        {
+          "name": "--output",
+          "alias": [
+            "-o"
+          ],
+          "tip": [
+            "U: --output, -o <directory>",
+            "Create build output in this directory."
+          ]
+        },
+        {
+          "name": "--pub",
+          "tip": [
+            "Run pub before building."
+          ]
+        },
+        {
+          "name": "--release",
+          "alias": [
+            "-r"
+          ],
+          "tip": [
+            "U: --release, -r",
+            "Build in release mode."
+          ]
+        },
+        {
+          "name": "--split-per-abi",
+          "tip": [
+            "Split build output per ABIs."
+          ]
+        },
+        {
+          "name": "--strip-symbols",
+          "tip": [
+            "Strip debug symbols in the binary."
+          ]
+        },
+        {
+          "name": "--target",
+          "alias": [
+            "-t"
+          ],
+          "tip": [
+            "U: --target, -t <target>",
+            "Build the specified target platform."
+          ],
+          "next": [
+            {
+              "name": "android"
+            },
+            {
+              "name": "android-arm"
+            },
+            {
+              "name": "android-arm64"
+            },
+            {
+              "name": "android-x64"
+            },
+            {
+              "name": "ios"
+            },
+            {
+              "name": "ios-arm64"
+            },
+            {
+              "name": "linux"
+            },
+            {
+              "name": "linux-arm"
+            },
+            {
+              "name": "linux-arm64"
+            },
+            {
+              "name": "linux-x64"
+            },
+            {
+              "name": "macos"
+            },
+            {
+              "name": "macos-arm64"
+            },
+            {
+              "name": "macos-x64"
+            },
+            {
+              "name": "web"
+            },
+            {
+              "name": "windows"
+            },
+            {
+              "name": "windows-arm64"
+            },
+            {
+              "name": "windows-x64"
+            }
+          ]
+        },
+        {
+          "name": "--tree-shake-icons",
+          "tip": [
+            "Tree shake icons for the project."
+          ]
+        }
+      ],
+      "next": [
+        {
+          "name": "apk",
+          "tip": [
+            "Build an Android APK (archive)."
+          ]
+        },
+        {
+          "name": "appbundle",
+          "tip": [
+            "Build an Android App Bundle."
+          ]
+        },
+        {
+          "name": "fuchsia",
+          "tip": [
+            "Build a Fuchsia package."
+          ]
+        },
+        {
+          "name": "ios",
+          "alias": [
+            "ios-framework"
+          ],
+          "tip": [
+            "Build an iOS framework (macOS host only)."
+          ]
+        },
+        {
+          "name": "ios-framework",
+          "tip": [
+            "Build an iOS framework (macOS host only)."
+          ]
+        },
+        {
+          "name": "linux",
+          "tip": [
+            "Build a Linux desktop application."
+          ]
+        },
+        {
+          "name": "macos",
+          "tip": [
+            "Build a macOS desktop application."
+          ]
+        },
+        {
+          "name": "web",
+          "tip": [
+            "Build a web application."
+          ]
+        },
+        {
+          "name": "windows",
+          "tip": [
+            "Build a Windows desktop application."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "channel",
+      "tip": [
+        "List or switch Flutter channels."
+      ],
+      "option": [
+        {
+          "name": "--all",
+          "alias": [
+            "-a"
+          ],
+          "tip": [
+            "U: --all, -a",
+            "List all available and past channels."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "clean",
+      "tip": [
+        "Delete the build/ and .dart_tool/ directories."
+      ]
+    },
+    {
+      "name": "config",
+      "tip": [
+        "Configure Flutter settings."
+      ],
+      "option": [
+        {
+          "name": "--analytics",
+          "tip": [
+            "U: --analytics <enable|disable>",
+            "Enable or disable analytics reporting."
+          ]
+        },
+        {
+          "name": "--android-sdk",
+          "tip": [
+            "U: --android-sdk <path>",
+            "The path to the Android SDK."
+          ]
+        },
+        {
+          "name": "--build-dir",
+          "tip": [
+            "U: --build-dir <path>",
+            "The directory for the build output."
+          ]
+        },
+        {
+          "name": "--clear-android-sdk",
+          "tip": [
+            "Clear the path to the Android SDK."
+          ]
+        },
+        {
+          "name": "--clear-ios-engine",
+          "tip": [
+            "Clear the path to the iOS engine."
+          ]
+        },
+        {
+          "name": "--cocoapods",
+          "tip": [
+            "U: --cocoapods <repro|none>",
+            "How to deal with the CocoaPods check."
+          ]
+        },
+        {
+          "name": "--dart-remote-debugger-protocol-uri",
+          "tip": [
+            "U: --dart-remote-debugger-protocol-uri <uri>",
+            "The uri of the Dart Remote Debugger Protocol."
+          ]
+        },
+        {
+          "name": "--devtools",
+          "tip": [
+            "U: --devtools <enable|disable>",
+            "Enable or disable launching of DevTools."
+          ]
+        },
+        {
+          "name": "--enable-android-emulator",
+          "tip": [
+            "U: --enable-android-emulator <boolean>",
+            "Enable Android Emulator support."
+          ]
+        },
+        {
+          "name": "--enable-ios-device",
+          "tip": [
+            "U: --enable-ios-device <boolean>",
+            "Enable iOS device. Deprecated, ignored."
+          ]
+        },
+        {
+          "name": "--enable-ios-simulator",
+          "tip": [
+            "U: --enable-ios-simulator <boolean>",
+            "Enable iOS simulator support."
+          ]
+        },
+        {
+          "name": "--flutter-root",
+          "tip": [
+            "U: --flutter-root <path>",
+            "Override the root for Flutter installation."
+          ]
+        },
+        {
+          "name": "--format",
+          "tip": [
+            "U: --format <key>",
+            "Format the output in json, or key value."
+          ],
+          "next": [
+            {
+              "name": "json"
+            },
+            {
+              "name": "keyvalue"
+            }
+          ]
+        },
+        {
+          "name": "--ios-engine",
+          "tip": [
+            "U: --ios-engine <path>",
+            "The path to the iOS engine."
+          ]
+        },
+        {
+          "name": "--list-features",
+          "alias": [
+            "-l"
+          ],
+          "tip": [
+            "U: --list-features, -l",
+            "List all available Flutter and related attributes."
+          ]
+        },
+        {
+          "name": "--no-analytics",
+          "tip": [
+            "Disable analytics reporting."
+          ]
+        },
+        {
+          "name": "--no-android-sdk",
+          "tip": [
+            "Clear the path to the Android SDK."
+          ]
+        },
+        {
+          "name": "--quiet",
+          "alias": [
+            "-q"
+          ],
+          "tip": [
+            "U: --quiet, -q",
+            "Reduce the output amount from commands."
+          ]
+        },
+        {
+          "name": "--stable-only",
+          "tip": [
+            "Only accept stable channel."
+          ]
+        },
+        {
+          "name": "--terminal-input-prompts",
+          "tip": [
+            "U: --terminal-input-prompts <enable|disable>",
+            "Enable or disable input prompts for the terminal."
+          ]
+        },
+        {
+          "name": "--truecolor",
+          "tip": [
+            "U: --truecolor <enable|disable>",
+            "Enable or disable truecolor on supported terminals."
+          ]
+        },
+        {
+          "name": "--usage-limit",
+          "tip": [
+            "U: --usage-limit <integer>",
+            "Usage stats reporting limit in MB."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "create",
+      "alias": [
+        "cr"
+      ],
+      "tip": [
+        "U: create|cr",
+        "Create a new Flutter project."
+      ],
+      "option": [
+        {
+          "name": "--application-id",
+          "alias": [
+            "--org"
+          ],
+          "tip": [
+            "U: --application-id, --org <org>",
+            "The organization responsible for the new project."
+          ]
+        },
+        {
+          "name": "--category",
+          "tip": [
+            "U: --category <category>",
+            "The category of the project."
+          ]
+        },
+        {
+          "name": "--description",
+          "tip": [
+            "U: --description <description>",
+            "The description of the project."
+          ]
+        },
+        {
+          "name": "--device-languages",
+          "tip": [
+            "U: --device-languages <languages>",
+            "The device languages to add to the project."
+          ]
+        },
+        {
+          "name": "--dir-name",
+          "tip": [
+            "U: --dir-name <directory-name>",
+            "The directory name to create (deprecated)."
+          ]
+        },
+        {
+          "name": "--edge-ffi",
+          "tip": [
+            "Build with FFI (always on) but not require C glue."
+          ]
+        },
+        {
+          "name": "--example",
+          "alias": [
+            "-e"
+          ],
+          "tip": [
+            "U: --example, -e <path>",
+            "The path to an example to use."
+          ]
+        },
+        {
+          "name": "--flutter-repo",
+          "tip": [
+            "Create asFlutter repo."
+          ]
+        },
+        {
+          "name": "--force",
+          "alias": [
+            "-f"
+          ],
+          "tip": [
+            "U: --force, -f",
+            "Force project creation even if directory not empty."
+          ]
+        },
+        {
+          "name": "--initialize-git",
+          "tip": [
+            "Initialize a git repository (optional)."
+          ]
+        },
+        {
+          "name": "--list",
+          "alias": [
+            "-l"
+          ],
+          "tip": [
+            "U: --list, -l",
+            "List available templates."
+          ]
+        },
+        {
+          "name": "--org",
+          "tip": [
+            "U: --org <org>",
+            "The organization responsible for the new project."
+          ]
+        },
+        {
+          "name": "--output-dir",
+          "alias": [
+            "-o"
+          ],
+          "tip": [
+            "U: --output-dir, -o <directory>",
+            "The directory to create the project in."
+          ]
+        },
+        {
+          "name": "--platform",
+          "alias": [
+            "-p"
+          ],
+          "tip": [
+            "U: --platform, -p <platforms>",
+            "The platforms to include (defaults to all)."
+          ],
+          "next": [
+            {
+              "name": "android"
+            },
+            {
+              "name": "ios"
+            },
+            {
+              "name": "linux"
+            },
+            {
+              "name": "macos"
+            },
+            {
+              "name": "web"
+            },
+            {
+              "name": "windows"
+            }
+          ]
+        },
+        {
+          "name": "--platforms",
+          "tip": [
+            "U: --platforms <platforms>",
+            "The platforms to include."
+          ]
+        },
+        {
+          "name": "--project-name",
+          "alias": [
+            "--project-name"
+          ],
+          "tip": [
+            "U: --project-name <name>",
+            "The name of the project to create."
+          ]
+        },
+        {
+          "name": "--pub",
+          "tip": [
+            "Run pub after creating the project."
+          ]
+        },
+        {
+          "name": "--screenshot",
+          "alias": [
+            "-s"
+          ],
+          "tip": [
+            "U: --screenshot, -s <path>",
+            "A screenshot to use as a template."
+          ]
+        },
+        {
+          "name": "--service-Account",
+          "tip": [
+            "U: --service-Account <path>",
+            "A service account for the Google services."
+          ]
+        },
+        {
+          "name": "--shared",
+          "tip": [
+            "Add the --shared flag to compile in C glue."
+          ]
+        },
+        {
+          "name": "--strict-inference",
+          "tip": [
+            "Use strict type inference on Dart SDK."
+          ]
+        },
+        {
+          "name": "--template",
+          "alias": [
+            "-t"
+          ],
+          "tip": [
+            "U: --template, -t <template>",
+            "The project template to use."
+          ],
+          "next": [
+            {
+              "name": "app"
+            },
+            {
+              "name": "app-left-nav"
+            },
+            {
+              "name": "app-module"
+            },
+            {
+              "name": "app-shell"
+            },
+            {
+              "name": "empty"
+            },
+            {
+              "name": "init"
+            },
+            {
+              "name": "ios"
+            },
+            {
+              "name": "module"
+            },
+            {
+              "name": "package"
+            },
+            {
+              "name": "plugin"
+            },
+            {
+              "name": "plugin-native-assets"
+            },
+            {
+              "name": "skeleton"
+            },
+            {
+              "name": "watcher"
+            }
+          ]
+        },
+        {
+          "name": "--without-fractional-scale",
+          "tip": [
+            "Do not use the fractional scale flag."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "custom-devices",
+      "tip": [
+        "Add, delete, list, and reset custom devices."
+      ],
+      "next": [
+        {
+          "name": "add",
+          "tip": [
+            "Add a custom device configuration."
+          ]
+        },
+        {
+          "name": "default",
+          "tip": [
+            "Reset the custom devices to defaults."
+          ]
+        },
+        {
+          "name": "delete",
+          "tip": [
+            "Delete a custom device configuration."
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "List all registered custom devices."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "devices",
+      "tip": [
+        "List all connected devices."
+      ],
+      "option": [
+        {
+          "name": "--device-timeout",
+          "tip": [
+            "U: --device-timeout <timeout>",
+            "The device search timeout in seconds."
+          ]
+        },
+        {
+          "name": "--enumerate-all",
+          "alias": [
+            "-a"
+          ],
+          "tip": [
+            "U: --enumerate-all, -a",
+            "Also enumerate devices not currently attached."
+          ]
+        },
+        {
+          "name": "--machine",
+          "alias": [
+            "-m"
+          ],
+          "tip": [
+            "U: --machine, -m",
+            "Output device information in JSON format."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "doctor",
+      "tip": [
+        "Show information about the installed tooling."
+      ],
+      "option": [
+        {
+          "name": "--android-accept-licenses",
+          "alias": [
+            "--android-licenses"
+          ],
+          "tip": [
+            "Accept Android licenses if needed."
+          ]
+        },
+        {
+          "name": "--android-sdk-channel",
+          "tip": [
+            "U: --android-sdk-channel <channel>",
+            "The Android SDK channel to use."
+          ]
+        },
+        {
+          "name": "--cocoapods-repo-refresh",
+          "tip": [
+            "Force CocoaPods repo repo refresh."
+          ]
+        },
+        {
+          "name": "--fix",
+          "alias": [
+            "-a"
+          ],
+          "tip": [
+            "U: --fix, -a",
+            "Automatically fix issues detected."
+          ]
+        },
+        {
+          "name": "--flutter-release",
+          "alias": [
+            "flutter"
+          ],
+          "tip": [
+            "Show only Flutter release information."
+          ]
+        },
+        {
+          "name": "--verbose",
+          "alias": [
+            "-v"
+          ],
+          "tip": [
+            "U: --verbose, -v",
+            "Give more detail when output."
+          ]
+        },
+        {
+          "name": "--version",
+          "tip": [
+            "Output Flutter SDK release version and exit."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "downgrade",
+      "tip": [
+        "Downgrade Flutter to the last active release."
+      ],
+      "option": [
+        {
+          "name": "--force",
+          "alias": [
+            "-f"
+          ],
+          "tip": [
+            "U: --force, -f",
+            "Ignore pubspecs and always do the action."
+          ]
+        },
+        {
+          "name": "--release",
+          "tip": [
+            "Downgrade to the specified stable release."
+          ]
+        },
+        {
+          "name": "--stable",
+          "tip": [
+            "Always downgrade to the stable release."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "drive",
+      "tip": [
+        "Run integration tests for the project on an Android device or emulator."
+      ],
+      "option": [
+        {
+          "name": "--browser-name",
+          "alias": [
+            "-b"
+          ],
+          "tip": [
+            "U: --browser-name, -b <browser>",
+            "Target browser."
+          ]
+        },
+        {
+          "name": "--concurrency",
+          "alias": [
+            "-c"
+          ],
+          "tip": [
+            "U: --concurrency, -c <number>",
+            "Concurrency of test execution."
+          ]
+        },
+        {
+          "name": "--dark-mode",
+          "tip": [
+            "U: --dark-mode <mode>",
+            "Set the dark mode for web applications."
+          ]
+        },
+        {
+          "name": "--device-name",
+          "alias": [
+            "-d"
+          ],
+          "tip": [
+            "U: --device-name, -d <device>",
+            "Target device name to test on."
+          ]
+        },
+        {
+          "name": "--driver",
+          "tip": [
+            "U: --driver <path>",
+            "Which driver to run tests on."
+          ]
+        },
+        {
+          "name": "--headless",
+          "tip": [
+            "Whether to run the browser in headless mode."
+          ]
+        },
+        {
+          "name": "--no-build",
+          "tip": [
+            "Do not build the web driver before executing."
+          ]
+        },
+        {
+          "name": "--no-headless",
+          "tip": [
+            "Do not launch browser in headless mode."
+          ]
+        },
+        {
+          "name": "--pause-after-load",
+          "tip": [
+            "Pause for the duration after load."
+          ]
+        },
+        {
+          "name": "--pub",
+          "tip": [
+            "Run pub before starting."
+          ]
+        },
+        {
+          "name": "--reporter",
+          "tip": [
+            "U: --reporter <reporter>",
+            "The test reporter to use."
+          ]
+        },
+        {
+          "name": "--slow",
+          "tip": [
+            "Executes a delay after each test."
+          ]
+        },
+        {
+          "name": "--specified-regex",
+          "alias": [
+            "-r"
+          ],
+          "tip": [
+            "U: --specified-regex, -r <regex>",
+            "Run tests that match regex."
+          ]
+        },
+        {
+          "name": "--start-paused",
+          "tip": [
+            "Start in a paused state, letting you set breakpoints."
+          ]
+        },
+        {
+          "name": "--timeout",
+          "alias": [
+            "-t"
+          ],
+          "tip": [
+            "U: --timeout, -t <timeout>",
+            "The timeout in milliseconds for tests."
+          ]
+        },
+        {
+          "name": "--use-application-binary",
+          "tip": [
+            "U: --use-application-binary <path>",
+            "Use an existing application binary."
+          ]
+        },
+        {
+          "name": "--viewport-size",
+          "tip": [
+            "U: --viewport-size <size>",
+            "Set the web viewport size."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "emulators",
+      "tip": [
+        "List, launch, and manage emulators."
+      ],
+      "option": [
+        {
+          "name": "--cold",
+          "alias": [
+            "-c"
+          ],
+          "tip": [
+            "U: --cold, -c",
+            "Only launch a cold emulator."
+          ]
+        },
+        {
+          "name": "--emulator",
+          "alias": [
+            "-e"
+          ],
+          "tip": [
+            "U: --emulator, -e <emulator>",
+            "The name of the emulator to launch."
+          ]
+        },
+        {
+          "name": "--launch-with-provisioning",
+          "tip": [
+            "Launch emulators with provisioning."
+          ]
+        },
+        {
+          "name": "--use-pixel-4-pro",
+          "tip": [
+            "Launch the Pixel 4 Pro device."
+          ]
+        },
+        {
+          "name": "--warm",
+          "alias": [
+            "-w"
+          ],
+          "tip": [
+            "U: --warm, -w",
+            "Try to warm up the emulator."
+          ]
+        }
+      ],
+      "next": [
+        {
+          "name": "launch",
+          "alias": [
+            "l"
+          ],
+          "tip": [
+            "U: launch|l",
+            "Launch an emulator."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "format",
+      "alias": [
+        "fmt"
+      ],
+      "tip": [
+        "U: format|fmt",
+        "Format the Dart code in the current directory."
+      ],
+      "option": [
+        {
+          "name": "--fix",
+          "alias": [
+            "-f"
+          ],
+          "tip": [
+            "U: --fix, -f",
+            "Apply fixes that change code."
+          ]
+        },
+        {
+          "name": "--help",
+          "alias": [
+            "-h"
+          ],
+          "tip": [
+            "U: --help, -h",
+            "Print help."
+          ]
+        },
+        {
+          "name": "--line-length",
+          "alias": [
+            "-l"
+          ],
+          "tip": [
+            "U: --line-length, -l <length>",
+            "The max line length."
+          ]
+        },
+        {
+          "name": "--output",
+          "alias": [
+            "-o"
+          ],
+          "tip": [
+            "U: --output, -o <mode>",
+            "Where to write formatted output.",
+            "in place or show"
+          ],
+          "next": [
+            {
+              "name": "in-place"
+            },
+            {
+              "name": "show"
+            }
+          ]
+        },
+        {
+          "name": "--set-exit-if-changed",
+          "alias": [
+            "--set-exit-if-changed"
+          ],
+          "tip": [
+            "Exit if code changed."
+          ]
+        },
+        {
+          "name": "--stdin-name",
+          "tip": [
+            "U: --stdin-name <name>",
+            "The filename to pretend the stdin is."
+          ]
+        },
+        {
+          "name": "--summary",
+          "alias": [
+            "-s"
+          ],
+          "tip": [
+            "U: --summary, -s <summary>",
+            "Summary output format.",
+            "compact, json, silent"
+          ],
+          "next": [
+            {
+              "name": "compact"
+            },
+            {
+              "name": "json"
+            },
+            {
+              "name": "silent"
+            }
+          ]
+        },
+        {
+          "name": "--verbose",
+          "alias": [
+            "-v"
+          ],
+          "tip": [
+            "U: --verbose, -v",
+            "Print cmd output."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "gen-l10n",
+      "tip": [
+        "Generate localizations for the current project."
+      ],
+      "option": [
+        {
+          "name": "--arb-dir",
+          "alias": [
+            "-a"
+          ],
+          "tip": [
+            "U: --arb-dir, -a <directory>",
+            "The directory to find arb files in."
+          ]
+        },
+        {
+          "name": "--catalogue-translations",
+          "alias": [
+            "-C"
+          ],
+          "tip": [
+            "U: --catalogue-translations, -C <translations>",
+            "The generated translations."
+          ]
+        },
+        {
+          "name": "--content-page",
+          "alias": [
+            "--content-page"
+          ],
+          "tip": [
+            "Generate the content page class."
+          ]
+        },
+        {
+          "name": "--country",
+          "alias": [
+            "-C"
+          ],
+          "tip": [
+            "U: --country, -C <country>",
+            "One or more country codes."
+          ]
+        },
+        {
+          "name": "--delay-on-request",
+          "tip": [
+            "U: --delay-on-request <milliseconds>",
+            "Delay in ms before request is sent."
+          ]
+        },
+        {
+          "name": "--description",
+          "alias": [
+            "-d"
+          ],
+          "tip": [
+            "U: --description, -d <description>",
+            "One or more input description strings."
+          ]
+        },
+        {
+          "name": "--format",
+          "tip": [
+            "U: --format <input-format>",
+            "The input format of the localization.",
+            "Parameters to pass to the synthetic package."
+          ],
+          "next": [
+            {
+              "name": "arb"
+            },
+            {
+              "name": "json"
+            }
+          ]
+        },
+        {
+          "name": "--gen-inputs-and-outputs-list",
+          "tip": [
+            "U: --gen-inputs-and-outputs-list <path>",
+            "A list of inputs and outputs."
+          ]
+        },
+        {
+          "name": "--generate-custom-translations",
+          "tip": [
+            "Generate custom translations."
+          ]
+        },
+        {
+          "name": "--header",
+          "alias": [
+            "-h"
+          ],
+          "tip": [
+            "U: --header, -h <header>",
+            "One or input header strings."
+          ]
+        },
+        {
+          "name": "--header-file",
+          "tip": [
+            "U: --header-file <path>",
+            "A file containing header text."
+          ]
+        },
+        {
+          "name": "--help",
+          "alias": [
+            "-h"
+          ],
+          "tip": [
+            "U: --help, -h",
+            "Print this help."
+          ]
+        },
+        {
+          "name": "--html",
+          "alias": [
+            "-H"
+          ],
+          "tip": [
+            "U: --html, -H <template>",
+            "The output HTML file for the HTML."
+          ]
+        },
+        {
+          "name": "--html-declarations",
+          "tip": [
+            "Generate the HTML declaration file."
+          ]
+        },
+        {
+          "name": "--html-template",
+          "alias": [
+            "-t"
+          ],
+          "tip": [
+            "U: --html-template, -t <template>",
+            "The HTML template for the HTML."
+          ]
+        },
+        {
+          "name": "--input-arb-file",
+          "alias": [
+            "-i"
+          ],
+          "tip": [
+            "U: --input-arb-file, -i <path>",
+            "The inputarb file."
+          ]
+        },
+        {
+          "name": "--input-dir",
+          "alias": [
+            "-d"
+          ],
+          "tip": [
+            "U: --input-dir, -d <dir>",
+            "The directory to find input arb files in."
+          ]
+        },
+        {
+          "name": "--input-url",
+          "alias": [
+            "-u"
+          ],
+          "tip": [
+            "U: --input-url, -u <url>",
+            "URL of server exposing ARB files."
+          ]
+        },
+        {
+          "name": "--json",
+          "alias": [
+            "--json"
+          ],
+          "tip": [
+            "JSON output file."
+          ]
+        },
+        {
+          "name": "--locale",
+          "alias": [
+            "-l"
+          ],
+          "tip": [
+            "U: --locale, -l <locale>",
+            "One or more preferred locales"
+          ]
+        },
+        {
+          "name": "--output-class",
+          "alias": [
+            "-o"
+          ],
+          "tip": [
+            "U: --output-class, -o <class>",
+            "The output class name."
+          ]
+        },
+        {
+          "name": "--output-dir",
+          "alias": [
+            "-O"
+          ],
+          "tip": [
+            "U: --output-dir, -O <dir>",
+            "The output directory."
+          ]
+        },
+        {
+          "name": "--output-localization-file",
+          "tip": [
+            "The output localization filename."
+          ]
+        },
+        {
+          "name": "--output-messages",
+          "tip": [
+            "U: --output-messages <path>",
+            "The output messages file."
+          ]
+        },
+        {
+          "name": "--package",
+          "alias": [
+            "-p"
+          ],
+          "tip": [
+            "U: --package, -p <package>",
+            "The package name of the library."
+          ]
+        },
+        {
+          "name": "--preferred-supported-locales",
+          "alias": [
+            "-P"
+          ],
+          "tip": [
+            "U: --preferred-supported-locales, -P <locales>",
+            "One or more preferred locales."
+          ]
+        },
+        {
+          "name": "--required-arb-encoder",
+          "tip": [
+            "U: --required-arb-encoder <encoder>",
+            "The encoder for required arb files."
+          ]
+        },
+        {
+          "name": "--synthetic-package",
+          "tip": [
+            "Generate a synthetic package.",
+            "true or false"
+          ]
+        },
+        {
+          "name": "--template-arb-file",
+          "alias": [
+            "-t"
+          ],
+          "tip": [
+            "U: --template-arb-file, -t <path>",
+            "The template arb file."
+          ]
+        },
+        {
+          "name": "--use-deferred-loading",
+          "tip": [
+            "Generate code that uses deferred loading."
+          ]
+        },
+        {
+          "name": "--use-escaping",
+          "tip": [
+            "Use escaping of special characters."
+          ]
+        },
+        {
+          "name": "--use-generated-date",
+          "tip": [
+            "Do not use this flag."
+          ]
+        },
+        {
+          "name": "--use-named-parameters",
+          "tip": [
+            "Use named parameters in the output."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "help",
+      "tip": [
+        "Display help information for Flutter if the argument(s) provided."
+      ],
+      "option": [
+        {
+          "name": "--all",
+          "alias": [
+            "-a"
+          ],
+          "tip": [
+            "U: --all, -a",
+            "Show full list all commands."
+          ]
+        },
+        {
+          "name": "--detailed",
+          "alias": [
+            "-v"
+          ],
+          "tip": [
+            "U: --detailed, -v",
+            "Show full list all commands and flags."
+          ]
+        },
+        {
+          "name": "--help",
+          "alias": [
+            "-h"
+          ],
+          "tip": [
+            "U: --help, -h",
+            "Print this help."
+          ]
+        },
+        {
+          "name": "--verbose",
+          "alias": [
+            "-v"
+          ],
+          "tip": [
+            "U: --verbose, -v",
+            "Noisy logging"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hotif",
+      "tip": [
+        "Hotreload is deprecated, use run instead."
+      ]
+    },
+    {
+      "name": "install",
+      "tip": [
+        "Install a Flutter app on an attached device."
+      ],
+      "option": [
+        {
+          "name": "--android-google-services-json",
+          "tip": [
+            "U: --android-google-services-json <path>",
+            "Android google-services.json file."
+          ]
+        },
+        {
+          "name": "--build-number",
+          "tip": [
+            "U: --build-number <number>",
+            "The build number for the build."
+          ]
+        },
+        {
+          "name": "--cert",
+          "tip": [
+            "U: --cert <path>",
+            "Path to DER encoded root certificate."
+          ]
+        },
+        {
+          "name": "--dart-entrypoint-args",
+          "tip": [
+            "U: --dart-entrypoint-args <args>",
+            "Args for the entrypoint main."
+          ]
+        },
+        {
+          "name": "--device-timeout",
+          "tip": [
+            "U: --device-timeout <timeout>",
+            "The device search timeout in seconds."
+          ]
+        },
+        {
+          "name": "--exclude-assets",
+          "tip": [
+            "U: --exclude-assets <paths>",
+            "Comma-separated paths to exclude from assets."
+          ]
+        },
+        {
+          "name": "--flavor",
+          "tip": [
+            "U: --flavor <flavor>",
+            "App flavor to build."
+          ]
+        },
+        {
+          "name": "--ignore-build-cache",
+          "tip": [
+            "Ignore build cache."
+          ]
+        },
+        {
+          "name": "--include-assets",
+          "tip": [
+            "U: --include-assets <paths>",
+            "Comma-separated paths to include in assets."
+          ]
+        },
+        {
+          "name": "--no-build-cache",
+          "tip": [
+            "Do not use cache to speed up the build."
+          ]
+        },
+        {
+          "name": "--no-pub",
+          "tip": [
+            "Do not run pub."
+          ]
+        },
+        {
+          "name": "--no-tree-shake-icons",
+          "tip": [
+            "Do not tree shake icons."
+          ]
+        },
+        {
+          "name": "--obfuscate",
+          "tip": [
+            "Obfuscate the Dart classes"
+          ]
+        },
+        {
+          "name": "--pub",
+          "tip": [
+            "Run pub before installing."
+          ]
+        },
+        {
+          "name": "--release",
+          "alias": [
+            "-r"
+          ],
+          "tip": [
+            "U: --release, -r",
+            "Build in release mode."
+          ]
+        },
+        {
+          "name": "--split-per-abi",
+          "tip": [
+            "Split build output per ABIs"
+          ]
+        },
+        {
+          "name": "--tree-shake-icons",
+          "tip": [
+            "Tree shake icons for the project"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "logs",
+      "tip": [
+        "Show log output for running Flutter apps."
+      ],
+      "option": [
+        {
+          "name": "--color",
+          "tip": [
+            "color of the output."
+          ]
+        },
+        {
+          "name": "--debug",
+          "alias": [
+            "-d"
+          ],
+          "tip": [
+            "U: --debug, -d",
+            "Show debug output."
+          ]
+        },
+        {
+          "name": "--device-timeout",
+          "tip": [
+            "U: --device-timeout <timeout>",
+            "The device search timeout in ms."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "precache",
+      "tip": [
+        "Populates the Flutter tool's cache of binary artifacts."
+      ],
+      "option": [
+        {
+          "name": "--all",
+          "alias": [
+            "-a"
+          ],
+          "tip": [
+            "U: --all, -a",
+            "Download all artifacts."
+          ]
+        },
+        {
+          "name": "--android",
+          "alias": [
+            "-a"
+          ],
+          "tip": [
+            "U: --android, -a",
+            "Download Android artifacts."
+          ]
+        },
+        {
+          "name": "--android-sdk",
+          "tip": [
+            "Download Android SDK artifacts."
+          ]
+        },
+        {
+          "name": "--ci",
+          "tip": [
+            "Always use headless CI mode, no interactive prompts."
+          ]
+        },
+        {
+          "name": "--downloads",
+          "alias": [
+            "-d"
+          ],
+          "tip": [
+            "U: --downloads, -d",
+            "Download artifacts needed for building."
+          ]
+        },
+        {
+          "name": "--fuchsia",
+          "alias": [
+            "-f"
+          ],
+          "tip": [
+            "U: --fuchsia, -f",
+            "Download Fuchsia artifacts."
+          ]
+        },
+        {
+          "name": "--git",
+          "alias": [
+            "-g"
+          ],
+          "tip": [
+            "U: --git, -g",
+            "Do not ensure Flutter and Dart are up-to-date."
+          ]
+        },
+        {
+          "name": "--ios",
+          "alias": [
+            "-i"
+          ],
+          "tip": [
+            "U: --ios, -i",
+            "Download iOS artifacts."
+          ]
+        },
+        {
+          "name": "--ios-desktop",
+          "tip": [
+            "Download iOS desktop artifacts."
+          ]
+        },
+        {
+          "name": "--linux-desktop",
+          "tip": [
+            "Download Linux desktop artifacts."
+          ]
+        },
+        {
+          "name": "--macos-desktop",
+          "tip": [
+            "Download macOS desktop artifacts."
+          ]
+        },
+        {
+          "name": "--no-optional",
+          "tip": [
+            "Do not download optional artifacts."
+          ]
+        },
+        {
+          "name": "--optional",
+          "tip": [
+            "Download optional artifacts."
+          ]
+        },
+        {
+          "name": "--tool",
+          "alias": [
+            "-t"
+          ],
+          "tip": [
+            "U: --tool, -t",
+            "Download Flutter tools artifacts."
+          ]
+        },
+        {
+          "name": "--web",
+          "tip": [
+            "Download Web artifacts."
+          ]
+        },
+        {
+          "name": "--windows-desktop",
+          "tip": [
+            "Download Windows desktop artifacts."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pub",
+      "tip": [
+        "Commands for managing Flutter packages."
+      ],
+      "option": [
+        {
+          "name": "--directory",
+          "alias": [
+            "-C"
+          ],
+          "tip": [
+            "U: --directory, -C <path>",
+            "Run the command in the directory."
+          ]
+        },
+        {
+          "name": "--dry-run",
+          "alias": [
+            "-n"
+          ],
+          "tip": [
+            "U: --dry-run, -n",
+            "Report what would be done but do not."
+          ]
+        },
+        {
+          "name": "--force",
+          "alias": [
+            "-f"
+          ],
+          "tip": [
+            "U: --force, -f",
+            "Force the command to continue."
+          ]
+        },
+        {
+          "name": "--precompile",
+          "tip": [
+            "Precompile executables."
+          ]
+        },
+        {
+          "name": "--verbose",
+          "alias": [
+            "-v"
+          ],
+          "tip": [
+            "U: --verbose, -v",
+            "Give detailed output."
+          ]
+        }
+      ],
+      "next": [
+        {
+          "name": "add",
+          "tip": [
+            "Add a dependency to pubspec.yaml."
+          ]
+        },
+        {
+          "name": "cache",
+          "tip": [
+            "Access pub cache commands."
+          ]
+        },
+        {
+          "name": "deps",
+          "tip": [
+            "Print the dependencies."
+          ]
+        },
+        {
+          "name": "downgrade",
+          "tip": [
+            "Downgrade the current package."
+          ]
+        },
+        {
+          "name": "get",
+          "tip": [
+            "Get dependencies in the current directory."
+          ]
+        },
+        {
+          "name": "global",
+          "tip": [
+            "Work with globally accessible packages."
+          ]
+        },
+        {
+          "name": "outdated",
+          "tip": [
+            "Analyze the current package's dependencies."
+          ]
+        },
+        {
+          "name": "publish",
+          "tip": [
+            "Publish the current package."
+          ]
+        },
+        {
+          "name": "remove",
+          "tip": [
+            "Remove a dependency."
+          ]
+        },
+        {
+          "name": "repair",
+          "tip": [
+            "Re-scrub all pub cache."
+          ]
+        },
+        {
+          "name": "run",
+          "tip": [
+            "Run an executable."
+          ]
+        },
+        {
+          "name": "upgrade",
+          "tip": [
+            "Upgrade the current package."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "run",
+      "alias": [
+        "r"
+      ],
+      "tip": [
+        "U: run|r",
+        "Run your Flutter app on an attached device."
+      ],
+      "option": [
+        {
+          "name": "--android-google-services-json",
+          "tip": [
+            "U: --android-google-services-json <path>",
+            "Android google-services.json file."
+          ]
+        },
+        {
+          "name": "--bind",
+          "alias": [
+            "-b"
+          ],
+          "tip": [
+            "U: --bind, -b <address>",
+            "Bind to this address."
+          ]
+        },
+        {
+          "name": "--build-cache",
+          "tip": [
+            "Use cache to speed up the build."
+          ]
+        },
+        {
+          "name": "--build-number",
+          "alias": [
+            "--build-number"
+          ],
+          "tip": [
+            "U: --build-number <number>",
+            "The build number to use."
+          ]
+        },
+        {
+          "name": "--cert",
+          "tip": [
+            "U: --cert <path>",
+            "Path to DER encoded root certificate to trust"
+          ]
+        },
+        {
+          "name": "--dart-entrypoint-args",
+          "tip": [
+            "U: --dart-entrypoint-args <args>",
+            "Args for the entrypoint main."
+          ]
+        },
+        {
+          "name": "--debug-port",
+          "alias": [
+            "-d"
+          ],
+          "tip": [
+            "U: --debug-port, -d <port>",
+            "The debug port to attach to."
+          ]
+        },
+        {
+          "name": "--device-id",
+          "alias": [
+            "-d"
+          ],
+          "tip": [
+            "U: --device-id, -d <device-id>",
+            "The target device id or name."
+          ]
+        },
+        {
+          "name": "--device-vmservice-port",
+          "tip": [
+            "U: --device-vmservice-port <port>",
+            "The vmservice port to use on the device."
+          ]
+        },
+        {
+          "name": "--exclude-assets",
+          "tip": [
+            "U: --exclude-assets <paths>",
+            "Comma-separated paths to exclude from assets."
+          ]
+        },
+        {
+          "name": "--flavor",
+          "tip": [
+            "U: --flavor <flavor>",
+            "Build a custom app flavor."
+          ]
+        },
+        {
+          "name": "--host-vmservice-port",
+          "tip": [
+            "U: --host-vmservice-port <port>",
+            "A port for the VM service to bind."
+          ]
+        },
+        {
+          "name": "--hot-mode",
+          "tip": [
+            "HotReload is deprecated."
+          ]
+        },
+        {
+          "name": "--hot-reload",
+          "tip": [
+            "HotReload is deprecated."
+          ]
+        },
+        {
+          "name": "--ignore-build-cache",
+          "tip": [
+            "Ignore build cache."
+          ]
+        },
+        {
+          "name": "--include-assets",
+          "tip": [
+            "U: --include-assets <paths>",
+            "Comma-separated paths to include in assets."
+          ]
+        },
+        {
+          "name": "--ipv4",
+          "tip": [
+            "Bind to an IPv4 address."
+          ]
+        },
+        {
+          "name": "--ipv6",
+          "tip": [
+            "Bind to an IPv6 address."
+          ]
+        },
+        {
+          "name": "--launch-title",
+          "tip": [
+            "U: --launch-title <title>",
+            "The title for the application."
+          ]
+        },
+        {
+          "name": "--no-build-cache",
+          "tip": [
+            "Do not use cache to reduce build time."
+          ]
+        },
+        {
+          "name": "--no-pub",
+          "tip": [
+            "Do not run pub."
+          ]
+        },
+        {
+          "name": "--no-tree-shake-icons",
+          "tip": [
+            "Do not tree shake icons."
+          ]
+        },
+        {
+          "name": "--obfuscate",
+          "tip": [
+            "Obfuscate the Dart Dart classes."
+          ]
+        },
+        {
+          "name": "--observe",
+          "alias": [
+            "-o"
+          ],
+          "tip": [
+            "U: --observe, -o",
+            "The Observatory and diagnostic bytes debugger."
+          ]
+        },
+        {
+          "name": "--pub",
+          "tip": [
+            "Run pub before building."
+          ]
+        },
+        {
+          "name": "--release",
+          "alias": [
+            "-r"
+          ],
+          "tip": [
+            "U: --release, -r",
+            "Build in release mode."
+          ]
+        },
+        {
+          "name": "--resident",
+          "alias": [
+            "-R"
+          ],
+          "tip": [
+            "U: --resident, -R",
+            "Keep running after building release mode."
+          ]
+        },
+        {
+          "name": "--split-per-abi",
+          "tip": [
+            "Split build output per ABIs."
+          ]
+        },
+        {
+          "name": "--start-paused",
+          "tip": [
+            "Start in paused mode."
+          ]
+        },
+        {
+          "name": "--stop",
+          "alias": [
+            "-s"
+          ],
+          "tip": [
+            "U: --stop, -s",
+            "Stop the running application."
+          ]
+        },
+        {
+          "name": "--target",
+          "alias": [
+            "-t"
+          ],
+          "tip": [
+            "U: --target, -t <file>",
+            "Path to main Dart file in the project."
+          ]
+        },
+        {
+          "name": "--trace-allowlist",
+          "tip": [
+            "U: --trace-allowlist <allowlist>",
+            "Scatter-plot timing trace allowlist."
+          ]
+        },
+        {
+          "name": "--tree-shake-icons",
+          "tip": [
+            "Tree shake icons for the project."
+          ]
+        },
+        {
+          "name": "--use-application-binary",
+          "tip": [
+            "U: --use-application-binary <path>",
+            "Run from this file/binary."
+          ]
+        },
+        {
+          "name": "--use-pub-cache",
+          "tip": [
+            "Use pub cache."
+          ]
+        },
+        {
+          "name": "--vmservice-signature",
+          "tip": [
+            "U: --vmservice-signature <signature>",
+            "SHA256 of the vmservice snapshot artifact."
+          ]
+        },
+        {
+          "name": "--vmservice-tags",
+          "tip": [
+            "U: --vmservice-tags <tags>",
+            "Scatter-plot timing trace tag list."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "screenshot",
+      "tip": [
+        "Take a screenshot of a Flutter app from a connected device."
+      ],
+      "option": [
+        {
+          "name": "--bench",
+          "tip": [
+            "Initialize and run a benchmark."
+          ]
+        },
+        {
+          "name": "--device-id",
+          "alias": [
+            "-d"
+          ],
+          "tip": [
+            "U: --device-id, -d <device-id>",
+            "The target device."
+          ]
+        },
+        {
+          "name": "--name",
+          "alias": [
+            "-n"
+          ],
+          "tip": [
+            "U: --name, -n ",
+            "The output filename."
+          ]
+        },
+        {
+          "name": "--observatory-port",
+          "alias": [
+            "-p"
+          ],
+          "tip": [
+            "U: --observatory-port, -p <port>",
+            "The observatory port."
+          ]
+        },
+        {
+          "name": "--type",
+          "alias": [
+            "-t"
+          ],
+          "tip": [
+            "U: --type, -t <type>",
+            "The image type to create the screenshot."
+          ],
+          "next": [
+            {
+              "name": "bmp"
+            },
+            {
+              "name": "gif"
+            },
+            {
+              "name": "png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "symbolize",
+      "tip": [
+        "Symbolize a stack trace from an AOT-compiled Flutter app."
+      ],
+      "option": [
+        {
+          "name": "--debug-metadata",
+          "alias": [
+            "-d"
+          ],
+          "tip": [
+            "U: --debug-metadata, -d <path>",
+            "Path to debug symbols file."
+          ]
+        },
+        {
+          "name": "--input",
+          "alias": [
+            "-i"
+          ],
+          "tip": [
+            "U: --input, -i <path>",
+            "Path to stack input file."
+          ]
+        },
+        {
+          "name": "--output",
+          "alias": [
+            "-o"
+          ],
+          "tip": [
+            "U: --output, -o <path>",
+            "Path to output file."
+          ]
+        },
+        {
+          "name": "--type",
+          "alias": [
+            "-t"
+          ],
+          "tip": [
+            "U: --type, -t <type>",
+            "Architecture of debug symbols."
+          ],
+          "next": [
+            {
+              "name": "arm"
+            },
+            {
+              "name": "arm64"
+            },
+            {
+              "name": "x64"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "test",
+      "alias": [
+        "t"
+      ],
+      "tip": [
+        "U: test|t",
+        "Run Flutter unit tests for the current project."
+      ],
+      "option": [
+        {
+          "name": "--andriod-sdk-version",
+          "tip": [
+            "U: --andriod-sdk-version <int>",
+            "Specify the Android SDK version."
+          ]
+        },
+        {
+          "name": "--concurrency",
+          "alias": [
+            "-c"
+          ],
+          "tip": [
+            "U: --concurrency, -c <number>",
+            "The number of concurrent test processes."
+          ]
+        },
+        {
+          "name": "--coverage",
+          "tip": [
+            "Generate coverage report."
+          ]
+        },
+        {
+          "name": "--dark-mode",
+          "tip": [
+            "U: --dark-mode <mode>",
+            "Set the dark mode for web applications."
+          ]
+        },
+        {
+          "name": "--device-name",
+          "alias": [
+            "-d"
+          ],
+          "tip": [
+            "U: --device-name, -d <device>",
+            "Target device name to test on."
+          ]
+        },
+        {
+          "name": "--exclude-tags",
+          "alias": [
+            "-e"
+          ],
+          "tip": [
+            "U: --exclude-tags, -e <tags>",
+            "Exclude tests with tags."
+          ]
+        },
+        {
+          "name": "--flavor",
+          "tip": [
+            "U: --flavor <flavor>",
+            "Build a custom app flavor."
+          ]
+        },
+        {
+          "name": "--ignore-build-cache",
+          "tip": [
+            "Ignore build cache."
+          ]
+        },
+        {
+          "name": "--include-tags",
+          "tip": [
+            "U: --include-tags <tags>",
+            "Include tests with the specified tags."
+          ]
+        },
+        {
+          "name": "--included",
+          "tip": [
+            "Ignore tag exclusions."
+          ]
+        },
+        {
+          "name": "--junit",
+          "tip": [
+            "U: --junit <path>",
+            "The output path for the junit results."
+          ]
+        },
+        {
+          "name": "--no-build-cache",
+          "tip": [
+            "Do not use cache to speed up the build."
+          ]
+        },
+        {
+          "name": "--no-pub",
+          "tip": [
+            "Do not run pub."
+          ]
+        },
+        {
+          "name": "--no-reporter",
+          "tip": [
+            "Do not print any output at the end."
+          ]
+        },
+        {
+          "name": "--no-tree-shake-icons",
+          "tip": [
+            "Do not tree shake icons."
+          ]
+        },
+        {
+          "name": "--pakcage",
+          "tip": [
+            "U: --pakcage <path>",
+            "A path to a package to test."
+          ]
+        },
+        {
+          "name": "--platform",
+          "tip": [
+            "U: --platform <platform>",
+            "The platform to run the tests on."
+          ],
+          "next": [
+            {
+              "name": "chrome"
+            },
+            {
+              "name": "firefox"
+            },
+            {
+              "name": "nodejs"
+            },
+            {
+              "name": "web"
+            }
+          ]
+        },
+        {
+          "name": "--pub",
+          "tip": [
+            "Run pub before testing."
+          ]
+        },
+        {
+          "name": "--reporter",
+          "alias": [
+            "-r"
+          ],
+          "tip": [
+            "U: --reporter, -r <mode>",
+            "The output reporter to use."
+          ],
+          "next": [
+            {
+              "name": "compact"
+            },
+            {
+              "name": "expanded"
+            },
+            {
+              "name": "github"
+            },
+            {
+              "name": "json"
+            },
+            {
+              "name": "spec"
+            },
+            {
+              "name": "stream"
+            }
+          ]
+        },
+        {
+          "name": "--split-per-abi",
+          "tip": [
+            "Split test output per ABIs."
+          ]
+        },
+        {
+          "name": "--tags",
+          "alias": [
+            "-t"
+          ],
+          "tip": [
+            "U: --tags, -t <tags>",
+            "A boolean tag expression to select tests."
+          ]
+        },
+        {
+          "name": "--target-platform",
+          "alias": [
+            "-p"
+          ],
+          "tip": [
+            "U: --target-platform, -p <platform>",
+            "Run tests for the given platform(s)."
+          ]
+        },
+        {
+          "name": "--test-assets",
+          "tip": [
+            "Test assets to load in the platform."
+          ]
+        },
+        {
+          "name": "--test-name-pattern",
+          "alias": [
+            "-n"
+          ],
+          "tip": [
+            "U: --test-name-pattern, -n <regex>",
+            "Tests to run by name."
+          ]
+        },
+        {
+          "name": "--timeout",
+          "alias": [
+            "-t"
+          ],
+          "tip": [
+            "U: --timeout, -t <timeout>",
+            "The timeout for tests in milliseconds."
+          ]
+        },
+        {
+          "name": "--tree-shake-icons",
+          "tip": [
+            "Tree shake icons within test."
+          ]
+        },
+        {
+          "name": "--update-goldens",
+          "alias": [
+            "-u"
+          ],
+          "tip": [
+            "U: --update-goldens, -u",
+            "Update any golden files."
+          ]
+        },
+        {
+          "name": "<no-option>",
+          "tip": [
+            "Pass test reporter and all subsequent to dart test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "upgrade",
+      "tip": [
+        "Upgrade your copy of Flutter."
+      ],
+      "option": [
+        {
+          "name": "--accept-all-commons",
+          "tip": [
+            "Accept all common changes to upgrade."
+          ]
+        },
+        {
+          "name": "--force",
+          "alias": [
+            "-f"
+          ],
+          "tip": [
+            "U: --force, -f",
+            "Force a Flutter upgrade."
+          ]
+        },
+        {
+          "name": "--git-ref",
+          "tip": [
+            "U: --git-ref <ref>",
+            "A git ref that branches from."
+          ]
+        },
+        {
+          "name": "--no-android-sdk",
+          "tip": [
+            "Do not do the Android SDK upgrade."
+          ]
+        },
+        {
+          "name": "--no-git-silent",
+          "tip": [
+            "Do not run git with --silent."
+          ]
+        },
+        {
+          "name": "--no-git-unshallow",
+          "tip": [
+            "Do not convert a shallow clone."
+          ]
+        },
+        {
+          "name": "--offline",
+          "tip": [
+            "Upgrade Flutter without network."
+          ]
+        },
+        {
+          "name": "--verbose",
+          "alias": [
+            "-v"
+          ],
+          "tip": [
+            "U: --verbose, -v",
+            "Give detailed output."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "version",
+      "tip": [
+        "Display the Flutter SDK version and exit."
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--suppress-analytics",
+      "tip": [
+        "Suppress analytics reporting when command runs."
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Report the version."
+      ]
+    }
+  ],
+  "common_option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "tip": [
+        "U: --help, -h",
+        "Print the usage."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "tip": [
+        "U: --verbose, -v",
+        "Noisy logging"
+      ]
+    }
+  ]
+}
