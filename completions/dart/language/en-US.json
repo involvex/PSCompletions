@@ -8,7 +8,9 @@
   "root": [
     {
       "name": "analyze",
-      "alias": ["an"],
+      "alias": [
+        "an"
+      ],
       "tip": [
         "U: analyze|an",
         "Analyze the project's Dart source code."
@@ -23,7 +25,9 @@
         },
         {
           "name": "--define",
-          "alias": ["-D"],
+          "alias": [
+            "-D"
+          ],
           "tip": [
             "U: --define, -D <key=value>",
             "Define environment variables."
@@ -31,7 +35,9 @@
         },
         {
           "name": "--exclude",
-          "alias": ["-e"],
+          "alias": [
+            "-e"
+          ],
           "tip": [
             "U: --exclude, -e <pattern>",
             "Exclude files that match the given pattern."
@@ -76,7 +82,9 @@
         },
         {
           "name": "--package",
-          "alias": ["-p"],
+          "alias": [
+            "-p"
+          ],
           "tip": [
             "U: --package, -p <package>",
             "Analyze the specified package."
@@ -96,9 +104,15 @@
             "Output reporter mode (console, compact, json)."
           ],
           "next": [
-            { "name": "console" },
-            { "name": "compact" },
-            { "name": "json" }
+            {
+              "name": "compact"
+            },
+            {
+              "name": "console"
+            },
+            {
+              "name": "json"
+            }
           ]
         },
         {
@@ -122,20 +136,6 @@
       "tip": [
         "Build a Dart application."
       ],
-      "next": [
-        {
-          "name": "cli",
-          "tip": [
-            "Build a Dart CLI application."
-          ]
-        },
-        {
-          "name": "runner",
-          "tip": [
-            "Use build_runner to build."
-          ]
-        }
-      ],
       "option": [
         {
           "name": "--delete-conflicting-outputs",
@@ -152,7 +152,9 @@
         },
         {
           "name": "--help",
-          "alias": ["-h"],
+          "alias": [
+            "-h"
+          ],
           "tip": [
             "U: --help, -h",
             "Print this help."
@@ -160,7 +162,9 @@
         },
         {
           "name": "--output",
-          "alias": ["-o"],
+          "alias": [
+            "-o"
+          ],
           "tip": [
             "U: --output, -o <path>",
             "The path to the output directory."
@@ -168,7 +172,9 @@
         },
         {
           "name": "--verbose",
-          "alias": ["-v"],
+          "alias": [
+            "-v"
+          ],
           "tip": [
             "U: --verbose, -v",
             "Print the command that is run."
@@ -181,9 +187,29 @@
             "The verbosity level of the compilation."
           ],
           "next": [
-            { "name": "error" },
-            { "name": "warning" },
-            { "name": "info" }
+            {
+              "name": "error"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        }
+      ],
+      "next": [
+        {
+          "name": "cli",
+          "tip": [
+            "Build a Dart CLI application."
+          ]
+        },
+        {
+          "name": "runner",
+          "tip": [
+            "Use build_runner to build."
           ]
         }
       ]
@@ -192,6 +218,112 @@
       "name": "compile",
       "tip": [
         "Compile Dart to various formats."
+      ],
+      "option": [
+        {
+          "name": "--enable-asserts",
+          "tip": [
+            "Enable asserts."
+          ]
+        },
+        {
+          "name": "--enable-experiment",
+          "tip": [
+            "U: --enable-experiment <experiment>",
+            "Enable an experiment, one or more times."
+          ]
+        },
+        {
+          "name": "--help",
+          "alias": [
+            "-h"
+          ],
+          "tip": [
+            "U: --help, -h",
+            "Print this help."
+          ]
+        },
+        {
+          "name": "--link-portcode",
+          "tip": [
+            "AOT compile the vm service port code."
+          ]
+        },
+        {
+          "name": "--multi-threaded",
+          "tip": [
+            "AOT compile multi-threaded code."
+          ]
+        },
+        {
+          "name": "--na",
+          "tip": [
+            "Compile AOT without the script snapshot."
+          ]
+        },
+        {
+          "name": "--output",
+          "alias": [
+            "-o"
+          ],
+          "tip": [
+            "U: --output, -o <path>",
+            "Output file."
+          ]
+        },
+        {
+          "name": "--prefer-low-bandwidth",
+          "tip": [
+            "Prefer minimal download size."
+          ]
+        },
+        {
+          "name": "--prefer-small-size",
+          "tip": [
+            "Prefer small size over fast runtime."
+          ]
+        },
+        {
+          "name": "--target-os",
+          "tip": [
+            "U: --target-os <os>",
+            "Compile for target operating system."
+          ],
+          "next": [
+            {
+              "name": "android"
+            },
+            {
+              "name": "ios"
+            },
+            {
+              "name": "linux"
+            },
+            {
+              "name": "macos"
+            },
+            {
+              "name": "windows"
+            }
+          ]
+        },
+        {
+          "name": "--verbose",
+          "alias": [
+            "-v"
+          ],
+          "tip": [
+            "U: --verbose, -v",
+            "Print the command that is run."
+          ]
+        },
+        {
+          "name": "--vm-name",
+          "tip": [
+            "U: --vm-name <name>",
+            "The name of the vm."
+          ]
+        }
       ],
       "next": [
         {
@@ -218,101 +350,13 @@
             "Compile to a kernel file."
           ]
         }
-      ],
-      "option": [
-        {
-          "name": "--enable-asserts",
-          "tip": [
-            "Enable asserts."
-          ]
-        },
-        {
-          "name": "--enable-experiment",
-          "tip": [
-            "U: --enable-experiment <experiment>",
-            "Enable an experiment, one or more times."
-          ]
-        },
-        {
-          "name": "--help",
-          "alias": ["-h"],
-          "tip": [
-            "U: --help, -h",
-            "Print this help."
-          ]
-        },
-        {
-          "name": "--link-portcode",
-          "tip": [
-            "AOT compile the vm service port code."
-          ]
-        },
-        {
-          "name": "--multi-threaded",
-          "tip": [
-            "AOT compile multi-threaded code."
-          ]
-        },
-        {
-          "name": "--na",
-          "tip": [
-            "Compile AOT without the script snapshot."
-          ]
-        },
-        {
-          "name": "--output",
-          "alias": ["-o"],
-          "tip": [
-            "U: --output, -o <path>",
-            "Output file."
-          ]
-        },
-        {
-          "name": "--prefer-low-bandwidth",
-          "tip": [
-            "Prefer minimal download size."
-          ]
-        },
-        {
-          "name": "--prefer-small-size",
-          "tip": [
-            "Prefer small size over fast runtime."
-          ]
-        },
-        {
-          "name": "--target-os",
-          "tip": [
-            "U: --target-os <os>",
-            "Compile for target operating system."
-          ],
-          "next": [
-            { "name": "android" },
-            { "name": "ios" },
-            { "name": "linux" },
-            { "name": "macos" },
-            { "name": "windows" }
-          ]
-        },
-        {
-          "name": "--verbose",
-          "alias": ["-v"],
-          "tip": [
-            "U: --verbose, -v",
-            "Print the command that is run."
-          ]
-        },
-        {
-          "name": "--vm-name",
-          "tip": [
-            "U: --vm-name <name>",
-            "The name of the vm."
-          ]
-        }
       ]
     },
     {
       "name": "create",
-      "alias": ["cr"],
+      "alias": [
+        "cr"
+      ],
       "tip": [
         "U: create|cr",
         "Creates a new Dart project."
@@ -327,7 +371,9 @@
         },
         {
           "name": "--force",
-          "alias": ["-f"],
+          "alias": [
+            "-f"
+          ],
           "tip": [
             "U: --force, -f",
             "Force project creation even if directory not empty."
@@ -335,7 +381,9 @@
         },
         {
           "name": "--help",
-          "alias": ["-h"],
+          "alias": [
+            "-h"
+          ],
           "tip": [
             "U: --help, -h",
             "Print this help."
@@ -350,7 +398,9 @@
         },
         {
           "name": "--list",
-          "alias": ["-l"],
+          "alias": [
+            "-l"
+          ],
           "tip": [
             "U: --list, -l",
             "List available templates."
@@ -364,7 +414,9 @@
         },
         {
           "name": "--org",
-          "alias": ["-o"],
+          "alias": [
+            "-o"
+          ],
           "tip": [
             "U: --org, -o <org>",
             "The organization for the new project."
@@ -372,7 +424,9 @@
         },
         {
           "name": "--output-dir",
-          "alias": ["-d"],
+          "alias": [
+            "-d"
+          ],
           "tip": [
             "U: --output-dir, -d <directory>",
             "The directory to create the project in."
@@ -386,21 +440,33 @@
         },
         {
           "name": "--template",
-          "alias": ["-t"],
+          "alias": [
+            "-t"
+          ],
           "tip": [
             "U: --template, -t <template>",
             "The project template to use."
           ],
           "next": [
-            { "name": "console" },
-            { "name": "package" },
-            { "name": "server" },
-            { "name": "shelf" }
+            {
+              "name": "console"
+            },
+            {
+              "name": "package"
+            },
+            {
+              "name": "server"
+            },
+            {
+              "name": "shelf"
+            }
           ]
         },
         {
           "name": "--verbose",
-          "alias": ["-v"],
+          "alias": [
+            "-v"
+          ],
           "tip": [
             "U: --verbose, -v",
             "Print the command that is run."
@@ -416,7 +482,9 @@
       "option": [
         {
           "name": "--bind",
-          "alias": ["-b"],
+          "alias": [
+            "-b"
+          ],
           "tip": [
             "U: --bind, -b <address>",
             "Bind to this address."
@@ -424,7 +492,9 @@
         },
         {
           "name": "--browser",
-          "alias": ["-b"],
+          "alias": [
+            "-b"
+          ],
           "tip": [
             "U: --browser, -b",
             "Launch DevTools in a browser."
@@ -444,7 +514,9 @@
         },
         {
           "name": "--help",
-          "alias": ["-h"],
+          "alias": [
+            "-h"
+          ],
           "tip": [
             "U: --help, -h",
             "Print this help."
@@ -464,7 +536,9 @@
         },
         {
           "name": "--port",
-          "alias": ["-p"],
+          "alias": [
+            "-p"
+          ],
           "tip": [
             "U: --port, -p <port>",
             "The port number to use."
@@ -472,7 +546,9 @@
         },
         {
           "name": "--precision",
-          "alias": ["-P"],
+          "alias": [
+            "-P"
+          ],
           "tip": [
             "U: --precision, -P <precision>",
             "The precision to use for values."
@@ -480,7 +556,9 @@
         },
         {
           "name": "--verbose",
-          "alias": ["-v"],
+          "alias": [
+            "-v"
+          ],
           "tip": [
             "U: --verbose, -v",
             "Print the command that is run."
@@ -490,7 +568,9 @@
     },
     {
       "name": "doc",
-      "alias": ["d"],
+      "alias": [
+        "d"
+      ],
       "tip": [
         "U: doc|d",
         "Generates API reference documentation."
@@ -512,7 +592,9 @@
         },
         {
           "name": "--auto-approve",
-          "alias": ["-a"],
+          "alias": [
+            "-a"
+          ],
           "tip": [
             "U: --auto-approve, -a",
             "Auto-approve device activation."
@@ -520,7 +602,9 @@
         },
         {
           "name": "--exclude",
-          "alias": ["-e"],
+          "alias": [
+            "-e"
+          ],
           "tip": [
             "U: --exclude, -e <package>",
             "Exclude a package from the documentation."
@@ -528,7 +612,9 @@
         },
         {
           "name": "--help",
-          "alias": ["-h"],
+          "alias": [
+            "-h"
+          ],
           "tip": [
             "U: --help, -h",
             "Print this help."
@@ -536,7 +622,9 @@
         },
         {
           "name": "--include",
-          "alias": ["-i"],
+          "alias": [
+            "-i"
+          ],
           "tip": [
             "U: --include, -i <package>",
             "Include a package in the documentation."
@@ -544,7 +632,9 @@
         },
         {
           "name": "--include-all",
-          "alias": ["-a"],
+          "alias": [
+            "-a"
+          ],
           "tip": [
             "U: --include-all, -a",
             "Include all libraries from the SDK."
@@ -558,7 +648,9 @@
         },
         {
           "name": "--output",
-          "alias": ["-o"],
+          "alias": [
+            "-o"
+          ],
           "tip": [
             "U: --output, -o <path>",
             "Where to write the output."
@@ -566,7 +658,9 @@
         },
         {
           "name": "--sdk-docs",
-          "alias": ["-s"],
+          "alias": [
+            "-s"
+          ],
           "tip": [
             "U: --sdk-docs, -s",
             "Generate docs for the SDK."
@@ -580,7 +674,9 @@
         },
         {
           "name": "--verbose",
-          "alias": ["-v"],
+          "alias": [
+            "-v"
+          ],
           "tip": [
             "U: --verbose, -v",
             "Print the command that is run."
@@ -596,7 +692,9 @@
       "option": [
         {
           "name": "--apply",
-          "alias": ["-a"],
+          "alias": [
+            "-a"
+          ],
           "tip": [
             "U: --apply, -a",
             "Apply fixes in dry-run mode (default)."
@@ -604,7 +702,9 @@
         },
         {
           "name": "--comment",
-          "alias": ["-C"],
+          "alias": [
+            "-C"
+          ],
           "tip": [
             "U: --comment, -C <comment>",
             "Insert a matching comment."
@@ -619,7 +719,9 @@
         },
         {
           "name": "--exclude",
-          "alias": ["-e"],
+          "alias": [
+            "-e"
+          ],
           "tip": [
             "U: --exclude, -e <files>",
             "Comma separated list of excluded files."
@@ -627,7 +729,9 @@
         },
         {
           "name": "--help",
-          "alias": ["-h"],
+          "alias": [
+            "-h"
+          ],
           "tip": [
             "U: --help, -h",
             "Print this help."
@@ -635,7 +739,9 @@
         },
         {
           "name": "--include",
-          "alias": ["-i"],
+          "alias": [
+            "-i"
+          ],
           "tip": [
             "U: --include, -i <fixes>",
             "Comma separated list of fixes to apply."
@@ -643,7 +749,9 @@
         },
         {
           "name": "--preview",
-          "alias": ["-p"],
+          "alias": [
+            "-p"
+          ],
           "tip": [
             "U: --preview, -p",
             "Apply fixes in dry-run mode (default)."
@@ -651,7 +759,9 @@
         },
         {
           "name": "--recommended",
-          "alias": ["-r"],
+          "alias": [
+            "-r"
+          ],
           "tip": [
             "U: --recommended, -r",
             "Apply the recommended set of fixes."
@@ -665,7 +775,9 @@
         },
         {
           "name": "--verbose",
-          "alias": ["-v"],
+          "alias": [
+            "-v"
+          ],
           "tip": [
             "U: --verbose, -v",
             "Print the command that is run."
@@ -675,7 +787,9 @@
     },
     {
       "name": "format",
-      "alias": ["fmt"],
+      "alias": [
+        "fmt"
+      ],
       "tip": [
         "U: format|fmt",
         "Format Dart source code."
@@ -683,7 +797,9 @@
       "option": [
         {
           "name": "--fix",
-          "alias": ["-f"],
+          "alias": [
+            "-f"
+          ],
           "tip": [
             "U: --fix, -f",
             "Apply fixes that change code."
@@ -691,7 +807,9 @@
         },
         {
           "name": "--help",
-          "alias": ["-h"],
+          "alias": [
+            "-h"
+          ],
           "tip": [
             "U: --help, -h",
             "Print this help."
@@ -699,7 +817,9 @@
         },
         {
           "name": "--line-length",
-          "alias": ["-l"],
+          "alias": [
+            "-l"
+          ],
           "tip": [
             "U: --line-length, -l <length>",
             "The max line length."
@@ -707,14 +827,20 @@
         },
         {
           "name": "--output",
-          "alias": ["-o"],
+          "alias": [
+            "-o"
+          ],
           "tip": [
             "U: --output, -o <mode>",
             "Where to write formatted output."
           ],
           "next": [
-            { "name": "in-place" },
-            { "name": "show" }
+            {
+              "name": "in-place"
+            },
+            {
+              "name": "show"
+            }
           ]
         },
         {
@@ -732,20 +858,30 @@
         },
         {
           "name": "--summary",
-          "alias": ["-s"],
+          "alias": [
+            "-s"
+          ],
           "tip": [
             "U: --summary, -s <summary>",
             "Summary output format."
           ],
           "next": [
-            { "name": "compact" },
-            { "name": "json" },
-            { "name": "silent" }
+            {
+              "name": "compact"
+            },
+            {
+              "name": "json"
+            },
+            {
+              "name": "silent"
+            }
           ]
         },
         {
           "name": "--verbose",
-          "alias": ["-v"],
+          "alias": [
+            "-v"
+          ],
           "tip": [
             "U: --verbose, -v",
             "Print cmd output."
@@ -761,7 +897,9 @@
       "option": [
         {
           "name": "--help",
-          "alias": ["-h"],
+          "alias": [
+            "-h"
+          ],
           "tip": [
             "U: --help, -h",
             "Print this help."
@@ -769,7 +907,9 @@
         },
         {
           "name": "--json",
-          "alias": ["-j"],
+          "alias": [
+            "-j"
+          ],
           "tip": [
             "U: --json, -j",
             "Output information in JSON format."
@@ -777,7 +917,9 @@
         },
         {
           "name": "--verbose",
-          "alias": ["-v"],
+          "alias": [
+            "-v"
+          ],
           "tip": [
             "U: --verbose, -v",
             "Print the command that is run."
@@ -789,6 +931,64 @@
       "name": "pub",
       "tip": [
         "Commands for managing Dart packages."
+      ],
+      "option": [
+        {
+          "name": "--directory",
+          "alias": [
+            "-C"
+          ],
+          "tip": [
+            "U: --directory, -C <path>",
+            "Run the command in the directory."
+          ]
+        },
+        {
+          "name": "--dry-run",
+          "alias": [
+            "-n"
+          ],
+          "tip": [
+            "U: --dry-run, -n",
+            "Report what would be done but do not."
+          ]
+        },
+        {
+          "name": "--force",
+          "alias": [
+            "-f"
+          ],
+          "tip": [
+            "U: --force, -f",
+            "Force the command to continue."
+          ]
+        },
+        {
+          "name": "--help",
+          "alias": [
+            "-h"
+          ],
+          "tip": [
+            "U: --help, -h",
+            "Print this help."
+          ]
+        },
+        {
+          "name": "--precompile",
+          "tip": [
+            "Precompile executables."
+          ]
+        },
+        {
+          "name": "--verbose",
+          "alias": [
+            "-v"
+          ],
+          "tip": [
+            "U: --verbose, -v",
+            "Give detailed output."
+          ]
+        }
       ],
       "next": [
         {
@@ -816,15 +1016,15 @@
           ]
         },
         {
-          "name": "global",
-          "tip": [
-            "Work with globally accessible packages."
-          ]
-        },
-        {
           "name": "get",
           "tip": [
             "Get dependencies in the current directory."
+          ]
+        },
+        {
+          "name": "global",
+          "tip": [
+            "Work with globally accessible packages."
           ]
         },
         {
@@ -869,59 +1069,13 @@
             "Upgrade the current package."
           ]
         }
-      ],
-      "option": [
-        {
-          "name": "--directory",
-          "alias": ["-C"],
-          "tip": [
-            "U: --directory, -C <path>",
-            "Run the command in the directory."
-          ]
-        },
-        {
-          "name": "--dry-run",
-          "alias": ["-n"],
-          "tip": [
-            "U: --dry-run, -n",
-            "Report what would be done but do not."
-          ]
-        },
-        {
-          "name": "--force",
-          "alias": ["-f"],
-          "tip": [
-            "U: --force, -f",
-            "Force the command to continue."
-          ]
-        },
-        {
-          "name": "--help",
-          "alias": ["-h"],
-          "tip": [
-            "U: --help, -h",
-            "Print this help."
-          ]
-        },
-        {
-          "name": "--precompile",
-          "tip": [
-            "Precompile executables."
-          ]
-        },
-        {
-          "name": "--verbose",
-          "alias": ["-v"],
-          "tip": [
-            "U: --verbose, -v",
-            "Give detailed output."
-          ]
-        }
       ]
     },
     {
       "name": "run",
-      "alias": ["r"],
+      "alias": [
+        "r"
+      ],
       "tip": [
         "U: run|r",
         "Runs a Dart program."
@@ -942,7 +1096,9 @@
         },
         {
           "name": "--help",
-          "alias": ["-h"],
+          "alias": [
+            "-h"
+          ],
           "tip": [
             "U: --help, -h",
             "Print this help."
@@ -961,25 +1117,29 @@
           ]
         },
         {
+          "name": "--verbose",
+          "alias": [
+            "-v"
+          ],
+          "tip": [
+            "U: --verbose, -v",
+            "Print the command that is run."
+          ]
+        },
+        {
           "name": "--verbosity",
           "tip": [
             "U: --verbosity <level>",
             "The verbosity level for the compiler."
-          ]
-        },
-        {
-          "name": "--verbose",
-          "alias": ["-v"],
-          "tip": [
-            "U: --verbose, -v",
-            "Print the command that is run."
           ]
         }
       ]
     },
     {
       "name": "test",
-      "alias": ["t"],
+      "alias": [
+        "t"
+      ],
       "tip": [
         "U: test|t",
         "Runs tests in this package."
@@ -987,7 +1147,9 @@
       "option": [
         {
           "name": "--concurrency",
-          "alias": ["-c"],
+          "alias": [
+            "-c"
+          ],
           "tip": [
             "U: --concurrency, -c <number>",
             "Concurrency of test execution."
@@ -1008,7 +1170,9 @@
         },
         {
           "name": "--exclude-tags",
-          "alias": ["-e"],
+          "alias": [
+            "-e"
+          ],
           "tip": [
             "U: --exclude-tags, -e <tags>",
             "Exclude tests with tags."
@@ -1016,7 +1180,9 @@
         },
         {
           "name": "--help",
-          "alias": ["-h"],
+          "alias": [
+            "-h"
+          ],
           "tip": [
             "U: --help, -h",
             "Print this help."
@@ -1044,7 +1210,9 @@
         },
         {
           "name": "--name",
-          "alias": ["-n"],
+          "alias": [
+            "-n"
+          ],
           "tip": [
             "U: --name, -n <regex>",
             "Tests to run by name."
@@ -1083,23 +1251,39 @@
         },
         {
           "name": "--reporter",
-          "alias": ["-r"],
+          "alias": [
+            "-r"
+          ],
           "tip": [
             "U: --reporter, -r <mode>",
             "The output reporter to use."
           ],
           "next": [
-            { "name": "compact" },
-            { "name": "expanded" },
-            { "name": "github" },
-            { "name": "json" },
-            { "name": "spec" },
-            { "name": "stream" }
+            {
+              "name": "compact"
+            },
+            {
+              "name": "expanded"
+            },
+            {
+              "name": "github"
+            },
+            {
+              "name": "json"
+            },
+            {
+              "name": "spec"
+            },
+            {
+              "name": "stream"
+            }
           ]
         },
         {
           "name": "--tags",
-          "alias": ["-t"],
+          "alias": [
+            "-t"
+          ],
           "tip": [
             "U: --tags, -t <tags>",
             "A boolean tag expression to select tests."
@@ -1107,7 +1291,9 @@
         },
         {
           "name": "--timeout",
-          "alias": ["-t"],
+          "alias": [
+            "-t"
+          ],
           "tip": [
             "U: --timeout, -t <timeout>",
             "The timeout for tests."
@@ -1115,7 +1301,9 @@
         },
         {
           "name": "--update-goldens",
-          "alias": ["-u"],
+          "alias": [
+            "-u"
+          ],
           "tip": [
             "U: --update-goldens, -u",
             "Update any golden files."
@@ -1129,7 +1317,9 @@
         },
         {
           "name": "--verbose",
-          "alias": ["-v"],
+          "alias": [
+            "-v"
+          ],
           "tip": [
             "U: --verbose, -v",
             "Print the command that is run."
@@ -1153,9 +1343,15 @@
         "auto, always, never"
       ],
       "next": [
-        { "name": "auto" },
-        { "name": "always" },
-        { "name": "never" }
+        {
+          "name": "always"
+        },
+        {
+          "name": "auto"
+        },
+        {
+          "name": "never"
+        }
       ]
     },
     {
@@ -1169,7 +1365,9 @@
   "common_option": [
     {
       "name": "--help",
-      "alias": ["-h"],
+      "alias": [
+        "-h"
+      ],
       "tip": [
         "U: --help, -h",
         "Print the usage."
@@ -1177,7 +1375,9 @@
     },
     {
       "name": "--verbose",
-      "alias": ["-v"],
+      "alias": [
+        "-v"
+      ],
       "tip": [
         "U: --verbose, -v",
         "Give detailed output."

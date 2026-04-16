@@ -832,6 +832,12 @@
           ]
         },
         {
+          "name": "--completion",
+          "tip": [
+            "Output shell completion code."
+          ]
+        },
+        {
           "name": "--dart-remote-debugger-protocol-uri",
           "tip": [
             "U: --dart-remote-debugger-protocol-uri <uri>",
@@ -896,12 +902,12 @@
           ]
         },
         {
-          "name": "--list-features",
+          "name": "--list",
           "alias": [
             "-l"
           ],
           "tip": [
-            "U: --list-features, -l",
+            "U: --list, -l",
             "List all available Flutter and related attributes."
           ]
         },

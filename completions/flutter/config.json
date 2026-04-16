@@ -1,7 +1,6 @@
 {
   "language": [
-    "en-US",
-    "zh-CN"
+    "en-US"
   ],
   "hooks": true
 }
