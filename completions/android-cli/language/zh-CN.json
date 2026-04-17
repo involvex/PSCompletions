@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "url": "",
+    "description": []
+  },
+  "root": [
+    {
+      "name": "add",
+      "tip": [
+        "添加一个新项。"
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--version",
+      "tip": [
+        "显示版本信息。"
+      ]
+    }
+  ],
+  "common_option": [
+    {
+      "name": "--help",
+      "tip": [
+        "显示帮助信息。"
+      ]
+    }
+  ]
+}

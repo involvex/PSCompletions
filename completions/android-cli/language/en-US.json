@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "url": "",
+    "description": []
+  },
+  "root": [
+    {
+      "name": "add",
+      "tip": [
+        "Add a new item."
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--version",
+      "tip": [
+        "Show the version."
+      ]
+    }
+  ],
+  "common_option": [
+    {
+      "name": "--help",
+      "tip": [
+        "Show the help."
+      ]
+    }
+  ]
+}
