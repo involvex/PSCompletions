@@ -1,0 +1,950 @@
+{
+  "meta": {
+    "url": "https://go.dev/",
+    "description": [
+      "Go - Programming language for building simple, reliable, and efficient software."
+    ]
+  },
+  "root": [
+    {
+      "name": "build",
+      "tip": [
+        "Compile packages and dependencies."
+      ],
+      "option": [
+        {
+          "name": "-a",
+          "tip": [
+            "Force rebuilding of packages that are already up-to-date."
+          ]
+        },
+        {
+          "name": "-n",
+          "tip": [
+            "Print the commands but do not run them."
+          ]
+        },
+        {
+          "name": "-p",
+          "tip": [
+            "U: -p <n>",
+            "The number of programs that can be run in parallel."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-race",
+          "tip": [
+            "Enable data race detection."
+          ]
+        },
+        {
+          "name": "-msan",
+          "tip": [
+            "Enable interoperation with memory sanitizer."
+          ]
+        },
+        {
+          "name": "-v",
+          "tip": [
+            "Print the names of packages as they are compiled."
+          ]
+        },
+        {
+          "name": "-work",
+          "tip": [
+            "Print the name of the temporary work directory and do not delete it when exiting."
+          ]
+        },
+        {
+          "name": "-x",
+          "tip": [
+            "Print the commands."
+          ]
+        },
+        {
+          "name": "-asmflags",
+          "tip": [
+            "U: -asmflags <flags>",
+            "Arguments to pass on each go tool asm invocation."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-buildmode",
+          "tip": [
+            "U: -buildmode <mode>",
+            "Build mode to use."
+          ],
+          "next": [
+            {
+              "name": "archive"
+            },
+            {
+              "name": "c-archive"
+            },
+            {
+              "name": "c-shared"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "exe"
+            },
+            {
+              "name": "pie"
+            },
+            {
+              "name": "plugin"
+            },
+            {
+              "name": "shared"
+            }
+          ]
+        },
+        {
+          "name": "-compiler",
+          "tip": [
+            "U: -compiler <compiler>",
+            "Name of compiler to use."
+          ],
+          "next": [
+            {
+              "name": "gc"
+            },
+            {
+              "name": "gccgo"
+            }
+          ]
+        },
+        {
+          "name": "-gccgoflags",
+          "tip": [
+            "U: -gccgoflags <flags>",
+            "Arguments to pass on each gccgo compiler/linker invocation."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-gcflags",
+          "tip": [
+            "U: -gcflags <flags>",
+            "Arguments to pass on each go tool compile invocation."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-installsuffix",
+          "tip": [
+            "U: -installsuffix <suffix>",
+            "A suffix to use in the name of the package installation directory."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-ldflags",
+          "tip": [
+            "U: -ldflags <flags>",
+            "Arguments to pass on each go tool link invocation."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-linkshared",
+          "tip": [
+            "Link against shared libraries."
+          ]
+        },
+        {
+          "name": "-pkgdir",
+          "tip": [
+            "U: -pkgdir <dir>",
+            "Install and load all packages from dir."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-tags",
+          "tip": [
+            "U: -tags <tags>",
+            "Comma-separated list of build tags."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-toolexec",
+          "tip": [
+            "U: -toolexec <cmd>",
+            "A program to use to invoke toolchain programs."
+          ],
+          "next": 0
+        }
+      ]
+    },
+    {
+      "name": "run",
+      "tip": [
+        "Compile and run Go program."
+      ],
+      "option": [
+        {
+          "name": "-a",
+          "tip": [
+            "Force rebuilding of packages that are already up-to-date."
+          ]
+        },
+        {
+          "name": "-n",
+          "tip": [
+            "Print the commands but do not run them."
+          ]
+        },
+        {
+          "name": "-p",
+          "tip": [
+            "U: -p <n>",
+            "The number of programs that can be run in parallel."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-race",
+          "tip": [
+            "Enable data race detection."
+          ]
+        },
+        {
+          "name": "-msan",
+          "tip": [
+            "Enable interoperation with memory sanitizer."
+          ]
+        },
+        {
+          "name": "-v",
+          "tip": [
+            "Print the names of packages as they are compiled."
+          ]
+        },
+        {
+          "name": "-work",
+          "tip": [
+            "Print the name of the temporary work directory and do not delete it when exiting."
+          ]
+        },
+        {
+          "name": "-x",
+          "tip": [
+            "Print the commands."
+          ]
+        },
+        {
+          "name": "-exec",
+          "tip": [
+            "U: -exec <cmd>",
+            "Run the program using the given exec command."
+          ],
+          "next": 0
+        }
+      ]
+    },
+    {
+      "name": "test",
+      "tip": [
+        "Test packages."
+      ],
+      "option": [
+        {
+          "name": "-a",
+          "tip": [
+            "Force rebuilding of packages that are already up-to-date."
+          ]
+        },
+        {
+          "name": "-c",
+          "tip": [
+            "Compile the test binary but do not run it."
+          ]
+        },
+        {
+          "name": "-json",
+          "tip": [
+            "Output test results in JSON format."
+          ]
+        },
+        {
+          "name": "-o",
+          "tip": [
+            "U: -o <file>",
+            "Write the test binary to the named file."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-p",
+          "tip": [
+            "U: -p <n>",
+            "The number of programs that can be run in parallel."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-race",
+          "tip": [
+            "Enable data race detection."
+          ]
+        },
+        {
+          "name": "-run",
+          "tip": [
+            "U: -run <regexp>",
+            "Run only those tests matching the regular expression."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-short",
+          "tip": [
+            "Run smaller test suite to save time."
+          ]
+        },
+        {
+          "name": "-timeout",
+          "tip": [
+            "U: -timeout <d>",
+            "If a test runs longer than d, panic."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-v",
+          "tip": [
+            "Verbose output: log all tests as they are run."
+          ]
+        },
+        {
+          "name": "-bench",
+          "tip": [
+            "U: -bench <regexp>",
+            "Run benchmarks matching the regular expression."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-benchmem",
+          "tip": [
+            "Print memory allocation statistics for benchmarks."
+          ]
+        },
+        {
+          "name": "-count",
+          "tip": [
+            "U: -count <n>",
+            "Run tests n times."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-cover",
+          "tip": [
+            "Enable coverage analysis."
+          ]
+        },
+        {
+          "name": "-coverprofile",
+          "tip": [
+            "U: -coverprofile <file>",
+            "Write a coverage profile to the named file."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-failfast",
+          "tip": [
+            "Do not start new tests after the first test failure."
+          ]
+        },
+        {
+          "name": "-list",
+          "tip": [
+            "U: -list <regexp>",
+            "List tests matching the regular expression."
+          ],
+          "next": 0
+        }
+      ]
+    },
+    {
+      "name": "fmt",
+      "tip": [
+        "Format Go source code."
+      ],
+      "option": [
+        {
+          "name": "-l",
+          "tip": [
+            "List files whose formatting differs from gofmt's."
+          ]
+        },
+        {
+          "name": "-w",
+          "tip": [
+            "Write result to source file instead of stdout."
+          ]
+        },
+        {
+          "name": "-s",
+          "tip": [
+            "Simplify code."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vet",
+      "tip": [
+        "Report likely mistakes in packages."
+      ],
+      "option": [
+        {
+          "name": "-all",
+          "tip": [
+            "Check all files."
+          ]
+        },
+        {
+          "name": "-asmdecl",
+          "tip": [
+            "Check assembly code matches declarations."
+          ]
+        },
+        {
+          "name": "-atomic",
+          "tip": [
+            "Check for common mistakes using sync/atomic."
+          ]
+        },
+        {
+          "name": "-bool",
+          "tip": [
+            "Check for common mistakes using boolean operators."
+          ]
+        },
+        {
+          "name": "-buildtag",
+          "tip": [
+            "Check build tags."
+          ]
+        },
+        {
+          "name": "-cgocall",
+          "tip": [
+            "Check for violations of the cgo pointer passing rules."
+          ]
+        },
+        {
+          "name": "-composites",
+          "tip": [
+            "Check for unkeyed composite literals."
+          ]
+        },
+        {
+          "name": "-copylocks",
+          "tip": [
+            "Check for locks erroneously passed by value."
+          ]
+        },
+        {
+          "name": "-errorsas",
+          "tip": [
+            "Check for incorrectly passed error values."
+          ]
+        },
+        {
+          "name": "-httpresponse",
+          "tip": [
+            "Check for mistakes using HTTP responses."
+          ]
+        },
+        {
+          "name": "-lostcancel",
+          "tip": [
+            "Check for failure to call cancel function."
+          ]
+        },
+        {
+          "name": "-nilfunc",
+          "tip": [
+            "Check for comparisons between functions and nil."
+          ]
+        },
+        {
+          "name": "-printf",
+          "tip": [
+            "Check consistency of Printf format strings and arguments."
+          ]
+        },
+        {
+          "name": "-shift",
+          "tip": [
+            "Check for shifts that equal or exceed the width of an integer."
+          ]
+        },
+        {
+          "name": "-stdmethods",
+          "tip": [
+            "Check for wrong signature of methods in well-known interfaces."
+          ]
+        },
+        {
+          "name": "-structtag",
+          "tip": [
+            "Check for incorrect struct tag usage."
+          ]
+        },
+        {
+          "name": "-tests",
+          "tip": [
+            "Check for problems with tests."
+          ]
+        },
+        {
+          "name": "-unmarshal",
+          "tip": [
+            "Check for unmarshal errors."
+          ]
+        },
+        {
+          "name": "-unreachable",
+          "tip": [
+            "Check for unreachable code."
+          ]
+        },
+        {
+          "name": "-unsafeptr",
+          "tip": [
+            "Check for invalid conversions of unsafe pointers."
+          ]
+        },
+        {
+          "name": "-unusedresult",
+          "tip": [
+            "Check for unused results of calls to functions."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "get",
+      "tip": [
+        "Add dependencies to current module and install them."
+      ],
+      "option": [
+        {
+          "name": "-d",
+          "tip": [
+            "Download only; do not install."
+          ]
+        },
+        {
+          "name": "-t",
+          "tip": [
+            "Also download test dependencies."
+          ]
+        },
+        {
+          "name": "-u",
+          "tip": [
+            "Update dependencies."
+          ]
+        },
+        {
+          "name": "-v",
+          "tip": [
+            "Verbose output."
+          ]
+        },
+        {
+          "name": "-fix",
+          "tip": [
+            "Run fix on packages before building."
+          ]
+        },
+        {
+          "name": "-insecure",
+          "tip": [
+            "Use insecure protocols."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "install",
+      "tip": [
+        "Compile and install packages and dependencies."
+      ],
+      "option": [
+        {
+          "name": "-a",
+          "tip": [
+            "Force rebuilding of packages that are already up-to-date."
+          ]
+        },
+        {
+          "name": "-n",
+          "tip": [
+            "Print the commands but do not run them."
+          ]
+        },
+        {
+          "name": "-p",
+          "tip": [
+            "U: -p <n>",
+            "The number of programs that can be run in parallel."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-race",
+          "tip": [
+            "Enable data race detection."
+          ]
+        },
+        {
+          "name": "-msan",
+          "tip": [
+            "Enable interoperation with memory sanitizer."
+          ]
+        },
+        {
+          "name": "-v",
+          "tip": [
+            "Print the names of packages as they are compiled."
+          ]
+        },
+        {
+          "name": "-work",
+          "tip": [
+            "Print the name of the temporary work directory and do not delete it when exiting."
+          ]
+        },
+        {
+          "name": "-x",
+          "tip": [
+            "Print the commands."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "list",
+      "tip": [
+        "List packages or modules."
+      ],
+      "option": [
+        {
+          "name": "-e",
+          "tip": [
+            "Show errors encountered while loading packages."
+          ]
+        },
+        {
+          "name": "-f",
+          "tip": [
+            "U: -f <template>",
+            "Format list using the specified template."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-json",
+          "tip": [
+            "Output list in JSON format."
+          ]
+        },
+        {
+          "name": "-m",
+          "tip": [
+            "List modules instead of packages."
+          ]
+        },
+        {
+          "name": "-u",
+          "tip": [
+            "Show available upgrades."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mod",
+      "tip": [
+        "Go module maintenance."
+      ],
+      "next": [
+        {
+          "name": "download",
+          "tip": [
+            "Download modules to local cache."
+          ]
+        },
+        {
+          "name": "edit",
+          "tip": [
+            "Edit go.mod from tools or scripts."
+          ]
+        },
+        {
+          "name": "graph",
+          "tip": [
+            "Print module requirement graph."
+          ]
+        },
+        {
+          "name": "init",
+          "tip": [
+            "Initialize new module in current directory."
+          ]
+        },
+        {
+          "name": "tidy",
+          "tip": [
+            "Add missing and remove unused modules."
+          ]
+        },
+        {
+          "name": "vendor",
+          "tip": [
+            "Make vendor copy of dependencies."
+          ]
+        },
+        {
+          "name": "verify",
+          "tip": [
+            "Verify dependencies have expected content."
+          ]
+        },
+        {
+          "name": "why",
+          "tip": [
+            "Explain why packages or modules need modules."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "doc",
+      "tip": [
+        "Show documentation for package or symbol."
+      ],
+      "option": [
+        {
+          "name": "-all",
+          "tip": [
+            "Show all documentation for the symbol."
+          ]
+        },
+        {
+          "name": "-c",
+          "tip": [
+            "U: -c <n>",
+            "Find symbols matching the regular expression."
+          ],
+          "next": 0
+        }
+      ]
+    },
+    {
+      "name": "bug",
+      "tip": [
+        "Start a bug report."
+      ]
+    },
+    {
+      "name": "version",
+      "tip": [
+        "Print Go version."
+      ]
+    },
+    {
+      "name": "env",
+      "tip": [
+        "Print Go environment information."
+      ],
+      "option": [
+        {
+          "name": "-w",
+          "tip": [
+            "Set the default value for future invocations."
+          ]
+        },
+        {
+          "name": "-u",
+          "tip": [
+            "Revert to the default value for future invocations."
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "-C",
+      "tip": [
+        "U: -C <dir>",
+        "Change to the directory before running."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-asmflags",
+      "tip": [
+        "U: -asmflags <flags>",
+        "Arguments to pass on each go tool asm invocation."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-buildmode",
+      "tip": [
+        "U: -buildmode <mode>",
+        "Build mode to use."
+      ],
+      "next": [
+        {
+          "name": "archive"
+        },
+        {
+          "name": "c-archive"
+        },
+        {
+          "name": "c-shared"
+        },
+        {
+          "name": "default"
+        },
+        {
+          "name": "exe"
+        },
+        {
+          "name": "pie"
+        },
+        {
+          "name": "plugin"
+        },
+        {
+          "name": "shared"
+        }
+      ]
+    },
+    {
+      "name": "-compiler",
+      "tip": [
+        "U: -compiler <compiler>",
+        "Name of compiler to use."
+      ],
+      "next": [
+        {
+          "name": "gc"
+        },
+        {
+          "name": "gccgo"
+        }
+      ]
+    },
+    {
+      "name": "-gccgoflags",
+      "tip": [
+        "U: -gccgoflags <flags>",
+        "Arguments to pass on each gccgo compiler/linker invocation."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-gcflags",
+      "tip": [
+        "U: -gcflags <flags>",
+        "Arguments to pass on each go tool compile invocation."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-installsuffix",
+      "tip": [
+        "U: -installsuffix <suffix>",
+        "A suffix to use in the name of the package installation directory."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-ldflags",
+      "tip": [
+        "U: -ldflags <flags>",
+        "Arguments to pass on each go tool link invocation."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-linkshared",
+      "tip": [
+        "Link against shared libraries."
+      ]
+    },
+    {
+      "name": "-mod",
+      "tip": [
+        "U: -mod <mode>",
+        "Module download mode."
+      ],
+      "next": [
+        {
+          "name": "readonly"
+        },
+        {
+          "name": "vendor"
+        },
+        {
+          "name": "mod"
+        }
+      ]
+    },
+    {
+      "name": "-pkgdir",
+      "tip": [
+        "U: -pkgdir <dir>",
+        "Install and load all packages from dir."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-tags",
+      "tip": [
+        "U: -tags <tags>",
+        "Comma-separated list of build tags."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-toolexec",
+      "tip": [
+        "U: -toolexec <cmd>",
+        "A program to use to invoke toolchain programs."
+      ],
+      "next": 0
+    }
+  ],
+  "common_option": [
+    {
+      "name": "-help",
+      "tip": [
+        "Show help."
+      ]
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "Show Go version."
+      ]
+    }
+  ]
+}
