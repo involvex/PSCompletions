@@ -1,0 +1,302 @@
+{
+  "meta": {
+    "url": "https://code.visualstudio.com/docs/editor/command-line",
+    "description": [
+      "Visual Studio Code command line interface."
+    ]
+  },
+  "root": [
+    {
+      "name": "agent",
+      "tip": [
+        "Start and interact with AI agent hosts."
+      ]
+    },
+    {
+      "name": "chat",
+      "tip": [
+        "Pass in a prompt to run in a chat session in the current working directory."
+      ]
+    },
+    {
+      "name": "serve-web",
+      "tip": [
+        "Run a server that displays the editor UI in browsers."
+      ]
+    },
+    {
+      "name": "tunnel",
+      "tip": [
+        "Make the current machine accessible from vscode.dev or other machines through a secure tunnel."
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--add-mcp",
+      "tip": [
+        "Adds a Model Context Protocol server definition to the user profile."
+      ]
+    },
+    {
+      "name": "--agents",
+      "tip": [
+        "Opens the agents window."
+      ]
+    },
+    {
+      "name": "--category",
+      "tip": [
+        "Filters installed extensions by provided category, when using --list-extensions."
+      ]
+    },
+    {
+      "name": "--disable-chromium-sandbox",
+      "tip": [
+        "Use this option only when there is requirement to launch the application as sudo user on Linux."
+      ]
+    },
+    {
+      "name": "--disable-extension",
+      "tip": [
+        "Disable the provided extension."
+      ]
+    },
+    {
+      "name": "--disable-extensions",
+      "tip": [
+        "Disable all installed extensions."
+      ]
+    },
+    {
+      "name": "--disable-gpu",
+      "tip": [
+        "Disable GPU hardware acceleration."
+      ]
+    },
+    {
+      "name": "--disable-lcd-text",
+      "tip": [
+        "Disable LCD font rendering."
+      ]
+    },
+    {
+      "name": "--enable-proposed-api",
+      "tip": [
+        "Enables proposed API features for extensions."
+      ]
+    },
+    {
+      "name": "--extensions-dir",
+      "tip": [
+        "Set the root path for extensions."
+      ]
+    },
+    {
+      "name": "--inspect-brk-extensions",
+      "tip": [
+        "Allow debugging and profiling of extensions with the extension host being paused after start."
+      ]
+    },
+    {
+      "name": "--inspect-extensions",
+      "tip": [
+        "Allow debugging and profiling of extensions."
+      ]
+    },
+    {
+      "name": "--install-extension",
+      "tip": [
+        "Installs or updates an extension. The argument is either an extension id or a path to a VSIX."
+      ]
+    },
+    {
+      "name": "--list-extensions",
+      "tip": [
+        "List the installed extensions."
+      ]
+    },
+    {
+      "name": "--locale",
+      "tip": [
+        "The locale to use (e.g. en-US or zh-TW)."
+      ]
+    },
+    {
+      "name": "--locate-shell-integration-path",
+      "tip": [
+        "Print the path to a terminal shell integration script. Allowed values are 'bash', 'pwsh', 'zsh' or 'fish'."
+      ]
+    },
+    {
+      "name": "--log",
+      "tip": [
+        "Log level to use. Default is 'info'."
+      ]
+    },
+    {
+      "name": "--pre-release",
+      "tip": [
+        "Installs the pre-release version of the extension, when using --install-extension."
+      ]
+    },
+    {
+      "name": "--prof-startup",
+      "tip": [
+        "Run CPU profiler during startup."
+      ]
+    },
+    {
+      "name": "--profile",
+      "tip": [
+        "Opens the provided folder or workspace with the given profile and associates the profile with the workspace."
+      ]
+    },
+    {
+      "name": "--remove",
+      "tip": [
+        "Remove folder(s) from the last active window."
+      ]
+    },
+    {
+      "name": "--show-versions",
+      "tip": [
+        "Show versions of installed extensions, when using --list-extensions."
+      ]
+    },
+    {
+      "name": "--sync",
+      "tip": [
+        "Turn sync on or off."
+      ]
+    },
+    {
+      "name": "--telemetry",
+      "tip": [
+        "Shows all telemetry events which VS code collects."
+      ]
+    },
+    {
+      "name": "--transient",
+      "tip": [
+        "Run with temporary data and extension directories, as if launched for the first time."
+      ]
+    },
+    {
+      "name": "--uninstall-extension",
+      "tip": [
+        "Uninstalls an extension."
+      ]
+    },
+    {
+      "name": "--update-extensions",
+      "tip": [
+        "Update the installed extensions."
+      ]
+    },
+    {
+      "name": "--user-data-dir",
+      "tip": [
+        "Specifies the directory that user data is kept in. Can be used to open multiple distinct instances of Code."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "tip": [
+        "Print verbose output (implies --wait)."
+      ]
+    },
+    {
+      "name": "-a",
+      "alias": [
+        "--add"
+      ],
+      "tip": [
+        "Add folder(s) to the last active window."
+      ]
+    },
+    {
+      "name": "-d",
+      "alias": [
+        "--diff"
+      ],
+      "tip": [
+        "Compare two files with each other."
+      ]
+    },
+    {
+      "name": "-g",
+      "alias": [
+        "--goto"
+      ],
+      "tip": [
+        "Open a file at the path on the specified line and character position."
+      ]
+    },
+    {
+      "name": "-m",
+      "alias": [
+        "--merge"
+      ],
+      "tip": [
+        "Perform a three-way merge by providing paths for two modified versions of a file, the common origin of both modified versions and the output file to save merge results."
+      ]
+    },
+    {
+      "name": "-n",
+      "alias": [
+        "--new-window"
+      ],
+      "tip": [
+        "Force to open a new window."
+      ]
+    },
+    {
+      "name": "-r",
+      "alias": [
+        "--reuse-window"
+      ],
+      "tip": [
+        "Force to open a file or folder in an already opened window."
+      ]
+    },
+    {
+      "name": "-s",
+      "alias": [
+        "--status"
+      ],
+      "tip": [
+        "Print process usage and diagnostics information."
+      ]
+    },
+    {
+      "name": "-w",
+      "alias": [
+        "--wait"
+      ],
+      "tip": [
+        "Wait for the files to be closed before returning."
+      ]
+    }
+  ],
+  "common_option": [
+    {
+      "name": "-h",
+      "alias": [
+        "--help"
+      ],
+      "tip": [
+        "Show the help."
+      ]
+    },
+    {
+      "name": "-v",
+      "alias": [
+        "--version"
+      ],
+      "tip": [
+        "Show the version."
+      ]
+    }
+  ]
+}

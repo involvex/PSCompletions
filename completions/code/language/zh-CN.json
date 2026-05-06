@@ -1,0 +1,302 @@
+{
+  "meta": {
+    "url": "https://code.visualstudio.com/docs/editor/command-line",
+    "description": [
+      "Visual Studio Code 命令行界面。"
+    ]
+  },
+  "root": [
+    {
+      "name": "agent",
+      "tip": [
+        "启动并与 AI 代理主机交互。"
+      ]
+    },
+    {
+      "name": "chat",
+      "tip": [
+        "在当前工作目录的聊天会话中运行提示词。"
+      ]
+    },
+    {
+      "name": "serve-web",
+      "tip": [
+        "运行在浏览器中显示编辑器 UI 的服务器。"
+      ]
+    },
+    {
+      "name": "tunnel",
+      "tip": [
+        "通过安全隧道使当前机器可从 vscode.dev 或其他机器访问。"
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--add-mcp",
+      "tip": [
+        "向用户配置文件添加 Model Context Protocol 服务器定义。"
+      ]
+    },
+    {
+      "name": "--agents",
+      "tip": [
+        "打开代理窗口。"
+      ]
+    },
+    {
+      "name": "--category",
+      "tip": [
+        "过滤扩展类别。"
+      ]
+    },
+    {
+      "name": "--disable-chromium-sandbox",
+      "tip": [
+        "仅当需要以 sudo 用户身份运行时使用。"
+      ]
+    },
+    {
+      "name": "--disable-extension",
+      "tip": [
+        "禁用指定的扩展。"
+      ]
+    },
+    {
+      "name": "--disable-extensions",
+      "tip": [
+        "禁用所有已安装的扩展。"
+      ]
+    },
+    {
+      "name": "--disable-gpu",
+      "tip": [
+        "禁用 GPU 硬件加速。"
+      ]
+    },
+    {
+      "name": "--disable-lcd-text",
+      "tip": [
+        "禁用 LCD 字体渲染。"
+      ]
+    },
+    {
+      "name": "--enable-proposed-api",
+      "tip": [
+        "为扩展启用提议的 API 功能。"
+      ]
+    },
+    {
+      "name": "--extensions-dir",
+      "tip": [
+        "设置扩展的根路径。"
+      ]
+    },
+    {
+      "name": "--inspect-brk-extensions",
+      "tip": [
+        "允许在扩展宿主启动后暂停并进行调试和分析。"
+      ]
+    },
+    {
+      "name": "--inspect-extensions",
+      "tip": [
+        "允许调试和分析扩展。"
+      ]
+    },
+    {
+      "name": "--install-extension",
+      "tip": [
+        "安装或更新扩展。"
+      ]
+    },
+    {
+      "name": "--list-extensions",
+      "tip": [
+        "列出已安装的扩展。"
+      ]
+    },
+    {
+      "name": "--locale",
+      "tip": [
+        "使用的语言区域 (例如 en-US 或 zh-CN)。"
+      ]
+    },
+    {
+      "name": "--locate-shell-integration-path",
+      "tip": [
+        "打印终端外壳集成脚本的路径。"
+      ]
+    },
+    {
+      "name": "--log",
+      "tip": [
+        "使用的日志级别。"
+      ]
+    },
+    {
+      "name": "--pre-release",
+      "tip": [
+        "安装扩展的预发布版本。"
+      ]
+    },
+    {
+      "name": "--prof-startup",
+      "tip": [
+        "启动期间运行 CPU 分析器。"
+      ]
+    },
+    {
+      "name": "--profile",
+      "tip": [
+        "使用给定的配置文件打开文件夹或工作区。"
+      ]
+    },
+    {
+      "name": "--remove",
+      "tip": [
+        "从上次活动的窗口中移除文件夹。"
+      ]
+    },
+    {
+      "name": "--show-versions",
+      "tip": [
+        "使用 --list-extensions 时显示版本。"
+      ]
+    },
+    {
+      "name": "--sync",
+      "tip": [
+        "开启或关闭同步。"
+      ]
+    },
+    {
+      "name": "--telemetry",
+      "tip": [
+        "显示所有遥测事件。"
+      ]
+    },
+    {
+      "name": "--transient",
+      "tip": [
+        "以临时数据和扩展目录运行。"
+      ]
+    },
+    {
+      "name": "--uninstall-extension",
+      "tip": [
+        "卸载扩展。"
+      ]
+    },
+    {
+      "name": "--update-extensions",
+      "tip": [
+        "更新已安装的扩展。"
+      ]
+    },
+    {
+      "name": "--user-data-dir",
+      "tip": [
+        "指定用户数据目录。"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "tip": [
+        "打印详细输出。"
+      ]
+    },
+    {
+      "name": "-a",
+      "alias": [
+        "--add"
+      ],
+      "tip": [
+        "将文件夹添加到上次活动的窗口。"
+      ]
+    },
+    {
+      "name": "-d",
+      "alias": [
+        "--diff"
+      ],
+      "tip": [
+        "比较两个文件。"
+      ]
+    },
+    {
+      "name": "-g",
+      "alias": [
+        "--goto"
+      ],
+      "tip": [
+        "在指定行和字符位置打开文件。"
+      ]
+    },
+    {
+      "name": "-m",
+      "alias": [
+        "--merge"
+      ],
+      "tip": [
+        "执行三方合并。"
+      ]
+    },
+    {
+      "name": "-n",
+      "alias": [
+        "--new-window"
+      ],
+      "tip": [
+        "强制打开新窗口。"
+      ]
+    },
+    {
+      "name": "-r",
+      "alias": [
+        "--reuse-window"
+      ],
+      "tip": [
+        "强制在已打开的窗口中打开文件或文件夹。"
+      ]
+    },
+    {
+      "name": "-s",
+      "alias": [
+        "--status"
+      ],
+      "tip": [
+        "打印进程使用情况和诊断信息。"
+      ]
+    },
+    {
+      "name": "-w",
+      "alias": [
+        "--wait"
+      ],
+      "tip": [
+        "在返回之前等待文件关闭。"
+      ]
+    }
+  ],
+  "common_option": [
+    {
+      "name": "-h",
+      "alias": [
+        "--help"
+      ],
+      "tip": [
+        "显示帮助。"
+      ]
+    },
+    {
+      "name": "-v",
+      "alias": [
+        "--version"
+      ],
+      "tip": [
+        "显示版本。"
+      ]
+    }
+  ]
+}
