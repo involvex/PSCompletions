@@ -7,39 +7,9 @@
   },
   "root": [
     {
-      "name": "build",
-      "tip": [
-        "Builds the project, runs all checks."
-      ]
-    },
-    {
-      "name": "clean",
-      "tip": [
-        "Deletes the build directory."
-      ]
-    },
-    {
-      "name": "test",
-      "tip": [
-        "Runs the unit tests."
-      ]
-    },
-    {
-      "name": "check",
-      "tip": [
-        "Runs all checks including tests and static analysis."
-      ]
-    },
-    {
       "name": "assemble",
       "tip": [
         "Assembles outputs of project without running tests."
-      ]
-    },
-    {
-      "name": "bootRun",
-      "tip": [
-        "Runs the Spring Boot application."
       ]
     },
     {
@@ -49,15 +19,39 @@
       ]
     },
     {
-      "name": "jar",
+      "name": "bootRun",
       "tip": [
-        "Creates a JAR file."
+        "Runs the Spring Boot application."
       ]
     },
     {
-      "name": "war",
+      "name": "build",
       "tip": [
-        "Creates a WAR file."
+        "Builds the project, runs all checks."
+      ]
+    },
+    {
+      "name": "check",
+      "tip": [
+        "Runs all checks including tests and static analysis."
+      ]
+    },
+    {
+      "name": "clean",
+      "tip": [
+        "Deletes the build directory."
+      ]
+    },
+    {
+      "name": "compileJava",
+      "tip": [
+        "Compiles Java source files."
+      ]
+    },
+    {
+      "name": "compileTestJava",
+      "tip": [
+        "Compiles Java test source files."
       ]
     },
     {
@@ -73,15 +67,15 @@
       ]
     },
     {
-      "name": "tasks",
+      "name": "help",
       "tip": [
-        "Displays all available tasks."
+        "Displays help for Gradle."
       ]
     },
     {
-      "name": "tasks --all",
+      "name": "jar",
       "tip": [
-        "Displays all tasks including hidden ones."
+        "Creates a JAR file."
       ]
     },
     {
@@ -97,18 +91,6 @@
       ]
     },
     {
-      "name": "help",
-      "tip": [
-        "Displays help for Gradle."
-      ]
-    },
-    {
-      "name": "wrapper",
-      "tip": [
-        "Generates Gradle wrapper files."
-      ]
-    },
-    {
       "name": "publish",
       "tip": [
         "Publishes all publications."
@@ -121,42 +103,45 @@
       ]
     },
     {
-      "name": "compileJava",
+      "name": "tasks",
       "tip": [
-        "Compiles Java source files."
+        "Displays all available tasks."
       ]
     },
     {
-      "name": "compileTestJava",
+      "name": "tasks --all",
       "tip": [
-        "Compiles Java test source files."
+        "Displays all tasks including hidden ones."
+      ]
+    },
+    {
+      "name": "test",
+      "tip": [
+        "Runs the unit tests."
+      ]
+    },
+    {
+      "name": "war",
+      "tip": [
+        "Creates a WAR file."
+      ]
+    },
+    {
+      "name": "wrapper",
+      "tip": [
+        "Generates Gradle wrapper files."
       ]
     }
   ],
   "option": [
     {
       "name": "--build-file",
-      "alias": ["-b"],
+      "alias": [
+        "-b"
+      ],
       "tip": [
         "U: --build-file, -b <file>",
         "Specifies the build file."
-      ],
-      "next": 0
-    },
-    {
-      "name": "--settings-file",
-      "alias": ["-c"],
-      "tip": [
-        "U: --settings-file, -c <file>",
-        "Specifies the settings file."
-      ],
-      "next": 0
-    },
-    {
-      "name": "--project-dir",
-      "tip": [
-        "U: --project-dir <dir>",
-        "Specifies the project directory."
       ],
       "next": 0
     },
@@ -175,103 +160,32 @@
         "Specifies the project cache directory."
       ],
       "next": 0
+    },
+    {
+      "name": "--project-dir",
+      "tip": [
+        "U: --project-dir <dir>",
+        "Specifies the project directory."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--settings-file",
+      "alias": [
+        "-c"
+      ],
+      "tip": [
+        "U: --settings-file, -c <file>",
+        "Specifies the settings file."
+      ],
+      "next": 0
     }
   ],
   "common_option": [
     {
-      "name": "--help",
-      "alias": ["-h", "-?"],
+      "name": "--build-cache",
       "tip": [
-        "U: --help, -h, -?",
-        "Shows help message."
-      ]
-    },
-    {
-      "name": "--version",
-      "alias": ["-v"],
-      "tip": [
-        "U: --version, -v",
-        "Prints version info."
-      ]
-    },
-    {
-      "name": "--quiet",
-      "alias": ["-q"],
-      "tip": [
-        "U: --quiet, -q",
-        "Log errors only."
-      ]
-    },
-    {
-      "name": "--info",
-      "alias": ["-i"],
-      "tip": [
-        "U: --info, -i",
-        "Set log level to info."
-      ]
-    },
-    {
-      "name": "--debug",
-      "alias": ["-d"],
-      "tip": [
-        "U: --debug, -d",
-        "Set log level to debug."
-      ]
-    },
-    {
-      "name": "--warning-mode",
-      "tip": [
-        "U: --warning-mode <mode>",
-        "Specify warning mode: all, summary, none."
-      ],
-      "next": [
-        {"name": "all"},
-        {"name": "summary"},
-        {"name": "none"}
-      ]
-    },
-    {
-      "name": "--dry-run",
-      "alias": ["-m"],
-      "tip": [
-        "U: --dry-run, -m",
-        "Run without executing actions."
-      ]
-    },
-    {
-      "name": "--refresh-dependencies",
-      "tip": [
-        "Refresh the state of dependencies."
-      ]
-    },
-    {
-      "name": "--offline",
-      "tip": [
-        "Build without accessing network."
-      ]
-    },
-    {
-      "name": "--daemon",
-      "tip": [
-        "Uses the Gradle daemon to run the build."
-      ]
-    },
-    {
-      "name": "--no-daemon",
-      "tip": [
-        "Does not use the Gradle daemon to run the build."
-      ]
-    },
-    {
-      "name": "--parallel",
-      "tip": [
-        "Build projects in parallel."
-      ]
-    },
-    {
-      "name": "--no-parallel",
-      "tip": [
-        "Do not build projects in parallel."
+        "Enables the Gradle build cache."
       ]
     },
     {
@@ -281,41 +195,39 @@
       ]
     },
     {
-      "name": "--no-configure-on-demand",
-      "tip": [
-        "Configure all projects."
-      ]
-    },
-    {
-      "name": "--build-cache",
-      "tip": [
-        "Enables the Gradle build cache."
-      ]
-    },
-    {
-      "name": "--no-build-cache",
-      "tip": [
-        "Disables the Gradle build cache."
-      ]
-    },
-    {
-      "name": "--scan",
-      "tip": [
-        "Creates a build scan."
-      ]
-    },
-    {
       "name": "--continuous",
-      "alias": ["-t"],
+      "alias": [
+        "-t"
+      ],
       "tip": [
         "U: --continuous, -t",
         "Continuously builds when changes are detected."
       ]
     },
     {
-      "name": "--stacktrace",
+      "name": "--daemon",
       "tip": [
-        "Print out the stacktrace for exceptions."
+        "Uses the Gradle daemon to run the build."
+      ]
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "tip": [
+        "U: --debug, -d",
+        "Set log level to debug."
+      ]
+    },
+    {
+      "name": "--dry-run",
+      "alias": [
+        "-m"
+      ],
+      "tip": [
+        "U: --dry-run, -m",
+        "Run without executing actions."
       ]
     },
     {
@@ -325,15 +237,82 @@
       ]
     },
     {
+      "name": "--help",
+      "alias": [
+        "-h",
+        "-?"
+      ],
+      "tip": [
+        "U: --help, -h, -?",
+        "Shows help message."
+      ]
+    },
+    {
+      "name": "--info",
+      "alias": [
+        "-i"
+      ],
+      "tip": [
+        "U: --info, -i",
+        "Set log level to info."
+      ]
+    },
+    {
+      "name": "--no-build-cache",
+      "tip": [
+        "Disables the Gradle build cache."
+      ]
+    },
+    {
+      "name": "--no-configure-on-demand",
+      "tip": [
+        "Configure all projects."
+      ]
+    },
+    {
+      "name": "--no-daemon",
+      "tip": [
+        "Does not use the Gradle daemon to run the build."
+      ]
+    },
+    {
+      "name": "--no-parallel",
+      "tip": [
+        "Do not build projects in parallel."
+      ]
+    },
+    {
+      "name": "--offline",
+      "tip": [
+        "Build without accessing network."
+      ]
+    },
+    {
+      "name": "--parallel",
+      "tip": [
+        "Build projects in parallel."
+      ]
+    },
+    {
       "name": "--profile",
       "tip": [
         "Profile build execution time."
       ]
     },
     {
-      "name": "--rerun-tasks",
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
       "tip": [
-        "Forces all tasks to be re-run."
+        "U: --quiet, -q",
+        "Log errors only."
+      ]
+    },
+    {
+      "name": "--refresh-dependencies",
+      "tip": [
+        "Refresh the state of dependencies."
       ]
     },
     {
@@ -342,6 +321,52 @@
         "Specifies tasks to re-run."
       ],
       "next": 0
+    },
+    {
+      "name": "--rerun-tasks",
+      "tip": [
+        "Forces all tasks to be re-run."
+      ]
+    },
+    {
+      "name": "--scan",
+      "tip": [
+        "Creates a build scan."
+      ]
+    },
+    {
+      "name": "--stacktrace",
+      "tip": [
+        "Print out the stacktrace for exceptions."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v"
+      ],
+      "tip": [
+        "U: --version, -v",
+        "Prints version info."
+      ]
+    },
+    {
+      "name": "--warning-mode",
+      "tip": [
+        "U: --warning-mode <mode>",
+        "Specify warning mode: all, summary, none."
+      ],
+      "next": [
+        {
+          "name": "all"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "summary"
+        }
+      ]
     }
   ]
 }

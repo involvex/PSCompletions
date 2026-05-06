@@ -13,366 +13,28 @@
       ],
       "option": [
         {
-          "name": "--project",
-          "tip": [
-            "Specify the project to build"
-          ]
-        },
-        {
           "name": "--configuration",
-          "alias": ["-c"],
+          "alias": [
+            "-c"
+          ],
           "tip": [
             "U: -c, --configuration",
             "Specify the configuration to use"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "completion",
-      "tip": [
-        "Output completion script"
-      ]
-    },
-    {
-      "name": "generate",
-      "alias": ["g"],
-      "tip": [
-        "U: generate|g",
-        "Create Pages, Components, & Angular Features"
-      ],
-      "option": [
-        {
-          "name": "--directory",
-          "alias": ["-d"],
-          "tip": [
-            "U: -d, --directory",
-            "Specify the output directory"
-          ]
-        },
-        {
-          "name": "--skip-format",
-          "tip": [
-            "Skip formatting"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "help",
-      "tip": [
-        "U: help [<command>]",
-        "Get help on the Ionic CLI"
-      ]
-    },
-    {
-      "name": "info",
-      "tip": [
-        "Print project, system, and environment information"
-      ],
-      "option": [
-        {
-          "name": "--json",
-          "tip": [
-            "Print system/environment info in JSON format"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "init",
-      "tip": [
-        "Initialize an Ionic project in the current directory"
-      ],
-      "option": [
-        {
-          "name": "--project-id",
-          "tip": [
-            "Specify a slug for your app"
-          ]
-        },
-        {
-          "name": "--type",
-          "tip": [
-            "Type of project (angular, react, vue)"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "ionitron",
-      "tip": [
-        "Get a random tip from Ionitron"
-      ]
-    },
-    {
-      "name": "link",
-      "tip": [
-        "Connect your local app to Ionic"
-      ],
-      "option": [
-        {
-          "name": "--app-id",
-          "tip": [
-            "The Ionic App ID to link to"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "login",
-      "tip": [
-        "Log in to Ionic"
-      ]
-    },
-    {
-      "name": "logout",
-      "tip": [
-        "Log out of Ionic"
-      ]
-    },
-    {
-      "name": "repair",
-      "tip": [
-        "Repair ionic configuration files"
-      ]
-    },
-    {
-      "name": "serve",
-      "alias": ["s"],
-      "tip": [
-        "U: serve|s",
-        "Start a local dev server for app dev/testing"
-      ],
-      "option": [
-        {
-          "name": "--external",
-          "tip": [
-            "Expose the dev server to the network"
-          ]
-        },
-        {
-          "name": "--port",
-          "tip": [
-            "Dev server port"
           ]
         },
         {
           "name": "--project",
           "tip": [
-            "Specify the project to serve"
-          ]
-        },
-        {
-          "name": "--configuration",
-          "alias": ["-c"],
-          "tip": [
-            "U: -c, --configuration",
-            "Specify the configuration to use"
-          ]
-        },
-        {
-          "name": "--open",
-          "tip": [
-            "Open a browser window"
-          ]
-        },
-        {
-          "name": "--browser",
-          "alias": ["-w"],
-          "tip": [
-            "U: -w, --browser",
-            "Specifies the browser to use"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "share",
-      "tip": [
-        "Share an Ionic app with a collaborator"
-      ]
-    },
-    {
-      "name": "signup",
-      "tip": [
-        "Sign up for an Ionic account"
-      ]
-    },
-    {
-      "name": "start",
-      "tip": [
-        "U: start [<name>] [<template>]",
-        "Create a new project"
-      ],
-      "option": [
-        {
-          "name": "--list",
-          "alias": ["-l"],
-          "tip": [
-            "U: -l, --list",
-            "List available starter templates"
-          ]
-        },
-        {
-          "name": "--type",
-          "tip": [
-            "Type of project to start"
-          ]
-        },
-        {
-          "name": "--capacitor",
-          "tip": [
-            "Include Capacitor integration"
-          ]
-        },
-        {
-          "name": "--project-id",
-          "tip": [
-            "Specify a slug for your app"
-          ]
-        },
-        {
-          "name": "--package-id",
-          "tip": [
-            "Specify the bundle ID/application ID"
-          ]
-        },
-        {
-          "name": "--deps",
-          "tip": [
-            "Install npm/yarn dependencies"
-          ]
-        },
-        {
-          "name": "--git",
-          "tip": [
-            "Initialize a git repo"
-          ]
-        },
-        {
-          "name": "--link",
-          "tip": [
-            "Connect your new app to Ionic"
-          ]
-        },
-        {
-          "name": "--id",
-          "tip": [
-            "Specify an Ionic App ID to link"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "state",
-      "tip": [
-        "Manage Ionic state (save and restore)"
-      ],
-      "next": [
-        {
-          "name": "save",
-          "tip": [
-            "Save the state of your Ionic project"
-          ]
-        },
-        {
-          "name": "restore",
-          "tip": [
-            "Restore the state of your Ionic project"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "telemetry",
-      "tip": [
-        "Enable or disable Ionic telemetry"
-      ]
-    },
-    {
-      "name": "version",
-      "alias": ["v"],
-      "tip": [
-        "U: version|v",
-        "Print Ionic CLI version"
-      ]
-    },
-    {
-      "name": "config",
-      "tip": [
-        "Manage CLI and project config values"
-      ],
-      "next": [
-        {
-          "name": "get",
-          "tip": [
-            "U: get [<property>]",
-            "Print config values"
-          ],
-          "option": [
-            {
-              "name": "--global",
-              "alias": ["-g"],
-              "tip": [
-                "U: -g, --global",
-                "Use global CLI config"
-              ]
-            },
-            {
-              "name": "--json",
-              "tip": [
-                "Output config values in JSON"
-              ]
-            },
-            {
-              "name": "--root",
-              "tip": [
-                "Operate on root of project config"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "set",
-          "tip": [
-            "U: set [<property>] <value>",
-            "Set config values"
-          ],
-          "option": [
-            {
-              "name": "--global",
-              "alias": ["-g"],
-              "tip": [
-                "U: -g, --global",
-                "Use global CLI config"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "unset",
-          "alias": ["delete", "del"],
-          "tip": [
-            "U: unset|delete|del [<property>]",
-            "Delete config values"
-          ],
-          "option": [
-            {
-              "name": "--global",
-              "alias": ["-g"],
-              "tip": [
-                "U: -g, --global",
-                "Use global CLI config"
-              ]
-            }
+            "Specify the project to build"
           ]
         }
       ]
     },
     {
       "name": "capacitor",
-      "alias": ["cap"],
+      "alias": [
+        "cap"
+      ],
       "tip": [
         "U: capacitor|cap",
         "Capacitor functionality"
@@ -433,15 +95,15 @@
           ],
           "option": [
             {
-              "name": "--platform",
-              "tip": [
-                "The platform to run on"
-              ]
-            },
-            {
               "name": "--list",
               "tip": [
                 "List available devices/emulators"
+              ]
+            },
+            {
+              "name": "--platform",
+              "tip": [
+                "The platform to run on"
               ]
             }
           ]
@@ -477,8 +139,97 @@
       ]
     },
     {
+      "name": "completion",
+      "tip": [
+        "Output completion script"
+      ]
+    },
+    {
+      "name": "config",
+      "tip": [
+        "Manage CLI and project config values"
+      ],
+      "next": [
+        {
+          "name": "get",
+          "tip": [
+            "U: get [<property>]",
+            "Print config values"
+          ],
+          "option": [
+            {
+              "name": "--global",
+              "alias": [
+                "-g"
+              ],
+              "tip": [
+                "U: -g, --global",
+                "Use global CLI config"
+              ]
+            },
+            {
+              "name": "--json",
+              "tip": [
+                "Output config values in JSON"
+              ]
+            },
+            {
+              "name": "--root",
+              "tip": [
+                "Operate on root of project config"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "set",
+          "tip": [
+            "U: set [<property>] <value>",
+            "Set config values"
+          ],
+          "option": [
+            {
+              "name": "--global",
+              "alias": [
+                "-g"
+              ],
+              "tip": [
+                "U: -g, --global",
+                "Use global CLI config"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "unset",
+          "alias": [
+            "delete",
+            "del"
+          ],
+          "tip": [
+            "U: unset|delete|del [<property>]",
+            "Delete config values"
+          ],
+          "option": [
+            {
+              "name": "--global",
+              "alias": [
+                "-g"
+              ],
+              "tip": [
+                "U: -g, --global",
+                "Use global CLI config"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "cordova",
-      "alias": ["cdv"],
+      "alias": [
+        "cdv"
+      ],
       "tip": [
         "U: cordova|cdv",
         "Cordova functionality"
@@ -512,10 +263,20 @@
         },
         {
           "name": "platform",
-          "alias": ["platforms"],
+          "alias": [
+            "platforms"
+          ],
           "tip": [
             "U: platform|platforms",
             "Manage Cordova platform targets"
+          ],
+          "option": [
+            {
+              "name": "--resources",
+              "tip": [
+                "Generate icons and splash screen resources"
+              ]
+            }
           ],
           "next": [
             {
@@ -526,18 +287,9 @@
               ]
             },
             {
-              "name": "remove",
-              "alias": ["rm"],
+              "name": "check",
               "tip": [
-                "U: remove|rm <platform>",
-                "Remove a platform"
-              ]
-            },
-            {
-              "name": "update",
-              "tip": [
-                "U: update <platform>",
-                "Update a platform"
+                "Check for outdated platforms"
               ]
             },
             {
@@ -547,9 +299,13 @@
               ]
             },
             {
-              "name": "check",
+              "name": "remove",
+              "alias": [
+                "rm"
+              ],
               "tip": [
-                "Check for outdated platforms"
+                "U: remove|rm <platform>",
+                "Remove a platform"
               ]
             },
             {
@@ -557,20 +313,21 @@
               "tip": [
                 "Save platform versions to config.xml"
               ]
-            }
-          ],
-          "option": [
+            },
             {
-              "name": "--resources",
+              "name": "update",
               "tip": [
-                "Generate icons and splash screen resources"
+                "U: update <platform>",
+                "Update a platform"
               ]
             }
           ]
         },
         {
           "name": "plugin",
-          "alias": ["plugins"],
+          "alias": [
+            "plugins"
+          ],
           "tip": [
             "U: plugin|plugins",
             "Manage Cordova plugins"
@@ -598,17 +355,19 @@
               ]
             },
             {
-              "name": "remove",
-              "alias": ["rm"],
-              "tip": [
-                "U: remove|rm <plugin>",
-                "Remove a plugin"
-              ]
-            },
-            {
               "name": "ls",
               "tip": [
                 "List installed plugins"
+              ]
+            },
+            {
+              "name": "remove",
+              "alias": [
+                "rm"
+              ],
+              "tip": [
+                "U: remove|rm <plugin>",
+                "Remove a plugin"
               ]
             },
             {
@@ -626,8 +385,16 @@
           ]
         },
         {
+          "name": "requirements",
+          "tip": [
+            "Check all requirements for a platform"
+          ]
+        },
+        {
           "name": "resources",
-          "alias": ["res"],
+          "alias": [
+            "res"
+          ],
           "tip": [
             "U: resources|res",
             "Generate icons and splash screens"
@@ -638,18 +405,135 @@
           "tip": [
             "Run on a connected device or emulator"
           ]
+        }
+      ]
+    },
+    {
+      "name": "enterprise",
+      "tip": [
+        "Ionic Enterprise functionality"
+      ],
+      "next": [
+        {
+          "name": "register",
+          "tip": [
+            "Register your Ionic Enterprise Edition subscription"
+          ]
         },
         {
-          "name": "requirements",
+          "name": "setup",
           "tip": [
-            "Check all requirements for a platform"
+            "Setup Ionic Enterprise Edition"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "generate",
+      "alias": [
+        "g"
+      ],
+      "tip": [
+        "U: generate|g",
+        "Create Pages, Components, & Angular Features"
+      ],
+      "option": [
+        {
+          "name": "--directory",
+          "alias": [
+            "-d"
+          ],
+          "tip": [
+            "U: -d, --directory",
+            "Specify the output directory"
+          ]
+        },
+        {
+          "name": "--skip-format",
+          "tip": [
+            "Skip formatting"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "git",
+      "tip": [
+        "Git functionality for Ionic apps"
+      ],
+      "next": [
+        {
+          "name": "remote",
+          "tip": [
+            "Manage Git remotes"
+          ],
+          "next": [
+            {
+              "name": "add",
+              "tip": [
+                "Add a Git remote"
+              ]
+            },
+            {
+              "name": "remove",
+              "alias": [
+                "rm"
+              ],
+              "tip": [
+                "Remove a Git remote"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "help",
+      "tip": [
+        "U: help [<command>]",
+        "Get help on the Ionic CLI"
+      ]
+    },
+    {
+      "name": "info",
+      "tip": [
+        "Print project, system, and environment information"
+      ],
+      "option": [
+        {
+          "name": "--json",
+          "tip": [
+            "Print system/environment info in JSON format"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "init",
+      "tip": [
+        "Initialize an Ionic project in the current directory"
+      ],
+      "option": [
+        {
+          "name": "--project-id",
+          "tip": [
+            "Specify a slug for your app"
+          ]
+        },
+        {
+          "name": "--type",
+          "tip": [
+            "Type of project (angular, react, vue)"
           ]
         }
       ]
     },
     {
       "name": "integrations",
-      "alias": ["i", "integration"],
+      "alias": [
+        "i",
+        "integration"
+      ],
       "tip": [
         "U: integrations|i|integration",
         "Manage Ionic integrations"
@@ -678,99 +562,21 @@
       ]
     },
     {
-      "name": "git",
+      "name": "ionitron",
       "tip": [
-        "Git functionality for Ionic apps"
-      ],
-      "next": [
-        {
-          "name": "remote",
-          "tip": [
-            "Manage Git remotes"
-          ],
-          "next": [
-            {
-              "name": "add",
-              "tip": [
-                "Add a Git remote"
-              ]
-            },
-            {
-              "name": "remove",
-              "alias": ["rm"],
-              "tip": [
-                "Remove a Git remote"
-              ]
-            }
-          ]
-        }
+        "Get a random tip from Ionitron"
       ]
     },
     {
-      "name": "ssl",
+      "name": "link",
       "tip": [
-        "Manage SSL certificates"
+        "Connect your local app to Ionic"
       ],
-      "next": [
+      "option": [
         {
-          "name": "generate",
+          "name": "--app-id",
           "tip": [
-            "Generate an SSL certificate"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "ssh",
-      "tip": [
-        "Manage SSH keys"
-      ],
-      "next": [
-        {
-          "name": "add",
-          "tip": [
-            "Add an SSH key"
-          ]
-        },
-        {
-          "name": "list",
-          "alias": ["ls"],
-          "tip": [
-            "U: list|ls",
-            "List SSH keys"
-          ]
-        },
-        {
-          "name": "remove",
-          "alias": ["rm"],
-          "tip": [
-            "Remove an SSH key"
-          ]
-        },
-        {
-          "name": "use",
-          "tip": [
-            "Set an SSH key as active"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "monitoring",
-      "tip": [
-        "Ionic Monitoring integrations"
-      ],
-      "next": [
-        {
-          "name": "debug",
-          "tip": [
-            "Generate debugging info for Ionic Monitoring"
-          ]
-        },
-        {
-          "name": "maps",
-          "tip": [
-            "Generate source maps for Ionic Monitoring"
+            "The Ionic App ID to link to"
           ]
         }
       ]
@@ -801,7 +607,9 @@
         },
         {
           "name": "list",
-          "alias": ["ls"],
+          "alias": [
+            "ls"
+          ],
           "tip": [
             "U: list|ls",
             "List deployed Live Updates"
@@ -810,43 +618,273 @@
       ]
     },
     {
-      "name": "enterprise",
+      "name": "login",
       "tip": [
-        "Ionic Enterprise functionality"
+        "Log in to Ionic"
+      ]
+    },
+    {
+      "name": "logout",
+      "tip": [
+        "Log out of Ionic"
+      ]
+    },
+    {
+      "name": "monitoring",
+      "tip": [
+        "Ionic Monitoring integrations"
       ],
       "next": [
         {
-          "name": "register",
+          "name": "debug",
           "tip": [
-            "Register your Ionic Enterprise Edition subscription"
+            "Generate debugging info for Ionic Monitoring"
           ]
         },
         {
-          "name": "setup",
+          "name": "maps",
           "tip": [
-            "Setup Ionic Enterprise Edition"
+            "Generate source maps for Ionic Monitoring"
           ]
         }
+      ]
+    },
+    {
+      "name": "repair",
+      "tip": [
+        "Repair ionic configuration files"
+      ]
+    },
+    {
+      "name": "serve",
+      "alias": [
+        "s"
+      ],
+      "tip": [
+        "U: serve|s",
+        "Start a local dev server for app dev/testing"
+      ],
+      "option": [
+        {
+          "name": "--browser",
+          "alias": [
+            "-w"
+          ],
+          "tip": [
+            "U: -w, --browser",
+            "Specifies the browser to use"
+          ]
+        },
+        {
+          "name": "--configuration",
+          "alias": [
+            "-c"
+          ],
+          "tip": [
+            "U: -c, --configuration",
+            "Specify the configuration to use"
+          ]
+        },
+        {
+          "name": "--external",
+          "tip": [
+            "Expose the dev server to the network"
+          ]
+        },
+        {
+          "name": "--open",
+          "tip": [
+            "Open a browser window"
+          ]
+        },
+        {
+          "name": "--port",
+          "tip": [
+            "Dev server port"
+          ]
+        },
+        {
+          "name": "--project",
+          "tip": [
+            "Specify the project to serve"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "share",
+      "tip": [
+        "Share an Ionic app with a collaborator"
+      ]
+    },
+    {
+      "name": "signup",
+      "tip": [
+        "Sign up for an Ionic account"
+      ]
+    },
+    {
+      "name": "ssh",
+      "tip": [
+        "Manage SSH keys"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "tip": [
+            "Add an SSH key"
+          ]
+        },
+        {
+          "name": "list",
+          "alias": [
+            "ls"
+          ],
+          "tip": [
+            "U: list|ls",
+            "List SSH keys"
+          ]
+        },
+        {
+          "name": "remove",
+          "alias": [
+            "rm"
+          ],
+          "tip": [
+            "Remove an SSH key"
+          ]
+        },
+        {
+          "name": "use",
+          "tip": [
+            "Set an SSH key as active"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ssl",
+      "tip": [
+        "Manage SSL certificates"
+      ],
+      "next": [
+        {
+          "name": "generate",
+          "tip": [
+            "Generate an SSL certificate"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "start",
+      "tip": [
+        "U: start [<name>] [<template>]",
+        "Create a new project"
+      ],
+      "option": [
+        {
+          "name": "--capacitor",
+          "tip": [
+            "Include Capacitor integration"
+          ]
+        },
+        {
+          "name": "--deps",
+          "tip": [
+            "Install npm/yarn dependencies"
+          ]
+        },
+        {
+          "name": "--git",
+          "tip": [
+            "Initialize a git repo"
+          ]
+        },
+        {
+          "name": "--id",
+          "tip": [
+            "Specify an Ionic App ID to link"
+          ]
+        },
+        {
+          "name": "--link",
+          "tip": [
+            "Connect your new app to Ionic"
+          ]
+        },
+        {
+          "name": "--list",
+          "alias": [
+            "-l"
+          ],
+          "tip": [
+            "U: -l, --list",
+            "List available starter templates"
+          ]
+        },
+        {
+          "name": "--package-id",
+          "tip": [
+            "Specify the bundle ID/application ID"
+          ]
+        },
+        {
+          "name": "--project-id",
+          "tip": [
+            "Specify a slug for your app"
+          ]
+        },
+        {
+          "name": "--type",
+          "tip": [
+            "Type of project to start"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "state",
+      "tip": [
+        "Manage Ionic state (save and restore)"
+      ],
+      "next": [
+        {
+          "name": "restore",
+          "tip": [
+            "Restore the state of your Ionic project"
+          ]
+        },
+        {
+          "name": "save",
+          "tip": [
+            "Save the state of your Ionic project"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "telemetry",
+      "tip": [
+        "Enable or disable Ionic telemetry"
+      ]
+    },
+    {
+      "name": "version",
+      "alias": [
+        "v"
+      ],
+      "tip": [
+        "U: version|v",
+        "Print Ionic CLI version"
       ]
     }
   ],
   "option": [
     {
-      "name": "--verbose",
+      "name": "--confirm",
       "tip": [
-        "Print verbose output"
-      ]
-    },
-    {
-      "name": "--quiet",
-      "tip": [
-        "Print less output"
-      ]
-    },
-    {
-      "name": "--no-interactive",
-      "tip": [
-        "Do not prompt for interaction"
+        "Skip confirmation prompts"
       ]
     },
     {
@@ -856,16 +894,30 @@
       ]
     },
     {
-      "name": "--confirm",
+      "name": "--no-interactive",
       "tip": [
-        "Skip confirmation prompts"
+        "Do not prompt for interaction"
+      ]
+    },
+    {
+      "name": "--quiet",
+      "tip": [
+        "Print less output"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "tip": [
+        "Print verbose output"
       ]
     }
   ],
   "common_option": [
     {
       "name": "-h",
-      "alias": ["--help"],
+      "alias": [
+        "--help"
+      ],
       "tip": [
         "U: -h, --help",
         "Show the help"

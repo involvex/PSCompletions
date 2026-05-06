@@ -2,6 +2,7 @@
   "list": [
     "7z",
     "adb",
+    "android-cli",
     "arch",
     "b2sum",
     "b3sum",
@@ -14,6 +15,7 @@
     "chfs",
     "choco",
     "cksum",
+    "code",
     "comm",
     "conda",
     "csplit",
@@ -36,8 +38,11 @@
     "fold",
     "gh",
     "git",
+    "go",
+    "gradlew",
     "hashsum",
     "head",
+    "ionic",
     "jj",
     "jjui",
     "join",
@@ -86,6 +91,7 @@
   "update": {
     "7z": "1ce7c9963a1e7536a0ed4e8d035da35dd9f88dd38a573970f0fc4864167fa511",
     "adb": "541ce97f068ee75777370152013b444eabb0e30f256f4b090fd3d8a23896d4cd",
+    "android-cli": "c6b480066d3866de65e08b41d9e1968e4b0c21dc97ed645b175767d1817b0805",
     "arch": "a80375cc50fe26725a1006875f557d44c7352e1b7a6a59f4d7cee099859f6dc7",
     "b2sum": "beda1d304996106b5f495bb2d4de784ae56d2b2ef6df969c159bf2cc0b2e6bb6",
     "b3sum": "a4fa5a806e179498b8361493a64dab84ee9e9b125a12431a5d751ab8339de35e",
@@ -93,11 +99,12 @@
     "base64": "6e6d8f5e4721dfa5c296afc68e613c279492da7a8409064674c48d6d86dc9580",
     "basename": "ef5a9d55591c7d1824849a75fa2520d52ca1d91473f5cbb8dad092a3ad7b44e7",
     "basenc": "1b2a0dab23915db881c2d066fac0523b1bb0d29ab12621e891ab77d82cec2f57",
-    "bun": "e4c74f51bc4b44afde406f6b1c37c486360c023c4d7b0fa511410bb06190a5b1",
+    "bun": "c4ebc1f60cd804d30283ee6c48bc1bd5cf42491f5eafc46546712abbc982b4c1",
     "cargo": "c06f56350dc19ef769e4e0afe56291977d71607da312250a715e4a11c4487c49",
     "chfs": "3299544b6cb2dae92c0fd99ae44eb2c741fcac294283636dbd31642deacbfff2",
     "choco": "fa7b42aa8564ecd6d2052eca5fb966fbd4762e9da5fef5967ad533f4d1334322",
     "cksum": "2db5a923560ea3fdcb088da981e4b8a2d86f453de6e82991742a73adbb53a7d5",
+    "code": "9116e38f86b3b9293a979a0b7d4cf58902db10fe005cb4f6b2ec4d7112764cb1",
     "comm": "8c06e918b27eec5f3ff90c3ff49c2252b9509c8a46b4d17518c13e27ea93192e",
     "conda": "a426c879d30b52091e868cf77ebcd325d1e4da121c7a9b4efac7f1e3c964752f",
     "csplit": "dcc9bcb8c8b9038b4908994fe67cb30b5f792299025fc7352681d9bb33d5b9db",
@@ -120,8 +127,11 @@
     "fold": "6964e7e83eb14822fd653b8405df124d06660b9eebdfc221995782caed1a68d8",
     "gh": "37751a28ec57bc0b455b0fb64c03c7d14bd8f648eb1d915d4ba7bd65dcfc46dd",
     "git": "48158dad11f58ee770c00f5d3a1f6dd37b80fabc1b21eca1858c419247741c04",
+    "go": "cd79aafc76e072521d1b45875ecc25c238e26c8910cd638830ea3fc65096a019",
+    "gradlew": "bcb5ce7aca76cec1265758e1d941a4c547cecb4d9d7589681e3422d41dda018b",
     "hashsum": "ae8f0a548a578a5ad59a8ffcc4090ca59095df314bc5cf71c4f683bd717b63b1",
     "head": "23c5d306c2a009e2247cd8f9e1671eb9d83c5434f6941378b055cee2c1414ad2",
+    "ionic": "4d4a568598deceed62eae381603fb4bab4269dad3f0f80b107c5b83d6ae773b3",
     "jj": "07816b15678e2f82a1faa2d97a1ec7805e2a4818882db1e98b0365e214d38b89",
     "jjui": "fbea74d92661a1813eed4995f23e61f8077d8daee41cd5a854eb205974a6e602",
     "join": "3f5bb77cfa3cf26b17a3c78949033b225fb9776d670d3a68da3df3d106317851",
@@ -194,6 +204,16 @@
         "description": [
           "adb 是一个命令行工具，用于与设备通信。"
         ]
+      }
+    },
+    "android-cli": {
+      "en-US": {
+        "url": "",
+        "description": []
+      },
+      "zh-CN": {
+        "url": "",
+        "description": []
       }
     },
     "arch": {
@@ -380,6 +400,7 @@
         ]
       }
     },
+    "code": {},
     "comm": {
       "en-US": {
         "url": "https://github.com/uutils/coreutils",
@@ -710,6 +731,28 @@
         ]
       }
     },
+    "go": {
+      "en-US": {
+        "url": "https://go.dev/",
+        "description": [
+          "Go - Programming language for building simple, reliable, and efficient software."
+        ]
+      }
+    },
+    "gradlew": {
+      "en-US": {
+        "url": "https://docs.gradle.org/current/userguide/command_line_interface.html",
+        "description": [
+          "Gradle Wrapper - Build automation tool wrapper script."
+        ]
+      },
+      "zh-CN": {
+        "url": "https:/docs.gradle.org/current/userguide/command_line_interface.html",
+        "description": [
+          "Gradle Wrapper - 构建自动化工具包装脚本。"
+        ]
+      }
+    },
     "hashsum": {
       "en-US": {
         "url": "https://github.com/uutils/coreutils",
@@ -739,6 +782,14 @@
         "description": [
           "Print the first 10 lines of each 'FILE' to standard output.",
           "Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils)."
+        ]
+      }
+    },
+    "ionic": {
+      "en-US": {
+        "url": "https://ionicframework.com/docs/cli",
+        "description": [
+          "Ionic CLI - The command-line interface for Ionic Framework"
         ]
       }
     },

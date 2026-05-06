@@ -7,39 +7,9 @@
   },
   "root": [
     {
-      "name": "build",
-      "tip": [
-        "构建项目，运行所有检查。"
-      ]
-    },
-    {
-      "name": "clean",
-      "tip": [
-        "删除构建目录。"
-      ]
-    },
-    {
-      "name": "test",
-      "tip": [
-        "运行单元测试。"
-      ]
-    },
-    {
-      "name": "check",
-      "tip": [
-        "运行所有检查，包括测试和静态分析。"
-      ]
-    },
-    {
       "name": "assemble",
       "tip": [
         "组装项目输出，不运行测试。"
-      ]
-    },
-    {
-      "name": "bootRun",
-      "tip": [
-        "运行 Spring Boot 应用程序。"
       ]
     },
     {
@@ -49,15 +19,39 @@
       ]
     },
     {
-      "name": "jar",
+      "name": "bootRun",
       "tip": [
-        "创建 JAR 文件。"
+        "运行 Spring Boot 应用程序。"
       ]
     },
     {
-      "name": "war",
+      "name": "build",
       "tip": [
-        "创建 WAR 文件。"
+        "构建项目，运行所有检查。"
+      ]
+    },
+    {
+      "name": "check",
+      "tip": [
+        "运行所有检查，包括测试和静态分析。"
+      ]
+    },
+    {
+      "name": "clean",
+      "tip": [
+        "删除构建目录。"
+      ]
+    },
+    {
+      "name": "compileJava",
+      "tip": [
+        "编译 Java 源文件。"
+      ]
+    },
+    {
+      "name": "compileTestJava",
+      "tip": [
+        "编译 Java 测试源文件。"
       ]
     },
     {
@@ -73,15 +67,15 @@
       ]
     },
     {
-      "name": "tasks",
+      "name": "help",
       "tip": [
-        "显示所有可用任务。"
+        "显示 Gradle 帮助信息。"
       ]
     },
     {
-      "name": "tasks --all",
+      "name": "jar",
       "tip": [
-        "显示所有任务，包括隐藏任务。"
+        "创建 JAR 文件。"
       ]
     },
     {
@@ -97,18 +91,6 @@
       ]
     },
     {
-      "name": "help",
-      "tip": [
-        "显示 Gradle 帮助信息。"
-      ]
-    },
-    {
-      "name": "wrapper",
-      "tip": [
-        "生成 Gradle wrapper 文件。"
-      ]
-    },
-    {
       "name": "publish",
       "tip": [
         "发布所有发布物。"
@@ -121,40 +103,45 @@
       ]
     },
     {
-      "name": "compileJava",
+      "name": "tasks",
       "tip": [
-        "编译 Java 源文件。"
+        "显示所有可用任务。"
       ]
     },
     {
-      "name": "compileTestJava",
+      "name": "tasks --all",
       "tip": [
-        "编译 Java 测试源文件。"
+        "显示所有任务，包括隐藏任务。"
+      ]
+    },
+    {
+      "name": "test",
+      "tip": [
+        "运行单元测试。"
+      ]
+    },
+    {
+      "name": "war",
+      "tip": [
+        "创建 WAR 文件。"
+      ]
+    },
+    {
+      "name": "wrapper",
+      "tip": [
+        "生成 Gradle wrapper 文件。"
       ]
     }
   ],
   "option": [
     {
       "name": "--build-file",
-      "alias": ["-b"],
+      "alias": [
+        "-b"
+      ],
       "tip": [
         "U: --build-file, -b <file>",
         "指定构建文件。"
-      ]
-    },
-    {
-      "name": "--settings-file",
-      "alias": ["-c"],
-      "tip": [
-        "U: --settings-file, -c <file>",
-        "指定设置文件。"
-      ]
-    },
-    {
-      "name": "--project-dir",
-      "tip": [
-        "U: --project-dir <dir>",
-        "指定项目目录。"
       ]
     },
     {
@@ -170,98 +157,30 @@
         "U: --project-cache-dir <dir>",
         "指定项目缓存目录。"
       ]
+    },
+    {
+      "name": "--project-dir",
+      "tip": [
+        "U: --project-dir <dir>",
+        "指定项目目录。"
+      ]
+    },
+    {
+      "name": "--settings-file",
+      "alias": [
+        "-c"
+      ],
+      "tip": [
+        "U: --settings-file, -c <file>",
+        "指定设置文件。"
+      ]
     }
   ],
   "common_option": [
     {
-      "name": "--help",
-      "alias": ["-h", "-?"],
+      "name": "--build-cache",
       "tip": [
-        "U: --help, -h, -?",
-        "显示帮助信息。"
-      ]
-    },
-    {
-      "name": "--version",
-      "alias": ["-v"],
-      "tip": [
-        "U: --version, -v",
-        "打印版本信息。"
-      ]
-    },
-    {
-      "name": "--quiet",
-      "alias": ["-q"],
-      "tip": [
-        "U: --quiet, -q",
-        "仅记录错误。"
-      ]
-    },
-    {
-      "name": "--info",
-      "alias": ["-i"],
-      "tip": [
-        "U: --info, -i",
-        "设置日志级别为 info。"
-      ]
-    },
-    {
-      "name": "--debug",
-      "alias": ["-d"],
-      "tip": [
-        "U: --debug, -d",
-        "设置日志级别为 debug。"
-      ]
-    },
-    {
-      "name": "--warning-mode",
-      "tip": [
-        "U: --warning-mode <mode>",
-        "指定警告模式：all, summary, none。"
-      ]
-    },
-    {
-      "name": "--dry-run",
-      "alias": ["-m"],
-      "tip": [
-        "U: --dry-run, -m",
-        "运行但不执行操作。"
-      ]
-    },
-    {
-      "name": "--refresh-dependencies",
-      "tip": [
-        "刷新依赖项状态。"
-      ]
-    },
-    {
-      "name": "--offline",
-      "tip": [
-        "脱机构建，不访问网络。"
-      ]
-    },
-    {
-      "name": "--daemon",
-      "tip": [
-        "使用 Gradle 守护进程运行构建。"
-      ]
-    },
-    {
-      "name": "--no-daemon",
-      "tip": [
-        "不使用 Gradle 守护进程运行构建。"
-      ]
-    },
-    {
-      "name": "--parallel",
-      "tip": [
-        "并行构建项目。"
-      ]
-    },
-    {
-      "name": "--no-parallel",
-      "tip": [
-        "不并行构建项目。"
+        "启用 Gradle 构建缓存。"
       ]
     },
     {
@@ -271,41 +190,39 @@
       ]
     },
     {
-      "name": "--no-configure-on-demand",
-      "tip": [
-        "配置所有项目。"
-      ]
-    },
-    {
-      "name": "--build-cache",
-      "tip": [
-        "启用 Gradle 构建缓存。"
-      ]
-    },
-    {
-      "name": "--no-build-cache",
-      "tip": [
-        "禁用 Gradle 构建缓存。"
-      ]
-    },
-    {
-      "name": "--scan",
-      "tip": [
-        "创建构建扫描。"
-      ]
-    },
-    {
       "name": "--continuous",
-      "alias": ["-t"],
+      "alias": [
+        "-t"
+      ],
       "tip": [
         "U: --continuous, -t",
         "检测到更改时持续构建。"
       ]
     },
     {
-      "name": "--stacktrace",
+      "name": "--daemon",
       "tip": [
-        "打印异常的堆栈跟踪。"
+        "使用 Gradle 守护进程运行构建。"
+      ]
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "tip": [
+        "U: --debug, -d",
+        "设置日志级别为 debug。"
+      ]
+    },
+    {
+      "name": "--dry-run",
+      "alias": [
+        "-m"
+      ],
+      "tip": [
+        "U: --dry-run, -m",
+        "运行但不执行操作。"
       ]
     },
     {
@@ -315,9 +232,88 @@
       ]
     },
     {
+      "name": "--help",
+      "alias": [
+        "-h",
+        "-?"
+      ],
+      "tip": [
+        "U: --help, -h, -?",
+        "显示帮助信息。"
+      ]
+    },
+    {
+      "name": "--info",
+      "alias": [
+        "-i"
+      ],
+      "tip": [
+        "U: --info, -i",
+        "设置日志级别为 info。"
+      ]
+    },
+    {
+      "name": "--no-build-cache",
+      "tip": [
+        "禁用 Gradle 构建缓存。"
+      ]
+    },
+    {
+      "name": "--no-configure-on-demand",
+      "tip": [
+        "配置所有项目。"
+      ]
+    },
+    {
+      "name": "--no-daemon",
+      "tip": [
+        "不使用 Gradle 守护进程运行构建。"
+      ]
+    },
+    {
+      "name": "--no-parallel",
+      "tip": [
+        "不并行构建项目。"
+      ]
+    },
+    {
+      "name": "--offline",
+      "tip": [
+        "脱机构建，不访问网络。"
+      ]
+    },
+    {
+      "name": "--parallel",
+      "tip": [
+        "并行构建项目。"
+      ]
+    },
+    {
       "name": "--profile",
       "tip": [
         "分析构建执行时间。"
+      ]
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "tip": [
+        "U: --quiet, -q",
+        "仅记录错误。"
+      ]
+    },
+    {
+      "name": "--refresh-dependencies",
+      "tip": [
+        "刷新依赖项状态。"
+      ]
+    },
+    {
+      "name": "--rerun",
+      "tip": [
+        "指定要重新运行的任务。"
       ]
     },
     {
@@ -327,9 +323,32 @@
       ]
     },
     {
-      "name": "--rerun",
+      "name": "--scan",
       "tip": [
-        "指定要重新运行的任务。"
+        "创建构建扫描。"
+      ]
+    },
+    {
+      "name": "--stacktrace",
+      "tip": [
+        "打印异常的堆栈跟踪。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v"
+      ],
+      "tip": [
+        "U: --version, -v",
+        "打印版本信息。"
+      ]
+    },
+    {
+      "name": "--warning-mode",
+      "tip": [
+        "U: --warning-mode <mode>",
+        "指定警告模式：all, summary, none。"
       ]
     }
   ]

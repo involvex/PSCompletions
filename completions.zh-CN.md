@@ -14,6 +14,7 @@
 |:-:|-|-|
 |[7z](https://7-zip.org/)|[**en-US**](/completions/7z/language/en-US.json)<br>[**zh-CN(100%)**](/completions/7z/language/zh-CN.json)|7-Zip 的命令行 cli 程序。|
 |[adb](https://developer.android.com/tools/adb)|[**en-US**](/completions/adb/language/en-US.json)<br>[**zh-CN(2.99%)**](/completions/adb/language/zh-CN.json)|adb 是一个命令行工具，用于与设备通信。|
+|[android-cli]()|[**en-US**](/completions/android-cli/language/en-US.json)<br>[**zh-CN(100%)**](/completions/android-cli/language/zh-CN.json)||
 |[arch](https://github.com/uutils/coreutils)|[**en-US**](/completions/arch/language/en-US.json)<br>[**zh-CN(100%)**](/completions/arch/language/zh-CN.json)|显示当前系统架构。<br>补全基于 [uutils/coreutils](https://github.com/uutils/coreutils) 编写。|
 |[b2sum](https://github.com/uutils/coreutils)|[**en-US**](/completions/b2sum/language/en-US.json)<br>[**zh-CN(15.38%)**](/completions/b2sum/language/zh-CN.json)|Compute and check message digests.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
 |[b3sum](https://github.com/uutils/coreutils)|[**en-US**](/completions/b3sum/language/en-US.json)<br>[**zh-CN(15.38%)**](/completions/b3sum/language/zh-CN.json)|Compute and check message digests.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
@@ -26,6 +27,7 @@
 |[chfs](http://iscute.cn/chfs)|[**en-US**](/completions/chfs/language/en-US.json)<br>[**zh-CN(100%)**](/completions/chfs/language/zh-CN.json)|CuteHttpFileServer - 一个免费的、HTTP协议的文件共享服务器。|
 |[choco](https://chocolatey.org/)|[**en-US**](/completions/choco/language/en-US.json)<br>[**zh-CN(100%)**](/completions/choco/language/zh-CN.json)|choco(chocolatey) - 软件管理。|
 |[cksum](https://github.com/uutils/coreutils)|[**en-US**](/completions/cksum/language/en-US.json)<br>[**zh-CN(25%)**](/completions/cksum/language/zh-CN.json)|Print CRC and size for each file.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
+|[code]()|[****](/completions/code/language/.json)||
 |[comm](https://github.com/uutils/coreutils)|[**en-US**](/completions/comm/language/en-US.json)<br>[**zh-CN(25%)**](/completions/comm/language/zh-CN.json)|Compare two sorted files line by line.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
 |[conda](https://github.com/conda/conda)|[**en-US**](/completions/conda/language/en-US.json)<br>[**zh-CN(100%)**](/completions/conda/language/zh-CN.json)|conda - 二进制包和环境管理器。|
 |[csplit](https://github.com/uutils/coreutils)|[**en-US**](/completions/csplit/language/en-US.json)<br>[**zh-CN(22.22%)**](/completions/csplit/language/zh-CN.json)|Split a file into sections determined by context lines.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
@@ -48,8 +50,11 @@
 |[fold](https://github.com/uutils/coreutils)|[**en-US**](/completions/fold/language/en-US.json)<br>[**zh-CN(40%)**](/completions/fold/language/zh-CN.json)|Writes each file (or standard input if no files are given) to standard output whilst breaking long lines.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
 |[gh](https://cli.github.com/)|[**en-US**](/completions/gh/language/en-US.json)<br>[**zh-CN(3.33%)**](/completions/gh/language/zh-CN.json)|gh - GitHub CLI 是一个命令行工具，用于与 GitHub 进行交互。|
 |[git](https://git-scm.com)|[**en-US**](/completions/git/language/en-US.json)<br>[**zh-CN(100%)**](/completions/git/language/zh-CN.json)|Git - 版本控制系统。|
+|[go]()|[**en-US**](/completions/go/language/en-US.json)||
+|[gradlew](https:/docs.gradle.org/current/userguide/command_line_interface.html)|[**en-US**](/completions/gradlew/language/en-US.json)<br>[**zh-CN(0.01%)**](/completions/gradlew/language/zh-CN.json)|Gradle Wrapper - 构建自动化工具包装脚本。|
 |[hashsum](https://github.com/uutils/coreutils)|[**en-US**](/completions/hashsum/language/en-US.json)<br>[**zh-CN(6.9%)**](/completions/hashsum/language/zh-CN.json)|Compute and check message digests.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
 |[head](https://github.com/uutils/coreutils)|[**en-US**](/completions/head/language/en-US.json)<br>[**zh-CN(28.57%)**](/completions/head/language/zh-CN.json)|Print the first 10 lines of each 'FILE' to standard output.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
+|[ionic]()|[**en-US**](/completions/ionic/language/en-US.json)||
 |[jj](https://jj-vcs.github.io/)|[**en-US**](/completions/jj/language/en-US.json)<br>[**zh-CN(100%)**](/completions/jj/language/zh-CN.json)|Jujutsu (jj) - 一个与 Git 兼容的版本控制系统，既简单又强大。|
 |[jjui](https://idursun.github.io/jjui/)|[**en-US**](/completions/jjui/language/en-US.json)<br>[**zh-CN(100%)**](/completions/jjui/language/zh-CN.json)|Jujutsu UI (jjui) 是一个为与 Jujutsu (jj) 版本控制系统交互而设计的文本用户界面 (TUI)|
 |[join](https://github.com/uutils/coreutils)|[**en-US**](/completions/join/language/en-US.json)<br>[**zh-CN(13.33%)**](/completions/join/language/zh-CN.json)|For each pair of input lines with identical join fields, write a line to standard output.<br>The default join field is the first, delimited by blanks.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
