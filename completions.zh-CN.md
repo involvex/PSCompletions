@@ -27,7 +27,7 @@
 |[chfs](http://iscute.cn/chfs)|[**en-US**](/completions/chfs/language/en-US.json)<br>[**zh-CN(100%)**](/completions/chfs/language/zh-CN.json)|CuteHttpFileServer - 一个免费的、HTTP协议的文件共享服务器。|
 |[choco](https://chocolatey.org/)|[**en-US**](/completions/choco/language/en-US.json)<br>[**zh-CN(100%)**](/completions/choco/language/zh-CN.json)|choco(chocolatey) - 软件管理。|
 |[cksum](https://github.com/uutils/coreutils)|[**en-US**](/completions/cksum/language/en-US.json)<br>[**zh-CN(25%)**](/completions/cksum/language/zh-CN.json)|Print CRC and size for each file.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
-|[code]()|[****](/completions/code/language/.json)||
+|[code](https://code.visualstudio.com/docs/editor/command-line)|[**en-US**](/completions/code/language/en-US.json)<br>[**zh-CN(100%)**](/completions/code/language/zh-CN.json)|Visual Studio Code 命令行界面。|
 |[comm](https://github.com/uutils/coreutils)|[**en-US**](/completions/comm/language/en-US.json)<br>[**zh-CN(25%)**](/completions/comm/language/zh-CN.json)|Compare two sorted files line by line.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
 |[conda](https://github.com/conda/conda)|[**en-US**](/completions/conda/language/en-US.json)<br>[**zh-CN(100%)**](/completions/conda/language/zh-CN.json)|conda - 二进制包和环境管理器。|
 |[csplit](https://github.com/uutils/coreutils)|[**en-US**](/completions/csplit/language/en-US.json)<br>[**zh-CN(22.22%)**](/completions/csplit/language/zh-CN.json)|Split a file into sections determined by context lines.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|

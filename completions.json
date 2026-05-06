@@ -104,7 +104,7 @@
     "chfs": "3299544b6cb2dae92c0fd99ae44eb2c741fcac294283636dbd31642deacbfff2",
     "choco": "fa7b42aa8564ecd6d2052eca5fb966fbd4762e9da5fef5967ad533f4d1334322",
     "cksum": "2db5a923560ea3fdcb088da981e4b8a2d86f453de6e82991742a73adbb53a7d5",
-    "code": "9116e38f86b3b9293a979a0b7d4cf58902db10fe005cb4f6b2ec4d7112764cb1",
+    "code": "470d68e9c393a085fc9a7d723aca3418877a22e6b70579c0e95ca645173e78a0",
     "comm": "8c06e918b27eec5f3ff90c3ff49c2252b9509c8a46b4d17518c13e27ea93192e",
     "conda": "a426c879d30b52091e868cf77ebcd325d1e4da121c7a9b4efac7f1e3c964752f",
     "csplit": "dcc9bcb8c8b9038b4908994fe67cb30b5f792299025fc7352681d9bb33d5b9db",
@@ -400,7 +400,20 @@
         ]
       }
     },
-    "code": {},
+    "code": {
+      "en-US": {
+        "url": "https://code.visualstudio.com/docs/editor/command-line",
+        "description": [
+          "Visual Studio Code command line interface."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://code.visualstudio.com/docs/editor/command-line",
+        "description": [
+          "Visual Studio Code 命令行界面。"
+        ]
+      }
+    },
     "comm": {
       "en-US": {
         "url": "https://github.com/uutils/coreutils",
