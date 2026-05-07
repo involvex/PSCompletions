@@ -1,0 +1,299 @@
+{
+  "meta": {
+    "url": "https://github.com/pyenv/pyenv",
+    "description": [
+      "pyenv - Simple Python version management.",
+      "Manage multiple Python versions and switch between them easily."
+    ]
+  },
+  "root": [
+    {
+      "name": "help",
+      "tip": [
+        "U: help [<command>]",
+        "Show help for a specific command or list all commands.",
+        "E: help install"
+      ]
+    },
+    {
+      "name": "commands",
+      "tip": [
+        "U: commands [--sh|--no-sh]",
+        "List all available pyenv commands.",
+        "E: commands --sh"
+      ],
+      "option": [
+        {
+          "name": "--sh",
+          "tip": [
+            "Show only shell commands."
+          ]
+        },
+        {
+          "name": "--no-sh",
+          "tip": [
+            "Show only non-shell commands."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "local",
+      "tip": [
+        "U: local [<version>]",
+        "Set or show the local Python version for the current directory.",
+        "Creates a .python-version file in the current directory.",
+        "E: local 3.11.0"
+      ]
+    },
+    {
+      "name": "global",
+      "tip": [
+        "U: global [<version>]",
+        "Set or show the global Python version.",
+        "Affects all directories unless overridden by local version.",
+        "E: global 3.11.0"
+      ]
+    },
+    {
+      "name": "shell",
+      "tip": [
+        "U: shell [<version>]",
+        "Set or show the shell-specific Python version.",
+        "Overrides global and local settings for the current shell session.",
+        "E: shell 3.11.0"
+      ]
+    },
+    {
+      "name": "install",
+      "tip": [
+        "U: install [-k|--keep] [-v|--verbose] [-g|--debug] <version>",
+        "Install a Python version from source.",
+        "E: install 3.11.0"
+      ],
+      "option": [
+        {
+          "name": "-k",
+          "alias": "--keep",
+          "tip": [
+            "Keep source tree in $PYENV_BUILD_ROOT after installation."
+          ]
+        },
+        {
+          "name": "-v",
+          "alias": "--verbose",
+          "tip": [
+            "Verbose mode: print compilation status to stdout."
+          ]
+        },
+        {
+          "name": "-g",
+          "alias": "--debug",
+          "tip": [
+            "Debug mode: build without optimization."
+          ]
+        },
+        {
+          "name": "--list",
+          "tip": [
+            "List all available versions for installation."
+          ]
+        },
+        {
+          "name": "--list-all",
+          "tip": [
+            "List all available versions including development versions."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "uninstall",
+      "tip": [
+        "U: uninstall [-f|--force] <version>",
+        "Uninstall a Python version.",
+        "E: uninstall 3.11.0"
+      ],
+      "option": [
+        {
+          "name": "-f",
+          "alias": "--force",
+          "tip": [
+            "Force uninstall without confirmation."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rehash",
+      "tip": [
+        "U: rehash",
+        "Rehash pyenv shims to recognize newly installed Python versions.",
+        "Run this after installing a new Python version."
+      ]
+    },
+    {
+      "name": "version",
+      "tip": [
+        "U: version",
+        "Show the current Python version.",
+        "Displays the active Python version with its origin."
+      ]
+    },
+    {
+      "name": "versions",
+      "tip": [
+        "U: versions [--bare]",
+        "List all Python versions known to pyenv.",
+        "E: versions --bare"
+      ],
+      "option": [
+        {
+          "name": "--bare",
+          "tip": [
+            "Show only version names without additional information."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "which",
+      "tip": [
+        "U: which <command>",
+        "Show the full path to the executable that would be invoked.",
+        "E: which python"
+      ]
+    },
+    {
+      "name": "whence",
+      "tip": [
+        "U: whence [--path] <command>",
+        "Show all Python versions with the given command.",
+        "E: whence python"
+      ],
+      "option": [
+        {
+          "name": "--path",
+          "tip": [
+            "Show full paths instead of version names."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "exec",
+      "tip": [
+        "U: exec <command> [args...]",
+        "Run a command with the selected Python version.",
+        "E: exec python --version"
+      ]
+    },
+    {
+      "name": "root",
+      "tip": [
+        "U: root",
+        "Display the root directory where versions and shims are stored."
+      ]
+    },
+    {
+      "name": "prefix",
+      "tip": [
+        "U: prefix [<version>]",
+        "Display the installation prefix for a Python version.",
+        "E: prefix 3.11.0"
+      ]
+    },
+    {
+      "name": "latest",
+      "tip": [
+        "U: latest [--known] [--print] <version>",
+        "Show the latest installed or known version.",
+        "E: latest 3.11"
+      ],
+      "option": [
+        {
+          "name": "--known",
+          "tip": [
+            "Show the latest known version instead of installed."
+          ]
+        },
+        {
+          "name": "--print",
+          "tip": [
+            "Print the version number only."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hooks",
+      "tip": [
+        "U: hooks <command>",
+        "List hook scripts for the given pyenv command.",
+        "E: hooks install"
+      ]
+    },
+    {
+      "name": "shims",
+      "tip": [
+        "U: shims [--short]",
+        "List existing pyenv shims.",
+        "E: shims --short"
+      ],
+      "option": [
+        {
+          "name": "--short",
+          "tip": [
+            "List only shim names without full paths."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "init",
+      "tip": [
+        "U: init [--no-rehash] <shell>",
+        "Load pyenv into the current shell.",
+        "E: init bash"
+      ],
+      "option": [
+        {
+          "name": "--no-rehash",
+          "tip": [
+            "Suppress automatic rehashing."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "completions",
+      "tip": [
+        "U: completions <shell>",
+        "Generate shell completion scripts for pyenv.",
+        "E: completions bash"
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--version",
+      "tip": [
+        "Display the version of pyenv."
+      ]
+    }
+  ],
+  "common_option": [
+    {
+      "name": "--help",
+      "tip": [
+        "Show help for the command."
+      ]
+    },
+    {
+      "name": "--debug",
+      "tip": [
+        "Enable debug mode for troubleshooting."
+      ]
+    }
+  ]
+}
