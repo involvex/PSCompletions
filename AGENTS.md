@@ -26,6 +26,13 @@ scripts/
   publish-to-gallery.ps1 # Publish to PowerShell Gallery (on tag push)
   push-change.ps1        # Auto-commit helper used by CI
 
+tests/
+  Run-AllTests.ps1       # Main test runner
+  Validate-Config.ps1    # Config validation
+  Validate-CompletionJson.ps1  # JSON validation
+  Validate-Hooks.ps1     # Hooks validation
+  README.md              # Test documentation
+
 module/CHANGELOG.md       # Version history
 ```
 
@@ -54,6 +61,63 @@ Completion definition schema (en-US.json example):
 - `option` and `common_option` (not `options` / `common_options`) — changed in v6.7.0
 - `repeat` on a command means it can appear multiple times without consuming input
 - `next` is a subcommand array
+
+## Testing Completion Packs
+
+**IMPORTANT**: Always run tests before committing completion pack changes.
+
+```powershell
+# Run all tests for a completion pack
+.\tests\Run-AllTests.ps1 -CompletionPath "completions\<name>"
+
+# Run specific tests
+.\tests\Validate-Config.ps1 -CompletionPath "completions\<name>"
+.\tests\Validate-CompletionJson.ps1 -CompletionPath "completions\<name>"
+.\tests\Validate-Hooks.ps1 -CompletionPath "completions\<name>"
+```
+
+### What the Tests Validate
+
+1. **Config Validation** (`Validate-Config.ps1`):
+   - Valid JSON syntax
+   - Required fields (language)
+   - Valid language codes
+   - Proper hooks flag
+   - Hooks.ps1 existence when hooks is true
+
+2. **JSON Validation** (`Validate-CompletionJson.ps1`):
+   - Valid JSON syntax
+   - Required fields (meta, root, option, common_option)
+   - No duplicate command names
+   - Proper option structure
+   - Command and option descriptions
+
+3. **Hooks Validation** (`Validate-Hooks.ps1`):
+   - Valid PowerShell syntax
+   - Required function (handleCompletions)
+   - Proper function signature
+   - Common PSCompletions patterns
+
+### Test Results
+
+- Exit code 0: All tests passed ✅
+- Exit code 1: Tests failed ❌
+
+All tests provide color-coded output with detailed error messages.
+
+### Common Test Failures
+
+1. **Invalid JSON syntax**: Check for missing commas, quotes, or brackets
+2. **Missing required fields**: Ensure all required fields are present
+3. **PowerShell syntax errors**: Check for missing braces, parentheses, or quotes
+4. **Duplicate command names**: Ensure all command names are unique
+
+### Testing Best Practices
+
+1. **Run tests before committing**: Always validate your work
+2. **Fix all errors**: Ensure all tests pass before submitting PRs
+3. **Address warnings**: Review warnings, though they won't block commits
+4. **Test locally first**: Use the test scripts to validate before pushing
 
 ## Testing a Completion Pack Locally
 
@@ -144,9 +208,27 @@ Override with `psc config url <url>`.
 - Use **semantic versioning**
 - Changelog has English + Chinese sections
 
-## No Formal Tests
+## Testing
 
-There is no test harness in this repo. Testing is manual:
+### Automated Tests
+
+The repository includes automated tests in the `tests/` directory:
+
+```powershell
+# Run all tests for a completion pack
+.\tests\Run-AllTests.ps1 -CompletionPath "completions\<name>"
+
+# Run specific tests
+.\tests\Validate-Config.ps1 -CompletionPath "completions\<name>"
+.\tests\Validate-CompletionJson.ps1 -CompletionPath "completions\<name>"
+.\tests\Validate-Hooks.ps1 -CompletionPath "completions\<name>"
+```
+
+See `tests/README.md` for detailed documentation.
+
+### Manual Testing
+
+For interactive testing:
 - Link the completion pack
 - Import the module fresh
 - Exercise Tab completion in an interactive PowerShell session
