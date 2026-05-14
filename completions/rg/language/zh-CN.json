@@ -1,0 +1,972 @@
+﻿{
+  "meta": {
+    "url": "https://github.com/BurntSushi/ripgrep",
+    "description": [
+      "ripgrep (rg) 是一款递归搜索当前目录中匹配正则表达式模式的命令行工具。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "tip": [
+        "U: -V, --version",
+        "显示 ripgrep 版本信息。"
+      ]
+    },
+    {
+      "name": "--pcre2-version",
+      "tip": [
+        "显示 PCRE2 版本信息。"
+      ]
+    },
+    {
+      "name": "--type-list",
+      "tip": [
+        "显示所有支持的文件类型及其对应的 glob 模式。"
+      ]
+    },
+    {
+      "name": "--files",
+      "tip": [
+        "打印将会被搜索的每个文件。"
+      ]
+    },
+    {
+      "name": "--generate",
+      "tip": [
+        "U: --generate <KIND>",
+        "生成特殊输出（man, complete-bash, complete-zsh, complete-fish, complete-powershell）。"
+      ],
+      "next": [
+        {
+          "name": "man"
+        },
+        {
+          "name": "complete-bash"
+        },
+        {
+          "name": "complete-zsh"
+        },
+        {
+          "name": "complete-fish"
+        },
+        {
+          "name": "complete-powershell"
+        }
+      ]
+    },
+    {
+      "name": "--no-config",
+      "tip": [
+        "不读取任何配置文件。"
+      ]
+    }
+  ],
+  "common_option": [
+    {
+      "name": "-e",
+      "alias": [
+        "--regexp"
+      ],
+      "tip": [
+        "U: -e, --regexp <PATTERN>",
+        "要搜索的模式。可多次提供。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-f",
+      "alias": [
+        "--file"
+      ],
+      "tip": [
+        "U: -f, --file <PATTERNFILE>",
+        "从指定文件读取搜索模式。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--pre",
+      "tip": [
+        "U: --pre <COMMAND>",
+        "对每个 PATH 搜索 COMMAND 的标准输出。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--pre-glob",
+      "tip": [
+        "U: --pre-glob <GLOB>",
+        "仅对匹配指定 glob 的文件运行 --pre。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-z",
+      "alias": [
+        "--search-zip"
+      ],
+      "tip": [
+        "U: -z, --search-zip",
+        "搜索压缩文件（gzip, bzip2, xz 等）。"
+      ]
+    },
+    {
+      "name": "-s",
+      "alias": [
+        "--case-sensitive"
+      ],
+      "tip": [
+        "U: -s, --case-sensitive",
+        "区分大小写搜索（默认）。"
+      ]
+    },
+    {
+      "name": "--crlf",
+      "tip": [
+        "将 CRLF 视为行终止符。"
+      ]
+    },
+    {
+      "name": "--dfa-size-limit",
+      "tip": [
+        "U: --dfa-size-limit <NUM+SUFFIX?>",
+        "正则 DFA 的大小上限。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-E",
+      "alias": [
+        "--encoding"
+      ],
+      "tip": [
+        "U: -E, --encoding <ENCODING>",
+        "指定文本编码（默认：auto）。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--engine",
+      "tip": [
+        "U: --engine <ENGINE>",
+        "指定正则引擎（default, pcre2, auto）。"
+      ],
+      "next": [
+        {
+          "name": "default",
+          "tip": [
+            "最快，适用于大多数情况"
+          ]
+        },
+        {
+          "name": "pcre2",
+          "tip": [
+            "用于前后查找或反向引用"
+          ]
+        },
+        {
+          "name": "auto",
+          "tip": [
+            "根据模式动态选择"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "-F",
+      "alias": [
+        "--fixed-strings"
+      ],
+      "tip": [
+        "U: -F, --fixed-strings",
+        "将所有模式视为字面字符串。"
+      ]
+    },
+    {
+      "name": "-i",
+      "alias": [
+        "--ignore-case"
+      ],
+      "tip": [
+        "U: -i, --ignore-case",
+        "不区分大小写搜索。"
+      ]
+    },
+    {
+      "name": "-v",
+      "alias": [
+        "--invert-match"
+      ],
+      "tip": [
+        "U: -v, --invert-match",
+        "反向匹配（打印不匹配的行）。"
+      ]
+    },
+    {
+      "name": "-x",
+      "alias": [
+        "--line-regexp"
+      ],
+      "tip": [
+        "U: -x, --line-regexp",
+        "仅显示匹配整个行的结果。"
+      ]
+    },
+    {
+      "name": "-m",
+      "alias": [
+        "--max-count"
+      ],
+      "tip": [
+        "U: -m, --max-count <NUM>",
+        "限制每个文件匹配的行数。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--mmap",
+      "tip": [
+        "尽可能使用内存映射搜索。"
+      ]
+    },
+    {
+      "name": "-U",
+      "alias": [
+        "--multiline"
+      ],
+      "tip": [
+        "U: -U, --multiline",
+        "启用跨多行搜索。"
+      ]
+    },
+    {
+      "name": "--multiline-dotall",
+      "tip": [
+        "启用多行模式时，使用 'dot all' 正则模式。"
+      ]
+    },
+    {
+      "name": "--no-unicode",
+      "tip": [
+        "禁用所有模式的 Unicode 模式。"
+      ]
+    },
+    {
+      "name": "--null-data",
+      "tip": [
+        "使用 NUL 而不是 \\n 作为行终止符。"
+      ]
+    },
+    {
+      "name": "-P",
+      "alias": [
+        "--pcre2"
+      ],
+      "tip": [
+        "U: -P, --pcre2",
+        "使用 PCRE2 正则引擎。"
+      ]
+    },
+    {
+      "name": "--regex-size-limit",
+      "tip": [
+        "U: --regex-size-limit <NUM+SUFFIX?>",
+        "编译后正则的大小限制。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-S",
+      "alias": [
+        "--smart-case"
+      ],
+      "tip": [
+        "U: -S, --smart-case",
+        "如果模式全为小写则不区分大小写搜索。"
+      ]
+    },
+    {
+      "name": "--stop-on-nonmatch",
+      "tip": [
+        "在遇到匹配行后的不匹配行时停止读取文件。"
+      ]
+    },
+    {
+      "name": "-a",
+      "alias": [
+        "--text"
+      ],
+      "tip": [
+        "U: -a, --text",
+        "将二进制文件当作文本文件搜索。"
+      ]
+    },
+    {
+      "name": "-j",
+      "alias": [
+        "--threads"
+      ],
+      "tip": [
+        "U: -j, --threads <NUM>",
+        "使用的近似线程数。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-w",
+      "alias": [
+        "--word-regexp"
+      ],
+      "tip": [
+        "U: -w, --word-regexp",
+        "仅显示被单词边界包围的匹配。"
+      ]
+    },
+    {
+      "name": "--auto-hybrid-regex",
+      "tip": [
+        "在正则引擎之间动态选择。"
+      ]
+    },
+    {
+      "name": "--binary",
+      "tip": [
+        "搜索二进制文件。"
+      ]
+    },
+    {
+      "name": "-L",
+      "alias": [
+        "--follow"
+      ],
+      "tip": [
+        "U: -L, --follow",
+        "跟随符号链接。"
+      ]
+    },
+    {
+      "name": "-g",
+      "alias": [
+        "--glob"
+      ],
+      "tip": [
+        "U: -g, --glob <GLOB>",
+        "包含或排除匹配指定 glob 的文件。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--glob-case-insensitive",
+      "tip": [
+        "不区分大小写处理所有 glob 模式。"
+      ]
+    },
+    {
+      "name": "-.",
+      "alias": [
+        "--hidden"
+      ],
+      "tip": [
+        "U: -., --hidden",
+        "搜索隐藏文件和目录。"
+      ]
+    },
+    {
+      "name": "--iglob",
+      "tip": [
+        "U: --iglob <GLOB>",
+        "使用不区分大小写的 glob 包含/排除文件。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--ignore-file",
+      "tip": [
+        "U: --ignore-file <PATH>",
+        "指定一个 gitignore 格式的规则文件。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--ignore-file-case-insensitive",
+      "tip": [
+        "不区分大小写处理忽略文件。"
+      ]
+    },
+    {
+      "name": "-d",
+      "alias": [
+        "--max-depth"
+      ],
+      "tip": [
+        "U: -d, --max-depth <NUM>",
+        "限制目录遍历深度。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--max-filesize",
+      "tip": [
+        "U: --max-filesize <NUM+SUFFIX?>",
+        "忽略大于指定大小的文件。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--no-ignore",
+      "tip": [
+        "不尊重忽略文件（.gitignore, .ignore, .rgignore）。"
+      ]
+    },
+    {
+      "name": "--no-ignore-dot",
+      "tip": [
+        "不尊重 .ignore 或 .rgignore 文件。"
+      ]
+    },
+    {
+      "name": "--no-ignore-exclude",
+      "tip": [
+        "不尊重 git 的 .git/info/exclude。"
+      ]
+    },
+    {
+      "name": "--no-ignore-files",
+      "tip": [
+        "忽略任何 --ignore-file 标志。"
+      ]
+    },
+    {
+      "name": "--no-ignore-global",
+      "tip": [
+        "不尊重全局忽略文件。"
+      ]
+    },
+    {
+      "name": "--no-ignore-parent",
+      "tip": [
+        "不尊重父目录中的忽略文件。"
+      ]
+    },
+    {
+      "name": "--no-ignore-vcs",
+      "tip": [
+        "不尊重 .gitignore 文件。"
+      ]
+    },
+    {
+      "name": "--no-require-git",
+      "tip": [
+        "即使没有 git 仓库也尊重 .gitignore。"
+      ]
+    },
+    {
+      "name": "--one-file-system",
+      "tip": [
+        "不跨文件系统边界。"
+      ]
+    },
+    {
+      "name": "-t",
+      "alias": [
+        "--type"
+      ],
+      "tip": [
+        "U: -t, --type <TYPE>",
+        "仅搜索匹配 TYPE 的文件。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-T",
+      "alias": [
+        "--type-not"
+      ],
+      "tip": [
+        "U: -T, --type-not <TYPE>",
+        "不搜索匹配 TYPE 的文件。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--type-add",
+      "tip": [
+        "U: --type-add <TYPESPEC>",
+        "为文件类型添加新的 glob 模式。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--type-clear",
+      "tip": [
+        "U: --type-clear <TYPE>",
+        "清除文件类型的 glob 模式。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-u",
+      "alias": [
+        "--unrestricted"
+      ],
+      "tip": [
+        "U: -u, --unrestricted",
+        "减少智能过滤级别（最多 -uuu）。"
+      ]
+    },
+    {
+      "name": "-A",
+      "alias": [
+        "--after-context"
+      ],
+      "tip": [
+        "U: -A, --after-context <NUM>",
+        "在每个匹配后显示 NUM 行。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-B",
+      "alias": [
+        "--before-context"
+      ],
+      "tip": [
+        "U: -B, --before-context <NUM>",
+        "在每个匹配前显示 NUM 行。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--block-buffered",
+      "tip": [
+        "使用块缓冲。"
+      ]
+    },
+    {
+      "name": "-b",
+      "alias": [
+        "--byte-offset"
+      ],
+      "tip": [
+        "U: -b, --byte-offset",
+        "在每行前打印基于 0 的字节偏移量。"
+      ]
+    },
+    {
+      "name": "--color",
+      "tip": [
+        "U: --color <WHEN>",
+        "控制何时使用颜色。"
+      ],
+      "next": [
+        {
+          "name": "never",
+          "tip": [
+            "从不使用颜色"
+          ]
+        },
+        {
+          "name": "auto",
+          "tip": [
+            "默认，智能检测"
+          ]
+        },
+        {
+          "name": "always",
+          "tip": [
+            "始终使用颜色"
+          ]
+        },
+        {
+          "name": "ansi",
+          "tip": [
+            "即使在 Windows 控制台也发出 ANSI 转义序列"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--colors",
+      "tip": [
+        "U: --colors <COLOR_SPEC>",
+        "指定输出的颜色设置。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--column",
+      "tip": [
+        "显示列号（从 1 开始）。"
+      ]
+    },
+    {
+      "name": "-C",
+      "alias": [
+        "--context"
+      ],
+      "tip": [
+        "U: -C, --context <NUM>",
+        "在每个匹配前后显示 NUM 行。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--context-separator",
+      "tip": [
+        "U: --context-separator <SEPARATOR>",
+        "用于分隔非连续上下文行的字符串。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--field-context-separator",
+      "tip": [
+        "U: --field-context-separator <SEPARATOR>",
+        "上下文行字段的分隔符。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--field-match-separator",
+      "tip": [
+        "U: --field-match-separator <SEPARATOR>",
+        "匹配行字段的分隔符。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--heading",
+      "tip": [
+        "在匹配结果上方打印文件路径。"
+      ]
+    },
+    {
+      "name": "-h",
+      "alias": [
+        "--help"
+      ],
+      "tip": [
+        "U: -h, --help",
+        "打印帮助信息（-h 显示简要帮助，--help 显示详细帮助）。"
+      ]
+    },
+    {
+      "name": "--hostname-bin",
+      "tip": [
+        "U: --hostname-bin <COMMAND>",
+        "用于确定系统主机名的命令。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--hyperlink-format",
+      "tip": [
+        "U: --hyperlink-format <FORMAT>",
+        "设置可点击路径的超链接格式。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--include-zero",
+      "tip": [
+        "同时打印零匹配计数。"
+      ]
+    },
+    {
+      "name": "--line-buffered",
+      "tip": [
+        "始终使用行缓冲。"
+      ]
+    },
+    {
+      "name": "-n",
+      "alias": [
+        "--line-number"
+      ],
+      "tip": [
+        "U: -n, --line-number",
+        "显示行号（从 1 开始）。"
+      ]
+    },
+    {
+      "name": "-N",
+      "alias": [
+        "--no-line-number"
+      ],
+      "tip": [
+        "U: -N, --no-line-number",
+        "隐藏行号。"
+      ]
+    },
+    {
+      "name": "-M",
+      "alias": [
+        "--max-columns"
+      ],
+      "tip": [
+        "U: -M, --max-columns <NUM>",
+        "省略超过指定限制的行。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--max-columns-preview",
+      "tip": [
+        "显示超出最大列数限制的行的预览。"
+      ]
+    },
+    {
+      "name": "-0",
+      "alias": [
+        "--null"
+      ],
+      "tip": [
+        "U: -0, --null",
+        "在文件路径后跟 NUL 字节。"
+      ]
+    },
+    {
+      "name": "-o",
+      "alias": [
+        "--only-matching"
+      ],
+      "tip": [
+        "U: -o, --only-matching",
+        "仅打印行的匹配部分。"
+      ]
+    },
+    {
+      "name": "--path-separator",
+      "tip": [
+        "U: --path-separator <SEPARATOR>",
+        "设置文件路径的分隔符。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--passthru",
+      "tip": [
+        "同时打印匹配和不匹配的行。"
+      ]
+    },
+    {
+      "name": "-p",
+      "alias": [
+        "--pretty"
+      ],
+      "tip": [
+        "U: -p, --pretty",
+        "--color=always --heading --line-number 的别名。"
+      ]
+    },
+    {
+      "name": "-q",
+      "alias": [
+        "--quiet"
+      ],
+      "tip": [
+        "U: -q, --quiet",
+        "不向标准输出打印任何内容。"
+      ]
+    },
+    {
+      "name": "-r",
+      "alias": [
+        "--replace"
+      ],
+      "tip": [
+        "U: -r, --replace <REPLACEMENT>",
+        "用给定的文本替换每个匹配。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--sort",
+      "tip": [
+        "U: --sort <SORTBY>",
+        "按升序对结果排序。"
+      ],
+      "next": [
+        {
+          "name": "none",
+          "tip": [
+            "默认，不排序"
+          ]
+        },
+        {
+          "name": "path",
+          "tip": [
+            "按文件路径排序"
+          ]
+        },
+        {
+          "name": "modified",
+          "tip": [
+            "按最后修改时间排序"
+          ]
+        },
+        {
+          "name": "accessed",
+          "tip": [
+            "按最后访问时间排序"
+          ]
+        },
+        {
+          "name": "created",
+          "tip": [
+            "按创建时间排序"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--sortr",
+      "tip": [
+        "U: --sortr <SORTBY>",
+        "按降序对结果排序。"
+      ],
+      "next": [
+        {
+          "name": "none",
+          "tip": [
+            "默认，不排序"
+          ]
+        },
+        {
+          "name": "path",
+          "tip": [
+            "按文件路径排序"
+          ]
+        },
+        {
+          "name": "modified",
+          "tip": [
+            "按最后修改时间排序"
+          ]
+        },
+        {
+          "name": "accessed",
+          "tip": [
+            "按最后访问时间排序"
+          ]
+        },
+        {
+          "name": "created",
+          "tip": [
+            "按创建时间排序"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--trim",
+      "tip": [
+        "移除每行开头的 ASCII 空白字符。"
+      ]
+    },
+    {
+      "name": "--vimgrep",
+      "tip": [
+        "每行打印每个匹配，包含行号和列号。"
+      ]
+    },
+    {
+      "name": "-H",
+      "alias": [
+        "--with-filename"
+      ],
+      "tip": [
+        "U: -H, --with-filename",
+        "为每个匹配行打印文件路径。"
+      ]
+    },
+    {
+      "name": "-I",
+      "alias": [
+        "--no-filename"
+      ],
+      "tip": [
+        "U: -I, --no-filename",
+        "不为匹配行打印文件路径。"
+      ]
+    },
+    {
+      "name": "-c",
+      "alias": [
+        "--count"
+      ],
+      "tip": [
+        "U: -c, --count",
+        "显示每个文件匹配行的计数。"
+      ]
+    },
+    {
+      "name": "--count-matches",
+      "tip": [
+        "显示每个文件匹配的单独计数。"
+      ]
+    },
+    {
+      "name": "-l",
+      "alias": [
+        "--files-with-matches"
+      ],
+      "tip": [
+        "U: -l, --files-with-matches",
+        "仅打印至少有一个匹配的文件路径。"
+      ]
+    },
+    {
+      "name": "--files-without-match",
+      "tip": [
+        "打印没有匹配的文件路径。"
+      ]
+    },
+    {
+      "name": "--json",
+      "tip": [
+        "以 JSON Lines 格式打印结果。"
+      ]
+    },
+    {
+      "name": "--debug",
+      "tip": [
+        "显示调试信息。"
+      ]
+    },
+    {
+      "name": "--no-ignore-messages",
+      "tip": [
+        "抑制忽略文件解析错误。"
+      ]
+    },
+    {
+      "name": "--no-messages",
+      "tip": [
+        "抑制文件打开/读取错误信息。"
+      ]
+    },
+    {
+      "name": "--stats",
+      "tip": [
+        "打印搜索的汇总统计信息。"
+      ]
+    },
+    {
+      "name": "--trace",
+      "tip": [
+        "显示跟踪信息（比 --debug 更详细）。"
+      ]
+    },
+    {
+      "name": "--",
+      "tip": [
+        "终止参数处理。"
+      ]
+    }
+  ]
+}
