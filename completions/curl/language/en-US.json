@@ -1,0 +1,1916 @@
+{
+  "meta": {
+    "url": "https://curl.se",
+    "description": [
+      "Transfer data from or to a server using URLs.",
+      "curl is a command-line tool for transferring data with URL syntax."
+    ]
+  },
+  "root": [],
+  "option": [
+    {
+      "name": "-1",
+      "alias": ["--tlsv1"],
+      "tip": [
+        "TLSv1.0 or greater."
+      ]
+    },
+    {
+      "name": "-2",
+      "alias": ["--sslv2"],
+      "tip": [
+        "SSLv2."
+      ]
+    },
+    {
+      "name": "-3",
+      "alias": ["--sslv3"],
+      "tip": [
+        "SSLv3."
+      ]
+    },
+    {
+      "name": "-4",
+      "alias": ["--ipv4"],
+      "tip": [
+        "Resolve names to IPv4 addresses."
+      ]
+    },
+    {
+      "name": "-6",
+      "alias": ["--ipv6"],
+      "tip": [
+        "Resolve names to IPv6 addresses."
+      ]
+    },
+    {
+      "name": "-a",
+      "alias": ["--append"],
+      "tip": [
+        "Append to target file when uploading."
+      ]
+    },
+    {
+      "name": "-A",
+      "alias": ["--user-agent"],
+      "tip": [
+        "Send User-Agent <name> to server."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-b",
+      "alias": ["--cookie"],
+      "tip": [
+        "Send cookies from string/load from file."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-B",
+      "alias": ["--use-ascii"],
+      "tip": [
+        "Use ASCII/text transfer."
+      ]
+    },
+    {
+      "name": "-c",
+      "alias": ["--cookie-jar"],
+      "tip": [
+        "Save cookies to <filename> after operation."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-C",
+      "alias": ["--continue-at"],
+      "tip": [
+        "Resumed transfer offset."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-d",
+      "alias": ["--data"],
+      "tip": [
+        "HTTP POST data."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--data-ascii",
+      "tip": [
+        "HTTP POST ASCII data."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--data-binary",
+      "tip": [
+        "HTTP POST binary data."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--data-raw",
+      "tip": [
+        "HTTP POST data, '@' allowed."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--data-urlencode",
+      "tip": [
+        "HTTP POST data URL encoded."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-D",
+      "alias": ["--dump-header"],
+      "tip": [
+        "Write the received headers to <filename>."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-E",
+      "alias": ["--cert"],
+      "tip": [
+        "Client certificate file and password."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-e",
+      "alias": ["--referer"],
+      "tip": [
+        "Referrer URL."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-F",
+      "alias": ["--form"],
+      "tip": [
+        "Specify multipart MIME data."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-G",
+      "alias": ["--get"],
+      "tip": [
+        "Put the post data in the URL and use GET."
+      ]
+    },
+    {
+      "name": "-g",
+      "alias": ["--globoff"],
+      "tip": [
+        "Disable URL globbing with {} and []."
+      ]
+    },
+    {
+      "name": "-H",
+      "alias": ["--header"],
+      "tip": [
+        "Pass custom header(s) to server."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-I",
+      "alias": ["--head"],
+      "tip": [
+        "Show document info only."
+      ]
+    },
+    {
+      "name": "-i",
+      "alias": ["--show-headers"],
+      "tip": [
+        "Show response headers in output."
+      ]
+    },
+    {
+      "name": "-j",
+      "alias": ["--junk-session-cookies"],
+      "tip": [
+        "Ignore session cookies read from file."
+      ]
+    },
+    {
+      "name": "-J",
+      "alias": ["--remote-header-name"],
+      "tip": [
+        "Use the header-provided filename."
+      ]
+    },
+    {
+      "name": "-K",
+      "alias": ["--config"],
+      "tip": [
+        "Read config from a file."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-k",
+      "alias": ["--insecure"],
+      "tip": [
+        "Allow insecure server connections."
+      ]
+    },
+    {
+      "name": "-L",
+      "alias": ["--location"],
+      "tip": [
+        "Follow redirects."
+      ]
+    },
+    {
+      "name": "-l",
+      "alias": ["--list-only"],
+      "tip": [
+        "List only mode."
+      ]
+    },
+    {
+      "name": "-M",
+      "alias": ["--manual"],
+      "tip": [
+        "Display the full manual."
+      ]
+    },
+    {
+      "name": "-m",
+      "alias": ["--max-time"],
+      "tip": [
+        "Maximum time allowed for transfer."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-N",
+      "alias": ["--no-buffer"],
+      "tip": [
+        "Disable buffering of the output stream."
+      ]
+    },
+    {
+      "name": "-n",
+      "alias": ["--netrc"],
+      "tip": [
+        "Must read .netrc for username and password."
+      ]
+    },
+    {
+      "name": "-",
+      "alias": ["--next"],
+      "tip": [
+        "Make next URL use separate options."
+      ]
+    },
+    {
+      "name": "-O",
+      "alias": ["--remote-name"],
+      "tip": [
+        "Write output to file named as remote file."
+      ]
+    },
+    {
+      "name": "-o",
+      "alias": ["--output"],
+      "tip": [
+        "Write to file instead of stdout."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-P",
+      "alias": ["--ftp-port"],
+      "tip": [
+        "Send PORT instead of PASV."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-q",
+      "alias": ["--disable"],
+      "tip": [
+        "Disable .curlrc."
+      ]
+    },
+    {
+      "name": "-Q",
+      "alias": ["--quote"],
+      "tip": [
+        "Send command(s) to server before transfer."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-r",
+      "alias": ["--range"],
+      "tip": [
+        "Retrieve only the bytes within RANGE."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-R",
+      "alias": ["--remote-time"],
+      "tip": [
+        "Set remote file's time on local output."
+      ]
+    },
+    {
+      "name": "-S",
+      "alias": ["--show-error"],
+      "tip": [
+        "Show error even when -s is used."
+      ]
+    },
+    {
+      "name": "-s",
+      "alias": ["--silent"],
+      "tip": [
+        "Silent mode."
+      ]
+    },
+    {
+      "name": "-T",
+      "alias": ["--upload-file"],
+      "tip": [
+        "Transfer local FILE to destination."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-U",
+      "alias": ["--proxy-user"],
+      "tip": [
+        "Proxy user and password."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-u",
+      "alias": ["--user"],
+      "tip": [
+        "Server user and password."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-v",
+      "alias": ["--verbose"],
+      "tip": [
+        "Make the operation more talkative."
+      ]
+    },
+    {
+      "name": "-V",
+      "alias": ["--version"],
+      "tip": [
+        "Show version number and quit."
+      ]
+    },
+    {
+      "name": "-w",
+      "alias": ["--write-out"],
+      "tip": [
+        "Output FORMAT after completion."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-X",
+      "alias": ["--request"],
+      "tip": [
+        "Specify request method to use."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-x",
+      "alias": ["--proxy"],
+      "tip": [
+        "Use this proxy."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-z",
+      "alias": ["--time-cond"],
+      "tip": [
+        "Transfer based on a time condition."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-#",
+      "alias": ["--progress-bar"],
+      "tip": [
+        "Display transfer progress as a bar."
+      ]
+    },
+    {
+      "name": "--abstract-unix-socket",
+      "tip": [
+        "Connect via abstract Unix domain socket."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--alt-svc",
+      "tip": [
+        "Enable alt-svc with this cache file."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--anyauth",
+      "tip": [
+        "Pick any authentication method."
+      ]
+    },
+    {
+      "name": "--aws-sigv4",
+      "tip": [
+        "AWS V4 signature auth."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--basic",
+      "tip": [
+        "HTTP Basic Authentication."
+      ]
+    },
+    {
+      "name": "--ca-native",
+      "tip": [
+        "Load CA certs from the OS."
+      ]
+    },
+    {
+      "name": "--cacert",
+      "tip": [
+        "CA certificate to verify peer against."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--capath",
+      "tip": [
+        "CA directory to verify peer against."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--cert-status",
+      "tip": [
+        "Verify server cert status OCSP-staple."
+      ]
+    },
+    {
+      "name": "--cert-type",
+      "tip": [
+        "Certificate type (DER/PEM/ENG/PROV/P12)."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--ciphers",
+      "tip": [
+        "TLS 1.2 (1.1, 1.0) ciphers to use."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--compressed",
+      "tip": [
+        "Request compressed response."
+      ]
+    },
+    {
+      "name": "--compressed-ssh",
+      "tip": [
+        "Enable SSH compression."
+      ]
+    },
+    {
+      "name": "--connect-timeout",
+      "tip": [
+        "Maximum time allowed to connect."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--connect-to",
+      "tip": [
+        "Connect to host2 instead of host1."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--create-dirs",
+      "tip": [
+        "Create necessary local directory hierarchy."
+      ]
+    },
+    {
+      "name": "--create-file-mode",
+      "tip": [
+        "File mode for created files."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--crlf",
+      "tip": [
+        "Convert LF to CRLF in upload."
+      ]
+    },
+    {
+      "name": "--crlfile",
+      "tip": [
+        "Certificate Revocation list."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--curves",
+      "tip": [
+        "(EC) TLS key exchange algorithms to request."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--delegation",
+      "tip": [
+        "GSS-API delegation permission."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--digest",
+      "tip": [
+        "HTTP Digest Authentication."
+      ]
+    },
+    {
+      "name": "--disable-eprt",
+      "tip": [
+        "Inhibit using EPRT or LPRT."
+      ]
+    },
+    {
+      "name": "--disable-epsv",
+      "tip": [
+        "Inhibit using EPSV."
+      ]
+    },
+    {
+      "name": "--disallow-username-in-url",
+      "tip": [
+        "Disallow username in URL."
+      ]
+    },
+    {
+      "name": "--dns-interface",
+      "tip": [
+        "Interface to use for DNS requests."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--dns-ipv4-addr",
+      "tip": [
+        "IPv4 address to use for DNS requests."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--dns-ipv6-addr",
+      "tip": [
+        "IPv6 address to use for DNS requests."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--dns-servers",
+      "tip": [
+        "DNS server addrs to use."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--doh-cert-status",
+      "tip": [
+        "Verify DoH server cert status OCSP-staple."
+      ]
+    },
+    {
+      "name": "--doh-insecure",
+      "tip": [
+        "Allow insecure DoH server connections."
+      ]
+    },
+    {
+      "name": "--doh-url",
+      "tip": [
+        "Resolve hostnames over DoH."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--dump-ca-embed",
+      "tip": [
+        "Write the embedded CA bundle to standard output."
+      ]
+    },
+    {
+      "name": "--egd-file",
+      "tip": [
+        "EGD socket path for random data."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--engine",
+      "tip": [
+        "Crypto engine to use."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--etag-compare",
+      "tip": [
+        "Load ETag from file."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--etag-save",
+      "tip": [
+        "Parse incoming ETag and save to a file."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--expect100-timeout",
+      "tip": [
+        "How long to wait for 100-continue."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--fail",
+      "tip": [
+        "Fail fast with no output on HTTP errors."
+      ]
+    },
+    {
+      "name": "--fail-early",
+      "tip": [
+        "Fail on first transfer error."
+      ]
+    },
+    {
+      "name": "--fail-with-body",
+      "tip": [
+        "Fail on HTTP errors but save the body."
+      ]
+    },
+    {
+      "name": "--false-start",
+      "tip": [
+        "Enable TLS False Start."
+      ]
+    },
+    {
+      "name": "--follow",
+      "tip": [
+        "Follow redirects per spec."
+      ]
+    },
+    {
+      "name": "--form-escape",
+      "tip": [
+        "Escape form fields using backslash."
+      ]
+    },
+    {
+      "name": "--form-string",
+      "tip": [
+        "Specify multipart MIME data."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--ftp-account",
+      "tip": [
+        "Account data string."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--ftp-alternative-to-user",
+      "tip": [
+        "String to replace USER [name]."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--ftp-create-dirs",
+      "tip": [
+        "Create the remote dirs if not present."
+      ]
+    },
+    {
+      "name": "--ftp-method",
+      "tip": [
+        "Control CWD usage."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--ftp-pasv",
+      "tip": [
+        "Send PASV/EPSV instead of PORT."
+      ]
+    },
+    {
+      "name": "--ftp-port",
+      "tip": [
+        "Send PORT instead of PASV."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--ftp-pret",
+      "tip": [
+        "Send PRET before PASV."
+      ]
+    },
+    {
+      "name": "--ftp-skip-pasv-ip",
+      "tip": [
+        "Skip the IP address for PASV."
+      ]
+    },
+    {
+      "name": "--ftp-ssl-ccc",
+      "tip": [
+        "Send CCC after authenticating."
+      ]
+    },
+    {
+      "name": "--ftp-ssl-ccc-mode",
+      "tip": [
+        "Set CCC mode."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--ftp-ssl-control",
+      "tip": [
+        "Require TLS for login, clear for transfer."
+      ]
+    },
+    {
+      "name": "--happy-eyeballs-timeout-ms",
+      "tip": [
+        "Time for IPv6 before IPv4."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--haproxy-clientip",
+      "tip": [
+        "Set address in HAProxy PROXY."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--haproxy-protocol",
+      "tip": [
+        "Send HAProxy PROXY protocol v1 header."
+      ]
+    },
+    {
+      "name": "--hostpubmd5",
+      "tip": [
+        "Acceptable MD5 hash of host public key."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--hostpubsha256",
+      "tip": [
+        "Acceptable SHA256 hash of host public key."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--hsts",
+      "tip": [
+        "Enable HSTS with this cache file."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--http0.9",
+      "tip": [
+        "Allow HTTP/0.9 responses."
+      ]
+    },
+    {
+      "name": "--http1.0",
+      "tip": [
+        "Use HTTP/1.0."
+      ]
+    },
+    {
+      "name": "--http1.1",
+      "tip": [
+        "Use HTTP/1.1."
+      ]
+    },
+    {
+      "name": "--http2",
+      "tip": [
+        "Use HTTP/2."
+      ]
+    },
+    {
+      "name": "--http2-prior-knowledge",
+      "tip": [
+        "Use HTTP/2 without HTTP/1.1 Upgrade."
+      ]
+    },
+    {
+      "name": "--http3",
+      "tip": [
+        "Use HTTP/3."
+      ]
+    },
+    {
+      "name": "--http3-only",
+      "tip": [
+        "Use HTTP/3 only."
+      ]
+    },
+    {
+      "name": "--ignore-content-length",
+      "tip": [
+        "Ignore the size of the remote resource."
+      ]
+    },
+    {
+      "name": "--include",
+      "alias": ["--show-headers"],
+      "tip": [
+        "Include HTTP headers in output."
+      ]
+    },
+    {
+      "name": "--interface",
+      "tip": [
+        "Use network interface."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--ip-tos",
+      "tip": [
+        "Set IP Type of Service or Traffic Class."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--ipfs-gateway",
+      "tip": [
+        "Gateway for IPFS."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--json",
+      "tip": [
+        "HTTP POST JSON."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--keepalive-cnt",
+      "tip": [
+        "Maximum number of keepalive probes."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--keepalive-time",
+      "tip": [
+        "Interval time for keepalive probes."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--key",
+      "tip": [
+        "Private key filename."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--key-type",
+      "tip": [
+        "Private key file type (DER/PEM/ENG)."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--knownhosts",
+      "tip": [
+        "Specify knownhosts path."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--krb",
+      "tip": [
+        "Enable Kerberos with security <level>."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--libcurl",
+      "tip": [
+        "Generate libcurl code for this command line."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--limit-rate",
+      "tip": [
+        "Limit transfer speed to RATE."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--list-only",
+      "tip": [
+        "List only mode."
+      ]
+    },
+    {
+      "name": "--local-port",
+      "tip": [
+        "Use a local port number within RANGE."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--location",
+      "tip": [
+        "Follow redirects."
+      ]
+    },
+    {
+      "name": "--location-trusted",
+      "tip": [
+        "As --location, but send secrets to other hosts."
+      ]
+    },
+    {
+      "name": "--login-options",
+      "tip": [
+        "Server login options."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--mail-auth",
+      "tip": [
+        "Originator address of the original email."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--mail-from",
+      "tip": [
+        "Mail from this address."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--mail-rcpt",
+      "tip": [
+        "Mail to this address."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--mail-rcpt-allowfails",
+      "tip": [
+        "Allow RCPT TO command to fail."
+      ]
+    },
+    {
+      "name": "--manual",
+      "tip": [
+        "Display the full manual."
+      ]
+    },
+    {
+      "name": "--max-filesize",
+      "tip": [
+        "Maximum file size to download."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--max-redirs",
+      "tip": [
+        "Maximum number of redirects allowed."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--metalink",
+      "tip": [
+        "Process given URLs as metalink XML file."
+      ]
+    },
+    {
+      "name": "--mptcp",
+      "tip": [
+        "Enable Multipath TCP."
+      ]
+    },
+    {
+      "name": "--negotiate",
+      "tip": [
+        "Use HTTP Negotiate (SPNEGO) authentication."
+      ]
+    },
+    {
+      "name": "--netrc",
+      "tip": [
+        "Must read .netrc for username and password."
+      ]
+    },
+    {
+      "name": "--netrc-file",
+      "tip": [
+        "Specify FILE for netrc."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--netrc-optional",
+      "tip": [
+        "Use either .netrc or URL."
+      ]
+    },
+    {
+      "name": "--no-alpn",
+      "tip": [
+        "Disable the ALPN TLS extension."
+      ]
+    },
+    {
+      "name": "--no-buffer",
+      "tip": [
+        "Disable buffering of the output stream."
+      ]
+    },
+    {
+      "name": "--no-clobber",
+      "tip": [
+        "Do not overwrite files that already exist."
+      ]
+    },
+    {
+      "name": "--no-keepalive",
+      "tip": [
+        "Disable TCP keepalive on the connection."
+      ]
+    },
+    {
+      "name": "--no-npn",
+      "tip": [
+        "Disable the NPN TLS extension."
+      ]
+    },
+    {
+      "name": "--no-progress-meter",
+      "tip": [
+        "Do not show the progress meter."
+      ]
+    },
+    {
+      "name": "--no-sessionid",
+      "tip": [
+        "Disable SSL session-ID reusing."
+      ]
+    },
+    {
+      "name": "--noproxy",
+      "tip": [
+        "List of hosts which do not use proxy."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--ntlm",
+      "tip": [
+        "HTTP NTLM authentication."
+      ]
+    },
+    {
+      "name": "--ntlm-wb",
+      "tip": [
+        "HTTP NTLM authentication with winbind."
+      ]
+    },
+    {
+      "name": "--oauth2-bearer",
+      "tip": [
+        "OAuth 2 Bearer Token."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--out-null",
+      "tip": [
+        "Discard response data into the void."
+      ]
+    },
+    {
+      "name": "--output-dir",
+      "tip": [
+        "Directory to save files in."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--parallel",
+      "tip": [
+        "Perform transfers in parallel."
+      ]
+    },
+    {
+      "name": "--parallel-immediate",
+      "tip": [
+        "Do not wait for multiplexing."
+      ]
+    },
+    {
+      "name": "--parallel-max",
+      "tip": [
+        "Maximum concurrency for parallel transfers."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--parallel-max-host",
+      "tip": [
+        "Maximum connections to a single host."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--pass",
+      "tip": [
+        "Passphrase for the private key."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--path-as-is",
+      "tip": [
+        "Do not squash .. sequences in URL path."
+      ]
+    },
+    {
+      "name": "--pinnedpubkey",
+      "tip": [
+        "Public key to verify peer against."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--post301",
+      "tip": [
+        "Do not switch to GET after a 301 redirect."
+      ]
+    },
+    {
+      "name": "--post302",
+      "tip": [
+        "Do not switch to GET after a 302 redirect."
+      ]
+    },
+    {
+      "name": "--post303",
+      "tip": [
+        "Do not switch to GET after a 303 redirect."
+      ]
+    },
+    {
+      "name": "--preproxy",
+      "tip": [
+        "Use this proxy first."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--progress-bar",
+      "tip": [
+        "Display transfer progress as a bar."
+      ]
+    },
+    {
+      "name": "--proto",
+      "tip": [
+        "Enable/disable PROTOCOLS."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proto-default",
+      "tip": [
+        "Use PROTOCOL for any URL missing a scheme."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proto-redir",
+      "tip": [
+        "Enable/disable PROTOCOLS on redirect."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxy",
+      "tip": [
+        "Use this proxy."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxy-anyauth",
+      "tip": [
+        "Pick any proxy authentication method."
+      ]
+    },
+    {
+      "name": "--proxy-basic",
+      "tip": [
+        "Use Basic authentication on the proxy."
+      ]
+    },
+    {
+      "name": "--proxy-ca-native",
+      "tip": [
+        "Load CA certs from the OS to verify proxy."
+      ]
+    },
+    {
+      "name": "--proxy-cacert",
+      "tip": [
+        "CA certificates to verify proxy against."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxy-capath",
+      "tip": [
+        "CA directory to verify proxy against."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxy-cert",
+      "tip": [
+        "Set client certificate for proxy."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxy-cert-type",
+      "tip": [
+        "Client certificate type for HTTPS proxy."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxy-ciphers",
+      "tip": [
+        "TLS 1.2 (1.1, 1.0) ciphers to use for proxy."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxy-crlfile",
+      "tip": [
+        "Set a CRL list for proxy."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxy-digest",
+      "tip": [
+        "Digest auth with the proxy."
+      ]
+    },
+    {
+      "name": "--proxy-header",
+      "tip": [
+        "Pass custom header(s) to proxy."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxy-http2",
+      "tip": [
+        "Use HTTP/2 with HTTPS proxy."
+      ]
+    },
+    {
+      "name": "--proxy-insecure",
+      "tip": [
+        "Skip HTTPS proxy cert verification."
+      ]
+    },
+    {
+      "name": "--proxy-key",
+      "tip": [
+        "Private key for HTTPS proxy."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxy-key-type",
+      "tip": [
+        "Private key file type for proxy."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxy-negotiate",
+      "tip": [
+        "HTTP Negotiate (SPNEGO) auth with the proxy."
+      ]
+    },
+    {
+      "name": "--proxy-ntlm",
+      "tip": [
+        "NTLM authentication with the proxy."
+      ]
+    },
+    {
+      "name": "--proxy-pass",
+      "tip": [
+        "Passphrase for private key for HTTPS proxy."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxy-service-name",
+      "tip": [
+        "SPNEGO proxy service name."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxy-ssl-allow-beast",
+      "tip": [
+        "Allow this security flaw for HTTPS proxy."
+      ]
+    },
+    {
+      "name": "--proxy-ssl-auto-client-cert",
+      "tip": [
+        "Auto client certificate for proxy."
+      ]
+    },
+    {
+      "name": "--proxy-tls13-ciphers",
+      "tip": [
+        "TLS 1.3 proxy cipher suites."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxy-tlsauthtype",
+      "tip": [
+        "TLS authentication type for HTTPS proxy."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxy-tlspassword",
+      "tip": [
+        "TLS password for HTTPS proxy."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxy-tlsuser",
+      "tip": [
+        "TLS username for HTTPS proxy."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxy-tlsv1",
+      "tip": [
+        "TLSv1 for HTTPS proxy."
+      ]
+    },
+    {
+      "name": "--proxy1.0",
+      "tip": [
+        "Use HTTP/1.0 proxy on given port."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxytunnel",
+      "tip": [
+        "HTTP proxy tunnel (using CONNECT)."
+      ]
+    },
+    {
+      "name": "--pubkey",
+      "tip": [
+        "SSH Public key filename."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--random-file",
+      "tip": [
+        "File for reading random data from."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--rate",
+      "tip": [
+        "Request rate for serial transfers."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--raw",
+      "tip": [
+        "Do HTTP raw; no transfer decoding."
+      ]
+    },
+    {
+      "name": "--referer",
+      "tip": [
+        "Referrer URL."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--remote-header-name",
+      "tip": [
+        "Use the header-provided filename."
+      ]
+    },
+    {
+      "name": "--remote-name",
+      "tip": [
+        "Write output to file named as remote file."
+      ]
+    },
+    {
+      "name": "--remote-name-all",
+      "tip": [
+        "Use the remote filename for all URLs."
+      ]
+    },
+    {
+      "name": "--remote-time",
+      "tip": [
+        "Set remote file's time on local output."
+      ]
+    },
+    {
+      "name": "--remove-on-error",
+      "tip": [
+        "Remove output file on errors."
+      ]
+    },
+    {
+      "name": "--request",
+      "tip": [
+        "Specify request method to use."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--request-target",
+      "tip": [
+        "Specify the target for this request."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--resolve",
+      "tip": [
+        "Resolve host+port to address."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--retry",
+      "tip": [
+        "Retry request if transient problems occur."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--retry-all-errors",
+      "tip": [
+        "Retry all errors (with --retry)."
+      ]
+    },
+    {
+      "name": "--retry-connrefused",
+      "tip": [
+        "Retry on connection refused (with --retry)."
+      ]
+    },
+    {
+      "name": "--retry-delay",
+      "tip": [
+        "Wait time between retries."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--retry-max-time",
+      "tip": [
+        "Retry only within this period."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--sasl-authzid",
+      "tip": [
+        "Identity for SASL PLAIN authentication."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--sasl-ir",
+      "tip": [
+        "Initial response in SASL authentication."
+      ]
+    },
+    {
+      "name": "--service-name",
+      "tip": [
+        "SPNEGO service name."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--show-error",
+      "tip": [
+        "Show error even when -s is used."
+      ]
+    },
+    {
+      "name": "--silent",
+      "tip": [
+        "Silent mode."
+      ]
+    },
+    {
+      "name": "--skip-existing",
+      "tip": [
+        "Skip download if local file already exists."
+      ]
+    },
+    {
+      "name": "--socks4",
+      "tip": [
+        "SOCKS4 proxy on given host + port."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--socks4a",
+      "tip": [
+        "SOCKS4a proxy on given host + port."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--socks5",
+      "tip": [
+        "SOCKS5 proxy on given host + port."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--socks5-basic",
+      "tip": [
+        "Username/password auth for SOCKS5 proxies."
+      ]
+    },
+    {
+      "name": "--socks5-gssapi",
+      "tip": [
+        "Enable GSS-API auth for SOCKS5 proxies."
+      ]
+    },
+    {
+      "name": "--socks5-gssapi-nec",
+      "tip": [
+        "Compatibility with NEC SOCKS5 server."
+      ]
+    },
+    {
+      "name": "--socks5-gssapi-service",
+      "tip": [
+        "SOCKS5 proxy service name for GSS-API."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--socks5-hostname",
+      "tip": [
+        "SOCKS5 proxy, pass hostname to proxy."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--speed-limit",
+      "tip": [
+        "Stop transfers slower than this."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--speed-time",
+      "tip": [
+        "Trigger 'speed-limit' abort after this time."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--ssl",
+      "tip": [
+        "Try enabling TLS."
+      ]
+    },
+    {
+      "name": "--ssl-allow-beast",
+      "tip": [
+        "Allow security flaw to improve interop."
+      ]
+    },
+    {
+      "name": "--ssl-auto-client-cert",
+      "tip": [
+        "Use auto client certificate (Schannel)."
+      ]
+    },
+    {
+      "name": "--ssl-no-revoke",
+      "tip": [
+        "Disable cert revocation checks (Schannel)."
+      ]
+    },
+    {
+      "name": "--ssl-reqd",
+      "tip": [
+        "Require SSL/TLS."
+      ]
+    },
+    {
+      "name": "--ssl-revoke-best-effort",
+      "tip": [
+        "Ignore missing cert CRL dist points."
+      ]
+    },
+    {
+      "name": "--ssl-sessions",
+      "tip": [
+        "Load/save SSL session tickets from/to this file."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--stderr",
+      "tip": [
+        "Where to redirect stderr."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--styled-output",
+      "tip": [
+        "Enable styled output for HTTP headers."
+      ]
+    },
+    {
+      "name": "--suppress-connect-headers",
+      "tip": [
+        "Suppress proxy CONNECT response headers."
+      ]
+    },
+    {
+      "name": "--tcp-fastopen",
+      "tip": [
+        "Use TCP Fast Open."
+      ]
+    },
+    {
+      "name": "--tcp-nodelay",
+      "tip": [
+        "Set TCP_NODELAY."
+      ]
+    },
+    {
+      "name": "--telnet-option",
+      "tip": [
+        "Set telnet option."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--tftp-blksize",
+      "tip": [
+        "Set TFTP BLKSIZE option."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--tftp-no-options",
+      "tip": [
+        "Do not send any TFTP options."
+      ]
+    },
+    {
+      "name": "--time-cond",
+      "tip": [
+        "Transfer based on a time condition."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--tls-earlydata",
+      "tip": [
+        "Allow use of TLSv1.3 early data (0RTT)."
+      ]
+    },
+    {
+      "name": "--tls-max",
+      "tip": [
+        "Maximum allowed TLS version."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--tls1.0",
+      "tip": [
+        "TLSv1.0 or greater."
+      ]
+    },
+    {
+      "name": "--tls1.1",
+      "tip": [
+        "TLSv1.1 or greater."
+      ]
+    },
+    {
+      "name": "--tls1.2",
+      "tip": [
+        "TLSv1.2 or greater."
+      ]
+    },
+    {
+      "name": "--tls1.3",
+      "tip": [
+        "TLSv1.3 or greater."
+      ]
+    },
+    {
+      "name": "--tlsauthtype",
+      "tip": [
+        "TLS authentication type."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--tlspassword",
+      "tip": [
+        "TLS password."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--tlsuser",
+      "tip": [
+        "TLS username."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--trace",
+      "tip": [
+        "Write a debug trace to FILE."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--trace-ascii",
+      "tip": [
+        "Like --trace, but without hex output."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--trace-config",
+      "tip": [
+        "Details to log in trace/verbose output."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--trace-ids",
+      "tip": [
+        "Transfer + connection ids in verbose output."
+      ]
+    },
+    {
+      "name": "--trace-time",
+      "tip": [
+        "Add time stamps to trace/verbose output."
+      ]
+    },
+    {
+      "name": "--unix-socket",
+      "tip": [
+        "Connect through this Unix domain socket."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--url",
+      "tip": [
+        "URL(s) to work with."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--url-query",
+      "tip": [
+        "Add a URL query part."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--variable",
+      "tip": [
+        "Set variable."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--vlan-priority",
+      "tip": [
+        "Set VLAN priority."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--xattr",
+      "tip": [
+        "Store metadata in extended file attributes."
+      ]
+    }
+  ],
+  "common_option": [
+    {
+      "name": "--help",
+      "alias": ["-h"],
+      "tip": [
+        "Show the help."
+      ]
+    }
+  ]
+}
