@@ -1,0 +1,177 @@
+{
+  "meta": {
+    "url": "https://developer.android.com/studio/intro/update#sdk-manager",
+    "description": [
+      "sdkmanager - Android SDK Manager.",
+      "Install, update, and manage Android SDK packages, platforms, build tools, and more."
+    ]
+  },
+  "root": [],
+  "option": [
+    {
+      "name": "--install",
+      "tip": [
+        "Install or update packages (default behavior).",
+        "List packages as arguments after this flag."
+      ]
+    },
+    {
+      "name": "--uninstall",
+      "tip": [
+        "Uninstall the listed packages."
+      ]
+    },
+    {
+      "name": "--update",
+      "tip": [
+        "Update all installed packages to the latest version."
+      ]
+    },
+    {
+      "name": "--list",
+      "tip": [
+        "List all installed and available packages."
+      ]
+    },
+    {
+      "name": "--list_installed",
+      "tip": [
+        "List all installed packages."
+      ]
+    },
+    {
+      "name": "--licenses",
+      "tip": [
+        "Show and accept licenses for available packages."
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Print the current version of sdkmanager."
+      ]
+    },
+    {
+      "name": "--sdk_root",
+      "tip": [
+        "U: --sdk_root=<path>",
+        "Use the specified SDK root instead of the SDK",
+        "containing this tool."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--channel",
+      "tip": [
+        "U: --channel=<id>",
+        "Include packages in channels up to <id>.",
+        "0 = Stable, 1 = Beta, 2 = Dev, 3 = Canary."
+      ],
+      "next": [
+        {
+          "name": "0",
+          "tip": [
+            "Stable channel (default)"
+          ]
+        },
+        {
+          "name": "1",
+          "tip": [
+            "Beta channel"
+          ]
+        },
+        {
+          "name": "2",
+          "tip": [
+            "Dev channel"
+          ]
+        },
+        {
+          "name": "3",
+          "tip": [
+            "Canary channel"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--include_obsolete",
+      "tip": [
+        "With --list, show obsolete packages.",
+        "With --update, update obsolete packages as well."
+      ]
+    },
+    {
+      "name": "--newer",
+      "tip": [
+        "With --list, show only new and/or updatable packages."
+      ]
+    },
+    {
+      "name": "--no_https",
+      "tip": [
+        "Force all connections to use http rather than https."
+      ]
+    },
+    {
+      "name": "--proxy",
+      "tip": [
+        "U: --proxy=<type>",
+        "Connect via a proxy of the given type."
+      ],
+      "next": [
+        {
+          "name": "http",
+          "tip": [
+            "HTTP proxy"
+          ]
+        },
+        {
+          "name": "socks",
+          "tip": [
+            "SOCKS proxy"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--proxy_host",
+      "tip": [
+        "U: --proxy_host=<host>",
+        "IP or DNS address of the proxy to use."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxy_port",
+      "tip": [
+        "U: --proxy_port=<port>",
+        "Proxy port to connect to."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--verbose",
+      "tip": [
+        "Enable verbose output."
+      ]
+    },
+    {
+      "name": "--package_file",
+      "tip": [
+        "U: --package_file=<file>",
+        "A text file where each line is a sdk-style path",
+        "of a package to install or uninstall."
+      ],
+      "next": 0
+    }
+  ],
+  "common_option": [
+    {
+      "name": "--help",
+      "tip": [
+        "Show the help."
+      ]
+    }
+  ]
+}

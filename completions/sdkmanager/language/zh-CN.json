@@ -1,0 +1,176 @@
+{
+  "meta": {
+    "url": "https://developer.android.com/studio/intro/update#sdk-manager",
+    "description": [
+      "sdkmanager - Android SDK 管理器。",
+      "安装、更新和管理 Android SDK 包、平台、构建工具等。"
+    ]
+  },
+  "root": [],
+  "option": [
+    {
+      "name": "--install",
+      "tip": [
+        "安装或更新包（默认行为）。",
+        "在标志后列出要安装的包。"
+      ]
+    },
+    {
+      "name": "--uninstall",
+      "tip": [
+        "卸载列出的包。"
+      ]
+    },
+    {
+      "name": "--update",
+      "tip": [
+        "将所有已安装的包更新到最新版本。"
+      ]
+    },
+    {
+      "name": "--list",
+      "tip": [
+        "列出所有已安装和可用的包。"
+      ]
+    },
+    {
+      "name": "--list_installed",
+      "tip": [
+        "列出所有已安装的包。"
+      ]
+    },
+    {
+      "name": "--licenses",
+      "tip": [
+        "显示并接受可用包的许可证。"
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "打印 sdkmanager 的当前版本。"
+      ]
+    },
+    {
+      "name": "--sdk_root",
+      "tip": [
+        "用法: --sdk_root=<路径>",
+        "使用指定的 SDK 根目录，而不是包含此工具的 SDK。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--channel",
+      "tip": [
+        "用法: --channel=<ID>",
+        "包含不超过 <ID> 的渠道的包。",
+        "0 = 稳定版, 1 = 测试版, 2 = 开发版, 3 = 金丝雀版。"
+      ],
+      "next": [
+        {
+          "name": "0",
+          "tip": [
+            "稳定版渠道（默认）"
+          ]
+        },
+        {
+          "name": "1",
+          "tip": [
+            "测试版渠道"
+          ]
+        },
+        {
+          "name": "2",
+          "tip": [
+            "开发版渠道"
+          ]
+        },
+        {
+          "name": "3",
+          "tip": [
+            "金丝雀版渠道"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--include_obsolete",
+      "tip": [
+        "使用 --list 时显示已弃用的包。",
+        "使用 --update 时同时更新已弃用的包。"
+      ]
+    },
+    {
+      "name": "--newer",
+      "tip": [
+        "使用 --list 时仅显示新的和/或可更新的包。"
+      ]
+    },
+    {
+      "name": "--no_https",
+      "tip": [
+        "强制所有连接使用 http 而不是 https。"
+      ]
+    },
+    {
+      "name": "--proxy",
+      "tip": [
+        "用法: --proxy=<类型>",
+        "通过指定类型的代理进行连接。"
+      ],
+      "next": [
+        {
+          "name": "http",
+          "tip": [
+            "HTTP 代理"
+          ]
+        },
+        {
+          "name": "socks",
+          "tip": [
+            "SOCKS 代理"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--proxy_host",
+      "tip": [
+        "用法: --proxy_host=<主机>",
+        "代理的 IP 或 DNS 地址。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--proxy_port",
+      "tip": [
+        "用法: --proxy_port=<端口>",
+        "要连接的代理端口。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--verbose",
+      "tip": [
+        "启用详细输出。"
+      ]
+    },
+    {
+      "name": "--package_file",
+      "tip": [
+        "用法: --package_file=<文件>",
+        "一个文本文件，每行是一个 sdk 风格的路径，",
+        "表示要安装或卸载的包。"
+      ],
+      "next": 0
+    }
+  ],
+  "common_option": [
+    {
+      "name": "--help",
+      "tip": [
+        "显示帮助信息。"
+      ]
+    }
+  ]
+}
