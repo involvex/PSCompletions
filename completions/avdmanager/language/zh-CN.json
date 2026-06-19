@@ -1,0 +1,304 @@
+{
+  "meta": {
+    "url": "https://developer.android.com/studio/run/managing-avds",
+    "description": [
+      "avdmanager - Android 虚拟设备管理器。",
+      "创建、管理和删除 Android 模拟器的虚拟设备 (AVD)。"
+    ]
+  },
+  "root": [
+    {
+      "name": "list",
+      "tip": [
+        "列出已有的目标或虚拟设备。"
+      ],
+      "next": [
+        {
+          "name": "avd",
+          "tip": [
+            "列出已有的 Android 虚拟设备。"
+          ],
+          "option": [
+            {
+              "name": "-0",
+              "alias": [
+                "--null"
+              ],
+              "tip": [
+                "使用 \\0 而不是 \\n 终止行（例如用于 xargs -0）。",
+                "仅在 --compact 时使用。"
+              ]
+            },
+            {
+              "name": "-c",
+              "alias": [
+                "--compact"
+              ],
+              "tip": [
+                "紧凑输出（适用于脚本）。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "target",
+          "tip": [
+            "列出已有的目标。"
+          ],
+          "option": [
+            {
+              "name": "-0",
+              "alias": [
+                "--null"
+              ],
+              "tip": [
+                "使用 \\0 而不是 \\n 终止行（例如用于 xargs -0）。",
+                "仅在 --compact 时使用。"
+              ]
+            },
+            {
+              "name": "-c",
+              "alias": [
+                "--compact"
+              ],
+              "tip": [
+                "紧凑输出（适用于脚本）。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "device",
+          "tip": [
+            "列出已有的设备定义。"
+          ],
+          "option": [
+            {
+              "name": "-0",
+              "alias": [
+                "--null"
+              ],
+              "tip": [
+                "使用 \\0 而不是 \\n 终止行（例如用于 xargs -0）。",
+                "仅在 --compact 时使用。"
+              ]
+            },
+            {
+              "name": "-c",
+              "alias": [
+                "--compact"
+              ],
+              "tip": [
+                "紧凑输出（适用于脚本）。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "create avd",
+      "tip": [
+        "创建一个新的 Android 虚拟设备。"
+      ],
+      "option": [
+        {
+          "name": "-n",
+          "alias": [
+            "--name"
+          ],
+          "tip": [
+            "用法: -n, --name <名称>",
+            "新 AVD 的名称。[必填]"
+          ],
+          "next": 0
+        },
+        {
+          "name": "-k",
+          "alias": [
+            "--package"
+          ],
+          "tip": [
+            "用法: -k, --package <包路径>",
+            "此 AVD 的系统镜像包路径。",
+            "示例: -k 'system-images;android-35;google_apis;x86_64'"
+          ],
+          "next": 0
+        },
+        {
+          "name": "-d",
+          "alias": [
+            "--device"
+          ],
+          "tip": [
+            "用法: -d, --device <设备>",
+            "可选的设备定义。",
+            "可以是设备索引或 ID。"
+          ],
+          "next": 0
+        },
+        {
+          "name": "-g",
+          "alias": [
+            "--tag"
+          ],
+          "tip": [
+            "用法: -g, --tag <标签>",
+            "用于 AVD 的系统镜像标签。",
+            "如果平台只有一个标签，则自动选择。"
+          ],
+          "next": 0
+        },
+        {
+          "name": "-c",
+          "alias": [
+            "--sdcard"
+          ],
+          "tip": [
+            "用法: -c, --sdcard <路径|大小>",
+            "共享 SD 卡镜像的路径，或新 SD 卡的大小。",
+            "示例: -c 512M"
+          ],
+          "next": 0
+        },
+        {
+          "name": "-p",
+          "alias": [
+            "--path"
+          ],
+          "tip": [
+            "用法: -p, --path <路径>",
+            "新 AVD 的创建目录。"
+          ],
+          "next": 0
+        },
+        {
+          "name": "-b",
+          "alias": [
+            "--abi"
+          ],
+          "tip": [
+            "用法: -b, --abi <ABI>",
+            "用于 AVD 的 ABI。",
+            "如果平台只有一个 ABI，则自动选择。"
+          ],
+          "next": 0
+        },
+        {
+          "name": "--skin",
+          "tip": [
+            "用法: --skin <皮肤名称>",
+            "可选的皮肤名称。"
+          ],
+          "next": 0
+        },
+        {
+          "name": "-f",
+          "alias": [
+            "--force"
+          ],
+          "tip": [
+            "强制创建（覆盖已有的 AVD）。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "move avd",
+      "tip": [
+        "移动或重命名 Android 虚拟设备。"
+      ],
+      "option": [
+        {
+          "name": "-n",
+          "alias": [
+            "--name"
+          ],
+          "tip": [
+            "用法: -n, --name <名称>",
+            "要移动或重命名的 AVD 名称。[必填]"
+          ],
+          "next": 0
+        },
+        {
+          "name": "-r",
+          "alias": [
+            "--rename"
+          ],
+          "tip": [
+            "用法: -r, --rename <新名称>",
+            "AVD 的新名称。"
+          ],
+          "next": 0
+        },
+        {
+          "name": "-p",
+          "alias": [
+            "--path"
+          ],
+          "tip": [
+            "用法: -p, --path <路径>",
+            "AVD 的新目录路径。"
+          ],
+          "next": 0
+        }
+      ]
+    },
+    {
+      "name": "delete avd",
+      "tip": [
+        "删除一个 Android 虚拟设备。"
+      ],
+      "option": [
+        {
+          "name": "-n",
+          "alias": [
+            "--name"
+          ],
+          "tip": [
+            "用法: -n, --name <名称>",
+            "要删除的 AVD 名称。[必填]"
+          ],
+          "next": 0
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "-s",
+      "alias": [
+        "--silent"
+      ],
+      "tip": [
+        "静默模式，仅显示错误信息。"
+      ]
+    },
+    {
+      "name": "-v",
+      "alias": [
+        "--verbose"
+      ],
+      "tip": [
+        "详细模式，显示错误、警告和所有信息。"
+      ]
+    },
+    {
+      "name": "--clear-cache",
+      "tip": [
+        "清除 SDK Manager 仓库清单缓存。"
+      ]
+    }
+  ],
+  "common_option": [
+    {
+      "name": "-h",
+      "alias": [
+        "--help"
+      ],
+      "tip": [
+        "显示特定命令的帮助信息。"
+      ]
+    }
+  ]
+}

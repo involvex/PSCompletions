@@ -1,0 +1,304 @@
+{
+  "meta": {
+    "url": "https://developer.android.com/studio/run/managing-avds",
+    "description": [
+      "avdmanager - Android Virtual Device Manager.",
+      "Create, manage, and delete Android Virtual Devices (AVDs) for the Android emulator."
+    ]
+  },
+  "root": [
+    {
+      "name": "list",
+      "tip": [
+        "Lists existing targets or virtual devices."
+      ],
+      "next": [
+        {
+          "name": "avd",
+          "tip": [
+            "Lists existing Android Virtual Devices."
+          ],
+          "option": [
+            {
+              "name": "-0",
+              "alias": [
+                "--null"
+              ],
+              "tip": [
+                "Terminates lines with \\0 instead of \\n (e.g. for xargs -0).",
+                "Only used by --compact."
+              ]
+            },
+            {
+              "name": "-c",
+              "alias": [
+                "--compact"
+              ],
+              "tip": [
+                "Compact output (suitable for scripts)."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "target",
+          "tip": [
+            "Lists existing targets."
+          ],
+          "option": [
+            {
+              "name": "-0",
+              "alias": [
+                "--null"
+              ],
+              "tip": [
+                "Terminates lines with \\0 instead of \\n (e.g. for xargs -0).",
+                "Only used by --compact."
+              ]
+            },
+            {
+              "name": "-c",
+              "alias": [
+                "--compact"
+              ],
+              "tip": [
+                "Compact output (suitable for scripts)."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "device",
+          "tip": [
+            "Lists existing devices."
+          ],
+          "option": [
+            {
+              "name": "-0",
+              "alias": [
+                "--null"
+              ],
+              "tip": [
+                "Terminates lines with \\0 instead of \\n (e.g. for xargs -0).",
+                "Only used by --compact."
+              ]
+            },
+            {
+              "name": "-c",
+              "alias": [
+                "--compact"
+              ],
+              "tip": [
+                "Compact output (suitable for scripts)."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "create avd",
+      "tip": [
+        "Creates a new Android Virtual Device."
+      ],
+      "option": [
+        {
+          "name": "-n",
+          "alias": [
+            "--name"
+          ],
+          "tip": [
+            "U: -n, --name <name>",
+            "Name of the new AVD. [required]"
+          ],
+          "next": 0
+        },
+        {
+          "name": "-k",
+          "alias": [
+            "--package"
+          ],
+          "tip": [
+            "U: -k, --package <package>",
+            "Package path of the system image for this AVD.",
+            "E: -k 'system-images;android-35;google_apis;x86_64'"
+          ],
+          "next": 0
+        },
+        {
+          "name": "-d",
+          "alias": [
+            "--device"
+          ],
+          "tip": [
+            "U: -d, --device <device>",
+            "The optional device definition to use.",
+            "Can be a device index or id."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-g",
+          "alias": [
+            "--tag"
+          ],
+          "tip": [
+            "U: -g, --tag <tag>",
+            "The sys-img tag to use for the AVD.",
+            "Auto-selects if the platform has only one tag."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-c",
+          "alias": [
+            "--sdcard"
+          ],
+          "tip": [
+            "U: -c, --sdcard <path|size>",
+            "Path to a shared SD card image, or size of a new sdcard.",
+            "E: -c 512M"
+          ],
+          "next": 0
+        },
+        {
+          "name": "-p",
+          "alias": [
+            "--path"
+          ],
+          "tip": [
+            "U: -p, --path <path>",
+            "Directory where the new AVD will be created."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-b",
+          "alias": [
+            "--abi"
+          ],
+          "tip": [
+            "U: -b, --abi <abi>",
+            "The ABI to use for the AVD.",
+            "Auto-selects if the platform has only one ABI."
+          ],
+          "next": 0
+        },
+        {
+          "name": "--skin",
+          "tip": [
+            "U: --skin <skin>",
+            "The optional name of a skin to use with this device."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-f",
+          "alias": [
+            "--force"
+          ],
+          "tip": [
+            "Forces creation (overwrites an existing AVD)."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "move avd",
+      "tip": [
+        "Moves or renames an Android Virtual Device."
+      ],
+      "option": [
+        {
+          "name": "-n",
+          "alias": [
+            "--name"
+          ],
+          "tip": [
+            "U: -n, --name <name>",
+            "Name of the AVD to move or rename. [required]"
+          ],
+          "next": 0
+        },
+        {
+          "name": "-r",
+          "alias": [
+            "--rename"
+          ],
+          "tip": [
+            "U: -r, --rename <new_name>",
+            "New name of the AVD."
+          ],
+          "next": 0
+        },
+        {
+          "name": "-p",
+          "alias": [
+            "--path"
+          ],
+          "tip": [
+            "U: -p, --path <path>",
+            "Path to the AVD's new directory."
+          ],
+          "next": 0
+        }
+      ]
+    },
+    {
+      "name": "delete avd",
+      "tip": [
+        "Deletes an Android Virtual Device."
+      ],
+      "option": [
+        {
+          "name": "-n",
+          "alias": [
+            "--name"
+          ],
+          "tip": [
+            "U: -n, --name <name>",
+            "Name of the AVD to delete. [required]"
+          ],
+          "next": 0
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "-s",
+      "alias": [
+        "--silent"
+      ],
+      "tip": [
+        "Silent mode, shows errors only."
+      ]
+    },
+    {
+      "name": "-v",
+      "alias": [
+        "--verbose"
+      ],
+      "tip": [
+        "Verbose mode, shows errors, warnings and all messages."
+      ]
+    },
+    {
+      "name": "--clear-cache",
+      "tip": [
+        "Clear the SDK Manager repository manifest cache."
+      ]
+    }
+  ],
+  "common_option": [
+    {
+      "name": "-h",
+      "alias": [
+        "--help"
+      ],
+      "tip": [
+        "Help on a specific command."
+      ]
+    }
+  ]
+}
