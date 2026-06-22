@@ -1,0 +1,476 @@
+{
+  "meta": {
+    "url": "https://opencode.ai",
+    "description": [
+      "opencode - 为你的终端提供 AI 驱动的编码助手。"
+    ]
+  },
+  "root": [
+    {
+      "name": "completion",
+      "tip": [
+        "生成 shell 自动补全脚本"
+      ]
+    },
+    {
+      "name": "acp",
+      "tip": [
+        "启动 ACP（Agent Client Protocol）服务器"
+      ]
+    },
+    {
+      "name": "mcp",
+      "tip": [
+        "管理 MCP（Model Context Protocol）服务器"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "tip": [
+            "添加一个 MCP 服务器"
+          ],
+          "next": 0
+        },
+        {
+          "name": "list",
+          "tip": [
+            "列出 MCP 服务器及其状态"
+          ]
+        },
+        {
+          "name": "auth",
+          "tip": [
+            "使用 OAuth 认证 MCP 服务器"
+          ],
+          "next": [
+            {
+              "name": "list",
+              "tip": [
+                "列出支持 OAuth 的 MCP 服务器及其认证状态"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "logout",
+          "tip": [
+            "删除 MCP 服务器的 OAuth 凭据"
+          ],
+          "next": 0
+        },
+        {
+          "name": "debug",
+          "tip": [
+            "调试 MCP 服务器的 OAuth 连接"
+          ],
+          "next": 0
+        }
+      ]
+    },
+    {
+      "name": "attach",
+      "tip": [
+        "连接到正在运行的 opencode 服务器"
+      ],
+      "next": 0
+    },
+    {
+      "name": "run",
+      "tip": [
+        "使用消息运行 opencode"
+      ],
+      "next": 0
+    },
+    {
+      "name": "debug",
+      "tip": [
+        "调试和故障排除工具"
+      ],
+      "next": [
+        {
+          "name": "config",
+          "tip": [
+            "显示已解析的配置"
+          ]
+        },
+        {
+          "name": "lsp",
+          "tip": [
+            "LSP 调试工具"
+          ]
+        },
+        {
+          "name": "rg",
+          "tip": [
+            "Ripgrep 调试工具"
+          ]
+        },
+        {
+          "name": "file",
+          "tip": [
+            "文件系统调试工具"
+          ]
+        },
+        {
+          "name": "scrap",
+          "tip": [
+            "列出所有已知项目"
+          ]
+        },
+        {
+          "name": "skill",
+          "tip": [
+            "列出所有可用的技能"
+          ]
+        },
+        {
+          "name": "snapshot",
+          "tip": [
+            "快照调试工具"
+          ]
+        },
+        {
+          "name": "startup",
+          "tip": [
+            "打印启动时间"
+          ]
+        },
+        {
+          "name": "agent",
+          "tip": [
+            "显示代理配置详情"
+          ],
+          "next": 0
+        },
+        {
+          "name": "v2",
+          "tip": [
+            "调试 v2 目录和内置插件"
+          ]
+        },
+        {
+          "name": "info",
+          "tip": [
+            "显示调试信息"
+          ]
+        },
+        {
+          "name": "paths",
+          "tip": [
+            "显示全局路径（数据、配置、缓存、状态）"
+          ]
+        },
+        {
+          "name": "wait",
+          "tip": [
+            "无限等待（用于调试）"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "providers",
+      "tip": [
+        "管理 AI 提供商和凭据"
+      ],
+      "next": [
+        {
+          "name": "list",
+          "tip": [
+            "列出提供商和凭据"
+          ]
+        },
+        {
+          "name": "login",
+          "tip": [
+            "登录到提供商"
+          ],
+          "next": 0
+        },
+        {
+          "name": "logout",
+          "tip": [
+            "从已配置的提供商登出"
+          ],
+          "next": 0
+        }
+      ]
+    },
+    {
+      "name": "agent",
+      "tip": [
+        "管理代理"
+      ],
+      "next": [
+        {
+          "name": "create",
+          "tip": [
+            "创建新代理"
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "列出所有可用代理"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "upgrade",
+      "tip": [
+        "将 opencode 升级到最新或特定版本"
+      ],
+      "next": 0
+    },
+    {
+      "name": "uninstall",
+      "tip": [
+        "卸载 opencode 并删除所有相关文件"
+      ]
+    },
+    {
+      "name": "serve",
+      "tip": [
+        "启动无头 opencode 服务器"
+      ]
+    },
+    {
+      "name": "web",
+      "tip": [
+        "启动 opencode 服务器并打开 Web 界面"
+      ]
+    },
+    {
+      "name": "models",
+      "tip": [
+        "列出所有可用模型"
+      ],
+      "next": 0
+    },
+    {
+      "name": "stats",
+      "tip": [
+        "显示 token 使用情况和成本统计"
+      ]
+    },
+    {
+      "name": "export",
+      "tip": [
+        "将会话数据导出为 JSON"
+      ],
+      "next": 0
+    },
+    {
+      "name": "import",
+      "tip": [
+        "从 JSON 文件或 URL 导入会话数据"
+      ],
+      "next": 0
+    },
+    {
+      "name": "github",
+      "tip": [
+        "管理 GitHub 代理"
+      ],
+      "next": [
+        {
+          "name": "install",
+          "tip": [
+            "安装 GitHub 代理"
+          ]
+        },
+        {
+          "name": "run",
+          "tip": [
+            "运行 GitHub 代理"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pr",
+      "tip": [
+        "获取并切换到 GitHub PR 分支，然后运行 opencode"
+      ],
+      "next": 0
+    },
+    {
+      "name": "session",
+      "tip": [
+        "管理会话"
+      ],
+      "next": [
+        {
+          "name": "list",
+          "tip": [
+            "列出会话"
+          ]
+        },
+        {
+          "name": "delete",
+          "tip": [
+            "删除会话"
+          ],
+          "next": 0
+        }
+      ]
+    },
+    {
+      "name": "plugin",
+      "tip": [
+        "安装插件并更新配置"
+      ],
+      "next": 0
+    },
+    {
+      "name": "db",
+      "tip": [
+        "数据库工具"
+      ],
+      "next": [
+        {
+          "name": "path",
+          "tip": [
+            "打印数据库路径"
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "-h",
+      "alias": [
+        "--help"
+      ],
+      "tip": [
+        "显示帮助"
+      ]
+    },
+    {
+      "name": "-v",
+      "alias": [
+        "--version"
+      ],
+      "tip": [
+        "显示版本号"
+      ]
+    },
+    {
+      "name": "--print-logs",
+      "tip": [
+        "将日志打印到 stderr"
+      ]
+    },
+    {
+      "name": "--log-level",
+      "tip": [
+        "日志级别"
+      ],
+      "next": [
+        {
+          "name": "DEBUG"
+        },
+        {
+          "name": "INFO"
+        },
+        {
+          "name": "WARN"
+        },
+        {
+          "name": "ERROR"
+        }
+      ]
+    },
+    {
+      "name": "--pure",
+      "tip": [
+        "不加载外部插件运行"
+      ]
+    },
+    {
+      "name": "--port",
+      "tip": [
+        "监听端口"
+      ]
+    },
+    {
+      "name": "--hostname",
+      "tip": [
+        "监听主机名"
+      ]
+    },
+    {
+      "name": "--mdns",
+      "tip": [
+        "启用 mDNS 服务发现（默认主机名为 0.0.0.0）"
+      ]
+    },
+    {
+      "name": "--mdns-domain",
+      "tip": [
+        "mDNS 服务的自定义域名（默认：opencode.local）"
+      ]
+    },
+    {
+      "name": "--cors",
+      "tip": [
+        "允许 CORS 的其他域名"
+      ]
+    },
+    {
+      "name": "-m",
+      "alias": [
+        "--model"
+      ],
+      "tip": [
+        "使用 provider/model 格式的模型"
+      ]
+    },
+    {
+      "name": "-c",
+      "alias": [
+        "--continue"
+      ],
+      "tip": [
+        "继续上一个会话"
+      ]
+    },
+    {
+      "name": "-s",
+      "alias": [
+        "--session"
+      ],
+      "tip": [
+        "要继续的会话 ID"
+      ]
+    },
+    {
+      "name": "--fork",
+      "tip": [
+        "继续时分叉会话（与 --continue 或 --session 配合使用）"
+      ]
+    },
+    {
+      "name": "--prompt",
+      "tip": [
+        "要使用的提示"
+      ]
+    },
+    {
+      "name": "--agent",
+      "tip": [
+        "要使用的代理"
+      ]
+    }
+  ],
+  "common_option": [
+    {
+      "name": "--help",
+      "tip": [
+        "显示帮助"
+      ]
+    }
+  ]
+}

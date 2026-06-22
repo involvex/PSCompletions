@@ -1,0 +1,476 @@
+{
+  "meta": {
+    "url": "https://opencode.ai",
+    "description": [
+      "opencode - AI-powered coding agent for your terminal."
+    ]
+  },
+  "root": [
+    {
+      "name": "completion",
+      "tip": [
+        "Generate shell completion script"
+      ]
+    },
+    {
+      "name": "acp",
+      "tip": [
+        "Start ACP (Agent Client Protocol) server"
+      ]
+    },
+    {
+      "name": "mcp",
+      "tip": [
+        "Manage MCP (Model Context Protocol) servers"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "tip": [
+            "Add an MCP server"
+          ],
+          "next": 0
+        },
+        {
+          "name": "list",
+          "tip": [
+            "List MCP servers and their status"
+          ]
+        },
+        {
+          "name": "auth",
+          "tip": [
+            "Authenticate with an OAuth-enabled MCP server"
+          ],
+          "next": [
+            {
+              "name": "list",
+              "tip": [
+                "List OAuth-capable MCP servers and their auth status"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "logout",
+          "tip": [
+            "Remove OAuth credentials for an MCP server"
+          ],
+          "next": 0
+        },
+        {
+          "name": "debug",
+          "tip": [
+            "Debug OAuth connection for an MCP server"
+          ],
+          "next": 0
+        }
+      ]
+    },
+    {
+      "name": "attach",
+      "tip": [
+        "Attach to a running opencode server"
+      ],
+      "next": 0
+    },
+    {
+      "name": "run",
+      "tip": [
+        "Run opencode with a message"
+      ],
+      "next": 0
+    },
+    {
+      "name": "debug",
+      "tip": [
+        "Debugging and troubleshooting tools"
+      ],
+      "next": [
+        {
+          "name": "config",
+          "tip": [
+            "Show resolved configuration"
+          ]
+        },
+        {
+          "name": "lsp",
+          "tip": [
+            "LSP debugging utilities"
+          ]
+        },
+        {
+          "name": "rg",
+          "tip": [
+            "Ripgrep debugging utilities"
+          ]
+        },
+        {
+          "name": "file",
+          "tip": [
+            "File system debugging utilities"
+          ]
+        },
+        {
+          "name": "scrap",
+          "tip": [
+            "List all known projects"
+          ]
+        },
+        {
+          "name": "skill",
+          "tip": [
+            "List all available skills"
+          ]
+        },
+        {
+          "name": "snapshot",
+          "tip": [
+            "Snapshot debugging utilities"
+          ]
+        },
+        {
+          "name": "startup",
+          "tip": [
+            "Print startup timing"
+          ]
+        },
+        {
+          "name": "agent",
+          "tip": [
+            "Show agent configuration details"
+          ],
+          "next": 0
+        },
+        {
+          "name": "v2",
+          "tip": [
+            "Debug v2 catalog and built-in plugins"
+          ]
+        },
+        {
+          "name": "info",
+          "tip": [
+            "Show debug information"
+          ]
+        },
+        {
+          "name": "paths",
+          "tip": [
+            "Show global paths (data, config, cache, state)"
+          ]
+        },
+        {
+          "name": "wait",
+          "tip": [
+            "Wait indefinitely (for debugging)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "providers",
+      "tip": [
+        "Manage AI providers and credentials"
+      ],
+      "next": [
+        {
+          "name": "list",
+          "tip": [
+            "List providers and credentials"
+          ]
+        },
+        {
+          "name": "login",
+          "tip": [
+            "Log in to a provider"
+          ],
+          "next": 0
+        },
+        {
+          "name": "logout",
+          "tip": [
+            "Log out from a configured provider"
+          ],
+          "next": 0
+        }
+      ]
+    },
+    {
+      "name": "agent",
+      "tip": [
+        "Manage agents"
+      ],
+      "next": [
+        {
+          "name": "create",
+          "tip": [
+            "Create a new agent"
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "List all available agents"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "upgrade",
+      "tip": [
+        "Upgrade opencode to the latest or a specific version"
+      ],
+      "next": 0
+    },
+    {
+      "name": "uninstall",
+      "tip": [
+        "Uninstall opencode and remove all related files"
+      ]
+    },
+    {
+      "name": "serve",
+      "tip": [
+        "Starts a headless opencode server"
+      ]
+    },
+    {
+      "name": "web",
+      "tip": [
+        "Start opencode server and open web interface"
+      ]
+    },
+    {
+      "name": "models",
+      "tip": [
+        "List all available models"
+      ],
+      "next": 0
+    },
+    {
+      "name": "stats",
+      "tip": [
+        "Show token usage and cost statistics"
+      ]
+    },
+    {
+      "name": "export",
+      "tip": [
+        "Export session data as JSON"
+      ],
+      "next": 0
+    },
+    {
+      "name": "import",
+      "tip": [
+        "Import session data from JSON file or URL"
+      ],
+      "next": 0
+    },
+    {
+      "name": "github",
+      "tip": [
+        "Manage GitHub agent"
+      ],
+      "next": [
+        {
+          "name": "install",
+          "tip": [
+            "Install the GitHub agent"
+          ]
+        },
+        {
+          "name": "run",
+          "tip": [
+            "Run the GitHub agent"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pr",
+      "tip": [
+        "Fetch and checkout a GitHub PR branch, then run opencode"
+      ],
+      "next": 0
+    },
+    {
+      "name": "session",
+      "tip": [
+        "Manage sessions"
+      ],
+      "next": [
+        {
+          "name": "list",
+          "tip": [
+            "List sessions"
+          ]
+        },
+        {
+          "name": "delete",
+          "tip": [
+            "Delete a session"
+          ],
+          "next": 0
+        }
+      ]
+    },
+    {
+      "name": "plugin",
+      "tip": [
+        "Install plugin and update config"
+      ],
+      "next": 0
+    },
+    {
+      "name": "db",
+      "tip": [
+        "Database tools"
+      ],
+      "next": [
+        {
+          "name": "path",
+          "tip": [
+            "Print the database path"
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "-h",
+      "alias": [
+        "--help"
+      ],
+      "tip": [
+        "Show help"
+      ]
+    },
+    {
+      "name": "-v",
+      "alias": [
+        "--version"
+      ],
+      "tip": [
+        "Show version number"
+      ]
+    },
+    {
+      "name": "--print-logs",
+      "tip": [
+        "Print logs to stderr"
+      ]
+    },
+    {
+      "name": "--log-level",
+      "tip": [
+        "Log level"
+      ],
+      "next": [
+        {
+          "name": "DEBUG"
+        },
+        {
+          "name": "INFO"
+        },
+        {
+          "name": "WARN"
+        },
+        {
+          "name": "ERROR"
+        }
+      ]
+    },
+    {
+      "name": "--pure",
+      "tip": [
+        "Run without external plugins"
+      ]
+    },
+    {
+      "name": "--port",
+      "tip": [
+        "Port to listen on"
+      ]
+    },
+    {
+      "name": "--hostname",
+      "tip": [
+        "Hostname to listen on"
+      ]
+    },
+    {
+      "name": "--mdns",
+      "tip": [
+        "Enable mDNS service discovery (defaults hostname to 0.0.0.0)"
+      ]
+    },
+    {
+      "name": "--mdns-domain",
+      "tip": [
+        "Custom domain name for mDNS service (default: opencode.local)"
+      ]
+    },
+    {
+      "name": "--cors",
+      "tip": [
+        "Additional domains to allow for CORS"
+      ]
+    },
+    {
+      "name": "-m",
+      "alias": [
+        "--model"
+      ],
+      "tip": [
+        "Model to use in the format of provider/model"
+      ]
+    },
+    {
+      "name": "-c",
+      "alias": [
+        "--continue"
+      ],
+      "tip": [
+        "Continue the last session"
+      ]
+    },
+    {
+      "name": "-s",
+      "alias": [
+        "--session"
+      ],
+      "tip": [
+        "Session id to continue"
+      ]
+    },
+    {
+      "name": "--fork",
+      "tip": [
+        "Fork the session when continuing (use with --continue or --session)"
+      ]
+    },
+    {
+      "name": "--prompt",
+      "tip": [
+        "Prompt to use"
+      ]
+    },
+    {
+      "name": "--agent",
+      "tip": [
+        "Agent to use"
+      ]
+    }
+  ],
+  "common_option": [
+    {
+      "name": "--help",
+      "tip": [
+        "Show help"
+      ]
+    }
+  ]
+}
