@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "url": "https://developer.android.com/studio/run/emulator",
+    "description": [
+      "emulator - Android 模拟器。",
+      "Android 模拟器在您的计算机上模拟 Android 设备，以便您无需物理设备即可测试应用程序。"
+    ]
+  },
+  "root": [
+    {
+      "name": "-list-avds",
+      "tip": [
+        "列出可用的 AVD"
+      ]
+    },
+    {
+      "name": "-snapshot-list",
+      "tip": [
+        "显示可用的快照列表"
+      ]
+    },
+    {
+      "name": "-webcam-list",
+      "tip": [
+        "列出可用于模拟的摄像头"
+      ]
+    }
+  ],
+  "option": [],
+  "common_option": [
+    {
+      "name": "-help",
+      "tip": [
+        "打印帮助信息"
+      ]
+    },
+    {
+      "name": "-help-disk-images",
+      "tip": [
+        "打印磁盘映像帮助"
+      ]
+    },
+    {
+      "name": "-help-debug-tags",
+      "tip": [
+        "打印调试标签帮助"
+      ]
+    },
+    {
+      "name": "-help-char-devices",
+      "tip": [
+        "打印字符设备规格帮助"
+      ]
+    },
+    {
+      "name": "-help-environment",
+      "tip": [
+        "打印环境变量帮助"
+      ]
+    },
+    {
+      "name": "-help-virtual-device",
+      "tip": [
+        "打印虚拟设备管理帮助"
+      ]
+    },
+    {
+      "name": "-help-sdk-images",
+      "tip": [
+        "打印 SDK 磁盘映像帮助"
+      ]
+    },
+    {
+      "name": "-help-build-images",
+      "tip": [
+        "打印构建磁盘映像帮助"
+      ]
+    },
+    {
+      "name": "-help-all",
+      "tip": [
+        "打印所有帮助内容"
+      ]
+    },
+    {
+      "name": "-verbose",
+      "tip": [
+        "等同于 '-debug-init'"
+      ]
+    },
+    {
+      "name": "-version",
+      "tip": [
+        "显示模拟器版本号"
+      ]
+    },
+    {
+      "name": "-debug",
+      "tip": [
+        "U: -debug <tags>",
+        "启用/禁用调试消息"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-debug-<tag>",
+      "tip": [
+        "启用特定调试消息"
+      ]
+    },
+    {
+      "name": "-debug-no-<tag>",
+      "tip": [
+        "禁用特定调试消息"
+      ]
+    }
+  ]
+}

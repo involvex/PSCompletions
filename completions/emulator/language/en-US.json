@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "url": "https://developer.android.com/studio/run/emulator",
+    "description": [
+      "emulator - Android Emulator.",
+      "The Android Emulator simulates Android devices on your computer to let you test your app without a physical device."
+    ]
+  },
+  "root": [
+    {
+      "name": "-list-avds",
+      "tip": [
+        "List available AVDs"
+      ]
+    },
+    {
+      "name": "-snapshot-list",
+      "tip": [
+        "Show a list of available snapshots"
+      ]
+    },
+    {
+      "name": "-webcam-list",
+      "tip": [
+        "Lists web cameras available for emulation"
+      ]
+    }
+  ],
+  "option": [],
+  "common_option": [
+    {
+      "name": "-help",
+      "tip": [
+        "Print help message"
+      ]
+    },
+    {
+      "name": "-help-disk-images",
+      "tip": [
+        "Print help about disk images"
+      ]
+    },
+    {
+      "name": "-help-debug-tags",
+      "tip": [
+        "Print debug tags help"
+      ]
+    },
+    {
+      "name": "-help-char-devices",
+      "tip": [
+        "Print character device specification help"
+      ]
+    },
+    {
+      "name": "-help-environment",
+      "tip": [
+        "Print environment variables help"
+      ]
+    },
+    {
+      "name": "-help-virtual-device",
+      "tip": [
+        "Print virtual device management help"
+      ]
+    },
+    {
+      "name": "-help-sdk-images",
+      "tip": [
+        "Print help about SDK disk images"
+      ]
+    },
+    {
+      "name": "-help-build-images",
+      "tip": [
+        "Print help about build disk images"
+      ]
+    },
+    {
+      "name": "-help-all",
+      "tip": [
+        "Print all help content"
+      ]
+    },
+    {
+      "name": "-verbose",
+      "tip": [
+        "Same as '-debug-init'"
+      ]
+    },
+    {
+      "name": "-version",
+      "tip": [
+        "Display emulator version number"
+      ]
+    },
+    {
+      "name": "-debug",
+      "tip": [
+        "U: -debug <tags>",
+        "Enable/disable debug messages"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-debug-<tag>",
+      "tip": [
+        "Enable specific debug messages"
+      ]
+    },
+    {
+      "name": "-debug-no-<tag>",
+      "tip": [
+        "Disable specific debug messages"
+      ]
+    }
+  ]
+}
