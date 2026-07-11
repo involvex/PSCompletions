@@ -1,0 +1,2299 @@
+{
+  "option": [
+    {
+      "tip": [
+        "Print help text and exit."
+      ],
+      "name": "-h",
+      "alias": [
+        "--help"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Print program version and exit."
+      ],
+      "name": "--version",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Update this program to the latest nightly version."
+      ],
+      "name": "-U",
+      "alias": [
+        "--update"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not check for updates (default)."
+      ],
+      "name": "--no-update",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --update-to [CHANNEL]@[TAG]",
+        "Upgrade/downgrade to a specific version."
+      ],
+      "name": "--update-to",
+      "next": [
+        {
+          "name": "stable"
+        },
+        {
+          "name": "nightly"
+        },
+        {
+          "name": "master"
+        }
+      ]
+    },
+    {
+      "tip": [
+        "Ignore download and postprocessing errors."
+      ],
+      "name": "-i",
+      "alias": [
+        "--ignore-errors"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Continue with next video on download errors (default)."
+      ],
+      "name": "--no-abort-on-error",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Abort downloading of further videos if an error occurs."
+      ],
+      "name": "--abort-on-error",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "List all supported extractors and exit."
+      ],
+      "name": "--list-extractors",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Output descriptions of all supported extractors and exit."
+      ],
+      "name": "--extractor-descriptions",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --use-extractors NAMES",
+        "Extractor names to use separated by commas."
+      ],
+      "name": "--use-extractors",
+      "alias": [
+        "--ies"
+      ],
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --default-search PREFIX",
+        "Use this prefix for unqualified URLs."
+      ],
+      "name": "--default-search",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Don't load any more configuration files."
+      ],
+      "name": "--ignore-config",
+      "alias": [
+        "--no-config"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not load any custom configuration files (default)."
+      ],
+      "name": "--no-config-locations",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --config-locations PATH",
+        "Location of the main configuration file."
+      ],
+      "name": "--config-locations",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --plugin-dirs DIR",
+        "Path to an additional directory to search for plugins."
+      ],
+      "name": "--plugin-dirs",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Clear plugin directories to search, including defaults."
+      ],
+      "name": "--no-plugin-dirs",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --js-runtimes RUNTIME[:PATH]",
+        "Additional JavaScript runtime to enable."
+      ],
+      "name": "--js-runtimes",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Clear JavaScript runtimes to enable, including defaults."
+      ],
+      "name": "--no-js-runtimes",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --remote-components COMPONENT",
+        "Remote components to allow yt-dlp to fetch."
+      ],
+      "name": "--remote-components",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Disallow fetching of all remote components."
+      ],
+      "name": "--no-remote-components",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not extract a playlist's URL result entries."
+      ],
+      "name": "--flat-playlist",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Fully extract the videos of a playlist (default)."
+      ],
+      "name": "--no-flat-playlist",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Download livestreams from the start."
+      ],
+      "name": "--live-from-start",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Download livestreams from the current time (default)."
+      ],
+      "name": "--no-live-from-start",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --wait-for-video MIN[-MAX]",
+        "Wait for scheduled streams to become available."
+      ],
+      "name": "--wait-for-video",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Do not wait for scheduled streams (default)."
+      ],
+      "name": "--no-wait-for-video",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Mark videos watched (even with --simulate)."
+      ],
+      "name": "--mark-watched",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not mark videos watched (default)."
+      ],
+      "name": "--no-mark-watched",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --color [STREAM:]POLICY",
+        "Whether to emit color codes in output."
+      ],
+      "name": "--color",
+      "next": [
+        {
+          "name": "always"
+        },
+        {
+          "name": "auto"
+        },
+        {
+          "name": "never"
+        },
+        {
+          "name": "no_color"
+        }
+      ]
+    },
+    {
+      "tip": [
+        "U: --compat-options OPTS",
+        "Options that can help keep compatibility with youtube-dl."
+      ],
+      "name": "--compat-options",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --alias ALIASES OPTIONS",
+        "Create aliases for an option string."
+      ],
+      "name": "--alias",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: -t, --preset-alias PRESET",
+        "Applies a predefined set of options."
+      ],
+      "name": "-t",
+      "alias": [
+        "--preset-alias"
+      ],
+      "next": [
+        {
+          "name": "mp3"
+        },
+        {
+          "name": "aac"
+        },
+        {
+          "name": "mp4"
+        },
+        {
+          "name": "mkv"
+        },
+        {
+          "name": "sleep"
+        }
+      ]
+    },
+    {
+      "tip": [
+        "U: --proxy URL",
+        "Use the specified HTTP/HTTPS/SOCKS proxy."
+      ],
+      "name": "--proxy",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --socket-timeout SECONDS",
+        "Time to wait before giving up, in seconds."
+      ],
+      "name": "--socket-timeout",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --source-address IP",
+        "Client-side IP address to bind to."
+      ],
+      "name": "--source-address",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --impersonate CLIENT[:OS]",
+        "Client to impersonate for requests."
+      ],
+      "name": "--impersonate",
+      "next": 0
+    },
+    {
+      "tip": [
+        "List available clients to impersonate."
+      ],
+      "name": "--list-impersonate-targets",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Make all connections via IPv4."
+      ],
+      "name": "-4",
+      "alias": [
+        "--force-ipv4"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Make all connections via IPv6."
+      ],
+      "name": "-6",
+      "alias": [
+        "--force-ipv6"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Enable file:// URLs (disabled by default for security)."
+      ],
+      "name": "--enable-file-urls",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --geo-verification-proxy URL",
+        "Use this proxy to verify the IP address for some geo-restricted sites."
+      ],
+      "name": "--geo-verification-proxy",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --xff VALUE",
+        "How to fake X-Forwarded-For HTTP header to try bypassing geographic restriction."
+      ],
+      "name": "--xff",
+      "next": [
+        {
+          "name": "default"
+        },
+        {
+          "name": "never"
+        }
+      ]
+    },
+    {
+      "tip": [
+        "U: -I, --playlist-items ITEM_SPEC",
+        "Comma-separated playlist_index of the items to download."
+      ],
+      "name": "-I",
+      "alias": [
+        "--playlist-items"
+      ],
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --min-filesize SIZE",
+        "Abort download if filesize is smaller than SIZE."
+      ],
+      "name": "--min-filesize",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --max-filesize SIZE",
+        "Abort download if filesize is larger than SIZE."
+      ],
+      "name": "--max-filesize",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --date DATE",
+        "Download only videos uploaded on this date."
+      ],
+      "name": "--date",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --datebefore DATE",
+        "Download only videos uploaded on or before this date."
+      ],
+      "name": "--datebefore",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --dateafter DATE",
+        "Download only videos uploaded on or after this date."
+      ],
+      "name": "--dateafter",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --match-filters FILTER",
+        "Generic video filter."
+      ],
+      "name": "--match-filters",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Do not use any --match-filters (default)."
+      ],
+      "name": "--no-match-filters",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --break-match-filters FILTER",
+        "Same as --match-filters but stops the download process when a video is rejected."
+      ],
+      "name": "--break-match-filters",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Do not use any --break-match-filters (default)."
+      ],
+      "name": "--no-break-match-filters",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Download only the video, if the URL refers to a video and a playlist."
+      ],
+      "name": "--no-playlist",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Download the playlist, if the URL refers to a video and a playlist."
+      ],
+      "name": "--yes-playlist",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --age-limit YEARS",
+        "Download only videos suitable for the given age."
+      ],
+      "name": "--age-limit",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --download-archive FILE",
+        "Download only videos not listed in the archive file."
+      ],
+      "name": "--download-archive",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Do not use archive file (default)."
+      ],
+      "name": "--no-download-archive",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --max-downloads NUMBER",
+        "Abort after downloading NUMBER files."
+      ],
+      "name": "--max-downloads",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Stop the download process when encountering a file that is in the archive."
+      ],
+      "name": "--break-on-existing",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not stop the download process when encountering a file that is in the archive (default)."
+      ],
+      "name": "--no-break-on-existing",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Alters --max-downloads, --break-on-existing, --break-match-filters, and autonumber to reset per input URL."
+      ],
+      "name": "--break-per-input",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "--break-on-existing and similar options terminates the entire download queue."
+      ],
+      "name": "--no-break-per-input",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --skip-playlist-after-errors N",
+        "Number of allowed failures until the rest of the playlist is skipped."
+      ],
+      "name": "--skip-playlist-after-errors",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: -N, --concurrent-fragments N",
+        "Number of fragments of a dash/hlsnative video that should be downloaded concurrently."
+      ],
+      "name": "-N",
+      "alias": [
+        "--concurrent-fragments"
+      ],
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: -r, --limit-rate RATE",
+        "Maximum download rate in bytes per second."
+      ],
+      "name": "-r",
+      "alias": [
+        "--limit-rate"
+      ],
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --throttled-rate RATE",
+        "Minimum download rate in bytes per second below which throttling is assumed."
+      ],
+      "name": "--throttled-rate",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: -R, --retries RETRIES",
+        "Number of retries (default is 10), or 'infinite'."
+      ],
+      "name": "-R",
+      "alias": [
+        "--retries"
+      ],
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --file-access-retries RETRIES",
+        "Number of times to retry on file access error (default is 3), or 'infinite'."
+      ],
+      "name": "--file-access-retries",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --fragment-retries RETRIES",
+        "Number of retries for a fragment (default is 10), or 'infinite'."
+      ],
+      "name": "--fragment-retries",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --retry-sleep [TYPE:]EXPR",
+        "Time to sleep between retries in seconds."
+      ],
+      "name": "--retry-sleep",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Skip unavailable fragments for DASH, hlsnative and ISM downloads (default)."
+      ],
+      "name": "--skip-unavailable-fragments",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Abort download if a fragment is unavailable."
+      ],
+      "name": "--abort-on-unavailable-fragments",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Keep downloaded fragments on disk after downloading is finished."
+      ],
+      "name": "--keep-fragments",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Delete downloaded fragments after downloading is finished (default)."
+      ],
+      "name": "--no-keep-fragments",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --buffer-size SIZE",
+        "Size of download buffer, e.g. 1024 or 16K (default is 1024)."
+      ],
+      "name": "--buffer-size",
+      "next": 0
+    },
+    {
+      "tip": [
+        "The buffer size is automatically resized from an initial value of --buffer-size (default)."
+      ],
+      "name": "--resize-buffer",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not automatically adjust the buffer size."
+      ],
+      "name": "--no-resize-buffer",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --http-chunk-size SIZE",
+        "Size of a chunk for chunk-based HTTP downloading, e.g. 10485760 or 10M (default is disabled)."
+      ],
+      "name": "--http-chunk-size",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Download playlist videos in random order."
+      ],
+      "name": "--playlist-random",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Process entries in the playlist as they are received."
+      ],
+      "name": "--lazy-playlist",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Process videos in the playlist only after the entire playlist is parsed (default)."
+      ],
+      "name": "--no-lazy-playlist",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Use the mpegts container for HLS videos; allowing some players to play the video while downloading."
+      ],
+      "name": "--hls-use-mpegts",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not use the mpegts container for HLS videos (default when not downloading live streams)."
+      ],
+      "name": "--no-hls-use-mpegts",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --download-sections REGEX",
+        "Download only chapters that match the regular expression."
+      ],
+      "name": "--download-sections",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --downloader [PROTO:]NAME",
+        "Name or path of the external downloader to use."
+      ],
+      "name": "--downloader",
+      "alias": [
+        "--external-downloader"
+      ],
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --downloader-args NAME:ARGS",
+        "Give these arguments to the external downloader."
+      ],
+      "name": "--downloader-args",
+      "alias": [
+        "--external-downloader-args"
+      ],
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: -a, --batch-file FILE",
+        "File containing URLs to download ('-' for stdin), one URL per line."
+      ],
+      "name": "-a",
+      "alias": [
+        "--batch-file"
+      ],
+      "next": 0
+    },
+    {
+      "tip": [
+        "Do not read URLs from batch file (default)."
+      ],
+      "name": "--no-batch-file",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: -P, --paths [TYPES:]PATH",
+        "The paths where the files should be downloaded."
+      ],
+      "name": "-P",
+      "alias": [
+        "--paths"
+      ],
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: -o, --output [TYPES:]TEMPLATE",
+        "Output filename template; see OUTPUT TEMPLATE for details."
+      ],
+      "name": "-o",
+      "alias": [
+        "--output"
+      ],
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --output-na-placeholder TEXT",
+        "Placeholder for unavailable fields in --output (default: 'NA')."
+      ],
+      "name": "--output-na-placeholder",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Restrict filenames to only ASCII characters, and avoid '&' and spaces in filenames."
+      ],
+      "name": "--restrict-filenames",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Allow Unicode characters, '&' and spaces in filenames (default)."
+      ],
+      "name": "--no-restrict-filenames",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Force filenames to be Windows-compatible."
+      ],
+      "name": "--windows-filenames",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Sanitize filenames only minimally."
+      ],
+      "name": "--no-windows-filenames",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --trim-filenames LENGTH",
+        "Limit the filename length (excluding extension) to the specified number of characters."
+      ],
+      "name": "--trim-filenames",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Do not overwrite any files."
+      ],
+      "name": "-w",
+      "alias": [
+        "--no-overwrites"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Overwrite all video and metadata files."
+      ],
+      "name": "--force-overwrites",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not overwrite the video, but overwrite related files (default)."
+      ],
+      "name": "--no-force-overwrites",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Resume partially downloaded files/fragments (default)."
+      ],
+      "name": "-c",
+      "alias": [
+        "--continue"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not resume partially downloaded fragments."
+      ],
+      "name": "--no-continue",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Use .part files instead of writing directly into output file (default)."
+      ],
+      "name": "--part",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not use .part files - write directly into output file."
+      ],
+      "name": "--no-part",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Use the Last-modified header to set the file modification time."
+      ],
+      "name": "--mtime",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not use the Last-modified header to set the file modification time (default)."
+      ],
+      "name": "--no-mtime",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Write video description to a .description file."
+      ],
+      "name": "--write-description",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not write video description (default)."
+      ],
+      "name": "--no-write-description",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Write video metadata to a .info.json file (this may contain personal information)."
+      ],
+      "name": "--write-info-json",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not write video metadata (default)."
+      ],
+      "name": "--no-write-info-json",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Write playlist metadata in addition to the video metadata when using --write-info-json, --write-description etc. (default)."
+      ],
+      "name": "--write-playlist-metafiles",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not write playlist metadata when using --write-info-json, --write-description etc."
+      ],
+      "name": "--no-write-playlist-metafiles",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Remove some internal metadata such as filenames from the infojson (default)."
+      ],
+      "name": "--clean-info-json",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Write all fields to the infojson."
+      ],
+      "name": "--no-clean-info-json",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Retrieve video comments to be placed in the infojson."
+      ],
+      "name": "--write-comments",
+      "alias": [
+        "--get-comments"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not retrieve video comments unless the extraction is known to be quick."
+      ],
+      "name": "--no-write-comments",
+      "alias": [
+        "--no-get-comments"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --load-info-json FILE",
+        "JSON file containing the video information (created with the --write-info-json option)."
+      ],
+      "name": "--load-info-json",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --cookies FILE",
+        "Netscape formatted file to read cookies from and dump cookie jar in."
+      ],
+      "name": "--cookies",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Do not read/dump cookies from/to file (default)."
+      ],
+      "name": "--no-cookies",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --cookies-from-browser BROWSER[+KEYRING][:PROFILE][::CONTAINER]",
+        "The name of the browser to load cookies from."
+      ],
+      "name": "--cookies-from-browser",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Do not load cookies from browser (default)."
+      ],
+      "name": "--no-cookies-from-browser",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --cache-dir DIR",
+        "Location in the filesystem where yt-dlp can store some downloaded information."
+      ],
+      "name": "--cache-dir",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Disable filesystem caching."
+      ],
+      "name": "--no-cache-dir",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Delete all filesystem cache files."
+      ],
+      "name": "--rm-cache-dir",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Write thumbnail image to disk."
+      ],
+      "name": "--write-thumbnail",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not write thumbnail image to disk (default)."
+      ],
+      "name": "--no-write-thumbnail",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Write all thumbnail image formats to disk."
+      ],
+      "name": "--write-all-thumbnails",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "List available thumbnails of each video."
+      ],
+      "name": "--list-thumbnails",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Write an internet shortcut file, depending on the current platform."
+      ],
+      "name": "--write-link",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Write a .url Windows internet shortcut."
+      ],
+      "name": "--write-url-link",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Write a .webloc macOS internet shortcut."
+      ],
+      "name": "--write-webloc-link",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Write a .desktop Linux internet shortcut."
+      ],
+      "name": "--write-desktop-link",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Activate quiet mode."
+      ],
+      "name": "-q",
+      "alias": [
+        "--quiet"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Deactivate quiet mode (Default)."
+      ],
+      "name": "--no-quiet",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Ignore warnings."
+      ],
+      "name": "--no-warnings",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not download the video and do not write anything to disk."
+      ],
+      "name": "-s",
+      "alias": [
+        "--simulate"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Download the video even if printing/listing options are used."
+      ],
+      "name": "--no-simulate",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Ignore 'No video formats' error."
+      ],
+      "name": "--ignore-no-formats-error",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Throw error when no downloadable video formats are found (default)."
+      ],
+      "name": "--no-ignore-no-formats-error",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not download the video but write all related files."
+      ],
+      "name": "--skip-download",
+      "alias": [
+        "--no-download"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: -O, --print [WHEN:]TEMPLATE",
+        "Field name or output template to print to screen."
+      ],
+      "name": "-O",
+      "alias": [
+        "--print"
+      ],
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --print-to-file [WHEN:]TEMPLATE FILE",
+        "Append given template to the file."
+      ],
+      "name": "--print-to-file",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Quiet, but print JSON information for each video."
+      ],
+      "name": "-j",
+      "alias": [
+        "--dump-json"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Quiet, but print JSON information for each URL or infojson passed."
+      ],
+      "name": "-J",
+      "alias": [
+        "--dump-single-json"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Force download archive entries to be written as far as no errors occur."
+      ],
+      "name": "--force-write-archive",
+      "alias": [
+        "--force-download-archive"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Output progress bar as new lines."
+      ],
+      "name": "--newline",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not print progress bar."
+      ],
+      "name": "--no-progress",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Show progress bar, even if in quiet mode."
+      ],
+      "name": "--progress",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Display progress in console titlebar."
+      ],
+      "name": "--console-title",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --progress-template [TYPES:]TEMPLATE",
+        "Template for progress outputs."
+      ],
+      "name": "--progress-template",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --progress-delta SECONDS",
+        "Time between progress output (default: 0)."
+      ],
+      "name": "--progress-delta",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Print various debugging information."
+      ],
+      "name": "-v",
+      "alias": [
+        "--verbose"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Print downloaded pages encoded using base64 to debug problems (very verbose)."
+      ],
+      "name": "--dump-pages",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Write downloaded intermediary pages to files in the current directory to debug problems."
+      ],
+      "name": "--write-pages",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Display sent and read HTTP traffic."
+      ],
+      "name": "--print-traffic",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --encoding ENCODING",
+        "Force the specified encoding (experimental)."
+      ],
+      "name": "--encoding",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Explicitly allow HTTPS connection to servers that do not support RFC 5746 secure renegotiation."
+      ],
+      "name": "--legacy-server-connect",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Suppress HTTPS certificate validation."
+      ],
+      "name": "--no-check-certificates",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Use an unencrypted connection to retrieve information about the video."
+      ],
+      "name": "--prefer-insecure",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --add-headers FIELD:VALUE",
+        "Specify a custom HTTP header and its value, separated by a colon ':'."
+      ],
+      "name": "--add-headers",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Work around terminals that lack bidirectional text support."
+      ],
+      "name": "--bidi-workaround",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --sleep-requests SECONDS",
+        "Number of seconds to sleep between requests during data extraction."
+      ],
+      "name": "--sleep-requests",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --sleep-interval SECONDS",
+        "Number of seconds to sleep before each download."
+      ],
+      "name": "--sleep-interval",
+      "alias": [
+        "--min-sleep-interval"
+      ],
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --max-sleep-interval SECONDS",
+        "Maximum number of seconds to sleep."
+      ],
+      "name": "--max-sleep-interval",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --sleep-subtitles SECONDS",
+        "Number of seconds to sleep before each subtitle download."
+      ],
+      "name": "--sleep-subtitles",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: -f, --format FORMAT",
+        "Video format code, see FORMAT SELECTION for more details."
+      ],
+      "name": "-f",
+      "alias": [
+        "--format"
+      ],
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: -S, --format-sort SORTORDER",
+        "Sort the formats by the fields given."
+      ],
+      "name": "-S",
+      "alias": [
+        "--format-sort"
+      ],
+      "next": 0
+    },
+    {
+      "tip": [
+        "Disregard previous user specified sort order and reset to the default."
+      ],
+      "name": "--format-sort-reset",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Force user specified sort order to have precedence over all fields."
+      ],
+      "name": "--format-sort-force",
+      "alias": [
+        "--S-force"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Some fields have precedence over the user specified sort order (default)."
+      ],
+      "name": "--no-format-sort-force",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Allow multiple video streams to be merged into a single file."
+      ],
+      "name": "--video-multistreams",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Only one video stream is downloaded for each output file (default)."
+      ],
+      "name": "--no-video-multistreams",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Allow multiple audio streams to be merged into a single file."
+      ],
+      "name": "--audio-multistreams",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Only one audio stream is downloaded for each output file (default)."
+      ],
+      "name": "--no-audio-multistreams",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Prefer video formats with free containers over non-free ones of the same quality."
+      ],
+      "name": "--prefer-free-formats",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Don't give any special preference to free containers (default)."
+      ],
+      "name": "--no-prefer-free-formats",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Make sure formats are selected only from those that are actually downloadable."
+      ],
+      "name": "--check-formats",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Check all formats for whether they are actually downloadable."
+      ],
+      "name": "--check-all-formats",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not check that the formats are actually downloadable."
+      ],
+      "name": "--no-check-formats",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "List available formats of each video."
+      ],
+      "name": "-F",
+      "alias": [
+        "--list-formats"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --merge-output-format FORMAT",
+        "Containers that may be used when merging formats, separated by '/'."
+      ],
+      "name": "--merge-output-format",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Write subtitle file."
+      ],
+      "name": "--write-subs",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not write subtitle file (default)."
+      ],
+      "name": "--no-write-subs",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Write automatically generated subtitle file."
+      ],
+      "name": "--write-auto-subs",
+      "alias": [
+        "--write-automatic-subs"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not write auto-generated subtitles (default)."
+      ],
+      "name": "--no-write-auto-subs",
+      "alias": [
+        "--no-write-automatic-subs"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "List available subtitles of each video."
+      ],
+      "name": "--list-subs",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --sub-format FORMAT",
+        "Subtitle format; accepts formats preference separated by '/'."
+      ],
+      "name": "--sub-format",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --sub-langs LANGS",
+        "Languages of the subtitles to download (can be regex) or 'all' separated by commas."
+      ],
+      "name": "--sub-langs",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: -u, --username USERNAME",
+        "Login with this account ID."
+      ],
+      "name": "-u",
+      "alias": [
+        "--username"
+      ],
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: -p, --password PASSWORD",
+        "Account password."
+      ],
+      "name": "-p",
+      "alias": [
+        "--password"
+      ],
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: -2, --twofactor TWOFACTOR",
+        "Two-factor authentication code."
+      ],
+      "name": "-2",
+      "alias": [
+        "--twofactor"
+      ],
+      "next": 0
+    },
+    {
+      "tip": [
+        "Use .netrc authentication data."
+      ],
+      "name": "-n",
+      "alias": [
+        "--netrc"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --netrc-location PATH",
+        "Location of .netrc authentication data."
+      ],
+      "name": "--netrc-location",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --netrc-cmd NETRC_CMD",
+        "Command to execute to get the credentials for an extractor."
+      ],
+      "name": "--netrc-cmd",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --video-password PASSWORD",
+        "Video-specific password."
+      ],
+      "name": "--video-password",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --ap-mso MSO",
+        "Adobe Pass multiple-system operator (TV provider) identifier."
+      ],
+      "name": "--ap-mso",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --ap-username USERNAME",
+        "Multiple-system operator account login."
+      ],
+      "name": "--ap-username",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --ap-password PASSWORD",
+        "Multiple-system operator account password."
+      ],
+      "name": "--ap-password",
+      "next": 0
+    },
+    {
+      "tip": [
+        "List all supported multiple-system operators."
+      ],
+      "name": "--ap-list-mso",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --client-certificate CERTFILE",
+        "Path to client certificate file in PEM format."
+      ],
+      "name": "--client-certificate",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --client-certificate-key KEYFILE",
+        "Path to private key file for client certificate."
+      ],
+      "name": "--client-certificate-key",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --client-certificate-password PASSWORD",
+        "Password for client certificate private key, if encrypted."
+      ],
+      "name": "--client-certificate-password",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Convert video files to audio-only files (requires ffmpeg and ffprobe)."
+      ],
+      "name": "-x",
+      "alias": [
+        "--extract-audio"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --audio-format FORMAT",
+        "Format to convert the audio to when -x is used."
+      ],
+      "name": "--audio-format",
+      "next": [
+        {
+          "name": "best"
+        },
+        {
+          "name": "aac"
+        },
+        {
+          "name": "alac"
+        },
+        {
+          "name": "flac"
+        },
+        {
+          "name": "m4a"
+        },
+        {
+          "name": "mp3"
+        },
+        {
+          "name": "opus"
+        },
+        {
+          "name": "vorbis"
+        },
+        {
+          "name": "wav"
+        }
+      ]
+    },
+    {
+      "tip": [
+        "U: --audio-quality QUALITY",
+        "Specify ffmpeg audio quality to use when converting the audio with -x."
+      ],
+      "name": "--audio-quality",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --remux-video FORMAT",
+        "Remux the video into another container if necessary."
+      ],
+      "name": "--remux-video",
+      "next": [
+        {
+          "name": "avi"
+        },
+        {
+          "name": "flv"
+        },
+        {
+          "name": "gif"
+        },
+        {
+          "name": "mkv"
+        },
+        {
+          "name": "mov"
+        },
+        {
+          "name": "mp4"
+        },
+        {
+          "name": "webm"
+        },
+        {
+          "name": "aac"
+        },
+        {
+          "name": "aiff"
+        },
+        {
+          "name": "alac"
+        },
+        {
+          "name": "flac"
+        },
+        {
+          "name": "m4a"
+        },
+        {
+          "name": "mka"
+        },
+        {
+          "name": "mp3"
+        },
+        {
+          "name": "ogg"
+        },
+        {
+          "name": "opus"
+        },
+        {
+          "name": "vorbis"
+        },
+        {
+          "name": "wav"
+        }
+      ]
+    },
+    {
+      "tip": [
+        "U: --recode-video FORMAT",
+        "Re-encode the video into another format if necessary."
+      ],
+      "name": "--recode-video",
+      "next": [
+        {
+          "name": "avi"
+        },
+        {
+          "name": "flv"
+        },
+        {
+          "name": "gif"
+        },
+        {
+          "name": "mkv"
+        },
+        {
+          "name": "mov"
+        },
+        {
+          "name": "mp4"
+        },
+        {
+          "name": "webm"
+        }
+      ]
+    },
+    {
+      "tip": [
+        "U: --postprocessor-args NAME:ARGS",
+        "Give these arguments to the postprocessors."
+      ],
+      "name": "--postprocessor-args",
+      "alias": [
+        "--ppa"
+      ],
+      "next": 0
+    },
+    {
+      "tip": [
+        "Keep the intermediate video file on disk after post-processing."
+      ],
+      "name": "-k",
+      "alias": [
+        "--keep-video"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Delete the intermediate video file after post-processing (default)."
+      ],
+      "name": "--no-keep-video",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Overwrite post-processed files (default)."
+      ],
+      "name": "--post-overwrites",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not overwrite post-processed files."
+      ],
+      "name": "--no-post-overwrites",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Embed subtitles in the video (only for mp4, webm and mkv videos)."
+      ],
+      "name": "--embed-subs",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not embed subtitles (default)."
+      ],
+      "name": "--no-embed-subs",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Embed thumbnail in the video as cover art."
+      ],
+      "name": "--embed-thumbnail",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not embed thumbnail (default)."
+      ],
+      "name": "--no-embed-thumbnail",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Embed metadata to the video file."
+      ],
+      "name": "--embed-metadata",
+      "alias": [
+        "--add-metadata"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not add metadata to file (default)."
+      ],
+      "name": "--no-embed-metadata",
+      "alias": [
+        "--no-add-metadata"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Add chapter markers to the video file."
+      ],
+      "name": "--embed-chapters",
+      "alias": [
+        "--add-chapters"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not add chapter markers (default)."
+      ],
+      "name": "--no-embed-chapters",
+      "alias": [
+        "--no-add-chapters"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Embed the infojson as an attachment to mkv/mka video files."
+      ],
+      "name": "--embed-info-json",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not embed the infojson as an attachment to the video file."
+      ],
+      "name": "--no-embed-info-json",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --parse-metadata [WHEN:]FROM:TO",
+        "Parse additional metadata like title/artist from other fields."
+      ],
+      "name": "--parse-metadata",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --replace-in-metadata [WHEN:]FIELDS REGEX REPLACE",
+        "Replace text in a metadata field using the given regex."
+      ],
+      "name": "--replace-in-metadata",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Write metadata to the video file's xattrs (using Dublin Core and XDG standards)."
+      ],
+      "name": "--xattrs",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --concat-playlist POLICY",
+        "Concatenate videos in a playlist."
+      ],
+      "name": "--concat-playlist",
+      "next": [
+        {
+          "name": "never"
+        },
+        {
+          "name": "always"
+        },
+        {
+          "name": "multi_video"
+        }
+      ]
+    },
+    {
+      "tip": [
+        "U: --fixup POLICY",
+        "Automatically correct known faults of the file."
+      ],
+      "name": "--fixup",
+      "next": [
+        {
+          "name": "never"
+        },
+        {
+          "name": "warn"
+        },
+        {
+          "name": "detect_or_warn"
+        },
+        {
+          "name": "force"
+        }
+      ]
+    },
+    {
+      "tip": [
+        "U: --ffmpeg-location PATH",
+        "Location of the ffmpeg binary; either the path to the binary or its containing directory."
+      ],
+      "name": "--ffmpeg-location",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --exec [WHEN:]CMD",
+        "Execute a command, optionally prefixed with when to execute it, separated by a ':'."
+      ],
+      "name": "--exec",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Remove any previously defined --exec."
+      ],
+      "name": "--no-exec",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --convert-subs FORMAT",
+        "Convert the subtitles to another format."
+      ],
+      "name": "--convert-subs",
+      "alias": [
+        "--convert-subtitles"
+      ],
+      "next": [
+        {
+          "name": "ass"
+        },
+        {
+          "name": "lrc"
+        },
+        {
+          "name": "srt"
+        },
+        {
+          "name": "vtt"
+        },
+        {
+          "name": "none"
+        }
+      ]
+    },
+    {
+      "tip": [
+        "U: --convert-thumbnails FORMAT",
+        "Convert the thumbnails to another format."
+      ],
+      "name": "--convert-thumbnails",
+      "next": [
+        {
+          "name": "jpg"
+        },
+        {
+          "name": "png"
+        },
+        {
+          "name": "webp"
+        },
+        {
+          "name": "none"
+        }
+      ]
+    },
+    {
+      "tip": [
+        "Split video into multiple files based on internal chapters."
+      ],
+      "name": "--split-chapters",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not split video based on chapters (default)."
+      ],
+      "name": "--no-split-chapters",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --remove-chapters REGEX",
+        "Remove chapters whose title matches the given regular expression."
+      ],
+      "name": "--remove-chapters",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Do not remove any chapters from the file (default)."
+      ],
+      "name": "--no-remove-chapters",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Force keyframes at cuts when downloading/splitting/removing sections."
+      ],
+      "name": "--force-keyframes-at-cuts",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not force keyframes around the chapters when cutting/splitting (default)."
+      ],
+      "name": "--no-force-keyframes-at-cuts",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --use-postprocessor NAME[:ARGS]",
+        "The (case-sensitive) name of plugin postprocessors to be enabled."
+      ],
+      "name": "--use-postprocessor",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --sponsorblock-mark CATS",
+        "SponsorBlock categories to create chapters for, separated by commas."
+      ],
+      "name": "--sponsorblock-mark",
+      "next": [
+        {
+          "name": "sponsor"
+        },
+        {
+          "name": "intro"
+        },
+        {
+          "name": "outro"
+        },
+        {
+          "name": "selfpromo"
+        },
+        {
+          "name": "preview"
+        },
+        {
+          "name": "filler"
+        },
+        {
+          "name": "interaction"
+        },
+        {
+          "name": "music_offtopic"
+        },
+        {
+          "name": "hook"
+        },
+        {
+          "name": "poi_highlight"
+        },
+        {
+          "name": "chapter"
+        },
+        {
+          "name": "all"
+        },
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "tip": [
+        "U: --sponsorblock-remove CATS",
+        "SponsorBlock categories to be removed from the video file, separated by commas."
+      ],
+      "name": "--sponsorblock-remove",
+      "next": [
+        {
+          "name": "sponsor"
+        },
+        {
+          "name": "intro"
+        },
+        {
+          "name": "outro"
+        },
+        {
+          "name": "selfpromo"
+        },
+        {
+          "name": "preview"
+        },
+        {
+          "name": "filler"
+        },
+        {
+          "name": "interaction"
+        },
+        {
+          "name": "music_offtopic"
+        },
+        {
+          "name": "hook"
+        },
+        {
+          "name": "all"
+        },
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "tip": [
+        "U: --sponsorblock-chapter-title TEMPLATE",
+        "An output template for the title of the SponsorBlock chapters."
+      ],
+      "name": "--sponsorblock-chapter-title",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Disable both --sponsorblock-mark and --sponsorblock-remove."
+      ],
+      "name": "--no-sponsorblock",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --sponsorblock-api URL",
+        "SponsorBlock API location."
+      ],
+      "name": "--sponsorblock-api",
+      "next": 0
+    },
+    {
+      "tip": [
+        "U: --extractor-retries RETRIES",
+        "Number of retries for known extractor errors (default is 3), or 'infinite'."
+      ],
+      "name": "--extractor-retries",
+      "next": 0
+    },
+    {
+      "tip": [
+        "Process dynamic DASH manifests (default)."
+      ],
+      "name": "--allow-dynamic-mpd",
+      "alias": [
+        "--no-ignore-dynamic-mpd"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not process dynamic DASH manifests."
+      ],
+      "name": "--ignore-dynamic-mpd",
+      "alias": [
+        "--no-allow-dynamic-mpd"
+      ],
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Split HLS playlists to different formats at discontinuities such as ad breaks."
+      ],
+      "name": "--hls-split-discontinuity",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "Do not split HLS playlists into different formats at discontinuities such as ad breaks (default)."
+      ],
+      "name": "--no-hls-split-discontinuity",
+      "common_option": []
+    },
+    {
+      "tip": [
+        "U: --extractor-args IE_KEY:ARGS",
+        "Pass ARGS arguments to the IE_KEY extractor."
+      ],
+      "name": "--extractor-args",
+      "next": 0
+    }
+  ],
+  "meta": {
+    "url": "https://github.com/yt-dlp/yt-dlp",
+    "description": [
+      "yt-dlp - A feature-rich command-line audio/video downloader."
+    ]
+  },
+  "common_option": [
+    {
+      "tip": [
+        "Print help text and exit."
+      ],
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "common_option": []
+    }
+  ],
+  "root": []
+}

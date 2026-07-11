@@ -1,0 +1,79 @@
+{
+  "common_option": [
+    {
+      "common_option": [],
+      "name": "--help",
+      "tip": [
+        "显示帮助信息。"
+      ],
+      "alias": [
+        "-h"
+      ]
+    }
+  ],
+  "meta": {
+    "url": "https://mpv.io/",
+    "description": [
+      "mpv - 一个免费、开源、跨平台的媒体播放器。"
+    ]
+  },
+  "root": [],
+  "option": [
+    {
+      "common_option": [],
+      "name": "--start=<time>",
+      "tip": [
+        "跳转到指定位置（百分比、秒或 hh:mm:ss）。"
+      ]
+    },
+    {
+      "common_option": [],
+      "name": "--no-audio",
+      "tip": [
+        "不播放声音。"
+      ]
+    },
+    {
+      "common_option": [],
+      "name": "--no-video",
+      "tip": [
+        "不播放视频。"
+      ]
+    },
+    {
+      "common_option": [],
+      "name": "--fs",
+      "tip": [
+        "全屏播放。"
+      ]
+    },
+    {
+      "common_option": [],
+      "name": "--sub-file=<file>",
+      "tip": [
+        "指定要使用的字幕文件。"
+      ]
+    },
+    {
+      "common_option": [],
+      "name": "--playlist=<file>",
+      "tip": [
+        "指定播放列表文件。"
+      ]
+    },
+    {
+      "common_option": [],
+      "name": "--list-options",
+      "tip": [
+        "列出所有 mpv 选项。"
+      ]
+    },
+    {
+      "common_option": [],
+      "name": "--h=<string>",
+      "tip": [
+        "打印名称中包含给定字符串的选项。"
+      ]
+    }
+  ]
+}

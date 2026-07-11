@@ -1,0 +1,79 @@
+{
+  "common_option": [
+    {
+      "common_option": [],
+      "name": "--help",
+      "tip": [
+        "Show help message."
+      ],
+      "alias": [
+        "-h"
+      ]
+    }
+  ],
+  "meta": {
+    "url": "https://mpv.io/",
+    "description": [
+      "mpv - A free, open-source, cross-platform media player."
+    ]
+  },
+  "root": [],
+  "option": [
+    {
+      "common_option": [],
+      "name": "--start=<time>",
+      "tip": [
+        "Seek to given (percent, seconds, or hh:mm:ss) position."
+      ]
+    },
+    {
+      "common_option": [],
+      "name": "--no-audio",
+      "tip": [
+        "Do not play sound."
+      ]
+    },
+    {
+      "common_option": [],
+      "name": "--no-video",
+      "tip": [
+        "Do not play video."
+      ]
+    },
+    {
+      "common_option": [],
+      "name": "--fs",
+      "tip": [
+        "Fullscreen playback."
+      ]
+    },
+    {
+      "common_option": [],
+      "name": "--sub-file=<file>",
+      "tip": [
+        "Specify subtitle file to use."
+      ]
+    },
+    {
+      "common_option": [],
+      "name": "--playlist=<file>",
+      "tip": [
+        "Specify playlist file."
+      ]
+    },
+    {
+      "common_option": [],
+      "name": "--list-options",
+      "tip": [
+        "List all mpv options."
+      ]
+    },
+    {
+      "common_option": [],
+      "name": "--h=<string>",
+      "tip": [
+        "Print options which contain the given string in their name."
+      ]
+    }
+  ]
+}
