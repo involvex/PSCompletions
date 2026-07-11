@@ -1,0 +1,3150 @@
+{
+  "option": [],
+  "common_option": [
+    {
+      "name": "--help",
+      "common_option": [],
+      "tip": [
+        "Show help message."
+      ],
+      "alias": [
+        "-h"
+      ]
+    },
+    {
+      "name": "--token",
+      "next": 0,
+      "tip": [
+        "U: --token <string>",
+        "Hugging Face access token."
+      ]
+    },
+    {
+      "name": "--format",
+      "next": [
+        {
+          "name": "json"
+        },
+        {
+          "name": "text"
+        }
+      ],
+      "tip": [
+        "U: --format <json|text>",
+        "Output format."
+      ]
+    },
+    {
+      "name": "--json",
+      "common_option": [],
+      "tip": [
+        "Output as JSON."
+      ]
+    },
+    {
+      "name": "--quiet",
+      "common_option": [],
+      "tip": [
+        "Suppress non-essential output."
+      ],
+      "alias": [
+        "-q"
+      ]
+    },
+    {
+      "name": "--no-truncate",
+      "common_option": [],
+      "tip": [
+        "Do not truncate table output."
+      ]
+    }
+  ],
+  "meta": {
+    "description": [
+      "hf - Command-line interface for the Hugging Face Hub."
+    ],
+    "url": "https://github.com/huggingface/huggingface_hub"
+  },
+  "root": [
+    {
+      "name": "auth",
+      "next": [
+        {
+          "name": "status",
+          "common_option": [],
+          "tip": [
+            "Check current authentication status."
+          ]
+        },
+        {
+          "name": "login",
+          "common_option": [
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            },
+            {
+              "name": "--credential-cache",
+              "next": 0,
+              "tip": [
+                "U: --credential-cache <string>",
+                "Override the credential cache type."
+              ]
+            }
+          ],
+          "tip": [
+            "Log in to the Hugging Face Hub."
+          ]
+        },
+        {
+          "name": "logout",
+          "common_option": [],
+          "tip": [
+            "Log out from the Hugging Face Hub."
+          ]
+        },
+        {
+          "name": "switch-token",
+          "common_option": [
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "New token to use."
+              ]
+            }
+          ],
+          "tip": [
+            "Switch the active authentication token."
+          ]
+        }
+      ],
+      "tip": [
+        "Manage Hugging Face authentication."
+      ]
+    },
+    {
+      "name": "buckets",
+      "next": [
+        {
+          "name": "list",
+          "common_option": [],
+          "tip": [
+            "List available buckets."
+          ],
+          "alias": [
+            "ls"
+          ]
+        },
+        {
+          "name": "create",
+          "common_option": [
+            {
+              "name": "--name",
+              "next": 0,
+              "tip": [
+                "U: --name <string>",
+                "Bucket name."
+              ]
+            },
+            {
+              "name": "--region",
+              "next": 0,
+              "tip": [
+                "U: --region <string>",
+                "Bucket region."
+              ]
+            }
+          ],
+          "tip": [
+            "Create a new bucket."
+          ]
+        },
+        {
+          "name": "delete",
+          "common_option": [
+            {
+              "name": "--name",
+              "next": 0,
+              "tip": [
+                "U: --name <string>",
+                "Bucket name."
+              ]
+            }
+          ],
+          "tip": [
+            "Delete a bucket."
+          ]
+        }
+      ],
+      "tip": [
+        "Manage storage buckets."
+      ]
+    },
+    {
+      "name": "cache",
+      "next": [
+        {
+          "name": "list",
+          "common_option": [],
+          "tip": [
+            "List cached items."
+          ],
+          "alias": [
+            "ls"
+          ]
+        },
+        {
+          "name": "delete",
+          "common_option": [
+            {
+              "name": "--name",
+              "next": 0,
+              "tip": [
+                "U: --name <string>",
+                "Specific cache entry to delete."
+              ]
+            }
+          ],
+          "tip": [
+            "Delete cached items."
+          ],
+          "alias": [
+            "rm"
+          ]
+        },
+        {
+          "name": "purge",
+          "common_option": [],
+          "tip": [
+            "Purge the entire local cache."
+          ]
+        }
+      ],
+      "tip": [
+        "Manage the local cache."
+      ]
+    },
+    {
+      "name": "collections",
+      "next": [
+        {
+          "name": "list",
+          "common_option": [
+            {
+              "name": "--owner",
+              "next": 0,
+              "tip": [
+                "U: --owner <string>",
+                "Filter by owner."
+              ]
+            }
+          ],
+          "tip": [
+            "List collections."
+          ],
+          "alias": [
+            "ls"
+          ]
+        },
+        {
+          "name": "create",
+          "common_option": [
+            {
+              "name": "--name",
+              "next": 0,
+              "tip": [
+                "U: --name <string>",
+                "Collection name."
+              ]
+            },
+            {
+              "name": "--description",
+              "next": 0,
+              "tip": [
+                "U: --description <string>",
+                "Collection description."
+              ]
+            }
+          ],
+          "tip": [
+            "Create a new collection."
+          ]
+        },
+        {
+          "name": "delete",
+          "common_option": [
+            {
+              "name": "--id",
+              "next": 0,
+              "tip": [
+                "U: --id <string>",
+                "Collection ID."
+              ]
+            }
+          ],
+          "tip": [
+            "Delete a collection."
+          ]
+        },
+        {
+          "name": "add-repo",
+          "common_option": [
+            {
+              "name": "--collection-id",
+              "next": 0,
+              "tip": [
+                "U: --collection-id <string>",
+                "Collection ID."
+              ]
+            },
+            {
+              "name": "--repo-id",
+              "next": 0,
+              "tip": [
+                "U: --repo-id <string>",
+                "Repository ID."
+              ]
+            },
+            {
+              "name": "--type",
+              "next": [
+                {
+                  "name": "model"
+                },
+                {
+                  "name": "dataset"
+                },
+                {
+                  "name": "space"
+                }
+              ],
+              "tip": [
+                "U: --type <model|dataset|space>",
+                "Repository type."
+              ]
+            }
+          ],
+          "tip": [
+            "Add a repository to a collection."
+          ]
+        },
+        {
+          "name": "remove-repo",
+          "common_option": [
+            {
+              "name": "--collection-id",
+              "next": 0,
+              "tip": [
+                "U: --collection-id <string>",
+                "Collection ID."
+              ]
+            },
+            {
+              "name": "--repo-id",
+              "next": 0,
+              "tip": [
+                "U: --repo-id <string>",
+                "Repository ID."
+              ]
+            },
+            {
+              "name": "--type",
+              "next": [
+                {
+                  "name": "model"
+                },
+                {
+                  "name": "dataset"
+                },
+                {
+                  "name": "space"
+                }
+              ],
+              "tip": [
+                "U: --type <model|dataset|space>",
+                "Repository type."
+              ]
+            }
+          ],
+          "tip": [
+            "Remove a repository from a collection."
+          ]
+        }
+      ],
+      "tip": [
+        "Manage collections."
+      ]
+    },
+    {
+      "name": "cp",
+      "common_option": [
+        {
+          "name": "src_repo",
+          "next": 0,
+          "tip": [
+            "U: src_repo <string>",
+            "Source repository."
+          ]
+        },
+        {
+          "name": "src_path",
+          "next": 0,
+          "tip": [
+            "U: src_path <string>",
+            "Source path in repository."
+          ]
+        },
+        {
+          "name": "dst_repo",
+          "next": 0,
+          "tip": [
+            "U: dst_repo <string>",
+            "Destination repository."
+          ]
+        },
+        {
+          "name": "dst_path",
+          "next": 0,
+          "tip": [
+            "U: dst_path <string>",
+            "Destination path in repository."
+          ]
+        },
+        {
+          "name": "--repo-type",
+          "next": [
+            {
+              "name": "model"
+            },
+            {
+              "name": "dataset"
+            },
+            {
+              "name": "space"
+            }
+          ],
+          "tip": [
+            "U: --repo-type <model|dataset|space>",
+            "Type of repository."
+          ]
+        },
+        {
+          "name": "--revision",
+          "next": 0,
+          "tip": [
+            "U: --revision <string>",
+            "Git revision (branch, tag, or commit)."
+          ]
+        },
+        {
+          "name": "--include",
+          "next": 0,
+          "tip": [
+            "U: --include <string>",
+            "Glob patterns for files to include."
+          ]
+        },
+        {
+          "name": "--exclude",
+          "next": 0,
+          "tip": [
+            "U: --exclude <string>",
+            "Glob patterns for files to exclude."
+          ]
+        }
+      ],
+      "tip": [
+        "Copy files between locations."
+      ]
+    },
+    {
+      "name": "datasets",
+      "next": [
+        {
+          "name": "list",
+          "common_option": [
+            {
+              "name": "--author",
+              "next": 0,
+              "tip": [
+                "U: --author <string>",
+                "Filter by author."
+              ]
+            },
+            {
+              "name": "--search",
+              "next": 0,
+              "tip": [
+                "U: --search <string>",
+                "Search query."
+              ]
+            },
+            {
+              "name": "--limit",
+              "next": 0,
+              "tip": [
+                "U: --limit <int>",
+                "Maximum number of results."
+              ]
+            },
+            {
+              "name": "--sort",
+              "next": 0,
+              "tip": [
+                "U: --sort <string>",
+                "Sort field."
+              ]
+            },
+            {
+              "name": "--direction",
+              "next": [
+                {
+                  "name": "-1"
+                },
+                {
+                  "name": "1"
+                }
+              ],
+              "tip": [
+                "U: --direction <-1|1>",
+                "Sort direction."
+              ]
+            }
+          ],
+          "tip": [
+            "List datasets."
+          ],
+          "alias": [
+            "ls"
+          ]
+        }
+      ],
+      "tip": [
+        "Manage datasets."
+      ]
+    },
+    {
+      "name": "discussions",
+      "next": [
+        {
+          "name": "list",
+          "common_option": [
+            {
+              "name": "repo_id",
+              "next": 0,
+              "tip": [
+                "U: repo_id <string>",
+                "Repository ID."
+              ]
+            },
+            {
+              "name": "--type",
+              "next": 0,
+              "tip": [
+                "U: --type <string>",
+                "Discussion type filter."
+              ]
+            }
+          ],
+          "tip": [
+            "List discussions for a repo."
+          ],
+          "alias": [
+            "ls"
+          ]
+        },
+        {
+          "name": "create",
+          "common_option": [
+            {
+              "name": "repo_id",
+              "next": 0,
+              "tip": [
+                "U: repo_id <string>",
+                "Repository ID."
+              ]
+            },
+            {
+              "name": "title",
+              "next": 0,
+              "tip": [
+                "U: title <string>",
+                "Discussion title."
+              ]
+            },
+            {
+              "name": "--content",
+              "next": 0,
+              "tip": [
+                "U: --content <string>",
+                "Initial comment content."
+              ]
+            },
+            {
+              "name": "--repo-type",
+              "next": [
+                {
+                  "name": "model"
+                },
+                {
+                  "name": "dataset"
+                },
+                {
+                  "name": "space"
+                }
+              ],
+              "tip": [
+                "U: --repo-type <model|dataset|space>",
+                "Repository type."
+              ]
+            }
+          ],
+          "tip": [
+            "Create a new discussion."
+          ]
+        },
+        {
+          "name": "comment",
+          "common_option": [
+            {
+              "name": "repo_id",
+              "next": 0,
+              "tip": [
+                "U: repo_id <string>",
+                "Repository ID."
+              ]
+            },
+            {
+              "name": "discussion_id",
+              "next": 0,
+              "tip": [
+                "U: discussion_id <int>",
+                "Discussion number."
+              ]
+            },
+            {
+              "name": "comment",
+              "next": 0,
+              "tip": [
+                "U: comment <string>",
+                "Comment body."
+              ]
+            }
+          ],
+          "tip": [
+            "Comment on a discussion."
+          ]
+        },
+        {
+          "name": "merge",
+          "common_option": [
+            {
+              "name": "repo_id",
+              "next": 0,
+              "tip": [
+                "U: repo_id <string>",
+                "Repository ID."
+              ]
+            },
+            {
+              "name": "discussion_id",
+              "next": 0,
+              "tip": [
+                "U: discussion_id <int>",
+                "Discussion number."
+              ]
+            }
+          ],
+          "tip": [
+            "Merge a discussion."
+          ]
+        }
+      ],
+      "tip": [
+        "Manage discussions."
+      ]
+    },
+    {
+      "name": "download",
+      "common_option": [
+        {
+          "name": "repo_id",
+          "next": 0,
+          "tip": [
+            "U: repo_id <string>",
+            "Repository ID."
+          ]
+        },
+        {
+          "name": "--repo-type",
+          "next": [
+            {
+              "name": "model"
+            },
+            {
+              "name": "dataset"
+            },
+            {
+              "name": "space"
+            }
+          ],
+          "tip": [
+            "U: --repo-type <model|dataset|space>",
+            "Repository type."
+          ]
+        },
+        {
+          "name": "--revision",
+          "next": 0,
+          "tip": [
+            "U: --revision <string>",
+            "Git revision."
+          ]
+        },
+        {
+          "name": "--include",
+          "next": 0,
+          "tip": [
+            "U: --include <string>",
+            "Glob patterns to include."
+          ]
+        },
+        {
+          "name": "--exclude",
+          "next": 0,
+          "tip": [
+            "U: --exclude <string>",
+            "Glob patterns to exclude."
+          ]
+        },
+        {
+          "name": "--local-dir",
+          "next": 0,
+          "tip": [
+            "U: --local-dir <string>",
+            "Local directory to save files."
+          ]
+        },
+        {
+          "name": "--force",
+          "common_option": [],
+          "tip": [
+            "Force download even if files exist."
+          ]
+        },
+        {
+          "name": "--resume-download",
+          "common_option": [],
+          "tip": [
+            "Resume an incomplete download."
+          ]
+        },
+        {
+          "name": "--token",
+          "next": 0,
+          "tip": [
+            "U: --token <string>",
+            "Hugging Face access token."
+          ]
+        }
+      ],
+      "tip": [
+        "Download files from a repository."
+      ],
+      "alias": [
+        "dl"
+      ]
+    },
+    {
+      "name": "endpoints",
+      "next": [
+        {
+          "name": "list",
+          "common_option": [
+            {
+              "name": "--namespace",
+              "next": 0,
+              "tip": [
+                "U: --namespace <string>",
+                "Filter by namespace."
+              ]
+            }
+          ],
+          "tip": [
+            "List all inference endpoints."
+          ],
+          "alias": [
+            "ls"
+          ]
+        },
+        {
+          "name": "get",
+          "common_option": [
+            {
+              "name": "endpoint_id",
+              "next": 0,
+              "tip": [
+                "U: endpoint_id <string>",
+                "Endpoint ID."
+              ]
+            }
+          ],
+          "tip": [
+            "Get details of an inference endpoint."
+          ]
+        },
+        {
+          "name": "create",
+          "common_option": [
+            {
+              "name": "--name",
+              "next": 0,
+              "tip": [
+                "U: --name <string>",
+                "Endpoint name."
+              ]
+            },
+            {
+              "name": "--repository",
+              "next": 0,
+              "tip": [
+                "U: --repository <string>",
+                "Repository to use."
+              ]
+            },
+            {
+              "name": "--framework",
+              "next": 0,
+              "tip": [
+                "U: --framework <string>",
+                "Framework."
+              ]
+            },
+            {
+              "name": "--task",
+              "next": 0,
+              "tip": [
+                "U: --task <string>",
+                "Inference task."
+              ]
+            },
+            {
+              "name": "--accelerator",
+              "next": 0,
+              "tip": [
+                "U: --accelerator <string>",
+                "Accelerator type."
+              ]
+            },
+            {
+              "name": "--instance-type",
+              "next": 0,
+              "tip": [
+                "U: --instance-type <string>",
+                "Instance type."
+              ]
+            },
+            {
+              "name": "--instance-size",
+              "next": 0,
+              "tip": [
+                "U: --instance-size <string>",
+                "Instance size."
+              ]
+            },
+            {
+              "name": "--region",
+              "next": 0,
+              "tip": [
+                "U: --region <string>",
+                "Deployment region."
+              ]
+            },
+            {
+              "name": "--vendor",
+              "next": 0,
+              "tip": [
+                "U: --vendor <string>",
+                "Cloud vendor."
+              ]
+            },
+            {
+              "name": "--revision",
+              "next": 0,
+              "tip": [
+                "U: --revision <string>",
+                "Git revision."
+              ]
+            },
+            {
+              "name": "--type",
+              "next": [
+                {
+                  "name": "protected"
+                },
+                {
+                  "name": "public"
+                }
+              ],
+              "tip": [
+                "U: --type <protected|public>",
+                "Endpoint type."
+              ]
+            },
+            {
+              "name": "--shape",
+              "next": 0,
+              "tip": [
+                "U: --shape <string>",
+                "Instance shape."
+              ]
+            },
+            {
+              "name": "--namespace",
+              "next": 0,
+              "tip": [
+                "U: --namespace <string>",
+                "Namespace."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Create a new inference endpoint."
+          ]
+        },
+        {
+          "name": "update",
+          "common_option": [
+            {
+              "name": "endpoint_id",
+              "next": 0,
+              "tip": [
+                "U: endpoint_id <string>",
+                "Endpoint ID."
+              ]
+            },
+            {
+              "name": "--repository",
+              "next": 0,
+              "tip": [
+                "U: --repository <string>",
+                "New repository."
+              ]
+            },
+            {
+              "name": "--revision",
+              "next": 0,
+              "tip": [
+                "U: --revision <string>",
+                "New revision."
+              ]
+            },
+            {
+              "name": "--instance-type",
+              "next": 0,
+              "tip": [
+                "U: --instance-type <string>",
+                "New instance type."
+              ]
+            },
+            {
+              "name": "--instance-size",
+              "next": 0,
+              "tip": [
+                "U: --instance-size <string>",
+                "New instance size."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Update an inference endpoint."
+          ]
+        },
+        {
+          "name": "delete",
+          "common_option": [
+            {
+              "name": "endpoint_id",
+              "next": 0,
+              "tip": [
+                "U: endpoint_id <string>",
+                "Endpoint ID."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Delete an inference endpoint."
+          ]
+        },
+        {
+          "name": "pause",
+          "common_option": [
+            {
+              "name": "endpoint_id",
+              "next": 0,
+              "tip": [
+                "U: endpoint_id <string>",
+                "Endpoint ID."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Pause an inference endpoint."
+          ]
+        },
+        {
+          "name": "resume",
+          "common_option": [
+            {
+              "name": "endpoint_id",
+              "next": 0,
+              "tip": [
+                "U: endpoint_id <string>",
+                "Endpoint ID."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Resume a paused inference endpoint."
+          ]
+        },
+        {
+          "name": "status",
+          "common_option": [
+            {
+              "name": "endpoint_id",
+              "next": 0,
+              "tip": [
+                "U: endpoint_id <string>",
+                "Endpoint ID."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Get the status of an inference endpoint."
+          ]
+        },
+        {
+          "name": "logs",
+          "common_option": [
+            {
+              "name": "endpoint_id",
+              "next": 0,
+              "tip": [
+                "U: endpoint_id <string>",
+                "Endpoint ID."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Get logs for an inference endpoint."
+          ]
+        },
+        {
+          "name": "url",
+          "common_option": [
+            {
+              "name": "endpoint_id",
+              "next": 0,
+              "tip": [
+                "U: endpoint_id <string>",
+                "Endpoint ID."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Get the URL of an inference endpoint."
+          ]
+        },
+        {
+          "name": "catalog",
+          "next": [
+            {
+              "name": "list",
+              "common_option": [],
+              "tip": [
+                "List available instance types."
+              ]
+            },
+            {
+              "name": "deploy",
+              "common_option": [
+                {
+                  "name": "--name",
+                  "next": 0,
+                  "tip": [
+                    "U: --name <string>",
+                    "Endpoint name."
+                  ]
+                },
+                {
+                  "name": "--repository",
+                  "next": 0,
+                  "tip": [
+                    "U: --repository <string>",
+                    "Repository to deploy."
+                  ]
+                },
+                {
+                  "name": "--task",
+                  "next": 0,
+                  "tip": [
+                    "U: --task <string>",
+                    "Inference task."
+                  ]
+                },
+                {
+                  "name": "--instance-type",
+                  "next": 0,
+                  "tip": [
+                    "U: --instance-type <string>",
+                    "Instance type from catalog."
+                  ]
+                },
+                {
+                  "name": "--vendor",
+                  "next": 0,
+                  "tip": [
+                    "U: --vendor <string>",
+                    "Cloud vendor."
+                  ]
+                },
+                {
+                  "name": "--region",
+                  "next": 0,
+                  "tip": [
+                    "U: --region <string>",
+                    "Deployment region."
+                  ]
+                },
+                {
+                  "name": "--revision",
+                  "next": 0,
+                  "tip": [
+                    "U: --revision <string>",
+                    "Git revision."
+                  ]
+                },
+                {
+                  "name": "--token",
+                  "next": 0,
+                  "tip": [
+                    "U: --token <string>",
+                    "Hugging Face access token."
+                  ]
+                }
+              ],
+              "tip": [
+                "Deploy from the catalog."
+              ]
+            }
+          ],
+          "tip": [
+            "Browse available instance types."
+          ]
+        }
+      ],
+      "tip": [
+        "Manage inference endpoints."
+      ]
+    },
+    {
+      "name": "extensions",
+      "next": [
+        {
+          "name": "list",
+          "common_option": [],
+          "tip": [
+            "List installed extensions."
+          ],
+          "alias": [
+            "ls"
+          ]
+        },
+        {
+          "name": "install",
+          "common_option": [
+            {
+              "name": "url_or_path",
+              "next": 0,
+              "tip": [
+                "U: url_or_path <string>",
+                "URL or local path of the extension."
+              ]
+            }
+          ],
+          "tip": [
+            "Install an extension."
+          ]
+        },
+        {
+          "name": "uninstall",
+          "common_option": [
+            {
+              "name": "name",
+              "next": 0,
+              "tip": [
+                "U: name <string>",
+                "Extension name."
+              ]
+            }
+          ],
+          "tip": [
+            "Uninstall an extension."
+          ]
+        },
+        {
+          "name": "list-available",
+          "common_option": [],
+          "tip": [
+            "List available extensions."
+          ]
+        }
+      ],
+      "tip": [
+        "Manage extensions."
+      ],
+      "alias": [
+        "ext"
+      ]
+    },
+    {
+      "name": "jobs",
+      "next": [
+        {
+          "name": "list",
+          "common_option": [
+            {
+              "name": "--running",
+              "common_option": [],
+              "tip": [
+                "Show only running jobs."
+              ]
+            },
+            {
+              "name": "--completed",
+              "common_option": [],
+              "tip": [
+                "Show only completed jobs."
+              ]
+            }
+          ],
+          "tip": [
+            "List jobs."
+          ],
+          "alias": [
+            "ls"
+          ]
+        },
+        {
+          "name": "submit",
+          "common_option": [
+            {
+              "name": "--repo",
+              "next": 0,
+              "tip": [
+                "U: --repo <string>",
+                "Repository to train on."
+              ]
+            },
+            {
+              "name": "--entrypoint",
+              "next": 0,
+              "tip": [
+                "U: --entrypoint <string>",
+                "Training script entrypoint."
+              ]
+            },
+            {
+              "name": "--arguments",
+              "next": 0,
+              "tip": [
+                "U: --arguments <string>",
+                "Training arguments as JSON or YAML."
+              ]
+            },
+            {
+              "name": "--image",
+              "next": 0,
+              "tip": [
+                "U: --image <string>",
+                "Docker image to use."
+              ]
+            },
+            {
+              "name": "--machine-type",
+              "next": 0,
+              "tip": [
+                "U: --machine-type <string>",
+                "Machine type."
+              ]
+            },
+            {
+              "name": "--gpu",
+              "next": 0,
+              "tip": [
+                "U: --gpu <string>",
+                "GPU type."
+              ]
+            },
+            {
+              "name": "--gpu-number",
+              "next": 0,
+              "tip": [
+                "U: --gpu-number <int>",
+                "Number of GPUs."
+              ]
+            },
+            {
+              "name": "--workers",
+              "next": 0,
+              "tip": [
+                "U: --workers <int>",
+                "Number of workers."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Submit a new training job."
+          ],
+          "alias": [
+            "run"
+          ]
+        },
+        {
+          "name": "stop",
+          "common_option": [
+            {
+              "name": "job_id",
+              "next": 0,
+              "tip": [
+                "U: job_id <string>",
+                "Job ID to stop."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Stop a running job."
+          ]
+        },
+        {
+          "name": "delete",
+          "common_option": [
+            {
+              "name": "job_id",
+              "next": 0,
+              "tip": [
+                "U: job_id <string>",
+                "Job ID to delete."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Delete a job."
+          ]
+        },
+        {
+          "name": "logs",
+          "common_option": [
+            {
+              "name": "job_id",
+              "next": 0,
+              "tip": [
+                "U: job_id <string>",
+                "Job ID."
+              ]
+            },
+            {
+              "name": "--follow",
+              "common_option": [],
+              "tip": [
+                "Follow log output."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Get logs for a job."
+          ]
+        },
+        {
+          "name": "status",
+          "common_option": [
+            {
+              "name": "job_id",
+              "next": 0,
+              "tip": [
+                "U: job_id <string>",
+                "Job ID."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Get status of a job."
+          ]
+        },
+        {
+          "name": "scheduled",
+          "next": [
+            {
+              "name": "list",
+              "common_option": [],
+              "tip": [
+                "List scheduled jobs."
+              ],
+              "alias": [
+                "ls"
+              ]
+            },
+            {
+              "name": "run",
+              "common_option": [
+                {
+                  "name": "schedule_id",
+                  "next": 0,
+                  "tip": [
+                    "U: schedule_id <string>",
+                    "Schedule ID."
+                  ]
+                },
+                {
+                  "name": "--token",
+                  "next": 0,
+                  "tip": [
+                    "U: --token <string>",
+                    "Hugging Face access token."
+                  ]
+                }
+              ],
+              "tip": [
+                "Run a scheduled job immediately."
+              ]
+            },
+            {
+              "name": "delete",
+              "common_option": [
+                {
+                  "name": "schedule_id",
+                  "next": 0,
+                  "tip": [
+                    "U: schedule_id <string>",
+                    "Schedule ID."
+                  ]
+                },
+                {
+                  "name": "--token",
+                  "next": 0,
+                  "tip": [
+                    "U: --token <string>",
+                    "Hugging Face access token."
+                  ]
+                }
+              ],
+              "tip": [
+                "Delete a scheduled job."
+              ]
+            }
+          ],
+          "tip": [
+            "Manage scheduled jobs."
+          ]
+        },
+        {
+          "name": "environments",
+          "common_option": [],
+          "tip": [
+            "List available job environments."
+          ]
+        }
+      ],
+      "tip": [
+        "Manage training jobs."
+      ]
+    },
+    {
+      "name": "models",
+      "next": [
+        {
+          "name": "list",
+          "common_option": [
+            {
+              "name": "--author",
+              "next": 0,
+              "tip": [
+                "U: --author <string>",
+                "Filter by author."
+              ]
+            },
+            {
+              "name": "--search",
+              "next": 0,
+              "tip": [
+                "U: --search <string>",
+                "Search query."
+              ]
+            },
+            {
+              "name": "--limit",
+              "next": 0,
+              "tip": [
+                "U: --limit <int>",
+                "Maximum number of results."
+              ]
+            },
+            {
+              "name": "--sort",
+              "next": 0,
+              "tip": [
+                "U: --sort <string>",
+                "Sort field."
+              ]
+            },
+            {
+              "name": "--direction",
+              "next": [
+                {
+                  "name": "-1"
+                },
+                {
+                  "name": "1"
+                }
+              ],
+              "tip": [
+                "U: --direction <-1|1>",
+                "Sort direction."
+              ]
+            }
+          ],
+          "tip": [
+            "List models."
+          ],
+          "alias": [
+            "ls"
+          ]
+        },
+        {
+          "name": "grep",
+          "common_option": [
+            {
+              "name": "pattern",
+              "next": 0,
+              "tip": [
+                "U: pattern <string>",
+                "Regex pattern to search."
+              ]
+            },
+            {
+              "name": "repo_id",
+              "next": 0,
+              "tip": [
+                "U: repo_id <string>",
+                "Repository to search."
+              ]
+            }
+          ],
+          "tip": [
+            "Search model files using regex."
+          ]
+        }
+      ],
+      "tip": [
+        "Manage models."
+      ]
+    },
+    {
+      "name": "papers",
+      "next": [
+        {
+          "name": "list",
+          "common_option": [
+            {
+              "name": "--search",
+              "next": 0,
+              "tip": [
+                "U: --search <string>",
+                "Search query."
+              ]
+            },
+            {
+              "name": "--limit",
+              "next": 0,
+              "tip": [
+                "U: --limit <int>",
+                "Maximum number of results."
+              ]
+            }
+          ],
+          "tip": [
+            "List papers."
+          ],
+          "alias": [
+            "ls"
+          ]
+        }
+      ],
+      "tip": [
+        "Manage papers."
+      ]
+    },
+    {
+      "name": "repos",
+      "next": [
+        {
+          "name": "list",
+          "common_option": [
+            {
+              "name": "--type",
+              "next": [
+                {
+                  "name": "model"
+                },
+                {
+                  "name": "dataset"
+                },
+                {
+                  "name": "space"
+                }
+              ],
+              "tip": [
+                "U: --type <model|dataset|space>",
+                "Repository type filter."
+              ]
+            },
+            {
+              "name": "--author",
+              "next": 0,
+              "tip": [
+                "U: --author <string>",
+                "Filter by author."
+              ]
+            },
+            {
+              "name": "--search",
+              "next": 0,
+              "tip": [
+                "U: --search <string>",
+                "Search query."
+              ]
+            },
+            {
+              "name": "--limit",
+              "next": 0,
+              "tip": [
+                "U: --limit <int>",
+                "Maximum number of results."
+              ]
+            }
+          ],
+          "tip": [
+            "List repositories."
+          ],
+          "alias": [
+            "ls"
+          ]
+        },
+        {
+          "name": "create",
+          "common_option": [
+            {
+              "name": "repo_id",
+              "next": 0,
+              "tip": [
+                "U: repo_id <string>",
+                "Repository ID (owner/name)."
+              ]
+            },
+            {
+              "name": "--type",
+              "next": [
+                {
+                  "name": "model"
+                },
+                {
+                  "name": "dataset"
+                },
+                {
+                  "name": "space"
+                }
+              ],
+              "tip": [
+                "U: --type <model|dataset|space>",
+                "Repository type."
+              ]
+            },
+            {
+              "name": "--space_sdk",
+              "next": [
+                {
+                  "name": "gradio"
+                },
+                {
+                  "name": "docker"
+                },
+                {
+                  "name": "static"
+                }
+              ],
+              "tip": [
+                "U: --space_sdk <gradio|docker|static>",
+                "Space SDK type."
+              ]
+            },
+            {
+              "name": "--private",
+              "common_option": [],
+              "tip": [
+                "Create a private repository."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Create a new repository."
+          ]
+        },
+        {
+          "name": "delete",
+          "common_option": [
+            {
+              "name": "repo_id",
+              "next": 0,
+              "tip": [
+                "U: repo_id <string>",
+                "Repository ID."
+              ]
+            },
+            {
+              "name": "--type",
+              "next": [
+                {
+                  "name": "model"
+                },
+                {
+                  "name": "dataset"
+                },
+                {
+                  "name": "space"
+                }
+              ],
+              "tip": [
+                "U: --type <model|dataset|space>",
+                "Repository type."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Delete a repository."
+          ]
+        },
+        {
+          "name": "transfer",
+          "common_option": [
+            {
+              "name": "repo_id",
+              "next": 0,
+              "tip": [
+                "U: repo_id <string>",
+                "Repository ID."
+              ]
+            },
+            {
+              "name": "target_namespace",
+              "next": 0,
+              "tip": [
+                "U: target_namespace <string>",
+                "Target namespace."
+              ]
+            },
+            {
+              "name": "--type",
+              "next": [
+                {
+                  "name": "model"
+                },
+                {
+                  "name": "dataset"
+                },
+                {
+                  "name": "space"
+                }
+              ],
+              "tip": [
+                "U: --type <model|dataset|space>",
+                "Repository type."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Transfer a repository to another namespace."
+          ]
+        },
+        {
+          "name": "branch",
+          "next": [
+            {
+              "name": "list",
+              "common_option": [
+                {
+                  "name": "repo_id",
+                  "next": 0,
+                  "tip": [
+                    "U: repo_id <string>",
+                    "Repository ID."
+                  ]
+                },
+                {
+                  "name": "--type",
+                  "next": [
+                    {
+                      "name": "model"
+                    },
+                    {
+                      "name": "dataset"
+                    },
+                    {
+                      "name": "space"
+                    }
+                  ],
+                  "tip": [
+                    "U: --type <model|dataset|space>",
+                    "Repository type."
+                  ]
+                },
+                {
+                  "name": "--token",
+                  "next": 0,
+                  "tip": [
+                    "U: --token <string>",
+                    "Hugging Face access token."
+                  ]
+                }
+              ],
+              "tip": [
+                "List branches."
+              ],
+              "alias": [
+                "ls"
+              ]
+            },
+            {
+              "name": "create",
+              "common_option": [
+                {
+                  "name": "repo_id",
+                  "next": 0,
+                  "tip": [
+                    "U: repo_id <string>",
+                    "Repository ID."
+                  ]
+                },
+                {
+                  "name": "branch_name",
+                  "next": 0,
+                  "tip": [
+                    "U: branch_name <string>",
+                    "New branch name."
+                  ]
+                },
+                {
+                  "name": "--type",
+                  "next": [
+                    {
+                      "name": "model"
+                    },
+                    {
+                      "name": "dataset"
+                    },
+                    {
+                      "name": "space"
+                    }
+                  ],
+                  "tip": [
+                    "U: --type <model|dataset|space>",
+                    "Repository type."
+                  ]
+                },
+                {
+                  "name": "--token",
+                  "next": 0,
+                  "tip": [
+                    "U: --token <string>",
+                    "Hugging Face access token."
+                  ]
+                }
+              ],
+              "tip": [
+                "Create a new branch."
+              ]
+            },
+            {
+              "name": "delete",
+              "common_option": [
+                {
+                  "name": "repo_id",
+                  "next": 0,
+                  "tip": [
+                    "U: repo_id <string>",
+                    "Repository ID."
+                  ]
+                },
+                {
+                  "name": "branch_name",
+                  "next": 0,
+                  "tip": [
+                    "U: branch_name <string>",
+                    "Branch name to delete."
+                  ]
+                },
+                {
+                  "name": "--type",
+                  "next": [
+                    {
+                      "name": "model"
+                    },
+                    {
+                      "name": "dataset"
+                    },
+                    {
+                      "name": "space"
+                    }
+                  ],
+                  "tip": [
+                    "U: --type <model|dataset|space>",
+                    "Repository type."
+                  ]
+                },
+                {
+                  "name": "--token",
+                  "next": 0,
+                  "tip": [
+                    "U: --token <string>",
+                    "Hugging Face access token."
+                  ]
+                }
+              ],
+              "tip": [
+                "Delete a branch."
+              ]
+            },
+            {
+              "name": "rename",
+              "common_option": [
+                {
+                  "name": "repo_id",
+                  "next": 0,
+                  "tip": [
+                    "U: repo_id <string>",
+                    "Repository ID."
+                  ]
+                },
+                {
+                  "name": "branch_name",
+                  "next": 0,
+                  "tip": [
+                    "U: branch_name <string>",
+                    "Current branch name."
+                  ]
+                },
+                {
+                  "name": "new_name",
+                  "next": 0,
+                  "tip": [
+                    "U: new_name <string>",
+                    "New branch name."
+                  ]
+                },
+                {
+                  "name": "--type",
+                  "next": [
+                    {
+                      "name": "model"
+                    },
+                    {
+                      "name": "dataset"
+                    },
+                    {
+                      "name": "space"
+                    }
+                  ],
+                  "tip": [
+                    "U: --type <model|dataset|space>",
+                    "Repository type."
+                  ]
+                },
+                {
+                  "name": "--token",
+                  "next": 0,
+                  "tip": [
+                    "U: --token <string>",
+                    "Hugging Face access token."
+                  ]
+                }
+              ],
+              "tip": [
+                "Rename a branch."
+              ]
+            }
+          ],
+          "tip": [
+            "Manage branches in a repository."
+          ]
+        }
+      ],
+      "tip": [
+        "Manage repositories."
+      ],
+      "alias": [
+        "repo"
+      ]
+    },
+    {
+      "name": "sandbox",
+      "next": [
+        {
+          "name": "list",
+          "common_option": [],
+          "tip": [
+            "List sandboxes."
+          ],
+          "alias": [
+            "ls"
+          ]
+        },
+        {
+          "name": "create",
+          "common_option": [
+            {
+              "name": "--repo",
+              "next": 0,
+              "tip": [
+                "U: --repo <string>",
+                "Repository to attach to."
+              ]
+            },
+            {
+              "name": "--image",
+              "next": 0,
+              "tip": [
+                "U: --image <string>",
+                "Docker image."
+              ]
+            },
+            {
+              "name": "--hardware",
+              "next": 0,
+              "tip": [
+                "U: --hardware <string>",
+                "Hardware type."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Create a new sandbox."
+          ]
+        },
+        {
+          "name": "delete",
+          "common_option": [
+            {
+              "name": "sandbox_id",
+              "next": 0,
+              "tip": [
+                "U: sandbox_id <string>",
+                "Sandbox ID."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Delete a sandbox."
+          ]
+        },
+        {
+          "name": "status",
+          "common_option": [
+            {
+              "name": "sandbox_id",
+              "next": 0,
+              "tip": [
+                "U: sandbox_id <string>",
+                "Sandbox ID."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Get sandbox status."
+          ]
+        },
+        {
+          "name": "connect",
+          "common_option": [
+            {
+              "name": "sandbox_id",
+              "next": 0,
+              "tip": [
+                "U: sandbox_id <string>",
+                "Sandbox ID."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Connect to a sandbox."
+          ]
+        },
+        {
+          "name": "logs",
+          "common_option": [
+            {
+              "name": "sandbox_id",
+              "next": 0,
+              "tip": [
+                "U: sandbox_id <string>",
+                "Sandbox ID."
+              ]
+            },
+            {
+              "name": "--follow",
+              "common_option": [],
+              "tip": [
+                "Follow log output."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Get sandbox logs."
+          ]
+        },
+        {
+          "name": "pool",
+          "next": [
+            {
+              "name": "list",
+              "common_option": [],
+              "tip": [
+                "List sandbox pools."
+              ],
+              "alias": [
+                "ls"
+              ]
+            },
+            {
+              "name": "create",
+              "common_option": [
+                {
+                  "name": "--name",
+                  "next": 0,
+                  "tip": [
+                    "U: --name <string>",
+                    "Pool name."
+                  ]
+                },
+                {
+                  "name": "--size",
+                  "next": 0,
+                  "tip": [
+                    "U: --size <int>",
+                    "Pool size."
+                  ]
+                },
+                {
+                  "name": "--image",
+                  "next": 0,
+                  "tip": [
+                    "U: --image <string>",
+                    "Docker image."
+                  ]
+                },
+                {
+                  "name": "--hardware",
+                  "next": 0,
+                  "tip": [
+                    "U: --hardware <string>",
+                    "Hardware type."
+                  ]
+                },
+                {
+                  "name": "--token",
+                  "next": 0,
+                  "tip": [
+                    "U: --token <string>",
+                    "Hugging Face access token."
+                  ]
+                }
+              ],
+              "tip": [
+                "Create a sandbox pool."
+              ]
+            },
+            {
+              "name": "delete",
+              "common_option": [
+                {
+                  "name": "pool_id",
+                  "next": 0,
+                  "tip": [
+                    "U: pool_id <string>",
+                    "Pool ID."
+                  ]
+                },
+                {
+                  "name": "--token",
+                  "next": 0,
+                  "tip": [
+                    "U: --token <string>",
+                    "Hugging Face access token."
+                  ]
+                }
+              ],
+              "tip": [
+                "Delete a sandbox pool."
+              ]
+            }
+          ],
+          "tip": [
+            "Manage sandbox pools."
+          ]
+        }
+      ],
+      "tip": [
+        "Manage development sandboxes."
+      ]
+    },
+    {
+      "name": "skills",
+      "next": [
+        {
+          "name": "list",
+          "common_option": [],
+          "tip": [
+            "List available skills."
+          ],
+          "alias": [
+            "ls"
+          ]
+        },
+        {
+          "name": "get",
+          "common_option": [
+            {
+              "name": "skill_id",
+              "next": 0,
+              "tip": [
+                "U: skill_id <string>",
+                "Skill ID."
+              ]
+            }
+          ],
+          "tip": [
+            "Get skill details."
+          ]
+        }
+      ],
+      "tip": [
+        "Manage skills."
+      ]
+    },
+    {
+      "name": "spaces",
+      "next": [
+        {
+          "name": "list",
+          "common_option": [
+            {
+              "name": "--author",
+              "next": 0,
+              "tip": [
+                "U: --author <string>",
+                "Filter by author."
+              ]
+            },
+            {
+              "name": "--search",
+              "next": 0,
+              "tip": [
+                "U: --search <string>",
+                "Search query."
+              ]
+            },
+            {
+              "name": "--limit",
+              "next": 0,
+              "tip": [
+                "U: --limit <int>",
+                "Maximum number of results."
+              ]
+            },
+            {
+              "name": "--sort",
+              "next": 0,
+              "tip": [
+                "U: --sort <string>",
+                "Sort field."
+              ]
+            },
+            {
+              "name": "--sdk",
+              "next": [
+                {
+                  "name": "gradio"
+                },
+                {
+                  "name": "docker"
+                },
+                {
+                  "name": "static"
+                }
+              ],
+              "tip": [
+                "U: --sdk <gradio|docker|static>",
+                "Filter by SDK."
+              ]
+            }
+          ],
+          "tip": [
+            "List spaces."
+          ],
+          "alias": [
+            "ls"
+          ]
+        },
+        {
+          "name": "info",
+          "common_option": [
+            {
+              "name": "repo_id",
+              "next": 0,
+              "tip": [
+                "U: repo_id <string>",
+                "Space ID."
+              ]
+            }
+          ],
+          "tip": [
+            "Get space details."
+          ]
+        },
+        {
+          "name": "status",
+          "common_option": [
+            {
+              "name": "repo_id",
+              "next": 0,
+              "tip": [
+                "U: repo_id <string>",
+                "Space ID."
+              ]
+            }
+          ],
+          "tip": [
+            "Get runtime status of a space."
+          ]
+        },
+        {
+          "name": "restart",
+          "common_option": [
+            {
+              "name": "repo_id",
+              "next": 0,
+              "tip": [
+                "U: repo_id <string>",
+                "Space ID."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Restart a space."
+          ]
+        },
+        {
+          "name": "pause",
+          "common_option": [
+            {
+              "name": "repo_id",
+              "next": 0,
+              "tip": [
+                "U: repo_id <string>",
+                "Space ID."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Pause a space."
+          ]
+        },
+        {
+          "name": "resume",
+          "common_option": [
+            {
+              "name": "repo_id",
+              "next": 0,
+              "tip": [
+                "U: repo_id <string>",
+                "Space ID."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Resume a paused space."
+          ]
+        },
+        {
+          "name": "hardware",
+          "common_option": [
+            {
+              "name": "repo_id",
+              "next": 0,
+              "tip": [
+                "U: repo_id <string>",
+                "Space ID."
+              ]
+            },
+            {
+              "name": "hardware",
+              "next": 0,
+              "tip": [
+                "U: hardware <string>",
+                "New hardware type."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Change space hardware."
+          ]
+        },
+        {
+          "name": "duplication",
+          "next": [
+            {
+              "name": "list",
+              "common_option": [
+                {
+                  "name": "repo_id",
+                  "next": 0,
+                  "tip": [
+                    "U: repo_id <string>",
+                    "Source space ID."
+                  ]
+                },
+                {
+                  "name": "--token",
+                  "next": 0,
+                  "tip": [
+                    "U: --token <string>",
+                    "Hugging Face access token."
+                  ]
+                }
+              ],
+              "tip": [
+                "List duplications."
+              ],
+              "alias": [
+                "ls"
+              ]
+            },
+            {
+              "name": "create",
+              "common_option": [
+                {
+                  "name": "repo_id",
+                  "next": 0,
+                  "tip": [
+                    "U: repo_id <string>",
+                    "Source space ID."
+                  ]
+                },
+                {
+                  "name": "--destination",
+                  "next": 0,
+                  "tip": [
+                    "U: --destination <string>",
+                    "Destination namespace."
+                  ]
+                },
+                {
+                  "name": "--token",
+                  "next": 0,
+                  "tip": [
+                    "U: --token <string>",
+                    "Hugging Face access token."
+                  ]
+                }
+              ],
+              "tip": [
+                "Create a space duplication."
+              ]
+            }
+          ],
+          "tip": [
+            "Manage space duplications."
+          ]
+        }
+      ],
+      "tip": [
+        "Manage spaces."
+      ]
+    },
+    {
+      "name": "sync",
+      "common_option": [
+        {
+          "name": "src_repo",
+          "next": 0,
+          "tip": [
+            "U: src_repo <string>",
+            "Source repository."
+          ]
+        },
+        {
+          "name": "dst_repo",
+          "next": 0,
+          "tip": [
+            "U: dst_repo <string>",
+            "Destination repository."
+          ]
+        },
+        {
+          "name": "--repo-type",
+          "next": [
+            {
+              "name": "model"
+            },
+            {
+              "name": "dataset"
+            },
+            {
+              "name": "space"
+            }
+          ],
+          "tip": [
+            "U: --repo-type <model|dataset|space>",
+            "Repository type."
+          ]
+        },
+        {
+          "name": "--revision",
+          "next": 0,
+          "tip": [
+            "U: --revision <string>",
+            "Git revision."
+          ]
+        },
+        {
+          "name": "--include",
+          "next": 0,
+          "tip": [
+            "U: --include <string>",
+            "Glob patterns to include."
+          ]
+        },
+        {
+          "name": "--exclude",
+          "next": 0,
+          "tip": [
+            "U: --exclude <string>",
+            "Glob patterns to exclude."
+          ]
+        },
+        {
+          "name": "--token",
+          "next": 0,
+          "tip": [
+            "U: --token <string>",
+            "Hugging Face access token."
+          ]
+        }
+      ],
+      "tip": [
+        "Synchronize files."
+      ]
+    },
+    {
+      "name": "upload",
+      "common_option": [
+        {
+          "name": "repo_id",
+          "next": 0,
+          "tip": [
+            "U: repo_id <string>",
+            "Repository ID."
+          ]
+        },
+        {
+          "name": "local_path",
+          "next": 0,
+          "tip": [
+            "U: local_path <string>",
+            "Local file or directory to upload."
+          ]
+        },
+        {
+          "name": "--repo-type",
+          "next": [
+            {
+              "name": "model"
+            },
+            {
+              "name": "dataset"
+            },
+            {
+              "name": "space"
+            }
+          ],
+          "tip": [
+            "U: --repo-type <model|dataset|space>",
+            "Repository type."
+          ]
+        },
+        {
+          "name": "--revision",
+          "next": 0,
+          "tip": [
+            "U: --revision <string>",
+            "Git revision."
+          ]
+        },
+        {
+          "name": "--path-in-repo",
+          "next": 0,
+          "tip": [
+            "U: --path-in-repo <string>",
+            "Target path in repository."
+          ]
+        },
+        {
+          "name": "--include",
+          "next": 0,
+          "tip": [
+            "U: --include <string>",
+            "Glob patterns to include."
+          ]
+        },
+        {
+          "name": "--exclude",
+          "next": 0,
+          "tip": [
+            "U: --exclude <string>",
+            "Glob patterns to exclude."
+          ]
+        },
+        {
+          "name": "--commit-message",
+          "next": 0,
+          "tip": [
+            "U: --commit-message <string>",
+            "Commit message."
+          ]
+        },
+        {
+          "name": "--token",
+          "next": 0,
+          "tip": [
+            "U: --token <string>",
+            "Hugging Face access token."
+          ]
+        }
+      ],
+      "tip": [
+        "Upload files to a repository."
+      ],
+      "alias": [
+        "ul"
+      ]
+    },
+    {
+      "name": "upload-large-folder",
+      "common_option": [
+        {
+          "name": "repo_id",
+          "next": 0,
+          "tip": [
+            "U: repo_id <string>",
+            "Repository ID."
+          ]
+        },
+        {
+          "name": "local_path",
+          "next": 0,
+          "tip": [
+            "U: local_path <string>",
+            "Local directory to upload."
+          ]
+        },
+        {
+          "name": "--repo-type",
+          "next": [
+            {
+              "name": "model"
+            },
+            {
+              "name": "dataset"
+            },
+            {
+              "name": "space"
+            }
+          ],
+          "tip": [
+            "U: --repo-type <model|dataset|space>",
+            "Repository type."
+          ]
+        },
+        {
+          "name": "--revision",
+          "next": 0,
+          "tip": [
+            "U: --revision <string>",
+            "Git revision."
+          ]
+        },
+        {
+          "name": "--path-in-repo",
+          "next": 0,
+          "tip": [
+            "U: --path-in-repo <string>",
+            "Target path in repository."
+          ]
+        },
+        {
+          "name": "--include",
+          "next": 0,
+          "tip": [
+            "U: --include <string>",
+            "Glob patterns to include."
+          ]
+        },
+        {
+          "name": "--exclude",
+          "next": 0,
+          "tip": [
+            "U: --exclude <string>",
+            "Glob patterns to exclude."
+          ]
+        },
+        {
+          "name": "--commit-message",
+          "next": 0,
+          "tip": [
+            "U: --commit-message <string>",
+            "Commit message."
+          ]
+        },
+        {
+          "name": "--workers",
+          "next": 0,
+          "tip": [
+            "U: --workers <int>",
+            "Number of upload workers."
+          ]
+        },
+        {
+          "name": "--token",
+          "next": 0,
+          "tip": [
+            "U: --token <string>",
+            "Hugging Face access token."
+          ]
+        }
+      ],
+      "tip": [
+        "Upload large folders to a repository."
+      ]
+    },
+    {
+      "name": "webhooks",
+      "next": [
+        {
+          "name": "list",
+          "common_option": [
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "List webhooks."
+          ],
+          "alias": [
+            "ls"
+          ]
+        },
+        {
+          "name": "create",
+          "common_option": [
+            {
+              "name": "--url",
+              "next": 0,
+              "tip": [
+                "U: --url <string>",
+                "Webhook URL."
+              ]
+            },
+            {
+              "name": "--events",
+              "next": 0,
+              "tip": [
+                "U: --events <string>",
+                "Comma-separated events to listen for."
+              ]
+            },
+            {
+              "name": "--repo",
+              "next": 0,
+              "tip": [
+                "U: --repo <string>",
+                "Repository to attach to."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Create a new webhook."
+          ]
+        },
+        {
+          "name": "update",
+          "common_option": [
+            {
+              "name": "webhook_id",
+              "next": 0,
+              "tip": [
+                "U: webhook_id <string>",
+                "Webhook ID."
+              ]
+            },
+            {
+              "name": "--url",
+              "next": 0,
+              "tip": [
+                "U: --url <string>",
+                "New webhook URL."
+              ]
+            },
+            {
+              "name": "--events",
+              "next": 0,
+              "tip": [
+                "U: --events <string>",
+                "New events list."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Update a webhook."
+          ]
+        },
+        {
+          "name": "delete",
+          "common_option": [
+            {
+              "name": "webhook_id",
+              "next": 0,
+              "tip": [
+                "U: webhook_id <string>",
+                "Webhook ID."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Delete a webhook."
+          ]
+        },
+        {
+          "name": "get",
+          "common_option": [
+            {
+              "name": "webhook_id",
+              "next": 0,
+              "tip": [
+                "U: webhook_id <string>",
+                "Webhook ID."
+              ]
+            },
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face access token."
+              ]
+            }
+          ],
+          "tip": [
+            "Get webhook details."
+          ]
+        }
+      ],
+      "tip": [
+        "Manage webhooks."
+      ]
+    },
+    {
+      "name": "env",
+      "common_option": [],
+      "tip": [
+        "Show environment information."
+      ],
+      "alias": [
+        "environment"
+      ]
+    },
+    {
+      "name": "update",
+      "common_option": [
+        {
+          "name": "--channel",
+          "next": [
+            {
+              "name": "stable"
+            },
+            {
+              "name": "nightly"
+            }
+          ],
+          "tip": [
+            "U: --channel <string>",
+            "Release channel (stable or nightly)."
+          ]
+        }
+      ],
+      "tip": [
+        "Update the hf CLI."
+      ]
+    },
+    {
+      "name": "version",
+      "common_option": [],
+      "tip": [
+        "Show the version of the hf CLI."
+      ]
+    }
+  ]
+}
