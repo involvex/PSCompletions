@@ -1,0 +1,448 @@
+{
+  "meta": {
+    "url": "https://android.googlesource.com/platform/system/core/+/refs/heads/main/fastboot/",
+    "description": [
+      "fastboot 是一个用于在 Android 设备上刷写分区的命令行工具。",
+      "它通过 USB 或网络与 bootloader 模式下的设备通信。"
+    ]
+  },
+  "root": [
+    {
+      "name": "update",
+      "tip": ["用法: update ZIP", "从 update.zip 包刷写所有分区。"]
+    },
+    {
+      "name": "flashall",
+      "tip": [
+        "从 $ANDROID_PRODUCT_OUT 刷写所有分区。",
+        "在 A/B 设备上，刷写的 slot 将被设为活动 slot。",
+        "次要镜像可能会刷写到非活动 slot。"
+      ]
+    },
+    {
+      "name": "flash",
+      "tip": [
+        "用法: flash PARTITION [FILENAME]",
+        "刷写指定分区，如果未提供文件名则使用",
+        "$ANDROID_PRODUCT_OUT 中的镜像。"
+      ],
+      "option": [
+        {
+          "name": "--dtb",
+          "tip": [
+            "用法: --dtb DTB",
+            "如果与 flash vendor_boot:RAMDISK 一起使用，",
+            "则用提供的 DTB 更新 vendor_boot 镜像。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "devices",
+      "tip": [
+        "用法: devices [-l]",
+        "列出 bootloader 中的设备（-l: 显示设备路径）。"
+      ],
+      "option": [
+        {
+          "name": "-l",
+          "tip": ["显示设备路径。"]
+        }
+      ]
+    },
+    {
+      "name": "getvar",
+      "tip": ["用法: getvar NAME", "显示指定的 bootloader 变量。"]
+    },
+    {
+      "name": "reboot",
+      "tip": ["用法: reboot [bootloader]", "重启设备。"]
+    },
+    {
+      "name": "flashing",
+      "tip": ["用法: flashing lock|unlock", "锁定/解锁分区以进行刷写。"],
+      "option": [
+        {
+          "name": "lock",
+          "tip": ["锁定分区以进行刷写。"]
+        },
+        {
+          "name": "unlock",
+          "tip": ["解锁分区以进行刷写。"]
+        },
+        {
+          "name": "lock_critical",
+          "tip": ["锁定 'critical' bootloader 分区。"]
+        },
+        {
+          "name": "unlock_critical",
+          "tip": ["解锁 'critical' bootloader 分区。"]
+        },
+        {
+          "name": "get_unlock_ability",
+          "tip": ["检查是否允许解锁（1）或不允许（0）。"]
+        }
+      ]
+    },
+    {
+      "name": "erase",
+      "tip": ["用法: erase PARTITION", "擦除闪存分区。"]
+    },
+    {
+      "name": "format",
+      "tip": ["用法: format[:FS_TYPE[:SIZE]] PARTITION", "格式化闪存分区。"]
+    },
+    {
+      "name": "set_active",
+      "tip": ["用法: set_active SLOT", "设置活动 slot。"]
+    },
+    {
+      "name": "oem",
+      "tip": ["用法: oem [COMMAND...]", "执行 OEM 特定命令。"]
+    },
+    {
+      "name": "gsi",
+      "tip": [
+        "用法: gsi wipe|disable|status",
+        "擦除、禁用或显示 GSI 安装状态",
+        "（仅限 fastbootd）。"
+      ],
+      "option": [
+        {
+          "name": "wipe",
+          "tip": ["擦除 GSI 安装。"]
+        },
+        {
+          "name": "disable",
+          "tip": ["禁用 GSI 安装。"]
+        },
+        {
+          "name": "status",
+          "tip": ["显示 GSI 安装状态。"]
+        }
+      ]
+    },
+    {
+      "name": "wipe-super",
+      "tip": [
+        "用法: wipe-super [SUPER_EMPTY]",
+        "擦除 super 分区。这将重置它以包含",
+        "空的默认动态分区集。"
+      ]
+    },
+    {
+      "name": "create-logical-partition",
+      "tip": [
+        "用法: create-logical-partition NAME SIZE",
+        "在 super 分区中创建具有指定名称和大小的逻辑分区。"
+      ]
+    },
+    {
+      "name": "delete-logical-partition",
+      "tip": [
+        "用法: delete-logical-partition NAME",
+        "删除具有指定名称的逻辑分区。"
+      ]
+    },
+    {
+      "name": "resize-logical-partition",
+      "tip": [
+        "用法: resize-logical-partition NAME SIZE",
+        "更改指定逻辑分区的大小。"
+      ]
+    },
+    {
+      "name": "snapshot-update",
+      "tip": [
+        "用法: snapshot-update cancel|merge",
+        "在支持基于快照更新的设备上，取消",
+        "正在进行的更新或在 'merging' 阶段合并。"
+      ],
+      "option": [
+        {
+          "name": "cancel",
+          "tip": [
+            "取消正在进行的快照更新。",
+            "这可能会使设备无法启动，直到重新刷写。"
+          ]
+        },
+        {
+          "name": "merge",
+          "tip": ["如果更新处于 'merging' 阶段，", "完成正在进行的更新。"]
+        }
+      ]
+    },
+    {
+      "name": "fetch",
+      "tip": ["用法: fetch PARTITION OUT_FILE", "从设备获取分区镜像。"]
+    },
+    {
+      "name": "boot",
+      "tip": [
+        "用法: boot KERNEL [RAMDISK [SECOND]]",
+        "从 RAM 下载并启动内核。"
+      ],
+      "option": [
+        {
+          "name": "--dtb",
+          "tip": [
+            "用法: --dtb DTB",
+            "指定用于 boot image header version 2 的 DTB 路径。"
+          ]
+        },
+        {
+          "name": "--cmdline",
+          "tip": ["用法: --cmdline CMDLINE", "覆盖内核命令行。"]
+        },
+        {
+          "name": "--base",
+          "tip": [
+            "用法: --base ADDRESS",
+            "设置内核基地址（默认: 0x10000000）。"
+          ]
+        },
+        {
+          "name": "--kernel-offset",
+          "tip": [
+            "用法: --kernel-offset OFFSET",
+            "设置内核偏移量（默认: 0x00008000）。"
+          ]
+        },
+        {
+          "name": "--ramdisk-offset",
+          "tip": [
+            "用法: --ramdisk-offset OFFSET",
+            "设置 ramdisk 偏移量（默认: 0x01000000）。"
+          ]
+        },
+        {
+          "name": "--tags-offset",
+          "tip": [
+            "用法: --tags-offset OFFSET",
+            "设置 tags 偏移量（默认: 0x00000100）。"
+          ]
+        },
+        {
+          "name": "--dtb-offset",
+          "tip": [
+            "用法: --dtb-offset OFFSET",
+            "设置 dtb 偏移量（默认: 0x01100000）。"
+          ]
+        },
+        {
+          "name": "--page-size",
+          "tip": ["用法: --page-size BYTES", "设置闪存页大小（默认: 2048）。"]
+        },
+        {
+          "name": "--header-version",
+          "tip": [
+            "用法: --header-version VERSION",
+            "设置 boot image header 版本。"
+          ]
+        },
+        {
+          "name": "--os-version",
+          "tip": [
+            "用法: --os-version MAJOR[.MINOR[.PATCH]]",
+            "设置 boot image OS 版本（默认: 0.0.0）。"
+          ]
+        },
+        {
+          "name": "--os-patch-level",
+          "tip": [
+            "用法: --os-patch-level YYYY-MM-DD",
+            "设置 boot image OS 安全补丁级别。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "flash:raw",
+      "tip": [
+        "用法: flash:raw PARTITION KERNEL [RAMDISK [SECOND]]",
+        "创建 boot image 并刷写。"
+      ],
+      "option": [
+        {
+          "name": "--dtb",
+          "tip": [
+            "用法: --dtb DTB",
+            "指定用于 boot image header version 2 的 DTB 路径。"
+          ]
+        },
+        {
+          "name": "--cmdline",
+          "tip": ["用法: --cmdline CMDLINE", "覆盖内核命令行。"]
+        },
+        {
+          "name": "--base",
+          "tip": [
+            "用法: --base ADDRESS",
+            "设置内核基地址（默认: 0x10000000）。"
+          ]
+        },
+        {
+          "name": "--kernel-offset",
+          "tip": [
+            "用法: --kernel-offset OFFSET",
+            "设置内核偏移量（默认: 0x00008000）。"
+          ]
+        },
+        {
+          "name": "--ramdisk-offset",
+          "tip": [
+            "用法: --ramdisk-offset OFFSET",
+            "设置 ramdisk 偏移量（默认: 0x01000000）。"
+          ]
+        },
+        {
+          "name": "--tags-offset",
+          "tip": [
+            "用法: --tags-offset OFFSET",
+            "设置 tags 偏移量（默认: 0x00000100）。"
+          ]
+        },
+        {
+          "name": "--dtb-offset",
+          "tip": [
+            "用法: --dtb-offset OFFSET",
+            "设置 dtb 偏移量（默认: 0x01100000）。"
+          ]
+        },
+        {
+          "name": "--page-size",
+          "tip": ["用法: --page-size BYTES", "设置闪存页大小（默认: 2048）。"]
+        },
+        {
+          "name": "--header-version",
+          "tip": [
+            "用法: --header-version VERSION",
+            "设置 boot image header 版本。"
+          ]
+        },
+        {
+          "name": "--os-version",
+          "tip": [
+            "用法: --os-version MAJOR[.MINOR[.PATCH]]",
+            "设置 boot image OS 版本（默认: 0.0.0）。"
+          ]
+        },
+        {
+          "name": "--os-patch-level",
+          "tip": [
+            "用法: --os-patch-level YYYY-MM-DD",
+            "设置 boot image OS 安全补丁级别。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stage",
+      "tip": [
+        "用法: stage IN_FILE",
+        "将给定文件发送到暂存区以供下一个命令使用。"
+      ]
+    },
+    {
+      "name": "get_staged",
+      "tip": ["用法: get_staged OUT_FILE", "将上一个命令暂存的数据写入文件。"]
+    }
+  ],
+  "option": [
+    {
+      "name": "-w",
+      "tip": ["擦除用户数据。"]
+    },
+    {
+      "name": "-s",
+      "tip": [
+        "用法: -s SERIAL",
+        "指定 USB 设备。",
+        "用法: -s tcp|udp:HOST[:PORT]",
+        "指定网络设备。"
+      ]
+    },
+    {
+      "name": "-S",
+      "tip": ["用法: -S SIZE[K|M|G]", "分割为不超过 SIZE 的稀疏文件。"]
+    },
+    {
+      "name": "--force",
+      "tip": ["强制执行可能不安全的刷写操作。"]
+    },
+    {
+      "name": "--slot",
+      "tip": [
+        "用法: --slot SLOT",
+        "使用 SLOT；'all' 表示两个 slot，",
+        "'other' 表示非当前 slot（默认: 当前活动 slot）。"
+      ]
+    },
+    {
+      "name": "--set-active",
+      "tip": ["用法: --set-active[=SLOT]", "在重启前设置活动 slot。"]
+    },
+    {
+      "name": "--skip-secondary",
+      "tip": ["在 flashall/update 中不刷写次要 slot。"]
+    },
+    {
+      "name": "--skip-reboot",
+      "tip": ["刷写后不重启设备。"]
+    },
+    {
+      "name": "--disable-verity",
+      "tip": ["在刷写 vbmeta 时设置 disable-verity。"]
+    },
+    {
+      "name": "--disable-verification",
+      "tip": ["在刷写 vbmeta 时设置 disable-verification。"]
+    },
+    {
+      "name": "--disable-super-optimization",
+      "tip": ["禁用刷写 super 分区时的优化。"]
+    },
+    {
+      "name": "--exclude-dynamic-partitions",
+      "tip": ["排除动态分区的刷写。"]
+    },
+    {
+      "name": "--disable-fastboot-info",
+      "tip": ["从镜像列表收集任务，而不是", "$OUT/fastboot-info.txt。"]
+    },
+    {
+      "name": "--fs-options",
+      "tip": [
+        "用法: --fs-options=OPTION[,OPTION]",
+        "启用文件系统功能。",
+        "OPTION 支持 casefold、projid、compress。"
+      ]
+    },
+    {
+      "name": "--unbuffered",
+      "tip": ["不缓冲输入或输出。"]
+    },
+    {
+      "name": "--verbose",
+      "tip": ["详细输出。"]
+    },
+    {
+      "name": "-v",
+      "tip": ["详细输出。"]
+    },
+    {
+      "name": "--version",
+      "tip": ["显示版本。"]
+    }
+  ],
+  "common_option": [
+    {
+      "name": "--help",
+      "tip": ["显示此消息。"]
+    },
+    {
+      "name": "-h",
+      "tip": ["显示此消息。"]
+    }
+  ]
+}
