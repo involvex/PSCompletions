@@ -1,0 +1,473 @@
+{
+  "meta": {
+    "url": "https://docs.expo.dev/more/expo-cli/",
+    "description": [
+      "Expo CLI - Tools to develop, build, and deploy Expo / React Native apps",
+      "Usually invoked via npx expo or bunx expo"
+    ]
+  },
+  "root": [
+    {
+      "name": "config",
+      "tip": ["Show the project config"],
+      "option": [
+        {
+          "name": "--full",
+          "tip": ["Include all project config data"]
+        },
+        {
+          "name": "--json",
+          "tip": ["Output in JSON format"]
+        },
+        {
+          "name": "--type",
+          "alias": ["-t"],
+          "tip": [
+            "U: -t, --type <public|prebuild|introspect>",
+            "Type of config to show"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "customize",
+      "tip": [
+        "Generate static project files (metro.config.js, babel.config.js, etc.)"
+      ]
+    },
+    {
+      "name": "export",
+      "tip": [
+        "Export the static files of the app for hosting it on a web server"
+      ],
+      "option": [
+        {
+          "name": "--clear",
+          "alias": ["-c"],
+          "tip": ["U: -c, --clear", "Clear the bundler cache"]
+        },
+        {
+          "name": "--dev",
+          "tip": [
+            "Configure static files for developing locally using a non-https server"
+          ]
+        },
+        {
+          "name": "--dump-assetmap",
+          "tip": ["Emit an asset map for further processing"]
+        },
+        {
+          "name": "--max-workers",
+          "tip": ["Maximum number of tasks to allow the bundler to spawn"]
+        },
+        {
+          "name": "--no-bytecode",
+          "tip": ["Prevent generating Hermes bytecode"]
+        },
+        {
+          "name": "--no-minify",
+          "tip": ["Prevent minifying source"]
+        },
+        {
+          "name": "--no-ssg",
+          "alias": ["--api-only"],
+          "tip": [
+            "U: --no-ssg|--api-only",
+            "Skip exporting static HTML files and only export API routes for web"
+          ]
+        },
+        {
+          "name": "--output-dir",
+          "tip": ["Directory to export the static files to. Default: dist"]
+        },
+        {
+          "name": "--platform",
+          "alias": ["-p"],
+          "tip": [
+            "U: -p, --platform <all|android|ios|web>",
+            "Platform to export. Default: all"
+          ]
+        },
+        {
+          "name": "--source-maps",
+          "alias": ["-s"],
+          "tip": [
+            "U: -s, --source-maps [true|false|inline|external]",
+            "Emit JavaScript source maps. Default: false"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "install",
+      "tip": ["Install a module or other package to a project"],
+      "option": [
+        {
+          "name": "--bun",
+          "tip": [
+            "Use bun to install dependencies. Default when bun.lock or bun.lockb exists"
+          ]
+        },
+        {
+          "name": "--check",
+          "tip": ["Check which installed packages need to be updated"]
+        },
+        {
+          "name": "--dev",
+          "tip": ["Save the dependencies as devDependencies"]
+        },
+        {
+          "name": "--fix",
+          "tip": ["Automatically update any invalid package versions"]
+        },
+        {
+          "name": "--json",
+          "tip": [
+            "Output dependency information in JSON format with --check flag"
+          ]
+        },
+        {
+          "name": "--npm",
+          "tip": [
+            "Use npm to install dependencies. Default when package-lock.json exists"
+          ]
+        },
+        {
+          "name": "--pnpm",
+          "tip": [
+            "Use pnpm to install dependencies. Default when pnpm-lock.yaml exists"
+          ]
+        },
+        {
+          "name": "--yarn",
+          "tip": [
+            "Use Yarn to install dependencies. Default when yarn.lock exists"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "login",
+      "tip": ["Log in to an Expo account"],
+      "option": [
+        {
+          "name": "--browser",
+          "alias": ["-b"],
+          "tip": ["U: -b, --browser", "Log in with a browser"]
+        },
+        {
+          "name": "--otp",
+          "tip": ["One-time password from your 2FA device"]
+        },
+        {
+          "name": "--password",
+          "alias": ["-p"],
+          "tip": ["U: -p, --password <string>", "Password (\"-\" for stdin)"]
+        },
+        {
+          "name": "--sso",
+          "alias": ["-s"],
+          "tip": ["U: -s, --sso", "Log in with SSO"]
+        },
+        {
+          "name": "--username",
+          "alias": ["-u"],
+          "tip": ["U: -u, --username <string>", "Username"]
+        }
+      ]
+    },
+    {
+      "name": "logout",
+      "tip": ["Log out of an Expo account"]
+    },
+    {
+      "name": "prebuild",
+      "tip": [
+        "Create native iOS and Android project files for building natively"
+      ],
+      "option": [
+        {
+          "name": "--bun",
+          "tip": [
+            "Use bun to install dependencies. Default when bun.lock or bun.lockb exists"
+          ]
+        },
+        {
+          "name": "--clean",
+          "tip": [
+            "Delete the native folders and regenerate them before applying changes"
+          ]
+        },
+        {
+          "name": "--no-install",
+          "tip": ["Skip installing npm packages and CocoaPods"]
+        },
+        {
+          "name": "--npm",
+          "tip": [
+            "Use npm to install dependencies. Default when package-lock.json exists"
+          ]
+        },
+        {
+          "name": "--pnpm",
+          "tip": [
+            "Use pnpm to install dependencies. Default when pnpm-lock.yaml exists"
+          ]
+        },
+        {
+          "name": "--platform",
+          "alias": ["-p"],
+          "tip": [
+            "U: -p, --platform <all|android|ios>",
+            "Platforms to sync. Default: all"
+          ]
+        },
+        {
+          "name": "--skip-dependency-update",
+          "tip": [
+            "Preserves versions of listed packages in package.json (comma separated list)"
+          ]
+        },
+        {
+          "name": "--template",
+          "tip": [
+            "Project template to clone from. File path pointing to a local tar file, npm package or a github repo"
+          ]
+        },
+        {
+          "name": "--yarn",
+          "tip": [
+            "Use Yarn to install dependencies. Default when yarn.lock exists"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "register",
+      "tip": ["Sign up for a new Expo account"]
+    },
+    {
+      "name": "run:android",
+      "tip": ["Run the native Android app locally"],
+      "option": [
+        {
+          "name": "--app-id",
+          "tip": ["Custom Android application ID to launch"]
+        },
+        {
+          "name": "--binary",
+          "tip": ["Path to existing .apk or .aab to install"]
+        },
+        {
+          "name": "--device",
+          "alias": ["-d"],
+          "tip": ["U: -d, --device [device]", "Device name to run the app on"]
+        },
+        {
+          "name": "--no-build-cache",
+          "tip": ["Clear the native build cache"]
+        },
+        {
+          "name": "--no-bundler",
+          "tip": ["Skip starting the bundler"]
+        },
+        {
+          "name": "--no-install",
+          "tip": ["Skip installing dependencies"]
+        },
+        {
+          "name": "--port",
+          "alias": ["-p"],
+          "tip": [
+            "U: -p, --port <port>",
+            "Port to start the dev server on. Default: 8081"
+          ]
+        },
+        {
+          "name": "--variant",
+          "tip": ["Build variant or product flavor. Default: debug"]
+        }
+      ]
+    },
+    {
+      "name": "run:ios",
+      "tip": ["Run the iOS app binary locally"],
+      "option": [
+        {
+          "name": "--binary",
+          "tip": ["Path to existing .app or .ipa to install"]
+        },
+        {
+          "name": "--configuration",
+          "tip": [
+            "Xcode configuration to use. Debug or Release. Default: Debug"
+          ]
+        },
+        {
+          "name": "--device",
+          "alias": ["-d"],
+          "tip": [
+            "U: -d, --device [device]",
+            "Device name, UDID, or \"generic\" for build-only"
+          ]
+        },
+        {
+          "name": "--no-build-cache",
+          "tip": ["Clear the native derived data before building"]
+        },
+        {
+          "name": "--no-bundler",
+          "tip": ["Skip starting the Metro bundler"]
+        },
+        {
+          "name": "--no-install",
+          "tip": ["Skip installing dependencies"]
+        },
+        {
+          "name": "--output",
+          "alias": ["-o"],
+          "tip": [
+            "U: -o, --output <path>",
+            "Directory to output the built app binary"
+          ]
+        },
+        {
+          "name": "--port",
+          "alias": ["-p"],
+          "tip": [
+            "U: -p, --port <port>",
+            "Port to start the Metro bundler on. Default: 8081"
+          ]
+        },
+        {
+          "name": "--scheme",
+          "tip": ["Scheme to build"]
+        }
+      ]
+    },
+    {
+      "name": "serve",
+      "tip": ["Host the production server locally"],
+      "option": [
+        {
+          "name": "--port",
+          "tip": ["Port to host the server on"]
+        }
+      ]
+    },
+    {
+      "name": "start",
+      "tip": ["Start a local dev server for the app"],
+      "option": [
+        {
+          "name": "--android",
+          "alias": ["-a"],
+          "tip": ["U: -a, --android", "Open on a connected Android device"]
+        },
+        {
+          "name": "--clear",
+          "alias": ["-c"],
+          "tip": ["U: -c, --clear", "Clear the bundler cache"]
+        },
+        {
+          "name": "--dev-client",
+          "alias": ["-d"],
+          "tip": ["U: -d, --dev-client", "Launch in a custom native app"]
+        },
+        {
+          "name": "--go",
+          "alias": ["-g"],
+          "tip": ["U: -g, --go", "Launch in Expo Go"]
+        },
+        {
+          "name": "--host",
+          "alias": ["-m"],
+          "tip": [
+            "U: -m, --host <lan|tunnel|localhost>",
+            "Dev server hosting type. Default: lan"
+          ]
+        },
+        {
+          "name": "--https",
+          "tip": [
+            "Start the dev server with https protocol. Deprecated in favor of --tunnel"
+          ]
+        },
+        {
+          "name": "--ios",
+          "alias": ["-i"],
+          "tip": ["U: -i, --ios", "Open in an iOS simulator"]
+        },
+        {
+          "name": "--lan",
+          "tip": ["Same as --host lan"]
+        },
+        {
+          "name": "--localhost",
+          "tip": ["Same as --host localhost"]
+        },
+        {
+          "name": "--max-workers",
+          "tip": ["Maximum number of tasks to allow Metro to spawn"]
+        },
+        {
+          "name": "--minify",
+          "tip": ["Minify JavaScript"]
+        },
+        {
+          "name": "--no-dev",
+          "tip": ["Bundle in production mode"]
+        },
+        {
+          "name": "--offline",
+          "tip": ["Skip network requests and use anonymous manifest signatures"]
+        },
+        {
+          "name": "--port",
+          "alias": ["-p"],
+          "tip": [
+            "U: -p, --port <number>",
+            "Port to start the dev server on (does not apply to web or tunnel). Default: 8081"
+          ]
+        },
+        {
+          "name": "--private-key-path",
+          "tip": [
+            "Path to private key for code signing. Default: \"private-key.pem\" in the same directory as the certificate specified by the expo-updates configuration in app.json"
+          ]
+        },
+        {
+          "name": "--scheme",
+          "tip": ["Custom URI protocol to use when launching an app"]
+        },
+        {
+          "name": "--tunnel",
+          "tip": ["Same as --host tunnel"]
+        },
+        {
+          "name": "--web",
+          "alias": ["-w"],
+          "tip": ["U: -w, --web", "Open in a web browser"]
+        }
+      ]
+    },
+    {
+      "name": "whoami",
+      "tip": ["Show the currently authenticated username"]
+    }
+  ],
+  "option": [
+    {
+      "name": "--version",
+      "alias": ["-v"],
+      "tip": ["U: -v, --version", "Version number"]
+    }
+  ],
+  "common_option": [
+    {
+      "name": "-h",
+      "alias": ["--help"],
+      "tip": ["U: -h, --help", "Usage info"]
+    }
+  ]
+}
