@@ -1,0 +1,975 @@
+{
+  "meta": {
+    "url": "https://developers.cloudflare.com/workers/wrangler/",
+    "description": [
+      "wrangler - Cloudflare 的 CLI 工具，用于管理 Workers、KV、R2、D1、Pages 等。"
+    ]
+  },
+  "root": [
+    {
+      "name": "docs",
+      "tip": ["在浏览器中打开 Cloudflare 开发者文档。"]
+    },
+    {
+      "name": "complete",
+      "tip": ["为 Wrangler 生成 shell 自动补全脚本。"],
+      "next": [
+        { "name": "bash" },
+        { "name": "zsh" },
+        { "name": "fish" },
+        { "name": "powershell" }
+      ]
+    },
+    {
+      "name": "whoami",
+      "tip": ["获取你的 Cloudflare 用户信息。"]
+    },
+    {
+      "name": "init",
+      "tip": ["创建一个新的 Worker 项目。"],
+      "option": [
+        { "name": "--yes", "tip": ["对所有提示回答 yes。"] },
+        {
+          "name": "--from-dash",
+          "tip": ["从 Dashboard 获取已初始化的 Worker。"],
+          "next": []
+        }
+      ]
+    },
+    {
+      "name": "dev",
+      "tip": ["启动本地开发服务器。"],
+      "option": [
+        { "name": "--name", "tip": ["Worker 名称。"], "next": [] },
+        {
+          "name": "-c",
+          "alias": ["--config"],
+          "tip": ["Wrangler 配置文件路径。"],
+          "next": []
+        },
+        { "name": "--no-bundle", "tip": ["跳过 Wrangler 构建步骤。"] },
+        { "name": "--env", "tip": ["指定运行环境。"], "next": [] },
+        {
+          "name": "--compatibility-date",
+          "tip": ["Workers 运行时兼容日期。"],
+          "next": []
+        },
+        {
+          "name": "--compatibility-flags",
+          "alias": ["--compatibility-flag"],
+          "tip": ["兼容性检查标志。"],
+          "next": []
+        },
+        { "name": "--latest", "tip": ["使用最新 Workers 运行时。"] },
+        { "name": "--ip", "tip": ["监听 IP 地址。"], "next": [] },
+        { "name": "--port", "tip": ["监听端口。"], "next": [] },
+        {
+          "name": "--inspector-port",
+          "tip": ["DevTools 调试端口。"],
+          "next": []
+        },
+        {
+          "name": "--routes",
+          "alias": ["--route"],
+          "tip": ["路由配置。"],
+          "next": []
+        },
+        { "name": "--host", "tip": ["转发请求的目标主机。"], "next": [] },
+        {
+          "name": "--local-protocol",
+          "tip": ["监听协议 (http/https)。"],
+          "next": []
+        },
+        { "name": "--assets", "tip": ["静态资源文件夹。"], "next": [] },
+        { "name": "--remote", "tip": ["使用远程资源开发。"] },
+        {
+          "name": "--tunnel",
+          "tip": ["通过 Cloudflare Tunnel 暴露本地服务器。"]
+        },
+        {
+          "name": "--tunnel-name",
+          "tip": ["使用指定名称的 Tunnel。"],
+          "next": []
+        },
+        {
+          "name": "--log-level",
+          "tip": ["日志级别 (debug/info/log/warn/error/none)。"],
+          "next": []
+        },
+        { "name": "--var", "tip": ["注入环境变量。"], "next": [] },
+        { "name": "--define", "tip": ["替换代码中的全局标识符。"], "next": [] },
+        { "name": "--tsconfig", "tip": ["tsconfig.json 路径。"], "next": [] },
+        { "name": "--minify", "tip": ["压缩 Worker 代码。"] },
+        { "name": "--persist-to", "tip": ["本地持久化目录。"], "next": [] },
+        { "name": "--types", "tip": ["从配置生成 TypeScript 类型。"] },
+        { "name": "--local", "tip": ["本地模式运行。"] }
+      ]
+    },
+    {
+      "name": "deploy",
+      "tip": ["将 Worker 部署到 Cloudflare。"],
+      "option": [
+        { "name": "--name", "tip": ["Worker 名称。"], "next": [] },
+        {
+          "name": "-c",
+          "alias": ["--config"],
+          "tip": ["Wrangler 配置文件路径。"],
+          "next": []
+        },
+        { "name": "--no-bundle", "tip": ["跳过构建步骤。"] },
+        { "name": "--env", "tip": ["指定运行环境。"], "next": [] },
+        { "name": "--outdir", "tip": ["打包输出目录。"], "next": [] },
+        { "name": "--compatibility-date", "tip": ["兼容日期。"], "next": [] },
+        {
+          "name": "--compatibility-flags",
+          "alias": ["--compatibility-flag"],
+          "tip": ["兼容性标志。"],
+          "next": []
+        },
+        { "name": "--latest", "tip": ["使用最新兼容日期。"] },
+        { "name": "--assets", "tip": ["静态资源目录。"], "next": [] },
+        { "name": "--var", "tip": ["注入环境变量。"], "next": [] },
+        { "name": "--define", "tip": ["替换代码中的全局标识符。"], "next": [] },
+        {
+          "name": "--triggers",
+          "alias": ["--schedule", "--schedules"],
+          "tip": ["Cron 触发规则。"],
+          "next": []
+        },
+        {
+          "name": "--routes",
+          "alias": ["--route"],
+          "tip": ["部署路由。"],
+          "next": []
+        },
+        { "name": "--domain", "tip": ["自定义域名。"], "next": [] },
+        { "name": "--tsconfig", "tip": ["tsconfig.json 路径。"], "next": [] },
+        { "name": "--minify", "tip": ["压缩打包后的代码。"] },
+        { "name": "--dry-run", "tip": ["仅编译不部署。"] },
+        { "name": "--keep-vars", "tip": ["保留现有的环境变量。"] },
+        { "name": "--secrets-file", "tip": ["密钥文件路径。"], "next": [] },
+        {
+          "name": "--dispatch-namespace",
+          "tip": ["Workers for Platforms 调度命名空间。"],
+          "next": []
+        },
+        { "name": "--tag", "tip": ["Worker 版本标签。"], "next": [] },
+        { "name": "--message", "tip": ["版本说明信息。"], "next": [] },
+        { "name": "--yes", "tip": ["跳过确认提示。"] }
+      ]
+    },
+    {
+      "name": "delete",
+      "tip": ["删除 Worker 及所有关联资源。"],
+      "option": [
+        { "name": "--name", "tip": ["Worker 名称。"], "next": [] },
+        { "name": "--env", "tip": ["运行环境。"], "next": [] },
+        { "name": "--dry-run", "tip": ["不实际删除，仅预览。"] }
+      ]
+    },
+    {
+      "name": "setup",
+      "tip": ["配置项目以在 Cloudflare 上运行。"],
+      "option": [
+        { "name": "--yes", "alias": ["--y"], "tip": ["对所有提示回答 yes。"] },
+        { "name": "--build", "tip": ["配置后运行构建命令。"] },
+        { "name": "--dry-run", "tip": ["预览更改但不应用。"] }
+      ]
+    },
+    {
+      "name": "tail",
+      "tip": ["实时查看 Worker 的日志输出。"],
+      "option": [
+        { "name": "--format", "tip": ["日志格式 (json/pretty)。"], "next": [] },
+        { "name": "--status", "tip": ["按调用状态过滤。"], "next": [] },
+        { "name": "--header", "tip": ["按 HTTP 头过滤。"], "next": [] },
+        { "name": "--method", "tip": ["按 HTTP 方法过滤。"], "next": [] },
+        { "name": "--sampling-rate", "tip": ["采样率百分比。"], "next": [] },
+        { "name": "--search", "tip": ["按文本内容过滤日志。"], "next": [] },
+        { "name": "--ip", "tip": ["按 IP 地址过滤。"], "next": [] },
+        { "name": "--version-id", "tip": ["按 Worker 版本过滤。"], "next": [] }
+      ]
+    },
+    {
+      "name": "telemetry",
+      "tip": ["管理 Wrangler 遥测设置。"],
+      "next": [
+        { "name": "disable", "tip": ["禁用遥测数据收集。"] },
+        { "name": "enable", "tip": ["启用遥测数据收集。"] },
+        { "name": "status", "tip": ["查看遥测是否已启用。"] }
+      ]
+    },
+    {
+      "name": "login",
+      "tip": ["通过 OAuth 授权 Wrangler 访问你的 Cloudflare 账户。"],
+      "option": [
+        {
+          "name": "--scopes-list",
+          "tip": ["列出所有可用的 OAuth 权限范围。"],
+          "next": []
+        },
+        { "name": "--scopes", "tip": ["请求的 OAuth 权限范围。"], "next": [] },
+        { "name": "--browser", "tip": ["在浏览器中打开 OAuth 链接。"] },
+        { "name": "--callback-host", "tip": ["回调服务器主机。"], "next": [] },
+        { "name": "--callback-port", "tip": ["回调服务器端口。"], "next": [] },
+        { "name": "--use-keyring", "tip": ["在系统密钥链中存储凭证。"] },
+        { "name": "--device", "tip": ["使用设备授权流程。"] }
+      ]
+    },
+    {
+      "name": "logout",
+      "tip": ["移除 Wrangler 对当前账户的授权。"]
+    },
+    {
+      "name": "auth",
+      "tip": ["管理认证配置文件。"],
+      "next": [
+        {
+          "name": "token",
+          "tip": ["获取当前认证令牌。"],
+          "option": [{ "name": "--json", "tip": ["以 JSON 格式返回输出。"] }]
+        },
+        {
+          "name": "create",
+          "tip": ["创建或重新认证命名的认证配置文件。"],
+          "option": [
+            { "name": "--browser", "tip": ["在浏览器中打开 OAuth 链接。"] },
+            { "name": "--scopes", "tip": ["OAuth 权限范围。"], "next": [] },
+            { "name": "--callback-host", "tip": ["回调主机。"], "next": [] },
+            { "name": "--callback-port", "tip": ["回调端口。"], "next": [] }
+          ]
+        },
+        {
+          "name": "activate",
+          "tip": ["将认证配置文件绑定到目录。"],
+          "option": [
+            { "name": "--callback-host", "tip": ["回调主机。"], "next": [] },
+            { "name": "--callback-port", "tip": ["回调端口。"], "next": [] }
+          ]
+        },
+        { "name": "deactivate", "tip": ["从目录移除认证配置文件绑定。"] },
+        { "name": "list", "tip": ["列出所有认证配置文件。"] },
+        { "name": "delete", "tip": ["删除指定的认证配置文件。"] }
+      ]
+    },
+    {
+      "name": "secret",
+      "tip": ["管理 Worker 的密钥变量。"],
+      "next": [
+        {
+          "name": "put",
+          "tip": ["创建或更新一个密钥。"],
+          "option": [{ "name": "--name", "tip": ["Worker 名称。"], "next": [] }]
+        },
+        {
+          "name": "delete",
+          "tip": ["删除一个密钥。"],
+          "option": [{ "name": "--name", "tip": ["Worker 名称。"], "next": [] }]
+        },
+        {
+          "name": "list",
+          "tip": ["列出所有密钥。"],
+          "option": [
+            { "name": "--name", "tip": ["Worker 名称。"], "next": [] },
+            {
+              "name": "--format",
+              "tip": ["输出格式 (json/pretty)。"],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "bulk",
+          "tip": ["批量创建、更新或删除密钥。"],
+          "option": [{ "name": "--name", "tip": ["Worker 名称。"], "next": [] }]
+        }
+      ]
+    },
+    {
+      "name": "versions",
+      "tip": ["管理 Worker 版本和部署。"],
+      "next": [
+        {
+          "name": "upload",
+          "tip": ["上传新的 Worker 版本。"],
+          "option": [
+            { "name": "--name", "tip": ["Worker 名称。"], "next": [] },
+            { "name": "--tag", "tip": ["版本标签。"], "next": [] },
+            { "name": "--message", "tip": ["版本说明。"], "next": [] },
+            { "name": "--no-bundle", "tip": ["跳过构建步骤。"] },
+            { "name": "--outdir", "tip": ["输出目录。"], "next": [] },
+            { "name": "--outfile", "tip": ["输出文件。"], "next": [] },
+            {
+              "name": "--compatibility-date",
+              "tip": ["兼容日期。"],
+              "next": []
+            },
+            { "name": "--latest", "tip": ["使用最新兼容日期。"] },
+            { "name": "--assets", "tip": ["静态资源。"], "next": [] },
+            { "name": "--var", "tip": ["注入变量。"], "next": [] },
+            { "name": "--define", "tip": ["定义全局标识符。"], "next": [] },
+            { "name": "--jsx-factory", "tip": ["JSX 工厂函数。"], "next": [] },
+            {
+              "name": "--tsconfig",
+              "tip": ["tsconfig.json 路径。"],
+              "next": []
+            },
+            { "name": "--minify", "tip": ["压缩 Worker。"], "next": [] },
+            { "name": "--upload-source-maps", "tip": ["包含 source map。"] },
+            { "name": "--dry-run", "tip": ["编译但不上传。"] },
+            { "name": "--secrets-file", "tip": ["密钥文件路径。"], "next": [] },
+            { "name": "--keep-vars", "tip": ["保留现有变量。"] },
+            { "name": "--strict", "tip": ["启用严格模式。"] },
+            { "name": "--preview-alias", "tip": ["版本别名。"], "next": [] }
+          ]
+        },
+        {
+          "name": "deploy",
+          "tip": ["部署之前上传的版本。"],
+          "option": [
+            { "name": "--name", "tip": ["Worker 名称。"], "next": [] },
+            {
+              "name": "--version-id",
+              "tip": ["要部署的版本 ID。"],
+              "next": []
+            },
+            { "name": "--percentage", "tip": ["流量百分比。"], "next": [] },
+            { "name": "--version-tag", "tip": ["版本标签。"], "next": [] },
+            { "name": "--message", "tip": ["部署描述。"], "next": [] },
+            { "name": "--yes", "alias": ["--y"], "tip": ["使用默认设置。"] },
+            { "name": "--dry-run", "tip": ["不实际部署。"] }
+          ]
+        },
+        {
+          "name": "list",
+          "tip": ["获取最近的 Worker 版本列表。"],
+          "option": [
+            { "name": "--name", "tip": ["Worker 名称。"], "next": [] },
+            { "name": "--json", "tip": ["以 JSON 格式显示。"] }
+          ]
+        },
+        {
+          "name": "view",
+          "tip": ["查看特定版本的详细信息。"],
+          "option": [
+            { "name": "--name", "tip": ["Worker 名称。"], "next": [] },
+            { "name": "--json", "tip": ["以 JSON 格式显示。"] }
+          ]
+        },
+        {
+          "name": "secret",
+          "tip": ["管理 Worker 版本中的密钥。"],
+          "next": [
+            {
+              "name": "put",
+              "tip": ["创建或更新密钥。"],
+              "option": [
+                { "name": "--name", "tip": ["Worker 名称。"], "next": [] },
+                { "name": "--message", "tip": ["部署说明。"], "next": [] },
+                { "name": "--tag", "tip": ["版本标签。"], "next": [] }
+              ]
+            },
+            {
+              "name": "delete",
+              "tip": ["删除密钥。"],
+              "option": [
+                { "name": "--name", "tip": ["Worker 名称。"], "next": [] },
+                { "name": "--message", "tip": ["部署说明。"], "next": [] },
+                { "name": "--tag", "tip": ["版本标签。"], "next": [] }
+              ]
+            },
+            {
+              "name": "bulk",
+              "tip": ["批量创建或更新密钥。"],
+              "option": [
+                { "name": "--name", "tip": ["Worker 名称。"], "next": [] },
+                { "name": "--message", "tip": ["部署说明。"], "next": [] },
+                { "name": "--tag", "tip": ["版本标签。"], "next": [] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "triggers",
+      "tip": ["管理 Workers 版本的触发器。"],
+      "next": [
+        {
+          "name": "deploy",
+          "tip": ["应用触发器更改 (用于 versions upload)。"],
+          "option": [
+            { "name": "--name", "tip": ["Worker 名称。"], "next": [] },
+            {
+              "name": "--triggers",
+              "alias": ["--schedule", "--schedules"],
+              "tip": ["Cron 触发规则。"],
+              "next": []
+            },
+            {
+              "name": "--routes",
+              "alias": ["--route"],
+              "tip": ["要上传的路由。"],
+              "next": []
+            },
+            { "name": "--dry-run", "tip": ["不实际部署。"] }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "deployments",
+      "tip": ["追踪 Worker 的活跃版本。"],
+      "next": [
+        {
+          "name": "list",
+          "tip": ["显示最近的部署记录。"],
+          "option": [
+            { "name": "--name", "tip": ["Worker 名称。"], "next": [] },
+            { "name": "--json", "tip": ["以 JSON 格式显示。"] }
+          ]
+        },
+        {
+          "name": "status",
+          "tip": ["查看当前生产环境状态。"],
+          "option": [
+            { "name": "--name", "tip": ["Worker 名称。"], "next": [] },
+            { "name": "--json", "tip": ["以 JSON 格式显示。"] }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "kv",
+      "tip": ["管理 Workers KV 命名空间和键值对。"],
+      "next": [
+        {
+          "name": "namespace",
+          "tip": ["管理 KV 命名空间。"],
+          "next": [
+            {
+              "name": "create",
+              "tip": ["创建新命名空间。"],
+              "option": [
+                { "name": "--preview", "tip": ["使用预览命名空间。"] },
+                { "name": "--use-remote", "tip": ["使用远程绑定。"] },
+                { "name": "--update-config", "tip": ["更新配置文件。"] },
+                {
+                  "name": "--binding",
+                  "tip": ["Worker 中的绑定名称。"],
+                  "next": []
+                }
+              ]
+            },
+            { "name": "list", "tip": ["列出所有 KV 命名空间。"] },
+            {
+              "name": "delete",
+              "tip": ["删除指定命名空间。"],
+              "option": [
+                { "name": "--binding", "tip": ["绑定名称。"], "next": [] },
+                {
+                  "name": "--namespace-id",
+                  "tip": ["命名空间 ID。"],
+                  "next": []
+                },
+                { "name": "--preview", "tip": ["预览命名空间。"] },
+                { "name": "--yes", "alias": ["--y"], "tip": ["跳过确认。"] }
+              ]
+            },
+            {
+              "name": "rename",
+              "tip": ["重命名 KV 命名空间。"],
+              "option": [
+                {
+                  "name": "--namespace-id",
+                  "tip": ["命名空间 ID。"],
+                  "next": []
+                },
+                { "name": "--new-name", "tip": ["新名称。"], "next": [] }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "key",
+          "tip": ["管理 KV 命名空间中的键值对。"],
+          "next": [
+            {
+              "name": "put",
+              "tip": ["写入一个键值对。"],
+              "option": [
+                { "name": "--path", "tip": ["从文件读取值。"], "next": [] },
+                { "name": "--binding", "tip": ["绑定名称。"], "next": [] },
+                {
+                  "name": "--namespace-id",
+                  "tip": ["命名空间 ID。"],
+                  "next": []
+                },
+                { "name": "--preview", "tip": ["预览命名空间。"] },
+                { "name": "--ttl", "tip": ["生存时间 (秒)。"], "next": [] },
+                { "name": "--expiration", "tip": ["过期时间戳。"], "next": [] },
+                { "name": "--metadata", "tip": ["JSON 元数据。"], "next": [] },
+                { "name": "--local", "tip": ["使用本地存储。"] },
+                { "name": "--remote", "tip": ["使用远程存储。"] },
+                {
+                  "name": "--persist-to",
+                  "tip": ["本地持久化目录。"],
+                  "next": []
+                }
+              ]
+            },
+            {
+              "name": "list",
+              "tip": ["列出命名空间中的所有键。"],
+              "option": [
+                { "name": "--binding", "tip": ["绑定名称。"], "next": [] },
+                {
+                  "name": "--namespace-id",
+                  "tip": ["命名空间 ID。"],
+                  "next": []
+                },
+                { "name": "--preview", "tip": ["预览命名空间。"] },
+                { "name": "--prefix", "tip": ["按前缀过滤。"], "next": [] },
+                { "name": "--local", "tip": ["本地存储。"] },
+                { "name": "--remote", "tip": ["远程存储。"] },
+                { "name": "--persist-to", "tip": ["持久化目录。"], "next": [] }
+              ]
+            },
+            {
+              "name": "get",
+              "tip": ["根据键读取值。"],
+              "option": [
+                { "name": "--text", "tip": ["将值解码为 UTF-8 字符串。"] },
+                { "name": "--binding", "tip": ["绑定名称。"], "next": [] },
+                {
+                  "name": "--namespace-id",
+                  "tip": ["命名空间 ID。"],
+                  "next": []
+                },
+                { "name": "--preview", "tip": ["预览命名空间。"] },
+                { "name": "--local", "tip": ["本地存储。"] },
+                { "name": "--remote", "tip": ["远程存储。"] },
+                { "name": "--persist-to", "tip": ["持久化目录。"], "next": [] }
+              ]
+            },
+            {
+              "name": "delete",
+              "tip": ["删除一个键值对。"],
+              "option": [
+                { "name": "--binding", "tip": ["绑定名称。"], "next": [] },
+                {
+                  "name": "--namespace-id",
+                  "tip": ["命名空间 ID。"],
+                  "next": []
+                },
+                { "name": "--preview", "tip": ["预览命名空间。"] },
+                { "name": "--local", "tip": ["本地存储。"] },
+                { "name": "--remote", "tip": ["远程存储。"] },
+                { "name": "--persist-to", "tip": ["持久化目录。"], "next": [] }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "bulk",
+          "tip": ["批量管理 KV 键值对。"],
+          "next": [
+            {
+              "name": "get",
+              "tip": ["批量获取键值对。"],
+              "option": [
+                { "name": "--binding", "tip": ["绑定名称。"], "next": [] },
+                {
+                  "name": "--namespace-id",
+                  "tip": ["命名空间 ID。"],
+                  "next": []
+                },
+                { "name": "--preview", "tip": ["预览命名空间。"] },
+                { "name": "--local", "tip": ["本地存储。"] },
+                { "name": "--remote", "tip": ["远程存储。"] },
+                { "name": "--persist-to", "tip": ["持久化目录。"], "next": [] }
+              ]
+            },
+            {
+              "name": "put",
+              "tip": ["批量上传键值对。"],
+              "option": [
+                { "name": "--binding", "tip": ["绑定名称。"], "next": [] },
+                {
+                  "name": "--namespace-id",
+                  "tip": ["命名空间 ID。"],
+                  "next": []
+                },
+                { "name": "--preview", "tip": ["预览命名空间。"] },
+                { "name": "--ttl", "tip": ["生存时间 (秒)。"], "next": [] },
+                { "name": "--expiration", "tip": ["过期时间戳。"], "next": [] },
+                { "name": "--metadata", "tip": ["JSON 元数据。"], "next": [] },
+                { "name": "--local", "tip": ["本地存储。"] },
+                { "name": "--remote", "tip": ["远程存储。"] },
+                { "name": "--persist-to", "tip": ["持久化目录。"], "next": [] }
+              ]
+            },
+            {
+              "name": "delete",
+              "tip": ["批量删除键值对。"],
+              "option": [
+                { "name": "--force", "alias": ["--f"], "tip": ["跳过确认。"] },
+                { "name": "--binding", "tip": ["绑定名称。"], "next": [] },
+                {
+                  "name": "--namespace-id",
+                  "tip": ["命名空间 ID。"],
+                  "next": []
+                },
+                { "name": "--preview", "tip": ["预览命名空间。"] },
+                { "name": "--local", "tip": ["本地存储。"] },
+                { "name": "--remote", "tip": ["远程存储。"] },
+                { "name": "--persist-to", "tip": ["持久化目录。"], "next": [] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "r2",
+      "tip": ["管理 Cloudflare R2 存储桶和对象。"],
+      "next": [
+        {
+          "name": "bucket",
+          "tip": ["管理 R2 存储桶。"],
+          "next": [
+            {
+              "name": "create",
+              "tip": ["创建新存储桶。"],
+              "option": [
+                { "name": "--location", "tip": ["存储桶位置。"], "next": [] }
+              ]
+            },
+            { "name": "list", "tip": ["列出所有存储桶。"] },
+            {
+              "name": "delete",
+              "tip": ["删除存储桶。"],
+              "option": [{ "name": "--force", "tip": ["跳过确认。"] }]
+            },
+            {
+              "name": "upload",
+              "tip": ["上传对象到存储桶。"],
+              "option": [
+                { "name": "--file", "tip": ["文件路径。"], "next": [] },
+                { "name": "--key", "tip": ["对象键名。"], "next": [] },
+                {
+                  "name": "--content-type",
+                  "tip": ["MIME 类型。"],
+                  "next": []
+                },
+                { "name": "--metadata", "tip": ["对象元数据。"], "next": [] }
+              ]
+            },
+            {
+              "name": "download",
+              "tip": ["从存储桶下载对象。"],
+              "option": [
+                { "name": "--file", "tip": ["输出文件路径。"], "next": [] },
+                { "name": "--key", "tip": ["对象键名。"], "next": [] }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "object",
+          "tip": ["管理 R2 存储桶中的对象。"],
+          "next": [
+            {
+              "name": "get",
+              "tip": ["下载对象。"],
+              "option": [
+                { "name": "--file", "tip": ["输出文件路径。"], "next": [] }
+              ]
+            },
+            {
+              "name": "put",
+              "tip": ["上传对象。"],
+              "option": [
+                { "name": "--file", "tip": ["文件路径。"], "next": [] },
+                {
+                  "name": "--content-type",
+                  "tip": ["MIME 类型。"],
+                  "next": []
+                },
+                { "name": "--metadata", "tip": ["对象元数据。"], "next": [] }
+              ]
+            },
+            {
+              "name": "delete",
+              "tip": ["删除对象。"],
+              "option": [{ "name": "--key", "tip": ["对象键名。"], "next": [] }]
+            },
+            {
+              "name": "list",
+              "tip": ["列出存储桶中的对象。"],
+              "option": [
+                { "name": "--prefix", "tip": ["按前缀过滤。"], "next": [] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "d1",
+      "tip": ["管理 Cloudflare D1 数据库。"],
+      "next": [
+        {
+          "name": "create",
+          "tip": ["创建新的 D1 数据库。"],
+          "option": [
+            { "name": "--name", "tip": ["数据库名称。"], "next": [] },
+            { "name": "--location", "tip": ["数据库位置。"], "next": [] }
+          ]
+        },
+        { "name": "list", "tip": ["列出所有 D1 数据库。"] },
+        {
+          "name": "delete",
+          "tip": ["删除 D1 数据库。"],
+          "option": [
+            { "name": "--name", "tip": ["数据库名称。"], "next": [] },
+            { "name": "--force", "tip": ["跳过确认。"] }
+          ]
+        },
+        {
+          "name": "execute",
+          "tip": ["执行 SQL 查询。"],
+          "option": [
+            { "name": "--name", "tip": ["数据库名称。"], "next": [] },
+            { "name": "--file", "tip": ["SQL 文件路径。"], "next": [] },
+            { "name": "--command", "tip": ["SQL 命令字符串。"], "next": [] },
+            { "name": "--local", "tip": ["针对本地数据库执行。"] },
+            { "name": "--remote", "tip": ["针对远程数据库执行。"] }
+          ]
+        },
+        {
+          "name": "migrations",
+          "tip": ["管理数据库迁移。"],
+          "option": [
+            { "name": "--name", "tip": ["数据库名称。"], "next": [] },
+            { "name": "--local", "tip": ["使用本地数据库。"] }
+          ]
+        },
+        {
+          "name": "info",
+          "tip": ["显示数据库信息。"],
+          "option": [{ "name": "--name", "tip": ["数据库名称。"], "next": [] }]
+        },
+        {
+          "name": "export",
+          "tip": ["导出数据库。"],
+          "option": [
+            { "name": "--name", "tip": ["数据库名称。"], "next": [] },
+            { "name": "--output", "tip": ["输出文件路径。"], "next": [] },
+            { "name": "--format", "tip": ["导出格式 (sql)。"], "next": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pages",
+      "tip": ["管理 Cloudflare Pages 项目。"],
+      "next": [
+        {
+          "name": "dev",
+          "tip": ["启动本地 Pages 开发服务器。"],
+          "option": [
+            { "name": "--port", "tip": ["监听端口。"], "next": [] },
+            { "name": "--binding", "tip": ["绑定配置。"], "next": [] },
+            {
+              "name": "--compatibility-date",
+              "tip": ["兼容日期。"],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "deploy",
+          "tip": ["将目录部署到 Pages。"],
+          "option": [
+            {
+              "name": "--project-name",
+              "tip": ["Pages 项目名称。"],
+              "next": []
+            },
+            { "name": "--branch", "tip": ["Git 分支名称。"], "next": [] },
+            { "name": "--commit-hash", "tip": ["提交 SHA。"], "next": [] },
+            { "name": "--commit-message", "tip": ["提交信息。"], "next": [] },
+            { "name": "--commit-dirty", "tip": ["允许脏提交。"] }
+          ]
+        },
+        {
+          "name": "project",
+          "tip": ["管理 Pages 项目。"],
+          "option": [{ "name": "--name", "tip": ["项目名称。"], "next": [] }]
+        },
+        {
+          "name": "deployment",
+          "tip": ["管理 Pages 部署。"],
+          "option": [
+            { "name": "--project-name", "tip": ["项目名称。"], "next": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ai",
+      "tip": ["与 Cloudflare AI 交互。"],
+      "next": [
+        { "name": "models", "tip": ["列出可用的 AI 模型。"] },
+        {
+          "name": "run",
+          "tip": ["运行 AI 模型。"],
+          "option": [
+            { "name": "--model", "tip": ["模型名称。"], "next": [] },
+            { "name": "--prompt", "tip": ["提示文本。"], "next": [] },
+            { "name": "--stream", "tip": ["流式返回响应。"] },
+            { "name": "--raw", "tip": ["返回原始响应。"] }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "queues",
+      "tip": ["管理 Cloudflare Queues。"],
+      "next": [
+        {
+          "name": "create",
+          "tip": ["创建新队列。"],
+          "option": [
+            { "name": "--name", "tip": ["队列名称。"], "next": [] },
+            { "name": "--consumer-name", "tip": ["消费者名称。"], "next": [] },
+            {
+              "name": "--message-retries",
+              "tip": ["最大重试次数。"],
+              "next": []
+            },
+            {
+              "name": "--delivery-delay",
+              "tip": ["投递延迟 (秒)。"],
+              "next": []
+            },
+            {
+              "name": "--max-consumers",
+              "tip": ["最大并发消费者数。"],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "tip": ["删除队列。"],
+          "option": [
+            { "name": "--name", "tip": ["队列名称。"], "next": [] },
+            { "name": "--force", "tip": ["跳过确认。"] }
+          ]
+        },
+        { "name": "list", "tip": ["列出所有队列。"] },
+        {
+          "name": "consumer",
+          "tip": ["管理队列消费者。"],
+          "option": [
+            { "name": "--name", "tip": ["队列名称。"], "next": [] },
+            { "name": "--batch-size", "tip": ["批量大小。"], "next": [] },
+            {
+              "name": "--max-concurrency",
+              "tip": ["最大并发数。"],
+              "next": []
+            },
+            { "name": "--retry-delay", "tip": ["重试延迟。"], "next": [] },
+            {
+              "name": "--message-body",
+              "tip": ["消息体大小限制。"],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    { "name": "email", "tip": ["管理 Cloudflare Email Routing。"] },
+    { "name": "agent-memory", "tip": ["管理 Agent Memory。"] },
+    { "name": "ai-search", "tip": ["管理 AI Search。"] },
+    { "name": "browser", "tip": ["管理 Browser Rendering。"] },
+    { "name": "containers", "tip": ["管理 Containers。"] },
+    {
+      "name": "dispatch-namespace",
+      "tip": ["管理 Workers for Platforms 的调度命名空间。"]
+    },
+    { "name": "flagship", "tip": ["管理 Flagship 功能。"] },
+    { "name": "preview", "tip": ["预览 Worker 部署。"] },
+    { "name": "rollback", "tip": ["回滚到之前的 Worker 版本。"] },
+    { "name": "types", "tip": ["为绑定生成 TypeScript 类型。"] },
+    { "name": "vpc", "tip": ["管理 VPC 服务。"] },
+    { "name": "websearch", "tip": ["管理 Web Search。"] },
+    { "name": "workflows", "tip": ["管理 Workflows。"] },
+    { "name": "artifacts", "tip": ["管理构建产物。"] },
+    { "name": "hyperdrive", "tip": ["管理 Hyperdrive 配置。"] },
+    { "name": "pipelines", "tip": ["管理 Pipelines。"] },
+    { "name": "secrets-store", "tip": ["管理 Secrets Store。"] },
+    { "name": "vectorize", "tip": ["管理 Vectorize 索引。"] },
+    { "name": "cert", "tip": ["管理 SSL/TLS 证书。"] },
+    { "name": "mtls-certificate", "tip": ["管理 mTLS 证书。"] },
+    { "name": "tunnel", "tip": ["管理 Cloudflare Tunnel。"] },
+    { "name": "turnstile", "tip": ["管理 Turnstile 站点。"] }
+  ],
+  "option": [
+    {
+      "name": "-c",
+      "alias": ["--config"],
+      "tip": ["U: -c, --config <string>", "Wrangler 配置文件路径。"],
+      "next": []
+    },
+    {
+      "name": "--cwd",
+      "tip": ["U: --cwd <string>", "在指定目录下运行。"],
+      "next": []
+    },
+    {
+      "name": "-e",
+      "alias": ["--env"],
+      "tip": ["U: -e, --env <string>", "指定运行环境。"],
+      "next": []
+    },
+    {
+      "name": "--env-file",
+      "tip": ["U: --env-file <string>", ".env 文件路径。"],
+      "next": []
+    },
+    {
+      "name": "--experimental-provision",
+      "alias": ["--x-provision"],
+      "tip": ["实验性: 启用自动资源配置。"]
+    },
+    {
+      "name": "--experimental-auto-create",
+      "alias": ["--x-auto-create"],
+      "tip": ["实验性: 自动配置草稿绑定。"]
+    },
+    {
+      "name": "--install-skills",
+      "tip": ["为 AI 编码工具安装 Cloudflare 技能。"]
+    },
+    {
+      "name": "--profile",
+      "tip": ["U: --profile <string>", "使用指定的认证配置文件。"],
+      "next": []
+    }
+  ],
+  "common_option": [
+    {
+      "name": "-h",
+      "alias": ["--help"],
+      "tip": ["U: -h, --help", "显示帮助信息。"]
+    },
+    {
+      "name": "-v",
+      "alias": ["--version"],
+      "tip": ["U: -v, --version", "显示版本号。"]
+    }
+  ]
+}
