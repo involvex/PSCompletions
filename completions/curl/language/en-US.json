@@ -9,411 +9,12 @@
   "root": [],
   "option": [
     {
-      "name": "-1",
-      "alias": ["--tlsv1"],
-      "tip": [
-        "TLSv1.0 or greater."
-      ]
-    },
-    {
-      "name": "-2",
-      "alias": ["--sslv2"],
-      "tip": [
-        "SSLv2."
-      ]
-    },
-    {
-      "name": "-3",
-      "alias": ["--sslv3"],
-      "tip": [
-        "SSLv3."
-      ]
-    },
-    {
-      "name": "-4",
-      "alias": ["--ipv4"],
-      "tip": [
-        "Resolve names to IPv4 addresses."
-      ]
-    },
-    {
-      "name": "-6",
-      "alias": ["--ipv6"],
-      "tip": [
-        "Resolve names to IPv6 addresses."
-      ]
-    },
-    {
-      "name": "-a",
-      "alias": ["--append"],
-      "tip": [
-        "Append to target file when uploading."
-      ]
-    },
-    {
-      "name": "-A",
-      "alias": ["--user-agent"],
-      "tip": [
-        "Send User-Agent <name> to server."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-b",
-      "alias": ["--cookie"],
-      "tip": [
-        "Send cookies from string/load from file."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-B",
-      "alias": ["--use-ascii"],
-      "tip": [
-        "Use ASCII/text transfer."
-      ]
-    },
-    {
-      "name": "-c",
-      "alias": ["--cookie-jar"],
-      "tip": [
-        "Save cookies to <filename> after operation."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-C",
-      "alias": ["--continue-at"],
-      "tip": [
-        "Resumed transfer offset."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-d",
-      "alias": ["--data"],
-      "tip": [
-        "HTTP POST data."
-      ],
-      "next": 0
-    },
-    {
-      "name": "--data-ascii",
-      "tip": [
-        "HTTP POST ASCII data."
-      ],
-      "next": 0
-    },
-    {
-      "name": "--data-binary",
-      "tip": [
-        "HTTP POST binary data."
-      ],
-      "next": 0
-    },
-    {
-      "name": "--data-raw",
-      "tip": [
-        "HTTP POST data, '@' allowed."
-      ],
-      "next": 0
-    },
-    {
-      "name": "--data-urlencode",
-      "tip": [
-        "HTTP POST data URL encoded."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-D",
-      "alias": ["--dump-header"],
-      "tip": [
-        "Write the received headers to <filename>."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-E",
-      "alias": ["--cert"],
-      "tip": [
-        "Client certificate file and password."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-e",
-      "alias": ["--referer"],
-      "tip": [
-        "Referrer URL."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-F",
-      "alias": ["--form"],
-      "tip": [
-        "Specify multipart MIME data."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-G",
-      "alias": ["--get"],
-      "tip": [
-        "Put the post data in the URL and use GET."
-      ]
-    },
-    {
-      "name": "-g",
-      "alias": ["--globoff"],
-      "tip": [
-        "Disable URL globbing with {} and []."
-      ]
-    },
-    {
-      "name": "-H",
-      "alias": ["--header"],
-      "tip": [
-        "Pass custom header(s) to server."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-I",
-      "alias": ["--head"],
-      "tip": [
-        "Show document info only."
-      ]
-    },
-    {
-      "name": "-i",
-      "alias": ["--show-headers"],
-      "tip": [
-        "Show response headers in output."
-      ]
-    },
-    {
-      "name": "-j",
-      "alias": ["--junk-session-cookies"],
-      "tip": [
-        "Ignore session cookies read from file."
-      ]
-    },
-    {
-      "name": "-J",
-      "alias": ["--remote-header-name"],
-      "tip": [
-        "Use the header-provided filename."
-      ]
-    },
-    {
-      "name": "-K",
-      "alias": ["--config"],
-      "tip": [
-        "Read config from a file."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-k",
-      "alias": ["--insecure"],
-      "tip": [
-        "Allow insecure server connections."
-      ]
-    },
-    {
-      "name": "-L",
-      "alias": ["--location"],
-      "tip": [
-        "Follow redirects."
-      ]
-    },
-    {
-      "name": "-l",
-      "alias": ["--list-only"],
-      "tip": [
-        "List only mode."
-      ]
-    },
-    {
-      "name": "-M",
-      "alias": ["--manual"],
-      "tip": [
-        "Display the full manual."
-      ]
-    },
-    {
-      "name": "-m",
-      "alias": ["--max-time"],
-      "tip": [
-        "Maximum time allowed for transfer."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-N",
-      "alias": ["--no-buffer"],
-      "tip": [
-        "Disable buffering of the output stream."
-      ]
-    },
-    {
-      "name": "-n",
-      "alias": ["--netrc"],
-      "tip": [
-        "Must read .netrc for username and password."
-      ]
-    },
-    {
       "name": "-",
-      "alias": ["--next"],
+      "alias": [
+        "--next"
+      ],
       "tip": [
         "Make next URL use separate options."
-      ]
-    },
-    {
-      "name": "-O",
-      "alias": ["--remote-name"],
-      "tip": [
-        "Write output to file named as remote file."
-      ]
-    },
-    {
-      "name": "-o",
-      "alias": ["--output"],
-      "tip": [
-        "Write to file instead of stdout."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-P",
-      "alias": ["--ftp-port"],
-      "tip": [
-        "Send PORT instead of PASV."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-q",
-      "alias": ["--disable"],
-      "tip": [
-        "Disable .curlrc."
-      ]
-    },
-    {
-      "name": "-Q",
-      "alias": ["--quote"],
-      "tip": [
-        "Send command(s) to server before transfer."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-r",
-      "alias": ["--range"],
-      "tip": [
-        "Retrieve only the bytes within RANGE."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-R",
-      "alias": ["--remote-time"],
-      "tip": [
-        "Set remote file's time on local output."
-      ]
-    },
-    {
-      "name": "-S",
-      "alias": ["--show-error"],
-      "tip": [
-        "Show error even when -s is used."
-      ]
-    },
-    {
-      "name": "-s",
-      "alias": ["--silent"],
-      "tip": [
-        "Silent mode."
-      ]
-    },
-    {
-      "name": "-T",
-      "alias": ["--upload-file"],
-      "tip": [
-        "Transfer local FILE to destination."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-U",
-      "alias": ["--proxy-user"],
-      "tip": [
-        "Proxy user and password."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-u",
-      "alias": ["--user"],
-      "tip": [
-        "Server user and password."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-v",
-      "alias": ["--verbose"],
-      "tip": [
-        "Make the operation more talkative."
-      ]
-    },
-    {
-      "name": "-V",
-      "alias": ["--version"],
-      "tip": [
-        "Show version number and quit."
-      ]
-    },
-    {
-      "name": "-w",
-      "alias": ["--write-out"],
-      "tip": [
-        "Output FORMAT after completion."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-X",
-      "alias": ["--request"],
-      "tip": [
-        "Specify request method to use."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-x",
-      "alias": ["--proxy"],
-      "tip": [
-        "Use this proxy."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-z",
-      "alias": ["--time-cond"],
-      "tip": [
-        "Transfer based on a time condition."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-#",
-      "alias": ["--progress-bar"],
-      "tip": [
-        "Display transfer progress as a bar."
       ]
     },
     {
@@ -545,6 +146,34 @@
       "name": "--curves",
       "tip": [
         "(EC) TLS key exchange algorithms to request."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--data-ascii",
+      "tip": [
+        "HTTP POST ASCII data."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--data-binary",
+      "tip": [
+        "HTTP POST binary data."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--data-raw",
+      "tip": [
+        "HTTP POST data, '@' allowed."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--data-urlencode",
+      "tip": [
+        "HTTP POST data URL encoded."
       ],
       "next": 0
     },
@@ -872,7 +501,9 @@
     },
     {
       "name": "--include",
-      "alias": ["--show-headers"],
+      "alias": [
+        "--show-headers"
+      ],
       "tip": [
         "Include HTTP headers in output."
       ]
@@ -1902,12 +1533,487 @@
       "tip": [
         "Store metadata in extended file attributes."
       ]
+    },
+    {
+      "name": "-#",
+      "alias": [
+        "--progress-bar"
+      ],
+      "tip": [
+        "Display transfer progress as a bar."
+      ]
+    },
+    {
+      "name": "-1",
+      "alias": [
+        "--tlsv1"
+      ],
+      "tip": [
+        "TLSv1.0 or greater."
+      ]
+    },
+    {
+      "name": "-2",
+      "alias": [
+        "--sslv2"
+      ],
+      "tip": [
+        "SSLv2."
+      ]
+    },
+    {
+      "name": "-3",
+      "alias": [
+        "--sslv3"
+      ],
+      "tip": [
+        "SSLv3."
+      ]
+    },
+    {
+      "name": "-4",
+      "alias": [
+        "--ipv4"
+      ],
+      "tip": [
+        "Resolve names to IPv4 addresses."
+      ]
+    },
+    {
+      "name": "-6",
+      "alias": [
+        "--ipv6"
+      ],
+      "tip": [
+        "Resolve names to IPv6 addresses."
+      ]
+    },
+    {
+      "name": "-a",
+      "alias": [
+        "--append"
+      ],
+      "tip": [
+        "Append to target file when uploading."
+      ]
+    },
+    {
+      "name": "-A",
+      "alias": [
+        "--user-agent"
+      ],
+      "tip": [
+        "Send User-Agent <name> to server."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-b",
+      "alias": [
+        "--cookie"
+      ],
+      "tip": [
+        "Send cookies from string/load from file."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-B",
+      "alias": [
+        "--use-ascii"
+      ],
+      "tip": [
+        "Use ASCII/text transfer."
+      ]
+    },
+    {
+      "name": "-c",
+      "alias": [
+        "--cookie-jar"
+      ],
+      "tip": [
+        "Save cookies to <filename> after operation."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-C",
+      "alias": [
+        "--continue-at"
+      ],
+      "tip": [
+        "Resumed transfer offset."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-d",
+      "alias": [
+        "--data"
+      ],
+      "tip": [
+        "HTTP POST data."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-D",
+      "alias": [
+        "--dump-header"
+      ],
+      "tip": [
+        "Write the received headers to <filename>."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-e",
+      "alias": [
+        "--referer"
+      ],
+      "tip": [
+        "Referrer URL."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-E",
+      "alias": [
+        "--cert"
+      ],
+      "tip": [
+        "Client certificate file and password."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-F",
+      "alias": [
+        "--form"
+      ],
+      "tip": [
+        "Specify multipart MIME data."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-g",
+      "alias": [
+        "--globoff"
+      ],
+      "tip": [
+        "Disable URL globbing with {} and []."
+      ]
+    },
+    {
+      "name": "-G",
+      "alias": [
+        "--get"
+      ],
+      "tip": [
+        "Put the post data in the URL and use GET."
+      ]
+    },
+    {
+      "name": "-H",
+      "alias": [
+        "--header"
+      ],
+      "tip": [
+        "Pass custom header(s) to server."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-i",
+      "alias": [
+        "--show-headers"
+      ],
+      "tip": [
+        "Show response headers in output."
+      ]
+    },
+    {
+      "name": "-I",
+      "alias": [
+        "--head"
+      ],
+      "tip": [
+        "Show document info only."
+      ]
+    },
+    {
+      "name": "-j",
+      "alias": [
+        "--junk-session-cookies"
+      ],
+      "tip": [
+        "Ignore session cookies read from file."
+      ]
+    },
+    {
+      "name": "-J",
+      "alias": [
+        "--remote-header-name"
+      ],
+      "tip": [
+        "Use the header-provided filename."
+      ]
+    },
+    {
+      "name": "-k",
+      "alias": [
+        "--insecure"
+      ],
+      "tip": [
+        "Allow insecure server connections."
+      ]
+    },
+    {
+      "name": "-K",
+      "alias": [
+        "--config"
+      ],
+      "tip": [
+        "Read config from a file."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-l",
+      "alias": [
+        "--list-only"
+      ],
+      "tip": [
+        "List only mode."
+      ]
+    },
+    {
+      "name": "-L",
+      "alias": [
+        "--location"
+      ],
+      "tip": [
+        "Follow redirects."
+      ]
+    },
+    {
+      "name": "-m",
+      "alias": [
+        "--max-time"
+      ],
+      "tip": [
+        "Maximum time allowed for transfer."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-M",
+      "alias": [
+        "--manual"
+      ],
+      "tip": [
+        "Display the full manual."
+      ]
+    },
+    {
+      "name": "-n",
+      "alias": [
+        "--netrc"
+      ],
+      "tip": [
+        "Must read .netrc for username and password."
+      ]
+    },
+    {
+      "name": "-N",
+      "alias": [
+        "--no-buffer"
+      ],
+      "tip": [
+        "Disable buffering of the output stream."
+      ]
+    },
+    {
+      "name": "-o",
+      "alias": [
+        "--output"
+      ],
+      "tip": [
+        "Write to file instead of stdout."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-O",
+      "alias": [
+        "--remote-name"
+      ],
+      "tip": [
+        "Write output to file named as remote file."
+      ]
+    },
+    {
+      "name": "-P",
+      "alias": [
+        "--ftp-port"
+      ],
+      "tip": [
+        "Send PORT instead of PASV."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-q",
+      "alias": [
+        "--disable"
+      ],
+      "tip": [
+        "Disable .curlrc."
+      ]
+    },
+    {
+      "name": "-Q",
+      "alias": [
+        "--quote"
+      ],
+      "tip": [
+        "Send command(s) to server before transfer."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-r",
+      "alias": [
+        "--range"
+      ],
+      "tip": [
+        "Retrieve only the bytes within RANGE."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-R",
+      "alias": [
+        "--remote-time"
+      ],
+      "tip": [
+        "Set remote file's time on local output."
+      ]
+    },
+    {
+      "name": "-s",
+      "alias": [
+        "--silent"
+      ],
+      "tip": [
+        "Silent mode."
+      ]
+    },
+    {
+      "name": "-S",
+      "alias": [
+        "--show-error"
+      ],
+      "tip": [
+        "Show error even when -s is used."
+      ]
+    },
+    {
+      "name": "-T",
+      "alias": [
+        "--upload-file"
+      ],
+      "tip": [
+        "Transfer local FILE to destination."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-u",
+      "alias": [
+        "--user"
+      ],
+      "tip": [
+        "Server user and password."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-U",
+      "alias": [
+        "--proxy-user"
+      ],
+      "tip": [
+        "Proxy user and password."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-v",
+      "alias": [
+        "--verbose"
+      ],
+      "tip": [
+        "Make the operation more talkative."
+      ]
+    },
+    {
+      "name": "-V",
+      "alias": [
+        "--version"
+      ],
+      "tip": [
+        "Show version number and quit."
+      ]
+    },
+    {
+      "name": "-w",
+      "alias": [
+        "--write-out"
+      ],
+      "tip": [
+        "Output FORMAT after completion."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-x",
+      "alias": [
+        "--proxy"
+      ],
+      "tip": [
+        "Use this proxy."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-X",
+      "alias": [
+        "--request"
+      ],
+      "tip": [
+        "Specify request method to use."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-z",
+      "alias": [
+        "--time-cond"
+      ],
+      "tip": [
+        "Transfer based on a time condition."
+      ],
+      "next": 0
     }
   ],
   "common_option": [
     {
       "name": "--help",
-      "alias": ["-h"],
+      "alias": [
+        "-h"
+      ],
       "tip": [
         "Show the help."
       ]

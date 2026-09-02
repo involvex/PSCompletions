@@ -8,14 +8,6 @@
   },
   "root": [
     {
-      "name": "help",
-      "tip": [
-        "U: help [\u003c命令\u003e]",
-        "显示特定命令的帮助或列出所有命令。",
-        "E: help install"
-      ]
-    },
-    {
       "name": "commands",
       "tip": [
         "U: commands [--sh|--no-sh]",
@@ -24,54 +16,103 @@
       ],
       "option": [
         {
-          "name": "--sh",
-          "tip": [
-            "仅显示 shell 命令。"
-          ]
-        },
-        {
           "name": "--no-sh",
           "tip": [
             "仅显示非 shell 命令。"
+          ]
+        },
+        {
+          "name": "--sh",
+          "tip": [
+            "仅显示 shell 命令。"
           ]
         }
       ]
     },
     {
-      "name": "local",
+      "name": "completions",
       "tip": [
-        "U: local [\u003c版本\u003e]",
-        "设置或显示当前目录的本地 Python 版本。",
-        "在当前目录中创建 .python-version 文件。",
-        "E: local 3.11.0"
+        "U: completions <shell>",
+        "为 pyenv 生成 shell 补全脚本。",
+        "E: completions bash"
+      ]
+    },
+    {
+      "name": "exec",
+      "tip": [
+        "U: exec <命令> [参数...]",
+        "使用选定的 Python 版本运行命令。",
+        "E: exec python --version"
       ]
     },
     {
       "name": "global",
       "tip": [
-        "U: global [\u003c版本\u003e]",
+        "U: global [<版本>]",
         "设置或显示全局 Python 版本。",
         "影响所有目录，除非被本地版本覆盖。",
         "E: global 3.11.0"
       ]
     },
     {
-      "name": "shell",
+      "name": "help",
       "tip": [
-        "U: shell [\u003c版本\u003e]",
-        "设置或显示特定于 shell 的 Python 版本。",
-        "覆盖当前 shell 会话的全局和本地设置。",
-        "E: shell 3.11.0"
+        "U: help [<命令>]",
+        "显示特定命令的帮助或列出所有命令。",
+        "E: help install"
+      ]
+    },
+    {
+      "name": "hooks",
+      "tip": [
+        "U: hooks <命令>",
+        "列出给定 pyenv 命令的钩子脚本。",
+        "E: hooks install"
+      ]
+    },
+    {
+      "name": "init",
+      "tip": [
+        "U: init [--no-rehash] <shell>",
+        "将 pyenv 加载到当前 shell 中。",
+        "E: init bash"
+      ],
+      "option": [
+        {
+          "name": "--no-rehash",
+          "tip": [
+            "抑制自动重新生成。"
+          ]
+        }
       ]
     },
     {
       "name": "install",
       "tip": [
-        "U: install [-k|--keep] [-v|--verbose] [-g|--debug] \u003c版本\u003e",
+        "U: install [-k|--keep] [-v|--verbose] [-g|--debug] <版本>",
         "从源代码安装 Python 版本。",
         "E: install 3.11.0"
       ],
       "option": [
+        {
+          "name": "--list",
+          "tip": [
+            "列出所有可用于安装的版本。"
+          ]
+        },
+        {
+          "name": "--list-all",
+          "tip": [
+            "列出所有可用版本，包括开发版本。"
+          ]
+        },
+        {
+          "name": "-g",
+          "alias": "--debug",
+          "tip": [
+            "调试模式：构建时不进行优化。"
+          ]
+        },
         {
           "name": "-k",
           "alias": "--keep",
@@ -85,24 +126,84 @@
           "tip": [
             "详细模式：将编译状态打印到标准输出。"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "name": "latest",
+      "tip": [
+        "U: latest [--known] [--print] <版本>",
+        "显示最新安装或已知的版本。",
+        "E: latest 3.11"
+      ],
+      "option": [
         {
-          "name": "-g",
-          "alias": "--debug",
+          "name": "--known",
           "tip": [
-            "调试模式：构建时不进行优化。"
+            "显示最新已知版本而不是已安装版本。"
           ]
         },
         {
-          "name": "--list",
+          "name": "--print",
           "tip": [
-            "列出所有可用于安装的版本。"
+            "仅打印版本号。"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "name": "local",
+      "tip": [
+        "U: local [<版本>]",
+        "设置或显示当前目录的本地 Python 版本。",
+        "在当前目录中创建 .python-version 文件。",
+        "E: local 3.11.0"
+      ]
+    },
+    {
+      "name": "prefix",
+      "tip": [
+        "U: prefix [<版本>]",
+        "显示 Python 版本的安装前缀。",
+        "E: prefix 3.11.0"
+      ]
+    },
+    {
+      "name": "rehash",
+      "tip": [
+        "U: rehash",
+        "重新生成 pyenv shims 以识别新安装的 Python 版本。",
+        "安装新 Python 版本后运行此命令。"
+      ]
+    },
+    {
+      "name": "root",
+      "tip": [
+        "U: root",
+        "显示存储版本和 shims 的根目录。"
+      ]
+    },
+    {
+      "name": "shell",
+      "tip": [
+        "U: shell [<版本>]",
+        "设置或显示特定于 shell 的 Python 版本。",
+        "覆盖当前 shell 会话的全局和本地设置。",
+        "E: shell 3.11.0"
+      ]
+    },
+    {
+      "name": "shims",
+      "tip": [
+        "U: shims [--short]",
+        "列出现有的 pyenv shims。",
+        "E: shims --short"
+      ],
+      "option": [
         {
-          "name": "--list-all",
+          "name": "--short",
           "tip": [
-            "列出所有可用版本，包括开发版本。"
+            "仅列出 shim 名称，不显示完整路径。"
           ]
         }
       ]
@@ -110,7 +211,7 @@
     {
       "name": "uninstall",
       "tip": [
-        "U: uninstall [-f|--force] \u003c版本\u003e",
+        "U: uninstall [-f|--force] <版本>",
         "卸载 Python 版本。",
         "E: uninstall 3.11.0"
       ],
@@ -122,14 +223,6 @@
             "强制卸载而不需要确认。"
           ]
         }
-      ]
-    },
-    {
-      "name": "rehash",
-      "tip": [
-        "U: rehash",
-        "重新生成 pyenv shims 以识别新安装的 Python 版本。",
-        "安装新 Python 版本后运行此命令。"
       ]
     },
     {
@@ -157,17 +250,9 @@
       ]
     },
     {
-      "name": "which",
-      "tip": [
-        "U: which \u003c命令\u003e",
-        "显示将被调用的可执行文件的完整路径。",
-        "E: which python"
-      ]
-    },
-    {
       "name": "whence",
       "tip": [
-        "U: whence [--path] \u003c命令\u003e",
+        "U: whence [--path] <命令>",
         "显示具有给定命令的所有 Python 版本。",
         "E: whence python"
       ],
@@ -181,96 +266,11 @@
       ]
     },
     {
-      "name": "exec",
+      "name": "which",
       "tip": [
-        "U: exec \u003c命令\u003e [参数...]",
-        "使用选定的 Python 版本运行命令。",
-        "E: exec python --version"
-      ]
-    },
-    {
-      "name": "root",
-      "tip": [
-        "U: root",
-        "显示存储版本和 shims 的根目录。"
-      ]
-    },
-    {
-      "name": "prefix",
-      "tip": [
-        "U: prefix [\u003c版本\u003e]",
-        "显示 Python 版本的安装前缀。",
-        "E: prefix 3.11.0"
-      ]
-    },
-    {
-      "name": "latest",
-      "tip": [
-        "U: latest [--known] [--print] \u003c版本\u003e",
-        "显示最新安装或已知的版本。",
-        "E: latest 3.11"
-      ],
-      "option": [
-        {
-          "name": "--known",
-          "tip": [
-            "显示最新已知版本而不是已安装版本。"
-          ]
-        },
-        {
-          "name": "--print",
-          "tip": [
-            "仅打印版本号。"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "hooks",
-      "tip": [
-        "U: hooks \u003c命令\u003e",
-        "列出给定 pyenv 命令的钩子脚本。",
-        "E: hooks install"
-      ]
-    },
-    {
-      "name": "shims",
-      "tip": [
-        "U: shims [--short]",
-        "列出现有的 pyenv shims。",
-        "E: shims --short"
-      ],
-      "option": [
-        {
-          "name": "--short",
-          "tip": [
-            "仅列出 shim 名称，不显示完整路径。"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "init",
-      "tip": [
-        "U: init [--no-rehash] \u003cshell\u003e",
-        "将 pyenv 加载到当前 shell 中。",
-        "E: init bash"
-      ],
-      "option": [
-        {
-          "name": "--no-rehash",
-          "tip": [
-            "抑制自动重新生成。"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "completions",
-      "tip": [
-        "U: completions \u003cshell\u003e",
-        "为 pyenv 生成 shell 补全脚本。",
-        "E: completions bash"
+        "U: which <命令>",
+        "显示将被调用的可执行文件的完整路径。",
+        "E: which python"
       ]
     }
   ],
@@ -284,15 +284,15 @@
   ],
   "common_option": [
     {
-      "name": "--help",
-      "tip": [
-        "显示命令的帮助。"
-      ]
-    },
-    {
       "name": "--debug",
       "tip": [
         "启用调试模式以进行故障排除。"
+      ]
+    },
+    {
+      "name": "--help",
+      "tip": [
+        "显示命令的帮助。"
       ]
     }
   ]

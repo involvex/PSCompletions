@@ -29,72 +29,6 @@
   "option": [],
   "common_option": [
     {
-      "name": "-help",
-      "tip": [
-        "Print help message"
-      ]
-    },
-    {
-      "name": "-help-disk-images",
-      "tip": [
-        "Print help about disk images"
-      ]
-    },
-    {
-      "name": "-help-debug-tags",
-      "tip": [
-        "Print debug tags help"
-      ]
-    },
-    {
-      "name": "-help-char-devices",
-      "tip": [
-        "Print character device specification help"
-      ]
-    },
-    {
-      "name": "-help-environment",
-      "tip": [
-        "Print environment variables help"
-      ]
-    },
-    {
-      "name": "-help-virtual-device",
-      "tip": [
-        "Print virtual device management help"
-      ]
-    },
-    {
-      "name": "-help-sdk-images",
-      "tip": [
-        "Print help about SDK disk images"
-      ]
-    },
-    {
-      "name": "-help-build-images",
-      "tip": [
-        "Print help about build disk images"
-      ]
-    },
-    {
-      "name": "-help-all",
-      "tip": [
-        "Print all help content"
-      ]
-    },
-    {
-      "name": "-verbose",
-      "tip": [
-        "Same as '-debug-init'"
-      ]
-    },
-    {
-      "name": "-version",
-      "tip": [
-        "Display emulator version number"
-      ]
-    },
-    {
       "name": "-debug",
       "tip": [
         "U: -debug <tags>",
@@ -112,6 +46,72 @@
       "name": "-debug-no-<tag>",
       "tip": [
         "Disable specific debug messages"
+      ]
+    },
+    {
+      "name": "-help",
+      "tip": [
+        "Print help message"
+      ]
+    },
+    {
+      "name": "-help-all",
+      "tip": [
+        "Print all help content"
+      ]
+    },
+    {
+      "name": "-help-build-images",
+      "tip": [
+        "Print help about build disk images"
+      ]
+    },
+    {
+      "name": "-help-char-devices",
+      "tip": [
+        "Print character device specification help"
+      ]
+    },
+    {
+      "name": "-help-debug-tags",
+      "tip": [
+        "Print debug tags help"
+      ]
+    },
+    {
+      "name": "-help-disk-images",
+      "tip": [
+        "Print help about disk images"
+      ]
+    },
+    {
+      "name": "-help-environment",
+      "tip": [
+        "Print environment variables help"
+      ]
+    },
+    {
+      "name": "-help-sdk-images",
+      "tip": [
+        "Print help about SDK disk images"
+      ]
+    },
+    {
+      "name": "-help-virtual-device",
+      "tip": [
+        "Print virtual device management help"
+      ]
+    },
+    {
+      "name": "-verbose",
+      "tip": [
+        "Same as '-debug-init'"
+      ]
+    },
+    {
+      "name": "-version",
+      "tip": [
+        "Display emulator version number"
       ]
     }
   ]

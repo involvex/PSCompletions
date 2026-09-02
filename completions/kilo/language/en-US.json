@@ -1,24 +1,35 @@
 {
   "meta": {
     "url": "https://kilocode.ai",
-    "description": ["kilo - AI-powered coding agent for your terminal."]
+    "description": [
+      "kilo - AI-powered coding agent for your terminal."
+    ]
   },
   "root": [
     {
-      "name": "completion",
-      "tip": ["Generate shell completion script"]
-    },
-    {
       "name": "acp",
-      "tip": ["Start ACP (Agent Client Protocol) server"],
+      "tip": [
+        "Start ACP (Agent Client Protocol) server"
+      ],
       "option": [
         {
-          "name": "--port",
-          "tip": ["Port to listen on"]
+          "name": "--cors",
+          "tip": [
+            "Additional domains to allow for CORS"
+          ]
+        },
+        {
+          "name": "--cwd",
+          "tip": [
+            "Working directory"
+          ],
+          "next": 0
         },
         {
           "name": "--hostname",
-          "tip": ["Hostname to listen on"]
+          "tip": [
+            "Hostname to listen on"
+          ]
         },
         {
           "name": "--mdns",
@@ -28,370 +39,170 @@
         },
         {
           "name": "--mdns-domain",
-          "tip": ["Custom domain name for mDNS service (default: kilo.local)"]
-        },
-        {
-          "name": "--cors",
-          "tip": ["Additional domains to allow for CORS"]
-        },
-        {
-          "name": "--cwd",
-          "tip": ["Working directory"],
-          "next": 0
-        }
-      ]
-    },
-    {
-      "name": "mcp",
-      "tip": ["Manage MCP (Model Context Protocol) servers"],
-      "next": [
-        {
-          "name": "add",
-          "tip": ["Add an MCP server"],
-          "next": 0,
-          "option": [
-            {
-              "name": "--url",
-              "tip": ["URL for a remote MCP server"],
-              "next": 0
-            },
-            {
-              "name": "--env",
-              "tip": ["Environment variable for a local MCP server (KEY=VALUE)"]
-            },
-            {
-              "name": "--header",
-              "tip": ["HTTP header for a remote MCP server (KEY=VALUE)"]
-            }
-          ]
-        },
-        {
-          "name": "list",
-          "alias": ["ls"],
-          "tip": ["List MCP servers and their status"]
-        },
-        {
-          "name": "auth",
-          "tip": ["Authenticate with an OAuth-enabled MCP server"],
-          "next": 0
-        },
-        {
-          "name": "logout",
-          "tip": ["Remove OAuth credentials for an MCP server"],
-          "next": 0
-        },
-        {
-          "name": "debug",
-          "tip": ["Debug OAuth connection for an MCP server"],
-          "next": 0
-        }
-      ]
-    },
-    {
-      "name": "attach",
-      "tip": ["Attach to a running kilo server"],
-      "next": 0
-    },
-    {
-      "name": "run",
-      "tip": ["Run kilo with a message"],
-      "next": 0,
-      "option": [
-        {
-          "name": "-c",
-          "alias": ["--continue"],
-          "tip": ["Continue the last session"]
-        },
-        {
-          "name": "-s",
-          "alias": ["--session"],
-          "tip": ["Session id to continue"],
-          "next": 0
-        },
-        {
-          "name": "--fork",
           "tip": [
-            "Fork the session before continuing (requires --continue or --session)"
+            "Custom domain name for mDNS service (default: kilo.local)"
           ]
-        },
-        {
-          "name": "--cloud-fork",
-          "tip": [
-            "Fetch session from cloud and continue locally (use with --session)"
-          ]
-        },
-        {
-          "name": "--share",
-          "tip": ["Share the session"]
-        },
-        {
-          "name": "-m",
-          "alias": ["--model"],
-          "tip": ["Model to use in the format of provider/model"],
-          "next": 0
-        },
-        {
-          "name": "--agent",
-          "tip": ["Agent to use"],
-          "next": 0
-        },
-        {
-          "name": "--command",
-          "tip": ["The command to run, use message for args"],
-          "next": 0
-        },
-        {
-          "name": "--format",
-          "tip": ["Format: default (formatted) or json (raw JSON events)"],
-          "next": [
-            {
-              "name": "default"
-            },
-            {
-              "name": "json"
-            }
-          ]
-        },
-        {
-          "name": "-f",
-          "alias": ["--file"],
-          "tip": ["File(s) to attach to message"],
-          "next": 0
-        },
-        {
-          "name": "--title",
-          "tip": [
-            "Title for the session (uses truncated prompt if no value provided)"
-          ],
-          "next": 0
-        },
-        {
-          "name": "--attach",
-          "tip": [
-            "Attach to a running kilo server (e.g., http://localhost:4096)"
-          ],
-          "next": 0
-        },
-        {
-          "name": "--dir",
-          "tip": ["Directory to run in, path on remote server if attaching"],
-          "next": 0
         },
         {
           "name": "--port",
           "tip": [
-            "Port for the local server (defaults to random port if no value provided)"
+            "Port to listen on"
           ]
-        },
-        {
-          "name": "--variant",
-          "tip": [
-            "Model variant (provider-specific reasoning effort, e.g., high, max, minimal)"
-          ],
-          "next": 0
-        },
-        {
-          "name": "--thinking",
-          "tip": ["Show thinking blocks"]
-        },
-        {
-          "name": "-i",
-          "alias": ["--interactive"],
-          "tip": ["Run in direct interactive split-footer mode"]
-        },
-        {
-          "name": "--auto",
-          "tip": [
-            "Auto-approve permissions that are not explicitly denied (dangerous!)"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "debug",
-      "tip": ["Debugging and troubleshooting tools"],
-      "next": [
-        {
-          "name": "config",
-          "tip": ["Show resolved configuration"]
-        },
-        {
-          "name": "lsp",
-          "tip": ["LSP debugging utilities"]
-        },
-        {
-          "name": "rg",
-          "tip": ["Ripgrep debugging utilities"]
-        },
-        {
-          "name": "file",
-          "tip": ["File system debugging utilities"]
-        },
-        {
-          "name": "scrap",
-          "tip": ["List all known projects"]
-        },
-        {
-          "name": "skill",
-          "tip": ["List all available skills"]
-        },
-        {
-          "name": "snapshot",
-          "tip": ["Snapshot debugging utilities"]
-        },
-        {
-          "name": "startup",
-          "tip": ["Print startup timing"]
-        },
-        {
-          "name": "agent",
-          "tip": ["Show agent configuration details"],
-          "next": 0
-        },
-        {
-          "name": "v2",
-          "tip": ["Debug v2 catalog and built-in plugins"]
-        },
-        {
-          "name": "info",
-          "tip": ["Show debug information"]
-        },
-        {
-          "name": "paths",
-          "tip": ["Show global paths (data, config, cache, state)"]
-        },
-        {
-          "name": "wait",
-          "tip": ["Wait indefinitely (for debugging)"]
-        }
-      ]
-    },
-    {
-      "name": "auth",
-      "alias": ["providers"],
-      "tip": ["Manage AI providers and credentials"],
-      "next": [
-        {
-          "name": "list",
-          "alias": ["ls"],
-          "tip": ["List providers and credentials"]
-        },
-        {
-          "name": "login",
-          "tip": ["Log in to a provider"],
-          "next": 0,
-          "option": [
-            {
-              "name": "-p",
-              "alias": ["--provider"],
-              "tip": [
-                "Provider id or name to log in to (skips provider selection)"
-              ],
-              "next": 0
-            },
-            {
-              "name": "-m",
-              "alias": ["--method"],
-              "tip": ["Login method label (skips method selection)"],
-              "next": 0
-            }
-          ]
-        },
-        {
-          "name": "logout",
-          "tip": ["Log out from a configured provider"],
-          "next": 0
         }
       ]
     },
     {
       "name": "agent",
-      "tip": ["Manage agents"],
+      "tip": [
+        "Manage agents"
+      ],
       "next": [
         {
           "name": "create",
-          "tip": ["Create a new agent"]
+          "tip": [
+            "Create a new agent"
+          ]
         },
         {
           "name": "list",
-          "tip": ["List all available agents"]
-        }
-      ]
-    },
-    {
-      "name": "upgrade",
-      "tip": ["Upgrade kilo to the latest or a specific version"],
-      "next": 0,
-      "option": [
-        {
-          "name": "-m",
-          "alias": ["--method"],
-          "tip": ["Installation method to use"],
-          "next": [
-            {
-              "name": "curl"
-            },
-            {
-              "name": "npm"
-            },
-            {
-              "name": "yarn"
-            },
-            {
-              "name": "pnpm"
-            },
-            {
-              "name": "bun"
-            },
-            {
-              "name": "brew"
-            },
-            {
-              "name": "choco"
-            },
-            {
-              "name": "scoop"
-            }
+          "tip": [
+            "List all available agents"
           ]
         }
       ]
     },
     {
-      "name": "uninstall",
-      "tip": ["Uninstall kilo and remove all related files"],
-      "option": [
+      "name": "attach",
+      "tip": [
+        "Attach to a running kilo server"
+      ],
+      "next": 0
+    },
+    {
+      "name": "auth",
+      "alias": [
+        "providers"
+      ],
+      "tip": [
+        "Manage AI providers and credentials"
+      ],
+      "next": [
         {
-          "name": "-c",
-          "alias": ["--keep-config"],
-          "tip": ["Keep configuration files"]
+          "name": "list",
+          "alias": [
+            "ls"
+          ],
+          "tip": [
+            "List providers and credentials"
+          ]
         },
         {
-          "name": "-d",
-          "alias": ["--keep-data"],
-          "tip": ["Keep session data and snapshots"]
+          "name": "login",
+          "tip": [
+            "Log in to a provider"
+          ],
+          "option": [
+            {
+              "name": "-m",
+              "alias": [
+                "--method"
+              ],
+              "tip": [
+                "Login method label (skips method selection)"
+              ],
+              "next": 0
+            },
+            {
+              "name": "-p",
+              "alias": [
+                "--provider"
+              ],
+              "tip": [
+                "Provider id or name to log in to (skips provider selection)"
+              ],
+              "next": 0
+            }
+          ],
+          "next": 0
         },
         {
-          "name": "--dry-run",
-          "tip": ["Show what would be removed without removing"]
-        },
-        {
-          "name": "-f",
-          "alias": ["--force"],
-          "tip": ["Skip confirmation prompts"]
+          "name": "logout",
+          "tip": [
+            "Log out from a configured provider"
+          ],
+          "next": 0
         }
       ]
     },
     {
-      "name": "serve",
-      "tip": ["Starts a headless kilo server"],
+      "name": "cloud",
+      "tip": [
+        "Run Cloud Agent tasks"
+      ],
+      "next": [
+        {
+          "name": "result",
+          "tip": [
+            "Show a Cloud Agent task result"
+          ]
+        },
+        {
+          "name": "send",
+          "tip": [
+            "Send a follow-up prompt to a Cloud Agent task"
+          ]
+        },
+        {
+          "name": "start",
+          "tip": [
+            "Start a Cloud Agent task"
+          ]
+        },
+        {
+          "name": "status",
+          "tip": [
+            "Show Cloud Agent task status"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "completion",
+      "tip": [
+        "Generate shell completion script"
+      ]
+    },
+    {
+      "name": "config",
+      "tip": [
+        "Configuration tools"
+      ],
+      "next": [
+        {
+          "name": "check",
+          "tip": [
+            "Check configuration for warnings and errors"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "console",
+      "tip": [
+        "Open or stop the local Kilo Console (deprecated)"
+      ],
       "option": [
         {
-          "name": "--port",
-          "tip": ["Port to listen on"]
+          "name": "--cors",
+          "tip": [
+            "Additional domains to allow for CORS"
+          ]
         },
         {
           "name": "--hostname",
-          "tip": ["Hostname to listen on"]
+          "tip": [
+            "Hostname to listen on"
+          ]
         },
         {
           "name": "--mdns",
@@ -401,159 +212,125 @@
         },
         {
           "name": "--mdns-domain",
-          "tip": ["Custom domain name for mDNS service (default: kilo.local)"]
-        },
-        {
-          "name": "--cors",
-          "tip": ["Additional domains to allow for CORS"]
-        }
-      ]
-    },
-    {
-      "name": "models",
-      "tip": ["List all available models"],
-      "next": 0,
-      "option": [
-        {
-          "name": "--verbose",
           "tip": [
-            "Use more verbose model output (includes metadata like costs)"
+            "Custom domain name for mDNS service (default: kilo.local)"
           ]
         },
         {
-          "name": "--refresh",
-          "tip": ["Refresh the models cache from models.dev"]
-        }
-      ]
-    },
-    {
-      "name": "stats",
-      "tip": ["Show token usage and cost statistics"]
-    },
-    {
-      "name": "export",
-      "tip": ["Export session data as JSON"],
-      "next": 0,
-      "option": [
-        {
-          "name": "--sanitize",
-          "tip": ["Redact sensitive transcript and file data"]
-        }
-      ]
-    },
-    {
-      "name": "import",
-      "tip": ["Import session data from JSON file or URL"],
-      "next": 0
-    },
-    {
-      "name": "github",
-      "tip": ["Manage GitHub agent"],
-      "next": [
-        {
-          "name": "install",
-          "tip": ["Install the GitHub agent"]
-        },
-        {
-          "name": "run",
-          "tip": ["Run the GitHub agent"]
-        }
-      ]
-    },
-    {
-      "name": "pr",
-      "tip": ["Manage pull requests"],
-      "next": [
-        {
-          "name": "checkout",
-          "tip": ["Fetch and checkout a GitHub PR branch, then run kilo"],
-          "next": 0
-        },
-        {
-          "name": "link",
-          "tip": ["Link the current worktree to a pull request"],
-          "next": 0
-        },
-        {
-          "name": "unlink",
-          "tip": ["Clear the linked pull request"]
-        },
-        {
-          "name": "status",
-          "tip": ["Show the linked pull request"]
-        }
-      ]
-    },
-    {
-      "name": "session",
-      "tip": ["Manage sessions"],
-      "next": [
-        {
-          "name": "list",
-          "tip": ["List sessions"],
-          "option": [
-            {
-              "name": "-n",
-              "alias": ["--max-count"],
-              "tip": ["Limit to N most recent sessions"]
-            },
-            {
-              "name": "--format",
-              "tip": ["Output format"],
-              "next": [
-                {
-                  "name": "table"
-                },
-                {
-                  "name": "json"
-                }
-              ]
-            },
-            {
-              "name": "-a",
-              "alias": ["--all"],
-              "tip": ["List sessions from all projects"]
-            },
-            {
-              "name": "-s",
-              "alias": ["--search"],
-              "tip": ["Filter sessions by title"],
-              "next": 0
-            }
+          "name": "--port",
+          "tip": [
+            "Port to listen on"
           ]
-        },
-        {
-          "name": "delete",
-          "tip": ["Delete a session"],
-          "next": 0
-        }
-      ]
-    },
-    {
-      "name": "plugin",
-      "alias": ["plug"],
-      "tip": ["Install plugin and update config"],
-      "next": 0,
-      "option": [
-        {
-          "name": "-g",
-          "alias": ["--global"],
-          "tip": ["Install in global config"]
         },
         {
           "name": "-f",
-          "alias": ["--force"],
-          "tip": ["Replace existing plugin version"]
+          "alias": [
+            "--foreground"
+          ],
+          "tip": [
+            "Keep the command active until interrupted"
+          ]
+        }
+      ],
+      "next": [
+        {
+          "name": "stop",
+          "tip": [
+            "Stop the local kilo daemon"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "daemon",
+      "tip": [
+        "Manage the local kilo daemon"
+      ],
+      "option": [
+        {
+          "name": "--cors",
+          "tip": [
+            "Additional domains to allow for CORS"
+          ]
+        },
+        {
+          "name": "--hostname",
+          "tip": [
+            "Hostname to listen on"
+          ]
+        },
+        {
+          "name": "--json",
+          "tip": [
+            "Print daemon details as JSON"
+          ]
+        },
+        {
+          "name": "--mdns",
+          "tip": [
+            "Enable mDNS service discovery (defaults hostname to 0.0.0.0)"
+          ]
+        },
+        {
+          "name": "--mdns-domain",
+          "tip": [
+            "Custom domain name for mDNS service (default: kilo.local)"
+          ]
+        },
+        {
+          "name": "--port",
+          "tip": [
+            "Port to listen on"
+          ]
+        },
+        {
+          "name": "-f",
+          "alias": [
+            "--foreground"
+          ],
+          "tip": [
+            "Keep the command active until interrupted"
+          ]
+        }
+      ],
+      "next": [
+        {
+          "name": "restart",
+          "tip": [
+            "Restart the local kilo daemon"
+          ]
+        },
+        {
+          "name": "start",
+          "tip": [
+            "Start the local kilo daemon"
+          ]
+        },
+        {
+          "name": "status",
+          "tip": [
+            "Show local kilo daemon status"
+          ]
+        },
+        {
+          "name": "stop",
+          "tip": [
+            "Stop the local kilo daemon"
+          ]
         }
       ]
     },
     {
       "name": "db",
-      "tip": ["Database tools"],
+      "tip": [
+        "Database tools"
+      ],
       "option": [
         {
           "name": "--format",
-          "tip": ["Output format"],
+          "tip": [
+            "Output format"
+          ],
           "next": [
             {
               "name": "json"
@@ -567,69 +344,317 @@
       "next": [
         {
           "name": "path",
-          "tip": ["Print the database path"]
+          "tip": [
+            "Print the database path"
+          ]
         }
       ]
     },
     {
-      "name": "console",
-      "tip": ["Open or stop the local Kilo Console (deprecated)"],
+      "name": "debug",
+      "tip": [
+        "Debugging and troubleshooting tools"
+      ],
       "next": [
         {
-          "name": "stop",
-          "tip": ["Stop the local kilo daemon"]
-        }
-      ],
-      "option": [
-        {
-          "name": "--port",
-          "tip": ["Port to listen on"]
-        },
-        {
-          "name": "--hostname",
-          "tip": ["Hostname to listen on"]
-        },
-        {
-          "name": "--mdns",
+          "name": "agent",
           "tip": [
-            "Enable mDNS service discovery (defaults hostname to 0.0.0.0)"
+            "Show agent configuration details"
+          ],
+          "next": 0
+        },
+        {
+          "name": "config",
+          "tip": [
+            "Show resolved configuration"
           ]
         },
         {
-          "name": "--mdns-domain",
-          "tip": ["Custom domain name for mDNS service (default: kilo.local)"]
+          "name": "file",
+          "tip": [
+            "File system debugging utilities"
+          ]
         },
         {
-          "name": "--cors",
-          "tip": ["Additional domains to allow for CORS"]
+          "name": "info",
+          "tip": [
+            "Show debug information"
+          ]
         },
         {
-          "name": "-f",
-          "alias": ["--foreground"],
-          "tip": ["Keep the command active until interrupted"]
+          "name": "lsp",
+          "tip": [
+            "LSP debugging utilities"
+          ]
+        },
+        {
+          "name": "paths",
+          "tip": [
+            "Show global paths (data, config, cache, state)"
+          ]
+        },
+        {
+          "name": "rg",
+          "tip": [
+            "Ripgrep debugging utilities"
+          ]
+        },
+        {
+          "name": "scrap",
+          "tip": [
+            "List all known projects"
+          ]
+        },
+        {
+          "name": "skill",
+          "tip": [
+            "List all available skills"
+          ]
+        },
+        {
+          "name": "snapshot",
+          "tip": [
+            "Snapshot debugging utilities"
+          ]
+        },
+        {
+          "name": "startup",
+          "tip": [
+            "Print startup timing"
+          ]
+        },
+        {
+          "name": "v2",
+          "tip": [
+            "Debug v2 catalog and built-in plugins"
+          ]
+        },
+        {
+          "name": "wait",
+          "tip": [
+            "Wait indefinitely (for debugging)"
+          ]
         }
       ]
     },
     {
-      "name": "cloud",
-      "tip": ["Run Cloud Agent tasks"],
+      "name": "export",
+      "tip": [
+        "Export session data as JSON"
+      ],
+      "option": [
+        {
+          "name": "--sanitize",
+          "tip": [
+            "Redact sensitive transcript and file data"
+          ]
+        }
+      ],
+      "next": 0
+    },
+    {
+      "name": "github",
+      "tip": [
+        "Manage GitHub agent"
+      ],
       "next": [
         {
-          "name": "start",
-          "tip": ["Start a Cloud Agent task"]
+          "name": "install",
+          "tip": [
+            "Install the GitHub agent"
+          ]
         },
         {
-          "name": "send",
-          "tip": ["Send a follow-up prompt to a Cloud Agent task"]
+          "name": "run",
+          "tip": [
+            "Run the GitHub agent"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "help",
+      "tip": [
+        "Show full CLI reference"
+      ],
+      "next": 0
+    },
+    {
+      "name": "import",
+      "tip": [
+        "Import session data from JSON file or URL"
+      ],
+      "next": 0
+    },
+    {
+      "name": "mcp",
+      "tip": [
+        "Manage MCP (Model Context Protocol) servers"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "tip": [
+            "Add an MCP server"
+          ],
+          "option": [
+            {
+              "name": "--env",
+              "tip": [
+                "Environment variable for a local MCP server (KEY=VALUE)"
+              ]
+            },
+            {
+              "name": "--header",
+              "tip": [
+                "HTTP header for a remote MCP server (KEY=VALUE)"
+              ]
+            },
+            {
+              "name": "--url",
+              "tip": [
+                "URL for a remote MCP server"
+              ],
+              "next": 0
+            }
+          ],
+          "next": 0
+        },
+        {
+          "name": "auth",
+          "tip": [
+            "Authenticate with an OAuth-enabled MCP server"
+          ],
+          "next": 0
+        },
+        {
+          "name": "debug",
+          "tip": [
+            "Debug OAuth connection for an MCP server"
+          ],
+          "next": 0
+        },
+        {
+          "name": "list",
+          "alias": [
+            "ls"
+          ],
+          "tip": [
+            "List MCP servers and their status"
+          ]
+        },
+        {
+          "name": "logout",
+          "tip": [
+            "Remove OAuth credentials for an MCP server"
+          ],
+          "next": 0
+        }
+      ]
+    },
+    {
+      "name": "models",
+      "tip": [
+        "List all available models"
+      ],
+      "option": [
+        {
+          "name": "--refresh",
+          "tip": [
+            "Refresh the models cache from models.dev"
+          ]
+        },
+        {
+          "name": "--verbose",
+          "tip": [
+            "Use more verbose model output (includes metadata like costs)"
+          ]
+        }
+      ],
+      "next": 0
+    },
+    {
+      "name": "plugin",
+      "alias": [
+        "plug"
+      ],
+      "tip": [
+        "Install plugin and update config"
+      ],
+      "option": [
+        {
+          "name": "-f",
+          "alias": [
+            "--force"
+          ],
+          "tip": [
+            "Replace existing plugin version"
+          ]
+        },
+        {
+          "name": "-g",
+          "alias": [
+            "--global"
+          ],
+          "tip": [
+            "Install in global config"
+          ]
+        }
+      ],
+      "next": 0
+    },
+    {
+      "name": "pr",
+      "tip": [
+        "Manage pull requests"
+      ],
+      "next": [
+        {
+          "name": "checkout",
+          "tip": [
+            "Fetch and checkout a GitHub PR branch, then run kilo"
+          ],
+          "next": 0
+        },
+        {
+          "name": "link",
+          "tip": [
+            "Link the current worktree to a pull request"
+          ],
+          "next": 0
         },
         {
           "name": "status",
-          "tip": ["Show Cloud Agent task status"]
+          "tip": [
+            "Show the linked pull request"
+          ]
         },
         {
-          "name": "result",
-          "tip": ["Show a Cloud Agent task result"]
+          "name": "unlink",
+          "tip": [
+            "Clear the linked pull request"
+          ]
         }
+      ]
+    },
+    {
+      "name": "profile",
+      "tip": [
+        "Show Kilo account profile"
+      ],
+      "option": [
+        {
+          "name": "--json",
+          "tip": [
+            "Output profile as JSON"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "remote",
+      "tip": [
+        "Enable remote connection for real-time session relay"
       ]
     },
     {
@@ -637,89 +662,224 @@
       "tip": [
         "Batch-test text models matching a filter for connectivity and latency"
       ],
-      "next": 0,
       "option": [
         {
-          "name": "--prompt",
-          "tip": ["Prompt to send to each model"],
-          "next": 0
-        },
-        {
-          "name": "--timeout",
-          "tip": ["Timeout for each model call in milliseconds"]
-        },
-        {
-          "name": "--parallel",
-          "tip": ["Number of parallel model calls"]
-        },
-        {
-          "name": "--verbose",
-          "tip": ["Show verbose output"]
-        },
-        {
-          "name": "--quiet",
-          "tip": ["Suppress progress and decoration"]
-        },
-        {
           "name": "--output",
-          "tip": ["Output format (table, json, or md)"],
+          "tip": [
+            "Output format (table, json, or md)"
+          ],
           "next": [
-            {
-              "name": "table"
-            },
             {
               "name": "json"
             },
             {
               "name": "md"
+            },
+            {
+              "name": "table"
             }
           ]
-        }
-      ]
-    },
-    {
-      "name": "profile",
-      "tip": ["Show Kilo account profile"],
-      "option": [
-        {
-          "name": "--json",
-          "tip": ["Output profile as JSON"]
-        }
-      ]
-    },
-    {
-      "name": "remote",
-      "tip": ["Enable remote connection for real-time session relay"]
-    },
-    {
-      "name": "daemon",
-      "tip": ["Manage the local kilo daemon"],
-      "next": [
-        {
-          "name": "start",
-          "tip": ["Start the local kilo daemon"]
         },
         {
-          "name": "status",
-          "tip": ["Show local kilo daemon status"]
+          "name": "--parallel",
+          "tip": [
+            "Number of parallel model calls"
+          ]
         },
         {
-          "name": "stop",
-          "tip": ["Stop the local kilo daemon"]
+          "name": "--prompt",
+          "tip": [
+            "Prompt to send to each model"
+          ],
+          "next": 0
         },
         {
-          "name": "restart",
-          "tip": ["Restart the local kilo daemon"]
+          "name": "--quiet",
+          "tip": [
+            "Suppress progress and decoration"
+          ]
+        },
+        {
+          "name": "--timeout",
+          "tip": [
+            "Timeout for each model call in milliseconds"
+          ]
+        },
+        {
+          "name": "--verbose",
+          "tip": [
+            "Show verbose output"
+          ]
         }
+      ],
+      "next": 0
+    },
+    {
+      "name": "run",
+      "tip": [
+        "Run kilo with a message"
       ],
       "option": [
         {
+          "name": "--agent",
+          "tip": [
+            "Agent to use"
+          ],
+          "next": 0
+        },
+        {
+          "name": "--attach",
+          "tip": [
+            "Attach to a running kilo server (e.g., http://localhost:4096)"
+          ],
+          "next": 0
+        },
+        {
+          "name": "--auto",
+          "tip": [
+            "Auto-approve permissions that are not explicitly denied (dangerous!)"
+          ]
+        },
+        {
+          "name": "--cloud-fork",
+          "tip": [
+            "Fetch session from cloud and continue locally (use with --session)"
+          ]
+        },
+        {
+          "name": "--command",
+          "tip": [
+            "The command to run, use message for args"
+          ],
+          "next": 0
+        },
+        {
+          "name": "--dir",
+          "tip": [
+            "Directory to run in, path on remote server if attaching"
+          ],
+          "next": 0
+        },
+        {
+          "name": "--fork",
+          "tip": [
+            "Fork the session before continuing (requires --continue or --session)"
+          ]
+        },
+        {
+          "name": "--format",
+          "tip": [
+            "Format: default (formatted) or json (raw JSON events)"
+          ],
+          "next": [
+            {
+              "name": "default"
+            },
+            {
+              "name": "json"
+            }
+          ]
+        },
+        {
           "name": "--port",
-          "tip": ["Port to listen on"]
+          "tip": [
+            "Port for the local server (defaults to random port if no value provided)"
+          ]
+        },
+        {
+          "name": "--share",
+          "tip": [
+            "Share the session"
+          ]
+        },
+        {
+          "name": "--thinking",
+          "tip": [
+            "Show thinking blocks"
+          ]
+        },
+        {
+          "name": "--title",
+          "tip": [
+            "Title for the session (uses truncated prompt if no value provided)"
+          ],
+          "next": 0
+        },
+        {
+          "name": "--variant",
+          "tip": [
+            "Model variant (provider-specific reasoning effort, e.g., high, max, minimal)"
+          ],
+          "next": 0
+        },
+        {
+          "name": "-c",
+          "alias": [
+            "--continue"
+          ],
+          "tip": [
+            "Continue the last session"
+          ]
+        },
+        {
+          "name": "-f",
+          "alias": [
+            "--file"
+          ],
+          "tip": [
+            "File(s) to attach to message"
+          ],
+          "next": 0
+        },
+        {
+          "name": "-i",
+          "alias": [
+            "--interactive"
+          ],
+          "tip": [
+            "Run in direct interactive split-footer mode"
+          ]
+        },
+        {
+          "name": "-m",
+          "alias": [
+            "--model"
+          ],
+          "tip": [
+            "Model to use in the format of provider/model"
+          ],
+          "next": 0
+        },
+        {
+          "name": "-s",
+          "alias": [
+            "--session"
+          ],
+          "tip": [
+            "Session id to continue"
+          ],
+          "next": 0
+        }
+      ],
+      "next": 0
+    },
+    {
+      "name": "serve",
+      "tip": [
+        "Starts a headless kilo server"
+      ],
+      "option": [
+        {
+          "name": "--cors",
+          "tip": [
+            "Additional domains to allow for CORS"
+          ]
         },
         {
           "name": "--hostname",
-          "tip": ["Hostname to listen on"]
+          "tip": [
+            "Hostname to listen on"
+          ]
         },
         {
           "name": "--mdns",
@@ -729,132 +889,228 @@
         },
         {
           "name": "--mdns-domain",
-          "tip": ["Custom domain name for mDNS service (default: kilo.local)"]
+          "tip": [
+            "Custom domain name for mDNS service (default: kilo.local)"
+          ]
         },
         {
-          "name": "--cors",
-          "tip": ["Additional domains to allow for CORS"]
-        },
-        {
-          "name": "--json",
-          "tip": ["Print daemon details as JSON"]
-        },
-        {
-          "name": "-f",
-          "alias": ["--foreground"],
-          "tip": ["Keep the command active until interrupted"]
+          "name": "--port",
+          "tip": [
+            "Port to listen on"
+          ]
         }
       ]
     },
     {
-      "name": "config",
-      "tip": ["Configuration tools"],
+      "name": "session",
+      "tip": [
+        "Manage sessions"
+      ],
       "next": [
         {
-          "name": "check",
-          "tip": ["Check configuration for warnings and errors"]
-        }
-      ]
-    },
-    {
-      "name": "worktree",
-      "tip": ["Manage git worktrees"],
-      "next": [
-        {
-          "name": "create",
-          "tip": ["Create (or reuse) a git worktree by name"],
+          "name": "delete",
+          "tip": [
+            "Delete a session"
+          ],
           "next": 0
         },
         {
           "name": "list",
-          "tip": ["List git worktrees for the current project"]
-        },
-        {
-          "name": "remove",
-          "tip": ["Remove a git worktree by name, deleting its branch too"],
-          "next": 0
+          "tip": [
+            "List sessions"
+          ],
+          "option": [
+            {
+              "name": "--format",
+              "tip": [
+                "Output format"
+              ],
+              "next": [
+                {
+                  "name": "json"
+                },
+                {
+                  "name": "table"
+                }
+              ]
+            },
+            {
+              "name": "-a",
+              "alias": [
+                "--all"
+              ],
+              "tip": [
+                "List sessions from all projects"
+              ]
+            },
+            {
+              "name": "-n",
+              "alias": [
+                "--max-count"
+              ],
+              "tip": [
+                "Limit to N most recent sessions"
+              ]
+            },
+            {
+              "name": "-s",
+              "alias": [
+                "--search"
+              ],
+              "tip": [
+                "Filter sessions by title"
+              ],
+              "next": 0
+            }
+          ]
         }
       ]
     },
     {
-      "name": "help",
-      "tip": ["Show full CLI reference"],
+      "name": "stats",
+      "tip": [
+        "Show token usage and cost statistics"
+      ]
+    },
+    {
+      "name": "uninstall",
+      "tip": [
+        "Uninstall kilo and remove all related files"
+      ],
+      "option": [
+        {
+          "name": "--dry-run",
+          "tip": [
+            "Show what would be removed without removing"
+          ]
+        },
+        {
+          "name": "-c",
+          "alias": [
+            "--keep-config"
+          ],
+          "tip": [
+            "Keep configuration files"
+          ]
+        },
+        {
+          "name": "-d",
+          "alias": [
+            "--keep-data"
+          ],
+          "tip": [
+            "Keep session data and snapshots"
+          ]
+        },
+        {
+          "name": "-f",
+          "alias": [
+            "--force"
+          ],
+          "tip": [
+            "Skip confirmation prompts"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "upgrade",
+      "tip": [
+        "Upgrade kilo to the latest or a specific version"
+      ],
+      "option": [
+        {
+          "name": "-m",
+          "alias": [
+            "--method"
+          ],
+          "tip": [
+            "Installation method to use"
+          ],
+          "next": [
+            {
+              "name": "brew"
+            },
+            {
+              "name": "bun"
+            },
+            {
+              "name": "choco"
+            },
+            {
+              "name": "curl"
+            },
+            {
+              "name": "npm"
+            },
+            {
+              "name": "pnpm"
+            },
+            {
+              "name": "scoop"
+            },
+            {
+              "name": "yarn"
+            }
+          ]
+        }
+      ],
       "next": 0
+    },
+    {
+      "name": "worktree",
+      "tip": [
+        "Manage git worktrees"
+      ],
+      "next": [
+        {
+          "name": "create",
+          "tip": [
+            "Create (or reuse) a git worktree by name"
+          ],
+          "next": 0
+        },
+        {
+          "name": "list",
+          "tip": [
+            "List git worktrees for the current project"
+          ]
+        },
+        {
+          "name": "remove",
+          "tip": [
+            "Remove a git worktree by name, deleting its branch too"
+          ],
+          "next": 0
+        }
+      ]
     }
   ],
   "option": [
     {
-      "name": "-h",
-      "alias": ["--help"],
-      "tip": ["Show help"]
+      "name": "--agent",
+      "tip": [
+        "Agent to use"
+      ],
+      "next": 0
     },
     {
-      "name": "-v",
-      "alias": ["--version"],
-      "tip": ["Show version number"]
-    },
-    {
-      "name": "--print-logs",
-      "tip": ["Print logs to stderr"]
-    },
-    {
-      "name": "--log-level",
-      "tip": ["Log level"],
-      "next": [
-        {
-          "name": "DEBUG"
-        },
-        {
-          "name": "INFO"
-        },
-        {
-          "name": "WARN"
-        },
-        {
-          "name": "ERROR"
-        }
+      "name": "--auto",
+      "tip": [
+        "Auto-approve permissions that are not explicitly denied (dangerous!)"
       ]
     },
     {
-      "name": "--pure",
-      "tip": ["Run without external plugins"]
-    },
-    {
-      "name": "--port",
-      "tip": ["Port to listen on"]
-    },
-    {
-      "name": "--hostname",
-      "tip": ["Hostname to listen on"]
-    },
-    {
-      "name": "--mdns",
-      "tip": ["Enable mDNS service discovery (defaults hostname to 0.0.0.0)"]
-    },
-    {
-      "name": "--mdns-domain",
-      "tip": ["Custom domain name for mDNS service (default: kilo.local)"]
+      "name": "--cloud-fork",
+      "tip": [
+        "Fetch session from cloud and continue locally (use with --session)"
+      ]
     },
     {
       "name": "--cors",
-      "tip": ["Additional domains to allow for CORS"]
-    },
-    {
-      "name": "-m",
-      "alias": ["--model"],
-      "tip": ["Model to use in the format of provider/model"],
-      "next": 0
-    },
-    {
-      "name": "-c",
-      "alias": ["--continue"],
-      "tip": ["Continue the last session"]
-    },
-    {
-      "name": "-s",
-      "alias": ["--session"],
-      "tip": ["Session id to continue"],
-      "next": 0
+      "tip": [
+        "Additional domains to allow for CORS"
+      ]
     },
     {
       "name": "--fork",
@@ -863,9 +1119,84 @@
       ]
     },
     {
-      "name": "--cloud-fork",
+      "name": "--hostname",
       "tip": [
-        "Fetch session from cloud and continue locally (use with --session)"
+        "Hostname to listen on"
+      ]
+    },
+    {
+      "name": "--log-level",
+      "tip": [
+        "Log level"
+      ],
+      "next": [
+        {
+          "name": "DEBUG"
+        },
+        {
+          "name": "ERROR"
+        },
+        {
+          "name": "INFO"
+        },
+        {
+          "name": "WARN"
+        }
+      ]
+    },
+    {
+      "name": "--mdns",
+      "tip": [
+        "Enable mDNS service discovery (defaults hostname to 0.0.0.0)"
+      ]
+    },
+    {
+      "name": "--mdns-domain",
+      "tip": [
+        "Custom domain name for mDNS service (default: kilo.local)"
+      ]
+    },
+    {
+      "name": "--mini",
+      "tip": [
+        "Start the minimal interactive interface"
+      ]
+    },
+    {
+      "name": "--no-replay",
+      "tip": [
+        "Disable mini session history replay on resume and after resize"
+      ]
+    },
+    {
+      "name": "--port",
+      "tip": [
+        "Port to listen on"
+      ]
+    },
+    {
+      "name": "--print-logs",
+      "tip": [
+        "Print logs to stderr"
+      ]
+    },
+    {
+      "name": "--prompt",
+      "tip": [
+        "Prompt to use"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--pure",
+      "tip": [
+        "Run without external plugins"
+      ]
+    },
+    {
+      "name": "--replay-limit",
+      "tip": [
+        "Cap visible mini replay to the newest N messages"
       ]
     },
     {
@@ -876,38 +1207,59 @@
       "next": 0
     },
     {
-      "name": "--prompt",
-      "tip": ["Prompt to use"],
-      "next": 0
-    },
-    {
-      "name": "--agent",
-      "tip": ["Agent to use"],
-      "next": 0
-    },
-    {
-      "name": "--auto",
+      "name": "-c",
+      "alias": [
+        "--continue"
+      ],
       "tip": [
-        "Auto-approve permissions that are not explicitly denied (dangerous!)"
+        "Continue the last session"
       ]
     },
     {
-      "name": "--mini",
-      "tip": ["Start the minimal interactive interface"]
+      "name": "-h",
+      "alias": [
+        "--help"
+      ],
+      "tip": [
+        "Show help"
+      ]
     },
     {
-      "name": "--no-replay",
-      "tip": ["Disable mini session history replay on resume and after resize"]
+      "name": "-m",
+      "alias": [
+        "--model"
+      ],
+      "tip": [
+        "Model to use in the format of provider/model"
+      ],
+      "next": 0
     },
     {
-      "name": "--replay-limit",
-      "tip": ["Cap visible mini replay to the newest N messages"]
+      "name": "-s",
+      "alias": [
+        "--session"
+      ],
+      "tip": [
+        "Session id to continue"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-v",
+      "alias": [
+        "--version"
+      ],
+      "tip": [
+        "Show version number"
+      ]
     }
   ],
   "common_option": [
     {
       "name": "--help",
-      "tip": ["Show help"]
+      "tip": [
+        "Show help"
+      ]
     }
   ]
 }

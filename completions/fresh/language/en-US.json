@@ -17,11 +17,10 @@
       ],
       "next": [
         {
-          "name": "daemon",
-          "alias": ["session"],
+          "name": "command",
           "tip": [
-            "U: daemon <list|attach|new|kill|info|open-file>",
-            "Manage editor daemons (detachable editor sessions)"
+            "U: command <run|list>",
+            "Run a registered command by its command-palette name, or list commands"
           ]
         },
         {
@@ -32,10 +31,27 @@
           ]
         },
         {
+          "name": "daemon",
+          "alias": [
+            "session"
+          ],
+          "tip": [
+            "U: daemon <list|attach|new|kill|info|open-file>",
+            "Manage editor daemons (detachable editor sessions)"
+          ]
+        },
+        {
           "name": "grammar",
           "tip": [
             "U: grammar list",
             "List all available grammars (with source info)"
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "U: help [TOPIC]",
+            "Feature guides with generated reference (topics: tour, script, plugin)"
           ]
         },
         {
@@ -46,17 +62,6 @@
           ]
         },
         {
-          "name": "command",
-          "tip": [
-            "U: command <run|list>",
-            "Run a registered command by its command-palette name, or list commands"
-          ]
-        },
-        {
-          "name": "update",
-          "tip": ["Update Fresh"]
-        },
-        {
           "name": "script",
           "tip": [
             "U: script <api|check|run|types>",
@@ -64,51 +69,18 @@
           ]
         },
         {
-          "name": "help",
+          "name": "update",
           "tip": [
-            "U: help [TOPIC]",
-            "Feature guides with generated reference (topics: tour, script, plugin)"
+            "Update Fresh"
           ]
         }
       ]
     },
     {
-      "name": "-a",
-      "alias": ["--attach"],
-      "tip": [
-        "U: -a, --attach [<NAME>]",
-        "Attach to a daemon. Use -a for the current directory, -a NAME for a named daemon"
-      ],
-      "next": 0
-    },
-    {
-      "name": "--stdin",
-      "tip": ["Read content from stdin (alternative to using '-' as filename)"]
-    },
-    {
-      "name": "--no-plugins",
-      "tip": ["Disable plugin loading"]
-    },
-    {
-      "name": "--no-init",
-      "tip": ["Skip ~/.config/fresh/init.ts for this launch"]
-    },
-    {
-      "name": "--safe",
-      "tip": [
-        "Safe mode: skip init.ts AND all plugins (recovery from a bad config)"
-      ]
-    },
-    {
       "name": "--config",
-      "tip": ["U: --config <PATH>", "Path to configuration file"],
-      "next": 0
-    },
-    {
-      "name": "--log-file",
       "tip": [
-        "U: --log-file <PATH>",
-        "Path to log file for editor diagnostics"
+        "U: --config <PATH>",
+        "Path to configuration file"
       ],
       "next": 0
     },
@@ -119,23 +91,6 @@
         "Enable event logging to the specified file"
       ],
       "next": 0
-    },
-    {
-      "name": "--no-restore",
-      "tip": [
-        "Don't restore the previous workspace (hot-exit content of unsaved modified files and unnamed buffers is still restored so in-progress work is not lost)"
-      ]
-    },
-    {
-      "name": "--restore",
-      "tip": [
-        "Force restore of the previous workspace, overriding 'editor.restore_previous_session = false' in the config",
-        "Cannot be combined with --no-restore"
-      ]
-    },
-    {
-      "name": "--no-upgrade-check",
-      "tip": ["Disable upgrade checking and anonymous telemetry"]
     },
     {
       "name": "--locale",
@@ -160,18 +115,88 @@
           "name": "zh-CN"
         }
       ]
+    },
+    {
+      "name": "--log-file",
+      "tip": [
+        "U: --log-file <PATH>",
+        "Path to log file for editor diagnostics"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--no-init",
+      "tip": [
+        "Skip ~/.config/fresh/init.ts for this launch"
+      ]
+    },
+    {
+      "name": "--no-plugins",
+      "tip": [
+        "Disable plugin loading"
+      ]
+    },
+    {
+      "name": "--no-restore",
+      "tip": [
+        "Don't restore the previous workspace (hot-exit content of unsaved modified files and unnamed buffers is still restored so in-progress work is not lost)"
+      ]
+    },
+    {
+      "name": "--no-upgrade-check",
+      "tip": [
+        "Disable upgrade checking and anonymous telemetry"
+      ]
+    },
+    {
+      "name": "--restore",
+      "tip": [
+        "Force restore of the previous workspace, overriding 'editor.restore_previous_session = false' in the config",
+        "Cannot be combined with --no-restore"
+      ]
+    },
+    {
+      "name": "--safe",
+      "tip": [
+        "Safe mode: skip init.ts AND all plugins (recovery from a bad config)"
+      ]
+    },
+    {
+      "name": "--stdin",
+      "tip": [
+        "Read content from stdin (alternative to using '-' as filename)"
+      ]
+    },
+    {
+      "name": "-a",
+      "alias": [
+        "--attach"
+      ],
+      "tip": [
+        "U: -a, --attach [<NAME>]",
+        "Attach to a daemon. Use -a for the current directory, -a NAME for a named daemon"
+      ],
+      "next": 0
     }
   ],
   "common_option": [
     {
       "name": "-h",
-      "alias": ["--help"],
-      "tip": ["Print help (see a summary with '-h')"]
+      "alias": [
+        "--help"
+      ],
+      "tip": [
+        "Print help (see a summary with '-h')"
+      ]
     },
     {
       "name": "-V",
-      "alias": ["--version"],
-      "tip": ["Print version"]
+      "alias": [
+        "--version"
+      ],
+      "tip": [
+        "Print version"
+      ]
     }
   ]
 }

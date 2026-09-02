@@ -9,58 +9,6 @@
   "root": [],
   "option": [
     {
-      "name": "--install",
-      "tip": [
-        "Install or update packages (default behavior).",
-        "List packages as arguments after this flag."
-      ]
-    },
-    {
-      "name": "--uninstall",
-      "tip": [
-        "Uninstall the listed packages."
-      ]
-    },
-    {
-      "name": "--update",
-      "tip": [
-        "Update all installed packages to the latest version."
-      ]
-    },
-    {
-      "name": "--list",
-      "tip": [
-        "List all installed and available packages."
-      ]
-    },
-    {
-      "name": "--list_installed",
-      "tip": [
-        "List all installed packages."
-      ]
-    },
-    {
-      "name": "--licenses",
-      "tip": [
-        "Show and accept licenses for available packages."
-      ]
-    },
-    {
-      "name": "--version",
-      "tip": [
-        "Print the current version of sdkmanager."
-      ]
-    },
-    {
-      "name": "--sdk_root",
-      "tip": [
-        "U: --sdk_root=<path>",
-        "Use the specified SDK root instead of the SDK",
-        "containing this tool."
-      ],
-      "next": 0
-    },
-    {
       "name": "--channel",
       "tip": [
         "U: --channel=<id>",
@@ -102,6 +50,31 @@
       ]
     },
     {
+      "name": "--install",
+      "tip": [
+        "Install or update packages (default behavior).",
+        "List packages as arguments after this flag."
+      ]
+    },
+    {
+      "name": "--licenses",
+      "tip": [
+        "Show and accept licenses for available packages."
+      ]
+    },
+    {
+      "name": "--list",
+      "tip": [
+        "List all installed and available packages."
+      ]
+    },
+    {
+      "name": "--list_installed",
+      "tip": [
+        "List all installed packages."
+      ]
+    },
+    {
       "name": "--newer",
       "tip": [
         "With --list, show only new and/or updatable packages."
@@ -112,6 +85,15 @@
       "tip": [
         "Force all connections to use http rather than https."
       ]
+    },
+    {
+      "name": "--package_file",
+      "tip": [
+        "U: --package_file=<file>",
+        "A text file where each line is a sdk-style path",
+        "of a package to install or uninstall."
+      ],
+      "next": 0
     },
     {
       "name": "--proxy",
@@ -151,19 +133,37 @@
       "next": 0
     },
     {
+      "name": "--sdk_root",
+      "tip": [
+        "U: --sdk_root=<path>",
+        "Use the specified SDK root instead of the SDK",
+        "containing this tool."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--uninstall",
+      "tip": [
+        "Uninstall the listed packages."
+      ]
+    },
+    {
+      "name": "--update",
+      "tip": [
+        "Update all installed packages to the latest version."
+      ]
+    },
+    {
       "name": "--verbose",
       "tip": [
         "Enable verbose output."
       ]
     },
     {
-      "name": "--package_file",
+      "name": "--version",
       "tip": [
-        "U: --package_file=<file>",
-        "A text file where each line is a sdk-style path",
-        "of a package to install or uninstall."
-      ],
-      "next": 0
+        "Print the current version of sdkmanager."
+      ]
     }
   ],
   "common_option": [

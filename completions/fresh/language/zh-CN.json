@@ -17,20 +17,42 @@
       ],
       "next": [
         {
+          "name": "command",
+          "tip": [
+            "U: command <run|list>",
+            "按命令面板名称运行已注册的命令，或列出命令"
+          ]
+        },
+        {
+          "name": "config",
+          "tip": [
+            "U: config <show|paths>",
+            "显示生效的配置或 Fresh 使用的目录"
+          ]
+        },
+        {
           "name": "daemon",
-          "alias": ["session"],
+          "alias": [
+            "session"
+          ],
           "tip": [
             "U: daemon <list|attach|new|kill|info|open-file>",
             "管理编辑器守护进程（可分离的编辑器会话）"
           ]
         },
         {
-          "name": "config",
-          "tip": ["U: config <show|paths>", "显示生效的配置或 Fresh 使用的目录"]
+          "name": "grammar",
+          "tip": [
+            "U: grammar list",
+            "列出所有可用的语法（含来源信息）"
+          ]
         },
         {
-          "name": "grammar",
-          "tip": ["U: grammar list", "列出所有可用的语法（含来源信息）"]
+          "name": "help",
+          "tip": [
+            "U: help [TOPIC]",
+            "功能指南与生成的参考（主题：tour、script、plugin）"
+          ]
         },
         {
           "name": "init",
@@ -40,17 +62,6 @@
           ]
         },
         {
-          "name": "command",
-          "tip": [
-            "U: command <run|list>",
-            "按命令面板名称运行已注册的命令，或列出命令"
-          ]
-        },
-        {
-          "name": "update",
-          "tip": ["更新 Fresh"]
-        },
-        {
           "name": "script",
           "tip": [
             "U: script <api|check|run|types>",
@@ -58,70 +69,28 @@
           ]
         },
         {
-          "name": "help",
+          "name": "update",
           "tip": [
-            "U: help [TOPIC]",
-            "功能指南与生成的参考（主题：tour、script、plugin）"
+            "更新 Fresh"
           ]
         }
       ]
     },
     {
-      "name": "-a",
-      "alias": ["--attach"],
+      "name": "--config",
       "tip": [
-        "U: -a, --attach [<NAME>]",
-        "附加到守护进程。-a 表示当前目录，-a NAME 表示指定名称的守护进程"
+        "U: --config <PATH>",
+        "配置文件的路径"
       ],
       "next": 0
     },
     {
-      "name": "--stdin",
-      "tip": ["从标准输入读取内容（替代使用 '-' 作为文件名）"]
-    },
-    {
-      "name": "--no-plugins",
-      "tip": ["禁用插件加载"]
-    },
-    {
-      "name": "--no-init",
-      "tip": ["本次启动跳过 ~/.config/fresh/init.ts"]
-    },
-    {
-      "name": "--safe",
-      "tip": ["安全模式：同时跳过 init.ts 和所有插件（用于从错误的配置中恢复）"]
-    },
-    {
-      "name": "--config",
-      "tip": ["U: --config <PATH>", "配置文件的路径"],
-      "next": 0
-    },
-    {
-      "name": "--log-file",
-      "tip": ["U: --log-file <PATH>", "编辑器诊断日志文件的路径"],
-      "next": 0
-    },
-    {
       "name": "--event-log",
-      "tip": ["U: --event-log <LOG_FILE>", "启用事件日志并写入指定文件"],
+      "tip": [
+        "U: --event-log <LOG_FILE>",
+        "启用事件日志并写入指定文件"
+      ],
       "next": 0
-    },
-    {
-      "name": "--no-restore",
-      "tip": [
-        "不恢复上一次的工作区（热退出内容——未保存的修改文件和未命名缓冲区——仍会被恢复，因此进行中的工作不会丢失）"
-      ]
-    },
-    {
-      "name": "--restore",
-      "tip": [
-        "强制恢复上一次的工作区，忽略配置中的 'editor.restore_previous_session = false'",
-        "不能与 --no-restore 同时使用"
-      ]
-    },
-    {
-      "name": "--no-upgrade-check",
-      "tip": ["禁用升级检查和匿名遥测"]
     },
     {
       "name": "--locale",
@@ -146,18 +115,88 @@
           "name": "zh-CN"
         }
       ]
+    },
+    {
+      "name": "--log-file",
+      "tip": [
+        "U: --log-file <PATH>",
+        "编辑器诊断日志文件的路径"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--no-init",
+      "tip": [
+        "本次启动跳过 ~/.config/fresh/init.ts"
+      ]
+    },
+    {
+      "name": "--no-plugins",
+      "tip": [
+        "禁用插件加载"
+      ]
+    },
+    {
+      "name": "--no-restore",
+      "tip": [
+        "不恢复上一次的工作区（热退出内容——未保存的修改文件和未命名缓冲区——仍会被恢复，因此进行中的工作不会丢失）"
+      ]
+    },
+    {
+      "name": "--no-upgrade-check",
+      "tip": [
+        "禁用升级检查和匿名遥测"
+      ]
+    },
+    {
+      "name": "--restore",
+      "tip": [
+        "强制恢复上一次的工作区，忽略配置中的 'editor.restore_previous_session = false'",
+        "不能与 --no-restore 同时使用"
+      ]
+    },
+    {
+      "name": "--safe",
+      "tip": [
+        "安全模式：同时跳过 init.ts 和所有插件（用于从错误的配置中恢复）"
+      ]
+    },
+    {
+      "name": "--stdin",
+      "tip": [
+        "从标准输入读取内容（替代使用 '-' 作为文件名）"
+      ]
+    },
+    {
+      "name": "-a",
+      "alias": [
+        "--attach"
+      ],
+      "tip": [
+        "U: -a, --attach [<NAME>]",
+        "附加到守护进程。-a 表示当前目录，-a NAME 表示指定名称的守护进程"
+      ],
+      "next": 0
     }
   ],
   "common_option": [
     {
       "name": "-h",
-      "alias": ["--help"],
-      "tip": ["打印帮助信息（使用 '-h' 查看简短摘要）"]
+      "alias": [
+        "--help"
+      ],
+      "tip": [
+        "打印帮助信息（使用 '-h' 查看简短摘要）"
+      ]
     },
     {
       "name": "-V",
-      "alias": ["--version"],
-      "tip": ["打印版本号"]
+      "alias": [
+        "--version"
+      ],
+      "tip": [
+        "打印版本号"
+      ]
     }
   ]
 }

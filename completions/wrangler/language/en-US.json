@@ -7,679 +7,1038 @@
   },
   "root": [
     {
-      "name": "docs",
-      "tip": ["Open the Cloudflare developer documentation in your browser."]
-    },
-    {
-      "name": "complete",
-      "tip": ["Generate shell completion scripts for Wrangler."],
-      "next": [
-        { "name": "bash" },
-        { "name": "zsh" },
-        { "name": "fish" },
-        { "name": "powershell" }
+      "name": "agent-memory",
+      "tip": [
+        "Manage agent memory."
       ]
     },
     {
-      "name": "whoami",
-      "tip": ["Retrieve your Cloudflare user information."]
-    },
-    {
-      "name": "init",
-      "tip": ["Create a new Worker project."],
-      "option": [
-        { "name": "--yes", "tip": ["Answer yes to all prompts."] },
-        {
-          "name": "--from-dash",
-          "tip": ["Fetch a Worker initialized from the dashboard."],
-          "next": []
-        }
-      ]
-    },
-    {
-      "name": "dev",
-      "tip": ["Start a local server for developing your Worker."],
-      "option": [
-        { "name": "--name", "tip": ["Name of the Worker."], "next": [] },
-        {
-          "name": "-c",
-          "alias": ["--config"],
-          "tip": ["Path to Wrangler configuration file."],
-          "next": []
-        },
-        { "name": "--no-bundle", "tip": ["Skip Wrangler build steps."] },
-        {
-          "name": "--env",
-          "tip": ["Perform on a specific environment."],
-          "next": []
-        },
-        {
-          "name": "--compatibility-date",
-          "tip": ["Date for Workers runtime compatibility."],
-          "next": []
-        },
-        {
-          "name": "--compatibility-flags",
-          "alias": ["--compatibility-flag"],
-          "tip": ["Flags for compatibility checks."],
-          "next": []
-        },
-        { "name": "--latest", "tip": ["Use the latest Workers runtime."] },
-        { "name": "--ip", "tip": ["IP address to listen on."], "next": [] },
-        { "name": "--port", "tip": ["Port to listen on."], "next": [] },
-        {
-          "name": "--inspector-port",
-          "tip": ["Port for devtools."],
-          "next": []
-        },
-        {
-          "name": "--routes",
-          "alias": ["--route"],
-          "tip": ["Routes to upload."],
-          "next": []
-        },
-        {
-          "name": "--host",
-          "tip": ["Host to forward requests to."],
-          "next": []
-        },
-        {
-          "name": "--local-protocol",
-          "tip": ["Protocol to listen on (http/https)."],
-          "next": []
-        },
-        { "name": "--assets", "tip": ["Folder of static assets."], "next": [] },
-        { "name": "--remote", "tip": ["Develop against remote resources."] },
-        {
-          "name": "--tunnel",
-          "tip": ["Expose local dev server over Cloudflare Tunnel."]
-        },
-        {
-          "name": "--tunnel-name",
-          "tip": ["Use an existing named tunnel."],
-          "next": []
-        },
-        {
-          "name": "--log-level",
-          "tip": ["Logging level (debug/info/log/warn/error/none)."],
-          "next": []
-        },
-        {
-          "name": "--var",
-          "tip": ["Inject variables into your Worker."],
-          "next": []
-        },
-        {
-          "name": "--define",
-          "tip": ["Replace global identifiers in your code."],
-          "next": []
-        },
-        { "name": "--tsconfig", "tip": ["Path to tsconfig.json."], "next": [] },
-        { "name": "--minify", "tip": ["Minify the Worker."] },
-        {
-          "name": "--persist-to",
-          "tip": ["Directory for local persistence."],
-          "next": []
-        },
-        {
-          "name": "--types",
-          "tip": ["Generate types from Worker configuration."]
-        },
-        { "name": "--local", "tip": ["Run in local mode."] }
-      ]
-    },
-    {
-      "name": "deploy",
-      "tip": ["Deploy your Worker to Cloudflare."],
-      "option": [
-        { "name": "--name", "tip": ["Name of the Worker."], "next": [] },
-        {
-          "name": "-c",
-          "alias": ["--config"],
-          "tip": ["Path to Wrangler configuration file."],
-          "next": []
-        },
-        { "name": "--no-bundle", "tip": ["Skip Wrangler build steps."] },
-        {
-          "name": "--env",
-          "tip": ["Perform on a specific environment."],
-          "next": []
-        },
-        {
-          "name": "--outdir",
-          "tip": ["Output directory for bundled Worker."],
-          "next": []
-        },
-        {
-          "name": "--compatibility-date",
-          "tip": ["Date for Workers runtime compatibility."],
-          "next": []
-        },
-        {
-          "name": "--compatibility-flags",
-          "alias": ["--compatibility-flag"],
-          "tip": ["Flags for compatibility checks."],
-          "next": []
-        },
-        { "name": "--latest", "tip": ["Use the latest compatibility date."] },
-        { "name": "--assets", "tip": ["Static assets to serve."], "next": [] },
-        {
-          "name": "--var",
-          "tip": ["Inject variables into your Worker."],
-          "next": []
-        },
-        {
-          "name": "--define",
-          "tip": ["Replace global identifiers in your code."],
-          "next": []
-        },
-        {
-          "name": "--triggers",
-          "alias": ["--schedule", "--schedules"],
-          "tip": ["Cron schedules to attach."],
-          "next": []
-        },
-        {
-          "name": "--routes",
-          "alias": ["--route"],
-          "tip": ["Routes for deployment."],
-          "next": []
-        },
-        {
-          "name": "--domain",
-          "tip": ["Custom domains for deployment."],
-          "next": []
-        },
-        { "name": "--tsconfig", "tip": ["Path to tsconfig.json."], "next": [] },
-        { "name": "--minify", "tip": ["Minify the bundled Worker."] },
-        { "name": "--dry-run", "tip": ["Compile without deploying."] },
-        {
-          "name": "--keep-vars",
-          "tip": ["Keep existing vars during deployment."]
-        },
-        {
-          "name": "--secrets-file",
-          "tip": ["Path to secrets file."],
-          "next": []
-        },
-        {
-          "name": "--dispatch-namespace",
-          "tip": ["Dispatch namespace for Workers for Platforms."],
-          "next": []
-        },
-        {
-          "name": "--tag",
-          "tip": ["Tag for this Worker version."],
-          "next": []
-        },
-        {
-          "name": "--message",
-          "tip": ["Message for this Worker version."],
-          "next": []
-        },
-        { "name": "--yes", "tip": ["Skip confirmation prompts."] }
-      ]
-    },
-    {
-      "name": "delete",
-      "tip": ["Delete your Worker and all associated resources."],
-      "option": [
-        { "name": "--name", "tip": ["Name of the Worker."], "next": [] },
-        { "name": "--env", "tip": ["Environment to use."], "next": [] },
-        { "name": "--dry-run", "tip": ["Do not actually delete."] }
-      ]
-    },
-    {
-      "name": "setup",
-      "tip": ["Setup a project to work on Cloudflare."],
-      "option": [
-        {
-          "name": "--yes",
-          "alias": ["--y"],
-          "tip": ["Answer yes to all prompts."]
-        },
-        {
-          "name": "--build",
-          "tip": ["Run build command after configuration."]
-        },
-        { "name": "--dry-run", "tip": ["Preview changes without applying."] }
-      ]
-    },
-    {
-      "name": "tail",
-      "tip": ["Start a log tailing session for a Worker."],
-      "option": [
-        {
-          "name": "--format",
-          "tip": ["Format of log entries (json/pretty)."],
-          "next": []
-        },
-        {
-          "name": "--status",
-          "tip": ["Filter by invocation status."],
-          "next": []
-        },
-        { "name": "--header", "tip": ["Filter by HTTP header."], "next": [] },
-        { "name": "--method", "tip": ["Filter by HTTP method."], "next": [] },
-        {
-          "name": "--sampling-rate",
-          "tip": ["Sampling rate percentage."],
-          "next": []
-        },
-        {
-          "name": "--search",
-          "tip": ["Filter by text match in logs."],
-          "next": []
-        },
-        { "name": "--ip", "tip": ["Filter by IP address."], "next": [] },
-        {
-          "name": "--version-id",
-          "tip": ["Filter by Worker version."],
-          "next": []
-        }
-      ]
-    },
-    {
-      "name": "telemetry",
-      "tip": ["Manage Wrangler telemetry settings."],
-      "next": [
-        { "name": "disable", "tip": ["Disable telemetry collection."] },
-        { "name": "enable", "tip": ["Enable telemetry collection."] },
-        { "name": "status", "tip": ["Check whether telemetry is enabled."] }
-      ]
-    },
-    {
-      "name": "login",
-      "tip": ["Authorize Wrangler with your Cloudflare account via OAuth."],
-      "option": [
-        {
-          "name": "--scopes-list",
-          "tip": ["List available OAuth scopes."],
-          "next": []
-        },
-        { "name": "--scopes", "tip": ["OAuth scopes to request."], "next": [] },
-        { "name": "--browser", "tip": ["Open OAuth link in browser."] },
-        {
-          "name": "--callback-host",
-          "tip": ["Callback server host."],
-          "next": []
-        },
-        {
-          "name": "--callback-port",
-          "tip": ["Callback server port."],
-          "next": []
-        },
-        {
-          "name": "--use-keyring",
-          "tip": ["Store credentials in OS keychain."]
-        },
-        { "name": "--device", "tip": ["Use Device Authorization Grant."] }
-      ]
-    },
-    {
-      "name": "logout",
-      "tip": ["Remove Wrangler authorization for your account."]
-    },
-    {
-      "name": "auth",
-      "tip": ["Manage authentication profiles."],
+      "name": "ai",
+      "tip": [
+        "Interact with Cloudflare AI."
+      ],
       "next": [
         {
-          "name": "token",
-          "tip": ["Retrieve your current authentication token."],
-          "option": [{ "name": "--json", "tip": ["Return output as JSON."] }]
-        },
-        {
-          "name": "create",
-          "tip": ["Create or re-authenticate a named auth profile."],
-          "option": [
-            { "name": "--browser", "tip": ["Open OAuth link in browser."] },
-            { "name": "--scopes", "tip": ["OAuth scopes."], "next": [] },
-            {
-              "name": "--callback-host",
-              "tip": ["Callback host."],
-              "next": []
-            },
-            { "name": "--callback-port", "tip": ["Callback port."], "next": [] }
+          "name": "models",
+          "tip": [
+            "List available AI models."
           ]
         },
         {
+          "name": "run",
+          "tip": [
+            "Run an AI model."
+          ],
+          "option": [
+            {
+              "name": "--model",
+              "tip": [
+                "Model name."
+              ],
+              "next": []
+            },
+            {
+              "name": "--prompt",
+              "tip": [
+                "Prompt text."
+              ],
+              "next": []
+            },
+            {
+              "name": "--raw",
+              "tip": [
+                "Return raw response."
+              ]
+            },
+            {
+              "name": "--stream",
+              "tip": [
+                "Stream responses."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ai-search",
+      "tip": [
+        "Manage AI Search."
+      ]
+    },
+    {
+      "name": "artifacts",
+      "tip": [
+        "Manage build artifacts."
+      ]
+    },
+    {
+      "name": "auth",
+      "tip": [
+        "Manage authentication profiles."
+      ],
+      "next": [
+        {
           "name": "activate",
-          "tip": ["Bind a named auth profile to a directory."],
+          "tip": [
+            "Bind a named auth profile to a directory."
+          ],
           "option": [
             {
               "name": "--callback-host",
-              "tip": ["Callback host."],
+              "tip": [
+                "Callback host."
+              ],
               "next": []
             },
-            { "name": "--callback-port", "tip": ["Callback port."], "next": [] }
+            {
+              "name": "--callback-port",
+              "tip": [
+                "Callback port."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "create",
+          "tip": [
+            "Create or re-authenticate a named auth profile."
+          ],
+          "option": [
+            {
+              "name": "--browser",
+              "tip": [
+                "Open OAuth link in browser."
+              ]
+            },
+            {
+              "name": "--callback-host",
+              "tip": [
+                "Callback host."
+              ],
+              "next": []
+            },
+            {
+              "name": "--callback-port",
+              "tip": [
+                "Callback port."
+              ],
+              "next": []
+            },
+            {
+              "name": "--scopes",
+              "tip": [
+                "OAuth scopes."
+              ],
+              "next": []
+            }
           ]
         },
         {
           "name": "deactivate",
-          "tip": ["Remove the auth profile binding from a directory."]
-        },
-        { "name": "list", "tip": ["List all auth profiles."] },
-        { "name": "delete", "tip": ["Delete a named auth profile."] }
-      ]
-    },
-    {
-      "name": "secret",
-      "tip": ["Manage secret variables for a Worker."],
-      "next": [
-        {
-          "name": "put",
-          "tip": ["Create or update a secret."],
-          "option": [
-            { "name": "--name", "tip": ["Name of the Worker."], "next": [] }
+          "tip": [
+            "Remove the auth profile binding from a directory."
           ]
         },
         {
           "name": "delete",
-          "tip": ["Delete a secret."],
-          "option": [
-            { "name": "--name", "tip": ["Name of the Worker."], "next": [] }
+          "tip": [
+            "Delete a named auth profile."
           ]
         },
         {
           "name": "list",
-          "tip": ["List all secrets."],
+          "tip": [
+            "List all auth profiles."
+          ]
+        },
+        {
+          "name": "token",
+          "tip": [
+            "Retrieve your current authentication token."
+          ],
           "option": [
-            { "name": "--name", "tip": ["Name of the Worker."], "next": [] },
+            {
+              "name": "--json",
+              "tip": [
+                "Return output as JSON."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "browser",
+      "tip": [
+        "Manage Browser Rendering."
+      ]
+    },
+    {
+      "name": "cert",
+      "tip": [
+        "Manage SSL/TLS certificates."
+      ]
+    },
+    {
+      "name": "complete",
+      "tip": [
+        "Generate shell completion scripts for Wrangler."
+      ],
+      "next": [
+        {
+          "name": "bash"
+        },
+        {
+          "name": "fish"
+        },
+        {
+          "name": "powershell"
+        },
+        {
+          "name": "zsh"
+        }
+      ]
+    },
+    {
+      "name": "containers",
+      "tip": [
+        "Manage Containers."
+      ]
+    },
+    {
+      "name": "d1",
+      "tip": [
+        "Manage Cloudflare D1 databases."
+      ],
+      "next": [
+        {
+          "name": "create",
+          "tip": [
+            "Create a new D1 database."
+          ],
+          "option": [
+            {
+              "name": "--location",
+              "tip": [
+                "Database location."
+              ],
+              "next": []
+            },
+            {
+              "name": "--name",
+              "tip": [
+                "Name of the database."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "tip": [
+            "Delete a D1 database."
+          ],
+          "option": [
+            {
+              "name": "--force",
+              "tip": [
+                "Skip confirmation."
+              ]
+            },
+            {
+              "name": "--name",
+              "tip": [
+                "Name of the database."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "execute",
+          "tip": [
+            "Execute a SQL query."
+          ],
+          "option": [
+            {
+              "name": "--command",
+              "tip": [
+                "SQL command string."
+              ],
+              "next": []
+            },
+            {
+              "name": "--file",
+              "tip": [
+                "SQL file to execute."
+              ],
+              "next": []
+            },
+            {
+              "name": "--local",
+              "tip": [
+                "Execute against local DB."
+              ]
+            },
+            {
+              "name": "--name",
+              "tip": [
+                "Database name."
+              ],
+              "next": []
+            },
+            {
+              "name": "--remote",
+              "tip": [
+                "Execute against remote DB."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "export",
+          "tip": [
+            "Export a database."
+          ],
+          "option": [
             {
               "name": "--format",
-              "tip": ["Output format (json/pretty)."],
+              "tip": [
+                "Export format (sql)."
+              ],
+              "next": []
+            },
+            {
+              "name": "--name",
+              "tip": [
+                "Database name."
+              ],
+              "next": []
+            },
+            {
+              "name": "--output",
+              "tip": [
+                "Output file path."
+              ],
               "next": []
             }
           ]
         },
         {
-          "name": "bulk",
-          "tip": ["Create, update, or delete multiple secrets."],
+          "name": "info",
+          "tip": [
+            "Show database information."
+          ],
           "option": [
-            { "name": "--name", "tip": ["Name of the Worker."], "next": [] }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "versions",
-      "tip": ["Manage Worker versions and deployments."],
-      "next": [
-        {
-          "name": "upload",
-          "tip": ["Upload a new Worker version."],
-          "option": [
-            { "name": "--name", "tip": ["Name of the Worker."], "next": [] },
-            { "name": "--tag", "tip": ["Tag for this version."], "next": [] },
             {
-              "name": "--message",
-              "tip": ["Message for this version."],
-              "next": []
-            },
-            { "name": "--no-bundle", "tip": ["Skip build steps."] },
-            { "name": "--outdir", "tip": ["Output directory."], "next": [] },
-            { "name": "--outfile", "tip": ["Output file."], "next": [] },
-            {
-              "name": "--compatibility-date",
-              "tip": ["Compatibility date."],
-              "next": []
-            },
-            { "name": "--latest", "tip": ["Use latest compatibility date."] },
-            { "name": "--assets", "tip": ["Static assets."], "next": [] },
-            { "name": "--var", "tip": ["Inject variables."], "next": [] },
-            {
-              "name": "--define",
-              "tip": ["Define global identifiers."],
-              "next": []
-            },
-            {
-              "name": "--jsx-factory",
-              "tip": ["JSX factory function."],
-              "next": []
-            },
-            {
-              "name": "--tsconfig",
-              "tip": ["Path to tsconfig.json."],
-              "next": []
-            },
-            { "name": "--minify", "tip": ["Minify the Worker."] },
-            { "name": "--upload-source-maps", "tip": ["Include source maps."] },
-            { "name": "--dry-run", "tip": ["Compile without uploading."] },
-            {
-              "name": "--secrets-file",
-              "tip": ["Path to secrets file."],
-              "next": []
-            },
-            { "name": "--keep-vars", "tip": ["Keep existing vars."] },
-            { "name": "--strict", "tip": ["Enable strict mode."] },
-            {
-              "name": "--preview-alias",
-              "tip": ["Alias for this version."],
+              "name": "--name",
+              "tip": [
+                "Database name."
+              ],
               "next": []
             }
-          ]
-        },
-        {
-          "name": "deploy",
-          "tip": ["Deploy a previously uploaded version."],
-          "option": [
-            { "name": "--name", "tip": ["Name of the Worker."], "next": [] },
-            {
-              "name": "--version-id",
-              "tip": ["Version ID(s) to deploy."],
-              "next": []
-            },
-            {
-              "name": "--percentage",
-              "tip": ["Traffic percentage."],
-              "next": []
-            },
-            {
-              "name": "--version-tag",
-              "tip": ["Version tag(s) to deploy."],
-              "next": []
-            },
-            {
-              "name": "--message",
-              "tip": ["Description of this deployment."],
-              "next": []
-            },
-            { "name": "--yes", "alias": ["--y"], "tip": ["Accept defaults."] },
-            { "name": "--dry-run", "tip": ["Don't actually deploy."] }
           ]
         },
         {
           "name": "list",
-          "tip": ["Retrieve recent Worker versions."],
-          "option": [
-            { "name": "--name", "tip": ["Name of the Worker."], "next": [] },
-            { "name": "--json", "tip": ["Display as JSON."] }
+          "tip": [
+            "List all D1 databases."
           ]
         },
         {
-          "name": "view",
-          "tip": ["View details of a specific version."],
+          "name": "migrations",
+          "tip": [
+            "Manage database migrations."
+          ],
           "option": [
-            { "name": "--name", "tip": ["Name of the Worker."], "next": [] },
-            { "name": "--json", "tip": ["Display as JSON."] }
-          ]
-        },
-        {
-          "name": "secret",
-          "tip": ["Manage secrets for Worker versions."],
-          "next": [
             {
-              "name": "put",
-              "tip": ["Create or update a secret."],
-              "option": [
-                {
-                  "name": "--name",
-                  "tip": ["Name of the Worker."],
-                  "next": []
-                },
-                {
-                  "name": "--message",
-                  "tip": ["Deployment message."],
-                  "next": []
-                },
-                {
-                  "name": "--tag",
-                  "tip": ["Tag for this version."],
-                  "next": []
-                }
+              "name": "--local",
+              "tip": [
+                "Use local DB."
               ]
             },
             {
-              "name": "delete",
-              "tip": ["Delete a secret."],
-              "option": [
-                {
-                  "name": "--name",
-                  "tip": ["Name of the Worker."],
-                  "next": []
-                },
-                {
-                  "name": "--message",
-                  "tip": ["Deployment message."],
-                  "next": []
-                },
-                {
-                  "name": "--tag",
-                  "tip": ["Tag for this version."],
-                  "next": []
-                }
-              ]
-            },
-            {
-              "name": "bulk",
-              "tip": ["Bulk create or update secrets."],
-              "option": [
-                {
-                  "name": "--name",
-                  "tip": ["Name of the Worker."],
-                  "next": []
-                },
-                {
-                  "name": "--message",
-                  "tip": ["Deployment message."],
-                  "next": []
-                },
-                {
-                  "name": "--tag",
-                  "tip": ["Tag for this version."],
-                  "next": []
-                }
-              ]
+              "name": "--name",
+              "tip": [
+                "Database name."
+              ],
+              "next": []
             }
           ]
         }
       ]
     },
     {
-      "name": "triggers",
-      "tip": ["Manage triggers for Workers Versions."],
-      "next": [
+      "name": "delete",
+      "tip": [
+        "Delete your Worker and all associated resources."
+      ],
+      "option": [
         {
-          "name": "deploy",
-          "tip": ["Apply trigger changes when using versions upload."],
-          "option": [
-            { "name": "--name", "tip": ["Name of the Worker."], "next": [] },
-            {
-              "name": "--triggers",
-              "alias": ["--schedule", "--schedules"],
-              "tip": ["Cron schedules to attach."],
-              "next": []
-            },
-            {
-              "name": "--routes",
-              "alias": ["--route"],
-              "tip": ["Routes to upload."],
-              "next": []
-            },
-            { "name": "--dry-run", "tip": ["Don't actually deploy."] }
+          "name": "--dry-run",
+          "tip": [
+            "Do not actually delete."
           ]
+        },
+        {
+          "name": "--env",
+          "tip": [
+            "Environment to use."
+          ],
+          "next": []
+        },
+        {
+          "name": "--name",
+          "tip": [
+            "Name of the Worker."
+          ],
+          "next": []
+        }
+      ]
+    },
+    {
+      "name": "deploy",
+      "tip": [
+        "Deploy your Worker to Cloudflare."
+      ],
+      "option": [
+        {
+          "name": "--assets",
+          "tip": [
+            "Static assets to serve."
+          ],
+          "next": []
+        },
+        {
+          "name": "--compatibility-date",
+          "tip": [
+            "Date for Workers runtime compatibility."
+          ],
+          "next": []
+        },
+        {
+          "name": "--compatibility-flags",
+          "alias": [
+            "--compatibility-flag"
+          ],
+          "tip": [
+            "Flags for compatibility checks."
+          ],
+          "next": []
+        },
+        {
+          "name": "--define",
+          "tip": [
+            "Replace global identifiers in your code."
+          ],
+          "next": []
+        },
+        {
+          "name": "--dispatch-namespace",
+          "tip": [
+            "Dispatch namespace for Workers for Platforms."
+          ],
+          "next": []
+        },
+        {
+          "name": "--domain",
+          "tip": [
+            "Custom domains for deployment."
+          ],
+          "next": []
+        },
+        {
+          "name": "--dry-run",
+          "tip": [
+            "Compile without deploying."
+          ]
+        },
+        {
+          "name": "--env",
+          "tip": [
+            "Perform on a specific environment."
+          ],
+          "next": []
+        },
+        {
+          "name": "--keep-vars",
+          "tip": [
+            "Keep existing vars during deployment."
+          ]
+        },
+        {
+          "name": "--latest",
+          "tip": [
+            "Use the latest compatibility date."
+          ]
+        },
+        {
+          "name": "--message",
+          "tip": [
+            "Message for this Worker version."
+          ],
+          "next": []
+        },
+        {
+          "name": "--minify",
+          "tip": [
+            "Minify the bundled Worker."
+          ]
+        },
+        {
+          "name": "--name",
+          "tip": [
+            "Name of the Worker."
+          ],
+          "next": []
+        },
+        {
+          "name": "--no-bundle",
+          "tip": [
+            "Skip Wrangler build steps."
+          ]
+        },
+        {
+          "name": "--outdir",
+          "tip": [
+            "Output directory for bundled Worker."
+          ],
+          "next": []
+        },
+        {
+          "name": "--routes",
+          "alias": [
+            "--route"
+          ],
+          "tip": [
+            "Routes for deployment."
+          ],
+          "next": []
+        },
+        {
+          "name": "--secrets-file",
+          "tip": [
+            "Path to secrets file."
+          ],
+          "next": []
+        },
+        {
+          "name": "--tag",
+          "tip": [
+            "Tag for this Worker version."
+          ],
+          "next": []
+        },
+        {
+          "name": "--triggers",
+          "alias": [
+            "--schedule",
+            "--schedules"
+          ],
+          "tip": [
+            "Cron schedules to attach."
+          ],
+          "next": []
+        },
+        {
+          "name": "--tsconfig",
+          "tip": [
+            "Path to tsconfig.json."
+          ],
+          "next": []
+        },
+        {
+          "name": "--var",
+          "tip": [
+            "Inject variables into your Worker."
+          ],
+          "next": []
+        },
+        {
+          "name": "--yes",
+          "tip": [
+            "Skip confirmation prompts."
+          ]
+        },
+        {
+          "name": "-c",
+          "alias": [
+            "--config"
+          ],
+          "tip": [
+            "Path to Wrangler configuration file."
+          ],
+          "next": []
         }
       ]
     },
     {
       "name": "deployments",
-      "tip": ["Track active Worker versions."],
+      "tip": [
+        "Track active Worker versions."
+      ],
       "next": [
         {
           "name": "list",
-          "tip": ["Display recent deployments."],
+          "tip": [
+            "Display recent deployments."
+          ],
           "option": [
-            { "name": "--name", "tip": ["Name of the Worker."], "next": [] },
-            { "name": "--json", "tip": ["Display as JSON."] }
+            {
+              "name": "--json",
+              "tip": [
+                "Display as JSON."
+              ]
+            },
+            {
+              "name": "--name",
+              "tip": [
+                "Name of the Worker."
+              ],
+              "next": []
+            }
           ]
         },
         {
           "name": "status",
-          "tip": ["View current production state."],
+          "tip": [
+            "View current production state."
+          ],
           "option": [
-            { "name": "--name", "tip": ["Name of the Worker."], "next": [] },
-            { "name": "--json", "tip": ["Display as JSON."] }
+            {
+              "name": "--json",
+              "tip": [
+                "Display as JSON."
+              ]
+            },
+            {
+              "name": "--name",
+              "tip": [
+                "Name of the Worker."
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dev",
+      "tip": [
+        "Start a local server for developing your Worker."
+      ],
+      "option": [
+        {
+          "name": "--assets",
+          "tip": [
+            "Folder of static assets."
+          ],
+          "next": []
+        },
+        {
+          "name": "--compatibility-date",
+          "tip": [
+            "Date for Workers runtime compatibility."
+          ],
+          "next": []
+        },
+        {
+          "name": "--compatibility-flags",
+          "alias": [
+            "--compatibility-flag"
+          ],
+          "tip": [
+            "Flags for compatibility checks."
+          ],
+          "next": []
+        },
+        {
+          "name": "--define",
+          "tip": [
+            "Replace global identifiers in your code."
+          ],
+          "next": []
+        },
+        {
+          "name": "--env",
+          "tip": [
+            "Perform on a specific environment."
+          ],
+          "next": []
+        },
+        {
+          "name": "--host",
+          "tip": [
+            "Host to forward requests to."
+          ],
+          "next": []
+        },
+        {
+          "name": "--inspector-port",
+          "tip": [
+            "Port for devtools."
+          ],
+          "next": []
+        },
+        {
+          "name": "--ip",
+          "tip": [
+            "IP address to listen on."
+          ],
+          "next": []
+        },
+        {
+          "name": "--latest",
+          "tip": [
+            "Use the latest Workers runtime."
+          ]
+        },
+        {
+          "name": "--local",
+          "tip": [
+            "Run in local mode."
+          ]
+        },
+        {
+          "name": "--local-protocol",
+          "tip": [
+            "Protocol to listen on (http/https)."
+          ],
+          "next": []
+        },
+        {
+          "name": "--log-level",
+          "tip": [
+            "Logging level (debug/info/log/warn/error/none)."
+          ],
+          "next": []
+        },
+        {
+          "name": "--minify",
+          "tip": [
+            "Minify the Worker."
+          ]
+        },
+        {
+          "name": "--name",
+          "tip": [
+            "Name of the Worker."
+          ],
+          "next": []
+        },
+        {
+          "name": "--no-bundle",
+          "tip": [
+            "Skip Wrangler build steps."
+          ]
+        },
+        {
+          "name": "--persist-to",
+          "tip": [
+            "Directory for local persistence."
+          ],
+          "next": []
+        },
+        {
+          "name": "--port",
+          "tip": [
+            "Port to listen on."
+          ],
+          "next": []
+        },
+        {
+          "name": "--remote",
+          "tip": [
+            "Develop against remote resources."
+          ]
+        },
+        {
+          "name": "--routes",
+          "alias": [
+            "--route"
+          ],
+          "tip": [
+            "Routes to upload."
+          ],
+          "next": []
+        },
+        {
+          "name": "--tsconfig",
+          "tip": [
+            "Path to tsconfig.json."
+          ],
+          "next": []
+        },
+        {
+          "name": "--tunnel",
+          "tip": [
+            "Expose local dev server over Cloudflare Tunnel."
+          ]
+        },
+        {
+          "name": "--tunnel-name",
+          "tip": [
+            "Use an existing named tunnel."
+          ],
+          "next": []
+        },
+        {
+          "name": "--types",
+          "tip": [
+            "Generate types from Worker configuration."
+          ]
+        },
+        {
+          "name": "--var",
+          "tip": [
+            "Inject variables into your Worker."
+          ],
+          "next": []
+        },
+        {
+          "name": "-c",
+          "alias": [
+            "--config"
+          ],
+          "tip": [
+            "Path to Wrangler configuration file."
+          ],
+          "next": []
+        }
+      ]
+    },
+    {
+      "name": "dispatch-namespace",
+      "tip": [
+        "Manage dispatch namespaces for Workers for Platforms."
+      ]
+    },
+    {
+      "name": "docs",
+      "tip": [
+        "Open the Cloudflare developer documentation in your browser."
+      ]
+    },
+    {
+      "name": "email",
+      "tip": [
+        "Manage Cloudflare Email Routing."
+      ]
+    },
+    {
+      "name": "flagship",
+      "tip": [
+        "Manage Flagship features."
+      ]
+    },
+    {
+      "name": "hyperdrive",
+      "tip": [
+        "Manage Hyperdrive configurations."
+      ]
+    },
+    {
+      "name": "init",
+      "tip": [
+        "Create a new Worker project."
+      ],
+      "option": [
+        {
+          "name": "--from-dash",
+          "tip": [
+            "Fetch a Worker initialized from the dashboard."
+          ],
+          "next": []
+        },
+        {
+          "name": "--yes",
+          "tip": [
+            "Answer yes to all prompts."
           ]
         }
       ]
     },
     {
       "name": "kv",
-      "tip": ["Manage Workers KV namespaces and key-value pairs."],
+      "tip": [
+        "Manage Workers KV namespaces and key-value pairs."
+      ],
       "next": [
         {
-          "name": "namespace",
-          "tip": ["Manage KV namespaces."],
+          "name": "bulk",
+          "tip": [
+            "Manage multiple KV pairs in batches."
+          ],
           "next": [
             {
-              "name": "create",
-              "tip": ["Create a new namespace."],
+              "name": "delete",
+              "tip": [
+                "Delete multiple key/value pairs."
+              ],
               "option": [
-                {
-                  "name": "--preview",
-                  "tip": ["Interact with a preview namespace."]
-                },
-                { "name": "--use-remote", "tip": ["Use a remote binding."] },
-                { "name": "--update-config", "tip": ["Update config file."] },
                 {
                   "name": "--binding",
-                  "tip": ["Binding name in Worker."],
-                  "next": []
-                }
-              ]
-            },
-            { "name": "list", "tip": ["List all KV namespaces."] },
-            {
-              "name": "delete",
-              "tip": ["Delete a namespace."],
-              "option": [
-                { "name": "--binding", "tip": ["Binding name."], "next": [] },
-                {
-                  "name": "--namespace-id",
-                  "tip": ["ID of the namespace."],
-                  "next": []
-                },
-                { "name": "--preview", "tip": ["Preview namespace."] },
-                {
-                  "name": "--yes",
-                  "alias": ["--y"],
-                  "tip": ["Skip confirmation."]
-                }
-              ]
-            },
-            {
-              "name": "rename",
-              "tip": ["Rename a KV namespace."],
-              "option": [
-                {
-                  "name": "--namespace-id",
-                  "tip": ["ID of the namespace."],
+                  "tip": [
+                    "Binding name."
+                  ],
                   "next": []
                 },
                 {
-                  "name": "--new-name",
-                  "tip": ["New name for the namespace."],
+                  "name": "--force",
+                  "alias": [
+                    "--f"
+                  ],
+                  "tip": [
+                    "Skip confirmation."
+                  ]
+                },
+                {
+                  "name": "--local",
+                  "tip": [
+                    "Local storage."
+                  ]
+                },
+                {
+                  "name": "--namespace-id",
+                  "tip": [
+                    "Namespace ID."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--persist-to",
+                  "tip": [
+                    "Persistence directory."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--preview",
+                  "tip": [
+                    "Preview namespace."
+                  ]
+                },
+                {
+                  "name": "--remote",
+                  "tip": [
+                    "Remote storage."
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "get",
+              "tip": [
+                "Get multiple key/value pairs."
+              ],
+              "option": [
+                {
+                  "name": "--binding",
+                  "tip": [
+                    "Binding name."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--local",
+                  "tip": [
+                    "Local storage."
+                  ]
+                },
+                {
+                  "name": "--namespace-id",
+                  "tip": [
+                    "Namespace ID."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--persist-to",
+                  "tip": [
+                    "Persistence directory."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--preview",
+                  "tip": [
+                    "Preview namespace."
+                  ]
+                },
+                {
+                  "name": "--remote",
+                  "tip": [
+                    "Remote storage."
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "put",
+              "tip": [
+                "Upload multiple key/value pairs."
+              ],
+              "option": [
+                {
+                  "name": "--binding",
+                  "tip": [
+                    "Binding name."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--expiration",
+                  "tip": [
+                    "Expiration timestamp."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--local",
+                  "tip": [
+                    "Local storage."
+                  ]
+                },
+                {
+                  "name": "--metadata",
+                  "tip": [
+                    "JSON metadata."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--namespace-id",
+                  "tip": [
+                    "Namespace ID."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--persist-to",
+                  "tip": [
+                    "Persistence directory."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--preview",
+                  "tip": [
+                    "Preview namespace."
+                  ]
+                },
+                {
+                  "name": "--remote",
+                  "tip": [
+                    "Remote storage."
+                  ]
+                },
+                {
+                  "name": "--ttl",
+                  "tip": [
+                    "Time-to-live."
+                  ],
                   "next": []
                 }
               ]
@@ -688,105 +1047,235 @@
         },
         {
           "name": "key",
-          "tip": ["Manage key-value pairs in a KV namespace."],
+          "tip": [
+            "Manage key-value pairs in a KV namespace."
+          ],
           "next": [
             {
-              "name": "put",
-              "tip": ["Write a key/value pair."],
+              "name": "delete",
+              "tip": [
+                "Remove a key/value pair."
+              ],
               "option": [
                 {
-                  "name": "--path",
-                  "tip": ["Read value from file."],
+                  "name": "--binding",
+                  "tip": [
+                    "Binding name."
+                  ],
                   "next": []
                 },
-                { "name": "--binding", "tip": ["Binding name."], "next": [] },
+                {
+                  "name": "--local",
+                  "tip": [
+                    "Local storage."
+                  ]
+                },
                 {
                   "name": "--namespace-id",
-                  "tip": ["Namespace ID."],
+                  "tip": [
+                    "Namespace ID."
+                  ],
                   "next": []
                 },
-                { "name": "--preview", "tip": ["Preview namespace."] },
-                { "name": "--ttl", "tip": ["Time-to-live."], "next": [] },
                 {
-                  "name": "--expiration",
-                  "tip": ["Expiration timestamp."],
+                  "name": "--persist-to",
+                  "tip": [
+                    "Persistence directory."
+                  ],
                   "next": []
                 },
-                { "name": "--metadata", "tip": ["JSON metadata."], "next": [] },
-                { "name": "--local", "tip": ["Interact with local storage."] },
+                {
+                  "name": "--preview",
+                  "tip": [
+                    "Preview namespace."
+                  ]
+                },
                 {
                   "name": "--remote",
-                  "tip": ["Interact with remote storage."]
-                },
-                {
-                  "name": "--persist-to",
-                  "tip": ["Directory for local persistence."],
-                  "next": []
-                }
-              ]
-            },
-            {
-              "name": "list",
-              "tip": ["List all keys in a namespace."],
-              "option": [
-                { "name": "--binding", "tip": ["Binding name."], "next": [] },
-                {
-                  "name": "--namespace-id",
-                  "tip": ["Namespace ID."],
-                  "next": []
-                },
-                { "name": "--preview", "tip": ["Preview namespace."] },
-                {
-                  "name": "--prefix",
-                  "tip": ["Filter by prefix."],
-                  "next": []
-                },
-                { "name": "--local", "tip": ["Local storage."] },
-                { "name": "--remote", "tip": ["Remote storage."] },
-                {
-                  "name": "--persist-to",
-                  "tip": ["Persistence directory."],
-                  "next": []
+                  "tip": [
+                    "Remote storage."
+                  ]
                 }
               ]
             },
             {
               "name": "get",
-              "tip": ["Read a value by key."],
+              "tip": [
+                "Read a value by key."
+              ],
               "option": [
-                { "name": "--text", "tip": ["Decode as UTF-8 string."] },
-                { "name": "--binding", "tip": ["Binding name."], "next": [] },
                 {
-                  "name": "--namespace-id",
-                  "tip": ["Namespace ID."],
+                  "name": "--binding",
+                  "tip": [
+                    "Binding name."
+                  ],
                   "next": []
                 },
-                { "name": "--preview", "tip": ["Preview namespace."] },
-                { "name": "--local", "tip": ["Local storage."] },
-                { "name": "--remote", "tip": ["Remote storage."] },
+                {
+                  "name": "--local",
+                  "tip": [
+                    "Local storage."
+                  ]
+                },
+                {
+                  "name": "--namespace-id",
+                  "tip": [
+                    "Namespace ID."
+                  ],
+                  "next": []
+                },
                 {
                   "name": "--persist-to",
-                  "tip": ["Persistence directory."],
+                  "tip": [
+                    "Persistence directory."
+                  ],
                   "next": []
+                },
+                {
+                  "name": "--preview",
+                  "tip": [
+                    "Preview namespace."
+                  ]
+                },
+                {
+                  "name": "--remote",
+                  "tip": [
+                    "Remote storage."
+                  ]
+                },
+                {
+                  "name": "--text",
+                  "tip": [
+                    "Decode as UTF-8 string."
+                  ]
                 }
               ]
             },
             {
-              "name": "delete",
-              "tip": ["Remove a key/value pair."],
+              "name": "list",
+              "tip": [
+                "List all keys in a namespace."
+              ],
               "option": [
-                { "name": "--binding", "tip": ["Binding name."], "next": [] },
                 {
-                  "name": "--namespace-id",
-                  "tip": ["Namespace ID."],
+                  "name": "--binding",
+                  "tip": [
+                    "Binding name."
+                  ],
                   "next": []
                 },
-                { "name": "--preview", "tip": ["Preview namespace."] },
-                { "name": "--local", "tip": ["Local storage."] },
-                { "name": "--remote", "tip": ["Remote storage."] },
+                {
+                  "name": "--local",
+                  "tip": [
+                    "Local storage."
+                  ]
+                },
+                {
+                  "name": "--namespace-id",
+                  "tip": [
+                    "Namespace ID."
+                  ],
+                  "next": []
+                },
                 {
                   "name": "--persist-to",
-                  "tip": ["Persistence directory."],
+                  "tip": [
+                    "Persistence directory."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--prefix",
+                  "tip": [
+                    "Filter by prefix."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--preview",
+                  "tip": [
+                    "Preview namespace."
+                  ]
+                },
+                {
+                  "name": "--remote",
+                  "tip": [
+                    "Remote storage."
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "put",
+              "tip": [
+                "Write a key/value pair."
+              ],
+              "option": [
+                {
+                  "name": "--binding",
+                  "tip": [
+                    "Binding name."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--expiration",
+                  "tip": [
+                    "Expiration timestamp."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--local",
+                  "tip": [
+                    "Interact with local storage."
+                  ]
+                },
+                {
+                  "name": "--metadata",
+                  "tip": [
+                    "JSON metadata."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--namespace-id",
+                  "tip": [
+                    "Namespace ID."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--path",
+                  "tip": [
+                    "Read value from file."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--persist-to",
+                  "tip": [
+                    "Directory for local persistence."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--preview",
+                  "tip": [
+                    "Preview namespace."
+                  ]
+                },
+                {
+                  "name": "--remote",
+                  "tip": [
+                    "Interact with remote storage."
+                  ]
+                },
+                {
+                  "name": "--ttl",
+                  "tip": [
+                    "Time-to-live."
+                  ],
                   "next": []
                 }
               ]
@@ -794,398 +1283,1262 @@
           ]
         },
         {
-          "name": "bulk",
-          "tip": ["Manage multiple KV pairs in batches."],
+          "name": "namespace",
+          "tip": [
+            "Manage KV namespaces."
+          ],
           "next": [
             {
-              "name": "get",
-              "tip": ["Get multiple key/value pairs."],
+              "name": "create",
+              "tip": [
+                "Create a new namespace."
+              ],
               "option": [
-                { "name": "--binding", "tip": ["Binding name."], "next": [] },
                 {
-                  "name": "--namespace-id",
-                  "tip": ["Namespace ID."],
+                  "name": "--binding",
+                  "tip": [
+                    "Binding name in Worker."
+                  ],
                   "next": []
                 },
-                { "name": "--preview", "tip": ["Preview namespace."] },
-                { "name": "--local", "tip": ["Local storage."] },
-                { "name": "--remote", "tip": ["Remote storage."] },
                 {
-                  "name": "--persist-to",
-                  "tip": ["Persistence directory."],
-                  "next": []
-                }
-              ]
-            },
-            {
-              "name": "put",
-              "tip": ["Upload multiple key/value pairs."],
-              "option": [
-                { "name": "--binding", "tip": ["Binding name."], "next": [] },
-                {
-                  "name": "--namespace-id",
-                  "tip": ["Namespace ID."],
-                  "next": []
+                  "name": "--preview",
+                  "tip": [
+                    "Interact with a preview namespace."
+                  ]
                 },
-                { "name": "--preview", "tip": ["Preview namespace."] },
-                { "name": "--ttl", "tip": ["Time-to-live."], "next": [] },
                 {
-                  "name": "--expiration",
-                  "tip": ["Expiration timestamp."],
-                  "next": []
+                  "name": "--update-config",
+                  "tip": [
+                    "Update config file."
+                  ]
                 },
-                { "name": "--metadata", "tip": ["JSON metadata."], "next": [] },
-                { "name": "--local", "tip": ["Local storage."] },
-                { "name": "--remote", "tip": ["Remote storage."] },
                 {
-                  "name": "--persist-to",
-                  "tip": ["Persistence directory."],
-                  "next": []
+                  "name": "--use-remote",
+                  "tip": [
+                    "Use a remote binding."
+                  ]
                 }
               ]
             },
             {
               "name": "delete",
-              "tip": ["Delete multiple key/value pairs."],
+              "tip": [
+                "Delete a namespace."
+              ],
               "option": [
                 {
-                  "name": "--force",
-                  "alias": ["--f"],
-                  "tip": ["Skip confirmation."]
-                },
-                { "name": "--binding", "tip": ["Binding name."], "next": [] },
-                {
-                  "name": "--namespace-id",
-                  "tip": ["Namespace ID."],
+                  "name": "--binding",
+                  "tip": [
+                    "Binding name."
+                  ],
                   "next": []
                 },
-                { "name": "--preview", "tip": ["Preview namespace."] },
-                { "name": "--local", "tip": ["Local storage."] },
-                { "name": "--remote", "tip": ["Remote storage."] },
                 {
-                  "name": "--persist-to",
-                  "tip": ["Persistence directory."],
+                  "name": "--namespace-id",
+                  "tip": [
+                    "ID of the namespace."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--preview",
+                  "tip": [
+                    "Preview namespace."
+                  ]
+                },
+                {
+                  "name": "--yes",
+                  "alias": [
+                    "--y"
+                  ],
+                  "tip": [
+                    "Skip confirmation."
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "list",
+              "tip": [
+                "List all KV namespaces."
+              ]
+            },
+            {
+              "name": "rename",
+              "tip": [
+                "Rename a KV namespace."
+              ],
+              "option": [
+                {
+                  "name": "--namespace-id",
+                  "tip": [
+                    "ID of the namespace."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--new-name",
+                  "tip": [
+                    "New name for the namespace."
+                  ],
                   "next": []
                 }
               ]
             }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "login",
+      "tip": [
+        "Authorize Wrangler with your Cloudflare account via OAuth."
+      ],
+      "option": [
+        {
+          "name": "--browser",
+          "tip": [
+            "Open OAuth link in browser."
+          ]
+        },
+        {
+          "name": "--callback-host",
+          "tip": [
+            "Callback server host."
+          ],
+          "next": []
+        },
+        {
+          "name": "--callback-port",
+          "tip": [
+            "Callback server port."
+          ],
+          "next": []
+        },
+        {
+          "name": "--device",
+          "tip": [
+            "Use Device Authorization Grant."
+          ]
+        },
+        {
+          "name": "--scopes",
+          "tip": [
+            "OAuth scopes to request."
+          ],
+          "next": []
+        },
+        {
+          "name": "--scopes-list",
+          "tip": [
+            "List available OAuth scopes."
+          ],
+          "next": []
+        },
+        {
+          "name": "--use-keyring",
+          "tip": [
+            "Store credentials in OS keychain."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "logout",
+      "tip": [
+        "Remove Wrangler authorization for your account."
+      ]
+    },
+    {
+      "name": "mtls-certificate",
+      "tip": [
+        "Manage mTLS certificates."
+      ]
+    },
+    {
+      "name": "pages",
+      "tip": [
+        "Manage Cloudflare Pages projects."
+      ],
+      "next": [
+        {
+          "name": "deploy",
+          "tip": [
+            "Deploy a directory to Pages."
+          ],
+          "option": [
+            {
+              "name": "--branch",
+              "tip": [
+                "Git branch name."
+              ],
+              "next": []
+            },
+            {
+              "name": "--commit-dirty",
+              "tip": [
+                "Allow dirty commits."
+              ]
+            },
+            {
+              "name": "--commit-hash",
+              "tip": [
+                "Commit SHA."
+              ],
+              "next": []
+            },
+            {
+              "name": "--commit-message",
+              "tip": [
+                "Commit message."
+              ],
+              "next": []
+            },
+            {
+              "name": "--project-name",
+              "tip": [
+                "Pages project name."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "deployment",
+          "tip": [
+            "Manage Pages deployments."
+          ],
+          "option": [
+            {
+              "name": "--project-name",
+              "tip": [
+                "Project name."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "dev",
+          "tip": [
+            "Start a local Pages dev server."
+          ],
+          "option": [
+            {
+              "name": "--binding",
+              "tip": [
+                "Bindings to apply."
+              ],
+              "next": []
+            },
+            {
+              "name": "--compatibility-date",
+              "tip": [
+                "Compatibility date."
+              ],
+              "next": []
+            },
+            {
+              "name": "--port",
+              "tip": [
+                "Port to listen on."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "project",
+          "tip": [
+            "Manage Pages projects."
+          ],
+          "option": [
+            {
+              "name": "--name",
+              "tip": [
+                "Project name."
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pipelines",
+      "tip": [
+        "Manage Pipelines."
+      ]
+    },
+    {
+      "name": "preview",
+      "tip": [
+        "Preview Worker deployments."
+      ]
+    },
+    {
+      "name": "queues",
+      "tip": [
+        "Manage Cloudflare Queues."
+      ],
+      "next": [
+        {
+          "name": "consumer",
+          "tip": [
+            "Manage queue consumers."
+          ],
+          "option": [
+            {
+              "name": "--batch-size",
+              "tip": [
+                "Batch size."
+              ],
+              "next": []
+            },
+            {
+              "name": "--max-concurrency",
+              "tip": [
+                "Max concurrency."
+              ],
+              "next": []
+            },
+            {
+              "name": "--message-body",
+              "tip": [
+                "Message body size limit."
+              ],
+              "next": []
+            },
+            {
+              "name": "--name",
+              "tip": [
+                "Queue name."
+              ],
+              "next": []
+            },
+            {
+              "name": "--retry-delay",
+              "tip": [
+                "Retry delay."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "create",
+          "tip": [
+            "Create a new queue."
+          ],
+          "option": [
+            {
+              "name": "--consumer-name",
+              "tip": [
+                "Consumer name."
+              ],
+              "next": []
+            },
+            {
+              "name": "--delivery-delay",
+              "tip": [
+                "Delivery delay in seconds."
+              ],
+              "next": []
+            },
+            {
+              "name": "--max-consumers",
+              "tip": [
+                "Max concurrent consumers."
+              ],
+              "next": []
+            },
+            {
+              "name": "--message-retries",
+              "tip": [
+                "Retry limit."
+              ],
+              "next": []
+            },
+            {
+              "name": "--name",
+              "tip": [
+                "Queue name."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "tip": [
+            "Delete a queue."
+          ],
+          "option": [
+            {
+              "name": "--force",
+              "tip": [
+                "Skip confirmation."
+              ]
+            },
+            {
+              "name": "--name",
+              "tip": [
+                "Queue name."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "List all queues."
           ]
         }
       ]
     },
     {
       "name": "r2",
-      "tip": ["Manage Cloudflare R2 buckets and objects."],
+      "tip": [
+        "Manage Cloudflare R2 buckets and objects."
+      ],
       "next": [
         {
           "name": "bucket",
-          "tip": ["Manage R2 buckets."],
+          "tip": [
+            "Manage R2 buckets."
+          ],
           "next": [
             {
               "name": "create",
-              "tip": ["Create a new bucket."],
+              "tip": [
+                "Create a new bucket."
+              ],
               "option": [
                 {
                   "name": "--location",
-                  "tip": ["Bucket location."],
+                  "tip": [
+                    "Bucket location."
+                  ],
                   "next": []
                 }
               ]
             },
-            { "name": "list", "tip": ["List all buckets."] },
             {
               "name": "delete",
-              "tip": ["Delete a bucket."],
-              "option": [{ "name": "--force", "tip": ["Skip confirmation."] }]
-            },
-            {
-              "name": "upload",
-              "tip": ["Upload an object to a bucket."],
+              "tip": [
+                "Delete a bucket."
+              ],
               "option": [
-                { "name": "--file", "tip": ["Path to file."], "next": [] },
-                { "name": "--key", "tip": ["Object key."], "next": [] },
-                { "name": "--content-type", "tip": ["MIME type."], "next": [] },
                 {
-                  "name": "--metadata",
-                  "tip": ["Object metadata."],
-                  "next": []
+                  "name": "--force",
+                  "tip": [
+                    "Skip confirmation."
+                  ]
                 }
               ]
             },
             {
               "name": "download",
-              "tip": ["Download an object from a bucket."],
+              "tip": [
+                "Download an object from a bucket."
+              ],
               "option": [
-                { "name": "--file", "tip": ["Output file path."], "next": [] },
-                { "name": "--key", "tip": ["Object key."], "next": [] }
+                {
+                  "name": "--file",
+                  "tip": [
+                    "Output file path."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--key",
+                  "tip": [
+                    "Object key."
+                  ],
+                  "next": []
+                }
+              ]
+            },
+            {
+              "name": "list",
+              "tip": [
+                "List all buckets."
+              ]
+            },
+            {
+              "name": "upload",
+              "tip": [
+                "Upload an object to a bucket."
+              ],
+              "option": [
+                {
+                  "name": "--content-type",
+                  "tip": [
+                    "MIME type."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--file",
+                  "tip": [
+                    "Path to file."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--key",
+                  "tip": [
+                    "Object key."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--metadata",
+                  "tip": [
+                    "Object metadata."
+                  ],
+                  "next": []
+                }
               ]
             }
           ]
         },
         {
           "name": "object",
-          "tip": ["Manage objects in an R2 bucket."],
+          "tip": [
+            "Manage objects in an R2 bucket."
+          ],
           "next": [
             {
-              "name": "get",
-              "tip": ["Download an object."],
+              "name": "delete",
+              "tip": [
+                "Delete an object."
+              ],
               "option": [
-                { "name": "--file", "tip": ["Output file path."], "next": [] }
+                {
+                  "name": "--key",
+                  "tip": [
+                    "Object key."
+                  ],
+                  "next": []
+                }
+              ]
+            },
+            {
+              "name": "get",
+              "tip": [
+                "Download an object."
+              ],
+              "option": [
+                {
+                  "name": "--file",
+                  "tip": [
+                    "Output file path."
+                  ],
+                  "next": []
+                }
+              ]
+            },
+            {
+              "name": "list",
+              "tip": [
+                "List objects in a bucket."
+              ],
+              "option": [
+                {
+                  "name": "--prefix",
+                  "tip": [
+                    "Filter by prefix."
+                  ],
+                  "next": []
+                }
               ]
             },
             {
               "name": "put",
-              "tip": ["Upload an object."],
+              "tip": [
+                "Upload an object."
+              ],
               "option": [
-                { "name": "--file", "tip": ["Path to file."], "next": [] },
-                { "name": "--content-type", "tip": ["MIME type."], "next": [] },
+                {
+                  "name": "--content-type",
+                  "tip": [
+                    "MIME type."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--file",
+                  "tip": [
+                    "Path to file."
+                  ],
+                  "next": []
+                },
                 {
                   "name": "--metadata",
-                  "tip": ["Object metadata."],
+                  "tip": [
+                    "Object metadata."
+                  ],
+                  "next": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rollback",
+      "tip": [
+        "Rollback to a previous Worker version."
+      ]
+    },
+    {
+      "name": "secret",
+      "tip": [
+        "Manage secret variables for a Worker."
+      ],
+      "next": [
+        {
+          "name": "bulk",
+          "tip": [
+            "Create, update, or delete multiple secrets."
+          ],
+          "option": [
+            {
+              "name": "--name",
+              "tip": [
+                "Name of the Worker."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "tip": [
+            "Delete a secret."
+          ],
+          "option": [
+            {
+              "name": "--name",
+              "tip": [
+                "Name of the Worker."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "List all secrets."
+          ],
+          "option": [
+            {
+              "name": "--format",
+              "tip": [
+                "Output format (json/pretty)."
+              ],
+              "next": []
+            },
+            {
+              "name": "--name",
+              "tip": [
+                "Name of the Worker."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "put",
+          "tip": [
+            "Create or update a secret."
+          ],
+          "option": [
+            {
+              "name": "--name",
+              "tip": [
+                "Name of the Worker."
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "secrets-store",
+      "tip": [
+        "Manage Secrets Store."
+      ]
+    },
+    {
+      "name": "setup",
+      "tip": [
+        "Setup a project to work on Cloudflare."
+      ],
+      "option": [
+        {
+          "name": "--build",
+          "tip": [
+            "Run build command after configuration."
+          ]
+        },
+        {
+          "name": "--dry-run",
+          "tip": [
+            "Preview changes without applying."
+          ]
+        },
+        {
+          "name": "--yes",
+          "alias": [
+            "--y"
+          ],
+          "tip": [
+            "Answer yes to all prompts."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tail",
+      "tip": [
+        "Start a log tailing session for a Worker."
+      ],
+      "option": [
+        {
+          "name": "--format",
+          "tip": [
+            "Format of log entries (json/pretty)."
+          ],
+          "next": []
+        },
+        {
+          "name": "--header",
+          "tip": [
+            "Filter by HTTP header."
+          ],
+          "next": []
+        },
+        {
+          "name": "--ip",
+          "tip": [
+            "Filter by IP address."
+          ],
+          "next": []
+        },
+        {
+          "name": "--method",
+          "tip": [
+            "Filter by HTTP method."
+          ],
+          "next": []
+        },
+        {
+          "name": "--sampling-rate",
+          "tip": [
+            "Sampling rate percentage."
+          ],
+          "next": []
+        },
+        {
+          "name": "--search",
+          "tip": [
+            "Filter by text match in logs."
+          ],
+          "next": []
+        },
+        {
+          "name": "--status",
+          "tip": [
+            "Filter by invocation status."
+          ],
+          "next": []
+        },
+        {
+          "name": "--version-id",
+          "tip": [
+            "Filter by Worker version."
+          ],
+          "next": []
+        }
+      ]
+    },
+    {
+      "name": "telemetry",
+      "tip": [
+        "Manage Wrangler telemetry settings."
+      ],
+      "next": [
+        {
+          "name": "disable",
+          "tip": [
+            "Disable telemetry collection."
+          ]
+        },
+        {
+          "name": "enable",
+          "tip": [
+            "Enable telemetry collection."
+          ]
+        },
+        {
+          "name": "status",
+          "tip": [
+            "Check whether telemetry is enabled."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "triggers",
+      "tip": [
+        "Manage triggers for Workers Versions."
+      ],
+      "next": [
+        {
+          "name": "deploy",
+          "tip": [
+            "Apply trigger changes when using versions upload."
+          ],
+          "option": [
+            {
+              "name": "--dry-run",
+              "tip": [
+                "Don't actually deploy."
+              ]
+            },
+            {
+              "name": "--name",
+              "tip": [
+                "Name of the Worker."
+              ],
+              "next": []
+            },
+            {
+              "name": "--routes",
+              "alias": [
+                "--route"
+              ],
+              "tip": [
+                "Routes to upload."
+              ],
+              "next": []
+            },
+            {
+              "name": "--triggers",
+              "alias": [
+                "--schedule",
+                "--schedules"
+              ],
+              "tip": [
+                "Cron schedules to attach."
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tunnel",
+      "tip": [
+        "Manage Cloudflare Tunnels."
+      ]
+    },
+    {
+      "name": "turnstile",
+      "tip": [
+        "Manage Turnstile sites."
+      ]
+    },
+    {
+      "name": "types",
+      "tip": [
+        "Generate TypeScript types for bindings."
+      ]
+    },
+    {
+      "name": "vectorize",
+      "tip": [
+        "Manage Vectorize indexes."
+      ]
+    },
+    {
+      "name": "versions",
+      "tip": [
+        "Manage Worker versions and deployments."
+      ],
+      "next": [
+        {
+          "name": "deploy",
+          "tip": [
+            "Deploy a previously uploaded version."
+          ],
+          "option": [
+            {
+              "name": "--dry-run",
+              "tip": [
+                "Don't actually deploy."
+              ]
+            },
+            {
+              "name": "--message",
+              "tip": [
+                "Description of this deployment."
+              ],
+              "next": []
+            },
+            {
+              "name": "--name",
+              "tip": [
+                "Name of the Worker."
+              ],
+              "next": []
+            },
+            {
+              "name": "--percentage",
+              "tip": [
+                "Traffic percentage."
+              ],
+              "next": []
+            },
+            {
+              "name": "--version-id",
+              "tip": [
+                "Version ID(s) to deploy."
+              ],
+              "next": []
+            },
+            {
+              "name": "--version-tag",
+              "tip": [
+                "Version tag(s) to deploy."
+              ],
+              "next": []
+            },
+            {
+              "name": "--yes",
+              "alias": [
+                "--y"
+              ],
+              "tip": [
+                "Accept defaults."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "Retrieve recent Worker versions."
+          ],
+          "option": [
+            {
+              "name": "--json",
+              "tip": [
+                "Display as JSON."
+              ]
+            },
+            {
+              "name": "--name",
+              "tip": [
+                "Name of the Worker."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "secret",
+          "tip": [
+            "Manage secrets for Worker versions."
+          ],
+          "next": [
+            {
+              "name": "bulk",
+              "tip": [
+                "Bulk create or update secrets."
+              ],
+              "option": [
+                {
+                  "name": "--message",
+                  "tip": [
+                    "Deployment message."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--name",
+                  "tip": [
+                    "Name of the Worker."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--tag",
+                  "tip": [
+                    "Tag for this version."
+                  ],
                   "next": []
                 }
               ]
             },
             {
               "name": "delete",
-              "tip": ["Delete an object."],
+              "tip": [
+                "Delete a secret."
+              ],
               "option": [
-                { "name": "--key", "tip": ["Object key."], "next": [] }
+                {
+                  "name": "--message",
+                  "tip": [
+                    "Deployment message."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--name",
+                  "tip": [
+                    "Name of the Worker."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--tag",
+                  "tip": [
+                    "Tag for this version."
+                  ],
+                  "next": []
+                }
               ]
             },
             {
-              "name": "list",
-              "tip": ["List objects in a bucket."],
+              "name": "put",
+              "tip": [
+                "Create or update a secret."
+              ],
               "option": [
-                { "name": "--prefix", "tip": ["Filter by prefix."], "next": [] }
+                {
+                  "name": "--message",
+                  "tip": [
+                    "Deployment message."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--name",
+                  "tip": [
+                    "Name of the Worker."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "--tag",
+                  "tip": [
+                    "Tag for this version."
+                  ],
+                  "next": []
+                }
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "name": "d1",
-      "tip": ["Manage Cloudflare D1 databases."],
-      "next": [
-        {
-          "name": "create",
-          "tip": ["Create a new D1 database."],
-          "option": [
-            { "name": "--name", "tip": ["Name of the database."], "next": [] },
-            { "name": "--location", "tip": ["Database location."], "next": [] }
-          ]
-        },
-        { "name": "list", "tip": ["List all D1 databases."] },
-        {
-          "name": "delete",
-          "tip": ["Delete a D1 database."],
-          "option": [
-            { "name": "--name", "tip": ["Name of the database."], "next": [] },
-            { "name": "--force", "tip": ["Skip confirmation."] }
-          ]
         },
         {
-          "name": "execute",
-          "tip": ["Execute a SQL query."],
+          "name": "upload",
+          "tip": [
+            "Upload a new Worker version."
+          ],
           "option": [
-            { "name": "--name", "tip": ["Database name."], "next": [] },
-            { "name": "--file", "tip": ["SQL file to execute."], "next": [] },
-            { "name": "--command", "tip": ["SQL command string."], "next": [] },
-            { "name": "--local", "tip": ["Execute against local DB."] },
-            { "name": "--remote", "tip": ["Execute against remote DB."] }
-          ]
-        },
-        {
-          "name": "migrations",
-          "tip": ["Manage database migrations."],
-          "option": [
-            { "name": "--name", "tip": ["Database name."], "next": [] },
-            { "name": "--local", "tip": ["Use local DB."] }
-          ]
-        },
-        {
-          "name": "info",
-          "tip": ["Show database information."],
-          "option": [
-            { "name": "--name", "tip": ["Database name."], "next": [] }
-          ]
-        },
-        {
-          "name": "export",
-          "tip": ["Export a database."],
-          "option": [
-            { "name": "--name", "tip": ["Database name."], "next": [] },
-            { "name": "--output", "tip": ["Output file path."], "next": [] },
-            { "name": "--format", "tip": ["Export format (sql)."], "next": [] }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "pages",
-      "tip": ["Manage Cloudflare Pages projects."],
-      "next": [
-        {
-          "name": "dev",
-          "tip": ["Start a local Pages dev server."],
-          "option": [
-            { "name": "--port", "tip": ["Port to listen on."], "next": [] },
-            { "name": "--binding", "tip": ["Bindings to apply."], "next": [] },
+            {
+              "name": "--assets",
+              "tip": [
+                "Static assets."
+              ],
+              "next": []
+            },
             {
               "name": "--compatibility-date",
-              "tip": ["Compatibility date."],
+              "tip": [
+                "Compatibility date."
+              ],
+              "next": []
+            },
+            {
+              "name": "--define",
+              "tip": [
+                "Define global identifiers."
+              ],
+              "next": []
+            },
+            {
+              "name": "--dry-run",
+              "tip": [
+                "Compile without uploading."
+              ]
+            },
+            {
+              "name": "--jsx-factory",
+              "tip": [
+                "JSX factory function."
+              ],
+              "next": []
+            },
+            {
+              "name": "--keep-vars",
+              "tip": [
+                "Keep existing vars."
+              ]
+            },
+            {
+              "name": "--latest",
+              "tip": [
+                "Use latest compatibility date."
+              ]
+            },
+            {
+              "name": "--message",
+              "tip": [
+                "Message for this version."
+              ],
+              "next": []
+            },
+            {
+              "name": "--minify",
+              "tip": [
+                "Minify the Worker."
+              ]
+            },
+            {
+              "name": "--name",
+              "tip": [
+                "Name of the Worker."
+              ],
+              "next": []
+            },
+            {
+              "name": "--no-bundle",
+              "tip": [
+                "Skip build steps."
+              ]
+            },
+            {
+              "name": "--outdir",
+              "tip": [
+                "Output directory."
+              ],
+              "next": []
+            },
+            {
+              "name": "--outfile",
+              "tip": [
+                "Output file."
+              ],
+              "next": []
+            },
+            {
+              "name": "--preview-alias",
+              "tip": [
+                "Alias for this version."
+              ],
+              "next": []
+            },
+            {
+              "name": "--secrets-file",
+              "tip": [
+                "Path to secrets file."
+              ],
+              "next": []
+            },
+            {
+              "name": "--strict",
+              "tip": [
+                "Enable strict mode."
+              ]
+            },
+            {
+              "name": "--tag",
+              "tip": [
+                "Tag for this version."
+              ],
+              "next": []
+            },
+            {
+              "name": "--tsconfig",
+              "tip": [
+                "Path to tsconfig.json."
+              ],
+              "next": []
+            },
+            {
+              "name": "--upload-source-maps",
+              "tip": [
+                "Include source maps."
+              ]
+            },
+            {
+              "name": "--var",
+              "tip": [
+                "Inject variables."
+              ],
               "next": []
             }
           ]
         },
         {
-          "name": "deploy",
-          "tip": ["Deploy a directory to Pages."],
+          "name": "view",
+          "tip": [
+            "View details of a specific version."
+          ],
           "option": [
             {
-              "name": "--project-name",
-              "tip": ["Pages project name."],
-              "next": []
-            },
-            { "name": "--branch", "tip": ["Git branch name."], "next": [] },
-            { "name": "--commit-hash", "tip": ["Commit SHA."], "next": [] },
-            {
-              "name": "--commit-message",
-              "tip": ["Commit message."],
-              "next": []
-            },
-            { "name": "--commit-dirty", "tip": ["Allow dirty commits."] }
-          ]
-        },
-        {
-          "name": "project",
-          "tip": ["Manage Pages projects."],
-          "option": [{ "name": "--name", "tip": ["Project name."], "next": [] }]
-        },
-        {
-          "name": "deployment",
-          "tip": ["Manage Pages deployments."],
-          "option": [
-            { "name": "--project-name", "tip": ["Project name."], "next": [] }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "ai",
-      "tip": ["Interact with Cloudflare AI."],
-      "next": [
-        { "name": "models", "tip": ["List available AI models."] },
-        {
-          "name": "run",
-          "tip": ["Run an AI model."],
-          "option": [
-            { "name": "--model", "tip": ["Model name."], "next": [] },
-            { "name": "--prompt", "tip": ["Prompt text."], "next": [] },
-            { "name": "--stream", "tip": ["Stream responses."] },
-            { "name": "--raw", "tip": ["Return raw response."] }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "queues",
-      "tip": ["Manage Cloudflare Queues."],
-      "next": [
-        {
-          "name": "create",
-          "tip": ["Create a new queue."],
-          "option": [
-            { "name": "--name", "tip": ["Queue name."], "next": [] },
-            {
-              "name": "--consumer-name",
-              "tip": ["Consumer name."],
-              "next": []
+              "name": "--json",
+              "tip": [
+                "Display as JSON."
+              ]
             },
             {
-              "name": "--message-retries",
-              "tip": ["Retry limit."],
-              "next": []
-            },
-            {
-              "name": "--delivery-delay",
-              "tip": ["Delivery delay in seconds."],
-              "next": []
-            },
-            {
-              "name": "--max-consumers",
-              "tip": ["Max concurrent consumers."],
-              "next": []
-            }
-          ]
-        },
-        {
-          "name": "delete",
-          "tip": ["Delete a queue."],
-          "option": [
-            { "name": "--name", "tip": ["Queue name."], "next": [] },
-            { "name": "--force", "tip": ["Skip confirmation."] }
-          ]
-        },
-        { "name": "list", "tip": ["List all queues."] },
-        {
-          "name": "consumer",
-          "tip": ["Manage queue consumers."],
-          "option": [
-            { "name": "--name", "tip": ["Queue name."], "next": [] },
-            { "name": "--batch-size", "tip": ["Batch size."], "next": [] },
-            {
-              "name": "--max-concurrency",
-              "tip": ["Max concurrency."],
-              "next": []
-            },
-            { "name": "--retry-delay", "tip": ["Retry delay."], "next": [] },
-            {
-              "name": "--message-body",
-              "tip": ["Message body size limit."],
+              "name": "--name",
+              "tip": [
+                "Name of the Worker."
+              ],
               "next": []
             }
           ]
         }
       ]
     },
-    { "name": "email", "tip": ["Manage Cloudflare Email Routing."] },
-    { "name": "agent-memory", "tip": ["Manage agent memory."] },
-    { "name": "ai-search", "tip": ["Manage AI Search."] },
-    { "name": "browser", "tip": ["Manage Browser Rendering."] },
-    { "name": "containers", "tip": ["Manage Containers."] },
     {
-      "name": "dispatch-namespace",
-      "tip": ["Manage dispatch namespaces for Workers for Platforms."]
+      "name": "vpc",
+      "tip": [
+        "Manage VPC services."
+      ]
     },
-    { "name": "flagship", "tip": ["Manage Flagship features."] },
-    { "name": "preview", "tip": ["Preview Worker deployments."] },
-    { "name": "rollback", "tip": ["Rollback to a previous Worker version."] },
-    { "name": "types", "tip": ["Generate TypeScript types for bindings."] },
-    { "name": "vpc", "tip": ["Manage VPC services."] },
-    { "name": "websearch", "tip": ["Manage Web Search."] },
-    { "name": "workflows", "tip": ["Manage Workflows."] },
-    { "name": "artifacts", "tip": ["Manage build artifacts."] },
-    { "name": "hyperdrive", "tip": ["Manage Hyperdrive configurations."] },
-    { "name": "pipelines", "tip": ["Manage Pipelines."] },
-    { "name": "secrets-store", "tip": ["Manage Secrets Store."] },
-    { "name": "vectorize", "tip": ["Manage Vectorize indexes."] },
-    { "name": "cert", "tip": ["Manage SSL/TLS certificates."] },
-    { "name": "mtls-certificate", "tip": ["Manage mTLS certificates."] },
-    { "name": "tunnel", "tip": ["Manage Cloudflare Tunnels."] },
-    { "name": "turnstile", "tip": ["Manage Turnstile sites."] }
+    {
+      "name": "websearch",
+      "tip": [
+        "Manage Web Search."
+      ]
+    },
+    {
+      "name": "whoami",
+      "tip": [
+        "Retrieve your Cloudflare user information."
+      ]
+    },
+    {
+      "name": "workflows",
+      "tip": [
+        "Manage Workflows."
+      ]
+    }
   ],
   "option": [
-    {
-      "name": "-c",
-      "alias": ["--config"],
-      "tip": [
-        "U: -c, --config <string>",
-        "Path to Wrangler configuration file."
-      ],
-      "next": []
-    },
     {
       "name": "--cwd",
       "tip": [
@@ -1195,46 +2548,88 @@
       "next": []
     },
     {
-      "name": "-e",
-      "alias": ["--env"],
-      "tip": ["U: -e, --env <string>", "Environment to use."],
-      "next": []
-    },
-    {
       "name": "--env-file",
-      "tip": ["U: --env-file <string>", "Path to an .env file."],
+      "tip": [
+        "U: --env-file <string>",
+        "Path to an .env file."
+      ],
       "next": []
-    },
-    {
-      "name": "--experimental-provision",
-      "alias": ["--x-provision"],
-      "tip": ["Experimental: Enable automatic resource provisioning."]
     },
     {
       "name": "--experimental-auto-create",
-      "alias": ["--x-auto-create"],
-      "tip": ["Experimental: Auto-provision draft bindings."]
+      "alias": [
+        "--x-auto-create"
+      ],
+      "tip": [
+        "Experimental: Auto-provision draft bindings."
+      ]
+    },
+    {
+      "name": "--experimental-provision",
+      "alias": [
+        "--x-provision"
+      ],
+      "tip": [
+        "Experimental: Enable automatic resource provisioning."
+      ]
     },
     {
       "name": "--install-skills",
-      "tip": ["Install Cloudflare skills for AI coding agents."]
+      "tip": [
+        "Install Cloudflare skills for AI coding agents."
+      ]
     },
     {
       "name": "--profile",
-      "tip": ["U: --profile <string>", "Use a specific auth profile."],
+      "tip": [
+        "U: --profile <string>",
+        "Use a specific auth profile."
+      ],
+      "next": []
+    },
+    {
+      "name": "-c",
+      "alias": [
+        "--config"
+      ],
+      "tip": [
+        "U: -c, --config <string>",
+        "Path to Wrangler configuration file."
+      ],
+      "next": []
+    },
+    {
+      "name": "-e",
+      "alias": [
+        "--env"
+      ],
+      "tip": [
+        "U: -e, --env <string>",
+        "Environment to use."
+      ],
       "next": []
     }
   ],
   "common_option": [
     {
       "name": "-h",
-      "alias": ["--help"],
-      "tip": ["U: -h, --help", "Show the help message."]
+      "alias": [
+        "--help"
+      ],
+      "tip": [
+        "U: -h, --help",
+        "Show the help message."
+      ]
     },
     {
       "name": "-v",
-      "alias": ["--version"],
-      "tip": ["U: -v, --version", "Show the version number."]
+      "alias": [
+        "--version"
+      ],
+      "tip": [
+        "U: -v, --version",
+        "Show the version number."
+      ]
     }
   ]
 }

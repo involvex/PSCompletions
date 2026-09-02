@@ -9,19 +9,27 @@
   "root": [
     {
       "name": "config",
-      "tip": ["显示项目配置"],
+      "tip": [
+        "显示项目配置"
+      ],
       "option": [
         {
           "name": "--full",
-          "tip": ["包含所有项目配置数据"]
+          "tip": [
+            "包含所有项目配置数据"
+          ]
         },
         {
           "name": "--json",
-          "tip": ["以 JSON 格式输出"]
+          "tip": [
+            "以 JSON 格式输出"
+          ]
         },
         {
           "name": "--type",
-          "alias": ["-t"],
+          "alias": [
+            "-t"
+          ],
           "tip": [
             "U: -t, --type <public|prebuild|introspect>",
             "要显示的配置类型"
@@ -31,40 +39,61 @@
     },
     {
       "name": "customize",
-      "tip": ["生成静态项目文件 (metro.config.js、babel.config.js 等)"]
+      "tip": [
+        "生成静态项目文件 (metro.config.js、babel.config.js 等)"
+      ]
     },
     {
       "name": "export",
-      "tip": ["导出应用的静态文件以便托管在 Web 服务器上"],
+      "tip": [
+        "导出应用的静态文件以便托管在 Web 服务器上"
+      ],
       "option": [
         {
           "name": "--clear",
-          "alias": ["-c"],
-          "tip": ["U: -c, --clear", "清除打包器缓存"]
+          "alias": [
+            "-c"
+          ],
+          "tip": [
+            "U: -c, --clear",
+            "清除打包器缓存"
+          ]
         },
         {
           "name": "--dev",
-          "tip": ["配置用于本地开发 (非 https 服务器) 的静态文件"]
+          "tip": [
+            "配置用于本地开发 (非 https 服务器) 的静态文件"
+          ]
         },
         {
           "name": "--dump-assetmap",
-          "tip": ["输出资源映射以供进一步处理"]
+          "tip": [
+            "输出资源映射以供进一步处理"
+          ]
         },
         {
           "name": "--max-workers",
-          "tip": ["允许打包器生成的最大任务数"]
+          "tip": [
+            "允许打包器生成的最大任务数"
+          ]
         },
         {
           "name": "--no-bytecode",
-          "tip": ["禁止生成 Hermes 字节码"]
+          "tip": [
+            "禁止生成 Hermes 字节码"
+          ]
         },
         {
           "name": "--no-minify",
-          "tip": ["禁止压缩源代码"]
+          "tip": [
+            "禁止压缩源代码"
+          ]
         },
         {
           "name": "--no-ssg",
-          "alias": ["--api-only"],
+          "alias": [
+            "--api-only"
+          ],
           "tip": [
             "U: --no-ssg|--api-only",
             "跳过导出静态 HTML 文件, 仅导出 Web 的 API 路由"
@@ -72,11 +101,15 @@
         },
         {
           "name": "--output-dir",
-          "tip": ["静态文件的导出目录。默认: dist"]
+          "tip": [
+            "静态文件的导出目录。默认: dist"
+          ]
         },
         {
           "name": "--platform",
-          "alias": ["-p"],
+          "alias": [
+            "-p"
+          ],
           "tip": [
             "U: -p, --platform <all|android|ios|web>",
             "要导出的平台。默认: all"
@@ -84,7 +117,9 @@
         },
         {
           "name": "--source-maps",
-          "alias": ["-s"],
+          "alias": [
+            "-s"
+          ],
           "tip": [
             "U: -s, --source-maps [true|false|inline|external]",
             "生成 JavaScript 源码映射。默认: false"
@@ -94,58 +129,87 @@
     },
     {
       "name": "install",
-      "tip": ["向项目安装模块或其他软件包"],
+      "tip": [
+        "向项目安装模块或其他软件包"
+      ],
       "option": [
         {
           "name": "--bun",
-          "tip": ["使用 bun 安装依赖。当存在 bun.lock 或 bun.lockb 时为默认值"]
+          "tip": [
+            "使用 bun 安装依赖。当存在 bun.lock 或 bun.lockb 时为默认值"
+          ]
         },
         {
           "name": "--check",
-          "tip": ["检查哪些已安装的包需要更新"]
+          "tip": [
+            "检查哪些已安装的包需要更新"
+          ]
         },
         {
           "name": "--dev",
-          "tip": ["将依赖保存为 devDependencies"]
+          "tip": [
+            "将依赖保存为 devDependencies"
+          ]
         },
         {
           "name": "--fix",
-          "tip": ["自动更新所有无效的包版本"]
+          "tip": [
+            "自动更新所有无效的包版本"
+          ]
         },
         {
           "name": "--json",
-          "tip": ["配合 --check 标志以 JSON 格式输出依赖信息"]
+          "tip": [
+            "配合 --check 标志以 JSON 格式输出依赖信息"
+          ]
         },
         {
           "name": "--npm",
-          "tip": ["使用 npm 安装依赖。当存在 package-lock.json 时为默认值"]
+          "tip": [
+            "使用 npm 安装依赖。当存在 package-lock.json 时为默认值"
+          ]
         },
         {
           "name": "--pnpm",
-          "tip": ["使用 pnpm 安装依赖。当存在 pnpm-lock.yaml 时为默认值"]
+          "tip": [
+            "使用 pnpm 安装依赖。当存在 pnpm-lock.yaml 时为默认值"
+          ]
         },
         {
           "name": "--yarn",
-          "tip": ["使用 Yarn 安装依赖。当存在 yarn.lock 时为默认值"]
+          "tip": [
+            "使用 Yarn 安装依赖。当存在 yarn.lock 时为默认值"
+          ]
         }
       ]
     },
     {
       "name": "login",
-      "tip": ["登录 Expo 账户"],
+      "tip": [
+        "登录 Expo 账户"
+      ],
       "option": [
         {
           "name": "--browser",
-          "alias": ["-b"],
-          "tip": ["U: -b, --browser", "通过浏览器登录"]
+          "alias": [
+            "-b"
+          ],
+          "tip": [
+            "U: -b, --browser",
+            "通过浏览器登录"
+          ]
         },
         {
           "name": "--otp",
-          "tip": ["来自双重验证设备的一次性密码"]
+          "tip": [
+            "来自双重验证设备的一次性密码"
+          ]
         },
         {
           "name": "--password",
-          "alias": ["-p"],
+          "alias": [
+            "-p"
+          ],
           "tip": [
             "U: -p, --password <string>",
             "密码 (\"-\" 表示从标准输入读取)"
@@ -153,55 +217,83 @@
         },
         {
           "name": "--sso",
-          "alias": ["-s"],
-          "tip": ["U: -s, --sso", "使用 SSO 登录"]
+          "alias": [
+            "-s"
+          ],
+          "tip": [
+            "U: -s, --sso",
+            "使用 SSO 登录"
+          ]
         },
         {
           "name": "--username",
-          "alias": ["-u"],
-          "tip": ["U: -u, --username <string>", "用户名"]
+          "alias": [
+            "-u"
+          ],
+          "tip": [
+            "U: -u, --username <string>",
+            "用户名"
+          ]
         }
       ]
     },
     {
       "name": "logout",
-      "tip": ["退出 Expo 账户"]
+      "tip": [
+        "退出 Expo 账户"
+      ]
     },
     {
       "name": "prebuild",
-      "tip": ["创建用于原生构建的 iOS 和 Android 项目文件"],
+      "tip": [
+        "创建用于原生构建的 iOS 和 Android 项目文件"
+      ],
       "option": [
         {
           "name": "--bun",
-          "tip": ["使用 bun 安装依赖。当存在 bun.lock 或 bun.lockb 时为默认值"]
+          "tip": [
+            "使用 bun 安装依赖。当存在 bun.lock 或 bun.lockb 时为默认值"
+          ]
         },
         {
           "name": "--clean",
-          "tip": ["删除原生文件夹并在应用更改前重新生成"]
+          "tip": [
+            "删除原生文件夹并在应用更改前重新生成"
+          ]
         },
         {
           "name": "--no-install",
-          "tip": ["跳过安装 npm 包和 CocoaPods"]
+          "tip": [
+            "跳过安装 npm 包和 CocoaPods"
+          ]
         },
         {
           "name": "--npm",
-          "tip": ["使用 npm 安装依赖。当存在 package-lock.json 时为默认值"]
-        },
-        {
-          "name": "--pnpm",
-          "tip": ["使用 pnpm 安装依赖。当存在 pnpm-lock.yaml 时为默认值"]
+          "tip": [
+            "使用 npm 安装依赖。当存在 package-lock.json 时为默认值"
+          ]
         },
         {
           "name": "--platform",
-          "alias": ["-p"],
+          "alias": [
+            "-p"
+          ],
           "tip": [
             "U: -p, --platform <all|android|ios>",
             "要同步的平台。默认: all"
           ]
         },
         {
+          "name": "--pnpm",
+          "tip": [
+            "使用 pnpm 安装依赖。当存在 pnpm-lock.yaml 时为默认值"
+          ]
+        },
+        {
           "name": "--skip-dependency-update",
-          "tip": ["保留 package.json 中所列包的版本 (逗号分隔)"]
+          "tip": [
+            "保留 package.json 中所列包的版本 (逗号分隔)"
+          ]
         },
         {
           "name": "--template",
@@ -211,69 +303,105 @@
         },
         {
           "name": "--yarn",
-          "tip": ["使用 Yarn 安装依赖。当存在 yarn.lock 时为默认值"]
+          "tip": [
+            "使用 Yarn 安装依赖。当存在 yarn.lock 时为默认值"
+          ]
         }
       ]
     },
     {
       "name": "register",
-      "tip": ["注册新的 Expo 账户"]
+      "tip": [
+        "注册新的 Expo 账户"
+      ]
     },
     {
       "name": "run:android",
-      "tip": ["在本地运行原生 Android 应用"],
+      "tip": [
+        "在本地运行原生 Android 应用"
+      ],
       "option": [
         {
           "name": "--app-id",
-          "tip": ["自定义要启动的 Android 应用程序 ID"]
+          "tip": [
+            "自定义要启动的 Android 应用程序 ID"
+          ]
         },
         {
           "name": "--binary",
-          "tip": ["要安装的现有 .apk 或 .aab 文件路径"]
+          "tip": [
+            "要安装的现有 .apk 或 .aab 文件路径"
+          ]
         },
         {
           "name": "--device",
-          "alias": ["-d"],
-          "tip": ["U: -d, --device [device]", "运行应用的设备名称"]
+          "alias": [
+            "-d"
+          ],
+          "tip": [
+            "U: -d, --device [device]",
+            "运行应用的设备名称"
+          ]
         },
         {
           "name": "--no-build-cache",
-          "tip": ["清除原生构建缓存"]
+          "tip": [
+            "清除原生构建缓存"
+          ]
         },
         {
           "name": "--no-bundler",
-          "tip": ["跳过启动打包器"]
+          "tip": [
+            "跳过启动打包器"
+          ]
         },
         {
           "name": "--no-install",
-          "tip": ["跳过安装依赖"]
+          "tip": [
+            "跳过安装依赖"
+          ]
         },
         {
           "name": "--port",
-          "alias": ["-p"],
-          "tip": ["U: -p, --port <port>", "开发服务器端口。默认: 8081"]
+          "alias": [
+            "-p"
+          ],
+          "tip": [
+            "U: -p, --port <port>",
+            "开发服务器端口。默认: 8081"
+          ]
         },
         {
           "name": "--variant",
-          "tip": ["构建变体或产品风味。默认: debug"]
+          "tip": [
+            "构建变体或产品风味。默认: debug"
+          ]
         }
       ]
     },
     {
       "name": "run:ios",
-      "tip": ["在本地运行 iOS 应用二进制文件"],
+      "tip": [
+        "在本地运行 iOS 应用二进制文件"
+      ],
       "option": [
         {
           "name": "--binary",
-          "tip": ["要安装的现有 .app 或 .ipa 文件路径"]
+          "tip": [
+            "要安装的现有 .app 或 .ipa 文件路径"
+          ]
         },
         {
           "name": "--configuration",
-          "tip": ["要使用的 Xcode 配置。Debug 或 Release。默认: Debug"]
+          "tip": [
+            "要使用的 Xcode 配置。Debug 或 Release。默认: Debug"
+          ]
         },
         {
           "name": "--device",
-          "alias": ["-d"],
+          "alias": [
+            "-d"
+          ],
           "tip": [
             "U: -d, --device [device]",
             "设备名称、UDID 或 \"generic\" (仅构建)"
@@ -281,69 +409,115 @@
         },
         {
           "name": "--no-build-cache",
-          "tip": ["构建前清除原生派生数据"]
+          "tip": [
+            "构建前清除原生派生数据"
+          ]
         },
         {
           "name": "--no-bundler",
-          "tip": ["跳过启动 Metro 打包器"]
+          "tip": [
+            "跳过启动 Metro 打包器"
+          ]
         },
         {
           "name": "--no-install",
-          "tip": ["跳过安装依赖"]
+          "tip": [
+            "跳过安装依赖"
+          ]
         },
         {
           "name": "--output",
-          "alias": ["-o"],
-          "tip": ["U: -o, --output <path>", "输出已构建应用二进制文件的目录"]
+          "alias": [
+            "-o"
+          ],
+          "tip": [
+            "U: -o, --output <path>",
+            "输出已构建应用二进制文件的目录"
+          ]
         },
         {
           "name": "--port",
-          "alias": ["-p"],
-          "tip": ["U: -p, --port <port>", "Metro 打包器端口。默认: 8081"]
+          "alias": [
+            "-p"
+          ],
+          "tip": [
+            "U: -p, --port <port>",
+            "Metro 打包器端口。默认: 8081"
+          ]
         },
         {
           "name": "--scheme",
-          "tip": ["要构建的 Scheme"]
+          "tip": [
+            "要构建的 Scheme"
+          ]
         }
       ]
     },
     {
       "name": "serve",
-      "tip": ["在本地托管生产环境服务器"],
+      "tip": [
+        "在本地托管生产环境服务器"
+      ],
       "option": [
         {
           "name": "--port",
-          "tip": ["服务器托管的端口"]
+          "tip": [
+            "服务器托管的端口"
+          ]
         }
       ]
     },
     {
       "name": "start",
-      "tip": ["启动应用的本地开发服务器"],
+      "tip": [
+        "启动应用的本地开发服务器"
+      ],
       "option": [
         {
           "name": "--android",
-          "alias": ["-a"],
-          "tip": ["U: -a, --android", "在已连接的 Android 设备上打开"]
+          "alias": [
+            "-a"
+          ],
+          "tip": [
+            "U: -a, --android",
+            "在已连接的 Android 设备上打开"
+          ]
         },
         {
           "name": "--clear",
-          "alias": ["-c"],
-          "tip": ["U: -c, --clear", "清除打包器缓存"]
+          "alias": [
+            "-c"
+          ],
+          "tip": [
+            "U: -c, --clear",
+            "清除打包器缓存"
+          ]
         },
         {
           "name": "--dev-client",
-          "alias": ["-d"],
-          "tip": ["U: -d, --dev-client", "在自定义原生应用中启动"]
+          "alias": [
+            "-d"
+          ],
+          "tip": [
+            "U: -d, --dev-client",
+            "在自定义原生应用中启动"
+          ]
         },
         {
           "name": "--go",
-          "alias": ["-g"],
-          "tip": ["U: -g, --go", "在 Expo Go 中启动"]
+          "alias": [
+            "-g"
+          ],
+          "tip": [
+            "U: -g, --go",
+            "在 Expo Go 中启动"
+          ]
         },
         {
           "name": "--host",
-          "alias": ["-m"],
+          "alias": [
+            "-m"
+          ],
           "tip": [
             "U: -m, --host <lan|tunnel|localhost>",
             "开发服务器托管类型。默认: lan"
@@ -351,40 +525,61 @@
         },
         {
           "name": "--https",
-          "tip": ["以 https 协议启动开发服务器。已被 --tunnel 取代"]
+          "tip": [
+            "以 https 协议启动开发服务器。已被 --tunnel 取代"
+          ]
         },
         {
           "name": "--ios",
-          "alias": ["-i"],
-          "tip": ["U: -i, --ios", "在 iOS 模拟器中打开"]
+          "alias": [
+            "-i"
+          ],
+          "tip": [
+            "U: -i, --ios",
+            "在 iOS 模拟器中打开"
+          ]
         },
         {
           "name": "--lan",
-          "tip": ["等同于 --host lan"]
+          "tip": [
+            "等同于 --host lan"
+          ]
         },
         {
           "name": "--localhost",
-          "tip": ["等同于 --host localhost"]
+          "tip": [
+            "等同于 --host localhost"
+          ]
         },
         {
           "name": "--max-workers",
-          "tip": ["允许 Metro 生成的最大任务数"]
+          "tip": [
+            "允许 Metro 生成的最大任务数"
+          ]
         },
         {
           "name": "--minify",
-          "tip": ["压缩 JavaScript"]
+          "tip": [
+            "压缩 JavaScript"
+          ]
         },
         {
           "name": "--no-dev",
-          "tip": ["以生产模式打包"]
+          "tip": [
+            "以生产模式打包"
+          ]
         },
         {
           "name": "--offline",
-          "tip": ["跳过网络请求并使用匿名清单签名"]
+          "tip": [
+            "跳过网络请求并使用匿名清单签名"
+          ]
         },
         {
           "name": "--port",
-          "alias": ["-p"],
+          "alias": [
+            "-p"
+          ],
           "tip": [
             "U: -p, --port <number>",
             "开发服务器端口 (不适用于 web 或 tunnel)。默认: 8081"
@@ -398,36 +593,57 @@
         },
         {
           "name": "--scheme",
-          "tip": ["启动应用时使用的自定义 URI 协议"]
+          "tip": [
+            "启动应用时使用的自定义 URI 协议"
+          ]
         },
         {
           "name": "--tunnel",
-          "tip": ["等同于 --host tunnel"]
+          "tip": [
+            "等同于 --host tunnel"
+          ]
         },
         {
           "name": "--web",
-          "alias": ["-w"],
-          "tip": ["U: -w, --web", "在 Web 浏览器中打开"]
+          "alias": [
+            "-w"
+          ],
+          "tip": [
+            "U: -w, --web",
+            "在 Web 浏览器中打开"
+          ]
         }
       ]
     },
     {
       "name": "whoami",
-      "tip": ["显示当前已认证的用户名"]
+      "tip": [
+        "显示当前已认证的用户名"
+      ]
     }
   ],
   "option": [
     {
       "name": "--version",
-      "alias": ["-v"],
-      "tip": ["U: -v, --version", "版本号"]
+      "alias": [
+        "-v"
+      ],
+      "tip": [
+        "U: -v, --version",
+        "版本号"
+      ]
     }
   ],
   "common_option": [
     {
       "name": "-h",
-      "alias": ["--help"],
-      "tip": ["U: -h, --help", "使用信息"]
+      "alias": [
+        "--help"
+      ],
+      "tip": [
+        "U: -h, --help",
+        "使用信息"
+      ]
     }
   ]
 }

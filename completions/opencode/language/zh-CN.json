@@ -7,63 +7,28 @@
   },
   "root": [
     {
-      "name": "completion",
-      "tip": [
-        "生成 shell 自动补全脚本"
-      ]
-    },
-    {
       "name": "acp",
       "tip": [
         "启动 ACP（Agent Client Protocol）服务器"
       ]
     },
     {
-      "name": "mcp",
+      "name": "agent",
       "tip": [
-        "管理 MCP（Model Context Protocol）服务器"
+        "管理代理"
       ],
       "next": [
         {
-          "name": "add",
+          "name": "create",
           "tip": [
-            "添加一个 MCP 服务器"
-          ],
-          "next": 0
+            "创建新代理"
+          ]
         },
         {
           "name": "list",
           "tip": [
-            "列出 MCP 服务器及其状态"
+            "列出所有可用代理"
           ]
-        },
-        {
-          "name": "auth",
-          "tip": [
-            "使用 OAuth 认证 MCP 服务器"
-          ],
-          "next": [
-            {
-              "name": "list",
-              "tip": [
-                "列出支持 OAuth 的 MCP 服务器及其认证状态"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "logout",
-          "tip": [
-            "删除 MCP 服务器的 OAuth 凭据"
-          ],
-          "next": 0
-        },
-        {
-          "name": "debug",
-          "tip": [
-            "调试 MCP 服务器的 OAuth 连接"
-          ],
-          "next": 0
         }
       ]
     },
@@ -75,11 +40,24 @@
       "next": 0
     },
     {
-      "name": "run",
+      "name": "completion",
       "tip": [
-        "使用消息运行 opencode"
+        "生成 shell 自动补全脚本"
+      ]
+    },
+    {
+      "name": "db",
+      "tip": [
+        "数据库工具"
       ],
-      "next": 0
+      "next": [
+        {
+          "name": "path",
+          "tip": [
+            "打印数据库路径"
+          ]
+        }
+      ]
     },
     {
       "name": "debug",
@@ -88,9 +66,28 @@
       ],
       "next": [
         {
+          "name": "agent",
+          "tip": [
+            "显示代理配置详情"
+          ],
+          "next": 0
+        },
+        {
           "name": "config",
           "tip": [
             "显示已解析的配置"
+          ]
+        },
+        {
+          "name": "file",
+          "tip": [
+            "文件系统调试工具"
+          ]
+        },
+        {
+          "name": "info",
+          "tip": [
+            "显示调试信息"
           ]
         },
         {
@@ -100,15 +97,15 @@
           ]
         },
         {
-          "name": "rg",
+          "name": "paths",
           "tip": [
-            "Ripgrep 调试工具"
+            "显示全局路径（数据、配置、缓存、状态）"
           ]
         },
         {
-          "name": "file",
+          "name": "rg",
           "tip": [
-            "文件系统调试工具"
+            "Ripgrep 调试工具"
           ]
         },
         {
@@ -136,28 +133,9 @@
           ]
         },
         {
-          "name": "agent",
-          "tip": [
-            "显示代理配置详情"
-          ],
-          "next": 0
-        },
-        {
           "name": "v2",
           "tip": [
             "调试 v2 目录和内置插件"
-          ]
-        },
-        {
-          "name": "info",
-          "tip": [
-            "显示调试信息"
-          ]
-        },
-        {
-          "name": "paths",
-          "tip": [
-            "显示全局路径（数据、配置、缓存、状态）"
           ]
         },
         {
@@ -167,6 +145,110 @@
           ]
         }
       ]
+    },
+    {
+      "name": "export",
+      "tip": [
+        "将会话数据导出为 JSON"
+      ],
+      "next": 0
+    },
+    {
+      "name": "github",
+      "tip": [
+        "管理 GitHub 代理"
+      ],
+      "next": [
+        {
+          "name": "install",
+          "tip": [
+            "安装 GitHub 代理"
+          ]
+        },
+        {
+          "name": "run",
+          "tip": [
+            "运行 GitHub 代理"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "import",
+      "tip": [
+        "从 JSON 文件或 URL 导入会话数据"
+      ],
+      "next": 0
+    },
+    {
+      "name": "mcp",
+      "tip": [
+        "管理 MCP（Model Context Protocol）服务器"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "tip": [
+            "添加一个 MCP 服务器"
+          ],
+          "next": 0
+        },
+        {
+          "name": "auth",
+          "tip": [
+            "使用 OAuth 认证 MCP 服务器"
+          ],
+          "next": [
+            {
+              "name": "list",
+              "tip": [
+                "列出支持 OAuth 的 MCP 服务器及其认证状态"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "debug",
+          "tip": [
+            "调试 MCP 服务器的 OAuth 连接"
+          ],
+          "next": 0
+        },
+        {
+          "name": "list",
+          "tip": [
+            "列出 MCP 服务器及其状态"
+          ]
+        },
+        {
+          "name": "logout",
+          "tip": [
+            "删除 MCP 服务器的 OAuth 凭据"
+          ],
+          "next": 0
+        }
+      ]
+    },
+    {
+      "name": "models",
+      "tip": [
+        "列出所有可用模型"
+      ],
+      "next": 0
+    },
+    {
+      "name": "plugin",
+      "tip": [
+        "安装插件并更新配置"
+      ],
+      "next": 0
+    },
+    {
+      "name": "pr",
+      "tip": [
+        "获取并切换到 GitHub PR 分支，然后运行 opencode"
+      ],
+      "next": 0
     },
     {
       "name": "providers",
@@ -197,23 +279,49 @@
       ]
     },
     {
-      "name": "agent",
+      "name": "run",
       "tip": [
-        "管理代理"
+        "使用消息运行 opencode"
+      ],
+      "next": 0
+    },
+    {
+      "name": "serve",
+      "tip": [
+        "启动无头 opencode 服务器"
+      ]
+    },
+    {
+      "name": "session",
+      "tip": [
+        "管理会话"
       ],
       "next": [
         {
-          "name": "create",
+          "name": "delete",
           "tip": [
-            "创建新代理"
-          ]
+            "删除会话"
+          ],
+          "next": 0
         },
         {
           "name": "list",
           "tip": [
-            "列出所有可用代理"
+            "列出会话"
           ]
         }
+      ]
+    },
+    {
+      "name": "stats",
+      "tip": [
+        "显示 token 使用情况和成本统计"
+      ]
+    },
+    {
+      "name": "uninstall",
+      "tip": [
+        "卸载 opencode 并删除所有相关文件"
       ]
     },
     {
@@ -224,143 +332,35 @@
       "next": 0
     },
     {
-      "name": "uninstall",
-      "tip": [
-        "卸载 opencode 并删除所有相关文件"
-      ]
-    },
-    {
-      "name": "serve",
-      "tip": [
-        "启动无头 opencode 服务器"
-      ]
-    },
-    {
       "name": "web",
       "tip": [
         "启动 opencode 服务器并打开 Web 界面"
-      ]
-    },
-    {
-      "name": "models",
-      "tip": [
-        "列出所有可用模型"
-      ],
-      "next": 0
-    },
-    {
-      "name": "stats",
-      "tip": [
-        "显示 token 使用情况和成本统计"
-      ]
-    },
-    {
-      "name": "export",
-      "tip": [
-        "将会话数据导出为 JSON"
-      ],
-      "next": 0
-    },
-    {
-      "name": "import",
-      "tip": [
-        "从 JSON 文件或 URL 导入会话数据"
-      ],
-      "next": 0
-    },
-    {
-      "name": "github",
-      "tip": [
-        "管理 GitHub 代理"
-      ],
-      "next": [
-        {
-          "name": "install",
-          "tip": [
-            "安装 GitHub 代理"
-          ]
-        },
-        {
-          "name": "run",
-          "tip": [
-            "运行 GitHub 代理"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "pr",
-      "tip": [
-        "获取并切换到 GitHub PR 分支，然后运行 opencode"
-      ],
-      "next": 0
-    },
-    {
-      "name": "session",
-      "tip": [
-        "管理会话"
-      ],
-      "next": [
-        {
-          "name": "list",
-          "tip": [
-            "列出会话"
-          ]
-        },
-        {
-          "name": "delete",
-          "tip": [
-            "删除会话"
-          ],
-          "next": 0
-        }
-      ]
-    },
-    {
-      "name": "plugin",
-      "tip": [
-        "安装插件并更新配置"
-      ],
-      "next": 0
-    },
-    {
-      "name": "db",
-      "tip": [
-        "数据库工具"
-      ],
-      "next": [
-        {
-          "name": "path",
-          "tip": [
-            "打印数据库路径"
-          ]
-        }
       ]
     }
   ],
   "option": [
     {
-      "name": "-h",
-      "alias": [
-        "--help"
-      ],
+      "name": "--agent",
       "tip": [
-        "显示帮助"
+        "要使用的代理"
       ]
     },
     {
-      "name": "-v",
-      "alias": [
-        "--version"
-      ],
+      "name": "--cors",
       "tip": [
-        "显示版本号"
+        "允许 CORS 的其他域名"
       ]
     },
     {
-      "name": "--print-logs",
+      "name": "--fork",
       "tip": [
-        "将日志打印到 stderr"
+        "继续时分叉会话（与 --continue 或 --session 配合使用）"
+      ]
+    },
+    {
+      "name": "--hostname",
+      "tip": [
+        "监听主机名"
       ]
     },
     {
@@ -373,32 +373,14 @@
           "name": "DEBUG"
         },
         {
+          "name": "ERROR"
+        },
+        {
           "name": "INFO"
         },
         {
           "name": "WARN"
-        },
-        {
-          "name": "ERROR"
         }
-      ]
-    },
-    {
-      "name": "--pure",
-      "tip": [
-        "不加载外部插件运行"
-      ]
-    },
-    {
-      "name": "--port",
-      "tip": [
-        "监听端口"
-      ]
-    },
-    {
-      "name": "--hostname",
-      "tip": [
-        "监听主机名"
       ]
     },
     {
@@ -414,18 +396,27 @@
       ]
     },
     {
-      "name": "--cors",
+      "name": "--port",
       "tip": [
-        "允许 CORS 的其他域名"
+        "监听端口"
       ]
     },
     {
-      "name": "-m",
-      "alias": [
-        "--model"
-      ],
+      "name": "--print-logs",
       "tip": [
-        "使用 provider/model 格式的模型"
+        "将日志打印到 stderr"
+      ]
+    },
+    {
+      "name": "--prompt",
+      "tip": [
+        "要使用的提示"
+      ]
+    },
+    {
+      "name": "--pure",
+      "tip": [
+        "不加载外部插件运行"
       ]
     },
     {
@@ -438,6 +429,24 @@
       ]
     },
     {
+      "name": "-h",
+      "alias": [
+        "--help"
+      ],
+      "tip": [
+        "显示帮助"
+      ]
+    },
+    {
+      "name": "-m",
+      "alias": [
+        "--model"
+      ],
+      "tip": [
+        "使用 provider/model 格式的模型"
+      ]
+    },
+    {
       "name": "-s",
       "alias": [
         "--session"
@@ -447,21 +456,12 @@
       ]
     },
     {
-      "name": "--fork",
+      "name": "-v",
+      "alias": [
+        "--version"
+      ],
       "tip": [
-        "继续时分叉会话（与 --continue 或 --session 配合使用）"
-      ]
-    },
-    {
-      "name": "--prompt",
-      "tip": [
-        "要使用的提示"
-      ]
-    },
-    {
-      "name": "--agent",
-      "tip": [
-        "要使用的代理"
+        "显示版本号"
       ]
     }
   ],

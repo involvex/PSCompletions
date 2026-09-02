@@ -8,18 +8,133 @@
   },
   "root": [
     {
-      "name": "update",
+      "name": "boot",
       "tip": [
-        "U: update ZIP",
-        "Flash all partitions from an update.zip package."
+        "U: boot KERNEL [RAMDISK [SECOND]]",
+        "Download and boot kernel from RAM."
+      ],
+      "option": [
+        {
+          "name": "--base",
+          "tip": [
+            "U: --base ADDRESS",
+            "Set kernel base address (default: 0x10000000)."
+          ]
+        },
+        {
+          "name": "--cmdline",
+          "tip": [
+            "U: --cmdline CMDLINE",
+            "Override kernel command line."
+          ]
+        },
+        {
+          "name": "--dtb",
+          "tip": [
+            "U: --dtb DTB",
+            "Specify path to DTB for boot image header version 2."
+          ]
+        },
+        {
+          "name": "--dtb-offset",
+          "tip": [
+            "U: --dtb-offset OFFSET",
+            "Set dtb offset (default: 0x01100000)."
+          ]
+        },
+        {
+          "name": "--header-version",
+          "tip": [
+            "U: --header-version VERSION",
+            "Set boot image header version."
+          ]
+        },
+        {
+          "name": "--kernel-offset",
+          "tip": [
+            "U: --kernel-offset OFFSET",
+            "Set kernel offset (default: 0x00008000)."
+          ]
+        },
+        {
+          "name": "--os-patch-level",
+          "tip": [
+            "U: --os-patch-level YYYY-MM-DD",
+            "Set boot image OS security patch level."
+          ]
+        },
+        {
+          "name": "--os-version",
+          "tip": [
+            "U: --os-version MAJOR[.MINOR[.PATCH]]",
+            "Set boot image OS version (default: 0.0.0)."
+          ]
+        },
+        {
+          "name": "--page-size",
+          "tip": [
+            "U: --page-size BYTES",
+            "Set flash page size (default: 2048)."
+          ]
+        },
+        {
+          "name": "--ramdisk-offset",
+          "tip": [
+            "U: --ramdisk-offset OFFSET",
+            "Set ramdisk offset (default: 0x01000000)."
+          ]
+        },
+        {
+          "name": "--tags-offset",
+          "tip": [
+            "U: --tags-offset OFFSET",
+            "Set tags offset (default: 0x00000100)."
+          ]
+        }
       ]
     },
     {
-      "name": "flashall",
+      "name": "create-logical-partition",
       "tip": [
-        "Flash all partitions from $ANDROID_PRODUCT_OUT.",
-        "On A/B devices, flashed slot is set as active.",
-        "Secondary images may be flashed to inactive slot."
+        "U: create-logical-partition NAME SIZE",
+        "Create a logical partition with the given name and",
+        "size, in the super partition."
+      ]
+    },
+    {
+      "name": "delete-logical-partition",
+      "tip": [
+        "U: delete-logical-partition NAME",
+        "Delete a logical partition with the given name."
+      ]
+    },
+    {
+      "name": "devices",
+      "tip": [
+        "U: devices [-l]",
+        "List devices in bootloader (-l: with device paths)."
+      ],
+      "option": [
+        {
+          "name": "-l",
+          "tip": [
+            "List devices with device paths."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "erase",
+      "tip": [
+        "U: erase PARTITION",
+        "Erase a flash partition."
+      ]
+    },
+    {
+      "name": "fetch",
+      "tip": [
+        "U: fetch PARTITION OUT_FILE",
+        "Fetch a partition image from the device."
       ]
     },
     {
@@ -41,25 +156,98 @@
       ]
     },
     {
-      "name": "devices",
+      "name": "flash:raw",
       "tip": [
-        "U: devices [-l]",
-        "List devices in bootloader (-l: with device paths)."
+        "U: flash:raw PARTITION KERNEL [RAMDISK [SECOND]]",
+        "Create boot image and flash it."
       ],
       "option": [
         {
-          "name": "-l",
-          "tip": ["List devices with device paths."]
+          "name": "--base",
+          "tip": [
+            "U: --base ADDRESS",
+            "Set kernel base address (default: 0x10000000)."
+          ]
+        },
+        {
+          "name": "--cmdline",
+          "tip": [
+            "U: --cmdline CMDLINE",
+            "Override kernel command line."
+          ]
+        },
+        {
+          "name": "--dtb",
+          "tip": [
+            "U: --dtb DTB",
+            "Specify path to DTB for boot image header version 2."
+          ]
+        },
+        {
+          "name": "--dtb-offset",
+          "tip": [
+            "U: --dtb-offset OFFSET",
+            "Set dtb offset (default: 0x01100000)."
+          ]
+        },
+        {
+          "name": "--header-version",
+          "tip": [
+            "U: --header-version VERSION",
+            "Set boot image header version."
+          ]
+        },
+        {
+          "name": "--kernel-offset",
+          "tip": [
+            "U: --kernel-offset OFFSET",
+            "Set kernel offset (default: 0x00008000)."
+          ]
+        },
+        {
+          "name": "--os-patch-level",
+          "tip": [
+            "U: --os-patch-level YYYY-MM-DD",
+            "Set boot image OS security patch level."
+          ]
+        },
+        {
+          "name": "--os-version",
+          "tip": [
+            "U: --os-version MAJOR[.MINOR[.PATCH]]",
+            "Set boot image OS version (default: 0.0.0)."
+          ]
+        },
+        {
+          "name": "--page-size",
+          "tip": [
+            "U: --page-size BYTES",
+            "Set flash page size (default: 2048)."
+          ]
+        },
+        {
+          "name": "--ramdisk-offset",
+          "tip": [
+            "U: --ramdisk-offset OFFSET",
+            "Set ramdisk offset (default: 0x01000000)."
+          ]
+        },
+        {
+          "name": "--tags-offset",
+          "tip": [
+            "U: --tags-offset OFFSET",
+            "Set tags offset (default: 0x00000100)."
+          ]
         }
       ]
     },
     {
-      "name": "getvar",
-      "tip": ["U: getvar NAME", "Display given bootloader variable."]
-    },
-    {
-      "name": "reboot",
-      "tip": ["U: reboot [bootloader]", "Reboot device."]
+      "name": "flashall",
+      "tip": [
+        "Flash all partitions from $ANDROID_PRODUCT_OUT.",
+        "On A/B devices, flashed slot is set as active.",
+        "Secondary images may be flashed to inactive slot."
+      ]
     },
     {
       "name": "flashing",
@@ -69,30 +257,36 @@
       ],
       "option": [
         {
-          "name": "lock",
-          "tip": ["Lock partitions for flashing."]
+          "name": "get_unlock_ability",
+          "tip": [
+            "Check whether unlocking is allowed (1) or not (0)."
+          ]
         },
         {
-          "name": "unlock",
-          "tip": ["Unlock partitions for flashing."]
+          "name": "lock",
+          "tip": [
+            "Lock partitions for flashing."
+          ]
         },
         {
           "name": "lock_critical",
-          "tip": ["Lock 'critical' bootloader partitions."]
+          "tip": [
+            "Lock 'critical' bootloader partitions."
+          ]
+        },
+        {
+          "name": "unlock",
+          "tip": [
+            "Unlock partitions for flashing."
+          ]
         },
         {
           "name": "unlock_critical",
-          "tip": ["Unlock 'critical' bootloader partitions."]
-        },
-        {
-          "name": "get_unlock_ability",
-          "tip": ["Check whether unlocking is allowed (1) or not (0)."]
+          "tip": [
+            "Unlock 'critical' bootloader partitions."
+          ]
         }
       ]
-    },
-    {
-      "name": "erase",
-      "tip": ["U: erase PARTITION", "Erase a flash partition."]
     },
     {
       "name": "format",
@@ -102,12 +296,18 @@
       ]
     },
     {
-      "name": "set_active",
-      "tip": ["U: set_active SLOT", "Set the active slot."]
+      "name": "get_staged",
+      "tip": [
+        "U: get_staged OUT_FILE",
+        "Writes data staged by the last command to a file."
+      ]
     },
     {
-      "name": "oem",
-      "tip": ["U: oem [COMMAND...]", "Execute OEM-specific command."]
+      "name": "getvar",
+      "tip": [
+        "U: getvar NAME",
+        "Display given bootloader variable."
+      ]
     },
     {
       "name": "gsi",
@@ -118,40 +318,37 @@
       ],
       "option": [
         {
-          "name": "wipe",
-          "tip": ["Wipe GSI installation."]
-        },
-        {
           "name": "disable",
-          "tip": ["Disable GSI installation."]
+          "tip": [
+            "Disable GSI installation."
+          ]
         },
         {
           "name": "status",
-          "tip": ["Show status of GSI installation."]
+          "tip": [
+            "Show status of GSI installation."
+          ]
+        },
+        {
+          "name": "wipe",
+          "tip": [
+            "Wipe GSI installation."
+          ]
         }
       ]
     },
     {
-      "name": "wipe-super",
+      "name": "oem",
       "tip": [
-        "U: wipe-super [SUPER_EMPTY]",
-        "Wipe the super partition. This will reset it to",
-        "contain an empty set of default dynamic partitions."
+        "U: oem [COMMAND...]",
+        "Execute OEM-specific command."
       ]
     },
     {
-      "name": "create-logical-partition",
+      "name": "reboot",
       "tip": [
-        "U: create-logical-partition NAME SIZE",
-        "Create a logical partition with the given name and",
-        "size, in the super partition."
-      ]
-    },
-    {
-      "name": "delete-logical-partition",
-      "tip": [
-        "U: delete-logical-partition NAME",
-        "Delete a logical partition with the given name."
+        "U: reboot [bootloader]",
+        "Reboot device."
       ]
     },
     {
@@ -159,6 +356,13 @@
       "tip": [
         "U: resize-logical-partition NAME SIZE",
         "Change the size of the named logical partition."
+      ]
+    },
+    {
+      "name": "set_active",
+      "tip": [
+        "U: set_active SLOT",
+        "Set the active slot."
       ]
     },
     {
@@ -186,179 +390,6 @@
       ]
     },
     {
-      "name": "fetch",
-      "tip": [
-        "U: fetch PARTITION OUT_FILE",
-        "Fetch a partition image from the device."
-      ]
-    },
-    {
-      "name": "boot",
-      "tip": [
-        "U: boot KERNEL [RAMDISK [SECOND]]",
-        "Download and boot kernel from RAM."
-      ],
-      "option": [
-        {
-          "name": "--dtb",
-          "tip": [
-            "U: --dtb DTB",
-            "Specify path to DTB for boot image header version 2."
-          ]
-        },
-        {
-          "name": "--cmdline",
-          "tip": ["U: --cmdline CMDLINE", "Override kernel command line."]
-        },
-        {
-          "name": "--base",
-          "tip": [
-            "U: --base ADDRESS",
-            "Set kernel base address (default: 0x10000000)."
-          ]
-        },
-        {
-          "name": "--kernel-offset",
-          "tip": [
-            "U: --kernel-offset OFFSET",
-            "Set kernel offset (default: 0x00008000)."
-          ]
-        },
-        {
-          "name": "--ramdisk-offset",
-          "tip": [
-            "U: --ramdisk-offset OFFSET",
-            "Set ramdisk offset (default: 0x01000000)."
-          ]
-        },
-        {
-          "name": "--tags-offset",
-          "tip": [
-            "U: --tags-offset OFFSET",
-            "Set tags offset (default: 0x00000100)."
-          ]
-        },
-        {
-          "name": "--dtb-offset",
-          "tip": [
-            "U: --dtb-offset OFFSET",
-            "Set dtb offset (default: 0x01100000)."
-          ]
-        },
-        {
-          "name": "--page-size",
-          "tip": [
-            "U: --page-size BYTES",
-            "Set flash page size (default: 2048)."
-          ]
-        },
-        {
-          "name": "--header-version",
-          "tip": [
-            "U: --header-version VERSION",
-            "Set boot image header version."
-          ]
-        },
-        {
-          "name": "--os-version",
-          "tip": [
-            "U: --os-version MAJOR[.MINOR[.PATCH]]",
-            "Set boot image OS version (default: 0.0.0)."
-          ]
-        },
-        {
-          "name": "--os-patch-level",
-          "tip": [
-            "U: --os-patch-level YYYY-MM-DD",
-            "Set boot image OS security patch level."
-          ]
-        }
-      ]
-    },
-    {
-      "name": "flash:raw",
-      "tip": [
-        "U: flash:raw PARTITION KERNEL [RAMDISK [SECOND]]",
-        "Create boot image and flash it."
-      ],
-      "option": [
-        {
-          "name": "--dtb",
-          "tip": [
-            "U: --dtb DTB",
-            "Specify path to DTB for boot image header version 2."
-          ]
-        },
-        {
-          "name": "--cmdline",
-          "tip": ["U: --cmdline CMDLINE", "Override kernel command line."]
-        },
-        {
-          "name": "--base",
-          "tip": [
-            "U: --base ADDRESS",
-            "Set kernel base address (default: 0x10000000)."
-          ]
-        },
-        {
-          "name": "--kernel-offset",
-          "tip": [
-            "U: --kernel-offset OFFSET",
-            "Set kernel offset (default: 0x00008000)."
-          ]
-        },
-        {
-          "name": "--ramdisk-offset",
-          "tip": [
-            "U: --ramdisk-offset OFFSET",
-            "Set ramdisk offset (default: 0x01000000)."
-          ]
-        },
-        {
-          "name": "--tags-offset",
-          "tip": [
-            "U: --tags-offset OFFSET",
-            "Set tags offset (default: 0x00000100)."
-          ]
-        },
-        {
-          "name": "--dtb-offset",
-          "tip": [
-            "U: --dtb-offset OFFSET",
-            "Set dtb offset (default: 0x01100000)."
-          ]
-        },
-        {
-          "name": "--page-size",
-          "tip": [
-            "U: --page-size BYTES",
-            "Set flash page size (default: 2048)."
-          ]
-        },
-        {
-          "name": "--header-version",
-          "tip": [
-            "U: --header-version VERSION",
-            "Set boot image header version."
-          ]
-        },
-        {
-          "name": "--os-version",
-          "tip": [
-            "U: --os-version MAJOR[.MINOR[.PATCH]]",
-            "Set boot image OS version (default: 0.0.0)."
-          ]
-        },
-        {
-          "name": "--os-patch-level",
-          "tip": [
-            "U: --os-patch-level YYYY-MM-DD",
-            "Set boot image OS security patch level."
-          ]
-        }
-      ]
-    },
-    {
       "name": "stage",
       "tip": [
         "U: stage IN_FILE",
@@ -366,17 +397,111 @@
       ]
     },
     {
-      "name": "get_staged",
+      "name": "update",
       "tip": [
-        "U: get_staged OUT_FILE",
-        "Writes data staged by the last command to a file."
+        "U: update ZIP",
+        "Flash all partitions from an update.zip package."
+      ]
+    },
+    {
+      "name": "wipe-super",
+      "tip": [
+        "U: wipe-super [SUPER_EMPTY]",
+        "Wipe the super partition. This will reset it to",
+        "contain an empty set of default dynamic partitions."
       ]
     }
   ],
   "option": [
     {
-      "name": "-w",
-      "tip": ["Wipe userdata."]
+      "name": "--disable-fastboot-info",
+      "tip": [
+        "Will collects tasks from image list rather than",
+        "$OUT/fastboot-info.txt."
+      ]
+    },
+    {
+      "name": "--disable-super-optimization",
+      "tip": [
+        "Disables optimizations on flashing super partition."
+      ]
+    },
+    {
+      "name": "--disable-verification",
+      "tip": [
+        "Sets disable-verification when flashing vbmeta."
+      ]
+    },
+    {
+      "name": "--disable-verity",
+      "tip": [
+        "Sets disable-verity when flashing vbmeta."
+      ]
+    },
+    {
+      "name": "--exclude-dynamic-partitions",
+      "tip": [
+        "Excludes flashing of dynamic partitions."
+      ]
+    },
+    {
+      "name": "--force",
+      "tip": [
+        "Force a flash operation that may be unsafe."
+      ]
+    },
+    {
+      "name": "--fs-options",
+      "tip": [
+        "U: --fs-options=OPTION[,OPTION]",
+        "Enable filesystem features.",
+        "OPTION supports casefold, projid, compress."
+      ]
+    },
+    {
+      "name": "--set-active",
+      "tip": [
+        "U: --set-active[=SLOT]",
+        "Sets the active slot before rebooting."
+      ]
+    },
+    {
+      "name": "--skip-reboot",
+      "tip": [
+        "Don't reboot device after flashing."
+      ]
+    },
+    {
+      "name": "--skip-secondary",
+      "tip": [
+        "Don't flash secondary slots in flashall/update."
+      ]
+    },
+    {
+      "name": "--slot",
+      "tip": [
+        "U: --slot SLOT",
+        "Use SLOT; 'all' for both slots, 'other' for",
+        "non-current slot (default: current active slot)."
+      ]
+    },
+    {
+      "name": "--unbuffered",
+      "tip": [
+        "Don't buffer input or output."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "tip": [
+        "Verbose output."
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Display version."
+      ]
     },
     {
       "name": "-s",
@@ -395,88 +520,30 @@
       ]
     },
     {
-      "name": "--force",
-      "tip": ["Force a flash operation that may be unsafe."]
-    },
-    {
-      "name": "--slot",
-      "tip": [
-        "U: --slot SLOT",
-        "Use SLOT; 'all' for both slots, 'other' for",
-        "non-current slot (default: current active slot)."
-      ]
-    },
-    {
-      "name": "--set-active",
-      "tip": [
-        "U: --set-active[=SLOT]",
-        "Sets the active slot before rebooting."
-      ]
-    },
-    {
-      "name": "--skip-secondary",
-      "tip": ["Don't flash secondary slots in flashall/update."]
-    },
-    {
-      "name": "--skip-reboot",
-      "tip": ["Don't reboot device after flashing."]
-    },
-    {
-      "name": "--disable-verity",
-      "tip": ["Sets disable-verity when flashing vbmeta."]
-    },
-    {
-      "name": "--disable-verification",
-      "tip": ["Sets disable-verification when flashing vbmeta."]
-    },
-    {
-      "name": "--disable-super-optimization",
-      "tip": ["Disables optimizations on flashing super partition."]
-    },
-    {
-      "name": "--exclude-dynamic-partitions",
-      "tip": ["Excludes flashing of dynamic partitions."]
-    },
-    {
-      "name": "--disable-fastboot-info",
-      "tip": [
-        "Will collects tasks from image list rather than",
-        "$OUT/fastboot-info.txt."
-      ]
-    },
-    {
-      "name": "--fs-options",
-      "tip": [
-        "U: --fs-options=OPTION[,OPTION]",
-        "Enable filesystem features.",
-        "OPTION supports casefold, projid, compress."
-      ]
-    },
-    {
-      "name": "--unbuffered",
-      "tip": ["Don't buffer input or output."]
-    },
-    {
-      "name": "--verbose",
-      "tip": ["Verbose output."]
-    },
-    {
       "name": "-v",
-      "tip": ["Verbose output."]
+      "tip": [
+        "Verbose output."
+      ]
     },
     {
-      "name": "--version",
-      "tip": ["Display version."]
+      "name": "-w",
+      "tip": [
+        "Wipe userdata."
+      ]
     }
   ],
   "common_option": [
     {
       "name": "--help",
-      "tip": ["Show this message."]
+      "tip": [
+        "Show this message."
+      ]
     },
     {
       "name": "-h",
-      "tip": ["Show this message."]
+      "tip": [
+        "Show this message."
+      ]
     }
   ]
 }

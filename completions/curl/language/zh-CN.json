@@ -9,411 +9,12 @@
   "root": [],
   "option": [
     {
-      "name": "-1",
-      "alias": ["--tlsv1"],
-      "tip": [
-        "TLSv1.0 或更高版本。"
-      ]
-    },
-    {
-      "name": "-2",
-      "alias": ["--sslv2"],
-      "tip": [
-        "SSLv2。"
-      ]
-    },
-    {
-      "name": "-3",
-      "alias": ["--sslv3"],
-      "tip": [
-        "SSLv3。"
-      ]
-    },
-    {
-      "name": "-4",
-      "alias": ["--ipv4"],
-      "tip": [
-        "将名称解析为 IPv4 地址。"
-      ]
-    },
-    {
-      "name": "-6",
-      "alias": ["--ipv6"],
-      "tip": [
-        "将名称解析为 IPv6 地址。"
-      ]
-    },
-    {
-      "name": "-a",
-      "alias": ["--append"],
-      "tip": [
-        "上传时追加到目标文件。"
-      ]
-    },
-    {
-      "name": "-A",
-      "alias": ["--user-agent"],
-      "tip": [
-        "向服务器发送 User-Agent <name>。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-b",
-      "alias": ["--cookie"],
-      "tip": [
-        "从字符串/文件发送 cookie。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-B",
-      "alias": ["--use-ascii"],
-      "tip": [
-        "使用 ASCII/文本传输。"
-      ]
-    },
-    {
-      "name": "-c",
-      "alias": ["--cookie-jar"],
-      "tip": [
-        "在操作后将 cookie 保存到 <filename>。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-C",
-      "alias": ["--continue-at"],
-      "tip": [
-        "恢复传输的偏移量。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-d",
-      "alias": ["--data"],
-      "tip": [
-        "HTTP POST 数据。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "--data-ascii",
-      "tip": [
-        "HTTP POST ASCII 数据。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "--data-binary",
-      "tip": [
-        "HTTP POST 二进制数据。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "--data-raw",
-      "tip": [
-        "HTTP POST 数据，允许 '@'。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "--data-urlencode",
-      "tip": [
-        "HTTP POST 数据 URL 编码。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-D",
-      "alias": ["--dump-header"],
-      "tip": [
-        "将接收的标头写入 <filename>。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-E",
-      "alias": ["--cert"],
-      "tip": [
-        "客户端证书文件和密码。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-e",
-      "alias": ["--referer"],
-      "tip": [
-        "引荐来源 URL。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-F",
-      "alias": ["--form"],
-      "tip": [
-        "指定多部分 MIME 数据。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-G",
-      "alias": ["--get"],
-      "tip": [
-        "将 POST 数据放入 URL 中并使用 GET。"
-      ]
-    },
-    {
-      "name": "-g",
-      "alias": ["--globoff"],
-      "tip": [
-        "禁用 URL 中的 {} 和 [] 通配符。"
-      ]
-    },
-    {
-      "name": "-H",
-      "alias": ["--header"],
-      "tip": [
-        "向服务器传递自定义标头。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-I",
-      "alias": ["--head"],
-      "tip": [
-        "仅显示文档信息。"
-      ]
-    },
-    {
-      "name": "-i",
-      "alias": ["--show-headers"],
-      "tip": [
-        "在输出中显示响应标头。"
-      ]
-    },
-    {
-      "name": "-j",
-      "alias": ["--junk-session-cookies"],
-      "tip": [
-        "忽略从文件读取的会话 cookie。"
-      ]
-    },
-    {
-      "name": "-J",
-      "alias": ["--remote-header-name"],
-      "tip": [
-        "使用标头提供的文件名。"
-      ]
-    },
-    {
-      "name": "-K",
-      "alias": ["--config"],
-      "tip": [
-        "从文件读取配置。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-k",
-      "alias": ["--insecure"],
-      "tip": [
-        "允许不安全的服务器连接。"
-      ]
-    },
-    {
-      "name": "-L",
-      "alias": ["--location"],
-      "tip": [
-        "跟随重定向。"
-      ]
-    },
-    {
-      "name": "-l",
-      "alias": ["--list-only"],
-      "tip": [
-        "仅列表模式。"
-      ]
-    },
-    {
-      "name": "-M",
-      "alias": ["--manual"],
-      "tip": [
-        "显示完整手册。"
-      ]
-    },
-    {
-      "name": "-m",
-      "alias": ["--max-time"],
-      "tip": [
-        "允许传输的最大时间。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-N",
-      "alias": ["--no-buffer"],
-      "tip": [
-        "禁用输出流缓冲。"
-      ]
-    },
-    {
-      "name": "-n",
-      "alias": ["--netrc"],
-      "tip": [
-        "必须从 .netrc 读取用户名和密码。"
-      ]
-    },
-    {
       "name": "-",
-      "alias": ["--next"],
+      "alias": [
+        "--next"
+      ],
       "tip": [
         "使下一个 URL 使用单独的选项。"
-      ]
-    },
-    {
-      "name": "-O",
-      "alias": ["--remote-name"],
-      "tip": [
-        "将输出写入远程文件命名的文件。"
-      ]
-    },
-    {
-      "name": "-o",
-      "alias": ["--output"],
-      "tip": [
-        "写入文件而不是 stdout。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-P",
-      "alias": ["--ftp-port"],
-      "tip": [
-        "发送 PORT 而不是 PASV。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-q",
-      "alias": ["--disable"],
-      "tip": [
-        "禁用 .curlrc。"
-      ]
-    },
-    {
-      "name": "-Q",
-      "alias": ["--quote"],
-      "tip": [
-        "在传输前向服务器发送命令。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-r",
-      "alias": ["--range"],
-      "tip": [
-        "仅获取 RANGE 内的字节。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-R",
-      "alias": ["--remote-time"],
-      "tip": [
-        "在本地输出上设置远程文件的修改时间。"
-      ]
-    },
-    {
-      "name": "-S",
-      "alias": ["--show-error"],
-      "tip": [
-        "即使在使用 -s 时也显示错误。"
-      ]
-    },
-    {
-      "name": "-s",
-      "alias": ["--silent"],
-      "tip": [
-        "静默模式。"
-      ]
-    },
-    {
-      "name": "-T",
-      "alias": ["--upload-file"],
-      "tip": [
-        "将本地 FILE 传输到目标地。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-U",
-      "alias": ["--proxy-user"],
-      "tip": [
-        "代理用户和密码。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-u",
-      "alias": ["--user"],
-      "tip": [
-        "服务器用户和密码。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-v",
-      "alias": ["--verbose"],
-      "tip": [
-        "使操作更冗 verbose。"
-      ]
-    },
-    {
-      "name": "-V",
-      "alias": ["--version"],
-      "tip": [
-        "显示版本号并退出。"
-      ]
-    },
-    {
-      "name": "-w",
-      "alias": ["--write-out"],
-      "tip": [
-        "完成后输出 FORMAT。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-X",
-      "alias": ["--request"],
-      "tip": [
-        "指定要使用的方法。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-x",
-      "alias": ["--proxy"],
-      "tip": [
-        "使用此代理。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-z",
-      "alias": ["--time-cond"],
-      "tip": [
-        "基于时间条件传输。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-#",
-      "alias": ["--progress-bar"],
-      "tip": [
-        "显示传输进度条。"
       ]
     },
     {
@@ -545,6 +146,34 @@
       "name": "--curves",
       "tip": [
         "(EC) 要请求的 TLS 密钥交换算法。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--data-ascii",
+      "tip": [
+        "HTTP POST ASCII 数据。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--data-binary",
+      "tip": [
+        "HTTP POST 二进制数据。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--data-raw",
+      "tip": [
+        "HTTP POST 数据，允许 '@'。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--data-urlencode",
+      "tip": [
+        "HTTP POST 数据 URL 编码。"
       ],
       "next": 0
     },
@@ -872,7 +501,9 @@
     },
     {
       "name": "--include",
-      "alias": ["--show-headers"],
+      "alias": [
+        "--show-headers"
+      ],
       "tip": [
         "在输出中包含 HTTP 标头。"
       ]
@@ -1902,12 +1533,487 @@
       "tip": [
         "将元数据存储在扩展文件属性中。"
       ]
+    },
+    {
+      "name": "-#",
+      "alias": [
+        "--progress-bar"
+      ],
+      "tip": [
+        "显示传输进度条。"
+      ]
+    },
+    {
+      "name": "-1",
+      "alias": [
+        "--tlsv1"
+      ],
+      "tip": [
+        "TLSv1.0 或更高版本。"
+      ]
+    },
+    {
+      "name": "-2",
+      "alias": [
+        "--sslv2"
+      ],
+      "tip": [
+        "SSLv2。"
+      ]
+    },
+    {
+      "name": "-3",
+      "alias": [
+        "--sslv3"
+      ],
+      "tip": [
+        "SSLv3。"
+      ]
+    },
+    {
+      "name": "-4",
+      "alias": [
+        "--ipv4"
+      ],
+      "tip": [
+        "将名称解析为 IPv4 地址。"
+      ]
+    },
+    {
+      "name": "-6",
+      "alias": [
+        "--ipv6"
+      ],
+      "tip": [
+        "将名称解析为 IPv6 地址。"
+      ]
+    },
+    {
+      "name": "-a",
+      "alias": [
+        "--append"
+      ],
+      "tip": [
+        "上传时追加到目标文件。"
+      ]
+    },
+    {
+      "name": "-A",
+      "alias": [
+        "--user-agent"
+      ],
+      "tip": [
+        "向服务器发送 User-Agent <name>。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-b",
+      "alias": [
+        "--cookie"
+      ],
+      "tip": [
+        "从字符串/文件发送 cookie。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-B",
+      "alias": [
+        "--use-ascii"
+      ],
+      "tip": [
+        "使用 ASCII/文本传输。"
+      ]
+    },
+    {
+      "name": "-c",
+      "alias": [
+        "--cookie-jar"
+      ],
+      "tip": [
+        "在操作后将 cookie 保存到 <filename>。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-C",
+      "alias": [
+        "--continue-at"
+      ],
+      "tip": [
+        "恢复传输的偏移量。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-d",
+      "alias": [
+        "--data"
+      ],
+      "tip": [
+        "HTTP POST 数据。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-D",
+      "alias": [
+        "--dump-header"
+      ],
+      "tip": [
+        "将接收的标头写入 <filename>。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-e",
+      "alias": [
+        "--referer"
+      ],
+      "tip": [
+        "引荐来源 URL。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-E",
+      "alias": [
+        "--cert"
+      ],
+      "tip": [
+        "客户端证书文件和密码。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-F",
+      "alias": [
+        "--form"
+      ],
+      "tip": [
+        "指定多部分 MIME 数据。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-g",
+      "alias": [
+        "--globoff"
+      ],
+      "tip": [
+        "禁用 URL 中的 {} 和 [] 通配符。"
+      ]
+    },
+    {
+      "name": "-G",
+      "alias": [
+        "--get"
+      ],
+      "tip": [
+        "将 POST 数据放入 URL 中并使用 GET。"
+      ]
+    },
+    {
+      "name": "-H",
+      "alias": [
+        "--header"
+      ],
+      "tip": [
+        "向服务器传递自定义标头。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-i",
+      "alias": [
+        "--show-headers"
+      ],
+      "tip": [
+        "在输出中显示响应标头。"
+      ]
+    },
+    {
+      "name": "-I",
+      "alias": [
+        "--head"
+      ],
+      "tip": [
+        "仅显示文档信息。"
+      ]
+    },
+    {
+      "name": "-j",
+      "alias": [
+        "--junk-session-cookies"
+      ],
+      "tip": [
+        "忽略从文件读取的会话 cookie。"
+      ]
+    },
+    {
+      "name": "-J",
+      "alias": [
+        "--remote-header-name"
+      ],
+      "tip": [
+        "使用标头提供的文件名。"
+      ]
+    },
+    {
+      "name": "-k",
+      "alias": [
+        "--insecure"
+      ],
+      "tip": [
+        "允许不安全的服务器连接。"
+      ]
+    },
+    {
+      "name": "-K",
+      "alias": [
+        "--config"
+      ],
+      "tip": [
+        "从文件读取配置。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-l",
+      "alias": [
+        "--list-only"
+      ],
+      "tip": [
+        "仅列表模式。"
+      ]
+    },
+    {
+      "name": "-L",
+      "alias": [
+        "--location"
+      ],
+      "tip": [
+        "跟随重定向。"
+      ]
+    },
+    {
+      "name": "-m",
+      "alias": [
+        "--max-time"
+      ],
+      "tip": [
+        "允许传输的最大时间。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-M",
+      "alias": [
+        "--manual"
+      ],
+      "tip": [
+        "显示完整手册。"
+      ]
+    },
+    {
+      "name": "-n",
+      "alias": [
+        "--netrc"
+      ],
+      "tip": [
+        "必须从 .netrc 读取用户名和密码。"
+      ]
+    },
+    {
+      "name": "-N",
+      "alias": [
+        "--no-buffer"
+      ],
+      "tip": [
+        "禁用输出流缓冲。"
+      ]
+    },
+    {
+      "name": "-o",
+      "alias": [
+        "--output"
+      ],
+      "tip": [
+        "写入文件而不是 stdout。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-O",
+      "alias": [
+        "--remote-name"
+      ],
+      "tip": [
+        "将输出写入远程文件命名的文件。"
+      ]
+    },
+    {
+      "name": "-P",
+      "alias": [
+        "--ftp-port"
+      ],
+      "tip": [
+        "发送 PORT 而不是 PASV。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-q",
+      "alias": [
+        "--disable"
+      ],
+      "tip": [
+        "禁用 .curlrc。"
+      ]
+    },
+    {
+      "name": "-Q",
+      "alias": [
+        "--quote"
+      ],
+      "tip": [
+        "在传输前向服务器发送命令。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-r",
+      "alias": [
+        "--range"
+      ],
+      "tip": [
+        "仅获取 RANGE 内的字节。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-R",
+      "alias": [
+        "--remote-time"
+      ],
+      "tip": [
+        "在本地输出上设置远程文件的修改时间。"
+      ]
+    },
+    {
+      "name": "-s",
+      "alias": [
+        "--silent"
+      ],
+      "tip": [
+        "静默模式。"
+      ]
+    },
+    {
+      "name": "-S",
+      "alias": [
+        "--show-error"
+      ],
+      "tip": [
+        "即使在使用 -s 时也显示错误。"
+      ]
+    },
+    {
+      "name": "-T",
+      "alias": [
+        "--upload-file"
+      ],
+      "tip": [
+        "将本地 FILE 传输到目标地。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-u",
+      "alias": [
+        "--user"
+      ],
+      "tip": [
+        "服务器用户和密码。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-U",
+      "alias": [
+        "--proxy-user"
+      ],
+      "tip": [
+        "代理用户和密码。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-v",
+      "alias": [
+        "--verbose"
+      ],
+      "tip": [
+        "使操作更冗 verbose。"
+      ]
+    },
+    {
+      "name": "-V",
+      "alias": [
+        "--version"
+      ],
+      "tip": [
+        "显示版本号并退出。"
+      ]
+    },
+    {
+      "name": "-w",
+      "alias": [
+        "--write-out"
+      ],
+      "tip": [
+        "完成后输出 FORMAT。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-x",
+      "alias": [
+        "--proxy"
+      ],
+      "tip": [
+        "使用此代理。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-X",
+      "alias": [
+        "--request"
+      ],
+      "tip": [
+        "指定要使用的方法。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-z",
+      "alias": [
+        "--time-cond"
+      ],
+      "tip": [
+        "基于时间条件传输。"
+      ],
+      "next": 0
     }
   ],
   "common_option": [
     {
       "name": "--help",
-      "alias": ["-h"],
+      "alias": [
+        "-h"
+      ],
       "tip": [
         "显示帮助。"
       ]

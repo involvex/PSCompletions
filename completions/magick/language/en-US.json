@@ -1,448 +1,12 @@
 {
   "meta": {
     "url": "https://imagemagick.org",
-    "description": ["ImageMagick command-line image processing tool."]
+    "description": [
+      "ImageMagick command-line image processing tool."
+    ]
   },
   "root": [],
   "option": [
-    {
-      "name": "-adjoin",
-      "tip": ["Join images into a single multi-image file."]
-    },
-    {
-      "name": "-affine",
-      "tip": ["U: -affine matrix", "Affine transform matrix."]
-    },
-    {
-      "name": "-alpha",
-      "tip": [
-        "U: -alpha option",
-        "Activate, deactivate, reset, or set the alpha channel.",
-        "Options: on, activate, off, deactivate, set, opaque, copy, transparent, extract, background, shape."
-      ]
-    },
-    {
-      "name": "-antialias",
-      "tip": ["Remove pixel-aliasing."]
-    },
-    {
-      "name": "-authenticate",
-      "tip": ["U: -authenticate password", "Decipher image with this password."]
-    },
-    {
-      "name": "-attenuate",
-      "tip": [
-        "U: -attenuate value",
-        "Lessen (or intensify) when adding noise to an image."
-      ]
-    },
-    {
-      "name": "-background",
-      "tip": ["U: -background color", "Background color."]
-    },
-    {
-      "name": "-bias",
-      "tip": ["U: -bias value", "Add bias when convolving an image."]
-    },
-    {
-      "name": "-black-point-compensation",
-      "tip": ["Use black point compensation."]
-    },
-    {
-      "name": "-blue-primary",
-      "tip": ["U: -blue-primary point", "Chromaticity blue primary point."]
-    },
-    {
-      "name": "-bordercolor",
-      "tip": ["U: -bordercolor color", "Border color."]
-    },
-    {
-      "name": "-caption",
-      "tip": ["U: -caption string", "Assign a caption to an image."]
-    },
-    {
-      "name": "-clip",
-      "tip": ["Clip along the first path from the 8BIM profile."]
-    },
-    {
-      "name": "-clip-mask",
-      "tip": ["U: -clip-mask filename", "Associate a clip mask with the image."]
-    },
-    {
-      "name": "-clip-path",
-      "tip": [
-        "U: -clip-path id",
-        "Clip along a named path from the 8BIM profile."
-      ]
-    },
-    {
-      "name": "-colorspace",
-      "tip": ["U: -colorspace type", "Alternate image colorspace."]
-    },
-    {
-      "name": "-comment",
-      "tip": ["U: -comment string", "Annotate image with comment."]
-    },
-    {
-      "name": "-compose",
-      "tip": ["U: -compose operator", "Set image composite operator."]
-    },
-    {
-      "name": "-compress",
-      "tip": [
-        "U: -compress type",
-        "Type of pixel compression when writing the image."
-      ]
-    },
-    {
-      "name": "-define",
-      "tip": [
-        "U: -define format:option",
-        "Define one or more image format options."
-      ]
-    },
-    {
-      "name": "-delay",
-      "tip": ["U: -delay value", "Display the next image after pausing."]
-    },
-    {
-      "name": "-density",
-      "tip": [
-        "U: -density geometry",
-        "Horizontal and vertical density of the image."
-      ]
-    },
-    {
-      "name": "-depth",
-      "tip": ["U: -depth value", "Image depth."]
-    },
-    {
-      "name": "-direction",
-      "tip": [
-        "U: -direction type",
-        "Render text right-to-left or left-to-right."
-      ]
-    },
-    {
-      "name": "-display",
-      "tip": ["U: -display server", "Get image or font from this X server."]
-    },
-    {
-      "name": "-dispose",
-      "tip": ["U: -dispose method", "Layer disposal method."]
-    },
-    {
-      "name": "-dither",
-      "tip": ["U: -dither method", "Apply error diffusion to image."]
-    },
-    {
-      "name": "-encoding",
-      "tip": ["U: -encoding type", "Text encoding type."]
-    },
-    {
-      "name": "-endian",
-      "tip": ["U: -endian type", "Endianness (MSB or LSB) of the image."]
-    },
-    {
-      "name": "-family",
-      "tip": ["U: -family name", "Render text with this font family."]
-    },
-    {
-      "name": "-features",
-      "tip": [
-        "U: -features distance",
-        "Analyze image features (e.g. contrast, correlation)."
-      ]
-    },
-    {
-      "name": "-fill",
-      "tip": [
-        "U: -fill color",
-        "Color to use when filling a graphic primitive."
-      ]
-    },
-    {
-      "name": "-filter",
-      "tip": ["U: -filter type", "Use this filter when resizing an image."]
-    },
-    {
-      "name": "-font",
-      "tip": ["U: -font name", "Render text with this font."]
-    },
-    {
-      "name": "-format",
-      "tip": [
-        "U: -format \"string\"",
-        "Output formatted image characteristics."
-      ]
-    },
-    {
-      "name": "-fuzz",
-      "tip": [
-        "U: -fuzz distance",
-        "Colors within this distance are considered equal."
-      ]
-    },
-    {
-      "name": "-gravity",
-      "tip": [
-        "U: -gravity type",
-        "Horizontal and vertical text placement.",
-        "Types: NorthWest, North, NorthEast, West, Center, East, SouthWest, South, SouthEast."
-      ]
-    },
-    {
-      "name": "-green-primary",
-      "tip": ["U: -green-primary point", "Chromaticity green primary point."]
-    },
-    {
-      "name": "-illuminant",
-      "tip": ["U: -illuminant type", "Reference illuminant."]
-    },
-    {
-      "name": "-intensity",
-      "tip": [
-        "U: -intensity method",
-        "Method to generate an intensity value from a pixel."
-      ]
-    },
-    {
-      "name": "-intent",
-      "tip": [
-        "U: -intent type",
-        "Type of rendering intent when managing the image color."
-      ]
-    },
-    {
-      "name": "-interlace",
-      "tip": ["U: -interlace type", "Type of image interlacing scheme."]
-    },
-    {
-      "name": "-interline-spacing",
-      "tip": [
-        "U: -interline-spacing value",
-        "Set the space between two text lines."
-      ]
-    },
-    {
-      "name": "-interpolate",
-      "tip": ["U: -interpolate method", "Pixel color interpolation method."]
-    },
-    {
-      "name": "-interword-spacing",
-      "tip": ["U: -interword-spacing value", "Set the space between two words."]
-    },
-    {
-      "name": "-kerning",
-      "tip": ["U: -kerning value", "Set the space between two letters."]
-    },
-    {
-      "name": "-label",
-      "tip": ["U: -label string", "Assign a label to an image."]
-    },
-    {
-      "name": "-limit",
-      "tip": ["U: -limit type value", "Pixel cache resource limit."]
-    },
-    {
-      "name": "-loop",
-      "tip": [
-        "U: -loop iterations",
-        "Add Netscape loop extension to your GIF animation."
-      ]
-    },
-    {
-      "name": "-matte",
-      "tip": ["Store matte channel if the image has one."]
-    },
-    {
-      "name": "-mattecolor",
-      "tip": ["U: -mattecolor color", "Frame color."]
-    },
-    {
-      "name": "-moments",
-      "tip": ["Report image moments."]
-    },
-    {
-      "name": "-monitor",
-      "tip": ["Monitor progress."]
-    },
-    {
-      "name": "-orient",
-      "tip": ["U: -orient type", "Image orientation."]
-    },
-    {
-      "name": "-page",
-      "tip": [
-        "U: -page geometry",
-        "Size and location of an image canvas (setting)."
-      ]
-    },
-    {
-      "name": "-ping",
-      "tip": ["Efficiently determine image attributes."]
-    },
-    {
-      "name": "-pointsize",
-      "tip": ["U: -pointsize value", "Font point size."]
-    },
-    {
-      "name": "-precision",
-      "tip": [
-        "U: -precision value",
-        "Maximum number of significant digits to print."
-      ]
-    },
-    {
-      "name": "-preview",
-      "tip": ["U: -preview type", "Image preview type."]
-    },
-    {
-      "name": "-quality",
-      "tip": ["U: -quality value", "JPEG/MIFF/PNG compression level."]
-    },
-    {
-      "name": "-quiet",
-      "tip": ["Suppress all warning messages."]
-    },
-    {
-      "name": "-read-mask",
-      "tip": ["U: -read-mask filename", "Associate a read mask with the image."]
-    },
-    {
-      "name": "-red-primary",
-      "tip": ["U: -red-primary point", "Chromaticity red primary point."]
-    },
-    {
-      "name": "-regard-warnings",
-      "tip": ["Pay attention to warning messages."]
-    },
-    {
-      "name": "-remap",
-      "tip": [
-        "U: -remap filename",
-        "Transform image colors to match this set of colors."
-      ]
-    },
-    {
-      "name": "-repage",
-      "tip": ["U: -repage geometry", "Size and location of an image canvas."]
-    },
-    {
-      "name": "-respect-parentheses",
-      "tip": ["Settings remain in effect until parenthesis boundary."]
-    },
-    {
-      "name": "-sampling-factor",
-      "tip": [
-        "U: -sampling-factor geometry",
-        "Horizontal and vertical sampling factor."
-      ]
-    },
-    {
-      "name": "-scene",
-      "tip": ["U: -scene value", "Image scene number."]
-    },
-    {
-      "name": "-seed",
-      "tip": ["U: -seed value", "Seed a new sequence of pseudo-random numbers."]
-    },
-    {
-      "name": "-size",
-      "tip": ["U: -size geometry", "Width and height of image."]
-    },
-    {
-      "name": "-stretch",
-      "tip": ["U: -stretch type", "Render text with this font stretch."]
-    },
-    {
-      "name": "-stroke",
-      "tip": ["U: -stroke color", "Graphic primitive stroke color."]
-    },
-    {
-      "name": "-strokewidth",
-      "tip": ["U: -strokewidth value", "Graphic primitive stroke width."]
-    },
-    {
-      "name": "-style",
-      "tip": ["U: -style type", "Render text with this font style."]
-    },
-    {
-      "name": "-support",
-      "tip": [
-        "U: -support factor",
-        "Resize support: > 1.0 is blurry, < 1.0 is sharp."
-      ]
-    },
-    {
-      "name": "-synchronize",
-      "tip": ["Synchronize image to storage device."]
-    },
-    {
-      "name": "-taint",
-      "tip": ["Declare the image as modified."]
-    },
-    {
-      "name": "-texture",
-      "tip": [
-        "U: -texture filename",
-        "Name of texture to tile onto the image background."
-      ]
-    },
-    {
-      "name": "-tile-offset",
-      "tip": ["U: -tile-offset geometry", "Tile offset."]
-    },
-    {
-      "name": "-treedepth",
-      "tip": ["U: -treedepth value", "Color tree depth."]
-    },
-    {
-      "name": "-transparent-color",
-      "tip": ["U: -transparent-color color", "Transparent color."]
-    },
-    {
-      "name": "-undercolor",
-      "tip": ["U: -undercolor color", "Annotation bounding box color."]
-    },
-    {
-      "name": "-units",
-      "tip": ["U: -units type", "The units of image resolution."]
-    },
-    {
-      "name": "-verbose",
-      "tip": ["Print detailed information about the image."]
-    },
-    {
-      "name": "-view",
-      "tip": ["FlashPix viewing transforms."]
-    },
-    {
-      "name": "-virtual-pixel",
-      "tip": ["U: -virtual-pixel method", "Virtual pixel access method."]
-    },
-    {
-      "name": "-weight",
-      "tip": ["U: -weight type", "Render text with this font weight."]
-    },
-    {
-      "name": "-white-point",
-      "tip": ["U: -white-point point", "Chromaticity white point."]
-    },
-    {
-      "name": "-write-mask",
-      "tip": [
-        "U: -write-mask filename",
-        "Associate a write mask with the image."
-      ]
-    },
-    {
-      "name": "-word-break",
-      "tip": [
-        "U: -word-break type",
-        "Sets whether line breaks appear wherever the text would otherwise overflow."
-      ]
-    },
     {
       "name": "-adaptive-blur",
       "tip": [
@@ -465,20 +29,76 @@
       ]
     },
     {
+      "name": "-adjoin",
+      "tip": [
+        "Join images into a single multi-image file."
+      ]
+    },
+    {
+      "name": "-affine",
+      "tip": [
+        "U: -affine matrix",
+        "Affine transform matrix."
+      ]
+    },
+    {
+      "name": "-alpha",
+      "tip": [
+        "U: -alpha option",
+        "Activate, deactivate, reset, or set the alpha channel.",
+        "Options: on, activate, off, deactivate, set, opaque, copy, transparent, extract, background, shape."
+      ]
+    },
+    {
       "name": "-annotate",
-      "tip": ["U: -annotate geometry text", "Annotate the image with text."]
+      "tip": [
+        "U: -annotate geometry text",
+        "Annotate the image with text."
+      ]
+    },
+    {
+      "name": "-antialias",
+      "tip": [
+        "Remove pixel-aliasing."
+      ]
+    },
+    {
+      "name": "-append",
+      "tip": [
+        "Append an image sequence."
+      ]
+    },
+    {
+      "name": "-attenuate",
+      "tip": [
+        "U: -attenuate value",
+        "Lessen (or intensify) when adding noise to an image."
+      ]
+    },
+    {
+      "name": "-authenticate",
+      "tip": [
+        "U: -authenticate password",
+        "Decipher image with this password."
+      ]
     },
     {
       "name": "-auto-gamma",
-      "tip": ["Automagically adjust gamma level of image."]
+      "tip": [
+        "Automagically adjust gamma level of image."
+      ]
     },
     {
       "name": "-auto-level",
-      "tip": ["Automagically adjust color levels of image."]
+      "tip": [
+        "Automagically adjust color levels of image."
+      ]
     },
     {
       "name": "-auto-orient",
-      "tip": ["Automagically orient (rotate) image."]
+      "tip": [
+        "Automagically orient (rotate) image."
+      ]
     },
     {
       "name": "-auto-threshold",
@@ -488,8 +108,25 @@
       ]
     },
     {
+      "name": "-background",
+      "tip": [
+        "U: -background color",
+        "Background color."
+      ]
+    },
+    {
       "name": "-bench",
-      "tip": ["U: -bench iterations", "Measure performance."]
+      "tip": [
+        "U: -bench iterations",
+        "Measure performance."
+      ]
+    },
+    {
+      "name": "-bias",
+      "tip": [
+        "U: -bias value",
+        "Add bias when convolving an image."
+      ]
     },
     {
       "name": "-bilateral-blur",
@@ -499,10 +136,23 @@
       ]
     },
     {
+      "name": "-black-point-compensation",
+      "tip": [
+        "Use black point compensation."
+      ]
+    },
+    {
       "name": "-black-threshold",
       "tip": [
         "U: -black-threshold value",
         "Force all pixels below the threshold into black."
+      ]
+    },
+    {
+      "name": "-blue-primary",
+      "tip": [
+        "U: -blue-primary point",
+        "Chromaticity blue primary point."
       ]
     },
     {
@@ -521,7 +171,17 @@
     },
     {
       "name": "-border",
-      "tip": ["U: -border geometry", "Surround image with a border of color."]
+      "tip": [
+        "U: -border geometry",
+        "Surround image with a border of color."
+      ]
+    },
+    {
+      "name": "-bordercolor",
+      "tip": [
+        "U: -bordercolor color",
+        "Border color."
+      ]
     },
     {
       "name": "-brightness-contrast",
@@ -532,23 +192,52 @@
     },
     {
       "name": "-canny",
-      "tip": ["U: -canny geometry", "Detect edges in the image."]
+      "tip": [
+        "U: -canny geometry",
+        "Detect edges in the image."
+      ]
+    },
+    {
+      "name": "-caption",
+      "tip": [
+        "U: -caption string",
+        "Assign a caption to an image."
+      ]
     },
     {
       "name": "-cdl",
-      "tip": ["U: -cdl filename", "Color correct with a color decision list."]
+      "tip": [
+        "U: -cdl filename",
+        "Color correct with a color decision list."
+      ]
     },
     {
       "name": "-channel",
-      "tip": ["U: -channel mask", "Set the image channel mask."]
+      "tip": [
+        "U: -channel mask",
+        "Set the image channel mask."
+      ]
+    },
+    {
+      "name": "-channel-fx",
+      "tip": [
+        "U: -channel-fx expression",
+        "Exchange, extract, or transfer one or more image channels."
+      ]
     },
     {
       "name": "-charcoal",
-      "tip": ["U: -charcoal radius", "Simulate a charcoal drawing."]
+      "tip": [
+        "U: -charcoal radius",
+        "Simulate a charcoal drawing."
+      ]
     },
     {
       "name": "-chop",
-      "tip": ["U: -chop geometry", "Remove pixels from the image interior."]
+      "tip": [
+        "U: -chop geometry",
+        "Remove pixels from the image interior."
+      ]
     },
     {
       "name": "-clahe",
@@ -559,19 +248,122 @@
     },
     {
       "name": "-clamp",
-      "tip": ["Keep pixel values in range (0-QuantumRange)."]
+      "tip": [
+        "Keep pixel values in range (0-QuantumRange)."
+      ]
     },
     {
-      "name": "-colorize",
-      "tip": ["U: -colorize value", "Colorize the image with the fill color."]
+      "name": "-clip",
+      "tip": [
+        "Clip along the first path from the 8BIM profile."
+      ]
+    },
+    {
+      "name": "-clip-mask",
+      "tip": [
+        "U: -clip-mask filename",
+        "Associate a clip mask with the image."
+      ]
+    },
+    {
+      "name": "-clip-path",
+      "tip": [
+        "U: -clip-path id",
+        "Clip along a named path from the 8BIM profile."
+      ]
+    },
+    {
+      "name": "-clone",
+      "tip": [
+        "U: -clone indexes",
+        "Clone an image."
+      ]
+    },
+    {
+      "name": "-clut",
+      "tip": [
+        "Apply a color lookup table to the image."
+      ]
+    },
+    {
+      "name": "-coalesce",
+      "tip": [
+        "Merge a sequence of images."
+      ]
     },
     {
       "name": "-color-matrix",
-      "tip": ["U: -color-matrix matrix", "Apply color correction to the image."]
+      "tip": [
+        "U: -color-matrix matrix",
+        "Apply color correction to the image."
+      ]
+    },
+    {
+      "name": "-colorize",
+      "tip": [
+        "U: -colorize value",
+        "Colorize the image with the fill color."
+      ]
     },
     {
       "name": "-colors",
-      "tip": ["U: -colors value", "Preferred number of colors in the image."]
+      "tip": [
+        "U: -colors value",
+        "Preferred number of colors in the image."
+      ]
+    },
+    {
+      "name": "-colorspace",
+      "tip": [
+        "U: -colorspace type",
+        "Alternate image colorspace."
+      ]
+    },
+    {
+      "name": "-combine",
+      "tip": [
+        "Combine a sequence of images."
+      ]
+    },
+    {
+      "name": "-comment",
+      "tip": [
+        "U: -comment string",
+        "Annotate image with comment."
+      ]
+    },
+    {
+      "name": "-compare",
+      "tip": [
+        "Mathematically and visually annotate the difference between an image and its reconstruction."
+      ]
+    },
+    {
+      "name": "-complex",
+      "tip": [
+        "U: -complex operator",
+        "Perform complex mathematics on an image sequence."
+      ]
+    },
+    {
+      "name": "-compose",
+      "tip": [
+        "U: -compose operator",
+        "Set image composite operator."
+      ]
+    },
+    {
+      "name": "-composite",
+      "tip": [
+        "Composite image."
+      ]
+    },
+    {
+      "name": "-compress",
+      "tip": [
+        "U: -compress type",
+        "Type of pixel compression when writing the image."
+      ]
     },
     {
       "name": "-connected-components",
@@ -582,7 +374,9 @@
     },
     {
       "name": "-contrast",
-      "tip": ["Enhance or reduce the image contrast."]
+      "tip": [
+        "Enhance or reduce the image contrast."
+      ]
     },
     {
       "name": "-contrast-stretch",
@@ -599,20 +393,107 @@
       ]
     },
     {
+      "name": "-copy",
+      "tip": [
+        "U: -copy geometry offset",
+        "Copy pixels from one area of an image to another."
+      ]
+    },
+    {
+      "name": "-crop",
+      "tip": [
+        "U: -crop geometry",
+        "Cut out a rectangular region of the image."
+      ]
+    },
+    {
       "name": "-cycle",
-      "tip": ["U: -cycle amount", "Cycle the image colormap."]
+      "tip": [
+        "U: -cycle amount",
+        "Cycle the image colormap."
+      ]
     },
     {
       "name": "-decipher",
-      "tip": ["U: -decipher filename", "Convert cipher pixels to plain pixels."]
+      "tip": [
+        "U: -decipher filename",
+        "Convert cipher pixels to plain pixels."
+      ]
+    },
+    {
+      "name": "-deconstruct",
+      "tip": [
+        "Break down an image sequence into constituent parts."
+      ]
+    },
+    {
+      "name": "-define",
+      "tip": [
+        "U: -define format:option",
+        "Define one or more image format options."
+      ]
+    },
+    {
+      "name": "-delay",
+      "tip": [
+        "U: -delay value",
+        "Display the next image after pausing."
+      ]
+    },
+    {
+      "name": "-delete",
+      "tip": [
+        "U: -delete indexes",
+        "Delete the image from the image sequence."
+      ]
+    },
+    {
+      "name": "-density",
+      "tip": [
+        "U: -density geometry",
+        "Horizontal and vertical density of the image."
+      ]
+    },
+    {
+      "name": "-depth",
+      "tip": [
+        "U: -depth value",
+        "Image depth."
+      ]
     },
     {
       "name": "-deskew",
-      "tip": ["U: -deskew threshold", "Straighten an image."]
+      "tip": [
+        "U: -deskew threshold",
+        "Straighten an image."
+      ]
     },
     {
       "name": "-despeckle",
-      "tip": ["Reduce the speckles within an image."]
+      "tip": [
+        "Reduce the speckles within an image."
+      ]
+    },
+    {
+      "name": "-direction",
+      "tip": [
+        "U: -direction type",
+        "Render text right-to-left or left-to-right."
+      ]
+    },
+    {
+      "name": "-display",
+      "tip": [
+        "U: -display server",
+        "Get image or font from this X server."
+      ]
+    },
+    {
+      "name": "-dispose",
+      "tip": [
+        "U: -dispose method",
+        "Layer disposal method."
+      ]
     },
     {
       "name": "-distort",
@@ -622,28 +503,72 @@
       ]
     },
     {
+      "name": "-dither",
+      "tip": [
+        "U: -dither method",
+        "Apply error diffusion to image."
+      ]
+    },
+    {
       "name": "-draw",
-      "tip": ["U: -draw string", "Annotate the image with a graphic primitive."]
+      "tip": [
+        "U: -draw string",
+        "Annotate the image with a graphic primitive."
+      ]
+    },
+    {
+      "name": "-duplicate",
+      "tip": [
+        "U: -duplicate count,indexes",
+        "Duplicate an image one or more times."
+      ]
     },
     {
       "name": "-edge",
-      "tip": ["U: -edge radius", "Apply a filter to detect edges in the image."]
-    },
-    {
-      "name": "-encipher",
-      "tip": ["U: -encipher filename", "Convert plain pixels to cipher pixels."]
+      "tip": [
+        "U: -edge radius",
+        "Apply a filter to detect edges in the image."
+      ]
     },
     {
       "name": "-emboss",
-      "tip": ["U: -emboss radius", "Emboss an image."]
+      "tip": [
+        "U: -emboss radius",
+        "Emboss an image."
+      ]
+    },
+    {
+      "name": "-encipher",
+      "tip": [
+        "U: -encipher filename",
+        "Convert plain pixels to cipher pixels."
+      ]
+    },
+    {
+      "name": "-encoding",
+      "tip": [
+        "U: -encoding type",
+        "Text encoding type."
+      ]
+    },
+    {
+      "name": "-endian",
+      "tip": [
+        "U: -endian type",
+        "Endianness (MSB or LSB) of the image."
+      ]
     },
     {
       "name": "-enhance",
-      "tip": ["Apply a digital filter to enhance a noisy image."]
+      "tip": [
+        "Apply a digital filter to enhance a noisy image."
+      ]
     },
     {
       "name": "-equalize",
-      "tip": ["Perform histogram equalization to an image."]
+      "tip": [
+        "Perform histogram equalization to an image."
+      ]
     },
     {
       "name": "-evaluate",
@@ -653,32 +578,105 @@
       ]
     },
     {
+      "name": "-evaluate-sequence",
+      "tip": [
+        "U: -evaluate-sequence operator",
+        "Evaluate an arithmetic, relational, or logical expression."
+      ]
+    },
+    {
       "name": "-extent",
-      "tip": ["U: -extent geometry", "Set the image size."]
+      "tip": [
+        "U: -extent geometry",
+        "Set the image size."
+      ]
     },
     {
       "name": "-extract",
-      "tip": ["U: -extract geometry", "Extract area from image."]
+      "tip": [
+        "U: -extract geometry",
+        "Extract area from image."
+      ]
+    },
+    {
+      "name": "-family",
+      "tip": [
+        "U: -family name",
+        "Render text with this font family."
+      ]
+    },
+    {
+      "name": "-features",
+      "tip": [
+        "U: -features distance",
+        "Analyze image features (e.g. contrast, correlation)."
+      ]
     },
     {
       "name": "-fft",
-      "tip": ["Implements the discrete Fourier transform (DFT)."]
+      "tip": [
+        "Implements the discrete Fourier transform (DFT)."
+      ]
+    },
+    {
+      "name": "-fill",
+      "tip": [
+        "U: -fill color",
+        "Color to use when filling a graphic primitive."
+      ]
+    },
+    {
+      "name": "-filter",
+      "tip": [
+        "U: -filter type",
+        "Use this filter when resizing an image."
+      ]
+    },
+    {
+      "name": "-flatten",
+      "tip": [
+        "Flatten a sequence of images."
+      ]
     },
     {
       "name": "-flip",
-      "tip": ["Flip image vertically."]
+      "tip": [
+        "Flip image vertically."
+      ]
     },
     {
       "name": "-floodfill",
-      "tip": ["U: -floodfill geometry color", "Floodfill the image with color."]
+      "tip": [
+        "U: -floodfill geometry color",
+        "Floodfill the image with color."
+      ]
     },
     {
       "name": "-flop",
-      "tip": ["Flop image horizontally."]
+      "tip": [
+        "Flop image horizontally."
+      ]
+    },
+    {
+      "name": "-font",
+      "tip": [
+        "U: -font name",
+        "Render text with this font."
+      ]
+    },
+    {
+      "name": "-format",
+      "tip": [
+        "U: -format \"string\"",
+        "Output formatted image characteristics."
+      ]
     },
     {
       "name": "-frame",
-      "tip": ["U: -frame geometry", "Surround image with an ornamental border."]
+      "tip": [
+        "U: -frame geometry",
+        "Surround image with an ornamental border."
+      ]
     },
     {
       "name": "-function",
@@ -688,8 +686,25 @@
       ]
     },
     {
+      "name": "-fuzz",
+      "tip": [
+        "U: -fuzz distance",
+        "Colors within this distance are considered equal."
+      ]
+    },
+    {
+      "name": "-fx",
+      "tip": [
+        "U: -fx expression",
+        "Apply mathematical expression to an image channel(s)."
+      ]
+    },
+    {
       "name": "-gamma",
-      "tip": ["U: -gamma value", "Level of gamma correction."]
+      "tip": [
+        "U: -gamma value",
+        "Level of gamma correction."
+      ]
     },
     {
       "name": "-gaussian-blur",
@@ -706,28 +721,113 @@
       ]
     },
     {
+      "name": "-gravity",
+      "tip": [
+        "U: -gravity type",
+        "Horizontal and vertical text placement.",
+        "Types: NorthWest, North, NorthEast, West, Center, East, SouthWest, South, SouthEast."
+      ]
+    },
+    {
       "name": "-grayscale",
-      "tip": ["U: -grayscale method", "Convert image to grayscale."]
+      "tip": [
+        "U: -grayscale method",
+        "Convert image to grayscale."
+      ]
+    },
+    {
+      "name": "-green-primary",
+      "tip": [
+        "U: -green-primary point",
+        "Chromaticity green primary point."
+      ]
+    },
+    {
+      "name": "-hald-clut",
+      "tip": [
+        "Apply a Hald color lookup table to the image."
+      ]
     },
     {
       "name": "-hough-lines",
-      "tip": ["U: -hough-lines geometry", "Identify lines in the image."]
+      "tip": [
+        "U: -hough-lines geometry",
+        "Identify lines in the image."
+      ]
     },
     {
       "name": "-identify",
-      "tip": ["Identify the format and characteristics of the image."]
+      "tip": [
+        "Identify the format and characteristics of the image."
+      ]
     },
     {
       "name": "-ift",
-      "tip": ["Implements the inverse discrete Fourier transform (DFT)."]
+      "tip": [
+        "Implements the inverse discrete Fourier transform (DFT)."
+      ]
+    },
+    {
+      "name": "-illuminant",
+      "tip": [
+        "U: -illuminant type",
+        "Reference illuminant."
+      ]
     },
     {
       "name": "-implode",
-      "tip": ["U: -implode amount", "Implode image pixels about the center."]
+      "tip": [
+        "U: -implode amount",
+        "Implode image pixels about the center."
+      ]
+    },
+    {
+      "name": "-insert",
+      "tip": [
+        "U: -insert index",
+        "Insert last image into the image sequence."
+      ]
     },
     {
       "name": "-integral",
-      "tip": ["Calculate the sum of values (pixel values) in the image."]
+      "tip": [
+        "Calculate the sum of values (pixel values) in the image."
+      ]
+    },
+    {
+      "name": "-intensity",
+      "tip": [
+        "U: -intensity method",
+        "Method to generate an intensity value from a pixel."
+      ]
+    },
+    {
+      "name": "-intent",
+      "tip": [
+        "U: -intent type",
+        "Type of rendering intent when managing the image color."
+      ]
+    },
+    {
+      "name": "-interlace",
+      "tip": [
+        "U: -interlace type",
+        "Type of image interlacing scheme."
+      ]
+    },
+    {
+      "name": "-interline-spacing",
+      "tip": [
+        "U: -interline-spacing value",
+        "Set the space between two text lines."
+      ]
+    },
+    {
+      "name": "-interpolate",
+      "tip": [
+        "U: -interpolate method",
+        "Pixel color interpolation method."
+      ]
     },
     {
       "name": "-interpolative-resize",
@@ -737,8 +837,25 @@
       ]
     },
     {
+      "name": "-interword-spacing",
+      "tip": [
+        "U: -interword-spacing value",
+        "Set the space between two words."
+      ]
+    },
+    {
+      "name": "-kerning",
+      "tip": [
+        "U: -kerning value",
+        "Set the space between two letters."
+      ]
+    },
+    {
       "name": "-kmeans",
-      "tip": ["U: -kmeans geometry", "K means color reduction."]
+      "tip": [
+        "U: -kmeans geometry",
+        "K means color reduction."
+      ]
     },
     {
       "name": "-kuwahara",
@@ -748,18 +865,45 @@
       ]
     },
     {
+      "name": "-label",
+      "tip": [
+        "U: -label string",
+        "Assign a label to an image."
+      ]
+    },
+    {
       "name": "-lat",
-      "tip": ["U: -lat geometry", "Local adaptive thresholding."]
+      "tip": [
+        "U: -lat geometry",
+        "Local adaptive thresholding."
+      ]
+    },
+    {
+      "name": "-layers",
+      "tip": [
+        "U: -layers method",
+        "Optimize, merge, or compare image layers."
+      ]
     },
     {
       "name": "-level",
-      "tip": ["U: -level value", "Adjust the level of image contrast."]
+      "tip": [
+        "U: -level value",
+        "Adjust the level of image contrast."
+      ]
     },
     {
       "name": "-level-colors",
       "tip": [
         "U: -level-colors color,color",
         "Level image with the given colors."
+      ]
+    },
+    {
+      "name": "-limit",
+      "tip": [
+        "U: -limit type value",
+        "Pixel cache resource limit."
       ]
     },
     {
@@ -771,11 +915,37 @@
     },
     {
       "name": "-liquid-rescale",
-      "tip": ["U: -liquid-rescale geometry", "Rescale image with seam-carving."]
+      "tip": [
+        "U: -liquid-rescale geometry",
+        "Rescale image with seam-carving."
+      ]
     },
     {
       "name": "-local-contrast",
-      "tip": ["U: -local-contrast geometry", "Enhance local contrast."]
+      "tip": [
+        "U: -local-contrast geometry",
+        "Enhance local contrast."
+      ]
+    },
+    {
+      "name": "-loop",
+      "tip": [
+        "U: -loop iterations",
+        "Add Netscape loop extension to your GIF animation."
+      ]
+    },
+    {
+      "name": "-matte",
+      "tip": [
+        "Store matte channel if the image has one."
+      ]
+    },
+    {
+      "name": "-mattecolor",
+      "tip": [
+        "U: -mattecolor color",
+        "Frame color."
+      ]
     },
     {
       "name": "-mean-shift",
@@ -786,7 +956,10 @@
     },
     {
       "name": "-median",
-      "tip": ["U: -median geometry", "Apply a median filter to the image."]
+      "tip": [
+        "U: -median geometry",
+        "Apply a median filter to the image."
+      ]
     },
     {
       "name": "-mode",
@@ -797,11 +970,35 @@
     },
     {
       "name": "-modulate",
-      "tip": ["U: -modulate value", "Vary the brightness, saturation, and hue."]
+      "tip": [
+        "U: -modulate value",
+        "Vary the brightness, saturation, and hue."
+      ]
+    },
+    {
+      "name": "-moments",
+      "tip": [
+        "Report image moments."
+      ]
+    },
+    {
+      "name": "-monitor",
+      "tip": [
+        "Monitor progress."
+      ]
     },
     {
       "name": "-monochrome",
-      "tip": ["Transform image to black and white."]
+      "tip": [
+        "Transform image to black and white."
+      ]
+    },
+    {
+      "name": "-morph",
+      "tip": [
+        "U: -morph value",
+        "Morph an image sequence."
+      ]
     },
     {
       "name": "-morphology",
@@ -811,24 +1008,43 @@
       ]
     },
     {
+      "name": "-mosaic",
+      "tip": [
+        "Create a mosaic from an image sequence."
+      ]
+    },
+    {
       "name": "-motion-blur",
-      "tip": ["U: -motion-blur geometry", "Simulate motion blur."]
+      "tip": [
+        "U: -motion-blur geometry",
+        "Simulate motion blur."
+      ]
     },
     {
       "name": "-negate",
-      "tip": ["Replace every pixel with its complementary color."]
+      "tip": [
+        "Replace every pixel with its complementary color."
+      ]
     },
     {
       "name": "-noise",
-      "tip": ["U: -noise geometry", "Add or reduce noise in an image."]
+      "tip": [
+        "U: -noise geometry",
+        "Add or reduce noise in an image."
+      ]
     },
     {
       "name": "-normalize",
-      "tip": ["Transform image to span the full range of colors."]
+      "tip": [
+        "Transform image to span the full range of colors."
+      ]
     },
     {
       "name": "-opaque",
-      "tip": ["U: -opaque color", "Change this color to the fill color."]
+      "tip": [
+        "U: -opaque color",
+        "Change this color to the fill color."
+      ]
     },
     {
       "name": "-ordered-dither",
@@ -838,8 +1054,25 @@
       ]
     },
     {
+      "name": "-orient",
+      "tip": [
+        "U: -orient type",
+        "Image orientation."
+      ]
+    },
+    {
+      "name": "-page",
+      "tip": [
+        "U: -page geometry",
+        "Size and location of an image canvas (setting)."
+      ]
+    },
+    {
       "name": "-paint",
-      "tip": ["U: -paint radius", "Simulate an oil painting."]
+      "tip": [
+        "U: -paint radius",
+        "Simulate an oil painting."
+      ]
     },
     {
       "name": "-perceptible",
@@ -849,8 +1082,31 @@
       ]
     },
     {
+      "name": "-ping",
+      "tip": [
+        "Efficiently determine image attributes."
+      ]
+    },
+    {
+      "name": "-pointsize",
+      "tip": [
+        "U: -pointsize value",
+        "Font point size."
+      ]
+    },
+    {
       "name": "-polaroid",
-      "tip": ["U: -polaroid angle", "Simulate a Polaroid picture."]
+      "tip": [
+        "U: -polaroid angle",
+        "Simulate a Polaroid picture."
+      ]
+    },
+    {
+      "name": "-poly",
+      "tip": [
+        "U: -poly terms",
+        "Build a polynomial from the image sequence and the corresponding terms (coefficients and degree pairs)."
+      ]
     },
     {
       "name": "-posterize",
@@ -860,12 +1116,59 @@
       ]
     },
     {
+      "name": "-precision",
+      "tip": [
+        "U: -precision value",
+        "Maximum number of significant digits to print."
+      ]
+    },
+    {
+      "name": "-preview",
+      "tip": [
+        "U: -preview type",
+        "Image preview type."
+      ]
+    },
+    {
+      "name": "-print",
+      "tip": [
+        "U: -print string",
+        "Interpret string and print to console."
+      ]
+    },
+    {
+      "name": "-process",
+      "tip": [
+        "U: -process arguments",
+        "Process the image with a custom image filter."
+      ]
+    },
+    {
       "name": "-profile",
-      "tip": ["U: -profile filename", "Add, delete, or apply an image profile."]
+      "tip": [
+        "U: -profile filename",
+        "Add, delete, or apply an image profile."
+      ]
+    },
+    {
+      "name": "-quality",
+      "tip": [
+        "U: -quality value",
+        "JPEG/MIFF/PNG compression level."
+      ]
     },
     {
       "name": "-quantize",
-      "tip": ["U: -quantize colorspace", "Reduce colors in this colorspace."]
+      "tip": [
+        "U: -quantize colorspace",
+        "Reduce colors in this colorspace."
+      ]
+    },
+    {
+      "name": "-quiet",
+      "tip": [
+        "Suppress all warning messages."
+      ]
     },
     {
       "name": "-raise",
@@ -876,7 +1179,10 @@
     },
     {
       "name": "-random-threshold",
-      "tip": ["U: -random-threshold low,high", "Random threshold the image."]
+      "tip": [
+        "U: -random-threshold low,high",
+        "Random threshold the image."
+      ]
     },
     {
       "name": "-range-threshold",
@@ -886,48 +1192,147 @@
       ]
     },
     {
+      "name": "-read-mask",
+      "tip": [
+        "U: -read-mask filename",
+        "Associate a read mask with the image."
+      ]
+    },
+    {
+      "name": "-red-primary",
+      "tip": [
+        "U: -red-primary point",
+        "Chromaticity red primary point."
+      ]
+    },
+    {
+      "name": "-regard-warnings",
+      "tip": [
+        "Pay attention to warning messages."
+      ]
+    },
+    {
       "name": "-region",
-      "tip": ["U: -region geometry", "Apply options to a portion of the image."]
+      "tip": [
+        "U: -region geometry",
+        "Apply options to a portion of the image."
+      ]
+    },
+    {
+      "name": "-remap",
+      "tip": [
+        "U: -remap filename",
+        "Transform image colors to match this set of colors."
+      ]
     },
     {
       "name": "-render",
-      "tip": ["Render vector graphics."]
+      "tip": [
+        "Render vector graphics."
+      ]
+    },
+    {
+      "name": "-repage",
+      "tip": [
+        "U: -repage geometry",
+        "Size and location of an image canvas."
+      ]
     },
     {
       "name": "-resample",
-      "tip": ["U: -resample geometry", "Change the resolution of an image."]
+      "tip": [
+        "U: -resample geometry",
+        "Change the resolution of an image."
+      ]
     },
     {
       "name": "-reshape",
-      "tip": ["U: -reshape geometry", "Reshape the image."]
+      "tip": [
+        "U: -reshape geometry",
+        "Reshape the image."
+      ]
     },
     {
       "name": "-resize",
-      "tip": ["U: -resize geometry", "Resize the image."]
+      "tip": [
+        "U: -resize geometry",
+        "Resize the image."
+      ]
+    },
+    {
+      "name": "-respect-parentheses",
+      "tip": [
+        "Settings remain in effect until parenthesis boundary."
+      ]
+    },
+    {
+      "name": "-reverse",
+      "tip": [
+        "Reverse image sequence."
+      ]
     },
     {
       "name": "-roll",
-      "tip": ["U: -roll geometry", "Roll an image vertically or horizontally."]
+      "tip": [
+        "U: -roll geometry",
+        "Roll an image vertically or horizontally."
+      ]
     },
     {
       "name": "-rotate",
-      "tip": ["U: -rotate degrees", "Apply Paeth rotation to the image."]
+      "tip": [
+        "U: -rotate degrees",
+        "Apply Paeth rotation to the image."
+      ]
     },
     {
       "name": "-rotational-blur",
-      "tip": ["U: -rotational-blur angle", "Rotational blur the image."]
+      "tip": [
+        "U: -rotational-blur angle",
+        "Rotational blur the image."
+      ]
     },
     {
       "name": "-sample",
-      "tip": ["U: -sample geometry", "Scale image with pixel sampling."]
+      "tip": [
+        "U: -sample geometry",
+        "Scale image with pixel sampling."
+      ]
+    },
+    {
+      "name": "-sampling-factor",
+      "tip": [
+        "U: -sampling-factor geometry",
+        "Horizontal and vertical sampling factor."
+      ]
     },
     {
       "name": "-scale",
-      "tip": ["U: -scale geometry", "Scale the image."]
+      "tip": [
+        "U: -scale geometry",
+        "Scale the image."
+      ]
+    },
+    {
+      "name": "-scene",
+      "tip": [
+        "U: -scene value",
+        "Image scene number."
+      ]
+    },
+    {
+      "name": "-seed",
+      "tip": [
+        "U: -seed value",
+        "Seed a new sequence of pseudo-random numbers."
+      ]
     },
     {
       "name": "-segment",
-      "tip": ["U: -segment values", "Segment an image."]
+      "tip": [
+        "U: -segment values",
+        "Segment an image."
+      ]
     },
     {
       "name": "-selective-blur",
@@ -937,12 +1342,24 @@
       ]
     },
     {
+      "name": "-separate",
+      "tip": [
+        "Separate an image channel into a grayscale image."
+      ]
+    },
+    {
       "name": "-sepia-tone",
-      "tip": ["U: -sepia-tone threshold", "Simulate a sepia-toned photo."]
+      "tip": [
+        "U: -sepia-tone threshold",
+        "Simulate a sepia-toned photo."
+      ]
     },
     {
       "name": "-set",
-      "tip": ["U: -set property value", "Set an image property."]
+      "tip": [
+        "U: -set property value",
+        "Set an image property."
+      ]
     },
     {
       "name": "-shade",
@@ -953,15 +1370,24 @@
     },
     {
       "name": "-shadow",
-      "tip": ["U: -shadow geometry", "Simulate an image shadow."]
+      "tip": [
+        "U: -shadow geometry",
+        "Simulate an image shadow."
+      ]
     },
     {
       "name": "-sharpen",
-      "tip": ["U: -sharpen geometry", "Sharpen the image."]
+      "tip": [
+        "U: -sharpen geometry",
+        "Sharpen the image."
+      ]
     },
     {
       "name": "-shave",
-      "tip": ["U: -shave geometry", "Shave pixels from the image edges."]
+      "tip": [
+        "U: -shave geometry",
+        "Shave pixels from the image edges."
+      ]
     },
     {
       "name": "-shear",
@@ -978,8 +1404,25 @@
       ]
     },
     {
+      "name": "-size",
+      "tip": [
+        "U: -size geometry",
+        "Width and height of image."
+      ]
+    },
+    {
       "name": "-sketch",
-      "tip": ["U: -sketch geometry", "Simulate a pencil sketch."]
+      "tip": [
+        "U: -sketch geometry",
+        "Simulate a pencil sketch."
+      ]
+    },
+    {
+      "name": "-smush",
+      "tip": [
+        "U: -smush geometry",
+        "Smush an image sequence together."
+      ]
     },
     {
       "name": "-solarize",
@@ -990,7 +1433,9 @@
     },
     {
       "name": "-sort-pixels",
-      "tip": ["Sort each scanline in ascending order of intensity."]
+      "tip": [
+        "Sort each scanline in ascending order of intensity."
+      ]
     },
     {
       "name": "-sparse-color",
@@ -1008,7 +1453,10 @@
     },
     {
       "name": "-spread",
-      "tip": ["U: -spread radius", "Displace image pixels by a random amount."]
+      "tip": [
+        "U: -spread radius",
+        "Displace image pixels by a random amount."
+      ]
     },
     {
       "name": "-statistic",
@@ -1018,20 +1466,92 @@
       ]
     },
     {
+      "name": "-stretch",
+      "tip": [
+        "U: -stretch type",
+        "Render text with this font stretch."
+      ]
+    },
+    {
       "name": "-strip",
-      "tip": ["Strip image of all profiles and comments."]
+      "tip": [
+        "Strip image of all profiles and comments."
+      ]
+    },
+    {
+      "name": "-stroke",
+      "tip": [
+        "U: -stroke color",
+        "Graphic primitive stroke color."
+      ]
+    },
+    {
+      "name": "-strokewidth",
+      "tip": [
+        "U: -strokewidth value",
+        "Graphic primitive stroke width."
+      ]
+    },
+    {
+      "name": "-style",
+      "tip": [
+        "U: -style type",
+        "Render text with this font style."
+      ]
+    },
+    {
+      "name": "-support",
+      "tip": [
+        "U: -support factor",
+        "Resize support: > 1.0 is blurry, < 1.0 is sharp."
+      ]
+    },
+    {
+      "name": "-swap",
+      "tip": [
+        "U: -swap indexes",
+        "Swap two images in the image sequence."
+      ]
     },
     {
       "name": "-swirl",
-      "tip": ["U: -swirl degrees", "Swirl image pixels about the center."]
+      "tip": [
+        "U: -swirl degrees",
+        "Swirl image pixels about the center."
+      ]
+    },
+    {
+      "name": "-synchronize",
+      "tip": [
+        "Synchronize image to storage device."
+      ]
+    },
+    {
+      "name": "-taint",
+      "tip": [
+        "Declare the image as modified."
+      ]
+    },
+    {
+      "name": "-texture",
+      "tip": [
+        "U: -texture filename",
+        "Name of texture to tile onto the image background."
+      ]
     },
     {
       "name": "-threshold",
-      "tip": ["U: -threshold value", "Threshold the image."]
+      "tip": [
+        "U: -threshold value",
+        "Threshold the image."
+      ]
     },
     {
       "name": "-thumbnail",
-      "tip": ["U: -thumbnail geometry", "Create a thumbnail of the image."]
+      "tip": [
+        "U: -thumbnail geometry",
+        "Create a thumbnail of the image."
+      ]
     },
     {
       "name": "-tile",
@@ -1041,12 +1561,24 @@
       ]
     },
     {
+      "name": "-tile-offset",
+      "tip": [
+        "U: -tile-offset geometry",
+        "Tile offset."
+      ]
+    },
+    {
       "name": "-tint",
-      "tip": ["U: -tint value", "Tint the image with the fill color."]
+      "tip": [
+        "U: -tint value",
+        "Tint the image with the fill color."
+      ]
     },
     {
       "name": "-transform",
-      "tip": ["Affine transform image."]
+      "tip": [
+        "Affine transform image."
+      ]
     },
     {
       "name": "-transparent",
@@ -1056,28 +1588,82 @@
       ]
     },
     {
+      "name": "-transparent-color",
+      "tip": [
+        "U: -transparent-color color",
+        "Transparent color."
+      ]
+    },
+    {
       "name": "-transpose",
-      "tip": ["Flip image vertically and rotate 90 degrees."]
+      "tip": [
+        "Flip image vertically and rotate 90 degrees."
+      ]
     },
     {
       "name": "-transverse",
-      "tip": ["Flop image horizontally and rotate 270 degrees."]
+      "tip": [
+        "Flop image horizontally and rotate 270 degrees."
+      ]
+    },
+    {
+      "name": "-treedepth",
+      "tip": [
+        "U: -treedepth value",
+        "Color tree depth."
+      ]
     },
     {
       "name": "-trim",
-      "tip": ["Trim image edges."]
+      "tip": [
+        "Trim image edges."
+      ]
     },
     {
       "name": "-type",
-      "tip": ["U: -type type", "Image type."]
+      "tip": [
+        "U: -type type",
+        "Image type."
+      ]
+    },
+    {
+      "name": "-undercolor",
+      "tip": [
+        "U: -undercolor color",
+        "Annotation bounding box color."
+      ]
     },
     {
       "name": "-unique-colors",
-      "tip": ["Discard all but one of any pixel color."]
+      "tip": [
+        "Discard all but one of any pixel color."
+      ]
+    },
+    {
+      "name": "-units",
+      "tip": [
+        "U: -units type",
+        "The units of image resolution."
+      ]
     },
     {
       "name": "-unsharp",
-      "tip": ["U: -unsharp geometry", "Sharpen the image."]
+      "tip": [
+        "U: -unsharp geometry",
+        "Sharpen the image."
+      ]
+    },
+    {
+      "name": "-verbose",
+      "tip": [
+        "Print detailed information about the image."
+      ]
+    },
+    {
+      "name": "-view",
+      "tip": [
+        "FlashPix viewing transforms."
+      ]
     },
     {
       "name": "-vignette",
@@ -1087,8 +1673,18 @@
       ]
     },
     {
+      "name": "-virtual-pixel",
+      "tip": [
+        "U: -virtual-pixel method",
+        "Virtual pixel access method."
+      ]
+    },
+    {
       "name": "-wave",
-      "tip": ["U: -wave geometry", "Alter an image along a sine wave."]
+      "tip": [
+        "U: -wave geometry",
+        "Alter an image along a sine wave."
+      ]
     },
     {
       "name": "-wavelet-denoise",
@@ -1098,8 +1694,24 @@
       ]
     },
     {
+      "name": "-weight",
+      "tip": [
+        "U: -weight type",
+        "Render text with this font weight."
+      ]
+    },
+    {
       "name": "-white-balance",
-      "tip": ["Automagically adjust white balance of image."]
+      "tip": [
+        "Automagically adjust white balance of image."
+      ]
+    },
+    {
+      "name": "-white-point",
+      "tip": [
+        "U: -white-point point",
+        "Chromaticity white point."
+      ]
     },
     {
       "name": "-white-threshold",
@@ -1109,156 +1721,34 @@
       ]
     },
     {
-      "name": "-channel-fx",
+      "name": "-word-break",
       "tip": [
-        "U: -channel-fx expression",
-        "Exchange, extract, or transfer one or more image channels."
+        "U: -word-break type",
+        "Sets whether line breaks appear wherever the text would otherwise overflow."
       ]
-    },
-    {
-      "name": "-separate",
-      "tip": ["Separate an image channel into a grayscale image."]
-    },
-    {
-      "name": "-append",
-      "tip": ["Append an image sequence."]
-    },
-    {
-      "name": "-clut",
-      "tip": ["Apply a color lookup table to the image."]
-    },
-    {
-      "name": "-coalesce",
-      "tip": ["Merge a sequence of images."]
-    },
-    {
-      "name": "-combine",
-      "tip": ["Combine a sequence of images."]
-    },
-    {
-      "name": "-compare",
-      "tip": [
-        "Mathematically and visually annotate the difference between an image and its reconstruction."
-      ]
-    },
-    {
-      "name": "-complex",
-      "tip": [
-        "U: -complex operator",
-        "Perform complex mathematics on an image sequence."
-      ]
-    },
-    {
-      "name": "-composite",
-      "tip": ["Composite image."]
-    },
-    {
-      "name": "-copy",
-      "tip": [
-        "U: -copy geometry offset",
-        "Copy pixels from one area of an image to another."
-      ]
-    },
-    {
-      "name": "-crop",
-      "tip": ["U: -crop geometry", "Cut out a rectangular region of the image."]
-    },
-    {
-      "name": "-deconstruct",
-      "tip": ["Break down an image sequence into constituent parts."]
-    },
-    {
-      "name": "-evaluate-sequence",
-      "tip": [
-        "U: -evaluate-sequence operator",
-        "Evaluate an arithmetic, relational, or logical expression."
-      ]
-    },
-    {
-      "name": "-flatten",
-      "tip": ["Flatten a sequence of images."]
-    },
-    {
-      "name": "-fx",
-      "tip": [
-        "U: -fx expression",
-        "Apply mathematical expression to an image channel(s)."
-      ]
-    },
-    {
-      "name": "-hald-clut",
-      "tip": ["Apply a Hald color lookup table to the image."]
-    },
-    {
-      "name": "-layers",
-      "tip": ["U: -layers method", "Optimize, merge, or compare image layers."]
-    },
-    {
-      "name": "-morph",
-      "tip": ["U: -morph value", "Morph an image sequence."]
-    },
-    {
-      "name": "-mosaic",
-      "tip": ["Create a mosaic from an image sequence."]
-    },
-    {
-      "name": "-poly",
-      "tip": [
-        "U: -poly terms",
-        "Build a polynomial from the image sequence and the corresponding terms (coefficients and degree pairs)."
-      ]
-    },
-    {
-      "name": "-print",
-      "tip": ["U: -print string", "Interpret string and print to console."]
-    },
-    {
-      "name": "-process",
-      "tip": [
-        "U: -process arguments",
-        "Process the image with a custom image filter."
-      ]
-    },
-    {
-      "name": "-smush",
-      "tip": ["U: -smush geometry", "Smush an image sequence together."]
     },
     {
       "name": "-write",
-      "tip": ["U: -write filename", "Write images to this file."]
-    },
-    {
-      "name": "-clone",
-      "tip": ["U: -clone indexes", "Clone an image."]
-    },
-    {
-      "name": "-delete",
-      "tip": ["U: -delete indexes", "Delete the image from the image sequence."]
-    },
-    {
-      "name": "-duplicate",
       "tip": [
-        "U: -duplicate count,indexes",
-        "Duplicate an image one or more times."
+        "U: -write filename",
+        "Write images to this file."
       ]
     },
     {
-      "name": "-insert",
-      "tip": ["U: -insert index", "Insert last image into the image sequence."]
-    },
-    {
-      "name": "-reverse",
-      "tip": ["Reverse image sequence."]
-    },
-    {
-      "name": "-swap",
-      "tip": ["U: -swap indexes", "Swap two images in the image sequence."]
+      "name": "-write-mask",
+      "tip": [
+        "U: -write-mask filename",
+        "Associate a write mask with the image."
+      ]
     }
   ],
   "common_option": [
     {
       "name": "-debug",
-      "tip": ["U: -debug events", "Display copious debugging information."]
+      "tip": [
+        "U: -debug events",
+        "Display copious debugging information."
+      ]
     },
     {
       "name": "-distribute-cache",
@@ -1269,7 +1759,9 @@
     },
     {
       "name": "-help",
-      "tip": ["Print program options."]
+      "tip": [
+        "Print program options."
+      ]
     },
     {
       "name": "-list",
@@ -1281,15 +1773,22 @@
     },
     {
       "name": "-log",
-      "tip": ["U: -log format", "Format of debugging information."]
+      "tip": [
+        "U: -log format",
+        "Format of debugging information."
+      ]
     },
     {
       "name": "-usage",
-      "tip": ["Print program usage."]
+      "tip": [
+        "Print program usage."
+      ]
     },
     {
       "name": "-version",
-      "tip": ["Print version information."]
+      "tip": [
+        "Print version information."
+      ]
     }
   ]
 }

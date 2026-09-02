@@ -7,63 +7,28 @@
   },
   "root": [
     {
-      "name": "completion",
-      "tip": [
-        "Generate shell completion script"
-      ]
-    },
-    {
       "name": "acp",
       "tip": [
         "Start ACP (Agent Client Protocol) server"
       ]
     },
     {
-      "name": "mcp",
+      "name": "agent",
       "tip": [
-        "Manage MCP (Model Context Protocol) servers"
+        "Manage agents"
       ],
       "next": [
         {
-          "name": "add",
+          "name": "create",
           "tip": [
-            "Add an MCP server"
-          ],
-          "next": 0
+            "Create a new agent"
+          ]
         },
         {
           "name": "list",
           "tip": [
-            "List MCP servers and their status"
+            "List all available agents"
           ]
-        },
-        {
-          "name": "auth",
-          "tip": [
-            "Authenticate with an OAuth-enabled MCP server"
-          ],
-          "next": [
-            {
-              "name": "list",
-              "tip": [
-                "List OAuth-capable MCP servers and their auth status"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "logout",
-          "tip": [
-            "Remove OAuth credentials for an MCP server"
-          ],
-          "next": 0
-        },
-        {
-          "name": "debug",
-          "tip": [
-            "Debug OAuth connection for an MCP server"
-          ],
-          "next": 0
         }
       ]
     },
@@ -75,11 +40,24 @@
       "next": 0
     },
     {
-      "name": "run",
+      "name": "completion",
       "tip": [
-        "Run opencode with a message"
+        "Generate shell completion script"
+      ]
+    },
+    {
+      "name": "db",
+      "tip": [
+        "Database tools"
       ],
-      "next": 0
+      "next": [
+        {
+          "name": "path",
+          "tip": [
+            "Print the database path"
+          ]
+        }
+      ]
     },
     {
       "name": "debug",
@@ -88,9 +66,28 @@
       ],
       "next": [
         {
+          "name": "agent",
+          "tip": [
+            "Show agent configuration details"
+          ],
+          "next": 0
+        },
+        {
           "name": "config",
           "tip": [
             "Show resolved configuration"
+          ]
+        },
+        {
+          "name": "file",
+          "tip": [
+            "File system debugging utilities"
+          ]
+        },
+        {
+          "name": "info",
+          "tip": [
+            "Show debug information"
           ]
         },
         {
@@ -100,15 +97,15 @@
           ]
         },
         {
-          "name": "rg",
+          "name": "paths",
           "tip": [
-            "Ripgrep debugging utilities"
+            "Show global paths (data, config, cache, state)"
           ]
         },
         {
-          "name": "file",
+          "name": "rg",
           "tip": [
-            "File system debugging utilities"
+            "Ripgrep debugging utilities"
           ]
         },
         {
@@ -136,28 +133,9 @@
           ]
         },
         {
-          "name": "agent",
-          "tip": [
-            "Show agent configuration details"
-          ],
-          "next": 0
-        },
-        {
           "name": "v2",
           "tip": [
             "Debug v2 catalog and built-in plugins"
-          ]
-        },
-        {
-          "name": "info",
-          "tip": [
-            "Show debug information"
-          ]
-        },
-        {
-          "name": "paths",
-          "tip": [
-            "Show global paths (data, config, cache, state)"
           ]
         },
         {
@@ -167,6 +145,110 @@
           ]
         }
       ]
+    },
+    {
+      "name": "export",
+      "tip": [
+        "Export session data as JSON"
+      ],
+      "next": 0
+    },
+    {
+      "name": "github",
+      "tip": [
+        "Manage GitHub agent"
+      ],
+      "next": [
+        {
+          "name": "install",
+          "tip": [
+            "Install the GitHub agent"
+          ]
+        },
+        {
+          "name": "run",
+          "tip": [
+            "Run the GitHub agent"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "import",
+      "tip": [
+        "Import session data from JSON file or URL"
+      ],
+      "next": 0
+    },
+    {
+      "name": "mcp",
+      "tip": [
+        "Manage MCP (Model Context Protocol) servers"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "tip": [
+            "Add an MCP server"
+          ],
+          "next": 0
+        },
+        {
+          "name": "auth",
+          "tip": [
+            "Authenticate with an OAuth-enabled MCP server"
+          ],
+          "next": [
+            {
+              "name": "list",
+              "tip": [
+                "List OAuth-capable MCP servers and their auth status"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "debug",
+          "tip": [
+            "Debug OAuth connection for an MCP server"
+          ],
+          "next": 0
+        },
+        {
+          "name": "list",
+          "tip": [
+            "List MCP servers and their status"
+          ]
+        },
+        {
+          "name": "logout",
+          "tip": [
+            "Remove OAuth credentials for an MCP server"
+          ],
+          "next": 0
+        }
+      ]
+    },
+    {
+      "name": "models",
+      "tip": [
+        "List all available models"
+      ],
+      "next": 0
+    },
+    {
+      "name": "plugin",
+      "tip": [
+        "Install plugin and update config"
+      ],
+      "next": 0
+    },
+    {
+      "name": "pr",
+      "tip": [
+        "Fetch and checkout a GitHub PR branch, then run opencode"
+      ],
+      "next": 0
     },
     {
       "name": "providers",
@@ -197,23 +279,49 @@
       ]
     },
     {
-      "name": "agent",
+      "name": "run",
       "tip": [
-        "Manage agents"
+        "Run opencode with a message"
+      ],
+      "next": 0
+    },
+    {
+      "name": "serve",
+      "tip": [
+        "Starts a headless opencode server"
+      ]
+    },
+    {
+      "name": "session",
+      "tip": [
+        "Manage sessions"
       ],
       "next": [
         {
-          "name": "create",
+          "name": "delete",
           "tip": [
-            "Create a new agent"
-          ]
+            "Delete a session"
+          ],
+          "next": 0
         },
         {
           "name": "list",
           "tip": [
-            "List all available agents"
+            "List sessions"
           ]
         }
+      ]
+    },
+    {
+      "name": "stats",
+      "tip": [
+        "Show token usage and cost statistics"
+      ]
+    },
+    {
+      "name": "uninstall",
+      "tip": [
+        "Uninstall opencode and remove all related files"
       ]
     },
     {
@@ -224,143 +332,35 @@
       "next": 0
     },
     {
-      "name": "uninstall",
-      "tip": [
-        "Uninstall opencode and remove all related files"
-      ]
-    },
-    {
-      "name": "serve",
-      "tip": [
-        "Starts a headless opencode server"
-      ]
-    },
-    {
       "name": "web",
       "tip": [
         "Start opencode server and open web interface"
-      ]
-    },
-    {
-      "name": "models",
-      "tip": [
-        "List all available models"
-      ],
-      "next": 0
-    },
-    {
-      "name": "stats",
-      "tip": [
-        "Show token usage and cost statistics"
-      ]
-    },
-    {
-      "name": "export",
-      "tip": [
-        "Export session data as JSON"
-      ],
-      "next": 0
-    },
-    {
-      "name": "import",
-      "tip": [
-        "Import session data from JSON file or URL"
-      ],
-      "next": 0
-    },
-    {
-      "name": "github",
-      "tip": [
-        "Manage GitHub agent"
-      ],
-      "next": [
-        {
-          "name": "install",
-          "tip": [
-            "Install the GitHub agent"
-          ]
-        },
-        {
-          "name": "run",
-          "tip": [
-            "Run the GitHub agent"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "pr",
-      "tip": [
-        "Fetch and checkout a GitHub PR branch, then run opencode"
-      ],
-      "next": 0
-    },
-    {
-      "name": "session",
-      "tip": [
-        "Manage sessions"
-      ],
-      "next": [
-        {
-          "name": "list",
-          "tip": [
-            "List sessions"
-          ]
-        },
-        {
-          "name": "delete",
-          "tip": [
-            "Delete a session"
-          ],
-          "next": 0
-        }
-      ]
-    },
-    {
-      "name": "plugin",
-      "tip": [
-        "Install plugin and update config"
-      ],
-      "next": 0
-    },
-    {
-      "name": "db",
-      "tip": [
-        "Database tools"
-      ],
-      "next": [
-        {
-          "name": "path",
-          "tip": [
-            "Print the database path"
-          ]
-        }
       ]
     }
   ],
   "option": [
     {
-      "name": "-h",
-      "alias": [
-        "--help"
-      ],
+      "name": "--agent",
       "tip": [
-        "Show help"
+        "Agent to use"
       ]
     },
     {
-      "name": "-v",
-      "alias": [
-        "--version"
-      ],
+      "name": "--cors",
       "tip": [
-        "Show version number"
+        "Additional domains to allow for CORS"
       ]
     },
     {
-      "name": "--print-logs",
+      "name": "--fork",
       "tip": [
-        "Print logs to stderr"
+        "Fork the session when continuing (use with --continue or --session)"
+      ]
+    },
+    {
+      "name": "--hostname",
+      "tip": [
+        "Hostname to listen on"
       ]
     },
     {
@@ -373,32 +373,14 @@
           "name": "DEBUG"
         },
         {
+          "name": "ERROR"
+        },
+        {
           "name": "INFO"
         },
         {
           "name": "WARN"
-        },
-        {
-          "name": "ERROR"
         }
-      ]
-    },
-    {
-      "name": "--pure",
-      "tip": [
-        "Run without external plugins"
-      ]
-    },
-    {
-      "name": "--port",
-      "tip": [
-        "Port to listen on"
-      ]
-    },
-    {
-      "name": "--hostname",
-      "tip": [
-        "Hostname to listen on"
       ]
     },
     {
@@ -414,18 +396,27 @@
       ]
     },
     {
-      "name": "--cors",
+      "name": "--port",
       "tip": [
-        "Additional domains to allow for CORS"
+        "Port to listen on"
       ]
     },
     {
-      "name": "-m",
-      "alias": [
-        "--model"
-      ],
+      "name": "--print-logs",
       "tip": [
-        "Model to use in the format of provider/model"
+        "Print logs to stderr"
+      ]
+    },
+    {
+      "name": "--prompt",
+      "tip": [
+        "Prompt to use"
+      ]
+    },
+    {
+      "name": "--pure",
+      "tip": [
+        "Run without external plugins"
       ]
     },
     {
@@ -438,6 +429,24 @@
       ]
     },
     {
+      "name": "-h",
+      "alias": [
+        "--help"
+      ],
+      "tip": [
+        "Show help"
+      ]
+    },
+    {
+      "name": "-m",
+      "alias": [
+        "--model"
+      ],
+      "tip": [
+        "Model to use in the format of provider/model"
+      ]
+    },
+    {
       "name": "-s",
       "alias": [
         "--session"
@@ -447,21 +456,12 @@
       ]
     },
     {
-      "name": "--fork",
+      "name": "-v",
+      "alias": [
+        "--version"
+      ],
       "tip": [
-        "Fork the session when continuing (use with --continue or --session)"
-      ]
-    },
-    {
-      "name": "--prompt",
-      "tip": [
-        "Prompt to use"
-      ]
-    },
-    {
-      "name": "--agent",
-      "tip": [
-        "Agent to use"
+        "Show version number"
       ]
     }
   ],
