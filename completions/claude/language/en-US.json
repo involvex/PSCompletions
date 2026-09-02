@@ -1,0 +1,716 @@
+{
+  "meta": {
+    "url": "https://claude.ai/code",
+    "description": [
+      "claude - Claude Code, an AI-powered coding agent for your terminal by Anthropic."
+    ]
+  },
+  "root": [
+    {
+      "name": "agents",
+      "tip": [
+        "Manage background agents."
+      ],
+      "next": []
+    },
+    {
+      "name": "attach",
+      "tip": [
+        "U: attach <id>",
+        "Open a background session in this terminal."
+      ],
+      "next": 0
+    },
+    {
+      "name": "auth",
+      "tip": [
+        "Manage authentication."
+      ],
+      "next": []
+    },
+    {
+      "name": "auto-mode",
+      "tip": [
+        "Inspect or reset auto mode classifier configuration."
+      ],
+      "next": []
+    },
+    {
+      "name": "doctor",
+      "tip": [
+        "Check the health of your Claude Code installation."
+      ],
+      "next": []
+    },
+    {
+      "name": "gateway",
+      "tip": [
+        "Run the enterprise auth/telemetry gateway."
+      ],
+      "next": []
+    },
+    {
+      "name": "import",
+      "tip": [
+        "Import config from another AI coding agent into Claude Code."
+      ],
+      "next": 0
+    },
+    {
+      "name": "install",
+      "tip": [
+        "Install Claude Code native build."
+      ],
+      "next": 0
+    },
+    {
+      "name": "logs",
+      "tip": [
+        "U: logs <id>",
+        "Print a background session's recent terminal output."
+      ],
+      "next": 0
+    },
+    {
+      "name": "mcp",
+      "tip": [
+        "Configure and manage MCP servers."
+      ],
+      "next": []
+    },
+    {
+      "name": "plugin",
+      "alias": [
+        "plugins"
+      ],
+      "tip": [
+        "Manage Claude Code plugins."
+      ],
+      "next": []
+    },
+    {
+      "name": "project",
+      "tip": [
+        "Manage Claude Code project state."
+      ],
+      "next": []
+    },
+    {
+      "name": "respawn",
+      "tip": [
+        "Restart a background session, or all of them with --all."
+      ],
+      "next": 0
+    },
+    {
+      "name": "rm",
+      "tip": [
+        "U: rm <id>",
+        "Delete a background session, and its worktree when that is safe."
+      ],
+      "next": 0
+    },
+    {
+      "name": "setup-token",
+      "tip": [
+        "Set up a long-lived authentication token (requires Claude subscription)."
+      ],
+      "next": []
+    },
+    {
+      "name": "stop",
+      "alias": [
+        "kill"
+      ],
+      "tip": [
+        "U: stop <id>",
+        "Stop a background session. Its conversation is kept."
+      ],
+      "next": 0
+    },
+    {
+      "name": "ultrareview",
+      "tip": [
+        "Run a cloud-hosted multi-agent code review."
+      ],
+      "next": 0
+    },
+    {
+      "name": "update",
+      "alias": [
+        "upgrade"
+      ],
+      "tip": [
+        "Check for updates and install if available."
+      ],
+      "next": []
+    }
+  ],
+  "option": [
+    {
+      "name": "--add-dir",
+      "tip": [
+        "U: --add-dir <directories...>",
+        "Additional directories to allow tool access to."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--agent",
+      "tip": [
+        "U: --agent <agent>",
+        "Agent for the current session. Overrides the 'agent' setting."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--agents",
+      "tip": [
+        "U: --agents <json>",
+        "JSON object defining custom agents."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--allow-dangerously-skip-permissions",
+      "tip": [
+        "Enable bypassing all permission checks as an option."
+      ]
+    },
+    {
+      "name": "--allowedTools",
+      "alias": [
+        "--allowed-tools"
+      ],
+      "tip": [
+        "U: --allowedTools <tools...>",
+        "Comma or space-separated list of tool names to allow."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--append-system-prompt",
+      "tip": [
+        "U: --append-system-prompt <prompt>",
+        "Append a system prompt to the default system prompt."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--autocompact",
+      "tip": [
+        "U: --autocompact <auto|tokens>",
+        "Auto-compact window size (auto, or 100k–1M tokens)."
+      ],
+      "next": [
+        {
+          "name": "auto",
+          "tip": [
+            "Auto-detect compact window size."
+          ]
+        },
+        {
+          "name": "tokens",
+          "tip": [
+            "Specify a token count for compact window size (100k–1M)."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--ax-screen-reader",
+      "tip": [
+        "Render screen-reader friendly output (flat text, no decorative borders or animations)."
+      ]
+    },
+    {
+      "name": "--bare",
+      "tip": [
+        "Minimal mode: skip hooks, LSP, plugin sync, attribution, auto-memory, background prefetches, keychain reads, and CLAUDE.md auto-discovery."
+      ]
+    },
+    {
+      "name": "--betas",
+      "tip": [
+        "U: --betas <betas...>",
+        "Beta headers to include in API requests (API key users only)."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--bg",
+      "alias": [
+        "--background"
+      ],
+      "tip": [
+        "Start the session in the background and return immediately."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--brief",
+      "tip": [
+        "Enable SendUserMessage tool for agent-to-user communication."
+      ]
+    },
+    {
+      "name": "--chrome",
+      "tip": [
+        "Enable Claude in Chrome integration."
+      ]
+    },
+    {
+      "name": "--cloud",
+      "tip": [
+        "U: --cloud [description|session_id|url]",
+        "Create a cloud session with the given description, or attach to an existing one."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--dangerously-skip-permissions",
+      "tip": [
+        "Bypass all permission checks. Recommended only for sandboxes with no internet access."
+      ]
+    },
+    {
+      "name": "--debug-file",
+      "tip": [
+        "U: --debug-file <path>",
+        "Write debug logs to a specific file path (implicitly enables debug mode)."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--disable-slash-commands",
+      "tip": [
+        "Disable all skills."
+      ]
+    },
+    {
+      "name": "--disallowedTools",
+      "alias": [
+        "--disallowed-tools"
+      ],
+      "tip": [
+        "U: --disallowedTools <tools...>",
+        "Comma or space-separated list of tool names to deny."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--effort",
+      "tip": [
+        "U: --effort <level>",
+        "Effort level for the current session."
+      ],
+      "next": [
+        {
+          "name": "high"
+        },
+        {
+          "name": "low"
+        },
+        {
+          "name": "max"
+        },
+        {
+          "name": "medium"
+        },
+        {
+          "name": "xhigh"
+        }
+      ]
+    },
+    {
+      "name": "--environment",
+      "tip": [
+        "U: --environment <environment_id>",
+        "Create a new cloud session that runs on the given self-hosted environment."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--exclude-dynamic-system-prompt-sections",
+      "tip": [
+        "Move per-machine sections from the system prompt into the first user message."
+      ]
+    },
+    {
+      "name": "--fallback-model",
+      "tip": [
+        "U: --fallback-model <model>",
+        "Enable automatic fallback to specified model(s) when the default model is overloaded."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--file",
+      "tip": [
+        "U: --file <specs...>",
+        "File resources to download at startup. Format: file_id:relative_path."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--fork-session",
+      "tip": [
+        "When resuming, create a new session ID instead of reusing the original."
+      ]
+    },
+    {
+      "name": "--forward-subagent-text",
+      "tip": [
+        "Forward subagent text and thinking blocks as assistant/user messages."
+      ]
+    },
+    {
+      "name": "--from-pr",
+      "tip": [
+        "U: --from-pr [value]",
+        "Resume a session linked to a PR by PR number/URL, or open interactive picker."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--ide",
+      "tip": [
+        "Automatically connect to IDE on startup if exactly one valid IDE is available."
+      ]
+    },
+    {
+      "name": "--include-hook-events",
+      "tip": [
+        "Include all hook lifecycle events in the output stream (only works with --output-format=stream-json)."
+      ]
+    },
+    {
+      "name": "--include-partial-messages",
+      "tip": [
+        "Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)."
+      ]
+    },
+    {
+      "name": "--input-format",
+      "tip": [
+        "U: --input-format <format>",
+        "Input format (only works with --print): \"text\" (default), or \"stream-json\"."
+      ],
+      "next": [
+        {
+          "name": "stream-json"
+        },
+        {
+          "name": "text"
+        }
+      ]
+    },
+    {
+      "name": "--json-schema",
+      "tip": [
+        "U: --json-schema <schema>",
+        "JSON Schema for structured output validation."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--max-budget-usd",
+      "tip": [
+        "U: --max-budget-usd <amount>",
+        "Maximum dollar amount to spend on API calls (only works with --print)."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--mcp-config",
+      "tip": [
+        "U: --mcp-config <configs...>",
+        "Load MCP servers from JSON files or strings (space-separated)."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--model",
+      "alias": [
+        "-m"
+      ],
+      "tip": [
+        "U: --model <model>",
+        "Model for the current session. Provide an alias (e.g. 'fable', 'opus', or 'sonnet') or a full model name."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--no-chrome",
+      "tip": [
+        "Disable Claude in Chrome integration."
+      ]
+    },
+    {
+      "name": "--no-session-persistence",
+      "tip": [
+        "Disable session persistence - sessions will not be saved to disk and cannot be resumed."
+      ]
+    },
+    {
+      "name": "--output-format",
+      "tip": [
+        "U: --output-format <format>",
+        "Output format (only works with --print): \"text\", \"json\", or \"stream-json\"."
+      ],
+      "next": [
+        {
+          "name": "json"
+        },
+        {
+          "name": "stream-json"
+        },
+        {
+          "name": "text"
+        }
+      ]
+    },
+    {
+      "name": "--permission-mode",
+      "tip": [
+        "U: --permission-mode <mode>",
+        "Permission mode to use for the session."
+      ],
+      "next": [
+        {
+          "name": "acceptEdits"
+        },
+        {
+          "name": "auto"
+        },
+        {
+          "name": "bypassPermissions"
+        },
+        {
+          "name": "dontAsk"
+        },
+        {
+          "name": "manual"
+        },
+        {
+          "name": "plan"
+        }
+      ]
+    },
+    {
+      "name": "--plugin-dir",
+      "tip": [
+        "U: --plugin-dir <path>",
+        "Load a plugin from a directory or .zip for this session only (repeatable)."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--plugin-url",
+      "tip": [
+        "U: --plugin-url <url>",
+        "Fetch a plugin .zip from a URL for this session only (repeatable)."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--prompt-suggestions",
+      "tip": [
+        "U: --prompt-suggestions [value]",
+        "Enable prompt suggestions in print/SDK mode."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--remote-control",
+      "tip": [
+        "U: --remote-control [name]",
+        "Start an interactive session with Remote Control enabled (optionally named)."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--remote-control-session-name-prefix",
+      "tip": [
+        "U: --remote-control-session-name-prefix <prefix>",
+        "Prefix for auto-generated Remote Control session names."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--replay-user-messages",
+      "tip": [
+        "Re-emit user messages from stdin back on stdout for acknowledgment."
+      ]
+    },
+    {
+      "name": "--restricted",
+      "tip": [
+        "Restricted mode: removes built-in tools that run commands or code."
+      ]
+    },
+    {
+      "name": "--safe-mode",
+      "tip": [
+        "Start with all customizations disabled — useful for troubleshooting."
+      ]
+    },
+    {
+      "name": "--session-id",
+      "tip": [
+        "U: --session-id <uuid>",
+        "Use a specific session ID for the conversation."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--setting-sources",
+      "tip": [
+        "U: --setting-sources <sources>",
+        "Comma-separated list of setting sources to load (user, project, local)."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--settings",
+      "tip": [
+        "U: --settings <file-or-json>",
+        "Path to a settings JSON file or a JSON string to load additional settings from."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--strict-mcp-config",
+      "tip": [
+        "Only use MCP servers from --mcp-config, ignoring all other MCP configurations."
+      ]
+    },
+    {
+      "name": "--system-prompt",
+      "tip": [
+        "U: --system-prompt <prompt>",
+        "System prompt to use for the session."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--system-prompt-snapshot",
+      "tip": [
+        "U: --system-prompt-snapshot <on|off>",
+        "Record the system prompt once per conversation and reuse it verbatim."
+      ],
+      "next": [
+        {
+          "name": "off"
+        },
+        {
+          "name": "on"
+        }
+      ]
+    },
+    {
+      "name": "--teleport",
+      "tip": [
+        "U: --teleport [session]",
+        "Resume a teleport session, optionally specify session ID."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--tmux",
+      "tip": [
+        "Create a tmux session for the worktree (requires --worktree)."
+      ]
+    },
+    {
+      "name": "--tools",
+      "tip": [
+        "U: --tools <tools...>",
+        "Specify the list of available tools from the built-in set."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-c",
+      "alias": [
+        "--continue"
+      ],
+      "tip": [
+        "Continue the most recent conversation in the current directory."
+      ]
+    },
+    {
+      "name": "-d",
+      "alias": [
+        "--debug"
+      ],
+      "tip": [
+        "U: -d, --debug [filter]",
+        "Enable debug mode with optional category filtering (e.g., \"api,hooks\")."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-n",
+      "alias": [
+        "--name"
+      ],
+      "tip": [
+        "U: -n, --name <name>",
+        "Set a display name for this session."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-p",
+      "alias": [
+        "--print"
+      ],
+      "tip": [
+        "Print response and exit (useful for pipes)."
+      ]
+    },
+    {
+      "name": "-r",
+      "alias": [
+        "--resume"
+      ],
+      "tip": [
+        "U: -r, --resume [value]",
+        "Resume a conversation by session ID, or open interactive picker."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-v",
+      "alias": [
+        "--version"
+      ],
+      "tip": [
+        "Output the version number."
+      ]
+    },
+    {
+      "name": "-w",
+      "alias": [
+        "--worktree"
+      ],
+      "tip": [
+        "U: -w, --worktree [name]",
+        "Create a new git worktree for this session (optionally specify a name)."
+      ],
+      "next": 0
+    }
+  ],
+  "common_option": [
+    {
+      "name": "-h",
+      "alias": [
+        "--help"
+      ],
+      "tip": [
+        "Display help for command."
+      ]
+    }
+  ]
+}

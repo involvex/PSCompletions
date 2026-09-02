@@ -1,0 +1,716 @@
+{
+  "meta": {
+    "url": "https://claude.ai/code",
+    "description": [
+      "claude - Claude Code，由 Anthropic 打造的 AI 编程助手，运行在你的终端中。"
+    ]
+  },
+  "root": [
+    {
+      "name": "agents",
+      "tip": [
+        "管理后台代理。"
+      ],
+      "next": []
+    },
+    {
+      "name": "attach",
+      "tip": [
+        "U: attach <id>",
+        "在此终端中打开一个后台会话。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "auth",
+      "tip": [
+        "管理身份认证。"
+      ],
+      "next": []
+    },
+    {
+      "name": "auto-mode",
+      "tip": [
+        "检查或重置自动模式分类器配置。"
+      ],
+      "next": []
+    },
+    {
+      "name": "doctor",
+      "tip": [
+        "检查 Claude Code 安装的健康状况。"
+      ],
+      "next": []
+    },
+    {
+      "name": "gateway",
+      "tip": [
+        "运行企业认证/遥测网关。"
+      ],
+      "next": []
+    },
+    {
+      "name": "import",
+      "tip": [
+        "从另一个 AI 编程助手导入配置到 Claude Code。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "install",
+      "tip": [
+        "安装 Claude Code 原生构建。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "logs",
+      "tip": [
+        "U: logs <id>",
+        "打印后台会话的近期终端输出。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "mcp",
+      "tip": [
+        "配置和管理 MCP 服务器。"
+      ],
+      "next": []
+    },
+    {
+      "name": "plugin",
+      "alias": [
+        "plugins"
+      ],
+      "tip": [
+        "管理 Claude Code 插件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "project",
+      "tip": [
+        "管理 Claude Code 项目状态。"
+      ],
+      "next": []
+    },
+    {
+      "name": "respawn",
+      "tip": [
+        "重启一个后台会话，或使用 --all 重启所有会话。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "rm",
+      "tip": [
+        "U: rm <id>",
+        "删除一个后台会话，并在安全时删除其工作树。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "setup-token",
+      "tip": [
+        "设置长期身份认证令牌（需要 Claude 订阅）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "stop",
+      "alias": [
+        "kill"
+      ],
+      "tip": [
+        "U: stop <id>",
+        "停止一个后台会话。会话记录将被保留。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "ultrareview",
+      "tip": [
+        "运行云端多智能体代码评审。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "update",
+      "alias": [
+        "upgrade"
+      ],
+      "tip": [
+        "检查更新并在可用时安装。"
+      ],
+      "next": []
+    }
+  ],
+  "option": [
+    {
+      "name": "--add-dir",
+      "tip": [
+        "U: --add-dir <directories...>",
+        "允许工具访问的其他目录。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--agent",
+      "tip": [
+        "U: --agent <agent>",
+        "当前会话的代理。覆盖 'agent' 设置。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--agents",
+      "tip": [
+        "U: --agents <json>",
+        "定义自定义代理的 JSON 对象。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--allow-dangerously-skip-permissions",
+      "tip": [
+        "启用跳过所有权限检查的选项，但默认情况下不启用。"
+      ]
+    },
+    {
+      "name": "--allowedTools",
+      "alias": [
+        "--allowed-tools"
+      ],
+      "tip": [
+        "U: --allowedTools <tools...>",
+        "允许的工具名称列表（逗号或空格分隔）。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--append-system-prompt",
+      "tip": [
+        "U: --append-system-prompt <prompt>",
+        "附加到默认系统提示的系统提示。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--autocompact",
+      "tip": [
+        "U: --autocompact <auto|tokens>",
+        "自动压缩窗口大小（auto，或 100k–1M tokens）。"
+      ],
+      "next": [
+        {
+          "name": "auto",
+          "tip": [
+            "自动检测压缩窗口大小。"
+          ]
+        },
+        {
+          "name": "tokens",
+          "tip": [
+            "指定压缩窗口大小的 token 数量（100k–1M）。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--ax-screen-reader",
+      "tip": [
+        "渲染屏幕阅读器友好的输出（纯文本，无装饰性边框或动画）。"
+      ]
+    },
+    {
+      "name": "--bare",
+      "tip": [
+        "最小化模式：跳过钩子、LSP、插件同步、归因、自动记忆、后台预取、钥匙链读取和 CLAUDE.md 自动发现。"
+      ]
+    },
+    {
+      "name": "--betas",
+      "tip": [
+        "U: --betas <betas...>",
+        "包含在 API 请求中的测试版标头（仅 API 密钥用户）。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--bg",
+      "alias": [
+        "--background"
+      ],
+      "tip": [
+        "在后台启动会话并立即返回。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--brief",
+      "tip": [
+        "启用 SendUserMessage 工具，用于代理到用户的通信。"
+      ]
+    },
+    {
+      "name": "--chrome",
+      "tip": [
+        "启用 Claude in Chrome 集成。"
+      ]
+    },
+    {
+      "name": "--cloud",
+      "tip": [
+        "U: --cloud [description|session_id|url]",
+        "创建具有给定描述的云会话，或附加到现有的云会话。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--dangerously-skip-permissions",
+      "tip": [
+        "绕过所有权限检查。建议仅在无互联网访问的沙箱中使用。"
+      ]
+    },
+    {
+      "name": "--debug-file",
+      "tip": [
+        "U: --debug-file <path>",
+        "将调试日志写入指定文件路径（隐式启用调试模式）。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--disable-slash-commands",
+      "tip": [
+        "禁用所有技能。"
+      ]
+    },
+    {
+      "name": "--disallowedTools",
+      "alias": [
+        "--disallowed-tools"
+      ],
+      "tip": [
+        "U: --disallowedTools <tools...>",
+        "要拒绝的工具名称列表（逗号或空格分隔）。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--effort",
+      "tip": [
+        "U: --effort <level>",
+        "当前会话的效果级别。"
+      ],
+      "next": [
+        {
+          "name": "high"
+        },
+        {
+          "name": "low"
+        },
+        {
+          "name": "max"
+        },
+        {
+          "name": "medium"
+        },
+        {
+          "name": "xhigh"
+        }
+      ]
+    },
+    {
+      "name": "--environment",
+      "tip": [
+        "U: --environment <environment_id>",
+        "在指定的自托管环境上运行的新云会话。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--exclude-dynamic-system-prompt-sections",
+      "tip": [
+        "将机器相关部分从系统提示移到第一条用户消息中。"
+      ]
+    },
+    {
+      "name": "--fallback-model",
+      "tip": [
+        "U: --fallback-model <model>",
+        "当默认模型过载或不可用时，自动回退到指定模型。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--file",
+      "tip": [
+        "U: --file <specs...>",
+        "启动时要下载的文件资源。格式：file_id:relative_path。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--fork-session",
+      "tip": [
+        "恢复时创建新的会话 ID，而不是重用原始 ID。"
+      ]
+    },
+    {
+      "name": "--forward-subagent-text",
+      "tip": [
+        "将子代理文本和思考块转发为助手/用户消息。"
+      ]
+    },
+    {
+      "name": "--from-pr",
+      "tip": [
+        "U: --from-pr [value]",
+        "通过 PR 编号/URL 恢复与 PR 链接的会话，或打开交互式选择器。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--ide",
+      "tip": [
+        "在启动时如果有且仅有一个有效 IDE，则自动连接到 IDE。"
+      ]
+    },
+    {
+      "name": "--include-hook-events",
+      "tip": [
+        "在输出流中包含所有钩子生命周期事件（仅与 --output-format=stream-json 配合使用）。"
+      ]
+    },
+    {
+      "name": "--include-partial-messages",
+      "tip": [
+        "在到达时包含部分消息块（仅与 --print 和 --output-format=stream-json 配合使用）。"
+      ]
+    },
+    {
+      "name": "--input-format",
+      "tip": [
+        "U: --input-format <format>",
+        "输入格式（仅与 --print 配合使用）：\"text\"（默认）或 \"stream-json\"。"
+      ],
+      "next": [
+        {
+          "name": "stream-json"
+        },
+        {
+          "name": "text"
+        }
+      ]
+    },
+    {
+      "name": "--json-schema",
+      "tip": [
+        "U: --json-schema <schema>",
+        "用于结构化输出验证的 JSON 模式。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--max-budget-usd",
+      "tip": [
+        "U: --max-budget-usd <amount>",
+        "在 API 调用上花费的最大美元金额（仅与 --print 配合使用）。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--mcp-config",
+      "tip": [
+        "U: --mcp-config <configs...>",
+        "从 JSON 文件或字符串加载 MCP 服务器（空格分隔）。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--model",
+      "alias": [
+        "-m"
+      ],
+      "tip": [
+        "U: --model <model>",
+        "当前会话的模型。提供别名（例如 'fable', 'opus' 或 'sonnet'）或完整模型名称。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--no-chrome",
+      "tip": [
+        "禁用 Claude in Chrome 集成。"
+      ]
+    },
+    {
+      "name": "--no-session-persistence",
+      "tip": [
+        "禁用会话持久化 - 会话不会保存到磁盘且无法恢复。"
+      ]
+    },
+    {
+      "name": "--output-format",
+      "tip": [
+        "U: --output-format <format>",
+        "输出格式（仅与 --print 配合使用）：\"text\"、\"json\" 或 \"stream-json\"。"
+      ],
+      "next": [
+        {
+          "name": "json"
+        },
+        {
+          "name": "stream-json"
+        },
+        {
+          "name": "text"
+        }
+      ]
+    },
+    {
+      "name": "--permission-mode",
+      "tip": [
+        "U: --permission-mode <mode>",
+        "会话使用的权限模式。"
+      ],
+      "next": [
+        {
+          "name": "acceptEdits"
+        },
+        {
+          "name": "auto"
+        },
+        {
+          "name": "bypassPermissions"
+        },
+        {
+          "name": "dontAsk"
+        },
+        {
+          "name": "manual"
+        },
+        {
+          "name": "plan"
+        }
+      ]
+    },
+    {
+      "name": "--plugin-dir",
+      "tip": [
+        "U: --plugin-dir <path>",
+        "为此会话从目录或 .zip 加载插件（可重复）。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--plugin-url",
+      "tip": [
+        "U: --plugin-url <url>",
+        "从 URL 获取插件 .zip 用于此会话（可重复）。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--prompt-suggestions",
+      "tip": [
+        "U: --prompt-suggestions [value]",
+        "在 print/SDK 模式下启用提示建议。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--remote-control",
+      "tip": [
+        "U: --remote-control [name]",
+        "启动具有远程控制功能的交互式会话（可选名称）。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--remote-control-session-name-prefix",
+      "tip": [
+        "U: --remote-control-session-name-prefix <prefix>",
+        "自动生成的远程控制会话名称前缀。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--replay-user-messages",
+      "tip": [
+        "将用户消息从 stdin 重新发射到 stdout 以确认（仅与 --input-format=stream-json 和 --output-format=stream-json 配合使用）。"
+      ]
+    },
+    {
+      "name": "--restricted",
+      "tip": [
+        "限制模式：移除运行命令或代码的内置工具。"
+      ]
+    },
+    {
+      "name": "--safe-mode",
+      "tip": [
+        "以所有自定义项禁用状态启动 - 用于故障排除。"
+      ]
+    },
+    {
+      "name": "--session-id",
+      "tip": [
+        "U: --session-id <uuid>",
+        "为对话使用指定的会话 ID。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--setting-sources",
+      "tip": [
+        "U: --setting-sources <sources>",
+        "要加载的设置来源列表（user, project, local），逗号分隔。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--settings",
+      "tip": [
+        "U: --settings <file-or-json>",
+        "要加载的额外设置的设置 JSON 文件路径或 JSON 字符串。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--strict-mcp-config",
+      "tip": [
+        "仅使用 --mcp-config 中的 MCP 服务器，忽略所有其他 MCP 配置。"
+      ]
+    },
+    {
+      "name": "--system-prompt",
+      "tip": [
+        "U: --system-prompt <prompt>",
+        "会话使用的系统提示。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--system-prompt-snapshot",
+      "tip": [
+        "U: --system-prompt-snapshot <on|off>",
+        "一次记录系统提示并在后续重复使用。"
+      ],
+      "next": [
+        {
+          "name": "off"
+        },
+        {
+          "name": "on"
+        }
+      ]
+    },
+    {
+      "name": "--teleport",
+      "tip": [
+        "U: --teleport [session]",
+        "恢复一个 teleport 会话，可指定会话 ID。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--tmux",
+      "tip": [
+        "为工作树创建 tmux 会话（需要 --worktree）。"
+      ]
+    },
+    {
+      "name": "--tools",
+      "tip": [
+        "U: --tools <tools...>",
+        "从内置工具集中指定可用的工具列表。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-c",
+      "alias": [
+        "--continue"
+      ],
+      "tip": [
+        "继续当前目录中最近的对话。"
+      ]
+    },
+    {
+      "name": "-d",
+      "alias": [
+        "--debug"
+      ],
+      "tip": [
+        "U: -d, --debug [filter]",
+        "启用调试模式，可选类别过滤（例如 \"api,hooks\"）。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-n",
+      "alias": [
+        "--name"
+      ],
+      "tip": [
+        "U: -n, --name <name>",
+        "为此会话设置显示名称。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-p",
+      "alias": [
+        "--print"
+      ],
+      "tip": [
+        "打印响应并退出（适用于管道）。"
+      ]
+    },
+    {
+      "name": "-r",
+      "alias": [
+        "--resume"
+      ],
+      "tip": [
+        "U: -r, --resume [value]",
+        "通过会话 ID 恢复对话，或打开交互式选择器。"
+      ],
+      "next": 0
+    },
+    {
+      "name": "-v",
+      "alias": [
+        "--version"
+      ],
+      "tip": [
+        "输出版本号。"
+      ]
+    },
+    {
+      "name": "-w",
+      "alias": [
+        "--worktree"
+      ],
+      "tip": [
+        "U: -w, --worktree [name]",
+        "为此会话创建一个新的 git 工作树（可指定名称）。"
+      ],
+      "next": 0
+    }
+  ],
+  "common_option": [
+    {
+      "name": "-h",
+      "alias": [
+        "--help"
+      ],
+      "tip": [
+        "显示命令的帮助信息。"
+      ]
+    }
+  ]
+}
