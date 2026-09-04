@@ -1,0 +1,202 @@
+{
+  "meta": {
+    "url": "https://github.com/sinelaw/fresh",
+    "description": [
+      "A terminal text editor with multi-cursor support",
+      "Docs: https://getfresh.dev/docs"
+    ]
+  },
+  "root": [],
+  "option": [
+    {
+      "name": "--cmd",
+      "tip": [
+        "U: --cmd <COMMAND>...",
+        "Run a command instead of opening files",
+        "E: fresh --cmd daemon open-file . main.rs --wait"
+      ],
+      "next": [
+        {
+          "name": "command",
+          "tip": [
+            "U: command <run|list>",
+            "Run a registered command by its command-palette name, or list commands"
+          ]
+        },
+        {
+          "name": "config",
+          "tip": [
+            "U: config <show|paths>",
+            "Show the effective configuration or the directories used by Fresh"
+          ]
+        },
+        {
+          "name": "daemon",
+          "alias": [
+            "session"
+          ],
+          "tip": [
+            "U: daemon <list|attach|new|kill|info|open-file>",
+            "Manage editor daemons (detachable editor sessions)"
+          ]
+        },
+        {
+          "name": "grammar",
+          "tip": [
+            "U: grammar list",
+            "List all available grammars (with source info)"
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "U: help [TOPIC]",
+            "Feature guides with generated reference (topics: tour, script, plugin)"
+          ]
+        },
+        {
+          "name": "init",
+          "tip": [
+            "U: init <check|reload>",
+            "Syntax-check ~/.config/fresh/init.ts or reload it in a running editor"
+          ]
+        },
+        {
+          "name": "script",
+          "tip": [
+            "U: script <api|check|run|types>",
+            "Drive a running editor with TypeScript"
+          ]
+        },
+        {
+          "name": "update",
+          "tip": [
+            "Update Fresh"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--config",
+      "tip": [
+        "U: --config <PATH>",
+        "Path to configuration file"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--event-log",
+      "tip": [
+        "U: --event-log <LOG_FILE>",
+        "Enable event logging to the specified file"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--locale",
+      "tip": [
+        "U: --locale <LOCALE>",
+        "Override the locale (e.g. 'en', 'ja', 'zh-CN')"
+      ],
+      "next": [
+        {
+          "name": "en"
+        },
+        {
+          "name": "es"
+        },
+        {
+          "name": "fr"
+        },
+        {
+          "name": "ja"
+        },
+        {
+          "name": "zh-CN"
+        }
+      ]
+    },
+    {
+      "name": "--log-file",
+      "tip": [
+        "U: --log-file <PATH>",
+        "Path to log file for editor diagnostics"
+      ],
+      "next": 0
+    },
+    {
+      "name": "--no-init",
+      "tip": [
+        "Skip ~/.config/fresh/init.ts for this launch"
+      ]
+    },
+    {
+      "name": "--no-plugins",
+      "tip": [
+        "Disable plugin loading"
+      ]
+    },
+    {
+      "name": "--no-restore",
+      "tip": [
+        "Don't restore the previous workspace (hot-exit content of unsaved modified files and unnamed buffers is still restored so in-progress work is not lost)"
+      ]
+    },
+    {
+      "name": "--no-upgrade-check",
+      "tip": [
+        "Disable upgrade checking and anonymous telemetry"
+      ]
+    },
+    {
+      "name": "--restore",
+      "tip": [
+        "Force restore of the previous workspace, overriding 'editor.restore_previous_session = false' in the config",
+        "Cannot be combined with --no-restore"
+      ]
+    },
+    {
+      "name": "--safe",
+      "tip": [
+        "Safe mode: skip init.ts AND all plugins (recovery from a bad config)"
+      ]
+    },
+    {
+      "name": "--stdin",
+      "tip": [
+        "Read content from stdin (alternative to using '-' as filename)"
+      ]
+    },
+    {
+      "name": "-a",
+      "alias": [
+        "--attach"
+      ],
+      "tip": [
+        "U: -a, --attach [<NAME>]",
+        "Attach to a daemon. Use -a for the current directory, -a NAME for a named daemon"
+      ],
+      "next": 0
+    }
+  ],
+  "common_option": [
+    {
+      "name": "-h",
+      "alias": [
+        "--help"
+      ],
+      "tip": [
+        "Print help (see a summary with '-h')"
+      ]
+    },
+    {
+      "name": "-V",
+      "alias": [
+        "--version"
+      ],
+      "tip": [
+        "Print version"
+      ]
+    }
+  ]
+}

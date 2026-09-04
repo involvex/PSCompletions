@@ -1,0 +1,621 @@
+{
+  "meta": {
+    "url": "https://opencode.ai",
+    "description": [
+      "openclaude - OpenClaude, an open-source AI coding agent for your terminal (a fork of Claude Code)."
+    ]
+  },
+  "root": [
+    {
+      "name": "agents",
+      "tip": [
+        "List configured agents."
+      ],
+      "next": []
+    },
+    {
+      "name": "aimlapi",
+      "tip": [
+        "AI/ML API (aimlapi.com) — top up balance and configure the provider."
+      ],
+      "next": []
+    },
+    {
+      "name": "auth",
+      "tip": [
+        "Manage authentication."
+      ],
+      "next": []
+    },
+    {
+      "name": "auto-mode",
+      "tip": [
+        "Inspect auto mode classifier configuration."
+      ],
+      "next": []
+    },
+    {
+      "name": "doctor",
+      "tip": [
+        "Check the health of your OpenClaude auto-updater."
+      ],
+      "next": []
+    },
+    {
+      "name": "install",
+      "tip": [
+        "Install OpenClaude native build."
+      ],
+      "next": 0
+    },
+    {
+      "name": "mcp",
+      "tip": [
+        "Configure and manage MCP servers."
+      ],
+      "next": []
+    },
+    {
+      "name": "plugin",
+      "alias": [
+        "plugins"
+      ],
+      "tip": [
+        "Manage OpenClaude plugins."
+      ],
+      "next": []
+    },
+    {
+      "name": "report",
+      "tip": [
+        "Generate a deterministic task report for an OpenClaude session."
+      ],
+      "next": []
+    },
+    {
+      "name": "setup-token",
+      "tip": [
+        "Set up a long-lived authentication token (requires Claude subscription)."
+      ],
+      "next": []
+    },
+    {
+      "name": "skills",
+      "tip": [
+        "List, inspect, validate, and manage OpenClaude skills."
+      ],
+      "next": []
+    },
+    {
+      "name": "update",
+      "alias": [
+        "upgrade"
+      ],
+      "tip": [
+        "Check for updates and install if available."
+      ],
+      "next": []
+    }
+  ],
+  "option": [
+    {
+      "name": "--add-dir",
+      "tip": [
+        "U: --add-dir <directories...>",
+        "Additional directories to allow tool access to."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--agent",
+      "tip": [
+        "U: --agent <agent>",
+        "Agent for the current session. Overrides the 'agent' setting."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--agents",
+      "tip": [
+        "U: --agents <json>",
+        "JSON object defining custom agents."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--allow-dangerously-skip-permissions",
+      "tip": [
+        "Enable bypassing all permission checks as an option."
+      ]
+    },
+    {
+      "name": "--allowedTools",
+      "alias": [
+        "--allowed-tools"
+      ],
+      "tip": [
+        "U: --allowedTools <tools...>",
+        "Comma or space-separated list of tool names to allow."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--append-system-prompt",
+      "tip": [
+        "U: --append-system-prompt <prompt>",
+        "Append a system prompt to the default system prompt."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--bare",
+      "tip": [
+        "Minimal mode: skip hooks, LSP, plugin sync, attribution, auto-memory, background prefetches, keychain reads, and CLAUDE.md auto-discovery."
+      ]
+    },
+    {
+      "name": "--betas",
+      "tip": [
+        "U: --betas <betas...>",
+        "Beta headers to include in API requests (API key users only)."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--chrome",
+      "tip": [
+        "Enable Claude in Chrome integration."
+      ]
+    },
+    {
+      "name": "--debug-file",
+      "tip": [
+        "U: --debug-file <path>",
+        "Write debug logs to a specific file path (implicitly enables debug mode)."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--disable-slash-commands",
+      "tip": [
+        "Disable all skills."
+      ]
+    },
+    {
+      "name": "--disallowedTools",
+      "alias": [
+        "--disallowed-tools"
+      ],
+      "tip": [
+        "U: --disallowedTools <tools...>",
+        "Comma or space-separated list of tool names to deny."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--effort",
+      "tip": [
+        "U: --effort <level>",
+        "Effort level for the current session."
+      ],
+      "next": [
+        {
+          "name": "high"
+        },
+        {
+          "name": "low"
+        },
+        {
+          "name": "max"
+        },
+        {
+          "name": "medium"
+        },
+        {
+          "name": "ultracode"
+        },
+        {
+          "name": "xhigh"
+        }
+      ]
+    },
+    {
+      "name": "--fallback-model",
+      "tip": [
+        "U: --fallback-model <model>",
+        "Enable automatic fallback to specified model when default model is overloaded."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--file",
+      "tip": [
+        "U: --file <specs...>",
+        "File resources to download at startup. Format: file_id:relative_path."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--fork-session",
+      "tip": [
+        "When resuming, branch the conversation into a new session ID."
+      ]
+    },
+    {
+      "name": "--from-pr",
+      "tip": [
+        "U: --from-pr [value]",
+        "Resume a session linked to a PR by PR number/URL, or open interactive picker."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--heartbeat",
+      "tip": [
+        "U: --heartbeat <duration>",
+        "Emit a headless liveness heartbeat while output is quiet (only works with --print)."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--ide",
+      "tip": [
+        "Automatically connect to IDE on startup if exactly one valid IDE is available."
+      ]
+    },
+    {
+      "name": "--include-hook-events",
+      "tip": [
+        "Include all hook lifecycle events in the output stream (only works with --output-format=stream-json)."
+      ]
+    },
+    {
+      "name": "--include-partial-messages",
+      "tip": [
+        "Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)."
+      ]
+    },
+    {
+      "name": "--input-format",
+      "tip": [
+        "U: --input-format <format>",
+        "Input format (only works with --print): \"text\" (default), or \"stream-json\"."
+      ],
+      "next": [
+        {
+          "name": "stream-json"
+        },
+        {
+          "name": "text"
+        }
+      ]
+    },
+    {
+      "name": "--json-schema",
+      "tip": [
+        "U: --json-schema <schema>",
+        "JSON Schema for structured output validation."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--max-budget-usd",
+      "tip": [
+        "U: --max-budget-usd <amount>",
+        "Maximum dollar amount to spend on API calls (only works with --print)."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--max-turns",
+      "tip": [
+        "U: --max-turns <turns>",
+        "Maximum number of agentic turns per prompt."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--mcp-config",
+      "tip": [
+        "U: --mcp-config <configs...>",
+        "Load MCP servers from JSON files or strings (space-separated)."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--mcp-debug",
+      "tip": [
+        "Enable MCP debug mode (shows MCP server errors). Deprecated: Use --debug instead."
+      ]
+    },
+    {
+      "name": "--model",
+      "alias": [
+        "-m"
+      ],
+      "tip": [
+        "U: --model <model>",
+        "Model for the current session. Provide an alias (e.g. 'sonnet' or 'opus') or a full model name."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--no-chrome",
+      "tip": [
+        "Disable Claude in Chrome integration."
+      ]
+    },
+    {
+      "name": "--no-session-persistence",
+      "tip": [
+        "Disable session persistence - sessions will not be saved to disk and cannot be resumed."
+      ]
+    },
+    {
+      "name": "--output-format",
+      "tip": [
+        "U: --output-format <format>",
+        "Output format (only works with --print): \"text\", \"json\", or \"stream-json\"."
+      ],
+      "next": [
+        {
+          "name": "json"
+        },
+        {
+          "name": "stream-json"
+        },
+        {
+          "name": "text"
+        }
+      ]
+    },
+    {
+      "name": "--permission-mode",
+      "tip": [
+        "U: --permission-mode <mode>",
+        "Permission mode to use for the session."
+      ],
+      "next": [
+        {
+          "name": "acceptEdits"
+        },
+        {
+          "name": "auto"
+        },
+        {
+          "name": "bypassPermissions"
+        },
+        {
+          "name": "default"
+        },
+        {
+          "name": "dontAsk"
+        },
+        {
+          "name": "fullAccess"
+        },
+        {
+          "name": "plan"
+        }
+      ]
+    },
+    {
+      "name": "--plugin-dir",
+      "tip": [
+        "U: --plugin-dir <path>",
+        "Load plugins from a directory for this session only (repeatable)."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--prompt-suggestions",
+      "tip": [
+        "U: --prompt-suggestions [value]",
+        "Enable prompt suggestions. In print/SDK mode, emits a prompt_suggestion message after each turn."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--provider",
+      "tip": [
+        "U: --provider <provider>",
+        "AI provider to use (anthropic, openai, gemini, github, bedrock, vertex, ollama)."
+      ],
+      "next": [
+        {
+          "name": "anthropic"
+        },
+        {
+          "name": "bedrock"
+        },
+        {
+          "name": "gemini"
+        },
+        {
+          "name": "github"
+        },
+        {
+          "name": "ollama"
+        },
+        {
+          "name": "openai"
+        },
+        {
+          "name": "vertex"
+        }
+      ]
+    },
+    {
+      "name": "--provider-env-file",
+      "tip": [
+        "U: --provider-env-file <path>",
+        "Load provider environment variables from a file before validation (repeatable)."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--replay-user-messages",
+      "tip": [
+        "Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)."
+      ]
+    },
+    {
+      "name": "--session-id",
+      "tip": [
+        "U: --session-id <uuid>",
+        "Use a specific session ID for the conversation."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--setting-sources",
+      "tip": [
+        "U: --setting-sources <sources>",
+        "Comma-separated list of setting sources to load (user, project, local)."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--settings",
+      "tip": [
+        "U: --settings <file-or-json>",
+        "Path to a settings JSON file or a JSON string to load additional settings from."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--strict-mcp-config",
+      "tip": [
+        "Only use MCP servers from --mcp-config, ignoring all other MCP configurations."
+      ]
+    },
+    {
+      "name": "--system-prompt",
+      "tip": [
+        "U: --system-prompt <prompt>",
+        "System prompt to use for the session."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--system-prompt-snapshot",
+      "tip": [
+        "U: --system-prompt-snapshot <on|off>",
+        "Record the system prompt once per conversation and reuse it verbatim."
+      ],
+      "next": [
+        {
+          "name": "off"
+        },
+        {
+          "name": "on"
+        }
+      ]
+    },
+    {
+      "name": "--tmux",
+      "tip": [
+        "Create a tmux session for the worktree (requires --worktree)."
+      ]
+    },
+    {
+      "name": "--tools",
+      "tip": [
+        "U: --tools <tools...>",
+        "Specify the list of available tools from the built-in set."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--yolo",
+      "alias": [
+        "--dangerously-skip-permissions"
+      ],
+      "tip": [
+        "Bypass all permission checks. Recommended only for sandboxes with no internet access."
+      ]
+    },
+    {
+      "name": "-c",
+      "alias": [
+        "--continue"
+      ],
+      "tip": [
+        "Continue the most recent conversation in the current directory."
+      ]
+    },
+    {
+      "name": "-d",
+      "alias": [
+        "--debug"
+      ],
+      "tip": [
+        "U: -d, --debug [filter]",
+        "Enable debug mode with optional category filtering."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-n",
+      "alias": [
+        "--name"
+      ],
+      "tip": [
+        "U: -n, --name <name>",
+        "Set a display name for this session."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-p",
+      "alias": [
+        "--print"
+      ],
+      "tip": [
+        "Print response and exit (useful for pipes)."
+      ]
+    },
+    {
+      "name": "-r",
+      "alias": [
+        "--resume"
+      ],
+      "tip": [
+        "U: -r, --resume [value]",
+        "Resume a conversation by session ID, or open interactive picker."
+      ],
+      "next": 0
+    },
+    {
+      "name": "-v",
+      "alias": [
+        "--version"
+      ],
+      "tip": [
+        "Output the version number."
+      ]
+    },
+    {
+      "name": "-w",
+      "alias": [
+        "--worktree"
+      ],
+      "tip": [
+        "U: -w, --worktree [name]",
+        "Create a new git worktree for this session (optionally specify a name)."
+      ],
+      "next": 0
+    }
+  ],
+  "common_option": [
+    {
+      "name": "-h",
+      "alias": [
+        "--help"
+      ],
+      "tip": [
+        "Display help for command."
+      ]
+    }
+  ]
+}

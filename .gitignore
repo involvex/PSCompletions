@@ -2,6 +2,7 @@
 /todo
 /*.ps1
 /.prettierignore
+$null
 
 /core/target
 
