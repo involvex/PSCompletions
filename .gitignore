@@ -3,6 +3,12 @@
 /*.ps1
 /.prettierignore
 $null
+/.cline/
+/.kilo/
+INTEGRATION_PLAN.md
+aliases.html
+firebase-debug.log
+node_modules/
 
 /core/target
 
@@ -10,3 +16,6 @@ $null
 
 /module/PSCompletions/bin
 /module/PSCompletions/data
+/module/PSCompletions/data.json
+/module/PSCompletions/temp
+/module/PSCompletions/completions
