@@ -6,6 +6,7 @@
       "Android 模拟器在您的计算机上模拟 Android 设备，以便您无需物理设备即可测试应用程序。"
     ]
   },
+  "option": [],
   "root": [
     {
       "name": "-list-avds",
@@ -26,15 +27,14 @@
       ]
     }
   ],
-  "option": [],
   "common_option": [
     {
       "name": "-debug",
+      "next": 0,
       "tip": [
         "U: -debug <tags>",
         "启用/禁用调试消息"
-      ],
-      "next": 0
+      ]
     },
     {
       "name": "-debug-<tag>",

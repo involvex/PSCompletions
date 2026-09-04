@@ -3,19 +3,19 @@
     "url": "",
     "description": []
   },
-  "root": [
-    {
-      "name": "add",
-      "tip": [
-        "Add a new item."
-      ]
-    }
-  ],
   "option": [
     {
       "name": "--version",
       "tip": [
         "Show the version."
+      ]
+    }
+  ],
+  "root": [
+    {
+      "name": "add",
+      "tip": [
+        "Add a new item."
       ]
     }
   ],

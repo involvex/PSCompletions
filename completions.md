@@ -10,12 +10,15 @@
 |:-:|-|
 |[7z](https://7-zip.org/)|The command line interface of 7-Zip.|
 |[adb](https://developer.android.com/tools/adb)|Android Debug Bridge command-line tool.|
+|[android-cli]()||
+|[arch](https://github.com/uutils/coreutils)|Display machine architecture.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
 |[aria2c](https://aria2.github.io)|Lightweight multi-protocol and multi-source download utility.|
 |[atac](https://github.com/Julien-cpsn/ATAC)|A simple API client in your terminal|
 |[atuin](https://atuin.sh)|Magical shell history.<br>Atuin replaces your existing shell history with a SQLite database, and records additional context for your commands.|
 |[aube](https://aube.jdx.dev)|A fast Node.js package manager|
 |[aubr](https://aube.jdx.dev)|Run a script defined in package.json (aube run standalone)|
 |[aubx](https://aube.jdx.dev)|Fetch a package into a throwaway environment and run its binary (aube dlx standalone)|
+|[avdmanager](https://developer.android.com/studio/run/managing-avds)|avdmanager - Android Virtual Device Manager.<br>Create, manage, and delete Android Virtual Devices (AVDs) for the Android emulator.|
 |[aws](https://aws.amazon.com/cli/)|The AWS Command Line Interface is a unified tool to manage your AWS services.|
 |[b2sum](https://uutils.org)|Compute and check BLAKE2 message digests.|
 |[b3sum](https://github.com/BLAKE3-team/BLAKE3)|Compute and check BLAKE3 message digests.|
@@ -47,7 +50,9 @@
 |[curl](https://curl.se)|Command line tool and library for transferring data with URLs.|
 |[cut](https://uutils.org)|Print specified byte or field columns from each line.|
 |[cypress](https://www.cypress.io/)|Fast, easy and reliable testing for anything in a browser.|
+|[dart](https://dart.dev/tools/dart-tool)|Dart - Programming language for the web|
 |[date](https://uutils.org)|Print or set the system date and time.|
+|[dd](https://github.com/uutils/coreutils)|Copy, and optionally convert, a file system resource.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
 |[delta](https://github.com/dandavison/delta)|Viewer for git and diff output.|
 |[deno](https://deno.com/)|A modern JavaScript and TypeScript runtime.|
 |[df](https://uutils.org)|Show information about file system space usage.|
@@ -65,18 +70,22 @@
 |[dufs](https://github.com/sigoden/dufs)|Distinctive utility file server.|
 |[dust](https://github.com/bootandy/dust)|Like du but more intuitive.|
 |[eddy](https://github.com/70sh1/eddy)|Simple and fast file encryption|
+|[emulator](https://developer.android.com/studio/run/emulator)|emulator - Android Emulator.<br>The Android Emulator simulates Android devices on your computer to let you test your app without a physical device.|
 |[env](https://uutils.org)|Set each NAME to VALUE in the environment and run COMMAND.|
 |[esbuild](https://esbuild.github.io/)|Extremely fast JavaScript and CSS bundler and minifier.|
 |[eslint](https://eslint.org)|Pluggable JavaScript linter.|
 |[expand](https://www.gnu.org/software/coreutils/)|Convert tabs in each FILE to spaces.|
+|[expo](https://docs.expo.dev/more/expo-cli/)|Expo CLI - Tools to develop, build, and deploy Expo / React Native apps<br>Usually invoked via npx expo or bunx expo|
 |[eza](https://eza.rocks)|A modern replacement for ls.|
 |[factor](https://uutils.org)|Print the prime factors of the given NUMBER(s).|
+|[fastboot](https://android.googlesource.com/platform/system/core/+/refs/heads/main/fastboot/)|fastboot is a command-line tool for flashing partitions on Android devices.<br>It communicates with a device in bootloader mode via USB or network.|
 |[fd](https://github.com/sharkdp/fd)|Program to find entries in your filesystem.|
 |[ffmpeg](https://ffmpeg.org/)|Complete, cross-platform solution to record, convert and stream audio and video.|
 |[flutter](https://flutter.dev)|Flutter is Google's UI toolkit for building natively compiled applications.|
 |[fmt](https://uutils.org)|Reformat paragraphs from input files to stdout.|
 |[fnm](https://github.com/Schniz/fnm)|Fast and simple Node.js version manager, built in Rust.|
 |[fold](https://uutils.org)|Write each file to stdout whilst breaking long lines.|
+|[fresh](https://github.com/sinelaw/fresh)|A terminal text editor with multi-cursor support<br>Docs: https://getfresh.dev/docs|
 |[fx](https://fx.wtf)|Terminal JSON viewer|
 |[fzf](https://junegunn.github.io/fzf)|Interactive filter program for any kind of list.|
 |[gcc](https://gcc.gnu.org)|The GNU Compiler Collection|
@@ -91,11 +100,14 @@
 |[godot](https://godotengine.org)|Godot Engine - Free and open source 2D and 3D game engine.|
 |[gpg](https://gnupg.org)|GNU Privacy Guard - A complete and free implementation of the OpenPGP standard as defined by RFC4880|
 |[gradle](https://gradle.org)|Powerful build system for the JVM.|
+|[gradlew](https://docs.gradle.org/current/userguide/command_line_interface.html)|Gradle Wrapper - Build automation tool wrapper script.|
 |[gum](https://github.com/charmbracelet/gum)|A tool for glamorous shell scripts|
+|[hashsum](https://github.com/uutils/coreutils)|Compute and check message digests.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
 |[head](https://uutils.org)|Print the first 10 lines of each FILE to standard output.|
 |[helix](https://github.com/helix-editor/helix)|A post-modern text editor|
 |[helm](https://helm.sh)|Kubernetes package manager.|
 |[helmfile](https://github.com/helmfile/helmfile)|Declaratively deploy Kubernetes manifests, Kustomize configs, and Charts as Helm releases|
+|[hf](https://github.com/huggingface/huggingface_hub)|hf - Command-line interface for the Hugging Face Hub.|
 |[hostname](https://uutils.org)|Display or set the system's host name.|
 |[hurl](https://hurl.dev)|Run and test HTTP requests with plain text<br>A tool for transferring data with URLs|
 |[hyperfine](https://github.com/sharkdp/hyperfine)|A command-line benchmarking tool|
@@ -109,6 +121,7 @@
 |[just](https://github.com/casey/just)|A command runner.|
 |[k3d](https://k3d.io/)|Lightweight wrapper to run k3s (Rancher Lab's minimal Kubernetes distribution) in docker.|
 |[k9s](https://k9scli.io/)|K9s is a terminal based UI to interact with your Kubernetes clusters.<br>It eases navigating, observing and managing your deployed applications.|
+|[kilo](https://kilocode.ai)|kilo - AI-powered coding agent for your terminal.|
 |[kind](https://kind.sigs.k8s.io/)|kind is a tool for running local Kubernetes clusters using Docker container 'nodes'.<br>kind was primarily designed for testing Kubernetes itself, but may be used for local development or CI.|
 |[komac](https://github.com/russellbanks/Komac)|The Community Manifest Creator for WinGet.|
 |[kubectl](https://kubernetes.io/docs/reference/kubectl/)|Kubernetes, also known as K8s, is an open source system for automating deployment, scaling, and management of containerized applications.<br>kubectl is its command-line tool.|
@@ -119,6 +132,7 @@
 |[lazydocker](https://github.com/jesseduffield/lazydocker)|The lazier way to manage everything docker.|
 |[lazygit](https://github.com/jesseduffield/lazygit)|A simple terminal UI for git commands.|
 |[lefthook](https://github.com/evilmartians/lefthook)|Git hooks manager.|
+|[link](https://github.com/uutils/coreutils)|Call the link function to create a link named FILE2 to an existing FILE1.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
 |[ln](https://uutils.org)|Make links between files.|
 |[lore](https://lore.org)|Next-generation, open-source version control system.<br>Designed for large files, large teams, and scalable workflows.|
 |[lua](https://www.lua.org/)|Powerful, efficient, lightweight, embeddable scripting language|
@@ -131,6 +145,7 @@
 |[mise](https://mise.jdx.dev/)|Polyglot tool version manager, env vars manager and task runner.|
 |[mktemp](https://uutils.org)|Create a temporary file or directory.|
 |[more](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/more)|Display the contents of a text file one screen at a time.|
+|[mpv](https://mpv.io/)|mpv - A free, open-source, cross-platform media player.|
 |[mvn](https://maven.apache.org)|Apache Maven, a software project management tool.|
 |[mysql](https://dev.mysql.com/doc/refman/8.4/en/mysql-command-options.html)|MySQL command line client.|
 |[N_m3u8DL-RE](https://github.com/nilaoda/N_m3u8DL-RE)|Cross-platform browser stream downloader (HLS/DASH/Smooth).|
@@ -156,8 +171,10 @@
 |[oh-my-posh](https://ohmyposh.dev)|Cross-platform tool to render your prompt.|
 |[ollama](https://docs.ollama.com/cli)|Local large language model runner.|
 |[omp](https://github.com/can1357/oh-my-pi)|Oh My Pi - AI-powered coding assistant in the terminal.|
+|[openclaude](https://opencode.ai)|openclaude - OpenClaude, an open-source AI coding agent for your terminal (a fork of Claude Code).|
 |[openclaw](https://docs.openclaw.ai/cli)|The Command Line Interface (CLI) of OpenClaw|
 |[opencode](https://github.com/nicholaswatertank/opencode)|AI-powered coding agent for the terminal.|
+|[opencode2](https://opencode.ai)|opencode2 - AI-powered coding agent for your terminal.|
 |[ouch](https://github.com/ouch-org/ouch)|A command-line utility for easily compressing and decompressing files and directories<br>Supported formats: tar, zip, gz, 7z, xz, lzma, bz2, bz3, lz4, zst, rar, br|
 |[oxfmt](https://oxc.rs)|An extremely fast formatter and code style guide linter for JavaScript, TypeScript, JSX, and TSX|
 |[oxlint](https://oxc.rs)|TypeScript and JavaScript linter and ESLint compatible config for correctness and some stylistic rules|
@@ -182,6 +199,7 @@
 |[ptx](https://uutils.org)|Output a permuted index of the words in the input files.|
 |[pulumi](https://www.pulumi.com/)|Pulumi - Infrastructure as Code in any programming language|
 |[pwsh](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_pwsh)|PowerShell CLI.|
+|[pyenv](https://github.com/pyenv/pyenv)|pyenv - Simple Python version management.<br>Manage multiple Python versions and switch between them easily.|
 |[python](https://www.python.org)|Python interpreter command-line.|
 |[rclone](https://rclone.org)|Syncs files to and from cloud storage providers.|
 |[reasonix](https://reasonix.io)|A DeepSeek-native AI coding agent for your terminal.|
@@ -196,6 +214,7 @@
 |[scoop-install](https://github.com/abgox/scoop-tools)|A PowerShell script that allows you to temporarily use the replaced proxy URL to download app packages.|
 |[scoop-update](https://github.com/abgox/scoop-tools)|A PowerShell script that allows you to temporarily use the replaced proxy URL to download app packages.|
 |[sd](https://github.com/chmln/sd)|An intuitive find & replace CLI<br>sed alternative|
+|[sdkmanager](https://developer.android.com/studio/intro/update#sdk-manager)|sdkmanager - Android SDK Manager.<br>Install, update, and manage Android SDK packages, platforms, build tools, and more.|
 |[sfsu](https://github.com/winpax/sfsu)|Scoop utilities, 30-100x faster than native Scoop.|
 |[sqlite3](https://www.sqlite.org)|SQLite command line interface.|
 |[ssh-keygen](https://www.openssh.com)|OpenSSH key generation utility.|

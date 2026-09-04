@@ -6,7 +6,6 @@
       "安装、更新和管理 Android SDK 包、平台、构建工具等。"
     ]
   },
-  "root": [],
   "option": [
     {
       "name": "--channel",
@@ -165,6 +164,7 @@
       ]
     }
   ],
+  "root": [],
   "common_option": [
     {
       "name": "--help",

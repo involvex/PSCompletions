@@ -5,205 +5,195 @@
       "hf - Hugging Face Hub 命令行界面。"
     ]
   },
+  "option": [],
   "root": [
     {
       "name": "auth",
-      "tip": [
-        "管理 Hugging Face 认证。"
-      ],
       "next": [
         {
-          "name": "login",
-          "tip": [
-            "登录 Hugging Face Hub。"
-          ],
           "common_option": [
             {
               "name": "--credential-cache",
+              "next": 0,
               "tip": [
                 "U: --credential-cache <string>",
                 "覆盖凭据缓存类型。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--token",
+              "next": 0,
               "tip": [
                 "U: --token <string>",
                 "Hugging Face 访问令牌。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "login",
+          "tip": [
+            "登录 Hugging Face Hub。"
           ]
         },
         {
+          "common_option": [],
           "name": "logout",
           "tip": [
             "从 Hugging Face Hub 登出。"
-          ],
-          "common_option": []
+          ]
         },
         {
+          "common_option": [],
           "name": "status",
           "tip": [
             "检查当前认证状态。"
-          ],
-          "common_option": []
+          ]
         },
         {
-          "name": "switch-token",
-          "tip": [
-            "切换活动认证令牌。"
-          ],
           "common_option": [
             {
               "name": "--token",
+              "next": 0,
               "tip": [
                 "U: --token <string>",
                 "新令牌。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "switch-token",
+          "tip": [
+            "切换活动认证令牌。"
           ]
         }
+      ],
+      "tip": [
+        "管理 Hugging Face 认证。"
       ]
     },
     {
       "name": "buckets",
-      "tip": [
-        "管理存储桶。"
-      ],
       "next": [
         {
-          "name": "create",
-          "tip": [
-            "创建新存储桶。"
-          ],
           "common_option": [
             {
               "name": "--name",
+              "next": 0,
               "tip": [
                 "U: --name <string>",
                 "存储桶名称。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--region",
+              "next": 0,
               "tip": [
                 "U: --region <string>",
                 "存储桶区域。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "create",
+          "tip": [
+            "创建新存储桶。"
           ]
         },
         {
-          "name": "delete",
-          "tip": [
-            "删除存储桶。"
-          ],
           "common_option": [
             {
               "name": "--name",
+              "next": 0,
               "tip": [
                 "U: --name <string>",
                 "存储桶名称。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "delete",
+          "tip": [
+            "删除存储桶。"
           ]
         },
         {
-          "name": "list",
           "alias": [
             "ls"
           ],
+          "common_option": [],
+          "name": "list",
           "tip": [
             "列出可用存储桶。"
-          ],
-          "common_option": []
+          ]
         }
+      ],
+      "tip": [
+        "管理存储桶。"
       ]
     },
     {
       "name": "cache",
-      "tip": [
-        "管理本地缓存。"
-      ],
       "next": [
         {
-          "name": "delete",
           "alias": [
             "rm"
-          ],
-          "tip": [
-            "删除缓存项。"
           ],
           "common_option": [
             {
               "name": "--name",
+              "next": 0,
               "tip": [
                 "U: --name <string>",
                 "要删除的特定缓存条目。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "delete",
+          "tip": [
+            "删除缓存项。"
           ]
         },
         {
-          "name": "list",
           "alias": [
             "ls"
           ],
+          "common_option": [],
+          "name": "list",
           "tip": [
             "列出缓存项。"
-          ],
-          "common_option": []
+          ]
         },
         {
+          "common_option": [],
           "name": "purge",
           "tip": [
             "清除整个本地缓存。"
-          ],
-          "common_option": []
+          ]
         }
+      ],
+      "tip": [
+        "管理本地缓存。"
       ]
     },
     {
       "name": "collections",
-      "tip": [
-        "管理收藏集。"
-      ],
       "next": [
         {
-          "name": "add-repo",
-          "tip": [
-            "将仓库添加到收藏集。"
-          ],
           "common_option": [
             {
               "name": "--collection-id",
+              "next": 0,
               "tip": [
                 "U: --collection-id <string>",
                 "收藏集 ID。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--repo-id",
+              "next": 0,
               "tip": [
                 "U: --repo-id <string>",
                 "仓库 ID。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--type",
-              "tip": [
-                "U: --type <model|dataset|space>",
-                "仓库类型。"
-              ],
               "next": [
                 {
                   "name": "dataset"
@@ -214,97 +204,97 @@
                 {
                   "name": "space"
                 }
+              ],
+              "tip": [
+                "U: --type <model|dataset|space>",
+                "仓库类型。"
               ]
             }
+          ],
+          "name": "add-repo",
+          "tip": [
+            "将仓库添加到收藏集。"
           ]
         },
         {
-          "name": "create",
-          "tip": [
-            "创建新收藏集。"
-          ],
           "common_option": [
             {
               "name": "--description",
+              "next": 0,
               "tip": [
                 "U: --description <string>",
                 "收藏集描述。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--name",
+              "next": 0,
               "tip": [
                 "U: --name <string>",
                 "收藏集名称。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "create",
+          "tip": [
+            "创建新收藏集。"
           ]
         },
         {
-          "name": "delete",
-          "tip": [
-            "删除收藏集。"
-          ],
           "common_option": [
             {
               "name": "--id",
+              "next": 0,
               "tip": [
                 "U: --id <string>",
                 "收藏集 ID。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "delete",
+          "tip": [
+            "删除收藏集。"
           ]
         },
         {
-          "name": "list",
           "alias": [
             "ls"
-          ],
-          "tip": [
-            "列出收藏集。"
           ],
           "common_option": [
             {
               "name": "--owner",
+              "next": 0,
               "tip": [
                 "U: --owner <string>",
                 "按所有者筛选。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "list",
+          "tip": [
+            "列出收藏集。"
           ]
         },
         {
-          "name": "remove-repo",
-          "tip": [
-            "从收藏集中移除仓库。"
-          ],
           "common_option": [
             {
               "name": "--collection-id",
+              "next": 0,
               "tip": [
                 "U: --collection-id <string>",
                 "收藏集 ID。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--repo-id",
+              "next": 0,
               "tip": [
                 "U: --repo-id <string>",
                 "仓库 ID。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--type",
-              "tip": [
-                "U: --type <model|dataset|space>",
-                "仓库类型。"
-              ],
               "next": [
                 {
                   "name": "dataset"
@@ -315,40 +305,43 @@
                 {
                   "name": "space"
                 }
+              ],
+              "tip": [
+                "U: --type <model|dataset|space>",
+                "仓库类型。"
               ]
             }
+          ],
+          "name": "remove-repo",
+          "tip": [
+            "从收藏集中移除仓库。"
           ]
         }
+      ],
+      "tip": [
+        "管理收藏集。"
       ]
     },
     {
-      "name": "cp",
-      "tip": [
-        "在位置之间复制文件。"
-      ],
       "common_option": [
         {
           "name": "--exclude",
+          "next": 0,
           "tip": [
             "U: --exclude <string>",
             "要排除的文件 glob 模式。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "--include",
+          "next": 0,
           "tip": [
             "U: --include <string>",
             "要包含的文件 glob 模式。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "--repo-type",
-          "tip": [
-            "U: --repo-type <model|dataset|space>",
-            "仓库类型。"
-          ],
           "next": [
             {
               "name": "dataset"
@@ -359,79 +352,76 @@
             {
               "name": "space"
             }
+          ],
+          "tip": [
+            "U: --repo-type <model|dataset|space>",
+            "仓库类型。"
           ]
         },
         {
           "name": "--revision",
+          "next": 0,
           "tip": [
             "U: --revision <string>",
             "Git 修订版（分支、标签或提交）。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "dst_path",
+          "next": 0,
           "tip": [
             "U: dst_path <string>",
             "仓库中的目标路径。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "dst_repo",
+          "next": 0,
           "tip": [
             "U: dst_repo <string>",
             "目标仓库。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "src_path",
+          "next": 0,
           "tip": [
             "U: src_path <string>",
             "仓库中的源路径。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "src_repo",
+          "next": 0,
           "tip": [
             "U: src_repo <string>",
             "源仓库。"
-          ],
-          "next": 0
+          ]
         }
+      ],
+      "name": "cp",
+      "tip": [
+        "在位置之间复制文件。"
       ]
     },
     {
       "name": "datasets",
-      "tip": [
-        "管理数据集。"
-      ],
       "next": [
         {
-          "name": "list",
           "alias": [
             "ls"
-          ],
-          "tip": [
-            "列出数据集。"
           ],
           "common_option": [
             {
               "name": "--author",
+              "next": 0,
               "tip": [
                 "U: --author <string>",
                 "按作者筛选。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--direction",
-              "tip": [
-                "U: --direction <-1|1>",
-                "排序方向。"
-              ],
               "next": [
                 {
                   "name": "-1"
@@ -439,94 +429,94 @@
                 {
                   "name": "1"
                 }
+              ],
+              "tip": [
+                "U: --direction <-1|1>",
+                "排序方向。"
               ]
             },
             {
               "name": "--limit",
+              "next": 0,
               "tip": [
                 "U: --limit <int>",
                 "最大结果数。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--search",
+              "next": 0,
               "tip": [
                 "U: --search <string>",
                 "搜索查询。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--sort",
+              "next": 0,
               "tip": [
                 "U: --sort <string>",
                 "排序字段。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "list",
+          "tip": [
+            "列出数据集。"
           ]
         }
+      ],
+      "tip": [
+        "管理数据集。"
       ]
     },
     {
       "name": "discussions",
-      "tip": [
-        "管理讨论。"
-      ],
       "next": [
         {
-          "name": "comment",
-          "tip": [
-            "对讨论发表评论。"
-          ],
           "common_option": [
             {
               "name": "comment",
+              "next": 0,
               "tip": [
                 "U: comment <string>",
                 "评论内容。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "discussion_id",
+              "next": 0,
               "tip": [
                 "U: discussion_id <int>",
                 "讨论编号。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "repo_id",
+              "next": 0,
               "tip": [
                 "U: repo_id <string>",
                 "仓库 ID。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "comment",
+          "tip": [
+            "对讨论发表评论。"
           ]
         },
         {
-          "name": "create",
-          "tip": [
-            "创建新讨论。"
-          ],
           "common_option": [
             {
               "name": "--content",
+              "next": 0,
               "tip": [
                 "U: --content <string>",
                 "初始评论内容。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--repo-type",
-              "tip": [
-                "U: --repo-type <model|dataset|space>",
-                "仓库类型。"
-              ],
               "next": [
                 {
                   "name": "dataset"
@@ -537,125 +527,128 @@
                 {
                   "name": "space"
                 }
+              ],
+              "tip": [
+                "U: --repo-type <model|dataset|space>",
+                "仓库类型。"
               ]
             },
             {
               "name": "repo_id",
+              "next": 0,
               "tip": [
                 "U: repo_id <string>",
                 "仓库 ID。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "title",
+              "next": 0,
               "tip": [
                 "U: title <string>",
                 "讨论标题。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "create",
+          "tip": [
+            "创建新讨论。"
           ]
         },
         {
-          "name": "list",
           "alias": [
             "ls"
-          ],
-          "tip": [
-            "列出仓库的讨论。"
           ],
           "common_option": [
             {
               "name": "--type",
+              "next": 0,
               "tip": [
                 "U: --type <string>",
                 "讨论类型筛选。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "repo_id",
+              "next": 0,
               "tip": [
                 "U: repo_id <string>",
                 "仓库 ID。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "list",
+          "tip": [
+            "列出仓库的讨论。"
           ]
         },
         {
-          "name": "merge",
-          "tip": [
-            "合并讨论。"
-          ],
           "common_option": [
             {
               "name": "discussion_id",
+              "next": 0,
               "tip": [
                 "U: discussion_id <int>",
                 "讨论编号。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "repo_id",
+              "next": 0,
               "tip": [
                 "U: repo_id <string>",
                 "仓库 ID。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "merge",
+          "tip": [
+            "合并讨论。"
           ]
         }
+      ],
+      "tip": [
+        "管理讨论。"
       ]
     },
     {
-      "name": "download",
       "alias": [
         "dl"
-      ],
-      "tip": [
-        "从仓库下载文件。"
       ],
       "common_option": [
         {
           "name": "--exclude",
+          "next": 0,
           "tip": [
             "U: --exclude <string>",
             "要排除的 glob 模式。"
-          ],
-          "next": 0
+          ]
         },
         {
+          "common_option": [],
           "name": "--force",
           "tip": [
             "即使文件已存在也强制下载。"
-          ],
-          "common_option": []
+          ]
         },
         {
           "name": "--include",
+          "next": 0,
           "tip": [
             "U: --include <string>",
             "要包含的 glob 模式。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "--local-dir",
+          "next": 0,
           "tip": [
             "U: --local-dir <string>",
             "保存文件的本地目录。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "--repo-type",
-          "tip": [
-            "U: --repo-type <model|dataset|space>",
-            "仓库类型。"
-          ],
           "next": [
             {
               "name": "dataset"
@@ -666,242 +659,239 @@
             {
               "name": "space"
             }
+          ],
+          "tip": [
+            "U: --repo-type <model|dataset|space>",
+            "仓库类型。"
           ]
         },
         {
+          "common_option": [],
           "name": "--resume-download",
           "tip": [
             "恢复未完成的下载。"
-          ],
-          "common_option": []
+          ]
         },
         {
           "name": "--revision",
+          "next": 0,
           "tip": [
             "U: --revision <string>",
             "Git 修订版。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "--token",
+          "next": 0,
           "tip": [
             "U: --token <string>",
             "Hugging Face 访问令牌。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "repo_id",
+          "next": 0,
           "tip": [
             "U: repo_id <string>",
             "仓库 ID。"
-          ],
-          "next": 0
+          ]
         }
+      ],
+      "name": "download",
+      "tip": [
+        "从仓库下载文件。"
       ]
     },
     {
       "name": "endpoints",
-      "tip": [
-        "管理推理端点。"
-      ],
       "next": [
         {
           "name": "catalog",
-          "tip": [
-            "浏览可用实例类型。"
-          ],
           "next": [
             {
-              "name": "deploy",
-              "tip": [
-                "从目录部署。"
-              ],
               "common_option": [
                 {
                   "name": "--instance-type",
+                  "next": 0,
                   "tip": [
                     "U: --instance-type <string>",
                     "目录中的实例类型。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "--name",
+                  "next": 0,
                   "tip": [
                     "U: --name <string>",
                     "端点名称。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "--region",
+                  "next": 0,
                   "tip": [
                     "U: --region <string>",
                     "部署区域。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "--repository",
+                  "next": 0,
                   "tip": [
                     "U: --repository <string>",
                     "要部署的仓库。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "--revision",
+                  "next": 0,
                   "tip": [
                     "U: --revision <string>",
                     "Git 修订版。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "--task",
+                  "next": 0,
                   "tip": [
                     "U: --task <string>",
                     "推理任务。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "--token",
+                  "next": 0,
                   "tip": [
                     "U: --token <string>",
                     "Hugging Face 访问令牌。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "--vendor",
+                  "next": 0,
                   "tip": [
                     "U: --vendor <string>",
                     "云供应商。"
-                  ],
-                  "next": 0
+                  ]
                 }
+              ],
+              "name": "deploy",
+              "tip": [
+                "从目录部署。"
               ]
             },
             {
+              "common_option": [],
               "name": "list",
               "tip": [
                 "列出可用实例类型。"
-              ],
-              "common_option": []
+              ]
             }
+          ],
+          "tip": [
+            "浏览可用实例类型。"
           ]
         },
         {
-          "name": "create",
-          "tip": [
-            "创建新推理端点。"
-          ],
           "common_option": [
             {
               "name": "--accelerator",
+              "next": 0,
               "tip": [
                 "U: --accelerator <string>",
                 "加速器类型。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--framework",
+              "next": 0,
               "tip": [
                 "U: --framework <string>",
                 "框架。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--instance-size",
+              "next": 0,
               "tip": [
                 "U: --instance-size <string>",
                 "实例大小。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--instance-type",
+              "next": 0,
               "tip": [
                 "U: --instance-type <string>",
                 "实例类型。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--name",
+              "next": 0,
               "tip": [
                 "U: --name <string>",
                 "端点名称。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--namespace",
+              "next": 0,
               "tip": [
                 "U: --namespace <string>",
                 "命名空间。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--region",
+              "next": 0,
               "tip": [
                 "U: --region <string>",
                 "部署区域。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--repository",
+              "next": 0,
               "tip": [
                 "U: --repository <string>",
                 "要使用的仓库。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--revision",
+              "next": 0,
               "tip": [
                 "U: --revision <string>",
                 "Git 修订版。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--shape",
+              "next": 0,
               "tip": [
                 "U: --shape <string>",
                 "实例形状。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--task",
+              "next": 0,
               "tip": [
                 "U: --task <string>",
                 "推理任务。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--token",
+              "next": 0,
               "tip": [
                 "U: --token <string>",
                 "Hugging Face 访问令牌。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--type",
-              "tip": [
-                "U: --type <protected|public>",
-                "端点类型。"
-              ],
               "next": [
                 {
                   "name": "protected"
@@ -909,670 +899,670 @@
                 {
                   "name": "public"
                 }
+              ],
+              "tip": [
+                "U: --type <protected|public>",
+                "端点类型。"
               ]
             },
             {
               "name": "--vendor",
+              "next": 0,
               "tip": [
                 "U: --vendor <string>",
                 "云供应商。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "create",
+          "tip": [
+            "创建新推理端点。"
           ]
         },
         {
-          "name": "delete",
-          "tip": [
-            "删除推理端点。"
-          ],
           "common_option": [
             {
               "name": "--token",
+              "next": 0,
               "tip": [
                 "U: --token <string>",
                 "Hugging Face 访问令牌。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "endpoint_id",
+              "next": 0,
               "tip": [
                 "U: endpoint_id <string>",
                 "端点 ID。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "delete",
+          "tip": [
+            "删除推理端点。"
           ]
         },
         {
-          "name": "get",
-          "tip": [
-            "获取推理端点详情。"
-          ],
           "common_option": [
             {
               "name": "endpoint_id",
+              "next": 0,
               "tip": [
                 "U: endpoint_id <string>",
                 "端点 ID。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "get",
+          "tip": [
+            "获取推理端点详情。"
           ]
         },
         {
-          "name": "list",
           "alias": [
             "ls"
-          ],
-          "tip": [
-            "列出所有推理端点。"
           ],
           "common_option": [
             {
               "name": "--namespace",
+              "next": 0,
               "tip": [
                 "U: --namespace <string>",
                 "按命名空间筛选。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "list",
+          "tip": [
+            "列出所有推理端点。"
           ]
         },
         {
+          "common_option": [
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face 访问令牌。"
+              ]
+            },
+            {
+              "name": "endpoint_id",
+              "next": 0,
+              "tip": [
+                "U: endpoint_id <string>",
+                "端点 ID。"
+              ]
+            }
+          ],
           "name": "logs",
           "tip": [
             "获取推理端点日志。"
-          ],
-          "common_option": [
-            {
-              "name": "--token",
-              "tip": [
-                "U: --token <string>",
-                "Hugging Face 访问令牌。"
-              ],
-              "next": 0
-            },
-            {
-              "name": "endpoint_id",
-              "tip": [
-                "U: endpoint_id <string>",
-                "端点 ID。"
-              ],
-              "next": 0
-            }
           ]
         },
         {
+          "common_option": [
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face 访问令牌。"
+              ]
+            },
+            {
+              "name": "endpoint_id",
+              "next": 0,
+              "tip": [
+                "U: endpoint_id <string>",
+                "端点 ID。"
+              ]
+            }
+          ],
           "name": "pause",
           "tip": [
             "暂停推理端点。"
-          ],
-          "common_option": [
-            {
-              "name": "--token",
-              "tip": [
-                "U: --token <string>",
-                "Hugging Face 访问令牌。"
-              ],
-              "next": 0
-            },
-            {
-              "name": "endpoint_id",
-              "tip": [
-                "U: endpoint_id <string>",
-                "端点 ID。"
-              ],
-              "next": 0
-            }
           ]
         },
         {
+          "common_option": [
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face 访问令牌。"
+              ]
+            },
+            {
+              "name": "endpoint_id",
+              "next": 0,
+              "tip": [
+                "U: endpoint_id <string>",
+                "端点 ID。"
+              ]
+            }
+          ],
           "name": "resume",
           "tip": [
             "恢复已暂停的推理端点。"
-          ],
-          "common_option": [
-            {
-              "name": "--token",
-              "tip": [
-                "U: --token <string>",
-                "Hugging Face 访问令牌。"
-              ],
-              "next": 0
-            },
-            {
-              "name": "endpoint_id",
-              "tip": [
-                "U: endpoint_id <string>",
-                "端点 ID。"
-              ],
-              "next": 0
-            }
           ]
         },
         {
+          "common_option": [
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face 访问令牌。"
+              ]
+            },
+            {
+              "name": "endpoint_id",
+              "next": 0,
+              "tip": [
+                "U: endpoint_id <string>",
+                "端点 ID。"
+              ]
+            }
+          ],
           "name": "status",
           "tip": [
             "获取推理端点状态。"
-          ],
-          "common_option": [
-            {
-              "name": "--token",
-              "tip": [
-                "U: --token <string>",
-                "Hugging Face 访问令牌。"
-              ],
-              "next": 0
-            },
-            {
-              "name": "endpoint_id",
-              "tip": [
-                "U: endpoint_id <string>",
-                "端点 ID。"
-              ],
-              "next": 0
-            }
           ]
         },
         {
-          "name": "update",
-          "tip": [
-            "更新推理端点。"
-          ],
           "common_option": [
             {
               "name": "--instance-size",
+              "next": 0,
               "tip": [
                 "U: --instance-size <string>",
                 "新实例大小。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--instance-type",
+              "next": 0,
               "tip": [
                 "U: --instance-type <string>",
                 "新实例类型。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--repository",
+              "next": 0,
               "tip": [
                 "U: --repository <string>",
                 "新仓库。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--revision",
+              "next": 0,
               "tip": [
                 "U: --revision <string>",
                 "新修订版。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--token",
+              "next": 0,
               "tip": [
                 "U: --token <string>",
                 "Hugging Face 访问令牌。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "endpoint_id",
+              "next": 0,
               "tip": [
                 "U: endpoint_id <string>",
                 "端点 ID。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "update",
+          "tip": [
+            "更新推理端点。"
           ]
         },
         {
+          "common_option": [
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face 访问令牌。"
+              ]
+            },
+            {
+              "name": "endpoint_id",
+              "next": 0,
+              "tip": [
+                "U: endpoint_id <string>",
+                "端点 ID。"
+              ]
+            }
+          ],
           "name": "url",
           "tip": [
             "获取推理端点 URL。"
-          ],
-          "common_option": [
-            {
-              "name": "--token",
-              "tip": [
-                "U: --token <string>",
-                "Hugging Face 访问令牌。"
-              ],
-              "next": 0
-            },
-            {
-              "name": "endpoint_id",
-              "tip": [
-                "U: endpoint_id <string>",
-                "端点 ID。"
-              ],
-              "next": 0
-            }
           ]
         }
+      ],
+      "tip": [
+        "管理推理端点。"
       ]
     },
     {
-      "name": "env",
       "alias": [
         "environment"
       ],
+      "common_option": [],
+      "name": "env",
       "tip": [
         "显示环境信息。"
-      ],
-      "common_option": []
+      ]
     },
     {
-      "name": "extensions",
       "alias": [
         "ext"
       ],
-      "tip": [
-        "管理扩展。"
-      ],
+      "name": "extensions",
       "next": [
         {
-          "name": "install",
-          "tip": [
-            "安装扩展。"
-          ],
           "common_option": [
             {
               "name": "url_or_path",
+              "next": 0,
               "tip": [
                 "U: url_or_path <string>",
                 "扩展的 URL 或本地路径。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "install",
+          "tip": [
+            "安装扩展。"
           ]
         },
         {
-          "name": "list",
           "alias": [
             "ls"
           ],
+          "common_option": [],
+          "name": "list",
           "tip": [
             "列出已安装的扩展。"
-          ],
-          "common_option": []
+          ]
         },
         {
+          "common_option": [],
           "name": "list-available",
           "tip": [
             "列出可用扩展。"
-          ],
-          "common_option": []
+          ]
         },
         {
-          "name": "uninstall",
-          "tip": [
-            "卸载扩展。"
-          ],
           "common_option": [
             {
               "name": "name",
+              "next": 0,
               "tip": [
                 "U: name <string>",
                 "扩展名称。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "uninstall",
+          "tip": [
+            "卸载扩展。"
           ]
         }
+      ],
+      "tip": [
+        "管理扩展。"
       ]
     },
     {
       "name": "jobs",
-      "tip": [
-        "管理训练任务。"
-      ],
       "next": [
         {
+          "common_option": [
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face 访问令牌。"
+              ]
+            },
+            {
+              "name": "job_id",
+              "next": 0,
+              "tip": [
+                "U: job_id <string>",
+                "任务 ID。"
+              ]
+            }
+          ],
           "name": "delete",
           "tip": [
             "删除任务。"
-          ],
-          "common_option": [
-            {
-              "name": "--token",
-              "tip": [
-                "U: --token <string>",
-                "Hugging Face 访问令牌。"
-              ],
-              "next": 0
-            },
-            {
-              "name": "job_id",
-              "tip": [
-                "U: job_id <string>",
-                "任务 ID。"
-              ],
-              "next": 0
-            }
           ]
         },
         {
+          "common_option": [],
           "name": "environments",
           "tip": [
             "列出可用的任务环境。"
-          ],
-          "common_option": []
-        },
-        {
-          "name": "list",
-          "alias": [
-            "ls"
-          ],
-          "tip": [
-            "列出任务。"
-          ],
-          "common_option": [
-            {
-              "name": "--completed",
-              "tip": [
-                "仅显示已完成的任务。"
-              ],
-              "common_option": []
-            },
-            {
-              "name": "--running",
-              "tip": [
-                "仅显示运行中的任务。"
-              ],
-              "common_option": []
-            }
           ]
         },
         {
-          "name": "logs",
-          "tip": [
-            "获取任务日志。"
+          "alias": [
+            "ls"
           ],
           "common_option": [
             {
+              "common_option": [],
+              "name": "--completed",
+              "tip": [
+                "仅显示已完成的任务。"
+              ]
+            },
+            {
+              "common_option": [],
+              "name": "--running",
+              "tip": [
+                "仅显示运行中的任务。"
+              ]
+            }
+          ],
+          "name": "list",
+          "tip": [
+            "列出任务。"
+          ]
+        },
+        {
+          "common_option": [
+            {
+              "common_option": [],
               "name": "--follow",
               "tip": [
                 "跟踪日志输出。"
-              ],
-              "common_option": []
+              ]
             },
             {
               "name": "--token",
+              "next": 0,
               "tip": [
                 "U: --token <string>",
                 "Hugging Face 访问令牌。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "job_id",
+              "next": 0,
               "tip": [
                 "U: job_id <string>",
                 "任务 ID。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "logs",
+          "tip": [
+            "获取任务日志。"
           ]
         },
         {
           "name": "scheduled",
-          "tip": [
-            "管理定时任务。"
-          ],
           "next": [
             {
+              "common_option": [
+                {
+                  "name": "--token",
+                  "next": 0,
+                  "tip": [
+                    "U: --token <string>",
+                    "Hugging Face 访问令牌。"
+                  ]
+                },
+                {
+                  "name": "schedule_id",
+                  "next": 0,
+                  "tip": [
+                    "U: schedule_id <string>",
+                    "计划 ID。"
+                  ]
+                }
+              ],
               "name": "delete",
               "tip": [
                 "删除定时任务。"
-              ],
-              "common_option": [
-                {
-                  "name": "--token",
-                  "tip": [
-                    "U: --token <string>",
-                    "Hugging Face 访问令牌。"
-                  ],
-                  "next": 0
-                },
-                {
-                  "name": "schedule_id",
-                  "tip": [
-                    "U: schedule_id <string>",
-                    "计划 ID。"
-                  ],
-                  "next": 0
-                }
               ]
             },
             {
-              "name": "list",
               "alias": [
                 "ls"
               ],
+              "common_option": [],
+              "name": "list",
               "tip": [
                 "列出定时任务。"
-              ],
-              "common_option": []
+              ]
             },
             {
-              "name": "run",
-              "tip": [
-                "立即运行定时任务。"
-              ],
               "common_option": [
                 {
                   "name": "--token",
+                  "next": 0,
                   "tip": [
                     "U: --token <string>",
                     "Hugging Face 访问令牌。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "schedule_id",
+                  "next": 0,
                   "tip": [
                     "U: schedule_id <string>",
                     "计划 ID。"
-                  ],
-                  "next": 0
+                  ]
                 }
+              ],
+              "name": "run",
+              "tip": [
+                "立即运行定时任务。"
               ]
             }
+          ],
+          "tip": [
+            "管理定时任务。"
           ]
         },
         {
-          "name": "status",
-          "tip": [
-            "获取任务状态。"
-          ],
           "common_option": [
             {
               "name": "--token",
+              "next": 0,
               "tip": [
                 "U: --token <string>",
                 "Hugging Face 访问令牌。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "job_id",
+              "next": 0,
               "tip": [
                 "U: job_id <string>",
                 "任务 ID。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "status",
+          "tip": [
+            "获取任务状态。"
           ]
         },
         {
-          "name": "stop",
-          "tip": [
-            "停止运行中的任务。"
-          ],
           "common_option": [
             {
               "name": "--token",
+              "next": 0,
               "tip": [
                 "U: --token <string>",
                 "Hugging Face 访问令牌。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "job_id",
+              "next": 0,
               "tip": [
                 "U: job_id <string>",
                 "要停止的任务 ID。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "stop",
+          "tip": [
+            "停止运行中的任务。"
           ]
         },
         {
-          "name": "submit",
           "alias": [
             "run"
-          ],
-          "tip": [
-            "提交新的训练任务。"
           ],
           "common_option": [
             {
               "name": "--arguments",
+              "next": 0,
               "tip": [
                 "U: --arguments <string>",
                 "训练参数（JSON 或 YAML）。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--entrypoint",
+              "next": 0,
               "tip": [
                 "U: --entrypoint <string>",
                 "训练脚本入口点。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--gpu",
+              "next": 0,
               "tip": [
                 "U: --gpu <string>",
                 "GPU 类型。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--gpu-number",
+              "next": 0,
               "tip": [
                 "U: --gpu-number <int>",
                 "GPU 数量。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--image",
+              "next": 0,
               "tip": [
                 "U: --image <string>",
                 "使用的 Docker 镜像。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--machine-type",
+              "next": 0,
               "tip": [
                 "U: --machine-type <string>",
                 "机器类型。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--repo",
+              "next": 0,
               "tip": [
                 "U: --repo <string>",
                 "训练仓库。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--token",
+              "next": 0,
               "tip": [
                 "U: --token <string>",
                 "Hugging Face 访问令牌。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--workers",
+              "next": 0,
               "tip": [
                 "U: --workers <int>",
                 "工作节点数量。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "submit",
+          "tip": [
+            "提交新的训练任务。"
           ]
         }
+      ],
+      "tip": [
+        "管理训练任务。"
       ]
     },
     {
       "name": "models",
-      "tip": [
-        "管理模型。"
-      ],
       "next": [
         {
-          "name": "grep",
-          "tip": [
-            "使用正则表达式搜索模型文件。"
-          ],
           "common_option": [
             {
               "name": "pattern",
+              "next": 0,
               "tip": [
                 "U: pattern <string>",
                 "要搜索的正则表达式模式。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "repo_id",
+              "next": 0,
               "tip": [
                 "U: repo_id <string>",
                 "要搜索的仓库。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "grep",
+          "tip": [
+            "使用正则表达式搜索模型文件。"
           ]
         },
         {
-          "name": "list",
           "alias": [
             "ls"
-          ],
-          "tip": [
-            "列出模型。"
           ],
           "common_option": [
             {
               "name": "--author",
+              "next": 0,
               "tip": [
                 "U: --author <string>",
                 "按作者筛选。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--direction",
-              "tip": [
-                "U: --direction <-1|1>",
-                "排序方向。"
-              ],
               "next": [
                 {
                   "name": "-1"
@@ -1580,156 +1570,153 @@
                 {
                   "name": "1"
                 }
+              ],
+              "tip": [
+                "U: --direction <-1|1>",
+                "排序方向。"
               ]
             },
             {
               "name": "--limit",
+              "next": 0,
               "tip": [
                 "U: --limit <int>",
                 "最大结果数。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--search",
+              "next": 0,
               "tip": [
                 "U: --search <string>",
                 "搜索查询。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--sort",
+              "next": 0,
               "tip": [
                 "U: --sort <string>",
                 "排序字段。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "list",
+          "tip": [
+            "列出模型。"
           ]
         }
+      ],
+      "tip": [
+        "管理模型。"
       ]
     },
     {
       "name": "papers",
-      "tip": [
-        "管理论文。"
-      ],
       "next": [
         {
-          "name": "list",
           "alias": [
             "ls"
-          ],
-          "tip": [
-            "列出论文。"
           ],
           "common_option": [
             {
               "name": "--limit",
+              "next": 0,
               "tip": [
                 "U: --limit <int>",
                 "最大结果数。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--search",
+              "next": 0,
               "tip": [
                 "U: --search <string>",
                 "搜索查询。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "list",
+          "tip": [
+            "列出论文。"
           ]
         }
+      ],
+      "tip": [
+        "管理论文。"
       ]
     },
     {
-      "name": "repos",
       "alias": [
         "repo"
       ],
-      "tip": [
-        "管理仓库。"
-      ],
+      "name": "repos",
       "next": [
         {
           "name": "branch",
-          "tip": [
-            "管理仓库中的分支。"
-          ],
           "next": [
             {
+              "common_option": [
+                {
+                  "name": "--token",
+                  "next": 0,
+                  "tip": [
+                    "U: --token <string>",
+                    "Hugging Face 访问令牌。"
+                  ]
+                },
+                {
+                  "name": "--type",
+                  "next": [
+                    {
+                      "name": "dataset"
+                    },
+                    {
+                      "name": "model"
+                    },
+                    {
+                      "name": "space"
+                    }
+                  ],
+                  "tip": [
+                    "U: --type <model|dataset|space>",
+                    "仓库类型。"
+                  ]
+                },
+                {
+                  "name": "branch_name",
+                  "next": 0,
+                  "tip": [
+                    "U: branch_name <string>",
+                    "新分支名称。"
+                  ]
+                },
+                {
+                  "name": "repo_id",
+                  "next": 0,
+                  "tip": [
+                    "U: repo_id <string>",
+                    "仓库 ID。"
+                  ]
+                }
+              ],
               "name": "create",
               "tip": [
                 "创建新分支。"
-              ],
-              "common_option": [
-                {
-                  "name": "--token",
-                  "tip": [
-                    "U: --token <string>",
-                    "Hugging Face 访问令牌。"
-                  ],
-                  "next": 0
-                },
-                {
-                  "name": "--type",
-                  "tip": [
-                    "U: --type <model|dataset|space>",
-                    "仓库类型。"
-                  ],
-                  "next": [
-                    {
-                      "name": "dataset"
-                    },
-                    {
-                      "name": "model"
-                    },
-                    {
-                      "name": "space"
-                    }
-                  ]
-                },
-                {
-                  "name": "branch_name",
-                  "tip": [
-                    "U: branch_name <string>",
-                    "新分支名称。"
-                  ],
-                  "next": 0
-                },
-                {
-                  "name": "repo_id",
-                  "tip": [
-                    "U: repo_id <string>",
-                    "仓库 ID。"
-                  ],
-                  "next": 0
-                }
               ]
             },
             {
-              "name": "delete",
-              "tip": [
-                "删除分支。"
-              ],
               "common_option": [
                 {
                   "name": "--token",
+                  "next": 0,
                   "tip": [
                     "U: --token <string>",
                     "Hugging Face 访问令牌。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "--type",
-                  "tip": [
-                    "U: --type <model|dataset|space>",
-                    "仓库类型。"
-                  ],
                   "next": [
                     {
                       "name": "dataset"
@@ -1740,91 +1727,49 @@
                     {
                       "name": "space"
                     }
+                  ],
+                  "tip": [
+                    "U: --type <model|dataset|space>",
+                    "仓库类型。"
                   ]
                 },
                 {
                   "name": "branch_name",
+                  "next": 0,
                   "tip": [
                     "U: branch_name <string>",
                     "要删除的分支名称。"
-                  ],
-                  "next": 0
-                },
-                {
-                  "name": "repo_id",
-                  "tip": [
-                    "U: repo_id <string>",
-                    "仓库 ID。"
-                  ],
-                  "next": 0
-                }
-              ]
-            },
-            {
-              "name": "list",
-              "alias": [
-                "ls"
-              ],
-              "tip": [
-                "列出分支。"
-              ],
-              "common_option": [
-                {
-                  "name": "--token",
-                  "tip": [
-                    "U: --token <string>",
-                    "Hugging Face 访问令牌。"
-                  ],
-                  "next": 0
-                },
-                {
-                  "name": "--type",
-                  "tip": [
-                    "U: --type <model|dataset|space>",
-                    "仓库类型。"
-                  ],
-                  "next": [
-                    {
-                      "name": "dataset"
-                    },
-                    {
-                      "name": "model"
-                    },
-                    {
-                      "name": "space"
-                    }
                   ]
                 },
                 {
                   "name": "repo_id",
+                  "next": 0,
                   "tip": [
                     "U: repo_id <string>",
                     "仓库 ID。"
-                  ],
-                  "next": 0
+                  ]
                 }
+              ],
+              "name": "delete",
+              "tip": [
+                "删除分支。"
               ]
             },
             {
-              "name": "rename",
-              "tip": [
-                "重命名分支。"
+              "alias": [
+                "ls"
               ],
               "common_option": [
                 {
                   "name": "--token",
+                  "next": 0,
                   "tip": [
                     "U: --token <string>",
                     "Hugging Face 访问令牌。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "--type",
-                  "tip": [
-                    "U: --type <model|dataset|space>",
-                    "仓库类型。"
-                  ],
                   "next": [
                     {
                       "name": "dataset"
@@ -1835,55 +1780,100 @@
                     {
                       "name": "space"
                     }
+                  ],
+                  "tip": [
+                    "U: --type <model|dataset|space>",
+                    "仓库类型。"
+                  ]
+                },
+                {
+                  "name": "repo_id",
+                  "next": 0,
+                  "tip": [
+                    "U: repo_id <string>",
+                    "仓库 ID。"
+                  ]
+                }
+              ],
+              "name": "list",
+              "tip": [
+                "列出分支。"
+              ]
+            },
+            {
+              "common_option": [
+                {
+                  "name": "--token",
+                  "next": 0,
+                  "tip": [
+                    "U: --token <string>",
+                    "Hugging Face 访问令牌。"
+                  ]
+                },
+                {
+                  "name": "--type",
+                  "next": [
+                    {
+                      "name": "dataset"
+                    },
+                    {
+                      "name": "model"
+                    },
+                    {
+                      "name": "space"
+                    }
+                  ],
+                  "tip": [
+                    "U: --type <model|dataset|space>",
+                    "仓库类型。"
                   ]
                 },
                 {
                   "name": "branch_name",
+                  "next": 0,
                   "tip": [
                     "U: branch_name <string>",
                     "当前分支名称。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "new_name",
+                  "next": 0,
                   "tip": [
                     "U: new_name <string>",
                     "新分支名称。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "repo_id",
+                  "next": 0,
                   "tip": [
                     "U: repo_id <string>",
                     "仓库 ID。"
-                  ],
-                  "next": 0
+                  ]
                 }
+              ],
+              "name": "rename",
+              "tip": [
+                "重命名分支。"
               ]
             }
+          ],
+          "tip": [
+            "管理仓库中的分支。"
           ]
         },
         {
-          "name": "create",
-          "tip": [
-            "创建新仓库。"
-          ],
           "common_option": [
             {
+              "common_option": [],
               "name": "--private",
               "tip": [
                 "创建私有仓库。"
-              ],
-              "common_option": []
+              ]
             },
             {
               "name": "--space_sdk",
-              "tip": [
-                "U: --space_sdk <gradio|docker|static>",
-                "Space SDK 类型。"
-              ],
               "next": [
                 {
                   "name": "docker"
@@ -1894,22 +1884,22 @@
                 {
                   "name": "static"
                 }
+              ],
+              "tip": [
+                "U: --space_sdk <gradio|docker|static>",
+                "Space SDK 类型。"
               ]
             },
             {
               "name": "--token",
+              "next": 0,
               "tip": [
                 "U: --token <string>",
                 "Hugging Face 访问令牌。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--type",
-              "tip": [
-                "U: --type <model|dataset|space>",
-                "仓库类型。"
-              ],
               "next": [
                 {
                   "name": "dataset"
@@ -1920,38 +1910,38 @@
                 {
                   "name": "space"
                 }
+              ],
+              "tip": [
+                "U: --type <model|dataset|space>",
+                "仓库类型。"
               ]
             },
             {
               "name": "repo_id",
+              "next": 0,
               "tip": [
                 "U: repo_id <string>",
                 "仓库 ID（所有者/名称）。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "create",
+          "tip": [
+            "创建新仓库。"
           ]
         },
         {
-          "name": "delete",
-          "tip": [
-            "删除仓库。"
-          ],
           "common_option": [
             {
               "name": "--token",
+              "next": 0,
               "tip": [
                 "U: --token <string>",
                 "Hugging Face 访问令牌。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--type",
-              "tip": [
-                "U: --type <model|dataset|space>",
-                "仓库类型。"
-              ],
               "next": [
                 {
                   "name": "dataset"
@@ -1962,91 +1952,91 @@
                 {
                   "name": "space"
                 }
+              ],
+              "tip": [
+                "U: --type <model|dataset|space>",
+                "仓库类型。"
               ]
             },
             {
               "name": "repo_id",
+              "next": 0,
               "tip": [
                 "U: repo_id <string>",
                 "仓库 ID。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "delete",
+          "tip": [
+            "删除仓库。"
           ]
         },
         {
-          "name": "list",
           "alias": [
             "ls"
-          ],
-          "tip": [
-            "列出仓库。"
           ],
           "common_option": [
             {
               "name": "--author",
+              "next": 0,
               "tip": [
                 "U: --author <string>",
                 "按作者筛选。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--limit",
+              "next": 0,
               "tip": [
                 "U: --limit <int>",
                 "最大结果数。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--search",
+              "next": 0,
               "tip": [
                 "U: --search <string>",
                 "搜索查询。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--type",
+              "next": [
+                {
+                  "name": "dataset"
+                },
+                {
+                  "name": "model"
+                },
+                {
+                  "name": "space"
+                }
+              ],
               "tip": [
                 "U: --type <model|dataset|space>",
                 "仓库类型筛选。"
-              ],
-              "next": [
-                {
-                  "name": "dataset"
-                },
-                {
-                  "name": "model"
-                },
-                {
-                  "name": "space"
-                }
               ]
             }
+          ],
+          "name": "list",
+          "tip": [
+            "列出仓库。"
           ]
         },
         {
-          "name": "transfer",
-          "tip": [
-            "将仓库转移到另一个命名空间。"
-          ],
           "common_option": [
             {
               "name": "--token",
+              "next": 0,
               "tip": [
                 "U: --token <string>",
                 "Hugging Face 访问令牌。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--type",
-              "tip": [
-                "U: --type <model|dataset|space>",
-                "仓库类型。"
-              ],
               "next": [
                 {
                   "name": "dataset"
@@ -2057,465 +2047,465 @@
                 {
                   "name": "space"
                 }
+              ],
+              "tip": [
+                "U: --type <model|dataset|space>",
+                "仓库类型。"
               ]
             },
             {
               "name": "repo_id",
+              "next": 0,
               "tip": [
                 "U: repo_id <string>",
                 "仓库 ID。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "target_namespace",
+              "next": 0,
               "tip": [
                 "U: target_namespace <string>",
                 "目标命名空间。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "transfer",
+          "tip": [
+            "将仓库转移到另一个命名空间。"
           ]
         }
+      ],
+      "tip": [
+        "管理仓库。"
       ]
     },
     {
       "name": "sandbox",
-      "tip": [
-        "管理开发沙箱。"
-      ],
       "next": [
         {
+          "common_option": [
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face 访问令牌。"
+              ]
+            },
+            {
+              "name": "sandbox_id",
+              "next": 0,
+              "tip": [
+                "U: sandbox_id <string>",
+                "沙箱 ID。"
+              ]
+            }
+          ],
           "name": "connect",
           "tip": [
             "连接到沙箱。"
-          ],
-          "common_option": [
-            {
-              "name": "--token",
-              "tip": [
-                "U: --token <string>",
-                "Hugging Face 访问令牌。"
-              ],
-              "next": 0
-            },
-            {
-              "name": "sandbox_id",
-              "tip": [
-                "U: sandbox_id <string>",
-                "沙箱 ID。"
-              ],
-              "next": 0
-            }
           ]
         },
         {
-          "name": "create",
-          "tip": [
-            "创建新沙箱。"
-          ],
           "common_option": [
             {
               "name": "--hardware",
+              "next": 0,
               "tip": [
                 "U: --hardware <string>",
                 "硬件类型。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--image",
+              "next": 0,
               "tip": [
                 "U: --image <string>",
                 "Docker 镜像。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--repo",
+              "next": 0,
               "tip": [
                 "U: --repo <string>",
                 "要附加的仓库。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--token",
+              "next": 0,
               "tip": [
                 "U: --token <string>",
                 "Hugging Face 访问令牌。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "create",
+          "tip": [
+            "创建新沙箱。"
           ]
         },
         {
+          "common_option": [
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face 访问令牌。"
+              ]
+            },
+            {
+              "name": "sandbox_id",
+              "next": 0,
+              "tip": [
+                "U: sandbox_id <string>",
+                "沙箱 ID。"
+              ]
+            }
+          ],
           "name": "delete",
           "tip": [
             "删除沙箱。"
-          ],
-          "common_option": [
-            {
-              "name": "--token",
-              "tip": [
-                "U: --token <string>",
-                "Hugging Face 访问令牌。"
-              ],
-              "next": 0
-            },
-            {
-              "name": "sandbox_id",
-              "tip": [
-                "U: sandbox_id <string>",
-                "沙箱 ID。"
-              ],
-              "next": 0
-            }
           ]
         },
         {
-          "name": "list",
           "alias": [
             "ls"
           ],
+          "common_option": [],
+          "name": "list",
           "tip": [
             "列出沙箱。"
-          ],
-          "common_option": []
+          ]
         },
         {
-          "name": "logs",
-          "tip": [
-            "获取沙箱日志。"
-          ],
           "common_option": [
             {
+              "common_option": [],
               "name": "--follow",
               "tip": [
                 "跟踪日志输出。"
-              ],
-              "common_option": []
+              ]
             },
             {
               "name": "--token",
+              "next": 0,
               "tip": [
                 "U: --token <string>",
                 "Hugging Face 访问令牌。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "sandbox_id",
+              "next": 0,
               "tip": [
                 "U: sandbox_id <string>",
                 "沙箱 ID。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "logs",
+          "tip": [
+            "获取沙箱日志。"
           ]
         },
         {
           "name": "pool",
-          "tip": [
-            "管理沙箱池。"
-          ],
           "next": [
             {
-              "name": "create",
-              "tip": [
-                "创建沙箱池。"
-              ],
               "common_option": [
                 {
                   "name": "--hardware",
+                  "next": 0,
                   "tip": [
                     "U: --hardware <string>",
                     "硬件类型。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "--image",
+                  "next": 0,
                   "tip": [
                     "U: --image <string>",
                     "Docker 镜像。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "--name",
+                  "next": 0,
                   "tip": [
                     "U: --name <string>",
                     "池名称。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "--size",
+                  "next": 0,
                   "tip": [
                     "U: --size <int>",
                     "池大小。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "--token",
+                  "next": 0,
                   "tip": [
                     "U: --token <string>",
                     "Hugging Face 访问令牌。"
-                  ],
-                  "next": 0
+                  ]
                 }
+              ],
+              "name": "create",
+              "tip": [
+                "创建沙箱池。"
               ]
             },
             {
-              "name": "delete",
-              "tip": [
-                "删除沙箱池。"
-              ],
               "common_option": [
                 {
                   "name": "--token",
+                  "next": 0,
                   "tip": [
                     "U: --token <string>",
                     "Hugging Face 访问令牌。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "pool_id",
+                  "next": 0,
                   "tip": [
                     "U: pool_id <string>",
                     "池 ID。"
-                  ],
-                  "next": 0
+                  ]
                 }
+              ],
+              "name": "delete",
+              "tip": [
+                "删除沙箱池。"
               ]
             },
             {
-              "name": "list",
               "alias": [
                 "ls"
               ],
+              "common_option": [],
+              "name": "list",
               "tip": [
                 "列出沙箱池。"
-              ],
-              "common_option": []
+              ]
             }
+          ],
+          "tip": [
+            "管理沙箱池。"
           ]
         },
         {
-          "name": "status",
-          "tip": [
-            "获取沙箱状态。"
-          ],
           "common_option": [
             {
               "name": "--token",
+              "next": 0,
               "tip": [
                 "U: --token <string>",
                 "Hugging Face 访问令牌。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "sandbox_id",
+              "next": 0,
               "tip": [
                 "U: sandbox_id <string>",
                 "沙箱 ID。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "status",
+          "tip": [
+            "获取沙箱状态。"
           ]
         }
+      ],
+      "tip": [
+        "管理开发沙箱。"
       ]
     },
     {
       "name": "skills",
-      "tip": [
-        "管理技能。"
-      ],
       "next": [
         {
-          "name": "get",
-          "tip": [
-            "获取技能详情。"
-          ],
           "common_option": [
             {
               "name": "skill_id",
+              "next": 0,
               "tip": [
                 "U: skill_id <string>",
                 "技能 ID。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "get",
+          "tip": [
+            "获取技能详情。"
           ]
         },
         {
-          "name": "list",
           "alias": [
             "ls"
           ],
+          "common_option": [],
+          "name": "list",
           "tip": [
             "列出可用技能。"
-          ],
-          "common_option": []
+          ]
         }
+      ],
+      "tip": [
+        "管理技能。"
       ]
     },
     {
       "name": "spaces",
-      "tip": [
-        "管理 Spaces。"
-      ],
       "next": [
         {
           "name": "duplication",
-          "tip": [
-            "管理 Space 复制。"
-          ],
           "next": [
             {
-              "name": "create",
-              "tip": [
-                "创建 Space 复制。"
-              ],
               "common_option": [
                 {
                   "name": "--destination",
+                  "next": 0,
                   "tip": [
                     "U: --destination <string>",
                     "目标命名空间。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "--token",
+                  "next": 0,
                   "tip": [
                     "U: --token <string>",
                     "Hugging Face 访问令牌。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "repo_id",
+                  "next": 0,
                   "tip": [
                     "U: repo_id <string>",
                     "源 Space ID。"
-                  ],
-                  "next": 0
+                  ]
                 }
+              ],
+              "name": "create",
+              "tip": [
+                "创建 Space 复制。"
               ]
             },
             {
-              "name": "list",
               "alias": [
                 "ls"
-              ],
-              "tip": [
-                "列出复制。"
               ],
               "common_option": [
                 {
                   "name": "--token",
+                  "next": 0,
                   "tip": [
                     "U: --token <string>",
                     "Hugging Face 访问令牌。"
-                  ],
-                  "next": 0
+                  ]
                 },
                 {
                   "name": "repo_id",
+                  "next": 0,
                   "tip": [
                     "U: repo_id <string>",
                     "源 Space ID。"
-                  ],
-                  "next": 0
+                  ]
                 }
+              ],
+              "name": "list",
+              "tip": [
+                "列出复制。"
               ]
             }
+          ],
+          "tip": [
+            "管理 Space 复制。"
           ]
         },
         {
-          "name": "hardware",
-          "tip": [
-            "更改 Space 硬件。"
-          ],
           "common_option": [
             {
               "name": "--token",
+              "next": 0,
               "tip": [
                 "U: --token <string>",
                 "Hugging Face 访问令牌。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "hardware",
+              "next": 0,
               "tip": [
                 "U: hardware <string>",
                 "新硬件类型。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "repo_id",
+              "next": 0,
               "tip": [
                 "U: repo_id <string>",
                 "Space ID。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "hardware",
+          "tip": [
+            "更改 Space 硬件。"
           ]
         },
         {
-          "name": "info",
-          "tip": [
-            "获取 Space 详情。"
-          ],
           "common_option": [
             {
               "name": "repo_id",
+              "next": 0,
               "tip": [
                 "U: repo_id <string>",
                 "Space ID。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "info",
+          "tip": [
+            "获取 Space 详情。"
           ]
         },
         {
-          "name": "list",
           "alias": [
             "ls"
-          ],
-          "tip": [
-            "列出 Spaces。"
           ],
           "common_option": [
             {
               "name": "--author",
+              "next": 0,
               "tip": [
                 "U: --author <string>",
                 "按作者筛选。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--limit",
+              "next": 0,
               "tip": [
                 "U: --limit <int>",
                 "最大结果数。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--sdk",
-              "tip": [
-                "U: --sdk <gradio|docker|static>",
-                "按 SDK 筛选。"
-              ],
               "next": [
                 {
                   "name": "docker"
@@ -2526,144 +2516,147 @@
                 {
                   "name": "static"
                 }
+              ],
+              "tip": [
+                "U: --sdk <gradio|docker|static>",
+                "按 SDK 筛选。"
               ]
             },
             {
               "name": "--search",
+              "next": 0,
               "tip": [
                 "U: --search <string>",
                 "搜索查询。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--sort",
+              "next": 0,
               "tip": [
                 "U: --sort <string>",
                 "排序字段。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "list",
+          "tip": [
+            "列出 Spaces。"
           ]
         },
         {
+          "common_option": [
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face 访问令牌。"
+              ]
+            },
+            {
+              "name": "repo_id",
+              "next": 0,
+              "tip": [
+                "U: repo_id <string>",
+                "Space ID。"
+              ]
+            }
+          ],
           "name": "pause",
           "tip": [
             "暂停 Space。"
-          ],
-          "common_option": [
-            {
-              "name": "--token",
-              "tip": [
-                "U: --token <string>",
-                "Hugging Face 访问令牌。"
-              ],
-              "next": 0
-            },
-            {
-              "name": "repo_id",
-              "tip": [
-                "U: repo_id <string>",
-                "Space ID。"
-              ],
-              "next": 0
-            }
           ]
         },
         {
+          "common_option": [
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face 访问令牌。"
+              ]
+            },
+            {
+              "name": "repo_id",
+              "next": 0,
+              "tip": [
+                "U: repo_id <string>",
+                "Space ID。"
+              ]
+            }
+          ],
           "name": "restart",
           "tip": [
             "重启 Space。"
-          ],
-          "common_option": [
-            {
-              "name": "--token",
-              "tip": [
-                "U: --token <string>",
-                "Hugging Face 访问令牌。"
-              ],
-              "next": 0
-            },
-            {
-              "name": "repo_id",
-              "tip": [
-                "U: repo_id <string>",
-                "Space ID。"
-              ],
-              "next": 0
-            }
           ]
         },
         {
+          "common_option": [
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face 访问令牌。"
+              ]
+            },
+            {
+              "name": "repo_id",
+              "next": 0,
+              "tip": [
+                "U: repo_id <string>",
+                "Space ID。"
+              ]
+            }
+          ],
           "name": "resume",
           "tip": [
             "恢复已暂停的 Space。"
-          ],
-          "common_option": [
-            {
-              "name": "--token",
-              "tip": [
-                "U: --token <string>",
-                "Hugging Face 访问令牌。"
-              ],
-              "next": 0
-            },
-            {
-              "name": "repo_id",
-              "tip": [
-                "U: repo_id <string>",
-                "Space ID。"
-              ],
-              "next": 0
-            }
           ]
         },
         {
+          "common_option": [
+            {
+              "name": "repo_id",
+              "next": 0,
+              "tip": [
+                "U: repo_id <string>",
+                "Space ID。"
+              ]
+            }
+          ],
           "name": "status",
           "tip": [
             "获取 Space 运行状态。"
-          ],
-          "common_option": [
-            {
-              "name": "repo_id",
-              "tip": [
-                "U: repo_id <string>",
-                "Space ID。"
-              ],
-              "next": 0
-            }
           ]
         }
+      ],
+      "tip": [
+        "管理 Spaces。"
       ]
     },
     {
-      "name": "sync",
-      "tip": [
-        "同步文件。"
-      ],
       "common_option": [
         {
           "name": "--exclude",
+          "next": 0,
           "tip": [
             "U: --exclude <string>",
             "要排除的 glob 模式。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "--include",
+          "next": 0,
           "tip": [
             "U: --include <string>",
             "要包含的 glob 模式。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "--repo-type",
-          "tip": [
-            "U: --repo-type <model|dataset|space>",
-            "仓库类型。"
-          ],
           "next": [
             {
               "name": "dataset"
@@ -2674,54 +2667,54 @@
             {
               "name": "space"
             }
+          ],
+          "tip": [
+            "U: --repo-type <model|dataset|space>",
+            "仓库类型。"
           ]
         },
         {
           "name": "--revision",
+          "next": 0,
           "tip": [
             "U: --revision <string>",
             "Git 修订版。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "--token",
+          "next": 0,
           "tip": [
             "U: --token <string>",
             "Hugging Face 访问令牌。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "dst_repo",
+          "next": 0,
           "tip": [
             "U: dst_repo <string>",
             "目标仓库。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "src_repo",
+          "next": 0,
           "tip": [
             "U: src_repo <string>",
             "源仓库。"
-          ],
-          "next": 0
+          ]
         }
+      ],
+      "name": "sync",
+      "tip": [
+        "同步文件。"
       ]
     },
     {
-      "name": "update",
-      "tip": [
-        "更新 hf CLI。"
-      ],
       "common_option": [
         {
           "name": "--channel",
-          "tip": [
-            "U: --channel <string>",
-            "发布频道（stable 或 nightly）。"
-          ],
           "next": [
             {
               "name": "nightly"
@@ -2729,57 +2722,57 @@
             {
               "name": "stable"
             }
+          ],
+          "tip": [
+            "U: --channel <string>",
+            "发布频道（stable 或 nightly）。"
           ]
         }
+      ],
+      "name": "update",
+      "tip": [
+        "更新 hf CLI。"
       ]
     },
     {
-      "name": "upload",
       "alias": [
         "ul"
       ],
-      "tip": [
-        "上传文件到仓库。"
-      ],
       "common_option": [
         {
           "name": "--commit-message",
+          "next": 0,
           "tip": [
             "U: --commit-message <string>",
             "提交消息。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "--exclude",
+          "next": 0,
           "tip": [
             "U: --exclude <string>",
             "要排除的 glob 模式。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "--include",
+          "next": 0,
           "tip": [
             "U: --include <string>",
             "要包含的 glob 模式。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "--path-in-repo",
+          "next": 0,
           "tip": [
             "U: --path-in-repo <string>",
             "仓库中的目标路径。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "--repo-type",
-          "tip": [
-            "U: --repo-type <model|dataset|space>",
-            "仓库类型。"
-          ],
           "next": [
             {
               "name": "dataset"
@@ -2790,86 +2783,86 @@
             {
               "name": "space"
             }
+          ],
+          "tip": [
+            "U: --repo-type <model|dataset|space>",
+            "仓库类型。"
           ]
         },
         {
           "name": "--revision",
+          "next": 0,
           "tip": [
             "U: --revision <string>",
             "Git 修订版。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "--token",
+          "next": 0,
           "tip": [
             "U: --token <string>",
             "Hugging Face 访问令牌。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "local_path",
+          "next": 0,
           "tip": [
             "U: local_path <string>",
             "要上传的本地文件或目录。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "repo_id",
+          "next": 0,
           "tip": [
             "U: repo_id <string>",
             "仓库 ID。"
-          ],
-          "next": 0
+          ]
         }
+      ],
+      "name": "upload",
+      "tip": [
+        "上传文件到仓库。"
       ]
     },
     {
-      "name": "upload-large-folder",
-      "tip": [
-        "上传大文件夹到仓库。"
-      ],
       "common_option": [
         {
           "name": "--commit-message",
+          "next": 0,
           "tip": [
             "U: --commit-message <string>",
             "提交消息。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "--exclude",
+          "next": 0,
           "tip": [
             "U: --exclude <string>",
             "要排除的 glob 模式。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "--include",
+          "next": 0,
           "tip": [
             "U: --include <string>",
             "要包含的 glob 模式。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "--path-in-repo",
+          "next": 0,
           "tip": [
             "U: --path-in-repo <string>",
             "仓库中的目标路径。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "--repo-type",
-          "tip": [
-            "U: --repo-type <model|dataset|space>",
-            "仓库类型。"
-          ],
           "next": [
             {
               "name": "dataset"
@@ -2880,221 +2873,224 @@
             {
               "name": "space"
             }
+          ],
+          "tip": [
+            "U: --repo-type <model|dataset|space>",
+            "仓库类型。"
           ]
         },
         {
           "name": "--revision",
+          "next": 0,
           "tip": [
             "U: --revision <string>",
             "Git 修订版。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "--token",
+          "next": 0,
           "tip": [
             "U: --token <string>",
             "Hugging Face 访问令牌。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "--workers",
+          "next": 0,
           "tip": [
             "U: --workers <int>",
             "上传工作节点数量。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "local_path",
+          "next": 0,
           "tip": [
             "U: local_path <string>",
             "要上传的本地目录。"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "repo_id",
+          "next": 0,
           "tip": [
             "U: repo_id <string>",
             "仓库 ID。"
-          ],
-          "next": 0
+          ]
         }
+      ],
+      "name": "upload-large-folder",
+      "tip": [
+        "上传大文件夹到仓库。"
       ]
     },
     {
+      "common_option": [],
       "name": "version",
       "tip": [
         "显示 hf CLI 版本。"
-      ],
-      "common_option": []
+      ]
     },
     {
       "name": "webhooks",
-      "tip": [
-        "管理 Webhooks。"
-      ],
       "next": [
         {
-          "name": "create",
-          "tip": [
-            "创建新 Webhook。"
-          ],
           "common_option": [
             {
               "name": "--events",
+              "next": 0,
               "tip": [
                 "U: --events <string>",
                 "要监听的事件（逗号分隔）。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--repo",
+              "next": 0,
               "tip": [
                 "U: --repo <string>",
                 "要附加的仓库。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--token",
+              "next": 0,
               "tip": [
                 "U: --token <string>",
                 "Hugging Face 访问令牌。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--url",
+              "next": 0,
               "tip": [
                 "U: --url <string>",
                 "Webhook URL。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "create",
+          "tip": [
+            "创建新 Webhook。"
           ]
         },
         {
+          "common_option": [
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face 访问令牌。"
+              ]
+            },
+            {
+              "name": "webhook_id",
+              "next": 0,
+              "tip": [
+                "U: webhook_id <string>",
+                "Webhook ID。"
+              ]
+            }
+          ],
           "name": "delete",
           "tip": [
             "删除 Webhook。"
-          ],
-          "common_option": [
-            {
-              "name": "--token",
-              "tip": [
-                "U: --token <string>",
-                "Hugging Face 访问令牌。"
-              ],
-              "next": 0
-            },
-            {
-              "name": "webhook_id",
-              "tip": [
-                "U: webhook_id <string>",
-                "Webhook ID。"
-              ],
-              "next": 0
-            }
           ]
         },
         {
+          "common_option": [
+            {
+              "name": "--token",
+              "next": 0,
+              "tip": [
+                "U: --token <string>",
+                "Hugging Face 访问令牌。"
+              ]
+            },
+            {
+              "name": "webhook_id",
+              "next": 0,
+              "tip": [
+                "U: webhook_id <string>",
+                "Webhook ID。"
+              ]
+            }
+          ],
           "name": "get",
           "tip": [
             "获取 Webhook 详情。"
-          ],
-          "common_option": [
-            {
-              "name": "--token",
-              "tip": [
-                "U: --token <string>",
-                "Hugging Face 访问令牌。"
-              ],
-              "next": 0
-            },
-            {
-              "name": "webhook_id",
-              "tip": [
-                "U: webhook_id <string>",
-                "Webhook ID。"
-              ],
-              "next": 0
-            }
           ]
         },
         {
-          "name": "list",
           "alias": [
             "ls"
           ],
-          "tip": [
-            "列出 Webhooks。"
-          ],
           "common_option": [
             {
               "name": "--token",
+              "next": 0,
               "tip": [
                 "U: --token <string>",
                 "Hugging Face 访问令牌。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "list",
+          "tip": [
+            "列出 Webhooks。"
           ]
         },
         {
-          "name": "update",
-          "tip": [
-            "更新 Webhook。"
-          ],
           "common_option": [
             {
               "name": "--events",
+              "next": 0,
               "tip": [
                 "U: --events <string>",
                 "新事件列表。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--token",
+              "next": 0,
               "tip": [
                 "U: --token <string>",
                 "Hugging Face 访问令牌。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "--url",
+              "next": 0,
               "tip": [
                 "U: --url <string>",
                 "新 Webhook URL。"
-              ],
-              "next": 0
+              ]
             },
             {
               "name": "webhook_id",
+              "next": 0,
               "tip": [
                 "U: webhook_id <string>",
                 "Webhook ID。"
-              ],
-              "next": 0
+              ]
             }
+          ],
+          "name": "update",
+          "tip": [
+            "更新 Webhook。"
           ]
         }
+      ],
+      "tip": [
+        "管理 Webhooks。"
       ]
     }
   ],
-  "option": [],
   "common_option": [
     {
       "name": "--format",
-      "tip": [
-        "U: --format <json|text>",
-        "输出格式。"
-      ],
       "next": [
         {
           "name": "json"
@@ -3102,49 +3098,53 @@
         {
           "name": "text"
         }
+      ],
+      "tip": [
+        "U: --format <json|text>",
+        "输出格式。"
       ]
     },
     {
-      "name": "--help",
       "alias": [
         "-h"
       ],
+      "common_option": [],
+      "name": "--help",
       "tip": [
         "显示帮助信息。"
-      ],
-      "common_option": []
+      ]
     },
     {
+      "common_option": [],
       "name": "--json",
       "tip": [
         "以 JSON 格式输出。"
-      ],
-      "common_option": []
+      ]
     },
     {
+      "common_option": [],
       "name": "--no-truncate",
       "tip": [
         "不截断表格输出。"
-      ],
-      "common_option": []
+      ]
     },
     {
-      "name": "--quiet",
       "alias": [
         "-q"
       ],
+      "common_option": [],
+      "name": "--quiet",
       "tip": [
         "抑制非必要输出。"
-      ],
-      "common_option": []
+      ]
     },
     {
       "name": "--token",
+      "next": 0,
       "tip": [
         "U: --token <string>",
         "Hugging Face 访问令牌。"
-      ],
-      "next": 0
+      ]
     }
   ]
 }

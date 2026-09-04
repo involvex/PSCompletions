@@ -6,14 +6,17 @@
       "轻松管理多个 Python 版本并在它们之间切换。"
     ]
   },
+  "option": [
+    {
+      "name": "--version",
+      "tip": [
+        "显示 pyenv 的版本。"
+      ]
+    }
+  ],
   "root": [
     {
       "name": "commands",
-      "tip": [
-        "U: commands [--sh|--no-sh]",
-        "列出所有可用的 pyenv 命令。",
-        "E: commands --sh"
-      ],
       "option": [
         {
           "name": "--no-sh",
@@ -27,6 +30,11 @@
             "仅显示 shell 命令。"
           ]
         }
+      ],
+      "tip": [
+        "U: commands [--sh|--no-sh]",
+        "列出所有可用的 pyenv 命令。",
+        "E: commands --sh"
       ]
     },
     {
@@ -72,11 +80,6 @@
     },
     {
       "name": "init",
-      "tip": [
-        "U: init [--no-rehash] <shell>",
-        "将 pyenv 加载到当前 shell 中。",
-        "E: init bash"
-      ],
       "option": [
         {
           "name": "--no-rehash",
@@ -84,15 +87,15 @@
             "抑制自动重新生成。"
           ]
         }
+      ],
+      "tip": [
+        "U: init [--no-rehash] <shell>",
+        "将 pyenv 加载到当前 shell 中。",
+        "E: init bash"
       ]
     },
     {
       "name": "install",
-      "tip": [
-        "U: install [-k|--keep] [-v|--verbose] [-g|--debug] <版本>",
-        "从源代码安装 Python 版本。",
-        "E: install 3.11.0"
-      ],
       "option": [
         {
           "name": "--list",
@@ -107,35 +110,35 @@
           ]
         },
         {
-          "name": "-g",
           "alias": "--debug",
+          "name": "-g",
           "tip": [
             "调试模式：构建时不进行优化。"
           ]
         },
         {
-          "name": "-k",
           "alias": "--keep",
+          "name": "-k",
           "tip": [
             "安装后在 $PYENV_BUILD_ROOT 中保留源代码树。"
           ]
         },
         {
-          "name": "-v",
           "alias": "--verbose",
+          "name": "-v",
           "tip": [
             "详细模式：将编译状态打印到标准输出。"
           ]
         }
+      ],
+      "tip": [
+        "U: install [-k|--keep] [-v|--verbose] [-g|--debug] <版本>",
+        "从源代码安装 Python 版本。",
+        "E: install 3.11.0"
       ]
     },
     {
       "name": "latest",
-      "tip": [
-        "U: latest [--known] [--print] <版本>",
-        "显示最新安装或已知的版本。",
-        "E: latest 3.11"
-      ],
       "option": [
         {
           "name": "--known",
@@ -149,6 +152,11 @@
             "仅打印版本号。"
           ]
         }
+      ],
+      "tip": [
+        "U: latest [--known] [--print] <版本>",
+        "显示最新安装或已知的版本。",
+        "E: latest 3.11"
       ]
     },
     {
@@ -194,11 +202,6 @@
     },
     {
       "name": "shims",
-      "tip": [
-        "U: shims [--short]",
-        "列出现有的 pyenv shims。",
-        "E: shims --short"
-      ],
       "option": [
         {
           "name": "--short",
@@ -206,23 +209,28 @@
             "仅列出 shim 名称，不显示完整路径。"
           ]
         }
+      ],
+      "tip": [
+        "U: shims [--short]",
+        "列出现有的 pyenv shims。",
+        "E: shims --short"
       ]
     },
     {
       "name": "uninstall",
-      "tip": [
-        "U: uninstall [-f|--force] <版本>",
-        "卸载 Python 版本。",
-        "E: uninstall 3.11.0"
-      ],
       "option": [
         {
-          "name": "-f",
           "alias": "--force",
+          "name": "-f",
           "tip": [
             "强制卸载而不需要确认。"
           ]
         }
+      ],
+      "tip": [
+        "U: uninstall [-f|--force] <版本>",
+        "卸载 Python 版本。",
+        "E: uninstall 3.11.0"
       ]
     },
     {
@@ -235,11 +243,6 @@
     },
     {
       "name": "versions",
-      "tip": [
-        "U: versions [--bare]",
-        "列出 pyenv 已知的所有 Python 版本。",
-        "E: versions --bare"
-      ],
       "option": [
         {
           "name": "--bare",
@@ -247,15 +250,15 @@
             "仅显示版本名称，不显示其他信息。"
           ]
         }
+      ],
+      "tip": [
+        "U: versions [--bare]",
+        "列出 pyenv 已知的所有 Python 版本。",
+        "E: versions --bare"
       ]
     },
     {
       "name": "whence",
-      "tip": [
-        "U: whence [--path] <命令>",
-        "显示具有给定命令的所有 Python 版本。",
-        "E: whence python"
-      ],
       "option": [
         {
           "name": "--path",
@@ -263,6 +266,11 @@
             "显示完整路径而不是版本名称。"
           ]
         }
+      ],
+      "tip": [
+        "U: whence [--path] <命令>",
+        "显示具有给定命令的所有 Python 版本。",
+        "E: whence python"
       ]
     },
     {
@@ -271,14 +279,6 @@
         "U: which <命令>",
         "显示将被调用的可执行文件的完整路径。",
         "E: which python"
-      ]
-    }
-  ],
-  "option": [
-    {
-      "name": "--version",
-      "tip": [
-        "显示 pyenv 的版本。"
       ]
     }
   ],

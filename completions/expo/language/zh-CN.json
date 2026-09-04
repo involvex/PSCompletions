@@ -6,12 +6,21 @@
       "通常通过 npx expo 或 bunx expo 调用"
     ]
   },
+  "option": [
+    {
+      "name": "--version",
+      "alias": [
+        "-v"
+      ],
+      "tip": [
+        "U: -v, --version",
+        "版本号"
+      ]
+    }
+  ],
   "root": [
     {
       "name": "config",
-      "tip": [
-        "显示项目配置"
-      ],
       "option": [
         {
           "name": "--full",
@@ -26,15 +35,18 @@
           ]
         },
         {
-          "name": "--type",
           "alias": [
             "-t"
           ],
+          "name": "--type",
           "tip": [
             "U: -t, --type <public|prebuild|introspect>",
             "要显示的配置类型"
           ]
         }
+      ],
+      "tip": [
+        "显示项目配置"
       ]
     },
     {
@@ -45,15 +57,12 @@
     },
     {
       "name": "export",
-      "tip": [
-        "导出应用的静态文件以便托管在 Web 服务器上"
-      ],
       "option": [
         {
-          "name": "--clear",
           "alias": [
             "-c"
           ],
+          "name": "--clear",
           "tip": [
             "U: -c, --clear",
             "清除打包器缓存"
@@ -90,10 +99,10 @@
           ]
         },
         {
-          "name": "--no-ssg",
           "alias": [
             "--api-only"
           ],
+          "name": "--no-ssg",
           "tip": [
             "U: --no-ssg|--api-only",
             "跳过导出静态 HTML 文件, 仅导出 Web 的 API 路由"
@@ -106,32 +115,32 @@
           ]
         },
         {
-          "name": "--platform",
           "alias": [
             "-p"
           ],
+          "name": "--platform",
           "tip": [
             "U: -p, --platform <all|android|ios|web>",
             "要导出的平台。默认: all"
           ]
         },
         {
-          "name": "--source-maps",
           "alias": [
             "-s"
           ],
+          "name": "--source-maps",
           "tip": [
             "U: -s, --source-maps [true|false|inline|external]",
             "生成 JavaScript 源码映射。默认: false"
           ]
         }
+      ],
+      "tip": [
+        "导出应用的静态文件以便托管在 Web 服务器上"
       ]
     },
     {
       "name": "install",
-      "tip": [
-        "向项目安装模块或其他软件包"
-      ],
       "option": [
         {
           "name": "--bun",
@@ -181,19 +190,19 @@
             "使用 Yarn 安装依赖。当存在 yarn.lock 时为默认值"
           ]
         }
+      ],
+      "tip": [
+        "向项目安装模块或其他软件包"
       ]
     },
     {
       "name": "login",
-      "tip": [
-        "登录 Expo 账户"
-      ],
       "option": [
         {
-          "name": "--browser",
           "alias": [
             "-b"
           ],
+          "name": "--browser",
           "tip": [
             "U: -b, --browser",
             "通过浏览器登录"
@@ -206,35 +215,38 @@
           ]
         },
         {
-          "name": "--password",
           "alias": [
             "-p"
           ],
+          "name": "--password",
           "tip": [
             "U: -p, --password <string>",
             "密码 (\"-\" 表示从标准输入读取)"
           ]
         },
         {
-          "name": "--sso",
           "alias": [
             "-s"
           ],
+          "name": "--sso",
           "tip": [
             "U: -s, --sso",
             "使用 SSO 登录"
           ]
         },
         {
-          "name": "--username",
           "alias": [
             "-u"
           ],
+          "name": "--username",
           "tip": [
             "U: -u, --username <string>",
             "用户名"
           ]
         }
+      ],
+      "tip": [
+        "登录 Expo 账户"
       ]
     },
     {
@@ -245,9 +257,6 @@
     },
     {
       "name": "prebuild",
-      "tip": [
-        "创建用于原生构建的 iOS 和 Android 项目文件"
-      ],
       "option": [
         {
           "name": "--bun",
@@ -274,10 +283,10 @@
           ]
         },
         {
-          "name": "--platform",
           "alias": [
             "-p"
           ],
+          "name": "--platform",
           "tip": [
             "U: -p, --platform <all|android|ios>",
             "要同步的平台。默认: all"
@@ -307,6 +316,9 @@
             "使用 Yarn 安装依赖。当存在 yarn.lock 时为默认值"
           ]
         }
+      ],
+      "tip": [
+        "创建用于原生构建的 iOS 和 Android 项目文件"
       ]
     },
     {
@@ -317,9 +329,6 @@
     },
     {
       "name": "run:android",
-      "tip": [
-        "在本地运行原生 Android 应用"
-      ],
       "option": [
         {
           "name": "--app-id",
@@ -334,10 +343,10 @@
           ]
         },
         {
-          "name": "--device",
           "alias": [
             "-d"
           ],
+          "name": "--device",
           "tip": [
             "U: -d, --device [device]",
             "运行应用的设备名称"
@@ -362,10 +371,10 @@
           ]
         },
         {
-          "name": "--port",
           "alias": [
             "-p"
           ],
+          "name": "--port",
           "tip": [
             "U: -p, --port <port>",
             "开发服务器端口。默认: 8081"
@@ -377,13 +386,13 @@
             "构建变体或产品风味。默认: debug"
           ]
         }
+      ],
+      "tip": [
+        "在本地运行原生 Android 应用"
       ]
     },
     {
       "name": "run:ios",
-      "tip": [
-        "在本地运行 iOS 应用二进制文件"
-      ],
       "option": [
         {
           "name": "--binary",
@@ -398,10 +407,10 @@
           ]
         },
         {
-          "name": "--device",
           "alias": [
             "-d"
           ],
+          "name": "--device",
           "tip": [
             "U: -d, --device [device]",
             "设备名称、UDID 或 \"generic\" (仅构建)"
@@ -426,20 +435,20 @@
           ]
         },
         {
-          "name": "--output",
           "alias": [
             "-o"
           ],
+          "name": "--output",
           "tip": [
             "U: -o, --output <path>",
             "输出已构建应用二进制文件的目录"
           ]
         },
         {
-          "name": "--port",
           "alias": [
             "-p"
           ],
+          "name": "--port",
           "tip": [
             "U: -p, --port <port>",
             "Metro 打包器端口。默认: 8081"
@@ -451,13 +460,13 @@
             "要构建的 Scheme"
           ]
         }
+      ],
+      "tip": [
+        "在本地运行 iOS 应用二进制文件"
       ]
     },
     {
       "name": "serve",
-      "tip": [
-        "在本地托管生产环境服务器"
-      ],
       "option": [
         {
           "name": "--port",
@@ -465,59 +474,59 @@
             "服务器托管的端口"
           ]
         }
+      ],
+      "tip": [
+        "在本地托管生产环境服务器"
       ]
     },
     {
       "name": "start",
-      "tip": [
-        "启动应用的本地开发服务器"
-      ],
       "option": [
         {
-          "name": "--android",
           "alias": [
             "-a"
           ],
+          "name": "--android",
           "tip": [
             "U: -a, --android",
             "在已连接的 Android 设备上打开"
           ]
         },
         {
-          "name": "--clear",
           "alias": [
             "-c"
           ],
+          "name": "--clear",
           "tip": [
             "U: -c, --clear",
             "清除打包器缓存"
           ]
         },
         {
-          "name": "--dev-client",
           "alias": [
             "-d"
           ],
+          "name": "--dev-client",
           "tip": [
             "U: -d, --dev-client",
             "在自定义原生应用中启动"
           ]
         },
         {
-          "name": "--go",
           "alias": [
             "-g"
           ],
+          "name": "--go",
           "tip": [
             "U: -g, --go",
             "在 Expo Go 中启动"
           ]
         },
         {
-          "name": "--host",
           "alias": [
             "-m"
           ],
+          "name": "--host",
           "tip": [
             "U: -m, --host <lan|tunnel|localhost>",
             "开发服务器托管类型。默认: lan"
@@ -530,10 +539,10 @@
           ]
         },
         {
-          "name": "--ios",
           "alias": [
             "-i"
           ],
+          "name": "--ios",
           "tip": [
             "U: -i, --ios",
             "在 iOS 模拟器中打开"
@@ -576,10 +585,10 @@
           ]
         },
         {
-          "name": "--port",
           "alias": [
             "-p"
           ],
+          "name": "--port",
           "tip": [
             "U: -p, --port <number>",
             "开发服务器端口 (不适用于 web 或 tunnel)。默认: 8081"
@@ -604,15 +613,18 @@
           ]
         },
         {
-          "name": "--web",
           "alias": [
             "-w"
           ],
+          "name": "--web",
           "tip": [
             "U: -w, --web",
             "在 Web 浏览器中打开"
           ]
         }
+      ],
+      "tip": [
+        "启动应用的本地开发服务器"
       ]
     },
     {
@@ -622,24 +634,12 @@
       ]
     }
   ],
-  "option": [
-    {
-      "name": "--version",
-      "alias": [
-        "-v"
-      ],
-      "tip": [
-        "U: -v, --version",
-        "版本号"
-      ]
-    }
-  ],
   "common_option": [
     {
-      "name": "-h",
       "alias": [
         "--help"
       ],
+      "name": "-h",
       "tip": [
         "U: -h, --help",
         "使用信息"

@@ -6,8 +6,18 @@
       "文档: https://getfresh.dev/docs"
     ]
   },
-  "root": [],
   "option": [
+    {
+      "name": "--attach",
+      "alias": [
+        "-a"
+      ],
+      "tip": [
+        "U: -a, --attach [<NAME>]",
+        "附加到守护进程。-a 表示当前目录，-a NAME 表示指定名称的守护进程"
+      ],
+      "next": 0
+    },
     {
       "name": "--cmd",
       "tip": [
@@ -28,16 +38,6 @@
           "tip": [
             "U: config <show|paths>",
             "显示生效的配置或 Fresh 使用的目录"
-          ]
-        },
-        {
-          "name": "daemon",
-          "alias": [
-            "session"
-          ],
-          "tip": [
-            "U: daemon <list|attach|new|kill|info|open-file>",
-            "管理编辑器守护进程（可分离的编辑器会话）"
           ]
         },
         {
@@ -66,6 +66,16 @@
           "tip": [
             "U: script <api|check|run|types>",
             "使用 TypeScript 驱动正在运行的编辑器"
+          ]
+        },
+        {
+          "name": "session",
+          "alias": [
+            "daemon"
+          ],
+          "tip": [
+            "U: daemon <list|attach|new|kill|info|open-file>",
+            "管理编辑器守护进程（可分离的编辑器会话）"
           ]
         },
         {
@@ -166,34 +176,24 @@
       "tip": [
         "从标准输入读取内容（替代使用 '-' 作为文件名）"
       ]
-    },
-    {
-      "name": "-a",
-      "alias": [
-        "--attach"
-      ],
-      "tip": [
-        "U: -a, --attach [<NAME>]",
-        "附加到守护进程。-a 表示当前目录，-a NAME 表示指定名称的守护进程"
-      ],
-      "next": 0
     }
   ],
+  "root": [],
   "common_option": [
     {
-      "name": "-h",
       "alias": [
         "--help"
       ],
+      "name": "-h",
       "tip": [
         "打印帮助信息（使用 '-h' 查看简短摘要）"
       ]
     },
     {
-      "name": "-V",
       "alias": [
         "--version"
       ],
+      "name": "-V",
       "tip": [
         "打印版本号"
       ]

@@ -19,10 +19,10 @@
   ],
   "common_option": [
     {
-      "name": "--help",
       "alias": [
         "-h"
       ],
+      "name": "--help",
       "tip": [
         "Show the help."
       ]

@@ -1,1 +1,10 @@
-{"alias": ["gradlew.bat"], "hooks": true, "language": ["en-US", "zh-CN"]}
+{
+  "hooks": true,
+  "alias": [
+    "gradlew.bat"
+  ],
+  "language": [
+    "en-US",
+    "zh-CN"
+  ]
+}

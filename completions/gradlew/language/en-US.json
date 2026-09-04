@@ -5,6 +5,54 @@
       "Gradle Wrapper - Build automation tool wrapper script."
     ]
   },
+  "option": [
+    {
+      "name": "--build-file",
+      "alias": [
+        "-b"
+      ],
+      "tip": [
+        "U: --build-file, -b <file>",
+        "Specifies the build file."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--gradle-user-home",
+      "tip": [
+        "U: --gradle-user-home <dir>",
+        "Specifies the Gradle user home directory."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--project-cache-dir",
+      "tip": [
+        "U: --project-cache-dir <dir>",
+        "Specifies the project cache directory."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--project-dir",
+      "tip": [
+        "U: --project-dir <dir>",
+        "Specifies the project directory."
+      ],
+      "next": 0
+    },
+    {
+      "name": "--settings-file",
+      "alias": [
+        "-c"
+      ],
+      "tip": [
+        "U: --settings-file, -c <file>",
+        "Specifies the settings file."
+      ],
+      "next": 0
+    }
+  ],
   "root": [
     {
       "name": "assemble",
@@ -133,54 +181,6 @@
       ]
     }
   ],
-  "option": [
-    {
-      "name": "--build-file",
-      "alias": [
-        "-b"
-      ],
-      "tip": [
-        "U: --build-file, -b <file>",
-        "Specifies the build file."
-      ],
-      "next": 0
-    },
-    {
-      "name": "--gradle-user-home",
-      "tip": [
-        "U: --gradle-user-home <dir>",
-        "Specifies the Gradle user home directory."
-      ],
-      "next": 0
-    },
-    {
-      "name": "--project-cache-dir",
-      "tip": [
-        "U: --project-cache-dir <dir>",
-        "Specifies the project cache directory."
-      ],
-      "next": 0
-    },
-    {
-      "name": "--project-dir",
-      "tip": [
-        "U: --project-dir <dir>",
-        "Specifies the project directory."
-      ],
-      "next": 0
-    },
-    {
-      "name": "--settings-file",
-      "alias": [
-        "-c"
-      ],
-      "tip": [
-        "U: --settings-file, -c <file>",
-        "Specifies the settings file."
-      ],
-      "next": 0
-    }
-  ],
   "common_option": [
     {
       "name": "--build-cache",
@@ -195,10 +195,10 @@
       ]
     },
     {
-      "name": "--continuous",
       "alias": [
         "-t"
       ],
+      "name": "--continuous",
       "tip": [
         "U: --continuous, -t",
         "Continuously builds when changes are detected."
@@ -211,20 +211,20 @@
       ]
     },
     {
-      "name": "--debug",
       "alias": [
         "-d"
       ],
+      "name": "--debug",
       "tip": [
         "U: --debug, -d",
         "Set log level to debug."
       ]
     },
     {
-      "name": "--dry-run",
       "alias": [
         "-m"
       ],
+      "name": "--dry-run",
       "tip": [
         "U: --dry-run, -m",
         "Run without executing actions."
@@ -237,21 +237,21 @@
       ]
     },
     {
-      "name": "--help",
       "alias": [
         "-h",
         "-?"
       ],
+      "name": "--help",
       "tip": [
         "U: --help, -h, -?",
         "Shows help message."
       ]
     },
     {
-      "name": "--info",
       "alias": [
         "-i"
       ],
+      "name": "--info",
       "tip": [
         "U: --info, -i",
         "Set log level to info."
@@ -300,10 +300,10 @@
       ]
     },
     {
-      "name": "--quiet",
       "alias": [
         "-q"
       ],
+      "name": "--quiet",
       "tip": [
         "U: --quiet, -q",
         "Log errors only."
@@ -317,10 +317,10 @@
     },
     {
       "name": "--rerun",
+      "next": 0,
       "tip": [
         "Specifies tasks to re-run."
-      ],
-      "next": 0
+      ]
     },
     {
       "name": "--rerun-tasks",
@@ -341,10 +341,10 @@
       ]
     },
     {
-      "name": "--version",
       "alias": [
         "-v"
       ],
+      "name": "--version",
       "tip": [
         "U: --version, -v",
         "Prints version info."
@@ -352,10 +352,6 @@
     },
     {
       "name": "--warning-mode",
-      "tip": [
-        "U: --warning-mode <mode>",
-        "Specify warning mode: all, summary, none."
-      ],
       "next": [
         {
           "name": "all"
@@ -366,6 +362,10 @@
         {
           "name": "summary"
         }
+      ],
+      "tip": [
+        "U: --warning-mode <mode>",
+        "Specify warning mode: all, summary, none."
       ]
     }
   ]

@@ -6,8 +6,18 @@
       "Docs: https://getfresh.dev/docs"
     ]
   },
-  "root": [],
   "option": [
+    {
+      "name": "--attach",
+      "alias": [
+        "-a"
+      ],
+      "tip": [
+        "U: -a, --attach [<NAME>]",
+        "Attach to a daemon. Use -a for the current directory, -a NAME for a named daemon"
+      ],
+      "next": 0
+    },
     {
       "name": "--cmd",
       "tip": [
@@ -28,16 +38,6 @@
           "tip": [
             "U: config <show|paths>",
             "Show the effective configuration or the directories used by Fresh"
-          ]
-        },
-        {
-          "name": "daemon",
-          "alias": [
-            "session"
-          ],
-          "tip": [
-            "U: daemon <list|attach|new|kill|info|open-file>",
-            "Manage editor daemons (detachable editor sessions)"
           ]
         },
         {
@@ -66,6 +66,16 @@
           "tip": [
             "U: script <api|check|run|types>",
             "Drive a running editor with TypeScript"
+          ]
+        },
+        {
+          "name": "session",
+          "alias": [
+            "daemon"
+          ],
+          "tip": [
+            "U: daemon <list|attach|new|kill|info|open-file>",
+            "Manage editor daemons (detachable editor sessions)"
           ]
         },
         {
@@ -166,34 +176,24 @@
       "tip": [
         "Read content from stdin (alternative to using '-' as filename)"
       ]
-    },
-    {
-      "name": "-a",
-      "alias": [
-        "--attach"
-      ],
-      "tip": [
-        "U: -a, --attach [<NAME>]",
-        "Attach to a daemon. Use -a for the current directory, -a NAME for a named daemon"
-      ],
-      "next": 0
     }
   ],
+  "root": [],
   "common_option": [
     {
-      "name": "-h",
       "alias": [
         "--help"
       ],
+      "name": "-h",
       "tip": [
         "Print help (see a summary with '-h')"
       ]
     },
     {
-      "name": "-V",
       "alias": [
         "--version"
       ],
+      "name": "-V",
       "tip": [
         "Print version"
       ]

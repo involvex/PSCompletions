@@ -10,12 +10,15 @@
 |:-:|-|
 |[7z](https://7-zip.org/)|7-Zip 的命令行界面。|
 |[adb](https://developer.android.com/tools/adb)|Android 调试桥命令行工具。|
+|[android-cli]()||
+|[arch](https://github.com/uutils/coreutils)|显示当前系统架构。<br>补全基于 [uutils/coreutils](https://github.com/uutils/coreutils) 编写。|
 |[aria2c](https://aria2.github.io)|轻量级多协议多源下载工具。|
 |[atac](https://github.com/Julien-cpsn/ATAC)|在终端中使用的简易 API 客户端|
 |[atuin](https://atuin.sh)|魔法 shell 历史记录<br>Atuin 使用 SQLite 数据库取代你现有的命令行历史记录，并为你的命令记录额外的上下文信息|
 |[aube](https://aube.jdx.dev)|一个快速的 Node.js 包管理器|
 |[aubr](https://aube.jdx.dev)|运行 package.json 中定义的脚本（aube run 独立版本）|
 |[aubx](https://aube.jdx.dev)|将包下载到临时环境并运行其二进制文件 (aube dlx 独立版)|
+|[avdmanager](https://developer.android.com/studio/run/managing-avds)|avdmanager - Android 虚拟设备管理器。<br>创建、管理和删除 Android 模拟器的虚拟设备 (AVD)。|
 |[aws](https://aws.amazon.com/cli/)|AWS 命令行界面是一个统一管理 AWS 服务的工具。|
 |[b2sum](https://uutils.org)|计算和校验 BLAKE2 消息摘要。|
 |[b3sum](https://github.com/BLAKE3-team/BLAKE3)|计算和校验 BLAKE3 消息摘要。|
@@ -47,7 +50,9 @@
 |[curl](https://curl.se)|用于传输数据的命令行工具和库。|
 |[cut](https://uutils.org)|输出每行中指定的字节或字段列。|
 |[cypress](https://www.cypress.io/)|为浏览器中运行的任何内容提供快速、简单、可靠的测试。|
+|[dart]()||
 |[date](https://uutils.org)|显示或设置系统日期和时间。|
+|[dd](https://github.com/uutils/coreutils)|复制并转换文件系统资源。<br>补全基于 [uutils/coreutils](https://github.com/uutils/coreutils) 编写。|
 |[delta](https://github.com/dandavison/delta)|Git 和 diff 输出的查看器。|
 |[deno](https://deno.com/)|现代 JavaScript 和 TypeScript 运行时。|
 |[df](https://uutils.org)|显示文件系统空间使用情况。|
@@ -65,18 +70,22 @@
 |[dufs](https://github.com/sigoden/dufs)|独特的实用文件服务器。|
 |[dust](https://github.com/bootandy/dust)|比 du 更直观。|
 |[eddy](https://github.com/70sh1/eddy)|简单快速的文件加密工具|
+|[emulator](https://developer.android.com/studio/run/emulator)|emulator - Android 模拟器。<br>Android 模拟器在您的计算机上模拟 Android 设备，以便您无需物理设备即可测试应用程序。|
 |[env](https://uutils.org)|设置环境中的每个 NAME 为 VALUE 并运行 COMMAND。|
 |[esbuild](https://esbuild.github.io/)|极速 JavaScript 和 CSS 打包器与压缩器。|
 |[eslint](https://eslint.org)|可插拔的 JavaScript linter。|
 |[expand](https://www.gnu.org/software/coreutils/)|将每个文件中的制表符转换为空格。|
+|[expo](https://docs.expo.dev/more/expo-cli/)|Expo CLI - 用于开发、构建和部署 Expo / React Native 应用的工具集<br>通常通过 npx expo 或 bunx expo 调用|
 |[eza](https://eza.rocks)|ls 的现代替代品。|
 |[factor](https://uutils.org)|输出给定数字的质因数。|
+|[fastboot](https://android.googlesource.com/platform/system/core/+/refs/heads/main/fastboot/)|fastboot 是一个用于在 Android 设备上刷写分区的命令行工具。<br>它通过 USB 或网络与 bootloader 模式下的设备通信。|
 |[fd](https://github.com/sharkdp/fd)|在文件系统中查找条目的程序。|
 |[ffmpeg](https://ffmpeg.org/)|完整的跨平台音视频录制、转换和流媒体解决方案。|
 |[flutter](https://flutter.dev)|Flutter 是谷歌用于构建原生编译应用程序的 UI 工具包。|
 |[fmt](https://uutils.org)|将输入文件的段落重新格式化输出到标准输出。|
 |[fnm](https://github.com/Schniz/fnm)|使用 Rust 编写的快速简单的 Node.js 版本管理器。|
 |[fold](https://uutils.org)|将每个文件写入标准输出，同时拆分长行。|
+|[fresh](https://github.com/sinelaw/fresh)|一个支持多光标编辑的终端文本编辑器<br>文档: https://getfresh.dev/docs|
 |[fx](https://fx.wtf)|终端 JSON 查看器|
 |[fzf](https://junegunn.github.io/fzf)|适用于任何类型列表的交互式过滤程序。|
 |[gcc](https://gcc.gnu.org)|GNU 编译器套件|
@@ -91,11 +100,14 @@
 |[godot](https://godotengine.org)|Godot Engine - 免费开源 2D 和 3D 游戏引擎。|
 |[gpg](https://gnupg.org)|GNU Privacy Guard - 一款依据 RFC4880 规范实现的完整且免费的 OpenPGP 标准工具|
 |[gradle](https://gradle.org)|JVM 的强大构建系统。|
+|[gradlew](https:/docs.gradle.org/current/userguide/command_line_interface.html)|Gradle Wrapper - 构建自动化工具包装脚本。|
 |[gum](https://github.com/charmbracelet/gum)|用于编写炫酷 Shell 脚本的工具|
+|[hashsum](https://github.com/uutils/coreutils)|Compute and check message digests.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
 |[head](https://uutils.org)|输出每个文件的前 10 行到标准输出。|
 |[helix](https://github.com/helix-editor/helix)|一种后现代文本编辑器|
 |[helm](https://helm.sh)|Kubernetes 包管理器。|
 |[helmfile](https://github.com/helmfile/helmfile)|以声明方式将 Kubernetes 清单、Kustomize 配置和 Charts 部署为 Helm release|
+|[hf](https://github.com/huggingface/huggingface_hub)|hf - Hugging Face Hub 命令行界面。|
 |[hostname](https://uutils.org)|显示或设置系统主机名。|
 |[hurl](https://hurl.dev)|使用纯文本运行和测试 HTTP 请求。<br>一个使用 URL 传输数据的工具。|
 |[hyperfine](https://github.com/sharkdp/hyperfine)|一个命令行基准测试工具|
@@ -109,6 +121,7 @@
 |[just](https://github.com/casey/just)|一个命令运行器。|
 |[k3d](https://k3d.io/)|在 docker 中运行 k3s（Rancher Lab 的最小化 Kubernetes 发行版）的轻量级包装器。|
 |[k9s](https://k9scli.io/)|K9s 是一个基于终端的用户界面，用于与你的 Kubernetes 集群交互。<br>它简化了浏览、观察和管理你部署的应用程序。|
+|[kilo](https://kilocode.ai)|kilo - 终端中的 AI 编程智能体。|
 |[kind](https://kind.sigs.k8s.io/)|kind 是一个使用 Docker 容器 'nodes' 运行本地 Kubernetes 集群的工具。<br>kind 最初主要用于测试 Kubernetes 本身，但也可用于本地开发或 CI。|
 |[komac](https://github.com/russellbanks/Komac)|WinGet 的社区清单创建器。|
 |[kubectl](https://kubernetes.io/zh-cn/docs/reference/kubectl/)|Kubernetes 又称 K8s，是一个开源系统，用于自动化部署、扩展和管理容器化应用程序。<br>kubectl 是它的命令行工具|
@@ -119,6 +132,7 @@
 |[lazydocker](https://github.com/jesseduffield/lazydocker)|更轻松地管理 Docker。|
 |[lazygit](https://github.com/jesseduffield/lazygit)|一个简单的 git 命令终端 UI。|
 |[lefthook](https://github.com/evilmartians/lefthook)|Git 钩子管理器。|
+|[link](https://github.com/uutils/coreutils)|调用 link 函数为现有的 FILE1 创建名为 FILE2 的链接。<br>补全基于 [uutils/coreutils](https://github.com/uutils/coreutils) 编写。|
 |[ln](https://uutils.org)|创建文件之间的链接。|
 |[lore](https://lore.org)|下一代开源版本控制系统。<br>专为大文件、大团队和可扩展工作流而设计。|
 |[lua](https://www.lua.org/)|功能强大、高效、轻量且可嵌入的脚本语言|
@@ -131,6 +145,7 @@
 |[mise](https://mise.jdx.dev/)|多语言工具版本管理器、环境变量管理器和任务运行器。|
 |[mktemp](https://uutils.org)|创建临时文件或目录。|
 |[more](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/more)|逐屏显示文本文件内容。|
+|[mpv](https://mpv.io/)|mpv - 一个免费、开源、跨平台的媒体播放器。|
 |[mvn](https://maven.apache.org)|Apache Maven，软件项目管理工具。|
 |[mysql](https://dev.mysql.com/doc/refman/8.4/en/mysql-command-options.html)|MySQL 命令行客户端。|
 |[N_m3u8DL-RE](https://github.com/nilaoda/N_m3u8DL-RE)|跨平台浏览器流下载器 (HLS/DASH/Smooth)。|
@@ -156,8 +171,10 @@
 |[oh-my-posh](https://ohmyposh.dev)|跨平台终端提示符渲染工具。|
 |[ollama](https://docs.ollama.com/cli)|本地大语言模型运行器。|
 |[omp](https://github.com/can1357/oh-my-pi)|Oh My Pi - 终端中的 AI 编程助手。|
+|[openclaude](https://opencode.ai)|openclaude - OpenClaude，一个开源的 AI 编程助手，运行在你的终端中（Claude Code 的一个分支）。|
 |[openclaw](https://docs.openclaw.ai/cli)|OpenClaw 的命令行界面 (CLI)|
 |[opencode](https://github.com/nicholaswatertank/opencode)|终端中的 AI 编程智能体。|
+|[opencode2](https://opencode.ai)|opencode2 - AI-powered coding agent for your terminal.|
 |[ouch](https://github.com/ouch-org/ouch)|一个用于轻松压缩和解压文件与目录的命令行工具<br>支持格式：tar、zip、gz、7z、xz、lzma、bz2、bz3、lz4、zst、rar、br|
 |[oxfmt](https://oxc.rs)|一个极快的 JavaScript、TypeScript、JSX 和 TSX 格式化工具和代码风格指南检查器|
 |[oxlint](https://oxc.rs)|TypeScript 和 JavaScript 检查器，兼容 ESLint 配置，用于正确性和部分风格规则|
@@ -182,6 +199,7 @@
 |[ptx](https://uutils.org)|输出输入文件中单词的排列索引。|
 |[pulumi](https://www.pulumi.com/)|Pulumi - 用任意编程语言实现基础设施即代码|
 |[pwsh](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_pwsh)|PowerShell 命令行。|
+|[pyenv](https://github.com/pyenv/pyenv)|pyenv - 简单的 Python 版本管理工具。<br>轻松管理多个 Python 版本并在它们之间切换。|
 |[python](https://www.python.org)|Python 解释器命令行。|
 |[rclone](https://rclone.org)|在云存储提供商之间同步文件。|
 |[reasonix](https://reasonix.io)|面向终端的 DeepSeek 原生 AI 编码智能体。|
@@ -196,6 +214,7 @@
 |[scoop-install](https://gitee.com/abgox/scoop-tools)|一个 PowerShell 脚本，它允许你临时使用替换之后的代理 url 来下载安装包。|
 |[scoop-update](https://gitee.com/abgox/scoop-tools)|一个 PowerShell 脚本，它允许你临时使用替换之后的代理 url 来下载安装包。|
 |[sd](https://github.com/chmln/sd)|直觉化的查找与替换 CLI<br>sed 替代工具|
+|[sdkmanager](https://developer.android.com/studio/intro/update#sdk-manager)|sdkmanager - Android SDK 管理器。<br>安装、更新和管理 Android SDK 包、平台、构建工具等。|
 |[sfsu](https://github.com/winpax/sfsu)|Scoop 工具，比原生 Scoop 快 30-100 倍。|
 |[sqlite3](https://www.sqlite.org)|SQLite 命令行界面。|
 |[ssh-keygen](https://www.openssh.com)|OpenSSH 密钥生成工具。|

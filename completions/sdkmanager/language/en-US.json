@@ -6,7 +6,6 @@
       "Install, update, and manage Android SDK packages, platforms, build tools, and more."
     ]
   },
-  "root": [],
   "option": [
     {
       "name": "--channel",
@@ -166,6 +165,7 @@
       ]
     }
   ],
+  "root": [],
   "common_option": [
     {
       "name": "--help",

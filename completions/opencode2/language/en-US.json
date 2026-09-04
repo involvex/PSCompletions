@@ -5,27 +5,38 @@
       "opencode2 - AI-powered coding agent for your terminal."
     ]
   },
+  "option": [
+    {
+      "name": "--no-standalone",
+      "tip": [
+        "Disable standalone mode"
+      ]
+    },
+    {
+      "name": "--standalone",
+      "tip": [
+        "Run in standalone mode"
+      ]
+    }
+  ],
   "root": [
     {
       "name": "api",
-      "tip": [
-        "Make API requests"
-      ],
       "option": [
         {
-          "name": "--data",
           "alias": [
             "-d"
           ],
+          "name": "--data",
           "tip": [
             "Request data"
           ]
         },
         {
-          "name": "--header",
           "alias": [
             "-H"
           ],
+          "name": "--header",
           "tip": [
             "Request header"
           ]
@@ -36,35 +47,35 @@
             "Request parameter"
           ]
         }
+      ],
+      "tip": [
+        "Make API requests"
       ]
     },
     {
       "name": "debug",
-      "tip": [
-        "Debugging and troubleshooting tools"
-      ],
       "next": [
         {
           "name": "agents",
+          "next": 0,
           "tip": [
             "Agent debugging"
-          ],
-          "next": 0
+          ]
         }
+      ],
+      "tip": [
+        "Debugging and troubleshooting tools"
       ]
     },
     {
       "name": "migrate",
+      "next": 0,
       "tip": [
         "Migration operations"
-      ],
-      "next": 0
+      ]
     },
     {
       "name": "serve",
-      "tip": [
-        "Start a headless opencode2 server"
-      ],
       "option": [
         {
           "name": "--hostname",
@@ -102,63 +113,52 @@
             "Enable stdio mode"
           ]
         }
+      ],
+      "tip": [
+        "Start a headless opencode2 server"
       ]
     },
     {
       "name": "service",
-      "tip": [
-        "Service management"
-      ],
       "next": [
         {
           "name": "password",
+          "next": 0,
           "tip": [
             "Manage service password"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "restart",
+          "next": 0,
           "tip": [
             "Restart the service"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "start",
+          "next": 0,
           "tip": [
             "Start the service"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "status",
+          "next": 0,
           "tip": [
             "Show service status"
-          ],
-          "next": 0
+          ]
         },
         {
           "name": "stop",
+          "next": 0,
           "tip": [
             "Stop the service"
-          ],
-          "next": 0
+          ]
         }
-      ]
-    }
-  ],
-  "option": [
-    {
-      "name": "--no-standalone",
+      ],
       "tip": [
-        "Disable standalone mode"
-      ]
-    },
-    {
-      "name": "--standalone",
-      "tip": [
-        "Run in standalone mode"
+        "Service management"
       ]
     }
   ],

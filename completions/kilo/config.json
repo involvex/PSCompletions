@@ -1,4 +1,7 @@
 {
-  "language": ["en-US", "zh-CN"],
-  "hooks": false
+  "hooks": false,
+  "language": [
+    "en-US",
+    "zh-CN"
+  ]
 }

@@ -6,14 +6,17 @@
       "Manage multiple Python versions and switch between them easily."
     ]
   },
+  "option": [
+    {
+      "name": "--version",
+      "tip": [
+        "Display the version of pyenv."
+      ]
+    }
+  ],
   "root": [
     {
       "name": "commands",
-      "tip": [
-        "U: commands [--sh|--no-sh]",
-        "List all available pyenv commands.",
-        "E: commands --sh"
-      ],
       "option": [
         {
           "name": "--no-sh",
@@ -27,6 +30,11 @@
             "Show only shell commands."
           ]
         }
+      ],
+      "tip": [
+        "U: commands [--sh|--no-sh]",
+        "List all available pyenv commands.",
+        "E: commands --sh"
       ]
     },
     {
@@ -72,11 +80,6 @@
     },
     {
       "name": "init",
-      "tip": [
-        "U: init [--no-rehash] <shell>",
-        "Load pyenv into the current shell.",
-        "E: init bash"
-      ],
       "option": [
         {
           "name": "--no-rehash",
@@ -84,15 +87,15 @@
             "Suppress automatic rehashing."
           ]
         }
+      ],
+      "tip": [
+        "U: init [--no-rehash] <shell>",
+        "Load pyenv into the current shell.",
+        "E: init bash"
       ]
     },
     {
       "name": "install",
-      "tip": [
-        "U: install [-k|--keep] [-v|--verbose] [-g|--debug] <version>",
-        "Install a Python version from source.",
-        "E: install 3.11.0"
-      ],
       "option": [
         {
           "name": "--list",
@@ -107,35 +110,35 @@
           ]
         },
         {
-          "name": "-g",
           "alias": "--debug",
+          "name": "-g",
           "tip": [
             "Debug mode: build without optimization."
           ]
         },
         {
-          "name": "-k",
           "alias": "--keep",
+          "name": "-k",
           "tip": [
             "Keep source tree in $PYENV_BUILD_ROOT after installation."
           ]
         },
         {
-          "name": "-v",
           "alias": "--verbose",
+          "name": "-v",
           "tip": [
             "Verbose mode: print compilation status to stdout."
           ]
         }
+      ],
+      "tip": [
+        "U: install [-k|--keep] [-v|--verbose] [-g|--debug] <version>",
+        "Install a Python version from source.",
+        "E: install 3.11.0"
       ]
     },
     {
       "name": "latest",
-      "tip": [
-        "U: latest [--known] [--print] <version>",
-        "Show the latest installed or known version.",
-        "E: latest 3.11"
-      ],
       "option": [
         {
           "name": "--known",
@@ -149,6 +152,11 @@
             "Print the version number only."
           ]
         }
+      ],
+      "tip": [
+        "U: latest [--known] [--print] <version>",
+        "Show the latest installed or known version.",
+        "E: latest 3.11"
       ]
     },
     {
@@ -194,11 +202,6 @@
     },
     {
       "name": "shims",
-      "tip": [
-        "U: shims [--short]",
-        "List existing pyenv shims.",
-        "E: shims --short"
-      ],
       "option": [
         {
           "name": "--short",
@@ -206,23 +209,28 @@
             "List only shim names without full paths."
           ]
         }
+      ],
+      "tip": [
+        "U: shims [--short]",
+        "List existing pyenv shims.",
+        "E: shims --short"
       ]
     },
     {
       "name": "uninstall",
-      "tip": [
-        "U: uninstall [-f|--force] <version>",
-        "Uninstall a Python version.",
-        "E: uninstall 3.11.0"
-      ],
       "option": [
         {
-          "name": "-f",
           "alias": "--force",
+          "name": "-f",
           "tip": [
             "Force uninstall without confirmation."
           ]
         }
+      ],
+      "tip": [
+        "U: uninstall [-f|--force] <version>",
+        "Uninstall a Python version.",
+        "E: uninstall 3.11.0"
       ]
     },
     {
@@ -235,11 +243,6 @@
     },
     {
       "name": "versions",
-      "tip": [
-        "U: versions [--bare]",
-        "List all Python versions known to pyenv.",
-        "E: versions --bare"
-      ],
       "option": [
         {
           "name": "--bare",
@@ -247,15 +250,15 @@
             "Show only version names without additional information."
           ]
         }
+      ],
+      "tip": [
+        "U: versions [--bare]",
+        "List all Python versions known to pyenv.",
+        "E: versions --bare"
       ]
     },
     {
       "name": "whence",
-      "tip": [
-        "U: whence [--path] <command>",
-        "Show all Python versions with the given command.",
-        "E: whence python"
-      ],
       "option": [
         {
           "name": "--path",
@@ -263,6 +266,11 @@
             "Show full paths instead of version names."
           ]
         }
+      ],
+      "tip": [
+        "U: whence [--path] <command>",
+        "Show all Python versions with the given command.",
+        "E: whence python"
       ]
     },
     {
@@ -271,14 +279,6 @@
         "U: which <command>",
         "Show the full path to the executable that would be invoked.",
         "E: which python"
-      ]
-    }
-  ],
-  "option": [
-    {
-      "name": "--version",
-      "tip": [
-        "Display the version of pyenv."
       ]
     }
   ],

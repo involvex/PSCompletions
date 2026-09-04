@@ -5,6 +5,49 @@
       "Gradle Wrapper - 构建自动化工具包装脚本。"
     ]
   },
+  "option": [
+    {
+      "name": "--build-file",
+      "alias": [
+        "-b"
+      ],
+      "tip": [
+        "U: --build-file, -b <file>",
+        "指定构建文件。"
+      ]
+    },
+    {
+      "name": "--gradle-user-home",
+      "tip": [
+        "U: --gradle-user-home <dir>",
+        "指定 Gradle 用户主目录。"
+      ]
+    },
+    {
+      "name": "--project-cache-dir",
+      "tip": [
+        "U: --project-cache-dir <dir>",
+        "指定项目缓存目录。"
+      ]
+    },
+    {
+      "name": "--project-dir",
+      "tip": [
+        "U: --project-dir <dir>",
+        "指定项目目录。"
+      ]
+    },
+    {
+      "name": "--settings-file",
+      "alias": [
+        "-c"
+      ],
+      "tip": [
+        "U: --settings-file, -c <file>",
+        "指定设置文件。"
+      ]
+    }
+  ],
   "root": [
     {
       "name": "assemble",
@@ -133,49 +176,6 @@
       ]
     }
   ],
-  "option": [
-    {
-      "name": "--build-file",
-      "alias": [
-        "-b"
-      ],
-      "tip": [
-        "U: --build-file, -b <file>",
-        "指定构建文件。"
-      ]
-    },
-    {
-      "name": "--gradle-user-home",
-      "tip": [
-        "U: --gradle-user-home <dir>",
-        "指定 Gradle 用户主目录。"
-      ]
-    },
-    {
-      "name": "--project-cache-dir",
-      "tip": [
-        "U: --project-cache-dir <dir>",
-        "指定项目缓存目录。"
-      ]
-    },
-    {
-      "name": "--project-dir",
-      "tip": [
-        "U: --project-dir <dir>",
-        "指定项目目录。"
-      ]
-    },
-    {
-      "name": "--settings-file",
-      "alias": [
-        "-c"
-      ],
-      "tip": [
-        "U: --settings-file, -c <file>",
-        "指定设置文件。"
-      ]
-    }
-  ],
   "common_option": [
     {
       "name": "--build-cache",
@@ -190,10 +190,10 @@
       ]
     },
     {
-      "name": "--continuous",
       "alias": [
         "-t"
       ],
+      "name": "--continuous",
       "tip": [
         "U: --continuous, -t",
         "检测到更改时持续构建。"
@@ -206,20 +206,20 @@
       ]
     },
     {
-      "name": "--debug",
       "alias": [
         "-d"
       ],
+      "name": "--debug",
       "tip": [
         "U: --debug, -d",
         "设置日志级别为 debug。"
       ]
     },
     {
-      "name": "--dry-run",
       "alias": [
         "-m"
       ],
+      "name": "--dry-run",
       "tip": [
         "U: --dry-run, -m",
         "运行但不执行操作。"
@@ -232,21 +232,21 @@
       ]
     },
     {
-      "name": "--help",
       "alias": [
         "-h",
         "-?"
       ],
+      "name": "--help",
       "tip": [
         "U: --help, -h, -?",
         "显示帮助信息。"
       ]
     },
     {
-      "name": "--info",
       "alias": [
         "-i"
       ],
+      "name": "--info",
       "tip": [
         "U: --info, -i",
         "设置日志级别为 info。"
@@ -295,10 +295,10 @@
       ]
     },
     {
-      "name": "--quiet",
       "alias": [
         "-q"
       ],
+      "name": "--quiet",
       "tip": [
         "U: --quiet, -q",
         "仅记录错误。"
@@ -335,10 +335,10 @@
       ]
     },
     {
-      "name": "--version",
       "alias": [
         "-v"
       ],
+      "name": "--version",
       "tip": [
         "U: --version, -v",
         "打印版本信息。"

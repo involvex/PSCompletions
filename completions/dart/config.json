@@ -1,6 +1,6 @@
 {
+  "hooks": true,
   "language": [
     "en-US"
-  ],
-  "hooks": true
+  ]
 }

@@ -1,14 +1,17 @@
 {
-  "count": 232,
+  "count": 251,
   "update": {
     "7z": "f382aa863d18fd9c7e26fb043aa22e40568262226947f7ab346aa897de0f611f",
     "adb": "4b08221e8d8c44f2d45f5f2db5f39532810466532029ce8648f6d1e09ea89488",
+    "android-cli": "30a9ac3ae2ced08b4bd74f6350f38fdf652a0c3464040827115d3e2df817170d",
+    "arch": "10555b9613f00d2e19366923bb58ee179d8efa1d561075ee5e9b823720d52dfa",
     "aria2c": "14ebe35f2bf968cc0e524e21128e982cbeea221a77949d6ff8e8f77d17cb5c22",
     "atac": "f29eb547a6c229a2fea1b7be4d665433876206a02706f9521e2f9404ba7ee59b",
     "atuin": "ef75e0c00f31197a426bc5756c8765604eb467527487c9419089170f1e502b0c",
     "aube": "1a9df39d8312c79163692538dc040a7a0d11cee0a66adda062fe424a391af5b5",
     "aubr": "1fc00588053fb8f1fa7f1b8f6933599af91f2283bae34d5722dd120276b720a8",
     "aubx": "6f4b5c2102aa235561ef503d6017967a9df4b954e1a7e8c5a5edfc5434b6fd8c",
+    "avdmanager": "ce6f6f3af63a9112e656f7c76f94b0d031db7860087851260910ef6c5feae607",
     "aws": "8844cc478c7401faae96f106fd65d65b855ece5214e19f38e9c06cbc22432b51",
     "b2sum": "df4880fb9bd52ec9182d5741119b9237f47423de74009bbe7ccf801d89d762ae",
     "b3sum": "6fc330dc54e5cc35f1eeb01e50160c572edddfa37373b55bb25fd39f0270f421",
@@ -40,7 +43,9 @@
     "curl": "d97bdc18b27762de6bb5853d6153defbfd2662e7de166f0eb8ea77fca4b9e9b8",
     "cut": "51144489f3b40e0e8d9e854f22afd3deddd74001a4773b277dcf01fbbc847cb2",
     "cypress": "4374b622f8ed10bf4c0cc4c8b6ea0d218a08027d8f0e77d5854ef09707871fb2",
+    "dart": "db778a877bab155ff10b34521b0d5779210c6858e81184388453c5f14a7e39f7",
     "date": "4d1013f2590412c4488ec4bf0b9139471f779c0a76f1c0684a00bd395cd0bf45",
+    "dd": "df0996e5c39e70890cb6423e4ae2a4675a7d8e096f61fc2c7cb83f2ce2b5461d",
     "delta": "0df91ce85c22566e369c7225c78cc3648e19426078725bc3a15faef75812ec96",
     "deno": "8495bb79ea958893397d6249cabf7751767c31be0a5785f1b376055d8dbd2828",
     "df": "b11d93fd9941bf0b4a62dfa57ca9c9a6e4f27d958cbb15bc6bacff0bef4fa741",
@@ -58,18 +63,22 @@
     "dufs": "4ed4221ed27cd3fb7c68b585ab94026ee7582e780626473fbd76af3cc93f06d2",
     "dust": "037cefae0e01ec598f1114e3ee3cda38aea74021b2ce394e37d899c11f3b48a1",
     "eddy": "71d1c5daaee6628fe81df48dcb88d4439ae5b0352a6d576373b11b38170ae45b",
+    "emulator": "c53b259670eeb772d72ba32dad65c810f2f0b3bbe3acab4fadcd534aefd13011",
     "env": "b3cb9805e2daf8f762df96aea887c18d290650a752d99d4b46a98dee1f80eebf",
     "esbuild": "1215b9d66067724068cf94fe6d5d32b33a82131d78ecc811afdadb5102d6f613",
     "eslint": "78b1ddb3fd648ab1f7777cc0bfe92270e5eec8395dc442c60af437f49996d3d2",
     "expand": "9e8d166bbfb400cf55f9ab4a728601c8906105a812ea898443d94931aa306376",
+    "expo": "93f5cf9077fb81d93c35826d9814a168956abd79c33a4e632e4050c82becdac2",
     "eza": "7d04ea1ec094cc76126d107b880aac74a5578702edff752769ee3c8659355c0b",
     "factor": "205549ad678c408e1472ec08365b9bd3ada9fcc04d34ed3101a090dee1350df6",
+    "fastboot": "6ea3442d57a8dd691e9886d0339c65c4d631fc841a39e65dbaec04f7a24a8ea1",
     "fd": "56a8a2b3e414946f8c077f15811f512d25fc0fda91283dd34db340546f306f5a",
     "ffmpeg": "f3833f9f22618426d008769770b6544c4e541df4e97fad280ffcb84188a84261",
     "flutter": "db16f445b76fdcb7866b0cc7bc6b0a54f2795868ce4f15500c02cfb732904e9c",
     "fmt": "11456da4facb2219aaead1da6d7c62a65ee35091f6248500f4edff3140aca86a",
     "fnm": "ab1749235f54d45742c85072c90e2b649fba782d6cde878debce1f6e4be58a08",
     "fold": "bac846ba5bdad8324278bb48a36cff17610784b11381ce755c8617b2c8a2456f",
+    "fresh": "e95dea81c880d3d5f8afaf3019063f1fef8387cdc29a5b5a270056e8779dce7d",
     "fx": "6fb7d00f6801a0b0e750d15a182ee6cb68ec3beab2a7b14d7408ecad86e5a552",
     "fzf": "67c01f767d6eb26627a2b399491e76f1876f230878d3214918eec47ff869485b",
     "gcc": "c8c051279fd6ec800213e55ee821f2e8a73d5c66a1f44b779e54a52aa6c8e4c8",
@@ -84,11 +93,14 @@
     "godot": "76d1b9b40710835216fe96643025a1f01dcf79bfba94cc0d915ecd93d66cfb8f",
     "gpg": "03ebdbe59c86be639ce161db5326be2eaa1c92ef589b3e888fc06e4a5b080edf",
     "gradle": "5ffa6fe847d3a541967126d85cb25e0421e2841d3ed2afa8fb59e3404693c188",
+    "gradlew": "250a1c44fd9df0afd2311aed6e15aac05cdb1da2268318281e2b3a29f7dc6c5d",
     "gum": "2b31640fa3418c6995b12f59218599984e08f6746c8bce3c55ff4d1c2888970c",
+    "hashsum": "a13b20990ca4f2aef707109dc7782a67aaef6d88a492c330f177a9e48e7584e4",
     "head": "033c2886d6a5cf994f7c7e6e42600cf8a99de1d83f6b9b6792fe2ec5448d2d43",
     "helix": "a2190e5f6ae6fb83a104f2c4ebe175d914a6ca86473800417fd31bc09babb979",
     "helm": "f8c2e1f722aac1f1c31f94097bb833f1280d8e6ad4ad4f9db7f9678e039fa52d",
     "helmfile": "c037be21620d9d6862745b75ecc0b42ad9af040e2d9af256ed5134f480c67d2a",
+    "hf": "518ca9593ed78ac5c6d796321472fb409d27d8fc7a75c3479c817f85699f8959",
     "hostname": "3ced0384dcf02193f8424d0f0d6ca108d7728eebf6d18828ea6f90928a5aff60",
     "hurl": "31ea560f498b89db282a48ab8ae2835d92c7a7248ac0621958162b49f53d58b0",
     "hyperfine": "e3c41c2e4a3e9eb48be75d3b0433d8751d5b2e230e7bff6d218f6d45fe669f40",
@@ -102,6 +114,7 @@
     "just": "71502ccf3d06d36543bfcd6aea210a6a428eec02b1d3f8914f8ba381717cc9c1",
     "k3d": "715c0af3107ec07ed0e51249c14537e669de28b257f742003a7ba32613802389",
     "k9s": "95744a824abb3c7b867737fe54f04825315642ca8869e63386878d66b58e708e",
+    "kilo": "d23eabb02e1511e9f0c76981d9aa46a87538929d7612d558beecb50b2d9d8d4c",
     "kind": "50cf1eee37df6affbd24cc62ff69018c11c4b2722f3e5eb13574efda936d175e",
     "komac": "f1974cea0215a5fc913d47f5e4fb1ae87fba2256b5ff99fdd7eba773c9ee2c9d",
     "kubectl": "8b55a79b5e4cd193d2062e8119cbe8aa4dfad95dfc5fac19f1623d467a060d5c",
@@ -112,6 +125,7 @@
     "lazydocker": "7ce2cbea3dfe94f8709e5da7338a06868e1d9aa06578951f7e388708a8035dc1",
     "lazygit": "26588fbb06b34b37dc131c081212d157eab45bcc787ea8526422987e2389f282",
     "lefthook": "0799f941ccc41a52e0fd9779440a61b4e9b7d38ecca00421a07060b0647d10ba",
+    "link": "5b9dc9bc336a532b17838e66135bf89291e4dc1d212a8b7a4ed2ee4648c6972a",
     "ln": "ca52adcbd56ee860f4ecdeaf88b7b6bdf29b5abd0defa2c21253506272444868",
     "lore": "d025a948c10ebc067dfe7508df7780402d8dd93685ba22c07d1ef3edece37da7",
     "lua": "dc32cedd8831a7651ae1ff0c8d10e22bbf3186294a12c9889469dca16efce60d",
@@ -124,6 +138,7 @@
     "mise": "8730769c19ab6013f32643a53278f38cdcadee7a5dc6efb38f325fb39dd52c9c",
     "mktemp": "cbfef23003786e8229fa278c1f6dffb0f677a0a246095b449cbc404983f874d2",
     "more": "33acf46e782aef6f8b1dcf7df51b7ff9e444b3bdbca4944e5ffbcbdaa08baaad",
+    "mpv": "f52fa629ef8a9e0ef0a50e2aa3929402237242f307ad62b6c6c4fe2804644be4",
     "mvn": "2c03073ef6a1dee1a48ed3ddbcbf2462ea4bbf014d9c003473d5c38eeb68f5dd",
     "mysql": "9a8881aef11e97f78534c0170e9c6f05c0933fb6ead08e1996da3147d8e28e9c",
     "N_m3u8DL-RE": "f9483bc24526394b07d045f2670b1bd1d601b1ae9a508334acc8a54ecc835ed3",
@@ -149,8 +164,10 @@
     "oh-my-posh": "46f411852f1bb48b4110104512c306d8dfc3f444d44b5da3c73dc9febf66672f",
     "ollama": "514e7063f5a839a9f4ff530a5b6c73450115b399699c7c0479fa253861d301c8",
     "omp": "174cb9defa565df7684a7ec9132932765e82cc2ff2c54b64c8f82aed16aadf6a",
+    "openclaude": "2d87ee696ee05c2b80675a3a9774b5bc9c46d259f6703a353c1d096b5f5d0d3c",
     "openclaw": "b84cc8cac6397476843b2faad1b7a81ffa7653d3d1e7695c3c18438fcab5e406",
     "opencode": "146be62f888e2cf6b76c560cbcce4eaf95dad2e2a77b0b70d23fbbd303d2f535",
+    "opencode2": "0809fa8339fc3f8bbbabd67e61ccaabfe9e47cc359c04caf41ce462c68162171",
     "ouch": "599aa57a8dd3b6a274d5ac78aaa26dabff31a8bd0939bf31fd0e05c68388a74f",
     "oxfmt": "7c18e3a47894c03cd92cb3fd6412fe22f8be5578ed1320823afe4dcb66ac6ca4",
     "oxlint": "bbc4fbfe18e985b75d1569e78cbbcc2403a8f434d0e019c8b71ba13a6f98ff21",
@@ -175,6 +192,7 @@
     "ptx": "2c49b3d5b5e2ad8cc142647baf3e7938418e0a95b52d9aa2c6faacd5b8b7886c",
     "pulumi": "2026092853cfc6f2ce31d9f025dd85c00beffb2cc3d63abbbd1e64a33fd53102",
     "pwsh": "2b03d2fdaa12553321d5a8fb8fc69ffa052521a8b77a1d2afd5b8a2b60e7e4ba",
+    "pyenv": "aca90a5a8e994e93580c9776ddc1eb05cbdf5795dba3442cabffb405674b1849",
     "python": "135cfc8bd2e7f1419af67f6994ee9f73e6be9a8750fbe599b805e6193624c07c",
     "rclone": "31b1a37dc2b1005944723a0989b990b8cca7c58e868ac15f27dff41fcb802c8c",
     "reasonix": "4581c8398e9072057c4ce0db20332718fbf626f7a5287221502203c93fa0d2ca",
@@ -189,6 +207,7 @@
     "scoop-install": "5aeccdc5f8312a10788b6179bfa6673f0dcd597c8b2ca22547d2c1436971c7de",
     "scoop-update": "ab55dd406d7194f3ffcb0314f2cffd429517d828622067d7c9d7f3a0e8fae46e",
     "sd": "f255eb5556ab7ec6763e6c279d2382ea567846789909fe958ac39639d439a268",
+    "sdkmanager": "e27f16505229d5b0140b2f3cb522c26e272d08d98f18eabf7d200332a67e4ec4",
     "sfsu": "89dfc04743b2d3f36d6ddb5f84ebd1b1de568bd996886a6da4ee697c5859ed3c",
     "sqlite3": "706d56ec4f62e623705b1549494ef82ada17c84fa073e14bb99891daea5aa0c3",
     "ssh-keygen": "e606fac47f7468eaba662f8a238daf2853678dadd3e5c54fe02309eb24790db6",
@@ -262,6 +281,32 @@
         "url": "https://developer.android.com/tools/adb",
         "description": [
           "Android 调试桥命令行工具。"
+        ]
+      }
+    },
+    "android-cli": {
+      "en-US": {
+        "url": "",
+        "description": []
+      },
+      "zh-CN": {
+        "url": "",
+        "description": []
+      }
+    },
+    "arch": {
+      "en-US": {
+        "url": "https://github.com/uutils/coreutils",
+        "description": [
+          "Display machine architecture.",
+          "Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils)."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/uutils/coreutils",
+        "description": [
+          "显示当前系统架构。",
+          "补全基于 [uutils/coreutils](https://github.com/uutils/coreutils) 编写。"
         ]
       }
     },
@@ -354,6 +399,22 @@
         "url": "https://aube.jdx.dev",
         "description": [
           "将包下载到临时环境并运行其二进制文件 (aube dlx 独立版)"
+        ]
+      }
+    },
+    "avdmanager": {
+      "en-US": {
+        "url": "https://developer.android.com/studio/run/managing-avds",
+        "description": [
+          "avdmanager - Android Virtual Device Manager.",
+          "Create, manage, and delete Android Virtual Devices (AVDs) for the Android emulator."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://developer.android.com/studio/run/managing-avds",
+        "description": [
+          "avdmanager - Android 虚拟设备管理器。",
+          "创建、管理和删除 Android 模拟器的虚拟设备 (AVD)。"
         ]
       }
     },
@@ -822,6 +883,18 @@
         ]
       }
     },
+    "dart": {
+      "en-US": {
+        "url": "https://dart.dev/tools/dart-tool",
+        "description": [
+          "Dart - Programming language for the web"
+        ]
+      },
+      "zh-CN": {
+        "url": "",
+        "description": []
+      }
+    },
     "date": {
       "id": "fe0eb412-460c-4dd8-92e1-c8dc39e1d4ca",
       "en-US": {
@@ -834,6 +907,22 @@
         "url": "https://uutils.org",
         "description": [
           "显示或设置系统日期和时间。"
+        ]
+      }
+    },
+    "dd": {
+      "en-US": {
+        "url": "https://github.com/uutils/coreutils",
+        "description": [
+          "Copy, and optionally convert, a file system resource.",
+          "Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils)."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/uutils/coreutils",
+        "description": [
+          "复制并转换文件系统资源。",
+          "补全基于 [uutils/coreutils](https://github.com/uutils/coreutils) 编写。"
         ]
       }
     },
@@ -1094,6 +1183,22 @@
         ]
       }
     },
+    "emulator": {
+      "en-US": {
+        "url": "https://developer.android.com/studio/run/emulator",
+        "description": [
+          "emulator - Android Emulator.",
+          "The Android Emulator simulates Android devices on your computer to let you test your app without a physical device."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://developer.android.com/studio/run/emulator",
+        "description": [
+          "emulator - Android 模拟器。",
+          "Android 模拟器在您的计算机上模拟 Android 设备，以便您无需物理设备即可测试应用程序。"
+        ]
+      }
+    },
     "env": {
       "id": "2210b507-d63d-4466-a3d9-7918eadbad99",
       "en-US": {
@@ -1154,6 +1259,22 @@
         ]
       }
     },
+    "expo": {
+      "en-US": {
+        "url": "https://docs.expo.dev/more/expo-cli/",
+        "description": [
+          "Expo CLI - Tools to develop, build, and deploy Expo / React Native apps",
+          "Usually invoked via npx expo or bunx expo"
+        ]
+      },
+      "zh-CN": {
+        "url": "https://docs.expo.dev/more/expo-cli/",
+        "description": [
+          "Expo CLI - 用于开发、构建和部署 Expo / React Native 应用的工具集",
+          "通常通过 npx expo 或 bunx expo 调用"
+        ]
+      }
+    },
     "eza": {
       "id": "0c3d24b6-1de1-4bfd-9055-7b8c5ddadf77",
       "en-US": {
@@ -1181,6 +1302,22 @@
         "url": "https://uutils.org",
         "description": [
           "输出给定数字的质因数。"
+        ]
+      }
+    },
+    "fastboot": {
+      "en-US": {
+        "url": "https://android.googlesource.com/platform/system/core/+/refs/heads/main/fastboot/",
+        "description": [
+          "fastboot is a command-line tool for flashing partitions on Android devices.",
+          "It communicates with a device in bootloader mode via USB or network."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://android.googlesource.com/platform/system/core/+/refs/heads/main/fastboot/",
+        "description": [
+          "fastboot 是一个用于在 Android 设备上刷写分区的命令行工具。",
+          "它通过 USB 或网络与 bootloader 模式下的设备通信。"
         ]
       }
     },
@@ -1271,6 +1408,22 @@
         "url": "https://uutils.org",
         "description": [
           "将每个文件写入标准输出，同时拆分长行。"
+        ]
+      }
+    },
+    "fresh": {
+      "en-US": {
+        "url": "https://github.com/sinelaw/fresh",
+        "description": [
+          "A terminal text editor with multi-cursor support",
+          "Docs: https://getfresh.dev/docs"
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/sinelaw/fresh",
+        "description": [
+          "一个支持多光标编辑的终端文本编辑器",
+          "文档: https://getfresh.dev/docs"
         ]
       }
     },
@@ -1484,6 +1637,20 @@
         ]
       }
     },
+    "gradlew": {
+      "en-US": {
+        "url": "https://docs.gradle.org/current/userguide/command_line_interface.html",
+        "description": [
+          "Gradle Wrapper - Build automation tool wrapper script."
+        ]
+      },
+      "zh-CN": {
+        "url": "https:/docs.gradle.org/current/userguide/command_line_interface.html",
+        "description": [
+          "Gradle Wrapper - 构建自动化工具包装脚本。"
+        ]
+      }
+    },
     "gum": {
       "id": "42b269ce-7fde-4c09-b8b8-d9e1bb4c9278",
       "en-US": {
@@ -1496,6 +1663,22 @@
         "url": "https://github.com/charmbracelet/gum",
         "description": [
           "用于编写炫酷 Shell 脚本的工具"
+        ]
+      }
+    },
+    "hashsum": {
+      "en-US": {
+        "url": "https://github.com/uutils/coreutils",
+        "description": [
+          "Compute and check message digests.",
+          "Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils)."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/uutils/coreutils",
+        "description": [
+          "Compute and check message digests.",
+          "Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils)."
         ]
       }
     },
@@ -1556,6 +1739,20 @@
         "url": "https://github.com/helmfile/helmfile",
         "description": [
           "以声明方式将 Kubernetes 清单、Kustomize 配置和 Charts 部署为 Helm release"
+        ]
+      }
+    },
+    "hf": {
+      "en-US": {
+        "url": "https://github.com/huggingface/huggingface_hub",
+        "description": [
+          "hf - Command-line interface for the Hugging Face Hub."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/huggingface/huggingface_hub",
+        "description": [
+          "hf - Hugging Face Hub 命令行界面。"
         ]
       }
     },
@@ -1760,6 +1957,20 @@
         ]
       }
     },
+    "kilo": {
+      "en-US": {
+        "url": "https://kilocode.ai",
+        "description": [
+          "kilo - AI-powered coding agent for your terminal."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://kilocode.ai",
+        "description": [
+          "kilo - 终端中的 AI 编程智能体。"
+        ]
+      }
+    },
     "kind": {
       "id": "bfa366fc-2f86-47f5-9891-cd21945a7306",
       "en-US": {
@@ -1911,6 +2122,22 @@
         "url": "https://github.com/evilmartians/lefthook",
         "description": [
           "Git 钩子管理器。"
+        ]
+      }
+    },
+    "link": {
+      "en-US": {
+        "url": "https://github.com/uutils/coreutils",
+        "description": [
+          "Call the link function to create a link named FILE2 to an existing FILE1.",
+          "Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils)."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/uutils/coreutils",
+        "description": [
+          "调用 link 函数为现有的 FILE1 创建名为 FILE2 的链接。",
+          "补全基于 [uutils/coreutils](https://github.com/uutils/coreutils) 编写。"
         ]
       }
     },
@@ -2095,6 +2322,20 @@
         "url": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/more",
         "description": [
           "逐屏显示文本文件内容。"
+        ]
+      }
+    },
+    "mpv": {
+      "en-US": {
+        "url": "https://mpv.io/",
+        "description": [
+          "mpv - A free, open-source, cross-platform media player."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://mpv.io/",
+        "description": [
+          "mpv - 一个免费、开源、跨平台的媒体播放器。"
         ]
       }
     },
@@ -2477,6 +2718,20 @@
         ]
       }
     },
+    "openclaude": {
+      "en-US": {
+        "url": "https://opencode.ai",
+        "description": [
+          "openclaude - OpenClaude, an open-source AI coding agent for your terminal (a fork of Claude Code)."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://opencode.ai",
+        "description": [
+          "openclaude - OpenClaude，一个开源的 AI 编程助手，运行在你的终端中（Claude Code 的一个分支）。"
+        ]
+      }
+    },
     "openclaw": {
       "id": "9bdafd7b-7be4-4b68-a19e-3fa99120be92",
       "en-US": {
@@ -2504,6 +2759,20 @@
         "url": "https://github.com/nicholaswatertank/opencode",
         "description": [
           "终端中的 AI 编程智能体。"
+        ]
+      }
+    },
+    "opencode2": {
+      "en-US": {
+        "url": "https://opencode.ai",
+        "description": [
+          "opencode2 - AI-powered coding agent for your terminal."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://opencode.ai",
+        "description": [
+          "opencode2 - AI-powered coding agent for your terminal."
         ]
       }
     },
@@ -2871,6 +3140,22 @@
         ]
       }
     },
+    "pyenv": {
+      "en-US": {
+        "url": "https://github.com/pyenv/pyenv",
+        "description": [
+          "pyenv - Simple Python version management.",
+          "Manage multiple Python versions and switch between them easily."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/pyenv/pyenv",
+        "description": [
+          "pyenv - 简单的 Python 版本管理工具。",
+          "轻松管理多个 Python 版本并在它们之间切换。"
+        ]
+      }
+    },
     "python": {
       "id": "cf4b3017-c844-4976-b80f-4ad38cea5a43",
       "en-US": {
@@ -3084,6 +3369,22 @@
         "description": [
           "直觉化的查找与替换 CLI",
           "sed 替代工具"
+        ]
+      }
+    },
+    "sdkmanager": {
+      "en-US": {
+        "url": "https://developer.android.com/studio/intro/update#sdk-manager",
+        "description": [
+          "sdkmanager - Android SDK Manager.",
+          "Install, update, and manage Android SDK packages, platforms, build tools, and more."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://developer.android.com/studio/intro/update#sdk-manager",
+        "description": [
+          "sdkmanager - Android SDK 管理器。",
+          "安装、更新和管理 Android SDK 包、平台、构建工具等。"
         ]
       }
     },

@@ -6,6 +6,7 @@
       "The Android Emulator simulates Android devices on your computer to let you test your app without a physical device."
     ]
   },
+  "option": [],
   "root": [
     {
       "name": "-list-avds",
@@ -26,15 +27,14 @@
       ]
     }
   ],
-  "option": [],
   "common_option": [
     {
       "name": "-debug",
+      "next": 0,
       "tip": [
         "U: -debug <tags>",
         "Enable/disable debug messages"
-      ],
-      "next": 0
+      ]
     },
     {
       "name": "-debug-<tag>",

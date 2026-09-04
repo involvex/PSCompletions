@@ -5,98 +5,6 @@
       "openclaude - OpenClaude，一个开源的 AI 编程助手，运行在你的终端中（Claude Code 的一个分支）。"
     ]
   },
-  "root": [
-    {
-      "name": "agents",
-      "tip": [
-        "列出已配置的代理。"
-      ],
-      "next": []
-    },
-    {
-      "name": "aimlapi",
-      "tip": [
-        "AI/ML API（aimlapi.com) — 充值余额并配置提供商。"
-      ],
-      "next": []
-    },
-    {
-      "name": "auth",
-      "tip": [
-        "管理身份认证。"
-      ],
-      "next": []
-    },
-    {
-      "name": "auto-mode",
-      "tip": [
-        "检查自动模式分类器配置。"
-      ],
-      "next": []
-    },
-    {
-      "name": "doctor",
-      "tip": [
-        "检查 OpenClaude 自动更新程序的健康状况。"
-      ],
-      "next": []
-    },
-    {
-      "name": "install",
-      "tip": [
-        "安装 OpenClaude 原生构建。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "mcp",
-      "tip": [
-        "配置和管理 MCP 服务器。"
-      ],
-      "next": []
-    },
-    {
-      "name": "plugin",
-      "alias": [
-        "plugins"
-      ],
-      "tip": [
-        "管理 OpenClaude 插件。"
-      ],
-      "next": []
-    },
-    {
-      "name": "report",
-      "tip": [
-        "为 OpenClaude 会话生成确定性任务报告。"
-      ],
-      "next": []
-    },
-    {
-      "name": "setup-token",
-      "tip": [
-        "设置长期身份认证令牌（需要 Claude 订阅）。"
-      ],
-      "next": []
-    },
-    {
-      "name": "skills",
-      "tip": [
-        "列出、检查、验证和管理 OpenClaude 技能。"
-      ],
-      "next": []
-    },
-    {
-      "name": "update",
-      "alias": [
-        "upgrade"
-      ],
-      "tip": [
-        "检查更新并在可用时安装。"
-      ],
-      "next": []
-    }
-  ],
   "option": [
     {
       "name": "--add-dir",
@@ -129,9 +37,9 @@
       ]
     },
     {
-      "name": "--allowedTools",
+      "name": "--allowed-tools",
       "alias": [
-        "--allowed-tools"
+        "--allowedTools"
       ],
       "tip": [
         "U: --allowedTools <tools...>",
@@ -168,6 +76,35 @@
       ]
     },
     {
+      "name": "--continue",
+      "alias": [
+        "-c"
+      ],
+      "tip": [
+        "继续当前目录中最近的对话。"
+      ]
+    },
+    {
+      "name": "--dangerously-skip-permissions",
+      "alias": [
+        "--yolo"
+      ],
+      "tip": [
+        "绕过所有权限检查。建议仅在无互联网访问的沙箱中使用。"
+      ]
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "tip": [
+        "U: -d, --debug [filter]",
+        "启用调试模式，可选类别过滤。"
+      ],
+      "next": 0
+    },
+    {
       "name": "--debug-file",
       "tip": [
         "U: --debug-file <path>",
@@ -182,9 +119,9 @@
       ]
     },
     {
-      "name": "--disallowedTools",
+      "name": "--disallowed-tools",
       "alias": [
-        "--disallowed-tools"
+        "--disallowedTools"
       ],
       "tip": [
         "U: --disallowedTools <tools...>",
@@ -340,6 +277,17 @@
       "next": 0
     },
     {
+      "name": "--name",
+      "alias": [
+        "-n"
+      ],
+      "tip": [
+        "U: -n, --name <name>",
+        "为此会话设置显示名称。"
+      ],
+      "next": 0
+    },
+    {
       "name": "--no-chrome",
       "tip": [
         "禁用 Claude in Chrome 集成。"
@@ -408,6 +356,15 @@
       "next": 0
     },
     {
+      "name": "--print",
+      "alias": [
+        "-p"
+      ],
+      "tip": [
+        "打印响应并退出（适用于管道）。"
+      ]
+    },
+    {
       "name": "--prompt-suggestions",
       "tip": [
         "U: --prompt-suggestions [value]",
@@ -458,6 +415,17 @@
       "tip": [
         "将用户消息从 stdin 重新发射到 stdout 以确认（仅与 --input-format=stream-json 和 --output-format=stream-json 配合使用）。"
       ]
+    },
+    {
+      "name": "--resume",
+      "alias": [
+        "-r"
+      ],
+      "tip": [
+        "U: -r, --resume [value]",
+        "通过会话 ID 恢复对话，或打开交互式选择器。"
+      ],
+      "next": 0
     },
     {
       "name": "--session-id",
@@ -527,78 +495,18 @@
       "next": 0
     },
     {
-      "name": "--yolo",
+      "name": "--version",
       "alias": [
-        "--dangerously-skip-permissions"
-      ],
-      "tip": [
-        "绕过所有权限检查。建议仅在无互联网访问的沙箱中使用。"
-      ]
-    },
-    {
-      "name": "-c",
-      "alias": [
-        "--continue"
-      ],
-      "tip": [
-        "继续当前目录中最近的对话。"
-      ]
-    },
-    {
-      "name": "-d",
-      "alias": [
-        "--debug"
-      ],
-      "tip": [
-        "U: -d, --debug [filter]",
-        "启用调试模式，可选类别过滤。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-n",
-      "alias": [
-        "--name"
-      ],
-      "tip": [
-        "U: -n, --name <name>",
-        "为此会话设置显示名称。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-p",
-      "alias": [
-        "--print"
-      ],
-      "tip": [
-        "打印响应并退出（适用于管道）。"
-      ]
-    },
-    {
-      "name": "-r",
-      "alias": [
-        "--resume"
-      ],
-      "tip": [
-        "U: -r, --resume [value]",
-        "通过会话 ID 恢复对话，或打开交互式选择器。"
-      ],
-      "next": 0
-    },
-    {
-      "name": "-v",
-      "alias": [
-        "--version"
+        "-v"
       ],
       "tip": [
         "输出版本号。"
       ]
     },
     {
-      "name": "-w",
+      "name": "--worktree",
       "alias": [
-        "--worktree"
+        "-w"
       ],
       "tip": [
         "U: -w, --worktree [name]",
@@ -607,12 +515,104 @@
       "next": 0
     }
   ],
+  "root": [
+    {
+      "name": "agents",
+      "next": [],
+      "tip": [
+        "列出已配置的代理。"
+      ]
+    },
+    {
+      "name": "aimlapi",
+      "next": [],
+      "tip": [
+        "AI/ML API（aimlapi.com) — 充值余额并配置提供商。"
+      ]
+    },
+    {
+      "name": "auth",
+      "next": [],
+      "tip": [
+        "管理身份认证。"
+      ]
+    },
+    {
+      "name": "auto-mode",
+      "next": [],
+      "tip": [
+        "检查自动模式分类器配置。"
+      ]
+    },
+    {
+      "name": "doctor",
+      "next": [],
+      "tip": [
+        "检查 OpenClaude 自动更新程序的健康状况。"
+      ]
+    },
+    {
+      "name": "install",
+      "next": 0,
+      "tip": [
+        "安装 OpenClaude 原生构建。"
+      ]
+    },
+    {
+      "name": "mcp",
+      "next": [],
+      "tip": [
+        "配置和管理 MCP 服务器。"
+      ]
+    },
+    {
+      "alias": [
+        "plugins"
+      ],
+      "name": "plugin",
+      "next": [],
+      "tip": [
+        "管理 OpenClaude 插件。"
+      ]
+    },
+    {
+      "name": "report",
+      "next": [],
+      "tip": [
+        "为 OpenClaude 会话生成确定性任务报告。"
+      ]
+    },
+    {
+      "name": "setup-token",
+      "next": [],
+      "tip": [
+        "设置长期身份认证令牌（需要 Claude 订阅）。"
+      ]
+    },
+    {
+      "name": "skills",
+      "next": [],
+      "tip": [
+        "列出、检查、验证和管理 OpenClaude 技能。"
+      ]
+    },
+    {
+      "alias": [
+        "upgrade"
+      ],
+      "name": "update",
+      "next": [],
+      "tip": [
+        "检查更新并在可用时安装。"
+      ]
+    }
+  ],
   "common_option": [
     {
-      "name": "-h",
       "alias": [
         "--help"
       ],
+      "name": "-h",
       "tip": [
         "显示命令的帮助信息。"
       ]

@@ -5,98 +5,6 @@
       "openclaude - OpenClaude, an open-source AI coding agent for your terminal (a fork of Claude Code)."
     ]
   },
-  "root": [
-    {
-      "name": "agents",
-      "tip": [
-        "List configured agents."
-      ],
-      "next": []
-    },
-    {
-      "name": "aimlapi",
-      "tip": [
-        "AI/ML API (aimlapi.com) — top up balance and configure the provider."
-      ],
-      "next": []
-    },
-    {
-      "name": "auth",
-      "tip": [
-        "Manage authentication."
-      ],
-      "next": []
-    },
-    {
-      "name": "auto-mode",
-      "tip": [
-        "Inspect auto mode classifier configuration."
-      ],
-      "next": []
-    },
-    {
-      "name": "doctor",
-      "tip": [
-        "Check the health of your OpenClaude auto-updater."
-      ],
-      "next": []
-    },
-    {
-      "name": "install",
-      "tip": [
-        "Install OpenClaude native build."
-      ],
-      "next": 0
-    },
-    {
-      "name": "mcp",
-      "tip": [
-        "Configure and manage MCP servers."
-      ],
-      "next": []
-    },
-    {
-      "name": "plugin",
-      "alias": [
-        "plugins"
-      ],
-      "tip": [
-        "Manage OpenClaude plugins."
-      ],
-      "next": []
-    },
-    {
-      "name": "report",
-      "tip": [
-        "Generate a deterministic task report for an OpenClaude session."
-      ],
-      "next": []
-    },
-    {
-      "name": "setup-token",
-      "tip": [
-        "Set up a long-lived authentication token (requires Claude subscription)."
-      ],
-      "next": []
-    },
-    {
-      "name": "skills",
-      "tip": [
-        "List, inspect, validate, and manage OpenClaude skills."
-      ],
-      "next": []
-    },
-    {
-      "name": "update",
-      "alias": [
-        "upgrade"
-      ],
-      "tip": [
-        "Check for updates and install if available."
-      ],
-      "next": []
-    }
-  ],
   "option": [
     {
       "name": "--add-dir",
@@ -129,9 +37,9 @@
       ]
     },
     {
-      "name": "--allowedTools",
+      "name": "--allowed-tools",
       "alias": [
-        "--allowed-tools"
+        "--allowedTools"
       ],
       "tip": [
         "U: --allowedTools <tools...>",
@@ -168,6 +76,35 @@
       ]
     },
     {
+      "name": "--continue",
+      "alias": [
+        "-c"
+      ],
+      "tip": [
+        "Continue the most recent conversation in the current directory."
+      ]
+    },
+    {
+      "name": "--dangerously-skip-permissions",
+      "alias": [
+        "--yolo"
+      ],
+      "tip": [
+        "Bypass all permission checks. Recommended only for sandboxes with no internet access."
+      ]
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "tip": [
+        "U: -d, --debug [filter]",
+        "Enable debug mode with optional category filtering."
+      ],
+      "next": 0
+    },
+    {
       "name": "--debug-file",
       "tip": [
         "U: --debug-file <path>",
@@ -182,9 +119,9 @@
       ]
     },
     {
-      "name": "--disallowedTools",
+      "name": "--disallowed-tools",
       "alias": [
-        "--disallowed-tools"
+        "--disallowedTools"
       ],
       "tip": [
         "U: --disallowedTools <tools...>",
@@ -340,6 +277,17 @@
       "next": 0
     },
     {
+      "name": "--name",
+      "alias": [
+        "-n"
+      ],
+      "tip": [
+        "U: -n, --name <name>",
+        "Set a display name for this session."
+      ],
+      "next": 0
+    },
+    {
       "name": "--no-chrome",
       "tip": [
         "Disable Claude in Chrome integration."
@@ -408,6 +356,15 @@
       "next": 0
     },
     {
+      "name": "--print",
+      "alias": [
+        "-p"
+      ],
+      "tip": [
+        "Print response and exit (useful for pipes)."
+      ]
+    },
+    {
       "name": "--prompt-suggestions",
       "tip": [
         "U: --prompt-suggestions [value]",
@@ -458,6 +415,17 @@
       "tip": [
         "Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)."
       ]
+    },
+    {
+      "name": "--resume",
+      "alias": [
+        "-r"
+      ],
+      "tip": [
+        "U: -r, --resume [value]",
+        "Resume a conversation by session ID, or open interactive picker."
+      ],
+      "next": 0
     },
     {
       "name": "--session-id",
@@ -527,78 +495,18 @@
       "next": 0
     },
     {
-      "name": "--yolo",
+      "name": "--version",
       "alias": [
-        "--dangerously-skip-permissions"
-      ],
-      "tip": [
-        "Bypass all permission checks. Recommended only for sandboxes with no internet access."
-      ]
-    },
-    {
-      "name": "-c",
-      "alias": [
-        "--continue"
-      ],
-      "tip": [
-        "Continue the most recent conversation in the current directory."
-      ]
-    },
-    {
-      "name": "-d",
-      "alias": [
-        "--debug"
-      ],
-      "tip": [
-        "U: -d, --debug [filter]",
-        "Enable debug mode with optional category filtering."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-n",
-      "alias": [
-        "--name"
-      ],
-      "tip": [
-        "U: -n, --name <name>",
-        "Set a display name for this session."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-p",
-      "alias": [
-        "--print"
-      ],
-      "tip": [
-        "Print response and exit (useful for pipes)."
-      ]
-    },
-    {
-      "name": "-r",
-      "alias": [
-        "--resume"
-      ],
-      "tip": [
-        "U: -r, --resume [value]",
-        "Resume a conversation by session ID, or open interactive picker."
-      ],
-      "next": 0
-    },
-    {
-      "name": "-v",
-      "alias": [
-        "--version"
+        "-v"
       ],
       "tip": [
         "Output the version number."
       ]
     },
     {
-      "name": "-w",
+      "name": "--worktree",
       "alias": [
-        "--worktree"
+        "-w"
       ],
       "tip": [
         "U: -w, --worktree [name]",
@@ -607,12 +515,104 @@
       "next": 0
     }
   ],
+  "root": [
+    {
+      "name": "agents",
+      "next": [],
+      "tip": [
+        "List configured agents."
+      ]
+    },
+    {
+      "name": "aimlapi",
+      "next": [],
+      "tip": [
+        "AI/ML API (aimlapi.com) — top up balance and configure the provider."
+      ]
+    },
+    {
+      "name": "auth",
+      "next": [],
+      "tip": [
+        "Manage authentication."
+      ]
+    },
+    {
+      "name": "auto-mode",
+      "next": [],
+      "tip": [
+        "Inspect auto mode classifier configuration."
+      ]
+    },
+    {
+      "name": "doctor",
+      "next": [],
+      "tip": [
+        "Check the health of your OpenClaude auto-updater."
+      ]
+    },
+    {
+      "name": "install",
+      "next": 0,
+      "tip": [
+        "Install OpenClaude native build."
+      ]
+    },
+    {
+      "name": "mcp",
+      "next": [],
+      "tip": [
+        "Configure and manage MCP servers."
+      ]
+    },
+    {
+      "alias": [
+        "plugins"
+      ],
+      "name": "plugin",
+      "next": [],
+      "tip": [
+        "Manage OpenClaude plugins."
+      ]
+    },
+    {
+      "name": "report",
+      "next": [],
+      "tip": [
+        "Generate a deterministic task report for an OpenClaude session."
+      ]
+    },
+    {
+      "name": "setup-token",
+      "next": [],
+      "tip": [
+        "Set up a long-lived authentication token (requires Claude subscription)."
+      ]
+    },
+    {
+      "name": "skills",
+      "next": [],
+      "tip": [
+        "List, inspect, validate, and manage OpenClaude skills."
+      ]
+    },
+    {
+      "alias": [
+        "upgrade"
+      ],
+      "name": "update",
+      "next": [],
+      "tip": [
+        "Check for updates and install if available."
+      ]
+    }
+  ],
   "common_option": [
     {
-      "name": "-h",
       "alias": [
         "--help"
       ],
+      "name": "-h",
       "tip": [
         "Display help for command."
       ]
