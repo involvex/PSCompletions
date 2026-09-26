@@ -1,0 +1,606 @@
+{
+  "meta": {
+    "url": "https://developer.android.com",
+    "description": [
+      "Android CLI 工具，用于项目创建、构建、SDK 管理和设备交互。"
+    ]
+  },
+  "next": [
+    {
+      "name": "completion",
+      "usage": [
+        "completion [<shell>]"
+      ],
+      "tip": [
+        "为当前用户配置文件中的 Android CLI 安装 shell 自动补全"
+      ]
+    },
+    {
+      "name": "create",
+      "usage": [
+        "create [<template-name>]"
+      ],
+      "tip": [
+        "根据可用模板创建新的 Android 项目。允许指定项目名称、输出目录、minSdk 和 dry-run 执行"
+      ],
+      "option": [
+        {
+          "name": "--application-id",
+          "usage": [
+            "--application-id=PARAM"
+          ],
+          "tip": [
+            "应用的应用 ID（例如 com.example.myapp）"
+          ],
+          "next": []
+        },
+        {
+          "name": "--list",
+          "tip": [
+            "列出所有可用模板"
+          ]
+        },
+        {
+          "name": "--min-sdk",
+          "usage": [
+            "--min-sdk=PARAM"
+          ],
+          "tip": [
+            "应用支持的 'minSdk'（默认值在模板中定义）"
+          ],
+          "next": []
+        },
+        {
+          "name": "--name",
+          "usage": [
+            "--name=PARAM"
+          ],
+          "tip": [
+            "应用的名称（例如 My Application）"
+          ],
+          "next": []
+        },
+        {
+          "name": "--namespace",
+          "usage": [
+            "--namespace=PARAM"
+          ],
+          "tip": [
+            "资源的命名空间和 Kotlin 源文件的包名"
+          ],
+          "next": []
+        },
+        {
+          "name": "--output",
+          "alias": [
+            "-o"
+          ],
+          "usage": [
+            "-o, --output=PARAM"
+          ],
+          "tip": [
+            "目标项目目录路径（默认为 .）"
+          ],
+          "next": []
+        }
+      ]
+    },
+    {
+      "name": "describe",
+      "tip": [
+        "分析 Android 项目以生成描述性元数据。此命令会识别并输出 JSON 文件的路径，这些文件详细说明了项目结构，包括构建目标及其对应的输出产物位置（例如 APK）。这些信息使其他工具和命令能够高效地定位构建产物"
+      ],
+      "option": [
+        {
+          "name": "--project_dir",
+          "usage": [
+            "--project_dir=PARAM"
+          ],
+          "tip": [
+            "要描述的项目目录"
+          ],
+          "next": []
+        }
+      ]
+    },
+    {
+      "name": "docs",
+      "tip": [
+        "Android 文档命令，用于从官方知识库中搜索和获取开发者文档"
+      ],
+      "next": [
+        {
+          "name": "fetch",
+          "usage": [
+            "fetch <URL>"
+          ],
+          "tip": [
+            "从 URL (kb://...) 获取 Android 文档文章"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "emulator",
+      "tip": [
+        "管理 Android 虚拟设备 (AVD)。包括启动、停止、列出和查看模拟器详情"
+      ],
+      "next": [
+        {
+          "name": "create",
+          "tip": [
+            "创建虚拟设备"
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "列出可用的虚拟设备"
+          ]
+        },
+        {
+          "name": "remove",
+          "tip": [
+            "删除虚拟设备"
+          ]
+        },
+        {
+          "name": "start",
+          "tip": [
+            "启动指定的虚拟设备。此命令将在模拟器完全启动并可使用后返回"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "help",
+      "tip": [
+        "显示所有命令的帮助信息"
+      ]
+    },
+    {
+      "name": "init",
+      "tip": [
+        "初始化 Android CLI 的环境。设置所需的配置、目录和默认技能"
+      ]
+    },
+    {
+      "name": "install",
+      "tip": [
+        "将 Android 应用（一个或多个 APK）安装到连接的设备或模拟器，不激活任何组件，使用增量优化以实现比 adb 更快的部署"
+      ],
+      "option": [
+        {
+          "name": "--apks",
+          "usage": [
+            "--apks=PARAM"
+          ],
+          "tip": [
+            "APK 的路径，以逗号分隔"
+          ],
+          "next": []
+        },
+        {
+          "name": "--device",
+          "usage": [
+            "--device=PARAM"
+          ],
+          "tip": [
+            "设备序列号"
+          ],
+          "next": []
+        },
+        {
+          "name": "--install-options",
+          "usage": [
+            "--install-options=PARAM"
+          ],
+          "tip": [
+            "传递给包管理器安装的额外选项/标志（例如 -g,-d）"
+          ],
+          "next": []
+        },
+        {
+          "name": "--use-delta-install",
+          "tip": [
+            "使用快速增量安装（通过仅传输修改的代码和资源来加快增量更新；默认：true）"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "layout",
+      "tip": [
+        "返回应用的布局树"
+      ],
+      "option": [
+        {
+          "name": "--device",
+          "usage": [
+            "--device=PARAM"
+          ],
+          "tip": [
+            "设备序列号"
+          ],
+          "next": []
+        },
+        {
+          "name": "--diff",
+          "alias": [
+            "-d"
+          ],
+          "usage": [
+            "-d, --diff"
+          ],
+          "tip": [
+            "已弃用；无操作标志。将在未来版本中移除"
+          ]
+        },
+        {
+          "name": "--flat",
+          "tip": [
+            "返回扁平列表而非树状结构"
+          ]
+        },
+        {
+          "name": "--full",
+          "tip": [
+            "返回完整树，包括非交互式和隐藏的元素"
+          ]
+        },
+        {
+          "name": "--no-idle",
+          "tip": [
+            "获取布局时不等待布局空闲状态"
+          ]
+        },
+        {
+          "name": "--output",
+          "alias": [
+            "-o"
+          ],
+          "usage": [
+            "-o, --output=PARAM"
+          ],
+          "tip": [
+            "将布局写入指定的文件或目录。如果省略，则打印到标准输出"
+          ],
+          "next": []
+        },
+        {
+          "name": "--pretty",
+          "alias": [
+            "-p"
+          ],
+          "usage": [
+            "-p, --pretty"
+          ],
+          "tip": [
+            "美化输出的 JSON 格式"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "run",
+      "tip": [
+        "在连接的设备或模拟器上构建、部署和启动 Android 应用"
+      ],
+      "option": [
+        {
+          "name": "--activity",
+          "usage": [
+            "--activity=PARAM"
+          ],
+          "tip": [
+            "活动名称"
+          ],
+          "next": []
+        },
+        {
+          "name": "--apks",
+          "usage": [
+            "--apks=PARAM"
+          ],
+          "tip": [
+            "APK 的路径，以逗号分隔"
+          ],
+          "next": []
+        },
+        {
+          "name": "--debug",
+          "tip": [
+            "以调试模式运行"
+          ]
+        },
+        {
+          "name": "--device",
+          "usage": [
+            "--device=PARAM"
+          ],
+          "tip": [
+            "设备序列号"
+          ],
+          "next": []
+        },
+        {
+          "name": "--install-options",
+          "usage": [
+            "--install-options=PARAM"
+          ],
+          "tip": [
+            "传递给包管理器安装的额外选项/标志（例如 -g,-d）"
+          ],
+          "next": []
+        },
+        {
+          "name": "--type",
+          "usage": [
+            "--type=PARAM"
+          ],
+          "tip": [
+            "组件类型"
+          ],
+          "next": [
+            {
+              "name": "ACTIVITY",
+              "tip": [
+                "一个活动"
+              ]
+            },
+            {
+              "name": "COMPLICATION",
+              "tip": [
+                "一个复杂功能"
+              ]
+            },
+            {
+              "name": "DECLARATIVE_WATCH_FACE",
+              "tip": [
+                "一个声明式表盘"
+              ]
+            },
+            {
+              "name": "TILE",
+              "tip": [
+                "一个磁贴"
+              ]
+            },
+            {
+              "name": "WATCH_FACE",
+              "tip": [
+                "一个表盘"
+              ]
+            },
+            {
+              "name": "WEAR_WIDGET",
+              "tip": [
+                "一个 Wear 小组件"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "--use-delta-install",
+          "tip": [
+            "使用快速增量安装（通过仅传输修改的代码和资源来加快增量更新；默认：true）"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "screen",
+      "tip": [
+        "查看设备的命令"
+      ],
+      "next": [
+        {
+          "name": "capture",
+          "tip": [
+            "将设备屏幕输出为 PNG"
+          ]
+        },
+        {
+          "name": "resolve",
+          "tip": [
+            "直观定位 UI 元素。将带标注的截图中的边界框坐标替换为字符串。在截图中替换给定文本的所有实例为该元素的坐标"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sdk",
+      "tip": [
+        "管理 Android SDK 安装。包括安装、更新、移除和列出可用及已安装的 SDK 包"
+      ],
+      "option": [
+        {
+          "name": "--ignore-outdated-xmls",
+          "tip": [
+            "安装或更新包时，不更新其他包的 xml"
+          ]
+        },
+        {
+          "name": "--platform",
+          "usage": [
+            "--platform=PARAM"
+          ],
+          "tip": [
+            "目标平台 <os>_<arch>（例如 linux_x86_64、mac_arm64、windows_x86），默认为当前主机"
+          ],
+          "next": []
+        }
+      ],
+      "next": [
+        {
+          "name": "install",
+          "tip": [
+            "安装 SDK 包"
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "列出已安装和可用的 SDK 包"
+          ]
+        },
+        {
+          "name": "remove",
+          "tip": [
+            "从 SDK 中移除包"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "skills",
+      "tip": [
+        "管理 Android CLI 技能。包括安装、移除、列出和按关键字搜索技能"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "tip": [
+            "按其 ID 将特定技能安装到你的环境"
+          ]
+        },
+        {
+          "name": "find",
+          "tip": [
+            "在仓库中搜索匹配关键字的可用技能"
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "列出已安装和可用的技能"
+          ]
+        },
+        {
+          "name": "remove",
+          "tip": [
+            "按其 ID 移除已安装的技能"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "studio",
+      "tip": [
+        "Android Studio 命令"
+      ],
+      "next": [
+        {
+          "name": "analyze-file",
+          "tip": [
+            "在 Android Studio 中分析文件"
+          ]
+        },
+        {
+          "name": "check",
+          "tip": [
+            "检查运行中的 Studio 实例的状态"
+          ]
+        },
+        {
+          "name": "find-declaration",
+          "tip": [
+            "查找符号的声明"
+          ]
+        },
+        {
+          "name": "find-usages",
+          "tip": [
+            "查找符号的用法"
+          ]
+        },
+        {
+          "name": "open-file",
+          "tip": [
+            "在 Android Studio 中打开文件"
+          ]
+        },
+        {
+          "name": "render-compose-preview",
+          "tip": [
+            "在 Android Studio 中渲染 Compose 预览"
+          ]
+        },
+        {
+          "name": "version-lookup",
+          "tip": [
+            "在互联网上查找最新可用版本"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "update",
+      "tip": [
+        "将 Android CLI 更新到最新版本"
+      ],
+      "option": [
+        {
+          "name": "--url",
+          "usage": [
+            "--url=PARAM"
+          ],
+          "tip": [
+            "下载更新的 URL"
+          ],
+          "next": []
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--sdk",
+      "usage": [
+        "--sdk=PARAM"
+      ],
+      "tip": [
+        "Android SDK 的路径"
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "启用详细输出以进行故障排除"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "打印版本信息并退出"
+      ]
+    }
+  ],
+  "global_option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此命令的帮助信息"
+      ]
+    }
+  ]
+}

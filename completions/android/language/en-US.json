@@ -1,0 +1,606 @@
+{
+  "meta": {
+    "url": "https://developer.android.com",
+    "description": [
+      "Android CLI tool for project creation, builds, SDK management, and device interaction."
+    ]
+  },
+  "next": [
+    {
+      "name": "completion",
+      "usage": [
+        "completion [<shell>]"
+      ],
+      "tip": [
+        "Installs shell autocomplete configuration for the Android CLI in the current user profile"
+      ]
+    },
+    {
+      "name": "create",
+      "usage": [
+        "create [<template-name>]"
+      ],
+      "tip": [
+        "Create a new Android project from available templates. Allows specifying project name, output directory, minSdk, and dry-run execution"
+      ],
+      "option": [
+        {
+          "name": "--application-id",
+          "usage": [
+            "--application-id=PARAM"
+          ],
+          "tip": [
+            "The application ID for the application (e.g. com.example.myapp)"
+          ],
+          "next": []
+        },
+        {
+          "name": "--list",
+          "tip": [
+            "List all available templates"
+          ]
+        },
+        {
+          "name": "--min-sdk",
+          "usage": [
+            "--min-sdk=PARAM"
+          ],
+          "tip": [
+            "The 'minSdk' supported by the application (default is defined in the template)"
+          ],
+          "next": []
+        },
+        {
+          "name": "--name",
+          "usage": [
+            "--name=PARAM"
+          ],
+          "tip": [
+            "The name of the application (e.g. My Application)"
+          ],
+          "next": []
+        },
+        {
+          "name": "--namespace",
+          "usage": [
+            "--namespace=PARAM"
+          ],
+          "tip": [
+            "The namespace for resources and package name for Kotlin source files"
+          ],
+          "next": []
+        },
+        {
+          "name": "--output",
+          "alias": [
+            "-o"
+          ],
+          "usage": [
+            "-o, --output=PARAM"
+          ],
+          "tip": [
+            "The destination project directory path (default is .)"
+          ],
+          "next": []
+        }
+      ]
+    },
+    {
+      "name": "describe",
+      "tip": [
+        "Analyzes an Android project to generate descriptive metadata. This command identifies and outputs the paths to JSON files that detail the project structure, including build targets and their corresponding output artifact locations (e.g., APKs). This information enables other tools and commands to locate build artifacts efficiently"
+      ],
+      "option": [
+        {
+          "name": "--project_dir",
+          "usage": [
+            "--project_dir=PARAM"
+          ],
+          "tip": [
+            "The project directory to describe"
+          ],
+          "next": []
+        }
+      ]
+    },
+    {
+      "name": "docs",
+      "tip": [
+        "Android documentation commands for searching and fetching developer documentation from the official knowledge base"
+      ],
+      "next": [
+        {
+          "name": "fetch",
+          "usage": [
+            "fetch <URL>"
+          ],
+          "tip": [
+            "Fetch an Android documentation article from a URL (kb://...)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "emulator",
+      "tip": [
+        "Manage Android Virtual Devices (AVDs). Includes commands to start, stop, list, and view details about emulators"
+      ],
+      "next": [
+        {
+          "name": "create",
+          "tip": [
+            "Creates a virtual device"
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "Lists available virtual devices"
+          ]
+        },
+        {
+          "name": "remove",
+          "tip": [
+            "Delete a virtual device"
+          ]
+        },
+        {
+          "name": "start",
+          "tip": [
+            "Launches the specified virtual device. This command will return when the emulator is fully started and ready to use"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "help",
+      "tip": [
+        "Shows the help of all commands"
+      ]
+    },
+    {
+      "name": "init",
+      "tip": [
+        "Initializes the environment for the Android CLI. Sets up required configurations, directories, and default skills"
+      ]
+    },
+    {
+      "name": "install",
+      "tip": [
+        "Install an Android Application (one or more APKs) to a connected device or emulator without activating any components using incremental optimizations for faster deployment than adb"
+      ],
+      "option": [
+        {
+          "name": "--apks",
+          "usage": [
+            "--apks=PARAM"
+          ],
+          "tip": [
+            "The paths to the APKs, comma separated"
+          ],
+          "next": []
+        },
+        {
+          "name": "--device",
+          "usage": [
+            "--device=PARAM"
+          ],
+          "tip": [
+            "The device serial number"
+          ],
+          "next": []
+        },
+        {
+          "name": "--install-options",
+          "usage": [
+            "--install-options=PARAM"
+          ],
+          "tip": [
+            "Additional options/flags to pass to package manager install (e.g. -g,-d)"
+          ],
+          "next": []
+        },
+        {
+          "name": "--use-delta-install",
+          "tip": [
+            "Use fast delta install (speeds up incremental updates by transferring only modified code and resources; default: true)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "layout",
+      "tip": [
+        "Returns the layout tree of an application"
+      ],
+      "option": [
+        {
+          "name": "--device",
+          "usage": [
+            "--device=PARAM"
+          ],
+          "tip": [
+            "The device serial number"
+          ],
+          "next": []
+        },
+        {
+          "name": "--diff",
+          "alias": [
+            "-d"
+          ],
+          "usage": [
+            "-d, --diff"
+          ],
+          "tip": [
+            "Deprecated; no-op flag. Will be removed in a future release"
+          ]
+        },
+        {
+          "name": "--flat",
+          "tip": [
+            "Returns a flat list instead of a tree"
+          ]
+        },
+        {
+          "name": "--full",
+          "tip": [
+            "Return the full tree, including non-interactive and hidden elements"
+          ]
+        },
+        {
+          "name": "--no-idle",
+          "tip": [
+            "Don't wait for layout idle state when fetching layout"
+          ]
+        },
+        {
+          "name": "--output",
+          "alias": [
+            "-o"
+          ],
+          "usage": [
+            "-o, --output=PARAM"
+          ],
+          "tip": [
+            "Writes the layout to the specified file or directory. If omitted, prints to standard output"
+          ],
+          "next": []
+        },
+        {
+          "name": "--pretty",
+          "alias": [
+            "-p"
+          ],
+          "usage": [
+            "-p, --pretty"
+          ],
+          "tip": [
+            "Pretty-prints the returned JSON"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "run",
+      "tip": [
+        "Build, deploy, and launch an Android application on a connected device or emulator"
+      ],
+      "option": [
+        {
+          "name": "--activity",
+          "usage": [
+            "--activity=PARAM"
+          ],
+          "tip": [
+            "The activity name"
+          ],
+          "next": []
+        },
+        {
+          "name": "--apks",
+          "usage": [
+            "--apks=PARAM"
+          ],
+          "tip": [
+            "The paths to the APKs, comma separated"
+          ],
+          "next": []
+        },
+        {
+          "name": "--debug",
+          "tip": [
+            "Run in debug mode"
+          ]
+        },
+        {
+          "name": "--device",
+          "usage": [
+            "--device=PARAM"
+          ],
+          "tip": [
+            "The device serial number"
+          ],
+          "next": []
+        },
+        {
+          "name": "--install-options",
+          "usage": [
+            "--install-options=PARAM"
+          ],
+          "tip": [
+            "Additional options/flags to pass to package manager install (e.g. -g,-d)"
+          ],
+          "next": []
+        },
+        {
+          "name": "--type",
+          "usage": [
+            "--type=PARAM"
+          ],
+          "tip": [
+            "The component type"
+          ],
+          "next": [
+            {
+              "name": "ACTIVITY",
+              "tip": [
+                "An activity"
+              ]
+            },
+            {
+              "name": "COMPLICATION",
+              "tip": [
+                "A complication"
+              ]
+            },
+            {
+              "name": "DECLARATIVE_WATCH_FACE",
+              "tip": [
+                "A declarative watch face"
+              ]
+            },
+            {
+              "name": "TILE",
+              "tip": [
+                "A tile"
+              ]
+            },
+            {
+              "name": "WATCH_FACE",
+              "tip": [
+                "A watch face"
+              ]
+            },
+            {
+              "name": "WEAR_WIDGET",
+              "tip": [
+                "A wear widget"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "--use-delta-install",
+          "tip": [
+            "Use fast delta install (speeds up incremental updates by transferring only modified code and resources; default: true)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "screen",
+      "tip": [
+        "Commands to view the device"
+      ],
+      "next": [
+        {
+          "name": "capture",
+          "tip": [
+            "Outputs the device screen to a PNG"
+          ]
+        },
+        {
+          "name": "resolve",
+          "tip": [
+            "Target UI elements visually. Substitutes bounding box coordinates from an annotated screenshot into a string. Replaces all instances of a given text in the screenshot with the coordinates of the element"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sdk",
+      "tip": [
+        "Manage the Android SDK installation. Includes commands to install, update, remove, and list available and installed SDK packages"
+      ],
+      "option": [
+        {
+          "name": "--ignore-outdated-xmls",
+          "tip": [
+            "When installing or updating packages, do not update other packages xmls"
+          ]
+        },
+        {
+          "name": "--platform",
+          "usage": [
+            "--platform=PARAM"
+          ],
+          "tip": [
+            "Target platform <os>_<arch> (e.g. linux_x86_64, mac_arm64, windows_x86), defaults to current host"
+          ],
+          "next": []
+        }
+      ],
+      "next": [
+        {
+          "name": "install",
+          "tip": [
+            "Install SDK packages"
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "List installed and available SDK packages"
+          ]
+        },
+        {
+          "name": "remove",
+          "tip": [
+            "Remove packages from the SDK"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "skills",
+      "tip": [
+        "Manage Android CLI skills. Includes commands to install, remove, list, and search for skills by keyword"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "tip": [
+            "Install a specific skill by its ID to your environment"
+          ]
+        },
+        {
+          "name": "find",
+          "tip": [
+            "Search for available skills in the repository matching a keyword"
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "List installed and available skills"
+          ]
+        },
+        {
+          "name": "remove",
+          "tip": [
+            "Remove an installed skill by its ID"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "studio",
+      "tip": [
+        "Android Studio commands"
+      ],
+      "next": [
+        {
+          "name": "analyze-file",
+          "tip": [
+            "Analyze a file in Android Studio"
+          ]
+        },
+        {
+          "name": "check",
+          "tip": [
+            "Check the status of running Studio instances"
+          ]
+        },
+        {
+          "name": "find-declaration",
+          "tip": [
+            "Find declaration of a symbol"
+          ]
+        },
+        {
+          "name": "find-usages",
+          "tip": [
+            "Find usages of a symbol"
+          ]
+        },
+        {
+          "name": "open-file",
+          "tip": [
+            "Open a file in Android Studio"
+          ]
+        },
+        {
+          "name": "render-compose-preview",
+          "tip": [
+            "Render a Compose preview in Android Studio"
+          ]
+        },
+        {
+          "name": "version-lookup",
+          "tip": [
+            "Looks up the latest available versions on the internet"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "update",
+      "tip": [
+        "Update the Android CLI to the latest version"
+      ],
+      "option": [
+        {
+          "name": "--url",
+          "usage": [
+            "--url=PARAM"
+          ],
+          "tip": [
+            "The URL to download the update from"
+          ],
+          "next": []
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--sdk",
+      "usage": [
+        "--sdk=PARAM"
+      ],
+      "tip": [
+        "Path to the Android SDK"
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Enable verbose output for troubleshooting"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Print version information and exit"
+      ]
+    }
+  ],
+  "global_option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show the help message for this command"
+      ]
+    }
+  ]
+}
