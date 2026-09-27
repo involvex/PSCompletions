@@ -10,7 +10,7 @@
 |:-:|-|
 |[7z](https://7-zip.org/)|7-Zip 的命令行界面。|
 |[adb](https://developer.android.com/tools/adb)|Android 调试桥命令行工具。|
-|[android-cli]()||
+|[android](https://developer.android.com)|Android CLI 工具，用于项目创建、构建、SDK 管理和设备交互。|
 |[arch](https://github.com/uutils/coreutils)|显示当前系统架构。<br>补全基于 [uutils/coreutils](https://github.com/uutils/coreutils) 编写。|
 |[aria2c](https://aria2.github.io)|轻量级多协议多源下载工具。|
 |[atac](https://github.com/Julien-cpsn/ATAC)|在终端中使用的简易 API 客户端|

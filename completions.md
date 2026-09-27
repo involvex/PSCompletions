@@ -10,7 +10,7 @@
 |:-:|-|
 |[7z](https://7-zip.org/)|The command line interface of 7-Zip.|
 |[adb](https://developer.android.com/tools/adb)|Android Debug Bridge command-line tool.|
-|[android-cli]()||
+|[android](https://developer.android.com)|Android CLI tool for project creation, builds, SDK management, and device interaction.|
 |[arch](https://github.com/uutils/coreutils)|Display machine architecture.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
 |[aria2c](https://aria2.github.io)|Lightweight multi-protocol and multi-source download utility.|
 |[atac](https://github.com/Julien-cpsn/ATAC)|A simple API client in your terminal|
