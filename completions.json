@@ -1,5 +1,5 @@
 {
-  "count": 284,
+  "count": 283,
   "update": {
     "7z": "200a4e842883ec0177c772bc94ce5ef93148eb75bec9a08d8ecbf4d4b6b4d849",
     "act": "cb21959e4e5fb650771faabf8c2bb96f5250224a7717c480ad99a0d2dae8dd7c",
@@ -177,8 +177,7 @@
     "omp": "3bb1db76b0d35c7580a2d8a39997ea9f60f22ea17432313c697f1b65e0c74dce",
     "openclaude": "c6fa7fbe4afbc6b7db1779804e2132b5e12799a00be0d22cef7190bfce71f19c",
     "openclaw": "e13d394663001d1dbe2eb2c0f133a42f039dd56b66c0411ae6db47f9169034e2",
-    "opencode": "478028a536efe8bce93c517badccc31d8fcb760c563f49d019659fb1ce6ee3dd",
-    "opencode2": "0809fa8339fc3f8bbbabd67e61ccaabfe9e47cc359c04caf41ce462c68162171",
+    "opencode": "37eb601123600663e2dccd68b313e72e0c6d668615f6ac7f960439d2bfc9659a",
     "ouch": "3be382e157dcf4371a6e1ff149db01dc95bd8c5259b02da06273ec5db6be342d",
     "oxfmt": "89abca5640efea4d29b1b6e5f94aa18d7d7bfaac405b0006468fa7a809b9d897",
     "oxlint": "050901e65092f620ca12294f1fa19166b920c80e309dda548a3eff169b920ea9",
@@ -2953,29 +2952,15 @@
     "opencode": {
       "id": "35353015-6f5d-4b6b-82db-3d079415641e",
       "en-US": {
-        "url": "https://github.com/nicholaswatertank/opencode",
-        "description": [
-          "AI-powered coding agent for the terminal."
-        ]
-      },
-      "zh-CN": {
-        "url": "https://github.com/nicholaswatertank/opencode",
-        "description": [
-          "终端中的 AI 编程智能体。"
-        ]
-      }
-    },
-    "opencode2": {
-      "en-US": {
         "url": "https://opencode.ai",
         "description": [
-          "opencode2 - AI-powered coding agent for your terminal."
+          "AI-powered coding agent for your terminal."
         ]
       },
       "zh-CN": {
         "url": "https://opencode.ai",
         "description": [
-          "opencode2 - AI-powered coding agent for your terminal."
+          "面向终端的 AI 编码智能体。"
         ]
       }
     },

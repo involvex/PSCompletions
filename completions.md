@@ -184,8 +184,7 @@
 |[omp](https://github.com/can1357/oh-my-pi)|Oh My Pi - AI-powered coding assistant in the terminal.|
 |[openclaude](https://opencode.ai)|openclaude - OpenClaude, an open-source AI coding agent for your terminal (a fork of Claude Code).|
 |[openclaw](https://docs.openclaw.ai/cli)|The Command Line Interface (CLI) of OpenClaw|
-|[opencode](https://github.com/nicholaswatertank/opencode)|AI-powered coding agent for the terminal.|
-|[opencode2](https://opencode.ai)|opencode2 - AI-powered coding agent for your terminal.|
+|[opencode](https://opencode.ai)|AI-powered coding agent for your terminal.|
 |[ouch](https://github.com/ouch-org/ouch)|A command-line utility for easily compressing and decompressing files and directories<br>Supported formats: tar, zip, gz, 7z, xz, lzma, bz2, bz3, lz4, zst, rar, br|
 |[oxfmt](https://oxc.rs)|An extremely fast formatter and code style guide linter for JavaScript, TypeScript, JSX, and TSX|
 |[oxlint](https://oxc.rs)|TypeScript and JavaScript linter and ESLint compatible config for correctness and some stylistic rules|

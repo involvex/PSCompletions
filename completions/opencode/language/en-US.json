@@ -1,155 +1,291 @@
 {
   "meta": {
-    "url": "https://github.com/nicholaswatertank/opencode",
+    "url": "https://opencode.ai",
     "description": [
-      "AI-powered coding agent for the terminal."
+      "AI-powered coding agent for your terminal."
     ]
   },
   "next": [
     {
       "name": "acp",
       "tip": [
-        "Start ACP (Agent Client Protocol) server"
+        "Start an Agent Client Protocol server."
+      ]
+    },
+    {
+      "name": "api",
+      "usage": [
+        "api <operation | method path...>"
+      ],
+      "tip": [
+        "Make a request to the running server."
+      ],
+      "example": [
+        "opencode api /session",
+        "opencode api session.list --format json"
       ],
       "option": [
         {
-          "name": "--cors",
+          "name": "--data",
+          "alias": [
+            "-d"
+          ],
           "usage": [
-            "--cors <domains>"
+            "-d, --data <DATA>"
           ],
           "tip": [
-            "Additional domains to allow for CORS"
+            "Request body"
           ],
           "next": []
         },
         {
-          "name": "--cwd",
+          "name": "--header",
+          "alias": [
+            "-H"
+          ],
           "usage": [
-            "--cwd <string>"
+            "-H, --header <name:value>"
           ],
           "tip": [
-            "Working directory"
+            "Request header in name:value form"
           ],
           "next": []
         },
         {
-          "name": "--hostname",
+          "name": "--param",
           "usage": [
-            "--hostname <string>"
+            "--param <key=value>"
           ],
           "tip": [
-            "Hostname to listen on"
+            "OpenAPI path or query parameter"
           ],
           "next": []
         },
         {
-          "name": "--mdns",
-          "tip": [
-            "Enable mDNS service discovery (defaults hostname to 0.0.0.0)"
-          ]
-        },
-        {
-          "name": "--mdns-domain",
+          "name": "--server",
           "usage": [
-            "--mdns-domain <string>"
+            "--server <URL>"
           ],
           "tip": [
-            "Custom domain name for mDNS service (default: opencode.local)"
+            "Connect to a server URL instead of the background service"
           ],
           "next": []
         },
         {
-          "name": "--port",
-          "usage": [
-            "--port <number>"
-          ],
+          "name": "--standalone",
           "tip": [
-            "Port to listen on"
-          ],
-          "next": [
-            {
-              "name": "443"
-            },
-            {
-              "name": "80"
-            },
-            {
-              "name": "8080"
-            }
+            "Run with a private server instead of the background service"
           ]
         }
       ]
     },
     {
-      "name": "agent",
+      "name": "auth",
       "tip": [
-        "Manage agents"
+        "Manage integrations and credentials."
       ],
       "next": [
         {
-          "name": "create",
+          "name": "export",
+          "usage": [
+            "export [<target>]"
+          ],
           "tip": [
-            "Create a new agent"
+            "Print stored credentials, including secrets, as JSON."
+          ],
+          "option": [
+            {
+              "name": "--server",
+              "usage": [
+                "--server <URL>"
+              ],
+              "tip": [
+                "Connect to a server URL instead of the background service"
+              ],
+              "next": []
+            },
+            {
+              "name": "--standalone",
+              "tip": [
+                "Run with a private server instead of the background service"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "import",
+          "usage": [
+            "import [<file>]"
+          ],
+          "tip": [
+            "Import credentials exported by auth export."
+          ],
+          "option": [
+            {
+              "name": "--server",
+              "usage": [
+                "--server <URL>"
+              ],
+              "tip": [
+                "Connect to a server URL instead of the background service"
+              ],
+              "next": []
+            },
+            {
+              "name": "--standalone",
+              "tip": [
+                "Run with a private server instead of the background service"
+              ]
+            }
           ]
         },
         {
           "name": "list",
           "tip": [
-            "List all available agents"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "attach",
-      "usage": [
-        "attach <url>"
-      ],
-      "tip": [
-        "Attach to a running opencode server"
-      ]
-    },
-    {
-      "name": "completion",
-      "tip": [
-        "Generate shell completion script"
-      ]
-    },
-    {
-      "name": "database",
-      "alias": [
-        "db"
-      ],
-      "usage": [
-        "db|database"
-      ],
-      "tip": [
-        "Database tools"
-      ],
-      "option": [
-        {
-          "name": "--format",
-          "usage": [
-            "--format <format>"
+            "List integrations and credentials."
           ],
-          "tip": [
-            "Output format"
-          ],
-          "next": [
+          "option": [
             {
-              "name": "json"
+              "name": "--format",
+              "usage": [
+                "--format <FORMAT>"
+              ],
+              "tip": [
+                "Output format."
+              ],
+              "next": [
+                {
+                  "name": "default",
+                  "tip": [
+                    "Human readable table"
+                  ]
+                },
+                {
+                  "name": "json",
+                  "tip": [
+                    "JSON"
+                  ]
+                }
+              ]
             },
             {
-              "name": "tsv"
+              "name": "--server",
+              "usage": [
+                "--server <URL>"
+              ],
+              "tip": [
+                "Connect to a server URL instead of the background service"
+              ],
+              "next": []
+            },
+            {
+              "name": "--standalone",
+              "tip": [
+                "Run with a private server instead of the background service"
+              ]
             }
           ]
-        }
-      ],
-      "next": [
+        },
         {
-          "name": "path",
+          "name": "login",
+          "usage": [
+            "login [<target>]"
+          ],
           "tip": [
-            "Print the database path"
+            "Connect an integration."
+          ],
+          "option": [
+            {
+              "name": "--answer",
+              "usage": [
+                "--answer <key=value>"
+              ],
+              "tip": [
+                "Provider form answer (repeat for multiple fields)."
+              ],
+              "repeat": 99,
+              "next": []
+            },
+            {
+              "name": "--method",
+              "usage": [
+                "--method <METHOD>"
+              ],
+              "tip": [
+                "Authentication method ID"
+              ],
+              "next": []
+            },
+            {
+              "name": "--server",
+              "usage": [
+                "--server <URL>"
+              ],
+              "tip": [
+                "Connect to a server URL instead of the background service"
+              ],
+              "next": []
+            },
+            {
+              "name": "--standalone",
+              "tip": [
+                "Run with a private server instead of the background service"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "logout",
+          "usage": [
+            "logout [<target>] [<credential>]"
+          ],
+          "tip": [
+            "Log out of a saved account."
+          ],
+          "option": [
+            {
+              "name": "--server",
+              "usage": [
+                "--server <URL>"
+              ],
+              "tip": [
+                "Connect to a server URL instead of the background service"
+              ],
+              "next": []
+            },
+            {
+              "name": "--standalone",
+              "tip": [
+                "Run with a private server instead of the background service"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "switch",
+          "usage": [
+            "switch [<target>] [<credential>]"
+          ],
+          "tip": [
+            "Switch the active account for an integration."
+          ],
+          "option": [
+            {
+              "name": "--server",
+              "usage": [
+                "--server <URL>"
+              ],
+              "tip": [
+                "Connect to a server URL instead of the background service"
+              ],
+              "next": []
+            },
+            {
+              "name": "--standalone",
+              "tip": [
+                "Run with a private server instead of the background service"
+              ]
+            }
           ]
         }
       ]
@@ -157,179 +293,143 @@
     {
       "name": "debug",
       "tip": [
-        "Debugging and troubleshooting tools"
+        "Debugging and troubleshooting tools."
       ],
       "next": [
         {
-          "name": "agent",
-          "usage": [
-            "agent <name>"
-          ],
+          "name": "agents",
           "tip": [
-            "Show agent configuration details"
+            "List all agents."
           ]
         },
         {
           "name": "config",
           "tip": [
-            "Show resolved configuration"
-          ]
-        },
-        {
-          "name": "file",
-          "tip": [
-            "File system debugging utilities"
-          ]
-        },
-        {
-          "name": "info",
-          "tip": [
-            "Show debug information"
-          ]
-        },
-        {
-          "name": "lsp",
-          "tip": [
-            "LSP debugging utilities"
+            "List configuration sources."
           ]
         },
         {
           "name": "paths",
+          "usage": [
+            "paths [<name>]"
+          ],
           "tip": [
-            "Show global paths (data, config, cache, state)"
-          ]
-        },
-        {
-          "name": "rg",
-          "tip": [
-            "Ripgrep debugging utilities"
-          ]
-        },
-        {
-          "name": "scrap",
-          "tip": [
-            "List all known projects"
-          ]
-        },
-        {
-          "name": "skill",
-          "tip": [
-            "List all available skills"
-          ]
-        },
-        {
-          "name": "snapshot",
-          "tip": [
-            "Snapshot debugging utilities"
-          ]
-        },
-        {
-          "name": "startup",
-          "tip": [
-            "Print startup timing"
-          ]
-        },
-        {
-          "name": "v2",
-          "tip": [
-            "Debug v2 catalog and built-in plugins"
-          ]
-        },
-        {
-          "name": "wait",
-          "tip": [
-            "Wait indefinitely (for debugging)"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "export",
-      "usage": [
-        "export [sessionID]"
-      ],
-      "tip": [
-        "Export session data as JSON"
-      ],
-      "option": [
-        {
-          "name": "--sanitize",
-          "tip": [
-            "Redact sensitive transcript and file data"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "github",
-      "tip": [
-        "Manage GitHub agent"
-      ],
-      "next": [
-        {
-          "name": "install",
-          "tip": [
-            "Install the GitHub agent"
-          ]
-        },
-        {
-          "name": "run",
-          "tip": [
-            "Run the GitHub agent"
+            "Show global paths."
+          ],
+          "next": [
+            {
+              "name": "bin",
+              "tip": [
+                "Binary directory"
+              ]
+            },
+            {
+              "name": "cache",
+              "tip": [
+                "Cache directory"
+              ]
+            },
+            {
+              "name": "config",
+              "tip": [
+                "Configuration directory"
+              ]
+            },
+            {
+              "name": "data",
+              "tip": [
+                "Data directory"
+              ]
+            },
+            {
+              "name": "db",
+              "tip": [
+                "Database file"
+              ]
+            },
+            {
+              "name": "home",
+              "tip": [
+                "OpenCode home directory"
+              ]
+            },
+            {
+              "name": "log",
+              "tip": [
+                "Log directory"
+              ]
+            },
+            {
+              "name": "repos",
+              "tip": [
+                "Repository directory"
+              ]
+            },
+            {
+              "name": "state",
+              "tip": [
+                "State directory"
+              ]
+            },
+            {
+              "name": "tmp",
+              "tip": [
+                "Temporary directory"
+              ]
+            }
           ]
         }
-      ]
-    },
-    {
-      "name": "import",
-      "usage": [
-        "import <file>"
-      ],
-      "tip": [
-        "Import session data from JSON file or URL"
       ]
     },
     {
       "name": "mcp",
       "tip": [
-        "Manage MCP (Model Context Protocol) servers"
+        "Manage MCP (Model Context Protocol) servers."
       ],
       "next": [
         {
           "name": "add",
           "usage": [
-            "add [name]"
+            "add <name> [<command...>]"
           ],
           "tip": [
-            "Add an MCP server"
+            "Add an MCP server to your configuration."
+          ],
+          "example": [
+            "opencode mcp add my-server -- npx -y my-mcp-server",
+            "opencode mcp add remote --url https://example.com/mcp"
           ],
           "option": [
             {
               "name": "--env",
               "usage": [
-                "--env <KEY=VALUE>"
+                "--env <name=value>"
               ],
               "tip": [
-                "Environment variable for a local MCP server"
+                "Environment variable for a local server"
               ],
-              "repeat": 99,
               "next": []
+            },
+            {
+              "name": "--global",
+              "tip": [
+                "Write to the global config instead of the project config"
+              ]
             },
             {
               "name": "--header",
               "usage": [
-                "--header <KEY=VALUE>"
+                "--header <name=value>"
               ],
               "tip": [
-                "HTTP header for a remote MCP server"
+                "HTTP header for a remote server"
               ],
-              "repeat": 99,
               "next": []
             },
             {
               "name": "--url",
               "usage": [
-                "--url <string>"
+                "--url <URL>"
               ],
               "tip": [
                 "URL for a remote MCP server"
@@ -341,200 +441,42 @@
         {
           "name": "auth",
           "usage": [
-            "auth [name]"
+            "auth [<name>]"
           ],
           "tip": [
-            "Authenticate with an OAuth-enabled MCP server"
-          ]
-        },
-        {
-          "name": "debug",
-          "usage": [
-            "debug <name>"
-          ],
-          "tip": [
-            "Debug OAuth connection for an MCP server"
+            "Authenticate with an OAuth-capable remote MCP server."
           ]
         },
         {
           "name": "list",
-          "alias": [
-            "ls"
-          ],
-          "usage": [
-            "ls|list"
-          ],
           "tip": [
-            "List MCP servers and their status"
+            "List configured MCP servers and their status."
           ]
         },
         {
           "name": "logout",
           "usage": [
-            "logout [name]"
+            "logout <name>"
           ],
           "tip": [
-            "Remove OAuth credentials for an MCP server"
+            "Remove stored OAuth credentials for an MCP server."
           ]
         }
       ]
     },
     {
-      "name": "models",
-      "usage": [
-        "models [provider]"
-      ],
+      "name": "mini",
       "tip": [
-        "List all available models"
-      ],
-      "option": [
-        {
-          "name": "--refresh",
-          "tip": [
-            "Refresh the models cache from models.dev"
-          ]
-        },
-        {
-          "name": "--verbose",
-          "tip": [
-            "Use more verbose model output (includes metadata like costs)"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "plugin",
-      "alias": [
-        "plug"
-      ],
-      "usage": [
-        "plugin <module>"
-      ],
-      "tip": [
-        "Install plugin and update config"
-      ],
-      "option": [
-        {
-          "name": "--force",
-          "alias": [
-            "-f"
-          ],
-          "usage": [
-            "-f, --force"
-          ],
-          "tip": [
-            "Replace existing plugin version"
-          ]
-        },
-        {
-          "name": "--global",
-          "alias": [
-            "-g"
-          ],
-          "usage": [
-            "-g, --global"
-          ],
-          "tip": [
-            "Install in global config"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "pr",
-      "usage": [
-        "pr <number>"
-      ],
-      "tip": [
-        "Fetch and checkout a GitHub PR branch, then run opencode"
-      ]
-    },
-    {
-      "name": "providers",
-      "alias": [
-        "auth"
-      ],
-      "usage": [
-        "auth|providers"
-      ],
-      "tip": [
-        "Manage AI providers and credentials"
-      ],
-      "next": [
-        {
-          "name": "list",
-          "alias": [
-            "ls"
-          ],
-          "usage": [
-            "ls|list"
-          ],
-          "tip": [
-            "List providers and credentials"
-          ]
-        },
-        {
-          "name": "login",
-          "usage": [
-            "login [url]"
-          ],
-          "tip": [
-            "Log in to a provider"
-          ]
-        },
-        {
-          "name": "logout",
-          "usage": [
-            "logout [provider]"
-          ],
-          "tip": [
-            "Log out from a configured provider"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "run",
-      "usage": [
-        "run [message..]"
-      ],
-      "tip": [
-        "Run opencode with a message"
+        "Start the minimal interactive interface."
       ],
       "option": [
         {
           "name": "--agent",
           "usage": [
-            "--agent <string>"
+            "--agent <AGENT>"
           ],
           "tip": [
-            "Agent to use"
-          ],
-          "next": []
-        },
-        {
-          "name": "--attach",
-          "usage": [
-            "--attach <url>"
-          ],
-          "tip": [
-            "Attach to a running opencode server"
-          ],
-          "next": []
-        },
-        {
-          "name": "--auto",
-          "tip": [
-            "Auto-approve permissions that are not explicitly denied (dangerous!)"
-          ]
-        },
-        {
-          "name": "--command",
-          "usage": [
-            "--command <string>"
-          ],
-          "tip": [
-            "The command to run, use message for args"
+            "Agent to use."
           ],
           "next": []
         },
@@ -551,62 +493,9 @@
           ]
         },
         {
-          "name": "--dir",
-          "usage": [
-            "--dir <string>"
-          ],
-          "tip": [
-            "Directory to run in, path on remote server if attaching"
-          ],
-          "next": []
-        },
-        {
-          "name": "--file",
-          "alias": [
-            "-f"
-          ],
-          "usage": [
-            "-f, --file <files>"
-          ],
-          "tip": [
-            "File(s) to attach to message"
-          ],
-          "repeat": 99,
-          "next": []
-        },
-        {
           "name": "--fork",
           "tip": [
-            "Fork the session before continuing (requires --continue or --session)"
-          ]
-        },
-        {
-          "name": "--format",
-          "usage": [
-            "--format <format>"
-          ],
-          "tip": [
-            "Output format"
-          ],
-          "next": [
-            {
-              "name": "default"
-            },
-            {
-              "name": "json"
-            }
-          ]
-        },
-        {
-          "name": "--interactive",
-          "alias": [
-            "-i"
-          ],
-          "usage": [
-            "-i, --interactive"
-          ],
-          "tip": [
-            "Run in direct interactive split-footer mode"
+            "Fork the session when continuing"
           ]
         },
         {
@@ -615,45 +504,73 @@
             "-m"
           ],
           "usage": [
-            "-m, --model <provider/model>"
+            "-m, --model <MODEL>"
           ],
           "tip": [
-            "Model to use in the format of provider/model"
+            "Model to use, in provider/model form."
           ],
           "next": []
         },
         {
-          "name": "--password",
-          "alias": [
-            "-p"
-          ],
+          "name": "--prompt",
           "usage": [
-            "-p, --password <string>"
+            "--prompt <PROMPT>"
           ],
           "tip": [
-            "Basic auth password (defaults to OPENCODE_SERVER_PASSWORD)"
+            "Prompt to use."
           ],
           "next": []
         },
         {
-          "name": "--port",
+          "name": "--replay",
+          "tip": [
+            "Restore session history on resume and resize"
+          ]
+        },
+        {
+          "name": "--replay-limit",
           "usage": [
-            "--port <number>"
+            "--replay-limit <N>"
           ],
           "tip": [
-            "Port for the local server (defaults to random port if no value provided)"
+            "Limit replay to the newest N messages."
           ],
           "next": [
             {
-              "name": "443"
+              "name": "100",
+              "tip": [
+                "100 messages"
+              ]
             },
             {
-              "name": "80"
+              "name": "20",
+              "tip": [
+                "20 messages"
+              ]
             },
             {
-              "name": "8080"
+              "name": "200",
+              "tip": [
+                "200 messages"
+              ]
+            },
+            {
+              "name": "50",
+              "tip": [
+                "50 messages"
+              ]
             }
           ]
+        },
+        {
+          "name": "--server",
+          "usage": [
+            "--server <URL>"
+          ],
+          "tip": [
+            "Connect to a server URL instead of the background service"
+          ],
+          "next": []
         },
         {
           "name": "--session",
@@ -661,17 +578,268 @@
             "-s"
           ],
           "usage": [
-            "-s, --session <string>"
+            "-s, --session <ID>"
           ],
           "tip": [
-            "Session id to continue"
+            "Session ID to continue, or to create if it does not exist."
           ],
           "next": []
         },
         {
-          "name": "--share",
+          "name": "--standalone",
           "tip": [
-            "Share the session"
+            "Run with a private server instead of the background service"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "models",
+      "tip": [
+        "List all available models."
+      ],
+      "option": [
+        {
+          "name": "--server",
+          "usage": [
+            "--server <URL>"
+          ],
+          "tip": [
+            "Connect to a server URL instead of the background service"
+          ],
+          "next": []
+        },
+        {
+          "name": "--standalone",
+          "tip": [
+            "Run with a private server instead of the background service"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pair",
+      "tip": [
+        "Print one-time links to connect a browser or app."
+      ],
+      "option": [
+        {
+          "name": "--url",
+          "usage": [
+            "--url <URL>"
+          ],
+          "tip": [
+            "Use an external HTTP(S) server URL in pairing links."
+          ],
+          "next": []
+        }
+      ]
+    },
+    {
+      "name": "plugin",
+      "tip": [
+        "Manage plugins."
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add <package>"
+          ],
+          "tip": [
+            "Install a plugin and add it to the global configuration."
+          ]
+        },
+        {
+          "name": "check",
+          "usage": [
+            "check [<target>]"
+          ],
+          "tip": [
+            "Check package plugins for updates."
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "List plugins."
+          ],
+          "option": [
+            {
+              "name": "--builtin",
+              "tip": [
+                "Include built-in server plugins"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "remove",
+          "usage": [
+            "remove <package>"
+          ],
+          "tip": [
+            "Remove a plugin from global configuration."
+          ]
+        },
+        {
+          "name": "update",
+          "usage": [
+            "update [<target>]"
+          ],
+          "tip": [
+            "Update package plugins."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reload",
+      "tip": [
+        "Reload configuration."
+      ],
+      "option": [
+        {
+          "name": "--server",
+          "usage": [
+            "--server <URL>"
+          ],
+          "tip": [
+            "Connect to a server URL instead of the background service"
+          ],
+          "next": []
+        },
+        {
+          "name": "--standalone",
+          "tip": [
+            "Run with a private server instead of the background service"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "run",
+      "usage": [
+        "run [<message...>]"
+      ],
+      "tip": [
+        "Run OpenCode with a message."
+      ],
+      "example": [
+        "opencode run \"explain this repo\"",
+        "opencode run --format json \"list the TODOs\""
+      ],
+      "option": [
+        {
+          "name": "--agent",
+          "usage": [
+            "--agent <AGENT>"
+          ],
+          "tip": [
+            "Agent to use."
+          ],
+          "next": []
+        },
+        {
+          "name": "--auto",
+          "tip": [
+            "Auto-approve permissions that are not explicitly denied"
+          ]
+        },
+        {
+          "name": "--continue",
+          "alias": [
+            "-c"
+          ],
+          "usage": [
+            "-c, --continue"
+          ],
+          "tip": [
+            "Continue the last session"
+          ]
+        },
+        {
+          "name": "--file",
+          "alias": [
+            "-f"
+          ],
+          "usage": [
+            "-f, --file <PATH>"
+          ],
+          "tip": [
+            "File to attach to the message."
+          ],
+          "next": []
+        },
+        {
+          "name": "--fork",
+          "tip": [
+            "Fork the session before continuing"
+          ]
+        },
+        {
+          "name": "--format",
+          "usage": [
+            "--format <FORMAT>"
+          ],
+          "tip": [
+            "Output format."
+          ],
+          "next": [
+            {
+              "name": "default",
+              "tip": [
+                "Human readable output"
+              ]
+            },
+            {
+              "name": "json",
+              "tip": [
+                "JSON"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "--model",
+          "alias": [
+            "-m"
+          ],
+          "usage": [
+            "-m, --model <MODEL>"
+          ],
+          "tip": [
+            "Model to use, in provider/model#variant form."
+          ],
+          "next": []
+        },
+        {
+          "name": "--server",
+          "usage": [
+            "--server <URL>"
+          ],
+          "tip": [
+            "Connect to a server URL instead of the background service"
+          ],
+          "next": []
+        },
+        {
+          "name": "--session",
+          "alias": [
+            "-s"
+          ],
+          "usage": [
+            "-s, --session <ID>"
+          ],
+          "tip": [
+            "Session ID to continue, or to create if it does not exist."
+          ],
+          "next": []
+        },
+        {
+          "name": "--standalone",
+          "tip": [
+            "Run with a private server instead of the background service"
           ]
         },
         {
@@ -683,33 +851,10 @@
         {
           "name": "--title",
           "usage": [
-            "--title <string>"
+            "--title <TITLE>"
           ],
           "tip": [
-            "Title for the session (uses truncated prompt if no value provided)"
-          ],
-          "next": []
-        },
-        {
-          "name": "--username",
-          "alias": [
-            "-u"
-          ],
-          "usage": [
-            "-u, --username <string>"
-          ],
-          "tip": [
-            "Basic auth username (defaults to OPENCODE_SERVER_USERNAME or 'opencode')"
-          ],
-          "next": []
-        },
-        {
-          "name": "--variant",
-          "usage": [
-            "--variant <string>"
-          ],
-          "tip": [
-            "Model variant (provider-specific reasoning effort, e.g., high, max, minimal)"
+            "Session title."
           ],
           "next": []
         }
@@ -718,63 +863,172 @@
     {
       "name": "serve",
       "tip": [
-        "Starts a headless opencode server"
+        "Start the v2 API and web server."
       ],
       "option": [
         {
           "name": "--cors",
           "usage": [
-            "--cors <domains>"
+            "--cors <ORIGIN>"
           ],
           "tip": [
-            "Additional domains to allow for CORS"
+            "Additional allowed CORS origin (repeat for multiple origins)."
           ],
-          "next": []
+          "repeat": 99,
+          "next": [
+            {
+              "name": "app://",
+              "tip": [
+                "Desktop app origin"
+              ]
+            },
+            {
+              "name": "http://localhost:3000",
+              "tip": [
+                "Localhost on port 3000"
+              ]
+            },
+            {
+              "name": "http://localhost:5173",
+              "tip": [
+                "Localhost on port 5173"
+              ]
+            }
+          ]
         },
         {
           "name": "--hostname",
           "usage": [
-            "--hostname <string>"
+            "--hostname <HOST>"
           ],
           "tip": [
-            "Hostname to listen on"
+            "Hostname to listen on."
           ],
-          "next": []
-        },
-        {
-          "name": "--mdns",
-          "tip": [
-            "Enable mDNS service discovery (defaults hostname to 0.0.0.0)"
+          "next": [
+            {
+              "name": "0.0.0.0",
+              "tip": [
+                "All interfaces"
+              ]
+            },
+            {
+              "name": "127.0.0.1",
+              "tip": [
+                "Loopback only"
+              ]
+            },
+            {
+              "name": "localhost",
+              "tip": [
+                "Localhost"
+              ]
+            }
           ]
-        },
-        {
-          "name": "--mdns-domain",
-          "usage": [
-            "--mdns-domain <string>"
-          ],
-          "tip": [
-            "Custom domain name for mDNS service (default: opencode.local)"
-          ],
-          "next": []
         },
         {
           "name": "--port",
           "usage": [
-            "--port <number>"
+            "--port <PORT>"
           ],
           "tip": [
-            "Port to listen on"
+            "Port to listen on."
           ],
           "next": [
             {
-              "name": "443"
+              "name": "3000",
+              "tip": [
+                "Port 3000"
+              ]
             },
             {
-              "name": "80"
+              "name": "4096",
+              "tip": [
+                "Port 4096"
+              ]
             },
             {
-              "name": "8080"
+              "name": "8000",
+              "tip": [
+                "Port 8000"
+              ]
+            },
+            {
+              "name": "8080",
+              "tip": [
+                "Port 8080"
+              ]
             }
+          ]
+        },
+        {
+          "name": "--service",
+          "tip": [
+            "Run as the managed background service"
+          ]
+        },
+        {
+          "name": "--stdio",
+          "tip": [
+            "Serve over stdio instead of HTTP"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "service",
+      "tip": [
+        "Manage the background server."
+      ],
+      "next": [
+        {
+          "name": "get",
+          "usage": [
+            "get [<key>] [<name>]"
+          ],
+          "tip": [
+            "Get service configuration."
+          ]
+        },
+        {
+          "name": "restart",
+          "tip": [
+            "Restart the background server."
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set <key> <value> [<env-value>]"
+          ],
+          "tip": [
+            "Set service configuration."
+          ]
+        },
+        {
+          "name": "start",
+          "tip": [
+            "Start the background server."
+          ]
+        },
+        {
+          "name": "status",
+          "tip": [
+            "Show background server status."
+          ]
+        },
+        {
+          "name": "stop",
+          "tip": [
+            "Stop the background server."
+          ]
+        },
+        {
+          "name": "unset",
+          "usage": [
+            "unset <key> [<name>]"
+          ],
+          "tip": [
+            "Unset service configuration."
           ]
         }
       ]
@@ -782,7 +1036,7 @@
     {
       "name": "session",
       "tip": [
-        "Manage sessions"
+        "Manage sessions."
       ],
       "next": [
         {
@@ -791,13 +1045,180 @@
             "delete <sessionID>"
           ],
           "tip": [
-            "Delete a session"
+            "Delete a session and its child sessions."
+          ],
+          "option": [
+            {
+              "name": "--server",
+              "usage": [
+                "--server <URL>"
+              ],
+              "tip": [
+                "Connect to a server URL instead of the background service"
+              ],
+              "next": []
+            },
+            {
+              "name": "--standalone",
+              "tip": [
+                "Run with a private server instead of the background service"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "export",
+          "usage": [
+            "export [<session>]"
+          ],
+          "tip": [
+            "Export session data as JSON."
+          ],
+          "option": [
+            {
+              "name": "--sanitize",
+              "tip": [
+                "Redact sensitive transcript and file data"
+              ]
+            },
+            {
+              "name": "--server",
+              "usage": [
+                "--server <URL>"
+              ],
+              "tip": [
+                "Connect to a server URL instead of the background service"
+              ],
+              "next": []
+            },
+            {
+              "name": "--standalone",
+              "tip": [
+                "Run with a private server instead of the background service"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "import",
+          "usage": [
+            "import <file>"
+          ],
+          "tip": [
+            "Import session data from a JSON file or URL."
+          ],
+          "option": [
+            {
+              "name": "--directory",
+              "usage": [
+                "--directory <DIR>"
+              ],
+              "tip": [
+                "Directory in which to import the session."
+              ],
+              "next": []
+            },
+            {
+              "name": "--server",
+              "usage": [
+                "--server <URL>"
+              ],
+              "tip": [
+                "Connect to a server URL instead of the background service"
+              ],
+              "next": []
+            },
+            {
+              "name": "--standalone",
+              "tip": [
+                "Run with a private server instead of the background service"
+              ]
+            }
           ]
         },
         {
           "name": "list",
           "tip": [
-            "List sessions"
+            "List top-level sessions in the current project, newest first."
+          ],
+          "option": [
+            {
+              "name": "--format",
+              "usage": [
+                "--format <FORMAT>"
+              ],
+              "tip": [
+                "Output format."
+              ],
+              "next": [
+                {
+                  "name": "json",
+                  "tip": [
+                    "JSON"
+                  ]
+                },
+                {
+                  "name": "table",
+                  "tip": [
+                    "Human readable table"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "--max-count",
+              "alias": [
+                "-n"
+              ],
+              "usage": [
+                "-n, --max-count <N>"
+              ],
+              "tip": [
+                "Limit to N most recent sessions."
+              ],
+              "next": [
+                {
+                  "name": "10",
+                  "tip": [
+                    "10 sessions"
+                  ]
+                },
+                {
+                  "name": "100",
+                  "tip": [
+                    "100 sessions"
+                  ]
+                },
+                {
+                  "name": "25",
+                  "tip": [
+                    "25 sessions"
+                  ]
+                },
+                {
+                  "name": "50",
+                  "tip": [
+                    "50 sessions"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "--server",
+              "usage": [
+                "--server <URL>"
+              ],
+              "tip": [
+                "Connect to a server URL instead of the background service"
+              ],
+              "next": []
+            },
+            {
+              "name": "--standalone",
+              "tip": [
+                "Run with a private server instead of the background service"
+              ]
+            }
           ]
         }
       ]
@@ -805,64 +1226,237 @@
     {
       "name": "stats",
       "tip": [
-        "Show token usage and cost statistics"
+        "Show shareable usage statistics."
       ],
       "option": [
         {
+          "name": "--all",
+          "tip": [
+            "Show lifetime statistics"
+          ]
+        },
+        {
+          "name": "--cost",
+          "tip": [
+            "Show cost and token details"
+          ]
+        },
+        {
           "name": "--days",
           "usage": [
-            "--days <number>"
+            "--days <N>"
           ],
           "tip": [
-            "Show stats for the last N days (default: all time)"
+            "Show the last N days; 0 means today."
           ],
-          "next": []
+          "next": [
+            {
+              "name": "30",
+              "tip": [
+                "Last 30 days"
+              ]
+            },
+            {
+              "name": "7",
+              "tip": [
+                "Last 7 days"
+              ]
+            },
+            {
+              "name": "90",
+              "tip": [
+                "Last 90 days"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "--full",
+          "tip": [
+            "Show every detailed section"
+          ]
+        },
+        {
+          "name": "--json",
+          "tip": [
+            "Output statistics as JSON"
+          ]
+        },
+        {
+          "name": "--limit",
+          "usage": [
+            "--limit <N>"
+          ],
+          "tip": [
+            "Number of rows in detailed sections."
+          ],
+          "next": [
+            {
+              "name": "10",
+              "tip": [
+                "10 rows"
+              ]
+            },
+            {
+              "name": "100",
+              "tip": [
+                "100 rows"
+              ]
+            },
+            {
+              "name": "25",
+              "tip": [
+                "25 rows"
+              ]
+            },
+            {
+              "name": "50",
+              "tip": [
+                "50 rows"
+              ]
+            }
+          ]
         },
         {
           "name": "--models",
-          "usage": [
-            "--models [number]"
-          ],
           "tip": [
-            "Show model statistics (default: hidden). Pass a number to show top N, otherwise shows all"
-          ],
-          "next": []
+            "Show model usage"
+          ]
         },
         {
           "name": "--project",
           "usage": [
-            "--project <string>"
+            "--project <ID>"
           ],
           "tip": [
-            "Filter by project (default: all projects, empty string: current project)"
+            "Filter by project ID, or use \".\" for the current project."
+          ],
+          "next": [
+            {
+              "name": ".",
+              "tip": [
+                "Current project"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "--server",
+          "usage": [
+            "--server <URL>"
+          ],
+          "tip": [
+            "Connect to a server URL instead of the background service"
           ],
           "next": []
         },
         {
+          "name": "--standalone",
+          "tip": [
+            "Run with a private server instead of the background service"
+          ]
+        },
+        {
           "name": "--tools",
+          "tip": [
+            "Show tool reliability"
+          ]
+        },
+        {
+          "name": "--year",
           "usage": [
-            "--tools <number>"
+            "--year <YEAR>"
           ],
           "tip": [
-            "Number of tools to show (default: all)"
+            "Show a calendar year."
           ],
-          "next": []
+          "next": [
+            {
+              "name": "2024",
+              "tip": [
+                "Year 2024"
+              ]
+            },
+            {
+              "name": "2025",
+              "tip": [
+                "Year 2025"
+              ]
+            },
+            {
+              "name": "2026",
+              "tip": [
+                "Year 2026"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "name": "uninstall",
       "tip": [
-        "Uninstall opencode and remove all related files"
+        "Uninstall OpenCode and remove all related files."
+      ],
+      "option": [
+        {
+          "name": "--dry-run",
+          "tip": [
+            "Show what would be removed without removing"
+          ]
+        },
+        {
+          "name": "--force",
+          "alias": [
+            "-f"
+          ],
+          "usage": [
+            "-f, --force"
+          ],
+          "tip": [
+            "Skip confirmation prompts"
+          ]
+        },
+        {
+          "name": "--keep-config",
+          "alias": [
+            "-c"
+          ],
+          "usage": [
+            "-c, --keep-config"
+          ],
+          "tip": [
+            "Keep configuration files"
+          ]
+        },
+        {
+          "name": "--keep-data",
+          "alias": [
+            "-d"
+          ],
+          "usage": [
+            "-d, --keep-data"
+          ],
+          "tip": [
+            "Keep session data and snapshots"
+          ]
+        }
       ]
     },
     {
       "name": "upgrade",
+      "alias": [
+        "update"
+      ],
       "usage": [
-        "upgrade [target]"
+        "update|upgrade <target>"
       ],
       "tip": [
-        "Upgrade opencode to the latest or a specific version"
+        "Upgrade OpenCode to the latest or a specific version."
+      ],
+      "example": [
+        "opencode upgrade",
+        "opencode upgrade v2.0.22"
       ],
       "option": [
         {
@@ -871,96 +1465,53 @@
             "-m"
           ],
           "usage": [
-            "-m, --method <method>"
+            "-m, --method <METHOD>"
           ],
           "tip": [
-            "Installation method to use"
+            "Installation method to use."
           ],
           "next": [
             {
-              "name": "brew"
+              "name": "brew",
+              "tip": [
+                "Homebrew"
+              ]
             },
             {
-              "name": "bun"
+              "name": "bun",
+              "tip": [
+                "bun"
+              ]
             },
             {
-              "name": "choco"
+              "name": "curl",
+              "tip": [
+                "curl installer"
+              ]
             },
             {
-              "name": "curl"
+              "name": "npm",
+              "tip": [
+                "npm"
+              ]
             },
             {
-              "name": "npm"
+              "name": "pnpm",
+              "tip": [
+                "pnpm"
+              ]
             },
             {
-              "name": "pnpm"
+              "name": "vp",
+              "tip": [
+                "vp"
+              ]
             },
             {
-              "name": "scoop"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "web",
-      "tip": [
-        "Start opencode server and open web interface"
-      ],
-      "option": [
-        {
-          "name": "--cors",
-          "usage": [
-            "--cors <domains>"
-          ],
-          "tip": [
-            "Additional domains to allow for CORS"
-          ],
-          "next": []
-        },
-        {
-          "name": "--hostname",
-          "usage": [
-            "--hostname <string>"
-          ],
-          "tip": [
-            "Hostname to listen on"
-          ],
-          "next": []
-        },
-        {
-          "name": "--mdns",
-          "tip": [
-            "Enable mDNS service discovery (defaults hostname to 0.0.0.0)"
-          ]
-        },
-        {
-          "name": "--mdns-domain",
-          "usage": [
-            "--mdns-domain <string>"
-          ],
-          "tip": [
-            "Custom domain name for mDNS service (default: opencode.local)"
-          ],
-          "next": []
-        },
-        {
-          "name": "--port",
-          "usage": [
-            "--port <number>"
-          ],
-          "tip": [
-            "Port to listen on"
-          ],
-          "next": [
-            {
-              "name": "443"
-            },
-            {
-              "name": "80"
-            },
-            {
-              "name": "8080"
+              "name": "yarn",
+              "tip": [
+                "yarn"
+              ]
             }
           ]
         }
@@ -969,19 +1520,9 @@
   ],
   "option": [
     {
-      "name": "--agent",
-      "usage": [
-        "--agent <string>"
-      ],
-      "tip": [
-        "Agent to use"
-      ],
-      "next": []
-    },
-    {
       "name": "--auto",
       "tip": [
-        "Auto-approve permissions that are not explicitly denied (dangerous!)"
+        "Auto-approve permissions that are not explicitly denied"
       ]
     },
     {
@@ -997,144 +1538,22 @@
       ]
     },
     {
-      "name": "--cors",
-      "usage": [
-        "--cors <domains>"
-      ],
-      "tip": [
-        "Additional domains to allow for CORS"
-      ],
-      "next": []
-    },
-    {
-      "name": "--fork",
-      "tip": [
-        "Fork the session when continuing (use with --continue or --session)"
-      ]
-    },
-    {
-      "name": "--hostname",
-      "usage": [
-        "--hostname <string>"
-      ],
-      "tip": [
-        "Hostname to listen on"
-      ],
-      "next": []
-    },
-    {
-      "name": "--log-level",
-      "usage": [
-        "--log-level <level>"
-      ],
-      "tip": [
-        "Log level"
-      ],
-      "next": [
-        {
-          "name": "DEBUG"
-        },
-        {
-          "name": "ERROR"
-        },
-        {
-          "name": "INFO"
-        },
-        {
-          "name": "WARN"
-        }
-      ]
-    },
-    {
-      "name": "--mdns",
-      "tip": [
-        "Enable mDNS service discovery (defaults hostname to 0.0.0.0)"
-      ]
-    },
-    {
-      "name": "--mdns-domain",
-      "usage": [
-        "--mdns-domain <string>"
-      ],
-      "tip": [
-        "Custom domain name for mDNS service (default: opencode.local)"
-      ],
-      "next": []
-    },
-    {
-      "name": "--mini",
-      "tip": [
-        "Start the minimal interactive interface"
-      ]
-    },
-    {
-      "name": "--model",
-      "alias": [
-        "-m"
-      ],
-      "usage": [
-        "-m, --model <provider/model>"
-      ],
-      "tip": [
-        "Model to use in the format of provider/model"
-      ],
-      "next": []
-    },
-    {
-      "name": "--no-replay",
-      "tip": [
-        "Disable mini session history replay on resume and after resize"
-      ]
-    },
-    {
-      "name": "--port",
-      "usage": [
-        "--port <number>"
-      ],
-      "tip": [
-        "Port to listen on"
-      ],
-      "next": [
-        {
-          "name": "443"
-        },
-        {
-          "name": "80"
-        },
-        {
-          "name": "8080"
-        }
-      ]
-    },
-    {
-      "name": "--print-logs",
-      "tip": [
-        "Print logs to stderr"
-      ]
-    },
-    {
       "name": "--prompt",
       "usage": [
-        "--prompt <string>"
+        "--prompt <PROMPT>"
       ],
       "tip": [
-        "Prompt to use"
+        "Prompt to use."
       ],
       "next": []
     },
     {
-      "name": "--pure",
-      "tip": [
-        "Run without external plugins"
-      ]
-    },
-    {
-      "name": "--replay-limit",
+      "name": "--server",
       "usage": [
-        "--replay-limit <number>"
+        "--server <URL>"
       ],
       "tip": [
-        "Cap visible mini replay to the newest N messages"
+        "Connect to a server URL instead of the background service"
       ],
       "next": []
     },
@@ -1144,12 +1563,138 @@
         "-s"
       ],
       "usage": [
-        "-s, --session <string>"
+        "-s, --session <ID>"
       ],
       "tip": [
-        "Session id to continue"
+        "Session ID to continue, or to create if it does not exist."
       ],
       "next": []
+    },
+    {
+      "name": "--standalone",
+      "tip": [
+        "Run with a private server instead of the background service"
+      ]
+    }
+  ],
+  "global_option": [
+    {
+      "name": "--completions",
+      "usage": [
+        "--completions <SHELL>"
+      ],
+      "tip": [
+        "Print shell completion script."
+      ],
+      "next": [
+        {
+          "name": "bash",
+          "tip": [
+            "Bash completion script"
+          ]
+        },
+        {
+          "name": "fish",
+          "tip": [
+            "Fish completion script"
+          ]
+        },
+        {
+          "name": "sh",
+          "tip": [
+            "POSIX sh completion script"
+          ]
+        },
+        {
+          "name": "zsh",
+          "tip": [
+            "Zsh completion script"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show help information."
+      ]
+    },
+    {
+      "name": "--log-level",
+      "usage": [
+        "--log-level <LEVEL>"
+      ],
+      "tip": [
+        "Sets the minimum log level."
+      ],
+      "next": [
+        {
+          "name": "all",
+          "tip": [
+            "Log everything"
+          ]
+        },
+        {
+          "name": "debug",
+          "tip": [
+            "Debug level"
+          ]
+        },
+        {
+          "name": "error",
+          "tip": [
+            "Error level"
+          ]
+        },
+        {
+          "name": "fatal",
+          "tip": [
+            "Fatal level"
+          ]
+        },
+        {
+          "name": "info",
+          "tip": [
+            "Info level"
+          ]
+        },
+        {
+          "name": "none",
+          "tip": [
+            "Disable logging"
+          ]
+        },
+        {
+          "name": "trace",
+          "tip": [
+            "Trace level"
+          ]
+        },
+        {
+          "name": "warn",
+          "tip": [
+            "Warning level"
+          ]
+        },
+        {
+          "name": "warning",
+          "tip": [
+            "Warning level"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--print-logs",
+      "tip": [
+        "Print logs to stderr (server logs require --standalone)."
+      ]
     },
     {
       "name": "--version",
@@ -1160,21 +1705,13 @@
         "-v, --version"
       ],
       "tip": [
-        "Show version number"
+        "Show version information."
       ]
-    }
-  ],
-  "global_option": [
+    },
     {
-      "name": "--help",
-      "alias": [
-        "-h"
-      ],
-      "usage": [
-        "-h, --help"
-      ],
+      "name": "--wizard",
       "tip": [
-        "Show help"
+        "Start wizard mode for a command."
       ]
     }
   ]
