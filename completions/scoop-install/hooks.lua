@@ -2,32 +2,27 @@ if psc.platform ~= "windows" or psc.typing.option_like then
     return
 end
 
-local scoop_config_cache = nil
-
 local function get_scoop_config()
-    if scoop_config_cache then
-        return scoop_config_cache
-    end
     local root = psc.env("SCOOP")
+    if not root then
+        local scoop = psc.which("scoop")
+        if scoop then
+            root = scoop:gsub("\\shims\\scoop", "")
+        else
+            return {}
+        end
+    end
     local home = psc.env("USERPROFILE") or psc.env("HOME")
     if root then
         for _, path in ipairs({ psc.path(root, "config.json"), psc.path(home, ".config", "scoop", "config.json") }) do
             if psc.exist(path) then
                 local cfg = psc.json(path) or {}
-                scoop_config_cache = cfg
                 return cfg
             end
         end
+        return { root_path = root }
     end
-    local cfg = {}
-    for _, line in ipairs(psc.run({ "scoop", "config" }, { shell = true }) or {}) do
-        local k, v = line:gsub("\27%[[%d;]*m", ""):match("^(%S+)%s*:%s*(.+)$")
-        if k then
-            cfg[k] = v
-        end
-    end
-    scoop_config_cache = cfg
-    return cfg
+    return {}
 end
 
 local function get_root()
@@ -57,6 +52,25 @@ local function get_apps_dir()
         table.insert(apps_dirs, psc.path(global, "apps"))
     end
     return apps_dirs
+end
+
+local function get_current_dir(apps_dir, name)
+    local app_dir = psc.path(apps_dir, name)
+    local current = psc.path(app_dir, "current")
+    if psc.exist(current) then
+        return current
+    end
+    local versions = {}
+    for _, e in ipairs(psc.ls(app_dir) or {}) do
+        if e.is_dir and not e.name:match("^_.*%.old") then
+            table.insert(versions, e.name)
+        end
+    end
+    table.sort(versions)
+    if #versions > 0 then
+        return psc.path(app_dir, versions[#versions])
+    end
+    return current
 end
 
 local function get_manifests()
@@ -124,7 +138,10 @@ local function add_uninstalled_apps()
     local installed = {}
     for _, apps_dir in ipairs(get_apps_dir()) do
         for _, entry in ipairs(psc.ls(apps_dir) or {}) do
-            if entry.is_dir and entry.name ~= "scoop" and psc.exist(psc.path(apps_dir, entry.name, "current", "manifest.json")) then
+            local current = get_current_dir(apps_dir, entry.name)
+            local has_manifest = psc.exist(psc.path(current, "scoop-manifest.json"))
+                or psc.exist(psc.path(current, "manifest.json"))
+            if entry.is_dir and entry.name ~= "scoop" and has_manifest then
                 installed[entry.name] = true
             end
         end

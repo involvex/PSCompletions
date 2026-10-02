@@ -9,10 +9,13 @@
 |Completion|Description|
 |:-:|-|
 |[7z](https://7-zip.org/)|7-Zip 的命令行界面。|
+|[act](https://github.com/nektos/act)|本地运行 GitHub Actions。|
 |[adb](https://developer.android.com/tools/adb)|Android 调试桥命令行工具。|
 |[android](https://developer.android.com)|Android CLI 工具，用于项目创建、构建、SDK 管理和设备交互。|
+|[apt](https://wiki.debian.org/Apt)|Debian 及衍生系统的命令行包管理器。|
 |[arch](https://github.com/uutils/coreutils)|显示当前系统架构。<br>补全基于 [uutils/coreutils](https://github.com/uutils/coreutils) 编写。|
 |[aria2c](https://aria2.github.io)|轻量级多协议多源下载工具。|
+|[ast-grep](https://github.com/ast-grep/ast-grep)|使用 AST 模式在大规模代码中搜索与重写。|
 |[atac](https://github.com/Julien-cpsn/ATAC)|在终端中使用的简易 API 客户端|
 |[atuin](https://atuin.sh)|魔法 shell 历史记录<br>Atuin 使用 SQLite 数据库取代你现有的命令行历史记录，并为你的命令记录额外的上下文信息|
 |[aube](https://aube.jdx.dev)|一个快速的 Node.js 包管理器|
@@ -28,8 +31,11 @@
 |[basenc](https://uutils.org)|编码/解码数据并输出到标准输出。|
 |[bat](https://github.com/sharkdp/bat)|带语法高亮和 Git 集成的 cat 替代品。|
 |[biome](https://biomejs.dev/)|Web 项目工具链。|
+|[brew](https://brew.sh)|Homebrew 是一个开源的包管理器，最初为 macOS 设计，现在还支持 Linux 和 WSL (Windows Subsystem for Linux)|
+|[buf](https://github.com/bufbuild/buf)|Buf CLI - 处理 Protocol Buffers，并管理 Buf Schema Registry (BSR) 上的资源。|
 |[bun](https://bun.sh)|JavaScript 全能工具包。|
 |[bunx](https://bun.com/docs/cli/bunx)|执行一个 npm 包可执行文件 (CLI)，如果未安装在 node_modules 中，会自动安装到全局共享缓存。|
+|[bx](https://github.com/brave/brave-search-cli)|零依赖、Token 高效的 Brave Search API 命令行工具，为 AI Agent 和大语言模型打造。|
 |[carapace](https://carapace.sh/)|多 shell 补全二进制文件|
 |[cargo](https://doc.rust-lang.org/cargo/)|Rust 包管理器。|
 |[chezmoi](https://chezmoi.io)|在多台不同的机器上安全管理你的 dotfiles|
@@ -79,9 +85,11 @@
 |[eza](https://eza.rocks)|ls 的现代替代品。|
 |[factor](https://uutils.org)|输出给定数字的质因数。|
 |[fastboot](https://android.googlesource.com/platform/system/core/+/refs/heads/main/fastboot/)|fastboot 是一个用于在 Android 设备上刷写分区的命令行工具。<br>它通过 USB 或网络与 bootloader 模式下的设备通信。|
+|[fastfetch](https://github.com/fastfetch-cli/fastfetch)|一个类似 neofetch 的工具，用于获取系统信息并以美观的方式显示。|
 |[fd](https://github.com/sharkdp/fd)|在文件系统中查找条目的程序。|
 |[ffmpeg](https://ffmpeg.org/)|完整的跨平台音视频录制、转换和流媒体解决方案。|
 |[flutter](https://flutter.dev)|Flutter 是谷歌用于构建原生编译应用程序的 UI 工具包。|
+|[fluxdown](https://github.com/zerx-lab/FluxDown)|用于 FluxDown 的 aria2c 风格命令行下载客户端。|
 |[fmt](https://uutils.org)|将输入文件的段落重新格式化输出到标准输出。|
 |[fnm](https://github.com/Schniz/fnm)|使用 Rust 编写的快速简单的 Node.js 版本管理器。|
 |[fold](https://uutils.org)|将每个文件写入标准输出，同时拆分长行。|
@@ -92,6 +100,7 @@
 |[gem](https://guides.rubygems.org)|RubyGems 是一个用于 Ruby 库的包管理器。|
 |[gemini](https://github.com/google-gemini/gemini-cli)|Gemini CLI - Google 的终端 AI 编程助手。|
 |[gh](https://cli.github.com/)|GitHub 命令行工具。|
+|[ghgrab](https://github.com/abhixdd/ghgrab)|一款简洁美观的终端工具，可让你在命令行界面内直接浏览并下载来自 GitHub、GitLab、Codeberg、Gitea 以及 Forgejo 的文件|
 |[git](https://git-scm.com)|版本控制系统。|
 |[gitversion](https://gitversion.net/)|一款可依据 Git 提交历史生成语义化版本号的工具|
 |[glab](https://gitlab.com/gitlab-org/cli)|一个开源的 GitLab CLI 工具，将 GitLab 带到你的命令行。|
@@ -109,6 +118,7 @@
 |[helmfile](https://github.com/helmfile/helmfile)|以声明方式将 Kubernetes 清单、Kustomize 配置和 Charts 部署为 Helm release|
 |[hf](https://github.com/huggingface/huggingface_hub)|hf - Hugging Face Hub 命令行界面。|
 |[hostname](https://uutils.org)|显示或设置系统主机名。|
+|[hugo](https://gohugo.io)|一个用 Go 构建的快速灵活的静态站点生成器。|
 |[hurl](https://hurl.dev)|使用纯文本运行和测试 HTTP 请求。<br>一个使用 URL 传输数据的工具。|
 |[hyperfine](https://github.com/sharkdp/hyperfine)|一个命令行基准测试工具|
 |[ionic](https://ionicframework.com/docs/cli)|Ionic CLI - Ionic 的命令行界面|
@@ -150,6 +160,7 @@
 |[mysql](https://dev.mysql.com/doc/refman/8.4/en/mysql-command-options.html)|MySQL 命令行客户端。|
 |[N_m3u8DL-RE](https://github.com/nilaoda/N_m3u8DL-RE)|跨平台浏览器流下载器 (HLS/DASH/Smooth)。|
 |[netlify](https://www.netlify.com)|用于管理和部署 Netlify 站点的命令行工具|
+|[netwatch](https://github.com/matthart1983/netwatch)|在终端中运行实时网络诊断。|
 |[nexttrace](https://github.com/nxtrace/NexTrace)|开源的视觉化路由追踪 CLI 工具|
 |[ngrok](https://ngrok.com/)|面向开发人员的统一入口平台。<br>将 localhost 连接到 Internet 以测试应用程序和 API。|
 |[nl](https://uutils.org)|为文件行编号。|
@@ -189,23 +200,34 @@
 |[playwright](https://playwright.dev/)|Web 测试和自动化框架。|
 |[pm2](https://pm2.keymetrics.io/)|Node.js 进程管理器，内置负载均衡。|
 |[pnpm](https://pnpm.io/zh/)|快速、节省磁盘空间的包管理器。|
+|[pnpx](https://pnpm.io/cli/dlx)|在临时环境中运行一个包。|
 |[podman](https://podman.io)|管理 Pod、容器和镜像。|
 |[poetry](https://python-poetry.org)|Python dependency manager and packaging tool. |
 |[powershell](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_pwsh?view=powershell-5.1)|Windows PowerShell 命令行。|
 |[pr](https://www.gnu.org/software/coreutils/)|为打印分页或分列文件。|
 |[prettier](https://prettier.io)|固执己见的代码格式化工具。|
 |[printenv](https://www.gnu.org/software/coreutils/)|输出指定环境变量的值。|
+|[prisma](https://www.prisma.io/docs/cli)|终端里的 Prisma Developer Platform。|
 |[psc](https://pscompletions.abgox.com)|PSCompletions 模块的补全。|
 |[ptx](https://uutils.org)|输出输入文件中单词的排列索引。|
 |[pulumi](https://www.pulumi.com/)|Pulumi - 用任意编程语言实现基础设施即代码|
 |[pwsh](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_pwsh)|PowerShell 命令行。|
 |[pyenv](https://github.com/pyenv/pyenv)|pyenv - 简单的 Python 版本管理工具。<br>轻松管理多个 Python 版本并在它们之间切换。|
+|[pytest](https://docs.pytest.org)|Python 测试框架。|
 |[python](https://www.python.org)|Python 解释器命令行。|
 |[rclone](https://rclone.org)|在云存储提供商之间同步文件。|
 |[reasonix](https://reasonix.io)|面向终端的 DeepSeek 原生 AI 编码智能体。|
 |[restic](https://restic.net)|备份程序<br>在加密仓库中保存文件和目录的多个修订版本|
 |[resvg](https://github.com/linebender/resvg)|一个 SVG 渲染应用程序。|
 |[rg](https://github.com/BurntSushi/ripgrep)|ripgrep (rg) - 递归搜索当前目录中匹配正则表达式的行。|
+|[rimraf](https://github.com/isaacs/rimraf)|跨平台的 Node.js `rm -rf` 工具。|
+|[rsbuild](https://rsbuild.rs)|基于 Rspack 的快速可扩展现代 Web 构建工具。|
+|[rsdoctor](https://rsdoctor.rs)|AI 友好的构建分析器，让构建过程透明可见。|
+|[rslib](https://rslib.rs)|基于 Rsbuild 的库开发工具，用于创建库与 UI 组件。|
+|[rslint](https://rslint.rs)|高性能、兼容 ESLint 的 JavaScript 与 TypeScript 检查器。|
+|[rspack](https://rspack.rs)|快速的 Rust 网页打包工具，兼容现代 webpack API。|
+|[rspress](https://rspress.rs)|闪电般快速的静态站点生成器。|
+|[rstest](https://rstest.rs)|基于 Rspack 的 JavaScript 测试框架，兼容 Jest API。|
 |[ruff](https://github.com/astral-sh/ruff)|极速的 Python linter 和代码格式化工具。|
 |[rustc](https://doc.rust-lang.org/rustc)|Rust 编译器|
 |[rustup](https://rustup.rs)|Rust 工具链安装器。|
@@ -216,15 +238,22 @@
 |[sd](https://github.com/chmln/sd)|直觉化的查找与替换 CLI<br>sed 替代工具|
 |[sdkmanager](https://developer.android.com/studio/intro/update#sdk-manager)|sdkmanager - Android SDK 管理器。<br>安装、更新和管理 Android SDK 包、平台、构建工具等。|
 |[sfsu](https://github.com/winpax/sfsu)|Scoop 工具，比原生 Scoop 快 30-100 倍。|
+|[sk](https://github.com/skim-rs/skim)|一款用 Rust 语言编写的命令行快速模糊查找工具|
 |[sqlite3](https://www.sqlite.org)|SQLite 命令行界面。|
 |[ssh-keygen](https://www.openssh.com)|OpenSSH 密钥生成工具。|
 |[starship](https://github.com/starship/starship)|跨平台终端提示符。|
+|[stern](https://github.com/stern/stern)|同时 tail 多个 Kubernetes pod 与容器的日志。|
+|[stripe](https://docs.stripe.com/cli)|与 Stripe 交互的官方命令行工具。|
 |[svn](https://subversion.apache.org)|Subversion 版本控制系统。|
 |[swc](https://swc.rs/)|超快的 TypeScript/JavaScript 编译器。|
+|[taze](https://github.com/antfu-collective/taze)|让你的依赖保持新鲜的现代化 CLI 工具。|
 |[terraform](https://www.terraform.io)|HashiCorp Terraform - 基础设施即代码工具|
 |[terragrunt](https://terragrunt.gruntwork.io)|Terragrunt - 用于 OpenTofu/Terraform 的灵活编排工具|
+|[tig](https://github.com/jonas/tig)|Tig 是一个基于 ncurses 的 git(1) 文本界面工具。<br>它主要作为 Git 仓库浏览器使用，也可以辅助按代码块粒度暂存待提交的更改，并作为各种 Git 命令输出的分页器。|
+|[tofu](https://opentofu.org)|开源基础设施即代码工具。|
 |[tokei](https://github.com/XAMPPRocky/tokei)|快速统计你的代码量|
 |[tombi](https://tombi-toml.github.io/tombi/)|TOML 工具包|
+|[trivy](https://trivy.dev)|扫描容器镜像、文件系统与 Git 仓库的漏洞，以及配置问题与硬编码密钥。|
 |[tsc](https://www.typescriptlang.org/docs/handbook/compiler-options.html)|TypeScript 编译器。|
 |[tsx](https://tsx.hirok.io)|TypeScript Execute。在 Node.js 中运行 TypeScript 的最简单方式。|
 |[ttyd](https://github.com/tsl0922/ttyd)|在 Web 上共享终端的工具|
@@ -240,6 +269,9 @@
 |[vite](https://github.com/vitejs/vite)|下一代前端工具链。|
 |[vitest](https://github.com/vitest-dev/vitest)|下一代测试框架。|
 |[volta](https://volta.sh)|JavaScript 工具管理器。|
+|[vp](https://viteplus.dev)|Vite+ 命令行界面。<br>创建、开发、构建、测试、检查、格式化 JavaScript 项目并管理其依赖。|
+|[vpr](https://viteplus.dev/guide/run)|独立任务运行器（等同于 `vp run`）。<br>在工作区包中运行任务。|
+|[vpx](https://viteplus.dev/guide/vpx)|执行本地或远程 npm 包中的命令。<br>运行本地可执行文件，或下载并运行远程包。|
 |[watchexec](https://github.com/watchexec/watchexec)|在监视的文件更改时执行命令<br>递归监视更改并运行命令|
 |[wget](https://www.gnu.org/software/wget/)|非交互式网络检索工具。|
 |[winget](https://github.com/microsoft/winget-cli)|Windows 包管理器。|
@@ -251,6 +283,7 @@
 |[wt](https://github.com/microsoft/terminal)|Windows Terminal 命令行。|
 |[xh](https://github.com/ducaale/xh)|一个友好且快速的 HTTP 请求发送工具。<br>用 Rust 编写的 HTTPie 替代品。|
 |[xmake](https://xmake.io)|基于 Lua 的跨平台构建工具。|
+|[xpipe](https://github.com/xpipe-io/xpipe)|连接中心，从本地桌面访问整个服务器基础设施。|
 |[xxd](https://www.linux.org/docs/man1/xxd.html)|生成十六进制转储，或执行逆向操作|
 |[ya](https://yazi-rs.github.io/)|Yazi - 使用 Rust 编写的极速终端文件管理器。|
 |[yarn](https://classic.yarnpkg.com/)|快速、可靠、安全的依赖管理。|

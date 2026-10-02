@@ -1,17 +1,20 @@
 {
-  "count": 251,
+  "count": 284,
   "update": {
     "7z": "200a4e842883ec0177c772bc94ce5ef93148eb75bec9a08d8ecbf4d4b6b4d849",
-    "adb": "3b242e55925338569955f76edb98e0e8eab2e40fabd032964620aa3d611dbdd4",
-    "android": "1125124441c631ca541a5c91793f0d1aa78e6e5d5b11fd439facf01b8118d434",
-    "arch": "e3ce4156235043c5b14d753551fa24a4177b0dd865bd7c97dfadec883b15ce86",
-    "aria2c": "165964eef89f9c239036114ecca1338c401af4ccbb08393868ecc6d3023b36d9",
-    "atac": "50e7a1cf1d731b8283e3ff93c0e125c98a4f81beabf84cd3a8eaf2e67be10bd1",
-    "atuin": "17346a35d49f906bfa9b259bcfa35dc602cde4c55d2bb902c9e3f2c3d0dff42f",
-    "aube": "9b70242b71b9a7a14805058d332223df39a3951f37c166c42326e9809af42afe",
-    "aubr": "72a4a15cadd45008928341b197a37e227cb67926a81e8aee34b2fe2c0adcd83c",
-    "aubx": "a6a020d9073692736bf163f3d06e8cda34d67b3de75e89ad878d32a1cd9a5639",
-    "avdmanager": "ae0af7bf8d5c1d4602977acf627e0206a48ed776b0f04f421b22e71cf4b28c9b",
+    "act": "cb21959e4e5fb650771faabf8c2bb96f5250224a7717c480ad99a0d2dae8dd7c",
+    "adb": "90e4ad09d523e74c921634b8b4c38943575a8c8fcb1f105795ea5e8ceb5c30e2",
+    "android": "e865fd1d7d15a2a54f47d98a862e5abcffd7e78d2ec03fa3629c1feaf2f4e89c",
+    "apt": "1e516d883283d1b899befeb3f0be6a3ec9ccf1d1b2e34060af432c4e9c9f738d",
+    "arch": "23aeb24c50bf6f5675f95644847d812e83246ffd62a74fa6c325ebfa996e4691",
+    "aria2c": "20d1a452e7fa730ef583956d072502cf8b3cb8f07ee89980a5ee736a55208e35",
+    "ast-grep": "6ebf2e5f0ab556d395fb9d30d5db9a4c45349eb7604ecef66337f5e3d80f0400",
+    "atac": "a03bbbea632b97cc93355da7e673f9c71bb49a00df55cdd1fcda9f32b59b053b",
+    "atuin": "253b12a1e1cd8f90357920234ce8386f8643397882610b29aec841eaae6387e9",
+    "aube": "46e88c05e434ff6181b7f398ac66d33d90c2052d8c360126e9d01f8819d34bd2",
+    "aubr": "c2931388c905b1ea7837d8bcfcf2017f90164f1e8ead089ea1d74b9db66e396b",
+    "aubx": "13eefbf753b2083618f9f5359b2a2f2c7312e72f660f1b9d3acd33f1398581bb",
+    "avdmanager": "a99ae049c15f1cb018faeb129adced0b8c6d3ef8b73d1461843126d18fd4f18b",
     "aws": "8619f03d6fbb293847716acd94f76736a0c3dab1275cec83cbf6cc9877e72c51",
     "b2sum": "f74f69fc65621d0e91b4c2b26e8b160742a7e85ced44a076df63f1b8ba161153",
     "b3sum": "5da1029f63e72f77cec4634ec0a6b5424d43478514f73383af07c6081f1b5c23",
@@ -20,42 +23,45 @@
     "basename": "17b2432273d0617becfb9cb3ed5c1e49e445ca86af34edb6babd20a0a10f3c26",
     "basenc": "c66e4933b581429eafe31bd0f0400380cf150d4936fc653a6787845f1c43372a",
     "bat": "bf7bc531f47a5db8aba58a3807fe0639262279af41e72d8192a6cffaa2deb89d",
-    "biome": "6e526ba0ce57df50caf0cfca44014ec1d36e6740f0bd8a08f40b7118d538721a",
-    "bun": "54a0552c04773df3960bb22373f03a3ec693ff51af8ed3fda76c2cda61062069",
-    "bunx": "d8d50d669db31fc7b14e708d281302e14b00b227d01c9f4fb8d08c2d23e152c2",
+    "biome": "be1a7005a5527744e9b43914c9aac74a0449b48becba08cb93bbe87c5236b2aa",
+    "brew": "674625c3c663f52f5d0edf241d9981c594fbdba21b2a47ca92229bd661ed1033",
+    "buf": "ea2de3f854d8835a291161b3f340c91a286b4cc6f00e4ac16b248de04d3379db",
+    "bun": "c06720b618d5532660a9ce1b63e12e88d710ff8c85c83468db00307bed6cd416",
+    "bunx": "cebb28487ad929e6bcccc0c54b7d9679cc3f1b9821c8d7ee335b89ae97ad69a3",
+    "bx": "f49ad8030d755bbacb384a719f0d076e619b78c5e63887d64201805a5ec6b85a",
     "carapace": "8236662cfb87e721605fc3c7bebcda92f2f2e2330e31a4780c8cf6883be95151",
-    "cargo": "f5ceee7044039d865f98d1bd8cf6746ee40a4c81fb139cd42f2e14dcedb49677",
-    "chezmoi": "42fa8df7b8c8a3c039ca2624c97cf7250873c7156ee0220c3b5b9bcd244af299",
-    "chfs": "09d257c0b6a7519e6bb8bf827c2f1acd070c00e01ba0601792eb1a2e2587944b",
-    "choco": "a59acec0cb49c39c4f79f78f8a9bee1c5ad5e69468818dac5b49d43b0e7cf6cb",
+    "cargo": "4307516b142cc1014c252a64c51f0e1670c532f8fa58d831faf92e8414c79d07",
+    "chezmoi": "bac56136fa1dd037ff30e8fcbe91b0d79a281fd4b910a5265a6cf87026ea85aa",
+    "chfs": "1ba7bfa2b98ab2ca035f6c0e1f97fd93d7c6196ebb21103e7caf321f14ad961d",
+    "choco": "d16014160ef16a9351d74976ed6f2d8930df656303191fc0c621c99290aadd23",
     "chsrc": "9c01ed08db5b3caaf4ac8af4af6f8c318eba4ecd9b6add5770a47bcd0e7a927d",
     "cksum": "5d6ea8e1fa31a750169ba16409ef123b6a09907d3d4636416c00319bf1447fba",
-    "claude": "8fef4b5d8ada5c824da94a57f62024a148801f835a9717357f11ef4e0acdf477",
+    "claude": "81e88a4f6f7c3c7412bc856460f81ab184a0a7d2a0a3650fc7a9d81ccafd74dd",
     "cmake": "1271075e0c7472782ad7f96f9291b51dbbce14415258946f29e2a60f898f3233",
-    "code": "4bf1dbdb7237747dfacba4a7158a5971669145a7102cf3a1b008a6d2bb0ba0c5",
+    "code": "03b79f14ead6c050382e00b8f332bd0a5951ceece232c72921812996c591c635",
     "codewhale": "6d9275436060f8822b483a6c5cffea1b1a394bffc316d16d288e08a80dc7e172",
-    "codex": "50822a0ccf04945eee11b7474c24e4031d55b411969f412d7c9c4f0210ea8856",
+    "codex": "d3be175c6ed9931cfbc54157eb15742ec8d27e06f1614732dc90a019736a2e68",
     "comm": "e36201186c984c9c9ec30a30ee940a859d00aad77229891117928ea0c4c96304",
-    "conda": "318722eb7a4eb9054da34521c1e000692c2e4a6710acdfa85e1533b00decac3c",
-    "copilot": "aa81725a9b117239f0b10fa79683b767c57926767e53e71ce61a7f85093febd2",
+    "conda": "5aca0d2ae64982ebf757c4b64ccac7aebc74cc0945e3957dd308bb71649f4968",
+    "copilot": "5ab247dd25550e75ebfe74ff07aa056b5b80fa60839e79180e2cb826e7765fd1",
     "croc": "f10b405869b3c7ffe0528c1c75a5fc58157164354c50b96e02869abfdc04ebac",
     "csplit": "f8f9a21c9e1e8af0edb410a043fe2d681c81119127938402de4652f3b0e73775",
     "curl": "9371b1d0651128a1389498238a9569cffa2523503f4fca5a900f08bcb84725c6",
     "cut": "40da7813f408a3355b0f38d84cb4ada71a6e9041e6e1df46fc1fe7a85e1be758",
     "cypress": "018f88e001654409e08c012933572d2bcc014743d6b10dd59adc68be2b3f848e",
-    "dart": "537c1139b90181ca50022a3da723104c244bc192c003dc2cf434be498e29c3ad",
+    "dart": "17c1d09afb3bba02411f22fc2d320c8b52bcb01e218db3ccce659efde0d246ef",
     "date": "80d4ff808b410d2c0ee32c2eb293e22fd09cc4cc6210e4feb43e1fee623d4e43",
-    "dd": "3a50ec570ce1146d13d01ef948b61ee9b608ec55edc9723eb69c7de6440fa8d2",
+    "dd": "240efb1d54ebf5d160ed5dd3e68e149bf2fbd6dd79045ae3ba88b47dca785feb",
     "delta": "b20007f93b427381d528e915984f97435fe01633f8b29da033b04e0d48d27982",
-    "deno": "0130ac21381b0066e58111ca1406fa0aa9fdaa9a0797d66abe9b673421cbe5cb",
+    "deno": "b3d3d5268cb7c0da70dcdaa75435cad828421649a4a8514369961025f69d1074",
     "df": "0acfa24c875d4dfa785bc9a14e2784f093e05734ff262ce671b7e7a86c56d6b9",
     "diny": "ef6c12a6437cf1bfb590905eaf50be926e13dd391f4b00fae1f9c6b3432ec5f8",
     "dircolors": "8d987b1595183809721e7703e7b3fd471f42248741fd4e596b14879cc61759f9",
     "dirname": "1337157a89c31a0f3fe8af003fa96b8593572963a56a6ca6853233abcc598289",
-    "docker": "b84a118bc1769fa79ed5f9dafdd7976f58f57b3684e72cfa5ae76293cdbd3281",
-    "docker-compose": "2babefb48715f094c9c80c13fbed8097b063ccc64ca715e461143b9772dbf51b",
-    "doctl": "fd4f787f2de35d6bd27571dcbf6d72b4d0d9f723375693dc65f4b6ee59d6c8d5",
-    "dotnet": "cfda57d2e0123963c271b6957b837e90561bafaeb1939621ddbc531670b3acc0",
+    "docker": "1c5d5cb990befcbcf9f47886b51b2a5bdef6563276ef22919fb235c6b735f989",
+    "docker-compose": "1469ca47369197ec182b947b0e9675a6628a685787e761e2b23dc7ae5916f155",
+    "doctl": "67554a6e66de67ee4f2d9b1ff78b3ad4cdf9018e9e4a074982662f2e34108152",
+    "dotnet": "54c3e17bea499983023dedaabd9c28eaf5b3c9e9a8a3e4107ae97e1cabc15571",
     "dsc": "971029edc36afaeb874ced5215614e1beb6998e7fcbf731504806bb021c7e234",
     "du": "ed984a55c1b8680501fc17c8778c6be8d77b27d00b67ae9d2e5d70f16153e779",
     "dua": "bfba1536af74c6edb0b7a3b36c9afd9ab2ce17c99418848e2155d9e18fd0a659",
@@ -63,195 +69,222 @@
     "dufs": "67af9775ae06a318202d56f6a3cf45bf44fd3326a7a6c2bd9aa69326239ed480",
     "dust": "ee13defd130b131839781337dbff2ea3f140652fe8620de62e47f3eedd9b8ab6",
     "eddy": "462ec3423f74430c5f0bd845e4fe60efe8037eebabfe91a965a2595e702a66b9",
-    "emulator": "6f02392cc398beb8fd59d918ead2cd8638b9da0dbbc05c31bf06fb260bb0cabe",
+    "emulator": "5c2eab3b2a038fb89dadb9ce6fb8f354f12109721e715754a4f07b3a1dd8daba",
     "env": "c9237373ca7e3b120c334ab318d8033cfabd4fbce87a4b32935067057599ca2e",
-    "esbuild": "91070a1208c9cda0f073aed03ccbf8124bcbd29d34a45f5c0b0b59518dc5da5b",
-    "eslint": "9dd88fa4351845d87e45c5f3ef4e358ee60f8367db1618df2ebd63401f1694cc",
+    "esbuild": "9d7720f1ec312a7d5a7fbea9ad83b10c8d6ed569047af264c93cd3881bb0d73d",
+    "eslint": "df28d9e29ec5ea9172b3ad91134420496a5c954d2958be86c14f4919ab73f9da",
     "expand": "32b1542915c067af2abb5fed177af17a2bf177ae74656b96f6cd58cba37c7f08",
-    "expo": "2e5d16f6c432b5f8acd902c4cd7b9cd1bb91735e29a8a40e939f77bd80c3e901",
+    "expo": "0fca5efa165c57098d58121913f38e0ecee0095d997f3ae6da0cd20bac259c84",
     "eza": "a50a724868c9c8941be8c1ca78483fab036ae1b567d3de14e7840aad78c4156d",
     "factor": "995508965e1858674781f183fce51665012c4adf46ba3a4e20c23c3e9e497112",
-    "fastboot": "1706a77d49aceea41dc1f63381ec1804c76ef4389ef7fd3c2b86107c02b1440c",
+    "fastboot": "1802790788ae8c8e22eef40f6b1c85d19d079f65179c211b4e3a01b2bc70e2c8",
+    "fastfetch": "30481b9e63c482b71302be3703135ebc84cab1f5545204d6797cd6767fa42eb6",
     "fd": "e2248de9886298bc3af65cb338609f67e4b95d322ac6f7f273d6bbae432adfb6",
     "ffmpeg": "a0dbc16906030de4bb27dc850a56cf3c3dbea79d8be0c9d5b7a27c40bfe9de19",
-    "flutter": "b1ee072f171e0c3b174acc98b074ba8f443a36c66f094d58aeca2e15ea3b756d",
+    "flutter": "6d93b0a66d00f2672c09bc9f9e335920e9ff9685ff19182a4d80fbdbb140eb4c",
+    "fluxdown": "320521bf479a127c47fcf167741e4268449b0e213949f205c0f4bc4081c897e2",
     "fmt": "8797b8cf66afe957a3215b86b711fda784dd1309ddf3f693fe05c8658df77119",
-    "fnm": "6984b0bf2ef37cb74849f775c7ed64de249cbd9d354221d86eb2a3e4fec95732",
+    "fnm": "c30a49d684b7c2ee5f0baddbbf0b7a6da550b91706727ffcc0b3e3245ae577f6",
     "fold": "3e324114988c306099e495cf3f30e024dbe688f9bd8d242c70cdd2d177ebe45f",
-    "fresh": "c9269ea986716060d67a4c7ace89497b42d110275ddb42cd72984e18426c5ad5",
+    "fresh": "c4918f99722c2e88cf1a49910c6b5ba49e6eb67a582b291775f22a31cdd38dfc",
     "fx": "320cb444382a1249ebb90931870c1a86bd05d684ce767b5f0947487d9d6f9e19",
     "fzf": "74c5594de650ca31bc778175a95f46d7b55278f3754d4ca8d8539bb5ca932e22",
     "gcc": "04eab52872935a41494f10bebdb811b6a51ab21e55157bea3a17d5513c3652ec",
-    "gem": "8737be1d906e9743f915283b7365d84e148a2e16d8dfee256625cb870a800717",
-    "gemini": "043efb9c16b204741b19a90d4d26ba1272b731aa2517c742b12b964976445e6d",
-    "gh": "295a95b6b1ac0976f3b19019384c3884fbfa593a18e519328d8b629158f79267",
-    "git": "41757aff14da1299a9dae285a501c29603bd70d6ed849e86dfc98d0ee9af003f",
+    "gem": "cccc9fc4264b221905a3ed17d3262053a5897979b4d65a9c0012ec965600ba0e",
+    "gemini": "b948753fe2ef4e4ac73252972f72b3ba611db44d34ac6f38cff0ce95e99bed08",
+    "gh": "b0f615b649f8197e34423c22946d2c5c282561cf3fe41b61b0470bb4c5efbc30",
+    "ghgrab": "718a88422f2453960c82ab028fe3efe279470957d0112d09d8b3b3b54b0372f7",
+    "git": "d7cf013a232518e0b8b4a0e8796d8e870722acd0ead46e4d8d75e8b532a26c7c",
     "gitversion": "b311d96fc0565fd9faa4da052e549e3b07c668b11ba8f1d948dd915191e4dbd0",
-    "glab": "d58c8f35a3ec8432e28f6aa90e73e5ebf884cdd5a48004dceec73eed696a23bf",
+    "glab": "49c13c22697692c14065d5ad513185b6730240686d2960429a4dcce2417193d6",
     "glow": "aa0208181296895080d16d745ae031d87c14269091f4c8277f3ef9688f3c8861",
-    "go": "b19cfa9b1bbb6bf42568b5bf278addff752e2d2bb6666d0009167c701c4cd6a9",
+    "go": "0dcc81348ecbba02730ed8680c7021e5eaffae148a0c4ec0269f2c484530e9fc",
     "godot": "c98da73e1e29dd6fd35633d412e4e5358187ee85b3aa1e94921c2d89acfc7879",
     "gpg": "a88a85c281746b420b635a89443fda37cb6d533da66d1826e3e8408ac42f1bfb",
-    "gradle": "2b5dfb9960aeb8811e9e10d34b959e770bd80e3e843ab5ffe68b453f58dc6606",
-    "gradlew": "e3b1de73b99def65475973f58d0408795cad1618e2100c639f75bec417e49d1c",
+    "gradle": "34b232a2b1ea140aa6e9f0a5a425a70d28e5208b533011794d4af0cf2c23dd08",
+    "gradlew": "706734d662ee9d017f8d2b337dfc0281d35b57b1d4cd8c571fafa95fd8ad7b90",
     "gum": "b3bcd5871c0ed42f04aa65540ab62a3043993d6929b6f73493cad747e5af5205",
-    "hashsum": "9032b3219837d9859fda7f95c900c0819e4c546d7d7c9742389f692ee1fe0ec5",
+    "hashsum": "63ba57bdfd0b7dbc02ea57242c3a2e7f3ade9c2cd4cb3569d3fe5fbc16bbfcef",
     "head": "5858f8a0195b5e5b4a491187ea0c07bfd44f10fc466d2cb7b5beec1e6e51aadd",
     "helix": "2fda90cfab9cd086cac67aa628727ae0ff1a51768c22d4c08d3190390b9adbe2",
-    "helm": "498fd2376834e76d9a52880b026828041a4768b65898b11ea32b7c3da0d9d3d7",
-    "helmfile": "cf906e92446cd5aecb60966b547e54357a0cf145d4255c8b7a5364e586e11973",
-    "hf": "915f584b7a277deca77824c5b622103653bad4d5cc7f97e5b2de74e2c406939b",
+    "helm": "e185ee2b79df94a877c04b08cacff639fa16abd268a65670b1ca62fb810f3d89",
+    "helmfile": "39baaf5677656b5de04b5f395e16754ea41ed5b1a33565826cd91e7af624b747",
+    "hf": "01018d80223f32633874d9c5270cc6ed5c4051de9ea23b322db08b78af0848ac",
     "hostname": "902b195fa0b9645ececbaaf09664eba12f56ece6494ad479e6a637f92d87e29d",
+    "hugo": "274f1051eb97c18e086b85643d2a1fc6ba4cc9a78e1bbd5d3632714d3f80e8fd",
     "hurl": "a19391333633f0f37e47a9bf1e59070e84d4e51a23c0ca1e21b03d05f87149c1",
     "hyperfine": "a4a796fbd36dd7baeab80729b030715e495b58078f74e9dde5bcb7cbb735f644",
     "ionic": "6466bc5b1d0376246042af54919612f124fe90b0b068fbfd45838d422da61421",
-    "istioctl": "a821a3440d2ee09b7daf22a7dc651cf71fa63415b0b53bba8e2d6078d7570125",
+    "istioctl": "8ca711f36d08e36906420ae47922f6fee58f6bbe1fed806532a3108bb52918bc",
     "jaq": "dd0281462df08fdde1a727b653891cadbe731ec03942acbaa33cde5e6cf58ccc",
-    "jj": "1aea4d3f1ec76eebd3483161b967a5a561d700f8aa713b545bb9c5ecc64ebaed",
+    "jj": "b622b5039b5ae9e2dcb240090774e881cab271ecf4071d59011da46d459d049c",
     "jjui": "af9d826fec1ba34c97bd6eb8035a3c3c7058abd994f6bbe6a2955d82b90fd8a0",
     "join": "06a36d0f8b92d04c5b20a9b0371415e7a28b6987e62b4a088ea75b28e0343c8f",
-    "jq": "25fb9c2e0ba74cd8270b71e284c1ed2c7aceacc5f0963a43788eaa71ffbf3efb",
-    "just": "487f785c3a1ea8b7ffe5dcf8d281769b2173d1a7ad5802d6c170cb39d1506ae2",
-    "k3d": "deae517c2619b7a3219d3dcebd02c308c0a2b877db8b0c5669f2eff93f012552",
-    "k9s": "c9c3d5e4b09b08d61e42d19355777b3ab1cef2d0a7a00a8035e2efe1cb086b33",
-    "kilo": "c1a8aa22b447dd80d53ffa72d7a17e188214de2d219c4031f1e391ea6af4fdfe",
-    "kind": "b8a7d3e0a48c26fa647e3b759a50a4f509b79a2ea8afd4d2e517cd8e5ab0930a",
-    "komac": "d8043621865edda7eeff1c7172e2b112845d429c374e06b8ad9680705952f882",
-    "kubectl": "f46e1c7cdc8c53556d80f64352df57dc920276008a0d9795caebafdb2d372e14",
-    "kubectx": "a7a0e2254a9de4a18c9558a292af3ca4e22fea163ad5315c7787624c6b52cff5",
-    "kubens": "8bec98dfae81047a22bf6ed4a6ea1f160b656b1678c71c6f883c279a2b2f5469",
-    "kustomize": "ed259f6f90c8597fdcf52250a160b0c3002fc451409588e0c3b2050165219eb6",
+    "jq": "ddcaf986119029663a1974ff937c1d6321194734b2dd5975e69beae450e589a0",
+    "just": "5390a42aea9a4d7c6a449be08332f698d61382d424222ac4b2fa7094ada69197",
+    "k3d": "766f3dc3f0b936e59e4bd191f06c5fbe3dbf11d50d76851aa3c114d713fe5e5e",
+    "k9s": "8937939651e50eb1e6210a205d18c4314ae1af8bfede251f3f6a8f29dbc8a2fc",
+    "kilo": "20d0db7f5ed83dd32e30df2592b56f39d884ff370fe5edbb56d9ba04ca0d075b",
+    "kind": "ae3391912c7ed3843f6f3fe7c56ab02b745253307cdfbdb7718ea1dc01088af0",
+    "komac": "ccc3294dbaf94fd027ca791a38f880e655ef22b1d9f028ad2f55742c38d99292",
+    "kubectl": "c89528a71290cf414aef01f2a9dc97fb8a2a4560e01762b790a43cc537a13401",
+    "kubectx": "71517431e2cf27f5227c85b132b1ce230143a1c751e3a9646438f803df24c461",
+    "kubens": "4da688f357014a2dfbf78b34c2c751e5b312551393584e9df1480e5c94146bb7",
+    "kustomize": "640e87d762ce4399d5a92ac8b2358ff8f3863fde01340ed2c545cd547300781d",
     "lark-cli": "9d583087e93e3e27984e5a05a5b5c8d15dcb2de83e9d342bf6f24900c0fd4fd0",
-    "lazydocker": "1d040a25657903d9b68892b7908cedf2b11e766a28f380f47e96925e1c1488fd",
+    "lazydocker": "1c480d849664ea1ec4e47ad35f1c330eba194d43d6996569a4fb61691dfe219d",
     "lazygit": "a2966445b6c5abde684802a5c6771ca315432ddcc24d876304e11369ae9d9f71",
     "lefthook": "b72062cd6c72bf03b5b1fa0dbadc57a72e9ae7c49e27dcd37f7f1895fec0c3ee",
-    "link": "db9fd86599b2ecb471ce3a4de84f6723e0017bb087aaac435d3036b076f11df1",
+    "link": "6a89af3d6ee63ad596d7406e937d537a8289ecffa52f8b5e0b0839c9c3c1bf53",
     "ln": "f1be7487d3da8434bc995c12f8b7f7c58ace2b580ff71c6ae916a9899dc248d7",
-    "lore": "c96ad92ea8e06e0d4f80a903e54a2dd16de2876c094e1ca1c1539f7920d3b85a",
+    "lore": "359a77803604ee9ef8ca6f1f9564e40c8471b2c09f057a75bebba4366296fa93",
     "lua": "2bcc91fdda83c8ac15bde9e21b8700f998651d22ad6e6f4c3d3bb229468fc9bc",
     "lychee": "e8e0c84f02c05bb9711dab05c32954d6cb66e1377b98c8746106b87838adaa5c",
     "magick": "6561bdcf31ac6621e1f7fdef513e6a25813febe14555a8125e43afedb269b3b6",
     "mcfly": "0b6c735c533cf501c9a807ef5d16d9d6fdeba3eb0eb078f889d993824d35fedf",
     "md5sum": "e1e2c9590550043315eb5ad04b8a40792825898d2e59f66d3c39b9cc38c0ab32",
     "mimo": "3c4d6427096e182fd8c8cf3a718fa442f554da85a7c9e484a628e8aaeee9b398",
-    "minikube": "1003b7a96f67bf8e0bc79c8591b2008c71dce67c7b46e6cbf3439c9a6c3cb973",
-    "mise": "864c93ae8c4bf13d8968491b41b18b734a1e8c1346a03c9ccbef1dc5de01b4d1",
+    "minikube": "d0a5e808fdaa43afba4699adc0fa2bacb1895f896f002bd007ee5f3722cd2f25",
+    "mise": "ae619f404d74eee556de4d8c9ca31df03077bd3ad1af09a3291db6ff6f2bd163",
     "mktemp": "e57f3bc5e59c2e41b7caf784e9af58bafca19fdbab45b64efeb2efa24f99ae9d",
     "more": "e680cd9e889802483cfccee25dcae8f9a5536cf908651e23fc558595159ad26a",
-    "mpv": "29d1ec7bcdee6004e79bf37d90bda43e2313cf5546b29f3ae37f81959203d68e",
-    "mvn": "0cd2f76ae5185aa466e61b6eaacd2009a51108ace0aa08d48c77c81f7026611d",
-    "mysql": "05d99a70e7ab81ac695561877ab253be974efc8b4bdc294f33b82fb8b2e262ed",
+    "mpv": "804c67243feed73a7c8f6f366cd864b0ebcd3ba58881d7545efe54fde9135c0e",
+    "mvn": "e5588fed0cf4b2473acbe4ecb8707c90c31af2194581a74e2cb15e097ca42f73",
+    "mysql": "5868abc410ecbce33379cc4ca97fc5e159077bf76b25451b716281d7bec4e012",
     "N_m3u8DL-RE": "d95b13da0890b7e51567bbf565d444856c6cf4dab94ced19b881b851a8c0394c",
-    "netlify": "2b871f379a5ae7f45f367e7f3e4882c7fe530a5c2eeaef057e24d7b2186fca6a",
+    "netlify": "0a04473fbd3ce8ec8401a2ead37f959cfc1af05acceef28e1c20a2e7025961ca",
+    "netwatch": "df65d83fb734ef4ce8f1d2a7cd337023d4bf102c02802fe62bf10366e0009d38",
     "nexttrace": "ecf7db86c69a12f808aab5a07f0956944f1ac6209a481566fffd94d21cc2880e",
     "ngrok": "60979831d56c8765b2b83af64e8ccad1ac63730267f65f042d05fb1b9a6d5a2e",
     "nl": "9df0504fc387a178f369f9ea97332d49efaf7329e33fba6d39c35131959fe9a6",
-    "node": "f332021bda342855fedd6d51f24f0d712d6d3d83b1b4f9987e2a5b635c6b655b",
+    "node": "3b0357ff9c177c7d3d2ce760395ba38b4ca375509ef38d7e30e9bc6ac9096b9d",
     "nodemon": "2c861ff15e67a81790fdcef406006440472c9fc0923264bd4b95fb59e0400ead",
-    "nomad": "3533a806dcdc9048a5aebfc4dc3b7321db99a708d00e947730effd2d002bbee6",
-    "npm": "cd0adc4e360f5daae788bfd1d075fd76d8979f168dd0573ca3b6192d7f3222d9",
+    "nomad": "193cc2692226087c9e015dcc1108217d1ffabd4ac9ddd0a7eb1a2a540f76f97a",
+    "npm": "f5d4b75f7c8d0cee85a01a76e7bceee13c74eced003848d3adc95bcb0c6ae337",
     "nproc": "1d54507e279bc36cb699b8311cbde64e4775c172b875ff21e59c509c9c281ad6",
-    "npx": "8cb8d9a1b35d40c7cb4d9abff8045bf3c86df5976f3257f45826019f64e3fbb6",
+    "npx": "debe1f9d04cfc9ddedcc0baa36d2ddb4f647423bc6220c7df0efdd283a6df360",
     "nrm": "cf90ab5f62cd8c32fd9afebfebb60419efec69a16049fdf4a158053b74a5d89b",
-    "nssm": "ff49b374207ec6f617e3cbc369d27360c0c540bb0f44ec0af6c3aefcffc520ef",
+    "nssm": "d4b3742e5007b26929ae13fc9529c1bb2ee951cf85ffddfc004ecd2d96c534cb",
     "nu": "59aa1a4ab3cb4e383b27ea5fa672454143be473f0af0ab1b7ea3449dfd2529f1",
-    "nub": "956ec23b9441d74b23b866a392f983a6dcf47892957fdd7159d30a376ac13ad4",
-    "nubx": "c1bb44765460e8940f9ab1e4ba7c3d8784dcf67064be34f8882dcff0afd22bf9",
+    "nub": "ac5e0b70866bd69e71c2bdf03fdf58607baaff4e6250ffa24a805be1f8621534",
+    "nubx": "a641de98addaba7d7af21c3598ad14291464458d526300265b22f420cf58cc03",
     "numfmt": "4ef484c78e423846d9b682713f63775aad86ca89033b669d455b0ee846bbb34e",
     "nvim": "69fbe3306e136c075698130ab7ca9aff418cf7bfb95f435d3a6a5118fa95ffaf",
-    "nvm": "921ede850ecb1e3f659a681cbd9284b5f1d1c371b6da6de91942f62cb8437dec",
+    "nvm": "87e036c9ba1db32e0eac8f846124c0207fc915aa31edf3fe0e45d6a13f054dae",
     "od": "33bb63b2608a037b055c2e55d4de95860c21baa4096fd091e221deef6952ddd0",
     "oh-my-posh": "20609b016fe76bcfcd6f2c055fcc75dca27512f4b2c00f1c5737485f499a7049",
-    "ollama": "44edf657d203b4a02998606330e3382de512a97c705e980516d3d90a4213e087",
+    "ollama": "6437bf41c3e153323cb4682846f62543d2359ff6838a6f638af9498e88c4961a",
     "omp": "3bb1db76b0d35c7580a2d8a39997ea9f60f22ea17432313c697f1b65e0c74dce",
-    "openclaude": "7532ffd4d28c3c0db7cfd67a6055755662482e6bc94e684eef3c0aaec54a24d8",
+    "openclaude": "c6fa7fbe4afbc6b7db1779804e2132b5e12799a00be0d22cef7190bfce71f19c",
     "openclaw": "e13d394663001d1dbe2eb2c0f133a42f039dd56b66c0411ae6db47f9169034e2",
-    "opencode": "636a3415d4d02a7ead09dd53c09411433ad549143976488a88d667faecea88e8",
-    "opencode2": "fd32de4203c40eed5e4abb12840449ff4108b250712fd70d3e5d92b54faecf5b",
+    "opencode": "478028a536efe8bce93c517badccc31d8fcb760c563f49d019659fb1ce6ee3dd",
+    "opencode2": "0809fa8339fc3f8bbbabd67e61ccaabfe9e47cc359c04caf41ce462c68162171",
     "ouch": "3be382e157dcf4371a6e1ff149db01dc95bd8c5259b02da06273ec5db6be342d",
-    "oxfmt": "64c0f32346e6206bd368bdb7e6541fa395e181cc0738a6fcc3086d2546a428a0",
-    "oxlint": "24576d2230d913b7a56663ea66523060744c2608fd8161f766eac841aa381e53",
-    "packer": "4befd4e6cd568c5a8e48727d40275507b53f9411f04be4aa651e3d11426c7a79",
+    "oxfmt": "89abca5640efea4d29b1b6e5f94aa18d7d7bfaac405b0006468fa7a809b9d897",
+    "oxlint": "050901e65092f620ca12294f1fa19166b920c80e309dda548a3eff169b920ea9",
+    "packer": "ab4f78d1fd01a748e51e510e77bf5d14406854f6614db992e954b3c2ebb78791",
     "pandoc": "f2a82e92c3b0d084952e98bb8816f48848f56484d756f88a5979dab3c8abd0bd",
     "paste": "971c618be345707256e72663d97f368f13410089af66cdf216e2676b00d1ac8d",
     "pathchk": "f37f9e7c436e8540139e009fa0ac8d39c7ba822370f29388958c452593720e49",
     "pdfcpu": "881acf16921406920ff9ff2d3519142579f3e2c35b7e458970a8d2fb0db19c3b",
-    "pdm": "edb4490e643e74d9bf272b140ef0152e7bdc7c610d94d89b6aadf2f281d8e6a5",
-    "pip": "fabe7c6d8caa6e043e08c59d626a357f9c0da565670e86a056a217cc87b4e9ca",
-    "pixi": "7629d3dec8d32f4d53705b14cf8906ff84c710016b11f35c413dc33d0a81660b",
-    "playwright": "29a59dc758133cfc0d5063c3912f1f8322fab02d0453f62329daa3d2e7fb1d11",
-    "pm2": "eb0d4e4798f76f171c83b88998b030a561f0c0b70bf0784e5127132e6cd135a7",
-    "pnpm": "2ae403cc77a2a7fcbd12a4bdd521daa92248ef42f4933f53e04cb03b4930dc90",
-    "podman": "ed2f6f3481f006fc67837b42fddb5ac573d8efe8e2575e021df5755922ab7ef0",
-    "poetry": "90a547d8c8bd756415fb9a13104666ee3d63fff5c1d2756c55c3a58b73304b68",
+    "pdm": "9d7be150bebb21e3c125c046dc21bfb9f62b16ea2bad3592bd4797d1d704c54e",
+    "pip": "18cb724ee730e0ebe659c495d762bffd7bdd01b9b89ebf299dffd301ac15b49a",
+    "pixi": "4fde556318fff0f34b716e489fcc19dd21032c8c982951e354c913211bf6eeb0",
+    "playwright": "2b1a64b525a0f3c0a9d29073c3a7a53be76e18879ce2a2f7ff882e87531f4cc8",
+    "pm2": "5274a3fb9b28011981d854769d84c510938d20e7fa5476b2c4d9350d79e1d71c",
+    "pnpm": "0ef7c39f07ffc2eaecd94e33f93b4d1f6a679b1cd0fdd7ca33ff1f8970060c0f",
+    "pnpx": "7698c15910258291ffb991081d471f7e169d4d349d5ac6bc0848a44fa23d25a4",
+    "podman": "0de06b42ee58a96b6c30e6c52db08b53f401dee8f9f3f18f8d0deb99e019846a",
+    "poetry": "1ec1e9eadf21cc2072797d3b1f2aed52ec01c82c5fde908b3a0c485a2c3ab983",
     "powershell": "cd5c25c1e4b3a397c4b7435bc883bfbc7242779b34b84915a3d044dcf681d264",
     "pr": "e6a7feb16aec99c967d1e0258bb27187aaf80f27585f450a6b38af00914f0690",
-    "prettier": "e2ebff9174e2cb05b0147a0e030a84262fa5de2500652420bfdebd6edd460ab6",
+    "prettier": "98c5f28cec52a2308088b0a2d5e29c8a7d378717a088778844059a4195a4b89a",
     "printenv": "e66c28ae7a1ed48a75a78cc513999e5adca54ed445ad6df7b93c939b220d89da",
-    "psc": "87fae5b582ea5b0be38b943a0fbd3b9b1092ef0306a5805fc734146417a44790",
+    "prisma": "3a0aa373fb74cab22d3218a4c094ba27e7ed457ef19c14df45c15083ee012429",
+    "psc": "8d258058a5d86919d8492dbdc4729b8fbf9583f805eded406f5259f3ae46503e",
     "ptx": "5f61136365d1c3e7015f7a27f177133ed05aaff37071a2649916982256d52afc",
-    "pulumi": "023af2f462572e4540603e5050c2a4df0520c9c563d9b52afdec0c0117ce12ef",
+    "pulumi": "749cc58b39daab002476464cb7f1b38a746c7c8745eba879efd3cc1a646d4687",
     "pwsh": "d7a7943feda3033bba1fef9308bf2f35f6c1dc16f9de4b765442aef754dddfc7",
-    "pyenv": "2e1b93c28cbdabc5b257d21307a7b1b3c78a8871bb0421272be60ec17600b1bc",
+    "pyenv": "90f26bfad22bcbc108540c33f49a27e682006ad7a43251f2c3701fb0d33eb476",
+    "pytest": "93e78c61d825b59c4a2f681f378d6c790b8251750642cfe65a8be0c26f28f107",
     "python": "027abe0337f88c36236765f05bcf5740c6a67ed302a405c69a4fa2c3509d3208",
-    "rclone": "2c8798740fced8ce1f4aacb93a2da62f5bb010b0859880ba72785e614779104e",
+    "rclone": "3656a9c945c6746487087861d1b083bdc42dcd54a9cb60770ef81bd9ef3a1ba3",
     "reasonix": "b00e61b311d835c08bcf5a1bf0cea677a4ed01ac3ab4f5116836957e3781ead5",
-    "restic": "8b8e7aa4d31215c92b961509cc3713f121a750bf52932cfea428ebb83658c4ef",
+    "restic": "9d87edd5a563b218d5393b3bbd738ff205c656cb8abed9b0b5cc4b61863a0474",
     "resvg": "4c96a7257dfe66cc5074c4d9211d430c07e577d14ebdee5b028c44ca6090c3c1",
     "rg": "1b240dd4a286a408c55897f297b9447d35931ab8c1ef00175027dc8373c136d7",
-    "ruff": "7dc14f4419a29d20c15c234ba5cf9ac749b8b1d5651bf4360048d2e61ba9cb58",
-    "rustc": "0464ede65882f6f901efa1a66537bcffa3dc9bad6f1655605bdff0b0e6dd100b",
-    "rustup": "b5055aba61ab3933fb692ac69d8d066e7a90f381ec1498c7c2b052046e918e52",
-    "scoop": "ed16621b44b585b75546ef0d028d63000040c4fa0d0c7e7c6662666290827c8a",
-    "scoop-checkver": "8d6ae0662c58e30c7ff672f8165ecb8fd730ba5b52df7f11122f42e1fb02f57f",
-    "scoop-install": "d1f39ccdc9beb01fc6f492724c2d6bd8a52f5ae4c9d90ea8217e3fda37903c53",
-    "scoop-update": "185ca6e9aa08e43bfb6a3604a9bacf682e2ea86f629eeaccff71143122707dd1",
+    "rimraf": "c1e0f5d20948a44e457d24101db95d32ccc059c75a4f786973844f41340a2584",
+    "rsbuild": "4d7c10146d293c889b1cf30e5d3888569bf8c49e38e6cff7d1a9445c86cf41c2",
+    "rsdoctor": "0bc2c3a76547c8f881a9cb9d3e954665c28397b07eb3bf365ccc42b953986dcb",
+    "rslib": "322c964badc42d816e8314b7d4eb54112c5ea36d0d75b4d901a90ac278640107",
+    "rslint": "c134bbd258d59f2361c8078480faeb18d55a4b71b0fb439aa1a27e9af3f8257e",
+    "rspack": "446b22600de279de56e95b9c83af8860ec3f47014bc8086ddcf2756bcbb5ea4c",
+    "rspress": "dc98fe2b7dfb9ec9f00c7a960fdf708fb148e39deb9006a7af501c5d0583876d",
+    "rstest": "2da707d4b8523bffb7df40878c6d884506d17a1688b30ea6d3aa35808837b3a0",
+    "ruff": "802b8a7e2c5fe4e44c6047e178d2606de7f99f0b5561029bf1324301a2d2f77c",
+    "rustc": "4976851ff451775412cae71f12ec5770704d30a3dec19bedf38e53edcdf47db2",
+    "rustup": "d15dfd9712c68de8d7e1172b667acbfd9ab9b884c808f3206226f27f441bcf99",
+    "scoop": "01d7daea99b2ee2739411e7fa78b788bfcedea62a861b27c8efccf66a74834cd",
+    "scoop-checkver": "79ae68502dee05c72759263c6d3e5226b26c2601e82ab146b4d1f8b653b13123",
+    "scoop-install": "1a58bde292f54c2c5d03d8bd2f81b8e96f38407d7b3a61f66e4f6644547b7b0c",
+    "scoop-update": "642887cf4b964d10eda7082c66f03d6411cc5a01a77202e7c4726901f64fbde8",
     "sd": "bff991865421986c95ccb18b7b9ebf5908e7902548667ca70c80589d4b3423a1",
-    "sdkmanager": "5616da14a65a377ead1b449f75d01ed93d3a37c3d80af8ffcacaa696aa607a67",
-    "sfsu": "9765cf59b7385d5c47ac77fcfc9f9f95a1511f85815f6e0af8b8eb10216a98df",
-    "sqlite3": "a399266b32d0697e96c02a23c280da0df60a12e31aa815dab3897db4377aed54",
-    "ssh-keygen": "fd519fad73f440101c8ba6f21cd4c97440d460f770518d426fc081b79eb08732",
-    "starship": "6ad69dd56c5018cc999ce75958046cebd0a78c5f21b3d041194f9968b71b9693",
-    "svn": "a85ac15f2840e2cb6dcb662ef064075f02f95642869ca5ff1857d61c77aa5128",
-    "swc": "d8dcf8f3acfd4180c42ce849455f4607972d9f251a86821dac13ad56d25a136a",
-    "terraform": "4e38f8fedbd2cb9eddaaaebc203badc399c30b35587cdb39f3b0f0467739edc5",
-    "terragrunt": "0cbc3e69b2e6c25fb8d7f0cf68a786fe334a943d665c065576995b0297435d8e",
+    "sdkmanager": "b9fd1bff5dc2924fdfef2d0aa476257eb896f5f0eeea42c912e49ccf1d94b455",
+    "sfsu": "12b94c101073415e049f3c3b5a6105d39038dcc545281bb7b8f5663d41c593d0",
+    "sk": "ff345ea42b88ff4cc83fe3707c74ba9ad6dde402516442f68217c2491f2cca94",
+    "sqlite3": "c41f6c0509bd0314787de22dfee724cb893ba8787c9e4525ea83b39893716594",
+    "ssh-keygen": "363cc14cfb08e2ed141bf1a03b5d91122d21c07f066c1143db15b0d466e853d3",
+    "starship": "52f3ab49d27b1a97486a1d48fd46d4bb3560ea6d6595b3ad7904c613cf1485e3",
+    "stern": "200f73db38acd9369a6a58e5129201f241fe02434af3e8968266ae107ba3a950",
+    "stripe": "4a072e3239ecc4343d5fc8d9f9646d54248160fbce713b20f848422791cb0aa6",
+    "svn": "699bd41e24b205f4e887f140c529d76d6c5e7f463f96c4e64dfdef05318bc262",
+    "swc": "8fe99dea4ab43ace9bfe22968ab39a35646de2234e7ab6b2498bf53d19e0ff64",
+    "taze": "cc1070ef7cdabadbce45ba71448714160a8cfc9eb79c0a9b48aa3b4d9ad5be3a",
+    "terraform": "780eed80c2142f1d99ef23cc3d51ed750c0eec9f5570ef06f1b67354edaec058",
+    "terragrunt": "e12070376786edf6e0ec4eae7b4566b54be6dc4e181bb4f05d6c95143ea7793b",
+    "tig": "df31577afe72de2bbf32e0d9aa465acede66c66bd6b968ea849164d49574983e",
+    "tofu": "0fd37918b28d6f29872f80bdb85aed932019829f346a5ec5008df6a1481e4029",
     "tokei": "9981bfd6bf664834e1457ffa5390e5019ebeb97fb394959e77ffcce330f7d24d",
     "tombi": "5f4093e3a7e6ee886fd719de6368efc403e963e0afde2ad40a436997cbd6c48e",
-    "tsc": "329dec7bfc7ded396029cc8bbdf1c2f2925d537b5b10afea3668bfc662e64828",
-    "tsx": "0917170e1bd3686895c0dc300ef059a98468efcfb7d641b9a1909b60fa7dad26",
+    "trivy": "8341efb6effea217769df1d6b8991666d828b1615e7a6d7dd37e8179490f88d6",
+    "tsc": "dfc56cee232980205d004eee11d8716886e9acf1328fd76e77763ac55a9cad68",
+    "tsx": "697c43de4b305f41f069148fda1a2e44b36e754814b136e2608f667583d6a5f3",
     "ttyd": "ccd63f72bad85aff520c277c89e2e403802a0ace33228fe52d788cbc51e3d170",
     "ty": "1d24ed377b8d8aa502e92fe2930865c477fee3254d0442ef13f91d6cec13467a",
-    "typst": "15e192b61cfcb8a32ce28de74dddb37a82567a362a4a5a948dd1e085470c1813",
-    "uv": "ad0690fa6e2e236ce981e6e4f1a38504e546b5e587aec3ceb7cb501a0a6af2ac",
-    "vagrant": "d1b94e3541a403397f800e4431e9ac2f0c39548f0fb80c7579e13f5dc13ef399",
-    "vault": "01952a89a7a240014d3965c93d0a5bc34db625fd1aa8f75869ca078f7d83aa80",
+    "typst": "4f2abeecd6ee43cd928784386b5fd2c92bdb208a053ba0aac65878375a0f94a9",
+    "uv": "98096c1a9235d64f1df9201f8730aba8bd964c0a3349e380b125e06cb7864977",
+    "vagrant": "ca673c5a3d6fa13301a348141cbaa1d81883214cc47ee8fe97ef61d7a7109851",
+    "vault": "67957e5427853f6037c3df92df19e7e1e87b64356f8ab46b852c2072dfe2733a",
     "vdir": "b87536e20127403e10ff14af08a10cfa26739f2682bd44f4b1f3495b2698c121",
-    "vercel": "89b406bd87bad6dc72e1a52630b53fa0b17312a6924c7dc0ae823d1158359ca0",
+    "vercel": "69e81cb71e56411dd81884f70dfc8013ead62a309a3973478dffda0b80a0c1b7",
     "vhs": "599c10be11abc03cafbb3c511f53f4d49e799f1c6dbf8a5a286d3fdfaa3397e4",
     "viddy": "9657842a16eebe242ce6a7dc2760bce4ceb0d76cc08e121f1c2e0fd3d8bdaba5",
-    "vite": "f40ab70391673e15b8d01bf72be8705cdb0fb89760b64efaddbba7d6dc406dad",
-    "vitest": "11d4c59c09235f8dd1f5e16d4471c2c16955b397a207609550119f290b979bdc",
-    "volta": "c2a0d444e93571e6a6d71edebfa536b56d4248a60ab0ebf447b3eb012bc435ad",
+    "vite": "8fe7e4850a83cef8fe05f068e625bd763b52513ae965ed113bdc281caa2f270e",
+    "vitest": "0cceb07e3936736bab44607afe5733554610a045ad762abeff599208cf79d1d2",
+    "volta": "f22e8b82cb8d715086ac6909ded6c23d407f0b07debdeccda5e359801e2c7084",
+    "vp": "9d0ef21e8e01580597cfacdb4340ce4ec2c46204cc1e1e69ecd826ea35be94d2",
+    "vpr": "8a0bf7852695bc7e9c58428069cdef734a6efef7072d02588ef971dae3b468ee",
+    "vpx": "bd2261f726140d8831af8a3e5b1bd68924158b5001c00e5258dba6b12434260c",
     "watchexec": "5cb5a3842e9be5b1ff3148d45c1c05d39a7664eb676e15c6db733ab254dd6510",
     "wget": "56131cdbf246b1126438ff447aa6910e2b957281a07404bf97ed55dd9738fa51",
-    "winget": "685962ed87c3da60c817d1810b25cda30c0198356d649ea7581498a224a37079",
+    "winget": "a5b46501a52260d5dfee84c2ef3f26fc947662a57b906ce9fb9d570d6420557b",
     "witr": "f7413626f529d2a815f94300a231ad32d91a8acddede97ad5374e22eeacee035",
-    "wrangler": "5556f3d80c87eef58de5a6882fc938f651c6d21a94a8e0d049afc8b488f7dd85",
+    "wrangler": "2b5b887450ca5426378fdda84269ec92383917c2700d504e5e4cd5c4558f45d8",
     "wsh": "3c0b3d5848843654d9458226184af8126612f05e6e9d21cabd40a087d2ae1180",
-    "wsl": "03b859c68fd2e432025d4f01b82a2cdd78b70dbf3328f534f595b83507d53933",
+    "wsl": "a4180f48a0a16c742737a2a57419c565ee0e0c2c3351f7ba19412f6dc895fbb6",
     "wslc": "cf6b745d7665ad1f48d99a5cd64a9294273f5772c56a7b87e83d3d112db7e55d",
     "wt": "aa1fa4e9c5628ab2d820bc776659faa55171dac66c8629c85e632287b7e76468",
     "xh": "b8970e9870e33f3fce23547d1a0800c6c45fb9611ba44de60947253f68540fec",
-    "xmake": "ffffbc24a72c6a85b9d1776701e22038d319ee10db5be815255d9d8b0de6f64d",
+    "xmake": "d3615d7703bddde7c72dc1d3e1fc1fbc526cb9f1eb380687c7bad3837c648f25",
+    "xpipe": "1891ebefb9c348761d6266cd71cb23f5e698596d2034214f45353d72b5e4f72c",
     "xxd": "22e6c1a54a8ecc4dd560adaee1cfd1784aa48e349d91b0319c51d65d0eef6140",
-    "ya": "b3119c7c4d56926032010419471bdc16b239b35bd3377f374bf587fbef16273f",
-    "yarn": "739f34b13435fb310d139bb18e5256af9130c11239aee2d10388d07bda4d6968",
+    "ya": "6ed1f757d47d13533d6931987b6721b0fc1582be99103be87a00291f119bc5a3",
+    "yarn": "c1f13648eb0de2bee4ed419437c984756ea1f87cf003d0d325896437af1af9d6",
     "yazi": "a56d33e1edbf25ca337d8fe6540c5676913b6d1e238ac92224c113e2de124b9a",
-    "yq": "8fad039d4b70b90662e9664dd368735897a1513940ee5ba8dd8cc313b9b77cc5",
-    "yt-dlp": "b245b097873af08450658a185c2284432543f84709c16dc8c9d0676104572739",
-    "zellij": "71ecb35226ee851e8045cd5f38205273fc21bb81b571905e21d3abe25c554016",
-    "zoxide": "97cc32a3790c0eae997fb898796c129d140f14e9992a13d9c856fb14f8f3e86a"
+    "yq": "9a5338eff817d16d2e59c5a007ef3dd1301f737b4e04f5012926c4695bb0bfe0",
+    "yt-dlp": "df831bc4f4809b5888352a774cda19de2dcec160c679a31fe95adfad370a977f",
+    "zellij": "98fbeea3f7527b31a2e36de5a16644314149ac333794351ecf90d0f80094c14b",
+    "zoxide": "c25b2b9eeebe2d606c487378efbbebe733e3bb0f10252e0326252861b8c8154e"
   },
   "meta": {
     "7z": {
@@ -266,6 +299,21 @@
         "url": "https://7-zip.org/",
         "description": [
           "7-Zip 的命令行界面。"
+        ]
+      }
+    },
+    "act": {
+      "id": "32f09476-ee3c-4b28-8ff5-8f6e58a06a28",
+      "en-US": {
+        "url": "https://github.com/nektos/act",
+        "description": [
+          "Run GitHub Actions locally."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/nektos/act",
+        "description": [
+          "本地运行 GitHub Actions。"
         ]
       }
     },
@@ -299,6 +347,21 @@
         ]
       }
     },
+    "apt": {
+      "id": "c753cf2d-0c4d-414c-b735-d1cbee8d7f14",
+      "en-US": {
+        "url": "https://wiki.debian.org/Apt",
+        "description": [
+          "A command-line package manager for Debian and derivatives."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://wiki.debian.org/Apt",
+        "description": [
+          "Debian 及衍生系统的命令行包管理器。"
+        ]
+      }
+    },
     "arch": {
       "en-US": {
         "url": "https://github.com/uutils/coreutils",
@@ -327,6 +390,21 @@
         "url": "https://aria2.github.io",
         "description": [
           "轻量级多协议多源下载工具。"
+        ]
+      }
+    },
+    "ast-grep": {
+      "id": "6825e538-4a82-45f0-a346-2510822c1605",
+      "en-US": {
+        "url": "https://github.com/ast-grep/ast-grep",
+        "description": [
+          "Search and Rewrite code at large scale using AST pattern."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/ast-grep/ast-grep",
+        "description": [
+          "使用 AST 模式在大规模代码中搜索与重写。"
         ]
       }
     },
@@ -558,6 +636,36 @@
         ]
       }
     },
+    "brew": {
+      "id": "1efe9ed2-f40f-4591-be27-c481b54fc78a",
+      "en-US": {
+        "url": "https://brew.sh",
+        "description": [
+          "Homebrew is an open-source package manager that was originally designed for macOS and now also supports Linux and WSL (Windows Subsystem for Linux)"
+        ]
+      },
+      "zh-CN": {
+        "url": "https://brew.sh",
+        "description": [
+          "Homebrew 是一个开源的包管理器，最初为 macOS 设计，现在还支持 Linux 和 WSL (Windows Subsystem for Linux)"
+        ]
+      }
+    },
+    "buf": {
+      "id": "ca434f71-8aef-4136-bac4-a07946bb5a95",
+      "en-US": {
+        "url": "https://github.com/bufbuild/buf",
+        "description": [
+          "The Buf CLI - work with Protocol Buffers and manage resources on the Buf Schema Registry (BSR)."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/bufbuild/buf",
+        "description": [
+          "Buf CLI - 处理 Protocol Buffers，并管理 Buf Schema Registry (BSR) 上的资源。"
+        ]
+      }
+    },
     "bun": {
       "id": "b3b84d54-d88d-4311-b772-9aad327731dd",
       "en-US": {
@@ -585,6 +693,21 @@
         "url": "https://bun.com/docs/cli/bunx",
         "description": [
           "执行一个 npm 包可执行文件 (CLI)，如果未安装在 node_modules 中，会自动安装到全局共享缓存。"
+        ]
+      }
+    },
+    "bx": {
+      "id": "4d16f9f3-dfc4-466d-8d6c-706f43d286bf",
+      "en-US": {
+        "url": "https://github.com/brave/brave-search-cli",
+        "description": [
+          "Zero-dependency, token-efficient CLI for the Brave Search API, built for AI agents and LLMs."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/brave/brave-search-cli",
+        "description": [
+          "零依赖、Token 高效的 Brave Search API 命令行工具，为 AI Agent 和大语言模型打造。"
         ]
       }
     },
@@ -1326,6 +1449,21 @@
         ]
       }
     },
+    "fastfetch": {
+      "id": "8429ae40-f2b9-4b89-bf26-4fb6856fe6d8",
+      "en-US": {
+        "url": "https://github.com/fastfetch-cli/fastfetch",
+        "description": [
+          "A neofetch-like tool for fetching system information and displaying them in a pretty way."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/fastfetch-cli/fastfetch",
+        "description": [
+          "一个类似 neofetch 的工具，用于获取系统信息并以美观的方式显示。"
+        ]
+      }
+    },
     "fd": {
       "id": "ca2ce63e-6277-4f29-a65d-379fba5cdf24",
       "en-US": {
@@ -1368,6 +1506,21 @@
         "url": "https://flutter.dev",
         "description": [
           "Flutter 是谷歌用于构建原生编译应用程序的 UI 工具包。"
+        ]
+      }
+    },
+    "fluxdown": {
+      "id": "63e01331-ed64-480f-a61f-be4c1a2b0c42",
+      "en-US": {
+        "url": "https://github.com/zerx-lab/FluxDown",
+        "description": [
+          "An aria2c-style command-line download client for FluxDown."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/zerx-lab/FluxDown",
+        "description": [
+          "用于 FluxDown 的 aria2c 风格命令行下载客户端。"
         ]
       }
     },
@@ -1519,6 +1672,21 @@
         "url": "https://cli.github.com/",
         "description": [
           "GitHub 命令行工具。"
+        ]
+      }
+    },
+    "ghgrab": {
+      "id": "aae1db62-ef52-45c9-9549-f41baf2e40dc",
+      "en-US": {
+        "url": "https://github.com/abhixdd/ghgrab",
+        "description": [
+          "A simple, pretty terminal tool that lets you browse and download files from GitHub, GitLab, Codeberg, Gitea, and Forgejo"
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/abhixdd/ghgrab",
+        "description": [
+          "一款简洁美观的终端工具，可让你在命令行界面内直接浏览并下载来自 GitHub、GitLab、Codeberg、Gitea 以及 Forgejo 的文件"
         ]
       }
     },
@@ -1773,6 +1941,21 @@
         "url": "https://uutils.org",
         "description": [
           "显示或设置系统主机名。"
+        ]
+      }
+    },
+    "hugo": {
+      "id": "96f2b965-de8b-418f-90e9-1eb26cd80e92",
+      "en-US": {
+        "url": "https://gohugo.io",
+        "description": [
+          "A fast and flexible static site generator built with Go."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://gohugo.io",
+        "description": [
+          "一个用 Go 构建的快速灵活的静态站点生成器。"
         ]
       }
     },
@@ -2404,6 +2587,21 @@
         ]
       }
     },
+    "netwatch": {
+      "id": "3a7803f6-3869-467c-96f4-19b611f369a7",
+      "en-US": {
+        "url": "https://github.com/matthart1983/netwatch",
+        "description": [
+          "Real-time network diagnostics in your terminal."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/matthart1983/netwatch",
+        "description": [
+          "在终端中运行实时网络诊断。"
+        ]
+      }
+    },
     "nexttrace": {
       "id": "761b1d62-069d-4421-8962-52ef94f809ff",
       "en-US": {
@@ -2995,6 +3193,21 @@
         ]
       }
     },
+    "pnpx": {
+      "id": "a2e7ee86-4d7e-432c-a90b-102220690c1a",
+      "en-US": {
+        "url": "https://pnpm.io/cli/dlx",
+        "description": [
+          "Run a package in a temporary environment."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://pnpm.io/cli/dlx",
+        "description": [
+          "在临时环境中运行一个包。"
+        ]
+      }
+    },
     "podman": {
       "id": "11ff1e19-7afe-4822-a221-de71f6a04e74",
       "en-US": {
@@ -3085,6 +3298,21 @@
         ]
       }
     },
+    "prisma": {
+      "id": "ec9bdb66-21d7-47c6-8331-127e7e8a167d",
+      "en-US": {
+        "url": "https://www.prisma.io/docs/cli",
+        "description": [
+          "The Prisma Developer Platform, from your terminal."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://www.prisma.io/docs/cli",
+        "description": [
+          "终端里的 Prisma Developer Platform。"
+        ]
+      }
+    },
     "psc": {
       "id": "00929632-527d-4dab-a5b3-21197faccd05",
       "en-US": {
@@ -3158,6 +3386,21 @@
         "description": [
           "pyenv - 简单的 Python 版本管理工具。",
           "轻松管理多个 Python 版本并在它们之间切换。"
+        ]
+      }
+    },
+    "pytest": {
+      "id": "e31ff226-6dc4-4182-89af-c09d9dcf7e2f",
+      "en-US": {
+        "url": "https://docs.pytest.org",
+        "description": [
+          "Python testing framework."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://docs.pytest.org",
+        "description": [
+          "Python 测试框架。"
         ]
       }
     },
@@ -3250,6 +3493,126 @@
         "url": "https://github.com/BurntSushi/ripgrep",
         "description": [
           "ripgrep (rg) - 递归搜索当前目录中匹配正则表达式的行。"
+        ]
+      }
+    },
+    "rimraf": {
+      "id": "df12024f-833d-4425-9259-3fee8606b656",
+      "en-US": {
+        "url": "https://github.com/isaacs/rimraf",
+        "description": [
+          "A cross-platform `rm -rf` utility for Node.js."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/isaacs/rimraf",
+        "description": [
+          "跨平台的 Node.js `rm -rf` 工具。"
+        ]
+      }
+    },
+    "rsbuild": {
+      "id": "53b4369a-9292-4b93-ac96-38bdc98db225",
+      "en-US": {
+        "url": "https://rsbuild.rs",
+        "description": [
+          "A fast, extensible build tool for modern web development, powered by Rspack."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://rsbuild.rs",
+        "description": [
+          "基于 Rspack 的快速可扩展现代 Web 构建工具。"
+        ]
+      }
+    },
+    "rsdoctor": {
+      "id": "c8b76c6d-390d-44e1-832a-af1818c92d22",
+      "en-US": {
+        "url": "https://rsdoctor.rs",
+        "description": [
+          "An AI-friendly build analyzer that makes the build process transparent."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://rsdoctor.rs",
+        "description": [
+          "AI 友好的构建分析器，让构建过程透明可见。"
+        ]
+      }
+    },
+    "rslib": {
+      "id": "1d314681-2fb2-4110-976f-f88c72b8f5cb",
+      "en-US": {
+        "url": "https://rslib.rs",
+        "description": [
+          "An Rsbuild-based library development tool for creating libraries and UI components."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://rslib.rs",
+        "description": [
+          "基于 Rsbuild 的库开发工具，用于创建库与 UI 组件。"
+        ]
+      }
+    },
+    "rslint": {
+      "id": "0adecfde-c3e4-4805-85ee-c32732a209fa",
+      "en-US": {
+        "url": "https://rslint.rs",
+        "description": [
+          "A high-performance, ESLint-compatible linter for JavaScript and TypeScript."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://rslint.rs",
+        "description": [
+          "高性能、兼容 ESLint 的 JavaScript 与 TypeScript 检查器。"
+        ]
+      }
+    },
+    "rspack": {
+      "id": "b83313f1-9e35-4aaf-a44c-1bf4d265c361",
+      "en-US": {
+        "url": "https://rspack.rs",
+        "description": [
+          "Fast Rust-based bundler for the web with a modernized webpack API."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://rspack.rs",
+        "description": [
+          "快速的 Rust 网页打包工具，兼容现代 webpack API。"
+        ]
+      }
+    },
+    "rspress": {
+      "id": "98ac79bd-4ac3-49b0-86fc-4626bc9529ec",
+      "en-US": {
+        "url": "https://rspress.rs",
+        "description": [
+          "Lightning fast static site generator."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://rspress.rs",
+        "description": [
+          "闪电般快速的静态站点生成器。"
+        ]
+      }
+    },
+    "rstest": {
+      "id": "2e828365-c1a4-4e26-bc5f-61c2bc141504",
+      "en-US": {
+        "url": "https://rstest.rs",
+        "description": [
+          "A JavaScript testing framework powered by Rspack, with a Jest-compatible API."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://rstest.rs",
+        "description": [
+          "基于 Rspack 的 JavaScript 测试框架，兼容 Jest API。"
         ]
       }
     },
@@ -3408,6 +3771,21 @@
         ]
       }
     },
+    "sk": {
+      "id": "ea0c539c-94d9-4dde-9b57-e57cbbbc1f90",
+      "en-US": {
+        "url": "https://github.com/skim-rs/skim",
+        "description": [
+          "A fast fuzzy finder for the command line written in Rust"
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/skim-rs/skim",
+        "description": [
+          "一款用 Rust 语言编写的命令行快速模糊查找工具"
+        ]
+      }
+    },
     "sqlite3": {
       "id": "955e526c-0804-4516-af2f-47642714e7a7",
       "en-US": {
@@ -3453,6 +3831,36 @@
         ]
       }
     },
+    "stern": {
+      "id": "e55cebd5-edf0-4973-b2a0-b59d20b6859d",
+      "en-US": {
+        "url": "https://github.com/stern/stern",
+        "description": [
+          "Tail multiple pods and containers from Kubernetes."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/stern/stern",
+        "description": [
+          "同时 tail 多个 Kubernetes pod 与容器的日志。"
+        ]
+      }
+    },
+    "stripe": {
+      "id": "7834bf8f-c06a-461a-9bc3-e269bf5ca749",
+      "en-US": {
+        "url": "https://docs.stripe.com/cli",
+        "description": [
+          "The official command-line tool to interact with Stripe."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://docs.stripe.com/cli",
+        "description": [
+          "与 Stripe 交互的官方命令行工具。"
+        ]
+      }
+    },
     "svn": {
       "id": "ba52ee88-8aab-4066-9471-22591ecf3d18",
       "en-US": {
@@ -3480,6 +3888,21 @@
         "url": "https://swc.rs/",
         "description": [
           "超快的 TypeScript/JavaScript 编译器。"
+        ]
+      }
+    },
+    "taze": {
+      "id": "c4b74555-5e6c-421b-882a-7d3ea6aff9d9",
+      "en-US": {
+        "url": "https://github.com/antfu-collective/taze",
+        "description": [
+          "A modern CLI tool that keeps your deps fresh."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/antfu-collective/taze",
+        "description": [
+          "让你的依赖保持新鲜的现代化 CLI 工具。"
         ]
       }
     },
@@ -3513,6 +3936,38 @@
         ]
       }
     },
+    "tig": {
+      "id": "0777c04d-0c93-4920-ae46-5fc78a0db3c6",
+      "en-US": {
+        "url": "https://github.com/jonas/tig",
+        "description": [
+          "Tig is an ncurses-based text-mode interface for git(1).",
+          "It functions mainly as a Git repository browser, but can also assist in staging changes for commit at chunk level and act as a pager for output from various Git commands."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/jonas/tig",
+        "description": [
+          "Tig 是一个基于 ncurses 的 git(1) 文本界面工具。",
+          "它主要作为 Git 仓库浏览器使用，也可以辅助按代码块粒度暂存待提交的更改，并作为各种 Git 命令输出的分页器。"
+        ]
+      }
+    },
+    "tofu": {
+      "id": "08510736-af9e-4c0b-86d6-2c86766c6dc3",
+      "en-US": {
+        "url": "https://opentofu.org",
+        "description": [
+          "Open-source infrastructure as code tool."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://opentofu.org",
+        "description": [
+          "开源基础设施即代码工具。"
+        ]
+      }
+    },
     "tokei": {
       "id": "57c39845-5309-4eb2-8c1d-4ce180f8ccb6",
       "en-US": {
@@ -3540,6 +3995,21 @@
         "url": "https://tombi-toml.github.io/tombi/",
         "description": [
           "TOML 工具包"
+        ]
+      }
+    },
+    "trivy": {
+      "id": "2570a7c2-db31-44b7-826f-5f3a48749a78",
+      "en-US": {
+        "url": "https://trivy.dev",
+        "description": [
+          "Scanner for vulnerabilities in container images, file systems, and Git repositories, as well as for configuration issues and hard-coded secrets."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://trivy.dev",
+        "description": [
+          "扫描容器镜像、文件系统与 Git 仓库的漏洞，以及配置问题与硬编码密钥。"
         ]
       }
     },
@@ -3772,6 +4242,57 @@
         ]
       }
     },
+    "vp": {
+      "id": "0aaf5f9a-39a3-4498-883e-fbcfe66c38b3",
+      "en-US": {
+        "url": "https://viteplus.dev",
+        "description": [
+          "Vite+ command line interface.",
+          "Create, develop, build, test, lint, format, and manage JavaScript projects."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://viteplus.dev",
+        "description": [
+          "Vite+ 命令行界面。",
+          "创建、开发、构建、测试、检查、格式化 JavaScript 项目并管理其依赖。"
+        ]
+      }
+    },
+    "vpr": {
+      "id": "2e4c5475-acd5-4f29-8aae-60e6f5c4c3b6",
+      "en-US": {
+        "url": "https://viteplus.dev/guide/run",
+        "description": [
+          "Standalone task runner (equivalent to `vp run`).",
+          "Run tasks across workspace packages."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://viteplus.dev/guide/run",
+        "description": [
+          "独立任务运行器（等同于 `vp run`）。",
+          "在工作区包中运行任务。"
+        ]
+      }
+    },
+    "vpx": {
+      "id": "4c27119d-f176-474f-89d4-2399d2527967",
+      "en-US": {
+        "url": "https://viteplus.dev/guide/vpx",
+        "description": [
+          "Execute a command from a local or remote npm package.",
+          "Run local binaries, or download and run remote packages."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://viteplus.dev/guide/vpx",
+        "description": [
+          "执行本地或远程 npm 包中的命令。",
+          "运行本地可执行文件，或下载并运行远程包。"
+        ]
+      }
+    },
     "watchexec": {
       "id": "e5d84ff3-6178-43e3-b6c2-bbefeb1b7a2d",
       "en-US": {
@@ -3940,6 +4461,21 @@
         "url": "https://xmake.io",
         "description": [
           "基于 Lua 的跨平台构建工具。"
+        ]
+      }
+    },
+    "xpipe": {
+      "id": "f4f23b66-be5b-4002-8f68-fa45307a8700",
+      "en-US": {
+        "url": "https://github.com/xpipe-io/xpipe",
+        "description": [
+          "Connection hub to access your entire server infrastructure from your local desktop."
+        ]
+      },
+      "zh-CN": {
+        "url": "https://github.com/xpipe-io/xpipe",
+        "description": [
+          "连接中心，从本地桌面访问整个服务器基础设施。"
         ]
       }
     },

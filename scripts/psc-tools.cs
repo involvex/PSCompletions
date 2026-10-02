@@ -19,7 +19,7 @@ namespace PscTools {
         static readonly string[] TopLevel = { "meta", "next", "option", "global_option", "config", "info" };
         static readonly string[] MetaOrder = { "url", "description" };
         static readonly string[] ConfigOrder = { "name", "value", "values", "tip" };
-        static readonly string[] ItemOrder = { "name", "alias", "usage", "tip", "example", "repeat", "option", "next" };
+        static readonly string[] ItemOrder = { "name", "alias", "usage", "tip", "example", "repeat", "separator", "option", "next" };
 
         sealed class Ctx
         {
@@ -337,7 +337,7 @@ namespace PscTools {
             ValidateOptions((IDictionary)baseTree);
             ValidateAllTips((IDictionary)baseTree, "", false, false);
             ValidateAllTips((IDictionary)targetTree, "", false, false);
-            CompareFields((IDictionary)baseTree, (IDictionary)targetTree, "", false);
+            CompareFields((IDictionary)baseTree, (IDictionary)targetTree, "", false, false);
             return S;
         }
 
@@ -550,7 +550,7 @@ namespace PscTools {
             foreach (var k in d.Keys) yield return k;
         }
 
-        static void CompareFields(IDictionary baseObj, IDictionary targetObj, string path, bool skipValueCheck)
+        static void CompareFields(IDictionary baseObj, IDictionary targetObj, string path, bool skipValueCheck, bool openData)
         {
             var seen = new HashSet<object>();
             var keys = new List<object>();
@@ -569,12 +569,16 @@ namespace PscTools {
 
                 var currentPath = path.Length > 0 ? path + " > " + keyStr : keyStr;
                 var childSkip = skipValueCheck || (Opts.CompletionName == "psc" && keyStr != "name");
+                // `info` is declared an open hook-data object: the schema puts no
+                // name-uniqueness contract on it, so arrays inside it are ordinary
+                // data and must not be held to the manifest item rules.
+                var childOpen = openData || keyStr == "info";
 
-                CompareValue(baseVal, targetVal, currentPath, keyStr, childSkip);
+                CompareValue(baseVal, targetVal, currentPath, keyStr, childSkip, childOpen);
             }
         }
 
-        static void CompareValue(object baseValIn, object targetValIn, string path, string key, bool skipValueCheck)
+        static void CompareValue(object baseValIn, object targetValIn, string path, string key, bool skipValueCheck, bool openData)
         {
             if (key == "tip" || key == "description" || key == "usage" || key == "example")
             {
@@ -624,8 +628,11 @@ namespace PscTools {
                 var baseArr = WrapOne(baseVal);
                 var targetArr = WrapOne(targetVal);
 
-                TestDuplicates(baseArr, path, Opts.BaseLang);
-                TestDuplicates(targetArr, path, Opts.TargetLang);
+                if (!openData)
+                {
+                    TestDuplicates(baseArr, path, Opts.BaseLang);
+                    TestDuplicates(targetArr, path, Opts.TargetLang);
+                }
 
                 var named = NamedArrayCheck(baseArr) || NamedArrayCheck(targetArr);
                 if (named)
@@ -635,7 +642,7 @@ namespace PscTools {
                         Add(S.TypeMismatch, path + " (" + Red + baseType + Cyan + " > " + Red + targetType + Cyan + ")");
                         return;
                     }
-                    CompareNamedArray(baseArr, targetArr, path, skipValueCheck);
+                    CompareNamedArray(baseArr, targetArr, path, skipValueCheck, openData);
                 }
                 else
                 {
@@ -658,7 +665,7 @@ namespace PscTools {
 
             if (baseType == "Hashtable" && targetType == "Hashtable")
             {
-                CompareFields((IDictionary)baseVal, (IDictionary)targetVal, path, skipValueCheck);
+                CompareFields((IDictionary)baseVal, (IDictionary)targetVal, path, skipValueCheck, openData);
                 return;
             }
 
@@ -692,22 +699,52 @@ namespace PscTools {
         static void TestDuplicates(IList arr, string path, string sideLabel)
         {
             if (arr == null || arr.Count < 2) return;
-            var seen = new HashSet<string>(StringComparer.Ordinal);
+            // Menu rows are expanded from every display spelling (name + each
+            // alias), so a collision on any spelling shows twice. Track all
+            // spellings, not just name (e.g. `--file` with alias `-F` plus a
+            // standalone `-F` node, or name == alias within one item).
+            var seen = new Dictionary<string, string>(StringComparer.Ordinal);
             foreach (var item in arr)
             {
                 var d = item as IDictionary;
                 if (d == null) continue;
                 if (!d.Contains("name")) continue;
                 var n = ToPsString(d["name"]);
-                if (!seen.Add(n))
+                var spells = new List<string>();
+                spells.Add(n);
+                if (d.Contains("alias"))
                 {
-                    var currentPath = path.Length > 0 ? path + " > " + n : n;
-                    Add(S.DuplicateItems, currentPath + " (" + Red + sideLabel + Cyan + ")");
+                    var al = AsList(d["alias"]);
+                    if (al != null)
+                        foreach (var a in al)
+                            spells.Add(ToPsString(a));
+                }
+                var intra = new HashSet<string>(StringComparer.Ordinal);
+                foreach (var s in spells)
+                {
+                    if (!intra.Add(s))
+                    {
+                        var selfPath = path.Length > 0 ? path + " > " + n : n;
+                        Add(S.DuplicateItems, selfPath + " (alias " + Red + s + Cyan + " duplicates within " + n + ", " + sideLabel + ")");
+                    }
+                }
+                foreach (var s in intra)
+                {
+                    string owner;
+                    if (seen.TryGetValue(s, out owner))
+                    {
+                        var currentPath = path.Length > 0 ? path + " > " + s : s;
+                        Add(S.DuplicateItems, currentPath + " (" + Red + sideLabel + Cyan + ": " + n + " collides with " + owner + ")");
+                    }
+                    else
+                    {
+                        seen[s] = n;
+                    }
                 }
             }
         }
 
-        static void CompareNamedArray(IList baseArr, IList targetArr, string path, bool skipValueCheck)
+        static void CompareNamedArray(IList baseArr, IList targetArr, string path, bool skipValueCheck, bool openData)
         {
             var targetByName = new Dictionary<string, object>(StringComparer.Ordinal);
             foreach (var item in targetArr)
@@ -730,7 +767,7 @@ namespace PscTools {
 
                 if (baseName != null && targetByName.ContainsKey(baseName))
                 {
-                    CompareFields(bd, (IDictionary)targetByName[baseName], currentPath, skipValueCheck);
+                    CompareFields(bd, (IDictionary)targetByName[baseName], currentPath, skipValueCheck, openData);
                 }
                 else
                 {

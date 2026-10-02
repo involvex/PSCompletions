@@ -7,6 +7,12 @@
 > **Editor experience**: `types/psc.lua` models the `psc` global and `completions`
 > with EmmyLua annotations — with the VSCode "Lua" extension you get autocomplete and argument
 > checks inside `completions/*/hooks.lua`.
+>
+> Scoping rule for `types/psc.lua`: it models only APIs usable by **every** hook.
+> Members that exist engine-wide but are meaningful to a single completion (e.g. `psc._data`,
+> which is psc-only) stay out, so they never compete for attention in other authors'
+> completion lists. Single-completion capabilities live in that completion's own `hooks.lua`
+> (suppressing the LSP diagnostic locally if needed).
 
 ## 1. Role of hooks
 
@@ -79,11 +85,11 @@ end)
 
 | Field | Meaning |
 | --- | --- |
-| `psc.tokens` | **Completed** tokens, each `{ name, type, input }`. `name` is the **canonical** name of a known command/option (alias input still points at the main name); `type` ∈ `command`/`option`/`value`/`unknown`; `input` is the user's raw input (possibly an alias, lowercased). **Excludes the word being typed.** A token consumed as an option's value (even a non-matching one) has `type = "value"`; `"unknown"` only appears outside an option's value position. |
-| `psc.typing` | The token currently being typed (unfinished): `name`/`type`/`input` (same shape as a token element, `name` is best-effort and often empty) plus `option_like` — whether the input starts with `-` (heuristic, not definitive). Opposite of `tokens`: one is in progress, the other completed. When completing an option's value position, `type` is `"value"` (even for free-form values). |
+| `psc.tokens` | **Completed** tokens, each `{ name, type, input }`. `name` is the **canonical** name of a known command/option (alias input still points at the main name); `type` ∈ `command`/`option`/`value`/`unknown`; `input` is the user's raw input (possibly an alias, original casing kept — compare with `psc.eq` / `psc.contains`). **Excludes the word being typed.** A token consumed as an option's value (even a non-matching one) has `type = "value"`; `"unknown"` only appears outside an option's value position. An `=`-attached word (`--format=json`) appears as two tokens — `option` (input keeps the `=`, name is the `=`-stripped canonical) + `value` — mirroring the space-separated form, so existing "last token is the option" checks keep working. |
+| `psc.typing` | The token currently being typed (unfinished): `name`/`type`/`input` (same shape as a token element, `name` is best-effort and often empty) plus `option_like` — whether the input starts with `-` (heuristic, not definitive). Opposite of `tokens`: one is in progress, the other completed. When completing an option's value position, `type` is `"value"` (even for free-form values). For `--format=j<TAB>`, typing carries the value segment only (`j`). For separator lists (`--exclude a,b<TAB>`), typing is likewise the tail segment (`b`); completed segments stay engine-internal and a finished list is a single `value` token. |
 | `psc.config` | The current command's **final** completion config, merged by the engine from three layers (later layers override earlier): **global config** (`psc config menu`, e.g. `enable_tip`) → **manifest `config` array defaults** (e.g. `max_commit: 30`) → **per-completion overrides** (`psc completion <name>`, e.g. `max_commit: 50`). Every key always has a value — no manual `or` fallback needed. Built-in keys: `enable_tip` / `enable_tip_usage` / `enable_tip_example` (bool, default `true`), `language` (same as the module's current language). Empty table when unconfigured (never nil). |
 | `psc.manifest` | The parsed manifest (JSON → table); hooks can read static data (e.g. git config keys). |
-| `psc._data` | **psc completion only** — aggregated module data (`settings.json`/`completions.json`) surfaced when manifest is `completions/psc`, else nil |
+| `psc._data` | **psc completion only** — aggregated module data (`settings.json`/`completions.json`) surfaced when manifest is `completions/psc`, else an empty object |
 | `psc.cwd` | The current working directory. |
 | `psc.platform` | The current system platform. (`"windows"` / `"macos"` / `"linux"`) |
 
@@ -111,12 +117,12 @@ array/string tools).
 | `psc.run_batch(cmds, opts?)` | `table<number, string[]\|table\|nil>` | Run **multiple commands in parallel**; results in input order. Same `opts` as `run` (parallel commands are of the same format); a failed/unparseable command yields nil at its index. |
 | `psc.read(path)` | `string?` | Read a file as UTF-8 text; nil on failure. Resolved relative to `psc.cwd`. |
 | `psc.read_batch({path,...})` | `table<path, string?>` | Read **multiple files in parallel**; `{ [original-path] = content }`, nil for a missing/unreadable file. |
-| `psc.json(path)` / `psc.json_batch(paths)` | `table?` / `table<path, table?>` | Read + parse JSON. Single: nil on failure. Batch: nil at a path for a missing/unparseable file. |
+| `psc.json(path)` / `psc.json_batch(paths)` | `table?` / `table<path, table?>` | Read + parse JSON (JSON5 supported). Single: nil on failure. Batch: nil at a path for a missing/unparseable file. |
 | `psc.toml(path)` / `psc.toml_batch(paths)` | `table?` / `table<path, table?>` | Read + parse TOML. Single: nil on failure. Batch: nil at a path for a missing/unparseable file. |
 | `psc.yaml(path)` / `psc.yaml_batch(paths)` | `table?` / `table<path, table?>` | Read + parse YAML. Single: nil on failure. Batch: nil at a path for a missing/unparseable file. |
 | `psc.ls(path)` | `psc_path_entry[]?` | Directory entries `{name, path, is_dir, is_link}` (`path` is the entry's full resolved path); nil if the directory does not exist (an empty dir yields an empty array). `is_dir` follows symlinks (a symlink to a directory counts as a directory). |
 | `psc.ls_batch({dir,...})` | `table<number, psc_path_entry[]?>` | List **multiple directories in parallel**; results in input order, nil at an index for a missing dir. |
-| `psc.glob(pattern)` | `string[]?` | Glob matching (supports `*`/`?`/`**` and `{a,b}` alternation via `globset`); the pattern resolves against `psc.cwd` (an absolute pattern ignores it); results are absolute and deduplicated; the walk respects `.gitignore`/`.ignore`/`.git/info/exclude` (like `ripgrep`) — ignored files are not returned; nil for an invalid pattern (a valid pattern with no match yields an empty array). |
+| `psc.glob(pattern)` | `string[]?` | Glob matching (supports `*`/`?`/`**` and `{a,b}` alternation via `globset`); the pattern resolves against `psc.cwd` (an absolute pattern ignores it); results are absolute and deduplicated; the walk respects `.gitignore`/`.ignore`/`.git/info/exclude` (like `ripgrep`) — ignored files are not returned; nil for an invalid pattern (a valid pattern with no match yields an empty array). Bounded: the walk stops after 500 ms (or the hook's remaining time, whichever comes first) and returns the matches found so far (see §11). |
 | `psc.path(...)` | `string` | Normalize/join path segments into one path using the **native platform separator** (`\` on Windows, `/` elsewhere): a single argument normalizes its separators (on Windows `/` → `\`), multiple arguments are joined with that separator. Duplicate separators collapse (`psc.path("a/", "/b")` → `"a\b"` on Windows, `"a/b"` elsewhere); a leading separator (absolute segment) and a drive root like `C:\` are preserved. |
 | `psc.exist(path)` | `boolean` | Whether the path exists (follows symlinks). |
 | `psc.env(name)` | `string?` | Environment variable; nil if unset. |
@@ -312,9 +318,11 @@ Contract:
 	  the engine does not recognize) suppresses injection, because the slot is already filled;
 	  `multiple = true` keeps matching through any number of positional arguments.
 - `spec.option` — an option chain matched as a **suffix** of the completed option sequence
-	  (string = a length-1 chain; array = a contiguous suffix, in order). Option values never
-	  enter the sequence, so `--move val --copy` still matches `{"--move","--copy"}`. `""`
-	  wildcards a segment; other segments must start with `-`. The suffix is deliberately
+  (string = a length-1 chain; array = a contiguous suffix, in order). Option values never
+  enter the sequence, so `--move val --copy` still matches `{"--move","--copy"}`. `""`
+  wildcards a segment; other segments must start with `-`. A trailing `=` in a segment is
+  not identity (`"--format="` matches `--format`, including its `=`-attached uses).
+  The suffix is deliberately
 	  NOT root-anchored: the option sequence has no root, and full anchoring would silently
 	  break every existing single-option spec. An option with `next` (empty or not) consumes
 	  the next token as its value (`type = "value"`), subject to "command/option wins" — a
@@ -352,7 +360,9 @@ Injected items are part of the live list (no separate merge step) and participat
 like any dynamic item. Returning an explicit array from the hook still **replaces** the live list
 (the engine warns when an explicit return discards `psc.on` contributions).
 
-Boundaries (v1): `--opt=value` equals-form value positions are not detected.
+Boundaries: `--opt=value` equals-form value positions are detected — the option counts as
+completed and the tail is the value slot, so hooks see the same shape as the space-separated form. A
+valueless flag written with `=` is not split; the whole word stays one token.
 
 ### Localized tips
 
@@ -381,10 +391,26 @@ This section is normative for AI and human authors. `design/hooks.md` is the sty
 
 - **Comments — why only, one line**: explain *why* when the code is not self-evident, not *what*. Keep a single short line in **English**. Do not add a file header like `-- <tool> dynamic completions` or section labels like `-- node commands` — the `psc.on` spec already says it. Generic headers and what-only section comments are forbidden.
 - **Registration — merge same handler**: multiple `psc.on` with the same handler must be a single array spec — `psc.on({{ option = "--a" }, { option = "--b" }}, add_files)` — not three separate `psc.on(..., add_files)` calls. See `§8 Declarative psc.on` for the `spec[]` OR form.
-- **Targets — validate against the manifest before adding**: every `command`/`option` in a spec must exist in `completions/<cmd>/language/en-US.json` and be a location that actually takes a runtime value — commands need a positional placeholder (`usage` with `<...>`/`[...]` or a free-form position), options need `next: []`/`next: [...]` (value-taking).
+- **Targets — validate against the manifest before adding**: every `command`/`option` in a spec must exist in `completions/<cmd>/language/en-US.json` and be a location that actually takes a runtime value — commands need a positional placeholder (`usage` with `<...>`/`[...]` or a free-form position), options need `next: []`/`next: [...]` (value-taking). **Match the value kind to the slot**: judge by what the CLI itself accepts there — its `--help` usage, docs, and examples — not by the manifest alone. Never offer files at a context whose slot takes subcommands, names, keys, or nothing (`{}`, `{ command = "build" }` offering `rspress.config.ts` where only `build`/`preview` are valid). If a slot accepts files but the manifest shows no placeholder, add the `usage` placeholder (`[FILES]...`) so the slot is documented. For allowed `psc.ls` candidates in a relative file or directory slot, use `entry.name` as the completion `name`; use `entry.path` only when the slot requires an absolute path or as a tip.
+- **File candidates — one question settles it: can native path completion do this job?** Native path completion works **inside the current directory** and only once the user has typed a path prefix (`./`, `../`, `/`, `C:\`, `~/`); it never searches by name at a depth the user has not typed. Every path-candidate decision follows from that asymmetry, so decide by asking which side of it the candidate falls on.
+
+  **(a) Found by name at an untyped depth → the hook must provide it.** A config file that may live anywhere in the tree is exactly what native completion cannot reach, and these sets stay small because the name is what is being matched. Use a recursive glob whose **last segment carries a literal name fragment** — letters/digits that are not merely the extension:
+
+  | pattern | verdict |
+  | --- | --- |
+  | `tsconfig*.json`, `biome.{json,jsonc}`, `.swcrc`, `Cargo.toml` | **allowed** — name-anchored, bounded, unreachable otherwise |
+  | `.env`, `.netrc`, `trivy.yaml` (no `*` at all) | **allowed** — a specific filename, not a type |
+  | `*.db`, `*.sqlite` (depth 1) | **allowed** — shallow, and the type is the tool's own |
+
+  **(b) "A file of this type somewhere" → leave it to native path completion.** `**/*.{js,ts,jsx,tsx}`, `**/*.py`, `**/*.{yaml,yml}` match every source file in the repository. They are **unbounded by construction** — the list grows with the repo instead of staying a small set — and the user normally already knows where their own file is, so typing a prefix reaches it faster than scanning a flat list that buries the subcommands and options. An **extension is not a filter**: `**/*.{js,ts}` is not a "small, semantically filtered set", it is the whole repository.
+
+  **(c) Carve-out — an extension-only glob is allowed only when the CLI accepts no other kind of file in that slot *and* the format belongs to the tool rather than the user.** `buf lint` takes `.proto` and nothing else; `dotnet build` takes a project or solution. Ask: when the user wants this, do they want *their own* file of that type, or a file *this tool* owns? "Their own" means native completion wins. When the carve-out applies, still prefer the narrowest depth that works.
+
+  Never add a file listing to make discovery *look* complete, and never register one handler that injects paths into several unrelated contexts (`{ command = "check" }, { command = "ci" }, { command = "format" }` all offering the same file list) — the paths then compete with each context's own options. Register a path candidate only at the slot that actually takes the file. Hooks do not cover general path browsing.
 - **Naming — `add_*` for candidates**: prefer `local function add_*()` for candidate producers and pass the named function to `psc.on`. Helpers that only load config are `load_*`/`get_*` and are never registered directly. Anonymous `function() ... end` is allowed for one-off handlers that do not warrant a separate `add_*` abstraction; only avoid the redundant wrapper `psc.on({}, function() add_x() end)` — pass `add_x` directly: `psc.on({}, add_x)`.
 - **Guards — `or {}` for iteration**: iterate with `psc.run(...) or {}` / `psc.glob(...) or {}` / `psc.ls(...) or {}`. Branch only when a fallback is needed (`if data then ... return end`).
-- **Early return — bare `return`**: use bare `return` (not `return nil`) to exit a helper/handler early — both mean `nil` per `§3 Hook contract`, but bare `return` is idiomatic and matches `git`/`jj`/`scoop`; never `return { ... }` in a file that uses `psc.on` (it discards `psc.on` contributions, `runner.rs:152` warns).
+- **Mapping — `psc.items` for pure mapping, loops for logic**: a loop body that only turns each result into a `name` (`for _, x in ipairs(...) do psc.add({ name = x }) end`) must be `psc.add(psc.items(... or {}))` instead; when the body parses, filters, or builds tips, keep the explicit `for` loop. Never force one form into the other's shape.
+- **Early return — bare `return`**: use bare `return` (not `return nil`) to exit a helper/handler early — both mean `nil` per `§3 Hook contract`, but bare `return` is idiomatic and matches `git`/`jj`/`scoop`; never `return { ... }` in a file that uses `psc.on` (it discards `psc.on` contributions, `runner.rs:154` warns).
 - **Layout — helpers then registrations**: put all `local function add_*/load_*` at the top, then all `psc.on` blocks together at the bottom, with a blank line between each `psc.on` block.
 - **Cleanliness — no debug/sandbox leakage**: remove `psc.log` before committing (`types/psc.lua` marks it `@deprecated`); never `require`/`io`/`os.execute`/`os.getenv` etc. — sandbox `§11` forbids them.
 - **Formatting — Lua idioms**: follow `git`/`jj`/`scoop`/`zoxide`:
@@ -433,9 +459,20 @@ Do **not** spawn threads from Lua.
   (timeout, captured output, cross-platform).
 - **Timeout**: `psc.run` defaults to a 5 s timeout for a single subprocess, and the whole hook
   script is capped at 10 s (checked by an instruction-count hook) so neither a hung command nor an
-  infinite Lua loop can block completion. The cap covers Lua instructions and subprocess waits;
-  **file reads (`psc.read`/`psc.json`/`psc.ls`/`psc.glob`) are not timed** — a hung network share
-  can block them (a known limitation, not a sandbox escape).
+  infinite Lua loop can block completion. The cap covers Lua instructions and subprocess waits.
+  Blocking file APIs are **not** covered by the instruction-count hook (a native walk executes no
+  Lua instructions, so the VM hook can never fire mid-call); `psc.glob` therefore carries its own
+  **500 ms budget** and stops there, and `psc.read`/`psc.json`/`psc.ls` stay untimed — a hung
+  network share can still block those (a known limitation, not a sandbox escape).
+- **Glob is time-bounded, not count-bounded**: the 500 ms budget is per `glob` call and is
+  deliberately far below the 10 s hook cap — a completion menu that waits seconds is broken no
+  matter what it finds. A walk that runs out of time returns the matches it already found, so the
+  result is a **partial** array (the shallowest matches arrive first, and those are nearly always
+  the wanted ones) rather than a hang. There is deliberately **no** match-count cap: the menu
+  scrolls without a practical item limit, so a result is never truncated merely for being large.
+  A hook that needs completeness over a huge tree must not rely on `glob` — narrow the pattern
+  instead. Note the budget is per call, so a hook making several `glob` calls spends up to
+  500 ms each.
 - **Read-only files**: file APIs are read-only.
 - **Windows shim executables**: `psc.run` spawns the command directly — on Windows, batch/powerShell
   **shims** (e.g. `scoop`'s extension-less wrapper) cannot be spawned that way. Run them through the

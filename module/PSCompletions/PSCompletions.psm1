@@ -43,7 +43,7 @@
             $PSCompletions.write_with_color('[PSCompletions] psc binary missing.')
             return
         }
-        $dataDir = [System.IO.Path]::GetDirectoryName($PSCompletions.path.settings)
+        $dataDir = $PSCompletions.path.data
         # psc emits UTF-8, but PowerShell decodes native output via [Console]::OutputEncoding (GBK on Chinese systems); switch temporarily
         $oldEncoding = [Console]::OutputEncoding
         [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
@@ -102,22 +102,10 @@
         $completion_dir = [System.IO.Path]::Combine($PSCompletions.path.completions, $completion)
         $config = $null
         $json = $null
-        $conflict_alias = @()
         if ($kind -ne 'rm') {
             $config = $PSCompletions.get_raw_content("$completion_dir/config.json") | ConvertFrom-Json
             $language = $PSCompletions.get_language($completion)
             $json = $PSCompletions.ConvertFrom_JsonAsHashtable($PSCompletions.get_raw_content("$completion_dir/language/$language.json"))
-            $settings = [System.IO.File]::ReadAllText($PSCompletions.path.settings, [System.Text.Encoding]::UTF8)
-            $aliases = (ConvertFrom-Json $settings).alias
-            $completion_aliases = $aliases.$completion, $config.alias, $completion | Select-Object -First 1
-            foreach ($comp in $aliases.PSObject.Properties.Name) {
-                if ($comp -eq $completion) { continue }
-                foreach ($a in $aliases.$comp) {
-                    if ($a -in $completion_aliases) {
-                        $conflict_alias += $a
-                    }
-                }
-            }
         }
         $PSCompletions.write_with_color((_replace $PSCompletions.info.$kind.done))
     }
@@ -140,8 +128,6 @@
             }
             else { $targets = @($arg[1..($arg.Count - 1)]) }
             if ($targets.Count) {
-                $is_exist_before = @{}
-                foreach ($t in $targets) { if ($t) { $is_exist_before[$t] = [System.IO.Directory]::Exists([System.IO.Path]::Combine($PSCompletions.path.completions, $t)) } }
                 if ($arg -contains '--all') {
                     $PSCompletions.write_with_color("`n" + (_replace $PSCompletions.info.add.waiting))
                 }
@@ -150,7 +136,13 @@
                     $PSCompletions.init_data()
                     foreach ($r in @($result)) {
                         if ($r.ok) {
-                            _render_completion_done $r.completion $(if ($is_exist_before[$r.completion]) { 'update' } else { 'add' })
+                            _render_completion_done $r.completion 'add'
+                            foreach ($s in $r.skipped) {
+                                if (!$s) { continue }
+                                $alias = $s.alias
+                                $owner = $s.owner
+                                $PSCompletions.write_with_color((_replace $PSCompletions.info.alias.skipped))
+                            }
                         }
                         else {
                             $PSCompletions.write_with_color((_replace "<@Red>$($r.completion): $($r.error)"))
@@ -247,6 +239,12 @@
                             else {
                                 _render_completion_done $r.completion 'update'
                             }
+                            foreach ($s in $r.skipped) {
+                                if (!$s) { continue }
+                                $alias = $s.alias
+                                $owner = $s.owner
+                                $PSCompletions.write_with_color((_replace $PSCompletions.info.alias.skipped))
+                            }
                         }
                         else {
                             $PSCompletions.write_with_color((_replace "<@Red>$($r.completion): $($r.error)"))
@@ -302,21 +300,7 @@
             $need_init = $false
         }
         'alias' {
-            # `alias add` pre-check: an alias colliding with a real command is rejected before forwarding
-            $alias_conflict = $false
-            if ($arg[1] -eq 'add' -and $arg.Count -ge 4) {
-                foreach ($a in $arg[3..($arg.Count - 1)]) {
-                    if (Get-Command $a -ErrorAction Ignore) {
-                        $alias = $a
-                        $PSCompletions.write_with_color((_replace $PSCompletions.info.alias.add.err.cmd_exist))
-                        $alias_conflict = $true
-                    }
-                }
-            }
-            if ($alias_conflict) {
-                $need_init = $false
-            }
-            elseif ($arg.Count -eq 1) {
+            if ($arg.Count -eq 1) {
                 # No args = list all trigger aliases, wrapped as objects like list
                 _forward_psc -Json | ForEach-Object {
                     if ($_.ok -eq $false) { $PSCompletions.write_with_color((_replace "<@Red>$($_.error)")) }
@@ -326,19 +310,6 @@
             }
             else {
                 _forward_psc
-                if ($LASTEXITCODE -eq 0) {
-                    switch ($arg[1]) {
-                        'add' {
-                            if ([System.IO.File]::Exists($PSCompletions.path.alias_csv)) {
-                                Import-Alias $PSCompletions.path.alias_csv -Force -Scope Global -ErrorAction SilentlyContinue
-                            }
-                        }
-                        'rm' {
-                            $toRemove = @($arg[3..($arg.Count - 1)])
-                            foreach ($a in $toRemove) { Remove-Item "Alias:\$a" -Force -ErrorAction SilentlyContinue }
-                        }
-                    }
-                }
             }
         }
         'config' {
@@ -347,7 +318,7 @@
                 _forward_psc
                 if ($LASTEXITCODE -eq 0 -and $arg[1] -eq 'menu' -and $arg[2] -eq 'trigger_key') {
                     $PSCompletions.init_data()
-                    Set-PSReadLineKeyHandler -Key $PSCompletions.config.trigger_key -ScriptBlock $PSCompletions.menu.module_completion_menu_script
+                    Set-PSReadLineKeyHandler -Key $PSCompletions.config.trigger_key -ScriptBlock $PSCompletions.menu.script -BriefDescription 'PSCompletionsMenuComplete' -Description 'Open the completion menu provided by PSCompletions.'
                     $need_init = $false
                 }
             }
@@ -371,12 +342,12 @@
                     $oldKey = $PSCompletions.config.trigger_key
                     try {
                         Remove-PSReadLineKeyHandler $oldKey
-                        Set-PSReadLineKeyHandler -Key $arg[3] -ScriptBlock $PSCompletions.menu.module_completion_menu_script
+                        Set-PSReadLineKeyHandler -Key $arg[3] -ScriptBlock $PSCompletions.menu.script -BriefDescription 'PSCompletionsMenuComplete' -Description 'Open the completion menu provided by PSCompletions.'
                     }
                     catch {
                         # Rebind failed: restore the removed old trigger key to avoid "old key dead and new key not active"
                         try {
-                            Set-PSReadLineKeyHandler -Key $oldKey -ScriptBlock $PSCompletions.menu.module_completion_menu_script
+                            Set-PSReadLineKeyHandler -Key $oldKey -ScriptBlock $PSCompletions.menu.script -BriefDescription 'PSCompletionsMenuComplete' -Description 'Open the completion menu provided by PSCompletions.'
                         }
                         catch { }
                         _param_err 'err' 'trigger_key' $PSCompletions.info.menu.config.err.trigger_key
@@ -387,7 +358,7 @@
                 _forward_psc
                 if ($LASTEXITCODE -eq 0 -and $arg[1] -eq 'menu' -and $arg[2] -eq 'trigger_key') {
                     $PSCompletions.config.trigger_key = $arg[3]
-                    Set-PSReadLineKeyHandler -Key $arg[3] -ScriptBlock $PSCompletions.menu.module_completion_menu_script
+                    Set-PSReadLineKeyHandler -Key $arg[3] -ScriptBlock $PSCompletions.menu.script -BriefDescription 'PSCompletionsMenuComplete' -Description 'Open the completion menu provided by PSCompletions.'
                 }
             }
         }
@@ -419,9 +390,21 @@
                 # only a bare key decides. NumLock/CapsLock/ScrollLock bits are excluded.
                 if (-not ($PressKey.ControlKeyState -band 0x1F)) {
                     if ($PressKey.VirtualKeyCode -eq 13) {
-                        Get-ChildItem ($PSCompletions.path.root + '/data') | ForEach-Object { Remove-Item $_.FullName -Force -Recurse }
+                        if ([System.IO.Directory]::Exists($PSCompletions.path.data)) {
+                            Get-ChildItem -LiteralPath $PSCompletions.path.data -Force | ForEach-Object { Remove-Item $_.FullName -Force -Recurse }
+                        }
                         $PSCompletions.write_with_color((_replace $PSCompletions.info.reset.init_done))
                         $PSCompletions.ensure_dir($PSCompletions.path.completions)
+                        $seedTarget = [System.IO.Path]::Combine($PSCompletions.path.completions, 'psc')
+                        foreach ($seed in @(
+                            [System.IO.Path]::Combine($PSCompletions.path.root, 'completions', 'psc'),
+                            [System.IO.Path]::Combine((Split-Path (Split-Path $PSCompletions.path.root -Parent) -Parent), 'completions', 'psc')
+                        )) {
+                            if ([System.IO.File]::Exists([System.IO.Path]::Combine($seed, 'config.json')) -and [System.IO.File]::Exists([System.IO.Path]::Combine($seed, 'language', 'en-US.json'))) {
+                                Copy-Item -LiteralPath $seed -Destination $seedTarget -Recurse -Force
+                                break
+                            }
+                        }
                         $PSCompletions.init_data()
                     }
                     else {
@@ -441,4 +424,6 @@
     $PSCompletions.render_pending()
 }
 
-Export-ModuleMember -Function PSCompletions
+Set-Alias psc PSCompletions -Force
+
+Export-ModuleMember -Function PSCompletions -Alias psc

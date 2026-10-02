@@ -76,6 +76,7 @@ fn selected_output(state: &MenuState, idx: usize) -> Output {
     if let Some(it) = state.items.get(idx) {
         out.completion_text = Some(it.completion_text.clone());
         out.result_type = it.result_type;
+        out.nospace = if it.nospace { Some(true) } else { None };
     }
     out
 }
@@ -230,8 +231,10 @@ pub fn run(input_path: &str) -> Output {
     if state.filtered.is_empty() {
         return Output::cancel();
     }
-    // Async switch symbol: menu draws immediately with static symbols.
-    // A background peek computes whether the selected row has a next context beyond globals.
+    // Async symbol refinement: menu draws immediately with static symbols
+    // (`switch` fast path, `stay` default for options). A background peek
+    // upgrades rows whose apply opens a new layer, and drops rows whose
+    // next menu is empty; only `switch` rows skip the peek.
     let peek_input: Option<CompleteInput> = input
         .build
         .as_ref()
@@ -812,6 +815,7 @@ mod tests {
                 usage: None,
                 example: None,
                 result_type: None,
+                nospace: false,
                 symbol: String::new(),
             })
             .collect()

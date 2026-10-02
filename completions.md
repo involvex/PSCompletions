@@ -9,10 +9,13 @@
 |Completion|Description|
 |:-:|-|
 |[7z](https://7-zip.org/)|The command line interface of 7-Zip.|
+|[act](https://github.com/nektos/act)|Run GitHub Actions locally.|
 |[adb](https://developer.android.com/tools/adb)|Android Debug Bridge command-line tool.|
 |[android](https://developer.android.com)|Android CLI tool for project creation, builds, SDK management, and device interaction.|
+|[apt](https://wiki.debian.org/Apt)|A command-line package manager for Debian and derivatives.|
 |[arch](https://github.com/uutils/coreutils)|Display machine architecture.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
 |[aria2c](https://aria2.github.io)|Lightweight multi-protocol and multi-source download utility.|
+|[ast-grep](https://github.com/ast-grep/ast-grep)|Search and Rewrite code at large scale using AST pattern.|
 |[atac](https://github.com/Julien-cpsn/ATAC)|A simple API client in your terminal|
 |[atuin](https://atuin.sh)|Magical shell history.<br>Atuin replaces your existing shell history with a SQLite database, and records additional context for your commands.|
 |[aube](https://aube.jdx.dev)|A fast Node.js package manager|
@@ -28,8 +31,11 @@
 |[basenc](https://uutils.org)|Encode/decode data and print to standard output.|
 |[bat](https://github.com/sharkdp/bat)|Cat clone with syntax highlighting and Git integration.|
 |[biome](https://biomejs.dev/)|Toolchain for web projects.|
+|[brew](https://brew.sh)|Homebrew is an open-source package manager that was originally designed for macOS and now also supports Linux and WSL (Windows Subsystem for Linux)|
+|[buf](https://github.com/bufbuild/buf)|The Buf CLI - work with Protocol Buffers and manage resources on the Buf Schema Registry (BSR).|
 |[bun](https://bun.sh)|JavaScript all-in-one toolkit.|
 |[bunx](https://bun.com/docs/cli/bunx)|Execute an npm package executable (CLI), automatically installing into a global shared cache if not installed in node_modules.|
+|[bx](https://github.com/brave/brave-search-cli)|Zero-dependency, token-efficient CLI for the Brave Search API, built for AI agents and LLMs.|
 |[carapace](https://carapace.sh/)|A multi-shell completion binary|
 |[cargo](https://doc.rust-lang.org/cargo/)|Rust package manager.|
 |[chezmoi](https://chezmoi.io)|Manage your dotfiles across multiple diverse machines, securely|
@@ -79,9 +85,11 @@
 |[eza](https://eza.rocks)|A modern replacement for ls.|
 |[factor](https://uutils.org)|Print the prime factors of the given NUMBER(s).|
 |[fastboot](https://android.googlesource.com/platform/system/core/+/refs/heads/main/fastboot/)|fastboot is a command-line tool for flashing partitions on Android devices.<br>It communicates with a device in bootloader mode via USB or network.|
+|[fastfetch](https://github.com/fastfetch-cli/fastfetch)|A neofetch-like tool for fetching system information and displaying them in a pretty way.|
 |[fd](https://github.com/sharkdp/fd)|Program to find entries in your filesystem.|
 |[ffmpeg](https://ffmpeg.org/)|Complete, cross-platform solution to record, convert and stream audio and video.|
 |[flutter](https://flutter.dev)|Flutter is Google's UI toolkit for building natively compiled applications.|
+|[fluxdown](https://github.com/zerx-lab/FluxDown)|An aria2c-style command-line download client for FluxDown.|
 |[fmt](https://uutils.org)|Reformat paragraphs from input files to stdout.|
 |[fnm](https://github.com/Schniz/fnm)|Fast and simple Node.js version manager, built in Rust.|
 |[fold](https://uutils.org)|Write each file to stdout whilst breaking long lines.|
@@ -92,6 +100,7 @@
 |[gem](https://guides.rubygems.org)|RubyGems is a package manager for Ruby libraries.|
 |[gemini](https://github.com/google-gemini/gemini-cli)|Gemini CLI - Google's AI-powered coding assistant in the terminal.|
 |[gh](https://cli.github.com/)|GitHub command-line tool.|
+|[ghgrab](https://github.com/abhixdd/ghgrab)|A simple, pretty terminal tool that lets you browse and download files from GitHub, GitLab, Codeberg, Gitea, and Forgejo|
 |[git](https://git-scm.com)|Version control system.|
 |[gitversion](https://gitversion.net/)|A tool that generates a Semantic Version number based on your Git history.|
 |[glab](https://gitlab.com/gitlab-org/cli)|An open source GitLab CLI tool that brings GitLab to your command line.|
@@ -109,6 +118,7 @@
 |[helmfile](https://github.com/helmfile/helmfile)|Declaratively deploy Kubernetes manifests, Kustomize configs, and Charts as Helm releases|
 |[hf](https://github.com/huggingface/huggingface_hub)|hf - Command-line interface for the Hugging Face Hub.|
 |[hostname](https://uutils.org)|Display or set the system's host name.|
+|[hugo](https://gohugo.io)|A fast and flexible static site generator built with Go.|
 |[hurl](https://hurl.dev)|Run and test HTTP requests with plain text<br>A tool for transferring data with URLs|
 |[hyperfine](https://github.com/sharkdp/hyperfine)|A command-line benchmarking tool|
 |[ionic](https://ionicframework.com/docs/cli)|Ionic CLI - The command-line interface for Ionic|
@@ -150,6 +160,7 @@
 |[mysql](https://dev.mysql.com/doc/refman/8.4/en/mysql-command-options.html)|MySQL command line client.|
 |[N_m3u8DL-RE](https://github.com/nilaoda/N_m3u8DL-RE)|Cross-platform browser stream downloader (HLS/DASH/Smooth).|
 |[netlify](https://www.netlify.com)|The Netlify CLI for managing and deploying your Netlify sites|
+|[netwatch](https://github.com/matthart1983/netwatch)|Real-time network diagnostics in your terminal.|
 |[nexttrace](https://github.com/nxtrace/NexTrace)|An open source visual route tracking CLI tool|
 |[ngrok](https://ngrok.com/)|Unified Ingress Platform for developers.<br>Connect localhost to the internet for testing applications and APIs.|
 |[nl](https://uutils.org)|Number lines of files.|
@@ -189,23 +200,34 @@
 |[playwright](https://playwright.dev/)|Framework for web testing and automation.|
 |[pm2](https://pm2.keymetrics.io/)|Node.js process manager with built-in load balancer.|
 |[pnpm](https://pnpm.io/)|Fast, disk-space-efficient package manager.|
+|[pnpx](https://pnpm.io/cli/dlx)|Run a package in a temporary environment.|
 |[podman](https://podman.io)|Manage pods, containers and images.|
 |[poetry](https://python-poetry.org)|Python dependency manager and packaging tool.|
 |[powershell](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_pwsh?view=powershell-5.1)|Windows PowerShell CLI.|
 |[pr](https://www.gnu.org/software/coreutils/)|Paginate or columnate FILE(s) for printing.|
 |[prettier](https://prettier.io)|Opinionated code formatter.|
 |[printenv](https://www.gnu.org/software/coreutils/)|Print the values of environment VARIABLE(s).|
+|[prisma](https://www.prisma.io/docs/cli)|The Prisma Developer Platform, from your terminal.|
 |[psc](https://pscompletions.abgox.com)|PSCompletions module's completion.|
 |[ptx](https://uutils.org)|Output a permuted index of the words in the input files.|
 |[pulumi](https://www.pulumi.com/)|Pulumi - Infrastructure as Code in any programming language|
 |[pwsh](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_pwsh)|PowerShell CLI.|
 |[pyenv](https://github.com/pyenv/pyenv)|pyenv - Simple Python version management.<br>Manage multiple Python versions and switch between them easily.|
+|[pytest](https://docs.pytest.org)|Python testing framework.|
 |[python](https://www.python.org)|Python interpreter command-line.|
 |[rclone](https://rclone.org)|Syncs files to and from cloud storage providers.|
 |[reasonix](https://reasonix.io)|A DeepSeek-native AI coding agent for your terminal.|
 |[restic](https://restic.net)|A backup program<br>Save multiple revisions of files and directories in an encrypted repository|
 |[resvg](https://github.com/linebender/resvg)|An SVG rendering application.|
 |[rg](https://github.com/BurntSushi/ripgrep)|ripgrep (rg) - recursively searches the current directory for lines matching a regex pattern.|
+|[rimraf](https://github.com/isaacs/rimraf)|A cross-platform `rm -rf` utility for Node.js.|
+|[rsbuild](https://rsbuild.rs)|A fast, extensible build tool for modern web development, powered by Rspack.|
+|[rsdoctor](https://rsdoctor.rs)|An AI-friendly build analyzer that makes the build process transparent.|
+|[rslib](https://rslib.rs)|An Rsbuild-based library development tool for creating libraries and UI components.|
+|[rslint](https://rslint.rs)|A high-performance, ESLint-compatible linter for JavaScript and TypeScript.|
+|[rspack](https://rspack.rs)|Fast Rust-based bundler for the web with a modernized webpack API.|
+|[rspress](https://rspress.rs)|Lightning fast static site generator.|
+|[rstest](https://rstest.rs)|A JavaScript testing framework powered by Rspack, with a Jest-compatible API.|
 |[ruff](https://github.com/astral-sh/ruff)|An extremely fast Python linter and code formatter.|
 |[rustc](https://doc.rust-lang.org/rustc)|The Rust compiler|
 |[rustup](https://rustup.rs)|The Rust toolchain installer.|
@@ -216,15 +238,22 @@
 |[sd](https://github.com/chmln/sd)|An intuitive find & replace CLI<br>sed alternative|
 |[sdkmanager](https://developer.android.com/studio/intro/update#sdk-manager)|sdkmanager - Android SDK Manager.<br>Install, update, and manage Android SDK packages, platforms, build tools, and more.|
 |[sfsu](https://github.com/winpax/sfsu)|Scoop utilities, 30-100x faster than native Scoop.|
+|[sk](https://github.com/skim-rs/skim)|A fast fuzzy finder for the command line written in Rust|
 |[sqlite3](https://www.sqlite.org)|SQLite command line interface.|
 |[ssh-keygen](https://www.openssh.com)|OpenSSH key generation utility.|
 |[starship](https://github.com/starship/starship)|The cross-shell prompt for astronauts.|
+|[stern](https://github.com/stern/stern)|Tail multiple pods and containers from Kubernetes.|
+|[stripe](https://docs.stripe.com/cli)|The official command-line tool to interact with Stripe.|
 |[svn](https://subversion.apache.org)|Subversion version control system.|
 |[swc](https://swc.rs/)|Super-fast TypeScript/JavaScript compiler.|
+|[taze](https://github.com/antfu-collective/taze)|A modern CLI tool that keeps your deps fresh.|
 |[terraform](https://www.terraform.io)|HashiCorp Terraform - Infrastructure as Code tool|
 |[terragrunt](https://terragrunt.gruntwork.io)|Terragrunt - a flexible orchestration tool for OpenTofu/Terraform|
+|[tig](https://github.com/jonas/tig)|Tig is an ncurses-based text-mode interface for git(1).<br>It functions mainly as a Git repository browser, but can also assist in staging changes for commit at chunk level and act as a pager for output from various Git commands.|
+|[tofu](https://opentofu.org)|Open-source infrastructure as code tool.|
 |[tokei](https://github.com/XAMPPRocky/tokei)|Count your code, quickly|
 |[tombi](https://tombi-toml.github.io/tombi/)|TOML Toolkit|
+|[trivy](https://trivy.dev)|Scanner for vulnerabilities in container images, file systems, and Git repositories, as well as for configuration issues and hard-coded secrets.|
 |[tsc](https://www.typescriptlang.org/docs/handbook/compiler-options.html)|The TypeScript Compiler.|
 |[tsx](https://tsx.hirok.io)|TypeScript Execute. The easiest way to run TypeScript in Node.js.|
 |[ttyd](https://github.com/tsl0922/ttyd)|A tool for sharing terminal over the web|
@@ -240,6 +269,9 @@
 |[vite](https://github.com/vitejs/vite)|Next generation frontend tooling.|
 |[vitest](https://github.com/vitest-dev/vitest)|Next generation testing framework.|
 |[volta](https://volta.sh)|JavaScript tool manager.|
+|[vp](https://viteplus.dev)|Vite+ command line interface.<br>Create, develop, build, test, lint, format, and manage JavaScript projects.|
+|[vpr](https://viteplus.dev/guide/run)|Standalone task runner (equivalent to `vp run`).<br>Run tasks across workspace packages.|
+|[vpx](https://viteplus.dev/guide/vpx)|Execute a command from a local or remote npm package.<br>Run local binaries, or download and run remote packages.|
 |[watchexec](https://github.com/watchexec/watchexec)|Execute commands when watched files change<br>Recursively monitors for changes and runs commands|
 |[wget](https://www.gnu.org/software/wget/)|Non-interactive network retriever.|
 |[winget](https://github.com/microsoft/winget-cli)|Windows package manager.|
@@ -251,6 +283,7 @@
 |[wt](https://github.com/microsoft/terminal)|Windows Terminal command line.|
 |[xh](https://github.com/ducaale/xh)|A friendly and fast tool for sending HTTP requests<br>HTTPie alternative written in Rust|
 |[xmake](https://xmake.io)|A cross-platform build utility based on Lua.|
+|[xpipe](https://github.com/xpipe-io/xpipe)|Connection hub to access your entire server infrastructure from your local desktop.|
 |[xxd](https://www.linux.org/docs/man1/xxd.html)|Make a hex dump or do the reverse|
 |[ya](https://yazi-rs.github.io/)|Yazi - Blazing fast terminal file manager written in Rust.|
 |[yarn](https://classic.yarnpkg.com/)|Fast, reliable, and secure dependency management.|

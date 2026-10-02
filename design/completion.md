@@ -13,8 +13,9 @@ available at every level.
 
 The engine builds a **`Tree`** from the manifest: `next` (root subcommands), `options`
 (root options), `global_options`. Each node is a **`Node`** — either a subcommand or an
-option — carrying `name`, `aliases`, `tip`/`usage`/`example`, `repeat`, and its own
-`next`/`option` children.
+option — carrying `name`, `aliases`, `tip`/`usage`/`example`, and its own
+`next`/`option` children. Only option nodes declare `repeat` (the manifest Schema
+forbids it on commands; omitting `repeat` means "once").
 
 Typing `git <Tab>` builds the menu from git's root context. Applying a subcommand switches
 **to that subcommand's context**; applying an option stays in the current context
@@ -39,7 +40,7 @@ tree's root `option` items apply. `global_option` is always appended. Place a fl
 
 | Field | Meaning |
 | --- | --- |
-| `path` | Subcommand path of **canonical names** (aliases expanded, case-normalized). |
+| `path` | Subcommand path of **canonical names** (aliases expanded; the manifest's declared casing, not the user's input casing). |
 | `layers` | Typed context-switch chain: `(kind, canonical)` tuples — commands always; options when they have a `next` array (even empty) or a non-empty `option` array. Drives **declarative location matching** (`psc.on` spec matching). |
 | `pending` | The **unfinished last token** (the word being typed); `None` when the line ends with a space. |
 | `opts` | All completed options' **canonical names**, in order (aliases expanded; symmetrical to `path`). The most recent is `opts[#opts]`. |
@@ -48,6 +49,12 @@ tree's root `option` items apply. `global_option` is always appended. Place a fl
 Each token is classified as `command` / `option` / `value` / `unknown`:
 - Known commands/options push a `command`/`option` token with a **`canonical`** = the main
   (longest) name — alias input normalizes to it.
+- **Case sensitivity**: command words and option *values* match case-insensitively, but
+  **options match exactly**. Short flags are case-significant in real CLIs (`git commit -c`
+  reuses-and-edits a message while `-C` reuses it), so folding case let whichever option came
+  first in the array swallow both spellings — the loser's `repeat` slot was then consumed as if
+  the user had typed it. Aliases still normalize to the option's `name`; only the comparison
+  is exact.
 - Values of options become `value` tokens (even when the value is not in the option's static
   candidates). The engine implements **"command/option wins"**: an option with `next` (even
   empty) consumes the next token as its value — unless that token matches a known command or
@@ -58,6 +65,22 @@ Each token is classified as `command` / `option` / `value` / `unknown`:
   candidate values and unknown words never consume a static subcommand's candidate slot.
 - After consuming a value, the context resets to the nearest command context, so subcommands
   remain reachable.
+- **`=`-attached values**: a token starting with `-` and containing `=` (`--format=json`)
+  splits at the first `=` — the left side resolves as the option, the right side is its value,
+  identical to the space-separated form (completed: `option` + `value` tokens; unfinished:
+  `option` token + value `pending` whose text is the value segment only, so `initial_filter`
+  and the inserted word both operate on the segment while the menu re-attaches the
+  `--format=` head on apply). Declared spellings normalize one trailing `=` for identity
+  (`--format=` ≡ `--format` in matching, `opts`, `used`, `layers`). A valueless flag with `=`
+  or an unknown left side is `unknown` and completes nothing.
+- **Separator-joined list values**: an option declaring `"separator"` completes its value
+  segment by segment (`--exclude a,b<TAB>` — `a` is used, `b` is the pending tail segment).
+  Only the tail is `pending` (text = tail only); completed segments are engine-internal
+  (candidate filtering + word rebuild) and never surface as tokens — a finished list is a
+  single `value` token, mirroring the space form. Selecting replaces the tail segment and
+  adds no trailing space; the user types the separator to continue, Space to finish. Used
+  segments are filtered from candidates (case-insensitive, static and dynamic alike).
+  Composes with `=` (`--exclude=a,b<TAB>` splits the head first).
 
 The generation phase returns the **full candidate set of the current context** — it does
 **not** pre-filter by pending; filtering is left to the menu via `initial_filter`
@@ -74,17 +97,21 @@ Each menu item may carry a **predict symbol** showing how applying it changes th
 
 | Symbol | Config item | Meaning |
 | --- | --- | --- |
-| `~` | `switch` | Apply → **switch to a new context** — `peek(input+[candidate])` has non-`global` candidates beyond `parent(input)` |
-| `?` | `stay` | Apply → **stay in current layer** — no new layer, but `peek(input+[candidate])` still has non-`global` candidates (e.g. `scoop install -u` keeps `apps`) |
-| — | — | No follow-up beyond `global_option` (leaf like `scoop checkup` whose `peek` is only `--help/--version`) |
+| `~` | `switch` | Apply → **landing is richer than the parent layer** — `peek(input+[candidate])` has non-`global` candidates beyond `parent(input)` (static subcommands/options, dynamic values/follow-ups, or a reset to a richer command layer) |
+| `?` | `stay` | Apply → **landing is alive** — the next menu is non-empty: same layer (flags/values), a terminal-ambient layer (leaf commands like `leaf`, `npm run` with no scripts, `scoop checkup` whose `peek` is only `--help/--version`), or a reset command layer |
+| — | — | Apply → **landing is dead** — the next menu is empty (exhausted `=`-value slot with no candidates). Rare by design: every layer inherits ambient options, so a dead landing means truly nothing remains. |
 
-**Engine judgement**: static `has_static_candidates(next/option non-empty)` → immediate `~` (fast path, e.g. `git stash`); otherwise async `peek_predict_symbol` in `menu/protocol.rs`:
+Legend in one line: **`~` new fruit ahead, `?` lands alive, no symbol lands dead.** Repeat/slot gating decides what remains pickable (a consumed single value vanishes from the list); the symbol only reports the landing.
 
-- `has_new = peek - parent - global ≠ ∅` → `switch(~)` (`install`→`7zip` new)
-- `!has_new && peek - global ≠ ∅ && candidate.is_option && !is_global` → `stay(?)` (`-u` stays in `install` layer)
-- else `None` (`checkup` only `global`)
+User-facing, "context" means the visible candidate list rather than the engine's path/layers: `stay` = the same list minus consumed or mutually exclusive rows (a used option vanishes; sibling subcommands vanish once one is picked); `switch` = the list gains rows it never had.
 
-`global_option` and parent-inherited `option` are excluded first, avoiding `scoop --help` being misjudged as `~`.
+**Engine judgement**: static phase gives the optimistic default — `has_static_candidates(next/option non-empty)` → immediate `~` (fast path, e.g. `git stash`); anything else → `stay` (presumed alive). Then async `peek_predict_symbol` in `menu/protocol.rs` refines per selected row:
+
+- `peek` empty → `None` (dead landing)
+- `has_new = peek - parent - global ≠ ∅` → `switch(~)` (new fruit)
+- else → `stay(?)` (confirmed alive)
+
+`global_option`, bubbled ancestor `option`, and root `option` as fallback source are excluded from the `peek`/`parent` sets first — this guards **only** the `switch` judgement, avoiding `scoop --help` being misjudged as `~`. Stay looks at nothing but liveness: never remainder composition, never the item kind.
 
 **Display**: the item's `symbol` is a **config key** (`switch`/`stay`). In build mode the
 engine maps it to a display character through `context_switch` / `context_stay`
@@ -94,7 +121,7 @@ to the counter (e.g. `03/15 ~`), so the list stays clean and the symbol follows 
 
 ## 4. Repeat filtering
 
-`repeat` on an option/command limits how many times it may appear:
+`repeat` on an option limits how many times it may appear:
 
 - **Static** (resolve phase): `used` counts by canonical name; an item with `repeat == 0`
   that was already used is dropped, and one with `repeat > 0` is dropped once
@@ -144,6 +171,18 @@ Top-level manifest fields:
 > **Rule**: `[]` (empty array) is **forbidden for commands** — commands only have a subcommand
 > layer (`[...]`) or nothing. `[]` is **allowed for options** — it means "this option takes a
 > free-form value with no static candidates".
+
+> **Attached-value options**: an option whose value is joined with `=` is declared with a
+> trailing `=` in `name`/`alias` (`"name": "--format="`). Selecting it inserts `--format=`
+> with no trailing space (cursor stays behind the `=`); typing `--format=<TAB>` completes the
+> option's `next` values. `usage` should show the value shape (`--format=<FMT>`); a valueless
+> flag must not carry `=`.
+
+> **Separator-joined list values**: an option whose value is a separator-joined list
+> (`--exclude a,b,c`) declares `"separator"` (any non-empty string except whitespace/`=`,
+> typically `,`/`;`) and requires `next`. Selecting a candidate replaces only the current
+> segment and adds no trailing space — the user types the separator to continue, Space to
+> finish. `usage` should show the shape (`--exclude <A,B,...>`).
 
 **`option` vs `global_option`**:
 

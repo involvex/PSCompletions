@@ -27,9 +27,14 @@ lifecycles, and future shells need only the engine.
 
 ## 3. Data discovery
 
-The CLI operates on a module data directory, passed by the host:
+The CLI operates on one resolved data directory. The PowerShell host resolves it once and always passes it explicitly:
 
-- Primary: `--data <dir>` argument; fallback: env `PSC_DATA_DIR`.
+- `PSCOMPLETIONS_DATA_DIR` — optional install-time/user override read by the PowerShell host when non-empty.
+- Otherwise the host uses the platform default: `%APPDATA%\com.abgox\PSCompletions` on Windows,
+  `~/Library/Application Support/com.abgox/PSCompletions` on macOS, and
+  `${XDG_DATA_HOME:-$HOME/.local/share}/com.abgox/PSCompletions` on Linux.
+- The host passes the resolved directory as `--data <dir>` to `psc`; the Rust binary keeps its
+  existing direct-invocation fallback to the same environment variable when no `--data` is given.
 - Files the CLI reads/writes (all under `<data>`):
   - `settings.json` — local completion list (`alias`), all config (`config`, incl. `config.completion`).
     Written **atomically** (pid-suffixed temp file + rename) so a crash mid-write can never leave a
@@ -44,7 +49,6 @@ The CLI operates on a module data directory, passed by the host:
     against its installed version at render time; on a fetch failure the previous value is kept).
     `last_check` is set on each `psc check`/`psc update` and drives the menu's stale-update hint
      (when older than 7 days).
-   - `temp/alias.csv` — alias import table for PowerShell `Import-Alias` (`"alias","target","","None"` rows, self-alias and path-like filtered). Regenerated on every `psc` invocation (content-diff guarded).
    - `temp/order/` — per-command history-order caches (menu ranking). Rebuilt on use; the menu
     engine prunes stale files (older than 90 days) in a background thread on each menu open
     (`cleanup_stale_order_files`), so it never delays the TUI.
@@ -84,7 +88,7 @@ Stripped from anywhere in the argument list before subcommand dispatch:
 
 | Flag | Meaning |
 | --- | --- |
-| `--data <dir>` / `--data=<dir>` | Data directory. Overrides `PSC_DATA_DIR` env var. Required by the binary. |
+| `--data <dir>` / `--data=<dir>` | Data directory. The PowerShell host always passes its resolved directory; when invoking the binary directly, this overrides `PSCOMPLETIONS_DATA_DIR`. |
 | `--json` | Structured JSON output (used by the PowerShell wrapper). |
 | `--language <lang>` | Only used by `init` (bootstrap default language when settings are missing). |
 | `--result <file>` | Only used by `init` (write the init JSON payload to a file). |
@@ -119,11 +123,15 @@ psc add --all
 - **Behavior**: downloads the remote index, then installs each named completion. `--all` installs every available completion, with an interactive confirm.
   Each installed completion: files are copied into `completions/<name>/`, `.update` records the
   remote version, and settings are refreshed (`refresh_settings_after_add` builds the
-  trigger-alias map). An already-installed name follows the update path (no error).
+  trigger-alias map). `add` always reinstalls: the whole per-completion entry (trigger
+  aliases + `config.completion`) is dropped and rebuilt from remote defaults (like `rm` +
+  `add`; customizations are reset). An already-installed name is reinstalled without error
+  and still reports `Added.`.
 - **Errors**: no args → `Too few parameters.`; unknown name → `<name> is not an available completion.`;
   download failure → `error: <err>`.
-- **Output**: with `--json`, per-completion results `{completion, ok, error}`; plain text
-  `<name>: Added.` otherwise. Text mode: any error → exit code `FAILURE`.
+- **Output**: with `--json`, per-completion results `{completion, ok, error}` (trigger words
+  owned by another completion add `skipped: [{alias, owner}]`); plain text
+  `<name>: Added.` otherwise (ownership warnings print per word). Text mode: any error → exit code `FAILURE`.
 - **PS wrapper**: computes targets (if `--all`, all known completions; else the args), shows the
   `--all` confirm + a "please wait" notice, forwards with `--json`, then `init_data()` and renders
   the rich `info.add.done` / `info.update.done` template per added completion.
@@ -138,19 +146,25 @@ psc alias --reset                   # restore every completion's aliases
 ```
 
 - **Behavior**: no-arg lists `name: alias1 alias2` (JSON: `[{completion, aliases}]`).
+  Trigger aliases only open the completion menu — they never create execution
+  aliases (execution aliases are the user's own `Set-Alias` business).
   `add`/`rm` operate on a single installed completion (the name must be in `settings.alias`).
   `--reset` restores every completion's aliases from its `config.json` `alias` array (falling back
   to the bare name). Alias has only `add`/`rm` as subcommands — a bare completion name under
   `alias` is not a valid form (`alias <name>` / `alias <name> --reset` → `Invalid subcommand.`).
 - **Validation (add)**: no wildcards (`*`/`?`); the reserved name `PSCompletions` is rejected;
-  an alias already present for that completion is rejected; an alias colliding with another
-  completion's trigger alias is rejected (`cmd_exist`).
+  an alias already present for that completion is rejected; a word already owned by another
+  completion stays with its earlier owner — the newcomer skips it with an ownership warning
+  (`alias_owned`, naming the owner; move it with `alias rm <owner> <word>` first if intended).
 - **Validation (rm)**: refuses to remove the last remaining alias of a completion (`alias_unique`).
+- **JSON payloads**: `add` → `[{name, ok, added}]`; `rm` → `{name, ok, removed}`;
+  `alias <add|rm> <name> --reset` → `{name, ok, reset}`; `alias --reset` → `{ok, reset}` where
+  `reset` is `[{name, aliases}]`. Every reset payload also carries `skipped: [{alias, owner}]`
+  when a word stayed with an earlier owner (the `alias_owned` warning in text mode).
 - **Errors**: too few params → `Too few parameters.`; name not installed →
-  `<name>: Completion not added.`; per-alias errors: `has_wildcard`, `cmd_exist`, `alias_exist`.
-- **PS wrapper**: `alias add` pre-checks for collisions with real commands (`cmd_exist`, before
-  forwarding); no-arg lists all trigger aliases wrapped as `{Completion, Alias}` objects; other
-  invocations forward raw.
+  `<name>: Completion not added.`; per-alias errors: `has_wildcard`, `alias_owned`, `alias_exist`.
+- **PS wrapper**: no-arg lists all trigger aliases wrapped as `{Completion, Alias}` objects;
+  `add`/`update` results render per-word `skipped: [{alias, owner}]` ownership warnings from the `info.alias.skipped` template.
 
 ### 6.3 `completion` — per-completion special configuration
 
@@ -246,6 +260,11 @@ psc rm --all
   `scripts/link-completion.ps1`) is removed **as a link only** — the linked local source stays
   intact. `symlink_metadata().is_symlink()` detects junctions too (Windows junction is reported
   as a symlink), and link removal never touches the target.
+- **Name validity**: a name must be a single path-free token — no `/`, `\`, `:`, spaces or control
+  characters, and not `.`, `..` or empty. It is validated **before any filesystem access**, so
+  `psc rm ..\..\victim` is rejected instead of resolving outside the library directory. An invalid
+  name reports the same `<name> is not an available completion.` as an unknown one. The same rule
+  covers `rm` / `update` / `completion` / `alias`.
 - **Errors**: no args → `Too few parameters.`; name in neither the registry nor the remote
   library → `<name> is not an available completion.`; in the remote library but not installed →
   `<name>: Completion not added.`
@@ -265,14 +284,16 @@ psc update --all              # update every installed completion
 
 - **Behavior**: always downloads the index first. A completion is "out of date" when its local
   `.update` differs from the remote version (symlinked completions are skipped).
-  - **Named update** (`update <name>...`): updates the named completions **unconditionally** —
-    naming a completion IS the intent to update it (also the way to repair a corrupted or
-    manually-removed file).
+  - **Named update** (`update <name>...`): re-downloads the named completions
+    **unconditionally** — naming a completion IS the intent to update it (also the way to
+    repair a corrupted or manually-removed file). Settings are patched, never overwritten:
+    a missing/empty trigger entry is filled from remote defaults, per-completion config
+    only fills missing keys, and trigger customizations survive.
   - **`--old`**: updates only the **out-of-date** completions (the normal "keep everything
-    current" path).
+    current" path). Settings are patched as above, never overwritten.
   - **`--all`**: updates every installed completion that exists in the remote `completions.json`
-    index. Completions not found in the remote index (e.g. locally-linked or manually-added
-    completions) are silently skipped.
+    index (settings patched as above). Completions not found in the remote index (e.g.
+    locally-linked or manually-added completions) are silently skipped.
   - **No-arg = real-time check**: writes `temp/change.json` and reports the library
     status (out-of-date completions + newly added/removed/renamed completions), mirroring the
     startup notification.
@@ -294,7 +315,7 @@ psc --reset
 ```
 
 - Implemented in the psm1 switch (not Rust). Shows an interactive confirmation; on Enter it
-  deletes the module data directory contents (everything except module source) and re-initializes.
+  deletes the resolved data directory contents, restores the bundled `psc` completion, and re-initializes.
 
 
 ### 6.10 `init` — internal command (not user-facing)
@@ -399,7 +420,7 @@ on demand.
   readable colored hints — deliberately **not** written to stderr: PowerShell (5.1, and 7.3+ with
   `$PSNativeCommandUseErrorActionPreference`) treats native stderr as an error stream (red
   `ErrorRecord`s, possible exceptions), which would break the interactive UX this CLI hosts.
-  (One exception: running the bare binary without `--data`/`PSC_DATA_DIR` prints a usage note to
+  (One exception: running the bare binary without `--data`/`PSCOMPLETIONS_DATA_DIR` prints a usage note to
   stderr — the module path always passes `--data`, so this never happens in normal use.)
 - Text by default; every command accepts `--json`.
 - **Output contract (two modes, no exceptions)**:
@@ -411,12 +432,16 @@ on demand.
     failures), per-item failures as `ok: false` entries in the result array (`add`/`rm`/`update`
     /`info`). This lets the PowerShell wrapper uniformly parse output and render errors without
     branching on exit codes.
+  - **Sole exemption**: bare `psc` (no command) prints the usage help and exits `0` in both modes.
+    It is not a command execution — there is no failure to express and no documented JSON help
+    shape — so `--json` is ignored there. The module never reaches this path (its `default` branch
+    renders help itself without spawning `psc`).
 - ANSI color when stdout is a TTY, stripped otherwise.
 
 ## 10. PowerShell module bridge
 
 - `PSCompletions` function: no-arg → interactive info page (unchanged); with args → spawn
-  `psc <args>` via `_forward_psc` (pass `--data <module data dir>`), forward stdout/stderr/exit.
+  `psc <args>` via `_forward_psc` (pass `--data <resolved data dir>`), forward stdout/stderr/exit.
 - `config menu trigger_key` re-binds PSReadLine (`Set-PSReadLineKeyHandler`) — the one host-side
   validation that stays in PowerShell (validate-then-persist).
 - Interactive confirms for `add --all` and `rm --all` in the wrapper.

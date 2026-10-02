@@ -9,7 +9,7 @@
 @{
     RootModule           = 'PSCompletions.psm1'
 
-    ModuleVersion        = '7.4.0'
+    ModuleVersion        = '7.6.0'
 
     GUID                 = '00929632-527d-4dab-a5b3-21197faccd05'
 
@@ -32,6 +32,8 @@ It provides fast rendering, wildcard/subsequence filtering, history-aware orderi
     ScriptsToProcess     = 'PSCompletions.ps1'
 
     FunctionsToExport    = 'PSCompletions'
+
+    AliasesToExport      = 'psc'
 
     PrivateData          = @{
 

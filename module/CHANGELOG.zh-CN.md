@@ -2,6 +2,42 @@
 
 [English](./CHANGELOG.md)
 
+## Unreleased
+
+- `psc.add` 使用 `name` 作为 `tip` 的默认值
+- 修复了 hook 在超大或层级很深的目录树中执行 glob 时菜单卡死的问题
+
+## 7.6.0
+
+- 数据目录默认移出模块文件夹，可通过 `PSCOMPLETIONS_DATA_DIR` 覆盖
+  - Windows: `%APPDATA%\com.abgox\PSCompletions`
+  - macOS: `~/Library/Application Support/com.abgox/PSCompletions`
+  - Linux: `${XDG_DATA_HOME:-$HOME/.local/share}/com.abgox/PSCompletions`
+- 过滤提示符不再使用 `focus` 语义颜色
+- 修复了动态 hooks 导致菜单候选项应用延迟的问题
+- 其他的优化和修复
+
+## 7.5.2
+
+- 修复了历史记录含多字节字符时的崩溃
+- 修复了菜单列表收缩时选中行滚出视野的问题
+- 其他的优化和修复
+
+## 7.5.1
+
+- 改进了 [补全预测符号](https://pscompletions.abgox.com/docs/completion-predict-symbol) 的语义
+- 其他的优化和修复
+
+## 7.5.0
+
+- Hooks API：为 `psc.json` 添加 JSON5 支持
+- 移除了执行别名的自动导入与新增别名时与真实命令的冲突检查
+  - `psc alias` 现在只决定哪些触发别名能打开补全菜单
+  - 如需执行别名请自行使用 `Set-Alias`
+- 同时支持 `--opt=value`/`--opt value` 两种选项值用法
+- 支持分隔符连接的选项值（`--exclude a,b,c`）：由 `separator` 定义
+- 其他的优化和修复
+
 ## 7.4.0
 
 - Hooks API：添加 `psc.on`/`psc.path`、移除 `psc.set_symbol`/`psc.set_tip` 和其他变更

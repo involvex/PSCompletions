@@ -2,32 +2,27 @@ if psc.platform ~= "windows" or psc.typing.option_like then
     return
 end
 
-local scoop_config_cache = nil
-
 local function get_scoop_config()
-    if scoop_config_cache then
-        return scoop_config_cache
-    end
     local root = psc.env("SCOOP")
+    if not root then
+        local scoop = psc.which("scoop")
+        if scoop then
+            root = scoop:gsub("\\shims\\scoop", "")
+        else
+            return {}
+        end
+    end
     local home = psc.env("USERPROFILE") or psc.env("HOME")
     if root then
         for _, path in ipairs({ psc.path(root, "config.json"), psc.path(home, ".config", "scoop", "config.json") }) do
             if psc.exist(path) then
                 local cfg = psc.json(path) or {}
-                scoop_config_cache = cfg
                 return cfg
             end
         end
+        return { root_path = root }
     end
-    local cfg = {}
-    for _, line in ipairs(psc.run({ "scoop", "config" }, { shell = true }) or {}) do
-        local k, v = line:gsub("\27%[[%d;]*m", ""):match("^(%S+)%s*:%s*(.+)$")
-        if k then
-            cfg[k] = v
-        end
-    end
-    scoop_config_cache = cfg
-    return cfg
+    return {}
 end
 
 local function get_root()
@@ -52,6 +47,25 @@ local function get_apps_dir()
     return apps_dirs
 end
 
+local function get_current_dir(apps_dir, name)
+    local app_dir = psc.path(apps_dir, name)
+    local current = psc.path(app_dir, "current")
+    if psc.exist(current) then
+        return current
+    end
+    local versions = {}
+    for _, e in ipairs(psc.ls(app_dir) or {}) do
+        if e.is_dir and not e.name:match("^_.*%.old") then
+            table.insert(versions, e.name)
+        end
+    end
+    table.sort(versions)
+    if #versions > 0 then
+        return psc.path(app_dir, versions[#versions])
+    end
+    return current
+end
+
 local function get_manifest_paths(root, bucket, app_name)
     local base = app_name:match("^([^%.]+)")
     return {
@@ -71,17 +85,21 @@ local function get_installed_apps(apps_dirs, root)
     end
     local json_paths = {}
     for _, app in ipairs(found) do
-        local current = psc.path(app.apps_dir, app.name, "current")
+        local current = get_current_dir(app.apps_dir, app.name)
+        table.insert(json_paths, psc.path(current, "scoop-manifest.json"))
         table.insert(json_paths, psc.path(current, "manifest.json"))
+        table.insert(json_paths, psc.path(current, "scoop-install.json"))
         table.insert(json_paths, psc.path(current, "install.json"))
     end
     local json_by_path = psc.json_batch(json_paths)
     local apps = {}
     for _, app in ipairs(found) do
-        local current = psc.path(app.apps_dir, app.name, "current")
-        if json_by_path[psc.path(current, "manifest.json")] then
-            app.manifest = json_by_path[psc.path(current, "manifest.json")]
-            app.install = json_by_path[psc.path(current, "install.json")]
+        local current = get_current_dir(app.apps_dir, app.name)
+        app.manifest = json_by_path[psc.path(current, "scoop-manifest.json")]
+            or json_by_path[psc.path(current, "manifest.json")]
+        app.install = json_by_path[psc.path(current, "scoop-install.json")]
+            or json_by_path[psc.path(current, "install.json")]
+        if app.manifest then
             table.insert(apps, app)
         end
     end

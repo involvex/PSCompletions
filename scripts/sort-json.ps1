@@ -18,7 +18,7 @@ if (!(Test-Path -LiteralPath $textPath)) {
 }
 $text = Get-Content -Path $textPath -Encoding utf8 | ConvertFrom-Json
 
-if (!$PSCompletions) { . $PSScriptRoot\..\module\PSCompletions\PSCompletions.ps1 }
+if (!$PSCompletions) { . $PSScriptRoot\..\module\PSCompletions\PSCompletions.ps1 -SkipMigration }
 $PSCompletions.initialize($true)
 
 $text = $text.'sort-json'
@@ -222,7 +222,7 @@ function Get-SortedJsonString {
         $topLevelOrder = @('meta', 'next', 'option', 'global_option', 'config', 'info')
         $metaOrder = @('url', 'description')
         $configOrder = @('name', 'value', 'values', 'tip')
-        $itemPropertyOrder = @('name', 'alias', 'usage', 'tip', 'example', 'repeat', 'option', 'next')
+        $itemPropertyOrder = @('name', 'alias', 'usage', 'tip', 'example', 'repeat', 'separator', 'option', 'next')
 
         $sortedJson = [ordered]@{}
 

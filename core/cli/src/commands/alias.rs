@@ -5,9 +5,17 @@ use std::process::ExitCode;
 use serde_json::json;
 
 use crate::data::{Index, Settings};
-use crate::messages::msg_cli;
+use crate::messages::{msg_cli, msg_fmt};
 use crate::output::{fail, Out};
 use crate::validate::{data_dir_of, name_error, name_status, param_err, reset_alias};
+
+fn skipped_json(skipped: &[(String, String)]) -> serde_json::Value {
+    json!(skipped
+        .iter()
+        .map(|(alias, owner)| json!({ "alias": alias, "owner": owner }))
+        .collect::<Vec<_>>())
+}
+
 pub fn cmd_alias(
     args: &[String],
     settings_path: &str,
@@ -25,9 +33,27 @@ pub fn cmd_alias(
         if let Some(e) = name_error(lang, &name, status, true) {
             return fail(out, e, json);
         }
-        reset_alias(settings, &data_dir, &name);
+        let skipped = reset_alias(settings, &data_dir, &name);
         if let Err(e) = settings.save(settings_path) {
             return fail(out, format!("error: {e}"), json);
+        }
+        if json {
+            let mut payload = json!({
+                "name": name,
+                "ok": true,
+                "reset": settings.alias.get(&name).cloned().unwrap_or_default(),
+            });
+            if !skipped.is_empty() {
+                payload["skipped"] = skipped_json(&skipped);
+            }
+            println!("{}", serde_json::to_string(&payload).unwrap_or_default());
+            return ExitCode::SUCCESS;
+        }
+        for (a, owner) in &skipped {
+            out.line(&format!(
+                "{a}: {}",
+                msg_fmt(lang, "alias_owned", &[("owner", owner)])
+            ));
         }
         out.line(&msg_cli(lang, "alias_done"));
         return ExitCode::SUCCESS;
@@ -39,11 +65,31 @@ pub fn cmd_alias(
             return fail(out, msg_cli(lang, "sub_cmd"), json);
         }
         let targets: Vec<String> = settings.list();
+        let mut reset_entries: Vec<serde_json::Value> = Vec::new();
+        let mut skipped_all: Vec<(String, String)> = Vec::new();
         for n in &targets {
-            reset_alias(settings, &data_dir, n);
+            skipped_all.extend(reset_alias(settings, &data_dir, n));
+            reset_entries.push(json!({
+                "name": n,
+                "aliases": settings.alias.get(n).cloned().unwrap_or_default(),
+            }));
         }
         if let Err(e) = settings.save(settings_path) {
             return fail(out, format!("error: {e}"), json);
+        }
+        if json {
+            let mut payload = json!({ "ok": true, "reset": reset_entries });
+            if !skipped_all.is_empty() {
+                payload["skipped"] = skipped_json(&skipped_all);
+            }
+            println!("{}", serde_json::to_string(&payload).unwrap_or_default());
+            return ExitCode::SUCCESS;
+        }
+        for (a, owner) in &skipped_all {
+            out.line(&format!(
+                "{a}: {}",
+                msg_fmt(lang, "alias_owned", &[("owner", owner)])
+            ));
         }
         out.line(&msg_cli(lang, "alias_done"));
         return ExitCode::SUCCESS;
@@ -109,9 +155,16 @@ pub fn cmd_alias(
                 let conflict = settings
                     .alias
                     .iter()
-                    .any(|(k, v)| k != &name && v.iter().any(|x| x == a));
-                if conflict {
-                    reject(&mut rejected, a, msg_cli(lang, "cmd_exist"), json);
+                    .find(|(k, v)| k.as_str() != name && v.iter().any(|x| x == a))
+                    .map(|(k, _)| k.clone());
+                if let Some(owner) = conflict {
+                    // Already owned: the earlier owner keeps the word.
+                    reject(
+                        &mut rejected,
+                        a,
+                        msg_fmt(lang, "alias_owned", &[("owner", &owner)]),
+                        json,
+                    );
                     continue;
                 }
                 settings
@@ -125,7 +178,9 @@ pub fn cmd_alias(
                 if let Err(e) = settings.save(settings_path) {
                     return fail(out, format!("error: {e}"), json);
                 }
-                out.line(&msg_cli(lang, "alias_done"));
+                if !json {
+                    out.line(&msg_cli(lang, "alias_done"));
+                }
             }
             if json {
                 if !added.is_empty() {
@@ -179,7 +234,9 @@ pub fn cmd_alias(
             if let Err(e) = settings.save(settings_path) {
                 return fail(out, format!("error: {e}"), json);
             }
-            out.line(&msg_cli(lang, "alias_done"));
+            if !json {
+                out.line(&msg_cli(lang, "alias_done"));
+            }
             if json {
                 println!(
                     "{}",

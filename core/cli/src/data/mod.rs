@@ -11,25 +11,24 @@ pub mod config;
 // crate-internal `crate::data::read_text` paths keep working.
 pub use psc_common::{read_text, strip_bom};
 
-pub fn assert_valid_name(name: &str) {
-    debug_assert!(
-        crate::validate::is_valid_name(name),
-        "invalid completion name: {name:?}"
-    );
-}
-
 /// Whether a completion entry exists on disk (`<data>/completions/<name>`), as a real directory
 /// or as a link (symlink/junction from `scripts/link-completion.ps1`). Uses `symlink_metadata`,
 /// so a dangling link still counts as present.
 pub fn completion_dir_exists(data_dir: &str, name: &str) -> bool {
-    assert_valid_name(name);
+    if !crate::validate::is_valid_name(name) {
+        return false;
+    }
     std::fs::symlink_metadata(format!("{data_dir}/completions/{name}")).is_ok()
 }
 
 /// Remove a completion entry: a symlink/junction is removed **as a link only** (the linked
 /// local source stays intact), a real directory recursively, a missing path is a no-op.
+/// An invalid name is a no-op: callers report it, and this keeps the destructive
+/// path from ever resolving outside `<data>/completions`.
 pub fn remove_completion_entry(data_dir: &str, name: &str) {
-    assert_valid_name(name);
+    if !crate::validate::is_valid_name(name) {
+        return;
+    }
     let dir = format!("{data_dir}/completions/{name}");
     if let Ok(md) = std::fs::symlink_metadata(&dir) {
         if md.file_type().is_symlink() {
@@ -119,74 +118,6 @@ impl Settings {
             }
         }
         Ok(())
-    }
-
-    /// CSV row escaping: double quotes per RFC4180.
-    fn csv_escape(s: &str) -> String {
-        s.replace('"', "\"\"")
-    }
-
-    /// Generate the alias import table content.
-    /// Rows with self-alias (e.g. git->git) and path-like names are skipped.
-    pub fn alias_csv_content(&self) -> String {
-        let mut rows: Vec<String> = Vec::new();
-        for (completion, aliases) in &self.alias {
-            if completion == "psc" {
-                for a in aliases {
-                    if a.is_empty() || a.contains('/') || a.contains('\\') {
-                        continue;
-                    }
-                    rows.push(format!(
-                        "\"{}\",\"{}\",\"\",\"None\"",
-                        Self::csv_escape(a),
-                        "PSCompletions"
-                    ));
-                }
-            } else {
-                for a in aliases {
-                    if a.is_empty() || a == completion || a.contains('/') || a.contains('\\') {
-                        continue;
-                    }
-                    rows.push(format!(
-                        "\"{}\",\"{}\",\"\",\"None\"",
-                        Self::csv_escape(a),
-                        Self::csv_escape(completion)
-                    ));
-                }
-            }
-        }
-        rows.sort();
-        if rows.is_empty() {
-            String::new()
-        } else {
-            rows.join("\r\n") + "\r\n"
-        }
-    }
-
-    /// Ensure `<data>/temp/alias.csv` reflects current alias state.
-    /// Content-diff guarded: if the desired content equals the existing file, no IO occurs.
-    pub fn sync_alias_csv(&self, data_dir: &str) {
-        let content = self.alias_csv_content();
-        let path = format!("{data_dir}/temp/alias.csv");
-        // Ensure temp dir exists for the comparison/write.
-        let _ = std::fs::create_dir_all(format!("{data_dir}/temp"));
-        if let Ok(existing) = std::fs::read_to_string(&path) {
-            if existing == content {
-                return;
-            }
-        } else if content.is_empty() {
-            return;
-        }
-        // Atomic write with pid suffix.
-        let tmp = format!("{path}.{}.tmp", std::process::id());
-        if std::fs::write(&tmp, &content).is_ok() {
-            let _ = std::fs::rename(&tmp, &path);
-            let _ = std::fs::remove_file(&tmp);
-        }
-        // If the table is empty, remove any stale file so Import-Alias sees missing.
-        if content.is_empty() {
-            let _ = std::fs::remove_file(&path);
-        }
     }
 
     /// Sorted completion names (alias map keys).
@@ -552,6 +483,51 @@ mod tests {
         let (root, data) = tmp_data_dir("scoop");
         remove_completion_entry(&data, "nope");
         assert!(!root.join("completions/nope").exists());
+        std::fs::remove_dir_all(root).ok();
+    }
+
+    #[test]
+    fn traversal_names_never_escape_the_completions_dir() {
+        // `psc rm ../../victim` used to resolve outside the library: `assert_valid_name` was a
+        // debug_assert (compiled out in release) and the existence probe followed the path.
+        let (root, data) = tmp_data_dir("scoop");
+        let victim = root.join("victim");
+        std::fs::create_dir_all(&victim).unwrap();
+        std::fs::write(victim.join("keep.txt"), "keep").unwrap();
+
+        for evil in ["../victim", "..\\victim", "..", ".", "a/b", "C:evil", ""] {
+            assert!(
+                !completion_dir_exists(&data, evil),
+                "{evil:?} must not be treated as installed"
+            );
+            remove_completion_entry(&data, evil);
+        }
+        assert!(
+            victim.join("keep.txt").exists(),
+            "a sibling of completions/ must survive"
+        );
+        std::fs::remove_dir_all(root).ok();
+    }
+
+    #[test]
+    fn traversal_name_reports_not_available() {
+        use crate::validate::name_status;
+        let (root, data) = tmp_data_dir("scoop");
+        let completions_dir = format!("{data}/completions");
+        let settings = Settings::default();
+        let index = Index::default();
+        for evil in ["../scoop", "..\\scoop", "..", ".", "scoop/../scoop"] {
+            assert_eq!(
+                name_status(&settings, &index, &completions_dir, evil),
+                0,
+                "{evil:?} must not resolve to an installed entry"
+            );
+        }
+        assert_eq!(
+            name_status(&settings, &index, &completions_dir, "scoop"),
+            2,
+            "a real entry is still detected"
+        );
         std::fs::remove_dir_all(root).ok();
     }
 

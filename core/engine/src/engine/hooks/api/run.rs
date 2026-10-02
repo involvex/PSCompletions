@@ -69,7 +69,7 @@ pub(crate) fn api_run(
             let parsed = match fmt {
                 "toml" => toml::from_str::<serde_json::Value>(&text).ok(),
                 "yaml" => yaml_serde::from_str::<serde_json::Value>(&text).ok(),
-                _ => serde_json::from_str::<serde_json::Value>(&text).ok(),
+                _ => json5::from_str::<serde_json::Value>(&text).ok(),
             };
             match parsed {
                 Some(v) => json_to_lua(lua, &v),
@@ -156,7 +156,7 @@ pub(crate) fn api_run_batch(
                 let parsed = match fmt {
                     "toml" => toml::from_str::<serde_json::Value>(&text).ok(),
                     "yaml" => yaml_serde::from_str::<serde_json::Value>(&text).ok(),
-                    _ => serde_json::from_str::<serde_json::Value>(&text).ok(),
+                    _ => json5::from_str::<serde_json::Value>(&text).ok(),
                 };
                 match parsed {
                     Some(v) => t.set(i + 1, json_to_lua(lua, &v)?)?,

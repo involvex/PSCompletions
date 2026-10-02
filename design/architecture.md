@@ -40,7 +40,7 @@ PSCompletions/
 │   └── utils.ps1                   # shared helpers for the scripts
 ├── design/                 # This knowledge base (authoritative "how the system works")
 ├── types/                  # EmmyLua type stub for the psc.* API (editor LSP in hooks.lua)
-├── module/PSCompletions/   # The PowerShell host (PSCompletions.psd1/.psm1/.ps1 + bin/)
+├── module/PSCompletions/   # The PowerShell host (PSCompletions.psd1/.psm1/.ps1 + bin/), with completions/psc seed
 └── core/                   # Rust workspace
     ├── common/             # psc-common: dependency-free shared helpers (strip_bom/read_text)
     ├── engine/             # psc-menu: completion engine + TUI menu (a single binary)
@@ -75,8 +75,10 @@ platform/arch via `$IsWindows`/`$IsMacOS` + `[RuntimeInformation]::ProcessArchit
 <triple>` (and zig for zigbuild).
 
 The CI build job (`.github/workflows/ci.yml`) produces the same binaries on its own hosted
-runners: plain `cargo build --release` (cross targets via the runner's toolchain), then uploads
-them as build artifacts — it does not run `cargo fmt` or zigbuild.
+runners, picking one of three commands per matrix entry (`ci.yml:103-108`): `cargo zigbuild
+--release` for the glibc-floor targets, `cargo build --release --target <triple>` for other cross
+targets, and plain `cargo build --release` for native ones. It then uploads them as build
+artifacts — the build job does not run `cargo fmt` (lint/test run as separate jobs).
 
 ## 4. End-to-end flow
 
@@ -111,15 +113,20 @@ PowerShell host applies the selection (PSConsoleReadLine::Replace); the
 
 The PowerShell host (`module/PSCompletions/PSCompletions.ps1` + `PSCompletions.psm1`) is the **bridge**.
 Import is cheap: it defines the `$PSCompletions` hashtable plus its ScriptMethods, then
-imports the pre-generated alias table `temp/alias.csv` (`psc`'s own aliases map to the
-`PSCompletions` function) so a fresh session can execute them immediately. The table is
-regenerated on every `psc` invocation (content-diff guarded; self-alias and path-like rows
-filtered). The PSReadLine trigger key is bound from `settings.json` directly. Heavy work
+ensures the module entry alias (`psc` → `PSCompletions`) so a fresh session can execute it
+immediately. Trigger aliases only open the completion menu — they never create execution
+aliases. The host resolves the runtime data root once at import: `PSCOMPLETIONS_DATA_DIR` when
+set, otherwise the platform default under the user data directory. `path.root` remains the
+read-only module directory for binaries and the bundled `completions/psc` seed; all writable
+runtime paths derive from `path.data`. On a versioned PowerShellGet install, a missing psc
+completion in the target triggers a one-time copy from the current/older module data, with the
+package seed as the final fallback; `psc init` rebuilds `settings.json`.
+The PSReadLine trigger key is bound from `settings.json` directly. Heavy work
 (the full bootstrap via `psc init --result`) stays deferred to `$PSCompletions.initialize()` on
 first Tab or first `psc`, gated by `initialized`/`binary_ok`:
 
 - `initialize()` adds deferred `ScriptMethod`s, runs `psc init --result` to bootstrap
-  `settings/aliasMap/info/default_config`, then re-imports `temp/alias.csv` and rebinds the
+  `settings/aliasMap/info/default_config`, then ensures the `psc` entry alias and rebinds the
   sanitized `trigger_key`, and sets `initialized=true`. `param([bool]$methodsOnly)`
   skips the full bootstrap for standalone scripts that only need the helper methods (keeps
   `initialized` false).

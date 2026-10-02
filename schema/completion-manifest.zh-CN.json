@@ -64,8 +64,7 @@
       ]
     },
     "name": {
-      "title": "命令名称",
-      "markdownDescription": "它应该是一个完整的名称，简写应该放在 `alias` 中",
+      "markdownDescription": "该补全项的规范名称 —— 即 **最长** 的形式。\n\n- 较短的拼写放进 `alias`\n- 含空格的取值需要加引号",
       "examples": [
         ""
       ],
@@ -85,8 +84,7 @@
       ]
     },
     "alias": {
-      "title": "命令别名",
-      "markdownDescription": "它通常是一个简写名称，完整的名称应该使用 `name` 定义",
+      "markdownDescription": "该补全项的其他拼写，按 **最长 → 最短** 排列。\n\n- 规范名称留在 `name`，别名只放其余形式\n- `usage` 必须展示每一个别名，顺序 **正好相反**（最短在前）",
       "examples": [
         []
       ],
@@ -129,14 +127,14 @@
             "not": {
               "pattern": "[\\u4e00-\\u9fff][A-Za-z]|[A-Za-z][\\u4e00-\\u9fff]"
             },
-            "errorMessage": "中文和英文之间必须有空格"
+            "errorMessage": "tip: 中英之间需空格"
           }
         }
       ]
     },
     "repeat": {
-      "type": "number",
-      "description": "该补全项的最大重复次数。",
+      "type": "integer",
+      "markdownDescription": "该补全项最多可出现的次数。\n\n- 仅在次数未知或基本无限制时才用 `99`\n- 达到次数上限后该项不再出现在补全中",
       "minimum": 1,
       "examples": [
         1,
@@ -145,6 +143,26 @@
         4,
         5,
         99
+      ]
+    },
+    "separator": {
+      "type": "string",
+      "markdownDescription": "选项值的列表分隔符。\n- 按段补全（选中只替换当前段，用户手敲分隔符续接）。\n- 仅选项可用；必须带 `next`。\n- 禁止空白和 `=`。",
+      "examples": [
+        ",",
+        ";",
+        ":",
+        "/",
+        "|"
+      ],
+      "allOf": [
+        {
+          "minLength": 1
+        },
+        {
+          "pattern": "^[^\\s=]+$",
+          "errorMessage": "它不能包含空白或 `=`"
+        }
       ]
     },
     "usage": {
@@ -164,7 +182,7 @@
                 "not": {
                   "pattern": "[\\u4e00-\\u9fff][A-Za-z]|[A-Za-z][\\u4e00-\\u9fff]"
                 },
-                "errorMessage": "中文和英文之间必须有空格"
+                "errorMessage": "usage: 中英之间需空格"
               },
               {
                 "type": "object",
@@ -172,12 +190,14 @@
                   "cmd": {
                     "not": {
                       "pattern": "[\\u4e00-\\u9fff][A-Za-z]|[A-Za-z][\\u4e00-\\u9fff]"
-                    }
+                    },
+                    "errorMessage": "usage.cmd: 中英之间需空格"
                   },
                   "desc": {
                     "not": {
                       "pattern": "[\\u4e00-\\u9fff][A-Za-z]|[A-Za-z][\\u4e00-\\u9fff]"
-                    }
+                    },
+                    "errorMessage": "usage.desc: 中英之间需空格"
                   }
                 }
               }
@@ -203,7 +223,7 @@
                 "not": {
                   "pattern": "[\\u4e00-\\u9fff][A-Za-z]|[A-Za-z][\\u4e00-\\u9fff]"
                 },
-                "errorMessage": "中文和英文之间必须有空格"
+                "errorMessage": "example: 中英之间需空格"
               },
               {
                 "type": "object",
@@ -211,12 +231,14 @@
                   "cmd": {
                     "not": {
                       "pattern": "[\\u4e00-\\u9fff][A-Za-z]|[A-Za-z][\\u4e00-\\u9fff]"
-                    }
+                    },
+                    "errorMessage": "example.cmd: 中英之间需空格"
                   },
                   "desc": {
                     "not": {
                       "pattern": "[\\u4e00-\\u9fff][A-Za-z]|[A-Za-z][\\u4e00-\\u9fff]"
-                    }
+                    },
+                    "errorMessage": "example.desc: 中英之间需空格"
                   }
                 }
               }
@@ -230,6 +252,11 @@
       "required": [
         "name"
       ],
+      "dependencies": {
+        "separator": [
+          "next"
+        ]
+      },
       "properties": {
         "name": {
           "$ref": "#/definitions/name"
@@ -248,6 +275,9 @@
         },
         "repeat": {
           "$ref": "#/definitions/repeat"
+        },
+        "separator": {
+          "$ref": "#/definitions/separator"
         },
         "next": {
           "$ref": "#/definitions/next-for-option"
@@ -382,7 +412,7 @@
                 "not": {
                   "pattern": "[\\u4e00-\\u9fff][A-Za-z]|[A-Za-z][\\u4e00-\\u9fff]"
                 },
-                "errorMessage": "中文和英文之间必须有空格"
+                "errorMessage": "meta.description: 中英之间需空格"
               }
             }
           ]
@@ -520,13 +550,14 @@
                   ]
                 }
               }
-            }
+            },
+            "additionalProperties": false
           }
         }
       ]
     },
     "info": {
-      "markdownDescription": "一些额外的信息，hooks 可通过 `psc.manifest.info` 访问",
+      "markdownDescription": "供 hooks 使用的自由格式数据，通过 `psc.manifest.info` 读取。",
       "type": "object",
       "minProperties": 1
     }

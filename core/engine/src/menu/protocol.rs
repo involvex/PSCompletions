@@ -20,6 +20,30 @@ pub fn lua_to_model_item(it: &hooks::LuaItem, switch_sym: &str, stay_sym: &str) 
         usage: it.usage.clone(),
         example: it.example.clone(),
         result_type: None,
+        nospace: it.nospace,
+    }
+}
+
+/// `=`-attached value (`--format=j<TAB>`) or separator-list value
+/// (`--exclude a,b<TAB>`): the menu lists bare values, but the host replaces
+/// the whole word — prefix the rebuild head back onto the inserted text only
+/// (display text stays bare). The head is the `=` head plus any completed
+/// list segments (`--format=`, `a,`, `--format=a,`); empty for plain values.
+pub fn apply_value_prefix(items: &mut [model::Item], ctx: &completion::ResolvedContext) {
+    let Some(p) = ctx.pending.as_ref() else {
+        return;
+    };
+    if p.value_prefix.is_none() && p.list_sep.is_none() {
+        return;
+    }
+    let mut head = p.value_prefix.clone().unwrap_or_default();
+    if !p.list_used.is_empty() {
+        let sep = p.list_sep.as_deref().unwrap_or(",");
+        head.push_str(&p.list_used.join(sep));
+        head.push_str(sep);
+    }
+    for it in items.iter_mut() {
+        it.completion_text = format!("{head}{}", it.completion_text);
     }
 }
 
@@ -390,18 +414,32 @@ pub fn build_candidate_items(
         static_items
     };
 
+    // Separator-list continuation (`--exclude a,<TAB>`): every item here is a
+    // value of the same slot — drop already-used segments (hooks-added ones
+    // included) and take no auto space. Static items already carry both from
+    // resolve; this covers what hooks added or rebuilt.
+    let mut final_items = final_items;
+    if let Some(p) = resolved.context.pending.as_ref() {
+        if p.list_sep.is_some() {
+            final_items.retain(|it| !p.list_used.iter().any(|u| u.eq_ignore_ascii_case(&it.text)));
+            for it in &mut final_items {
+                it.nospace = true;
+            }
+        }
+    }
+
     if let Some(sig) = cache_sig {
         cache_store(input, sig, &final_items);
     }
 
-    let mut final_items = final_items;
     apply_order_sort(&mut final_items, &input.order, false);
     Ok((final_items, resolved.context))
 }
 
-/// Peek whether selecting `candidate` at `input` leads to further candidates.
-/// Returns `Some("switch")` if a new layer is opened, `Some("stay")` if staying
-/// in the current layer with remaining candidates, `None` otherwise.
+/// Peek where applying `candidate` at `input` lands.
+/// Returns `Some("switch")` if the landing is richer than the parent layer,
+/// `Some("stay")` if the landing menu is alive, `None` if the landing is
+/// dead (empty next menu).
 ///
 /// Parses the manifest from scratch on each call (backward-compatible entry point).
 /// Prefer `peek_predict_symbol_with_tree` when a pre-parsed tree is available
@@ -452,7 +490,8 @@ fn peek_predict_symbol_inner(
         return None;
     }
     // Navigate arg_tokens to find the current context node, then search within that subtree (not the whole tree).
-    let ctx = resolve_context_node(tree, &input.arg_tokens);
+    let (ctx, stack, in_value_slot) =
+        resolve_context_stack(tree, &input.arg_tokens, input.treat_last_as_complete);
     // Fast static path: if the candidate's own node within the current context has static candidates, it's a switch.
     if let Some(node) = find_node_in_context(ctx, tree, candidate) {
         if has_static_candidates(node) {
@@ -472,7 +511,7 @@ fn peek_predict_symbol_inner(
         return None;
     }
     let parent_set: std::collections::HashSet<String> = if let Some(cached) = cached_parent {
-        cached.iter().map(|it| it.text.to_lowercase()).collect()
+        cached.iter().map(|it| ambient_key(&it.text)).collect()
     } else {
         let mut parent = input.clone();
         parent.order = None;
@@ -481,16 +520,45 @@ fn peek_predict_symbol_inner(
             Ok((items, _)) => items,
             Err(_) => return None,
         };
-        items.iter().map(|it| it.text.to_lowercase()).collect()
+        items.iter().map(|it| ambient_key(&it.text)).collect()
     };
-    let globals: std::collections::HashSet<String> = tree
+    // Exclude ambient items: `global_option` plus whatever the peek layer
+    // merely inherits (ancestor options bubbling down, or root `option` as
+    // the fallback source). Such items appear in both lists without opening
+    // a new layer, so they must not count as new or remaining (see
+    // design/completion.md).
+    let mut globals: std::collections::HashSet<String> = tree
         .global_options
         .iter()
-        .chain(&tree.options)
-        .flat_map(|n| n.all_names().map(|s| s.to_lowercase()))
+        .flat_map(|n| n.all_names().map(ambient_key))
         .collect();
+    if in_value_slot && stack.is_empty() {
+        // An option value at the root: the parent menu lists only value
+        // candidates, and consuming the value drops back to the root layer, so
+        // every root candidate (commands *and* options) is ambient here. A
+        // reset command layer is `stay`, never `switch` (design/completion.md §3).
+        globals.extend(
+            tree.next
+                .iter()
+                .chain(tree.options.iter())
+                .flat_map(|n| n.all_names().map(ambient_key)),
+        );
+    } else if !stack.is_empty() {
+        // Inside a command, the root `option` is only a fallback source.
+        globals.extend(
+            tree.options
+                .iter()
+                .flat_map(|n| n.all_names().map(ambient_key)),
+        );
+    }
+    globals.extend(
+        stack
+            .iter()
+            .flat_map(|n| n.option.iter())
+            .flat_map(|n| n.all_names().map(ambient_key)),
+    );
     let has_new = peek_items.iter().any(|it| {
-        !parent_set.contains(&it.text.to_lowercase()) && !globals.contains(&it.text.to_lowercase())
+        !parent_set.contains(&ambient_key(&it.text)) && !globals.contains(&ambient_key(&it.text))
     });
     if has_new {
         return Some("switch".into());
@@ -502,22 +570,25 @@ fn peek_predict_symbol_inner(
     // a command removes its siblings from the list, so the context has moved.
     // (The fast path above already returns "switch" for candidates with static
     // candidates, so we don't re-check.)
-    let has_remaining = peek_items
-        .iter()
-        .any(|it| !globals.contains(&it.text.to_lowercase()));
-    if has_remaining {
-        let is_global = globals.contains(&candidate.to_lowercase());
-        if !is_global {
-            // Option flags stay in the same context; manifest commands do not.
-            if let Some(node) = find_node_in_context(ctx, tree, candidate) {
-                if !node.is_option {
-                    return None;
-                }
-            }
-            return Some("stay".into());
-        }
+    // Landing is alive (non-empty, checked above) with nothing beyond the
+    // parent: flags, values and leaf commands alike keep the menu working.
+    // Only the landing matters here — never remainder composition, never
+    // the item kind. Ambient exclusion lives solely in the `has_new`
+    // computation above (it guards `switch` against ubiquitous items
+    // faking a new layer).
+    Some("stay".into())
+}
+
+/// Ambient comparison key: options (`-...`) compare case-sensitively, commands
+/// and values stay case-insensitive — the same split `completion::Node::matches`
+/// uses. Item text loses the declared `is_option` flag, so the leading `-`
+/// heuristic recovers it (mirrors the manifest validation rule).
+fn ambient_key(text: &str) -> String {
+    if text.starts_with('-') {
+        text.to_string()
+    } else {
+        text.to_lowercase()
     }
-    None
 }
 
 fn has_static_candidates(node: &completion::Node) -> bool {
@@ -526,17 +597,30 @@ fn has_static_candidates(node: &completion::Node) -> bool {
 }
 
 /// Walk `arg_tokens` (the typed command words after the command name) through the
-/// tree's command chain to find the deepest matching context node. Commands push
-/// their node as the new context; options (bubbled or global) are consumed without
-/// changing the context, matching the same context-maintenance behaviour that
-/// `completion::resolve` uses.
-fn resolve_context_node<'a>(
+/// tree's command chain to find the deepest matching context node plus the full
+/// command stack. Commands push their node as the new context; options (bubbled
+/// or global) are consumed without changing the context, matching the same
+/// context-maintenance behaviour that `completion::resolve` uses.
+///
+/// Also reports whether the input sits in an **option value slot** — the pending
+/// word belongs to an option that takes a value. That state has an empty command
+/// stack exactly like the root does, so `stack.is_empty()` alone cannot tell the
+/// two apart. Like `completion::resolve`, an unrecognized word does not move the
+/// context and does not stop the walk: whether some earlier word happened to be a
+/// defined command must not change how a later option is read.
+fn resolve_context_stack<'a>(
     tree: &'a completion::Tree,
     arg_tokens: &[String],
-) -> Option<&'a completion::Node> {
+    treat_last_as_complete: bool,
+) -> (
+    Option<&'a completion::Node>,
+    Vec<&'a completion::Node>,
+    bool,
+) {
     let mut ctx: Option<&'a completion::Node> = None;
     let mut stack: Vec<&'a completion::Node> = Vec::new();
-    for token in arg_tokens {
+    let mut in_value_slot = false;
+    for (i, token) in arg_tokens.iter().enumerate() {
         // 1. Try the command chain (`next`).
         let next = if let Some(c) = ctx {
             c.next.iter().find(|n| n.matches(token))
@@ -546,72 +630,65 @@ fn resolve_context_node<'a>(
         if let Some(n) = next {
             ctx = Some(n);
             stack.push(n);
+            in_value_slot = false;
             continue;
         }
         // 2. Not a command — check if it's an option (bubbling → root → global).
         //    Options don't switch context, so keep ctx and stack unchanged.
-        let is_option = stack
+        //    An `=`-attached word carries its value inline, so match on the head.
+        let head = completion::split_eq_token(token)
+            .map(|(left, _)| left)
+            .unwrap_or(token.as_str());
+        let opt = stack
             .iter()
             .rev()
-            .any(|n| n.option.iter().any(|o| o.matches(token)))
-            || tree.options.iter().any(|o| o.matches(token))
-            || tree.global_options.iter().any(|o| o.matches(token));
-        if is_option {
+            .flat_map(|n| n.option.iter())
+            .chain(tree.options.iter())
+            .chain(tree.global_options.iter())
+            .find(|o| o.matches(head));
+        if let Some(o) = opt {
+            in_value_slot = o.next_is_array || (o.option_is_array && !o.option.is_empty());
             continue;
         }
-        // 3. Unknown token — stop.
-        break;
+        // 3. A free-form word. Inside a value slot it is that option's value;
+        //    outside one it is an unknown token at the current context. Either
+        //    way the context is unchanged — keep walking. The slot only stays
+        //    open while the word is still the one being typed.
+        let pending_word = i + 1 == arg_tokens.len() && !treat_last_as_complete;
+        if !(in_value_slot && pending_word) {
+            in_value_slot = false;
+        }
     }
-    ctx
+    (ctx, stack, in_value_slot)
 }
 
-/// Search for a node by name within the current context subtree (or root tree
-/// when `ctx` is `None`), plus global options. Unlike the old `find_node`, this
-/// does NOT search the entire tree globally — it respects the current command
-/// path so that sibling subtrees don't leak their nodes.
+/// Find the node a candidate row came from: a **direct** child of the current
+/// context's `next`/`option` (or of the root tree when `ctx` is `None`), plus
+/// global options. Deliberately not recursive — a deeper node that happens to
+/// share the spelling is a *different* option, and borrowing its candidates
+/// would mislabel the row's landing (design/completion.md §3).
 fn find_node_in_context<'a>(
     ctx: Option<&'a completion::Node>,
     tree: &'a completion::Tree,
     name: &str,
 ) -> Option<&'a completion::Node> {
-    let lower = name.to_lowercase();
     let search_next: &[completion::Node] = ctx.map_or(&tree.next, |c| &c.next);
     let search_option: &[completion::Node] = ctx.map_or(&tree.options, |c| &c.option);
-    for n in search_next {
-        if let Some(found) = find_node_rec(n, &lower) {
-            return Some(found);
-        }
-    }
-    for n in search_option {
-        if let Some(found) = find_node_rec(n, &lower) {
-            return Some(found);
-        }
-    }
-    if let Some(n) = tree
-        .global_options
+    search_next
         .iter()
-        .find(|n| n.all_names().any(|a| a.eq_ignore_ascii_case(&lower)))
-    {
-        return Some(n);
-    }
-    None
-}
-
-fn find_node_rec<'a>(node: &'a completion::Node, lower: &str) -> Option<&'a completion::Node> {
-    if node.all_names().any(|a| a.eq_ignore_ascii_case(lower)) {
-        return Some(node);
-    }
-    for child in &node.next {
-        if let Some(found) = find_node_rec(child, lower) {
-            return Some(found);
-        }
-    }
-    for child in &node.option {
-        if let Some(found) = find_node_rec(child, lower) {
-            return Some(found);
-        }
-    }
-    None
+        .chain(search_option.iter())
+        .chain(tree.global_options.iter())
+        .find(|n| {
+            n.all_names().any(|a| {
+                let a = completion::Node::canonical_spelling(a);
+                let b = completion::Node::canonical_spelling(name);
+                if n.is_option {
+                    a == b
+                } else {
+                    a.eq_ignore_ascii_case(b)
+                }
+            })
+        })
 }
 
 /// Derive the hooks.lua path from the manifest path: `<cmd>/language/<lang>.json` → `<cmd>/hooks.lua`.
@@ -889,6 +966,127 @@ mod tests {
             item_score(&item("ls"), &cmd_order, &empty, &commands_order),
             57
         );
+    }
+
+    #[test]
+    fn peek_gives_stay_in_ambient_only_layer() {
+        // `menu` is a leaf: its candidates are the bubbled `--aaa`/`--bbb`
+        // (from `config`) plus `--help`. Applying `--aaa` lands in an
+        // alive menu, so the symbol is `stay` — `?` reports the landing
+        // only, never remainder composition, never the item kind
+        // (see design/completion.md).
+        let dir = std::env::temp_dir().join(format!("psc-peek-test-{}", std::process::id()));
+        let _ = std::fs::create_dir_all(&dir);
+        let manifest = dir.join("manifest.json");
+        std::fs::write(
+            &manifest,
+            r#"{"meta":{"url":"https://example.com","description":["t"]},"next":[{"name":"config","option":[{"name":"--aaa"},{"name":"--bbb"}],"next":[{"name":"menu"}]}],"global_option":[{"name":"--help"}]}"#,
+        )
+        .unwrap();
+        let input = CompleteInput {
+            cmd: "t".into(),
+            arg_tokens: vec!["config".into(), "menu".into()],
+            treat_last_as_complete: true,
+            manifest: manifest.to_string_lossy().into_owned(),
+            hooks: false,
+            cwd: String::new(),
+            config: serde_json::Value::Null,
+            global_config: serde_json::json!({ "enable_cache": 0 }),
+            data: serde_json::Value::Null,
+            order: None,
+            cache_dir: String::new(),
+            log_dir: String::new(),
+        };
+        assert_eq!(peek_predict_symbol(&input, "--aaa"), Some("stay".into()));
+        // Sanity: a subcommand with static candidates still predicts `switch`.
+        let root = CompleteInput {
+            arg_tokens: vec![],
+            ..input.clone()
+        };
+        assert_eq!(peek_predict_symbol(&root, "config"), Some("switch".into()));
+        let _ = std::fs::remove_dir_all(&dir);
+    }
+
+    #[test]
+    fn peek_gives_stay_to_flag_beside_subcommands() {
+        // npm-like root: `run`/`install` subcommands plus boolean flags.
+        // Applying `--aaa` stays in the root layer with `run`/`install`
+        // still reachable, so the async peek assigns `stay` — the static
+        // phase only fast-paths `switch` (see design/completion.md).
+        let dir = std::env::temp_dir().join(format!("psc-peek-stay-{}", std::process::id()));
+        let _ = std::fs::create_dir_all(&dir);
+        let manifest = dir.join("manifest.json");
+        std::fs::write(
+            &manifest,
+            r#"{"meta":{"url":"https://example.com","description":["t"]},"next":[{"name":"run"},{"name":"install"}],"option":[{"name":"--aaa"},{"name":"--bbb"}]}"#,
+        )
+        .unwrap();
+        let input = CompleteInput {
+            cmd: "t".into(),
+            arg_tokens: vec![],
+            treat_last_as_complete: true,
+            manifest: manifest.to_string_lossy().into_owned(),
+            hooks: false,
+            cwd: String::new(),
+            config: serde_json::Value::Null,
+            global_config: serde_json::json!({ "enable_cache": 0 }),
+            data: serde_json::Value::Null,
+            order: None,
+            cache_dir: String::new(),
+            log_dir: String::new(),
+        };
+        assert_eq!(peek_predict_symbol(&input, "--aaa"), Some("stay".into()));
+        assert_eq!(peek_predict_symbol(&input, "--bbb"), Some("stay".into()));
+        let _ = std::fs::remove_dir_all(&dir);
+    }
+
+    #[test]
+    fn peek_gives_stay_to_global_flag_with_followups() {
+        // `npm --allow-file`-like: a global boolean flag. Applying it lands
+        // in an alive menu, so it is `stay` — at the root and in an
+        // ambient-only leaf alike. A leaf command lands in an alive
+        // ambient-only layer → `stay` as well; no symbol means a dead
+        // (empty) landing.
+        let dir = std::env::temp_dir().join(format!("psc-peek-global-{}", std::process::id()));
+        let _ = std::fs::create_dir_all(&dir);
+        let manifest = dir.join("manifest.json");
+        std::fs::write(
+            &manifest,
+            r#"{"meta":{"url":"https://example.com","description":["t"]},"next":[{"name":"run"},{"name":"install"},{"name":"cfg","next":[{"name":"leaf"}]}],"global_option":[{"name":"--allow-file"},{"name":"--allow-remote"}]}"#,
+        )
+        .unwrap();
+        let base = CompleteInput {
+            cmd: "t".into(),
+            arg_tokens: vec![],
+            treat_last_as_complete: true,
+            manifest: manifest.to_string_lossy().into_owned(),
+            hooks: false,
+            cwd: String::new(),
+            config: serde_json::Value::Null,
+            global_config: serde_json::json!({ "enable_cache": 0 }),
+            data: serde_json::Value::Null,
+            order: None,
+            cache_dir: String::new(),
+            log_dir: String::new(),
+        };
+        assert_eq!(
+            peek_predict_symbol(&base, "--allow-file"),
+            Some("stay".into())
+        );
+        let leaf = CompleteInput {
+            arg_tokens: vec!["cfg".into(), "leaf".into()],
+            ..base.clone()
+        };
+        assert_eq!(
+            peek_predict_symbol(&leaf, "--allow-file"),
+            Some("stay".into())
+        );
+        let cfg = CompleteInput {
+            arg_tokens: vec!["cfg".into()],
+            ..base.clone()
+        };
+        assert_eq!(peek_predict_symbol(&cfg, "leaf"), Some("stay".into()));
+        let _ = std::fs::remove_dir_all(&dir);
     }
 
     fn sample_input() -> CompleteInput {
@@ -1205,6 +1403,290 @@ mod tests {
             vec![".\\core\\", ".\\assets\\"],
             "explicit path candidates rank by shared path-leaf frequency at any depth"
         );
+        let _ = std::fs::remove_dir_all(&dir);
+    }
+
+    #[test]
+    fn apply_value_prefix_prefixes_insert_text_only() {
+        let items: Vec<model::Item> = ["json", "yaml"]
+            .iter()
+            .map(|t| {
+                lua_to_model_item(
+                    &hooks::LuaItem {
+                        text: t.to_string(),
+                        ..Default::default()
+                    },
+                    "~",
+                    "?",
+                )
+            })
+            .collect();
+        // `=`-attached value: inserted text regains the option head, display stays bare.
+        let mut prefixed = items.clone();
+        let ctx = completion::ResolvedContext {
+            pending: Some(completion::PendingInfo {
+                text: Some("j".into()),
+                kind: Some("value".into()),
+                canonical: None,
+                value_prefix: Some("--format=".into()),
+                list_sep: None,
+                list_used: Vec::new(),
+            }),
+            ..Default::default()
+        };
+        apply_value_prefix(&mut prefixed, &ctx);
+        assert_eq!(prefixed[0].completion_text, "--format=json");
+        assert_eq!(prefixed[0].list_item_text, "json");
+        // No `=` pending: untouched.
+        let mut plain = items.clone();
+        let plain_ctx = completion::ResolvedContext {
+            pending: None,
+            ..Default::default()
+        };
+        apply_value_prefix(&mut plain, &plain_ctx);
+        assert_eq!(plain[0].completion_text, "json");
+    }
+
+    #[test]
+    fn apply_value_prefix_rebuilds_list_head() {
+        let items: Vec<model::Item> = ["bb"]
+            .iter()
+            .map(|t| {
+                lua_to_model_item(
+                    &hooks::LuaItem {
+                        text: t.to_string(),
+                        ..Default::default()
+                    },
+                    "~",
+                    "?",
+                )
+            })
+            .collect();
+        // Space-form list: used segments rejoin the head.
+        let mut spaced = items.clone();
+        let ctx = completion::ResolvedContext {
+            pending: Some(completion::PendingInfo {
+                text: Some("b".into()),
+                kind: Some("value".into()),
+                canonical: None,
+                value_prefix: None,
+                list_sep: Some(",".into()),
+                list_used: vec!["aa".into()],
+            }),
+            ..Default::default()
+        };
+        apply_value_prefix(&mut spaced, &ctx);
+        assert_eq!(spaced[0].completion_text, "aa,bb");
+        // `=`-form list: head plus used segments.
+        let mut eqd = items.clone();
+        let eq_ctx = completion::ResolvedContext {
+            pending: Some(completion::PendingInfo {
+                text: Some("b".into()),
+                kind: Some("value".into()),
+                canonical: None,
+                value_prefix: Some("--exclude=".into()),
+                list_sep: Some(",".into()),
+                list_used: vec!["aa".into()],
+            }),
+            ..Default::default()
+        };
+        apply_value_prefix(&mut eqd, &eq_ctx);
+        assert_eq!(eqd[0].completion_text, "--exclude=aa,bb");
+    }
+
+    #[test]
+    fn peek_judges_a_value_slot_landing_as_ambient() {
+        // At a separator-list tail the parent menu shows only value candidates
+        // (by design), so the landing — the root option layer reached after the
+        // value is consumed — must not read as "new fruit".
+        let dir = std::env::temp_dir().join(format!("psc-peek-sep-{}", std::process::id()));
+        let _ = std::fs::create_dir_all(&dir);
+        let manifest = dir.join("manifest.json");
+        std::fs::write(
+            &manifest,
+            r#"{"meta":{"url":"https://example.com","description":["t"]},
+                "next":[{"name":"sub"}],
+                "option":[
+                  {"name":"--tag","next":[{"name":"a"},{"name":"b"}]},
+                  {"name":"--exclude=","separator":",","next":[{"name":"aa"},{"name":"bb"}]}
+                ]}"#,
+        )
+        .unwrap();
+        let base = |tokens: Vec<&str>, complete: bool| CompleteInput {
+            cmd: "t".into(),
+            arg_tokens: tokens.into_iter().map(str::to_string).collect(),
+            treat_last_as_complete: complete,
+            manifest: manifest.to_string_lossy().into_owned(),
+            hooks: false,
+            cwd: String::new(),
+            config: serde_json::Value::Null,
+            global_config: serde_json::json!({ "enable_cache": 0 }),
+            data: serde_json::Value::Null,
+            order: None,
+            cache_dir: String::new(),
+            log_dir: String::new(),
+        };
+
+        // `a --exclude=aa,<Tab>`: the pending token is `aa,` (tail empty) and the
+        // row rebuilds to `--exclude=aa,bb`. Landing is the root menu.
+        let attached = base(vec!["--exclude=aa,"], false);
+        assert_eq!(
+            peek_predict_symbol(&attached, "--exclude=aa,bb"),
+            Some("stay".into()),
+            "attached separator-list landing"
+        );
+
+        // Space form of the same shape.
+        assert_eq!(
+            peek_predict_symbol(&base(vec!["--exclude", "aa,"], false), "--exclude=aa,bb"),
+            Some("stay".into()),
+            "space-form separator-list landing"
+        );
+
+        // With a command in the stack the root options were already ambient.
+        let with_cmd = base(vec!["sub", "--exclude=aa,"], false);
+        assert_eq!(
+            peek_predict_symbol(&with_cmd, "--exclude=aa,bb"),
+            Some("stay".into()),
+            "command-prefixed landing"
+        );
+
+        // An *undefined* leading word is just `unknown`: it must not change the
+        // answer, because whether some earlier word happened to be a defined
+        // command says nothing about how `--exclude=aa,` should be read.
+        for prefix in ["zzz", "not-a-command", "123"] {
+            let unknown_prefix = base(vec![prefix, "--exclude=aa,"], false);
+            assert_eq!(
+                peek_predict_symbol(&unknown_prefix, "--exclude=aa,bb"),
+                Some("stay".into()),
+                "unknown prefix {prefix:?} must not change the verdict"
+            );
+        }
+
+        // Space form with an unknown word in front of it, too.
+        let sp = base(vec!["zzz", "--exclude", "aa,"], false);
+        assert_eq!(
+            peek_predict_symbol(&sp, "--exclude=aa,bb"),
+            Some("stay".into()),
+            "space form behind an unknown word"
+        );
+
+        // The first level, before any segment is typed: `a --exclude=<Tab>`
+        // offers both `aa` and `bb`, and both land on the root menu.
+        let first = base(vec!["--exclude="], false);
+        assert_eq!(
+            peek_predict_symbol(&first, "--exclude=aa"),
+            Some("stay".into()),
+            "initial value slot (aa)"
+        );
+        assert_eq!(
+            peek_predict_symbol(&first, "--exclude=bb"),
+            Some("stay".into()),
+            "initial value slot (bb)"
+        );
+
+        // A plain `=`-attached value still resolves.
+        assert!(
+            peek_predict_symbol(&base(vec!["--tag="], false), "--tag=b").is_some(),
+            "attached-value peek still resolves"
+        );
+    }
+
+    #[test]
+    fn peek_does_not_borrow_a_deeper_node_with_the_same_name() {
+        // Root `-m` is `--model` (no static candidates). A nested `upgrade`
+        // owns a *different* `-m` (`--method`) that does have values. The row
+        // being previewed is the root one, so its landing must be judged from
+        // the root node, not from the unrelated descendant.
+        let dir = std::env::temp_dir().join(format!("psc-peek-deep-{}", std::process::id()));
+        let _ = std::fs::create_dir_all(&dir);
+        let manifest = dir.join("manifest.json");
+        std::fs::write(
+            &manifest,
+            r#"{"meta":{"url":"https://example.com","description":["t"]},
+                "option":[{"name":"-m","tip":["model"]}],
+                "next":[{"name":"upgrade","option":[
+                            {"name":"--method","alias":["-m"],"next":[{"name":"fast"}]}]}]}"#,
+        )
+        .unwrap();
+        let input = CompleteInput {
+            cmd: "t".into(),
+            arg_tokens: vec![],
+            treat_last_as_complete: true,
+            manifest: manifest.to_string_lossy().into_owned(),
+            hooks: false,
+            cwd: String::new(),
+            config: serde_json::Value::Null,
+            global_config: serde_json::json!({ "enable_cache": 0 }),
+            data: serde_json::Value::Null,
+            order: None,
+            cache_dir: String::new(),
+            log_dir: String::new(),
+        };
+        assert_ne!(peek_predict_symbol(&input, "-m"), Some("switch".into()));
+    }
+
+    #[test]
+    fn peek_keeps_case_variant_options_distinct() {
+        // `-b` and `-B` are different options: the peek layer must not treat
+        // one as ambient merely because the other is already visible.
+        let dir = std::env::temp_dir().join(format!("psc-peek-case-{}", std::process::id()));
+        let _ = std::fs::create_dir_all(&dir);
+        let manifest = dir.join("manifest.json");
+        std::fs::write(
+            &manifest,
+            r#"{"meta":{"url":"https://example.com","description":["t"]},
+                "next":[{"name":"run"}],
+                "option":[{"name":"-b"},{"name":"-B","next":[{"name":"x"}]}]}"#,
+        )
+        .unwrap();
+        let input = CompleteInput {
+            cmd: "t".into(),
+            arg_tokens: vec![],
+            treat_last_as_complete: true,
+            manifest: manifest.to_string_lossy().into_owned(),
+            hooks: false,
+            cwd: String::new(),
+            config: serde_json::Value::Null,
+            global_config: serde_json::json!({ "enable_cache": 0 }),
+            data: serde_json::Value::Null,
+            order: None,
+            cache_dir: String::new(),
+            log_dir: String::new(),
+        };
+        assert_eq!(peek_predict_symbol(&input, "-B"), Some("switch".into()));
+        assert_eq!(peek_predict_symbol(&input, "-b"), Some("stay".into()));
+        let _ = std::fs::remove_dir_all(&dir);
+    }
+
+    #[test]
+    fn peek_matches_commands_case_insensitively() {
+        // Commands stay case-insensitive: `RUN` resolves to the `run` node,
+        // so its static candidates still predict `switch`.
+        let dir = std::env::temp_dir().join(format!("psc-peek-cmd-case-{}", std::process::id()));
+        let _ = std::fs::create_dir_all(&dir);
+        let manifest = dir.join("manifest.json");
+        std::fs::write(
+            &manifest,
+            r#"{"meta":{"url":"https://example.com","description":["t"]},
+                "next":[{"name":"run","next":[{"name":"fast"}]}]}"#,
+        )
+        .unwrap();
+        let input = CompleteInput {
+            cmd: "t".into(),
+            arg_tokens: vec![],
+            treat_last_as_complete: true,
+            manifest: manifest.to_string_lossy().into_owned(),
+            hooks: false,
+            cwd: String::new(),
+            config: serde_json::Value::Null,
+            global_config: serde_json::json!({ "enable_cache": 0 }),
+            data: serde_json::Value::Null,
+            order: None,
+            cache_dir: String::new(),
+            log_dir: String::new(),
+        };
+        assert_eq!(peek_predict_symbol(&input, "RUN"), Some("switch".into()));
         let _ = std::fs::remove_dir_all(&dir);
     }
 }

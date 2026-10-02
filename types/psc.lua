@@ -6,9 +6,6 @@
 
 
 
---- 多语言文本表：键为语言代码，值为对应语言的文本。
----
---- Localized text table: keys are language codes, values are the text.
 ---@class psc_localized
 --- 英文提示（回退目标：当前语言缺失时使用）。
 ---
@@ -33,17 +30,23 @@
 ---
 --- Completion item name.
 ---@field name string
---- 提示文本：字符串或本地化表（键为语言代码，值对应该语言文本）。
+--- `[Description]`: 提示文本。
 ---
---- Tip (Description) text: a plain string or a localized table (keys are language codes).
+--- - 接受字符串或本地化表（键为语言代码，值对应该语言文本）。
+--- - 不传时默认为 `name`。传入空字符串 `""` 表示明确不要描述。
+---
+--- `[Description]`: Tip text.
+---
+--- - Accepts a plain string or a localized table (keys are language codes).
+--- - Defaults to `name` when omitted. Pass `""` to opt out explicitly.
 ---@field tip? string|psc_localized
---- 用法文本。
+--- `[Usage]`: 用法文本。
 ---
---- Usage text.
+--- `[Usage]`: Usage text.
 ---@field usage? string
---- 示例文本。
+--- `[Example]`: 示例文本。
 ---
---- Example text.
+--- `[Example]`: Example text.
 ---@field example? string
 --- 可重复使用次数。
 ---
@@ -57,10 +60,12 @@
 --- A completed input token.
 ---@class psc_token
 --- 规范名。
+---
 --- - 它会对用户的输入进行规范化
 --- - 它会将别名转换成清单中定义的 `name`
 ---
 --- Canonical name.
+---
 --- - It normalizes user input
 --- - It converts aliases to the `name` defined in the list
 ---@field name string
@@ -185,37 +190,121 @@ psc.cwd = ""
 ---@type "windows"|"macos"|"linux"
 psc.platform = "windows"
 
+--- 清单元信息。
+---
+--- Manifest metadata.
 ---@class psc_manifest_meta
+--- 主页或仓库地址。
+---
+--- Homepage or repository URL.
 ---@field url string
+--- 补全命令的描述。
+---
+--- Description of the completion command.
 ---@field description string[]
 
+--- 清单中 usage / example 的对象形式。
+---
+--- Object form of usage / example in the manifest.
 ---@class psc_manifest_usage_example
+--- 调用语法。
+---
+--- Invocation syntax.
 ---@field cmd string
+--- 解释说明。
+---
+--- Explanation.
 ---@field desc string
 
+--- 清单中的命令项（`next` 数组成员）。
+---
+--- A command entry in the manifest (a `next` array member).
 ---@class psc_manifest_next
+--- 完整名称（规范名）。
+---
+--- Full (canonical) name.
 ---@field name string
----@field alias string[]
----@field tip string[]
----@field usage (string|psc_manifest_usage_example)[]
----@field example (string|psc_manifest_usage_example)[]
----@field repeat number
----@field option psc_manifest_option
----@field next psc_manifest_next
+--- 别名。
+---
+--- aliases.
+---@field alias? string[]
+--- 描述文本。
+---
+--- Description text.
+---@field tip? string[]
+--- 用法行。
+---
+--- Usage lines.
+---@field usage? (string|psc_manifest_usage_example)[]
+--- 示例行。
+---
+--- Example lines.
+---@field example? (string|psc_manifest_usage_example)[]
+--- 该命令的选项。
+---
+--- Options of this command.
+---@field option? psc_manifest_option[]
+--- 子命令。
+---
+--- Subcommands.
+---@field next? psc_manifest_next[]
 
+--- 清单中的选项（`option` / `global_option` 数组成员）。
+---
+--- An option entry in the manifest (an `option` / `global_option` array member).
 ---@class psc_manifest_option
+--- 完整名称（规范名）。
+---
+--- Full (canonical) name.
 ---@field name string
----@field alias string[]
----@field tip string[]
----@field usage (string|psc_manifest_usage_example)[]
----@field example (string|psc_manifest_usage_example)[]
----@field repeat number
----@field next psc_manifest_next
+--- 别名。
+---
+--- aliases.
+---@field alias? string[]
+--- 描述文本。
+---
+--- Description text.
+---@field tip? string[]
+--- 用法行。
+---
+--- Usage lines.
+---@field usage? (string|psc_manifest_usage_example)[]
+--- 示例行。
+---
+--- Example lines.
+---@field example? (string|psc_manifest_usage_example)[]
+--- 最大重复次数。
+---
+--- Maximum repeat count.
+---@field repeat? number
+--- 列表值分隔符。
+---
+--- Separator for list values.
+---@field separator? string
+--- 候选值（空数组表示自由输入）。
+---
+--- Candidate values (empty array means free-form input).
+---@field next? psc_manifest_next[]
 
+--- 清单中的特殊配置项。
+---
+--- A special configuration entry in the manifest.
 ---@class psc_manifest_config
+--- 配置项名称。
+---
+--- Configuration entry name.
 ---@field name string
+--- 默认值。
+---
+--- Default value.
 ---@field value string|number
----@field values (string|number)[]
+--- 可选值（触发配置补全时展示）。
+---
+--- Optional values (shown when the config completion triggers).
+---@field values? (string|number)[]
+--- 提示信息。
+---
+--- Tip text.
 ---@field tip string[]
 
 --- 解析后的补全清单。
@@ -226,7 +315,7 @@ psc.platform = "windows"
 ---@field next? psc_manifest_next[]
 ---@field option? psc_manifest_option[]
 ---@field global_option? psc_manifest_option[]
----@field config? psc_manifest_config
+---@field config? psc_manifest_config[]
 ---@field info? table
 psc.manifest = { meta = { url = "", description = {} } }
 
@@ -239,34 +328,36 @@ psc.manifest = { meta = { url = "", description = {} } }
 --- 命令链
 ---
 --- - 必须为清单中定义的规范名（`name`）
---- - `""` 表示通配任意一段
 --- - 与 `option` 同时设置表示 AND（需同时匹配）
---- - 默认：链后第一个位置参数位尚未被填（链后无 `unknown`）才触发
+--- - `""` 表示通配任意一段
 ---
 --- Command chain
 ---
 --- - Must be the canonical name (`name` in manifest)
---- - `""` is a wildcard matching any segment.
 --- - Coexisting with `option` as AND (both must match)
---- - Default: fires only while the first positional slot after the chain is unfilled
+--- - `""` is a wildcard matching any segment
 ---@field command? string|string[]
 --- 选项链（后缀匹配）
 ---
 --- - 必须为清单中定义的规范名（`name`）
+--- - 与 `command` 同时设置表示 AND（需同时匹配）
 --- - `""` 表示通配任意一段
---- - 与 `option` 同时设置表示 AND（需同时匹配）
---- - 默认：链末选项的值位尚未被填（最后一个已完成 token 是该选项）才触发
 ---
 --- Option chain (suffix match)
 ---
 --- - Must be the canonical name (`name` in manifest)
---- - `""` is a wildcard matching any segment.
---- - Coexisting with `option` as AND (both must match)
---- - Default: fires only while the last option's value slot is unfilled
+--- - Coexisting with `command` as AND (both must match)
+--- - `""` is a wildcard matching any segment
 ---@field option? string|string[]
---- 是否允许多次匹配（位置槽被填过一次后仍继续匹配）
+--- 是否允许多次匹配
 ---
---- Whether the matched location keeps matching after its slot has been filled
+--- - 它表示在位置槽被填过一次后仍继续匹配
+--- - 主要用于可以多次使用同类动态补全的情况，例如 `psc add <xxx> <yyy>`
+---
+--- Whether multiple matches are allowed
+---
+--- - It means matching can continue even after a position slot has been filled once
+--- - Mainly used for scenarios where the same type of dynamic completion can be used multiple times, e.g. `psc add <xxx> <yyy>`
 ---@field multiple? true
 
 --- 声明式条件触发。
@@ -327,6 +418,33 @@ function psc.mount_items(manifest_path_chain) end
 ---@return psc_item|psc_item[]|nil
 function psc.add(item_or_items) end
 
+--- `psc.token` 的查找规格。
+---
+--- The lookup spec of `psc.token`.
+---@class psc_token_spec
+--- 按规范名匹配。
+---
+--- Matches by canonical name.
+---@field name? string
+--- 按 token 类型过滤。
+---
+--- - `"command"`: 在清单中被定义为 `next` 的命令
+--- - `"option"`: 在清单中被定义为 `option` 的选项
+--- - `"value"`: 被作为选项的值消费
+--- - `"unknown"`: 完全自由的值（清单中未定义的未知值，除非它被作为选项的值消费）
+---
+--- Filters by token type.
+---
+--- - `"command"`: the command defined as `next` in the manifest
+--- - `"option"`: the option defined as `option` in the manifest
+--- - `"value"`: consumed as an option's value
+--- - `"unknown"`: a truly free-form value (undefined values in the manifest, unless it is consumed as an option's value)
+---@field type? "command"|"option"|"value"|"unknown"
+--- 为 `true` 时大小写敏感，默认不敏感。
+---
+--- Case-sensitive when `true`, insensitive by default.
+---@field case_sensitive? true
+
 --- 在 `psc.tokens` 中按条件查找首个匹配的 token。
 ---
 --- - `spec` 省略或空表 → 首个 token（任意 `type`）
@@ -342,7 +460,7 @@ function psc.add(item_or_items) end
 --- - `spec.type` → filter by `type`
 --- - `spec.case_sensitive` true → case-sensitive, default insensitive
 --- - `nil` if not found
----@param spec? {name?: string, type?: "command"|"option"|"value"|"unknown", case_sensitive?: true}
+---@param spec? psc_token_spec
 ---@return psc_token?
 function psc.token(spec) end
 
@@ -435,12 +553,12 @@ function psc.read(path) end
 ---@return table<string, string|nil>
 function psc.read_batch(paths) end
 
---- 读取 + 解析 JSON 文件。
+--- 读取 + 解析 JSON 文件（支持 JSON5）。
 ---
 --- - 如果是相对路径，会拼接 `psc.cwd`
 --- - 失败返回 `nil`
 ---
---- Reads + parses a JSON file.
+--- Reads + parses a JSON file (JSON5 supported).
 ---
 --- - If it is a relative path, `psc.cwd` will be concatenated
 --- - `nil` on failure
@@ -448,12 +566,12 @@ function psc.read_batch(paths) end
 ---@return table<string, any>?
 function psc.json(path) end
 
---- 并行读取 + 解析多个 JSON 文件。
+--- 并行读取 + 解析多个 JSON 文件（支持 JSON5）。
 ---
 --- - 如果是相对路径，会拼接 `psc.cwd`
 --- - 失败返回 `nil`
 ---
---- Reads + parses multiple JSON files in parallel.
+--- Reads + parses multiple JSON files in parallel (JSON5 supported).
 ---
 --- - If it is a relative path, `psc.cwd` will be concatenated
 --- - `nil` on failure
@@ -741,6 +859,10 @@ function psc.eq(s1, s2, opts) end
 --- 调试输出
 ---
 --- - 接受任意参数，写入 `data/temp/log/debug.log`
+---     ```powershell
+---     Join-Path $PSCompletions.path.log 'debug.log'
+---     Join-Path $PSCompletions.path.log 'error.log'
+---     ```
 --- - **注意**：
 ---   - hooks 默认有 10 秒的结果缓存，10 秒内仅运行一次
 ---   - 临时禁用缓存以实时调试: `psc config menu enable_cache 0`
@@ -748,6 +870,10 @@ function psc.eq(s1, s2, opts) end
 --- Debug output.
 ---
 --- - Accepts any number of arguments, and writes to `data/temp/log/debug.log`
+---     ```powershell
+---     Join-Path $PSCompletions.path.log 'debug.log'
+---     Join-Path $PSCompletions.path.log 'error.log'
+---     ```
 --- - **Note**:
 ---   - Hooks have a default 10-second result cache and will run only once within 10 seconds
 ---   - For live debugging, temporarily disable the cache: `psc config menu enable_cache 0`

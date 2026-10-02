@@ -9,11 +9,11 @@ use crate::commands::{
 use crate::data::{Index, Settings};
 use crate::input::{normalize_data_dir, parse_args, print_help};
 use crate::messages::msg_cli;
-use crate::output::Out;
+use crate::output::{fail, Out};
 pub fn run(args: Vec<String>) -> ExitCode {
     let (data_arg, json, language_arg, result_arg, rest) = parse_args(&args);
-    let Some(data_dir) = data_arg.or_else(|| std::env::var("PSC_DATA_DIR").ok()) else {
-        eprintln!("psc: no data dir (pass --data <dir> or set PSC_DATA_DIR)");
+    let Some(data_dir) = data_arg.or_else(|| std::env::var("PSCOMPLETIONS_DATA_DIR").ok()) else {
+        eprintln!("psc: no data dir (pass --data <dir> or set PSCOMPLETIONS_DATA_DIR)");
         return ExitCode::FAILURE;
     };
     let data_dir = normalize_data_dir(&data_dir);
@@ -27,7 +27,6 @@ pub fn run(args: Vec<String>) -> ExitCode {
 
     if rest.is_empty() {
         print_help();
-        settings.sync_alias_csv(&data_dir);
         return ExitCode::SUCCESS;
     }
     let cmd = rest[0].clone();
@@ -93,11 +92,7 @@ pub fn run(args: Vec<String>) -> ExitCode {
             &out,
             json,
         ),
-        _ => {
-            out.line(&msg_cli(&lang, "sub_cmd"));
-            ExitCode::FAILURE
-        }
+        _ => fail(&out, msg_cli(&lang, "sub_cmd"), json),
     };
-    settings.sync_alias_csv(&data_dir);
     code
 }

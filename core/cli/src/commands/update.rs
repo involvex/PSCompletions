@@ -6,7 +6,7 @@ use serde_json::{json, Value};
 
 use crate::commands::run_parallel;
 use crate::data::{read_text, Index, LibraryChanges, Settings};
-use crate::messages::msg_cli;
+use crate::messages::{msg_cli, msg_fmt};
 use crate::net::{
     add_completion, download_list, local_completion_id, refresh_settings_after_add,
     rename_completion, resolve_urls,
@@ -69,7 +69,12 @@ pub fn cmd_update(
     let need_update: Vec<String> = settings
         .list()
         .into_iter()
-        .filter(|name| (list.contains(name) || rename_map.contains_key(name)) && needs_update(name))
+        .filter(|name| {
+            if rename_map.contains_key(name) {
+                return true;
+            }
+            list.contains(name) && needs_update(name)
+        })
         .collect();
 
     let is_check = args.is_empty();
@@ -263,24 +268,39 @@ pub fn cmd_update(
                     return;
                 }
                 let mut sg = settings_lock.lock().unwrap();
-                if let Err(e) = refresh_settings_after_add(&mut sg, data_dir, name) {
-                    had_error.store(true, std::sync::atomic::Ordering::SeqCst);
-                    if json {
-                        results
-                            .lock()
-                            .unwrap()
-                            .push(json!({"completion": name, "ok": false, "error": e}));
-                    } else {
-                        out.line(&format!("error: {e}"));
+                // `update` patches: alias entry is only filled when missing/empty.
+                match refresh_settings_after_add(&mut sg, data_dir, name, false) {
+                    Err(e) => {
+                        had_error.store(true, std::sync::atomic::Ordering::SeqCst);
+                        if json {
+                            results
+                                .lock()
+                                .unwrap()
+                                .push(json!({"completion": name, "ok": false, "error": e}));
+                        } else {
+                            out.line(&format!("error: {e}"));
+                        }
                     }
-                }
-                if json {
-                    results
-                        .lock()
-                        .unwrap()
-                        .push(json!({"completion": name, "ok": true}));
-                } else {
-                    out.line(&format!("{name}: {}", msg_cli(lang, "update_done")));
+                    Ok(skipped) => {
+                        if json {
+                            let mut entry = json!({"completion": name, "ok": true});
+                            if !skipped.is_empty() {
+                                entry["skipped"] = skipped
+                                    .iter()
+                                    .map(|(a, o)| json!({"alias": a, "owner": o}))
+                                    .collect();
+                            }
+                            results.lock().unwrap().push(entry);
+                        } else {
+                            out.line(&format!("{name}: {}", msg_cli(lang, "update_done")));
+                            for (a, owner) in &skipped {
+                                out.line(&format!(
+                                    "{a}: {}",
+                                    msg_fmt(lang, "alias_owned", &[("owner", owner)])
+                                ));
+                            }
+                        }
+                    }
                 }
             }
             Err(e) => {
@@ -296,10 +316,6 @@ pub fn cmd_update(
             }
         }
     });
-    if json {
-        let results = results.lock().unwrap();
-        println!("{}", serde_json::to_string(&*results).unwrap_or_default());
-    }
     // Persist the renames actually executed during this update so the module's pending
     // notifications can still show them even if the JSON results were not consumed.
     let executed_renames: Vec<(String, String)> = {
@@ -319,18 +335,20 @@ pub fn cmd_update(
     // Refresh the persisted post-check state (added/removed/renamed/update/module) and check the module version.
     // Runs AFTER the operation, diffing the pre-operation snapshot against the fresh index.
     record_post_check(data_dir, settings, &old_list, index, &executed_renames);
-    if let Err(e) = settings.save(settings_path) {
-        if json {
-            let mut results = results.lock().unwrap().clone();
+    // Save first, print once: the payload must carry the save outcome, and `--json` mode owes
+    // the consumer exactly one JSON document.
+    let save_err = settings.save(settings_path).err();
+    if json {
+        let mut results = results.lock().unwrap().clone();
+        if let Some(e) = save_err {
             results.push(serde_json::json!({"ok": false, "error": e}));
-            println!("{}", serde_json::to_string(&results).unwrap_or_default());
-            return ExitCode::SUCCESS;
         }
+        println!("{}", serde_json::to_string(&results).unwrap_or_default());
+        return ExitCode::SUCCESS;
+    }
+    if let Some(e) = save_err {
         out.line(&format!("error: {e}"));
         return ExitCode::FAILURE;
-    }
-    if json {
-        return ExitCode::SUCCESS;
     }
     if had_error.load(std::sync::atomic::Ordering::SeqCst) {
         ExitCode::FAILURE

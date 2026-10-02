@@ -38,7 +38,7 @@ if ($All) {
 $L = @{
     'en-US' = @{
         title                  = 'Completion Validation'
-        checked                = 'Checked **{0}** completions | ✅ **{1}** passed | ❌ **{2}** have issues'
+        checked                = 'Checked **{0}** completions | ✅ **{1}** passed | ❌ **{2}** have issues | 📝 **{3}** need careful review'
         colCompletion          = 'Completion'
         colSchema              = 'Schema'
         colConfig              = 'Config'
@@ -67,16 +67,19 @@ $L = @{
         cat_usageRootPrefix    = 'Usage root prefix'
         cat_rate               = 'Translation rate'
         cfg_missingLanguage    = 'config.json is missing the "language" array'
+        cfg_missingFile        = '{0} is missing (required)'
         cfg_langNoFile         = 'config.language has "{0}" but language/{0}.json does not exist'
         cfg_fileNoLang         = 'language/{0}.json exists but is not declared in config.language'
         cfg_hooksFlagNoFile    = 'config.hooks=true/false but hooks.lua does not exist'
         cfg_hooksFileNoFlag    = 'hooks.lua exists but config.hooks is not declared (set true or false)'
         cfg_aliasExtension     = 'config.alias "{0}" should not have a .cmd/.exe/.bat suffix'
+        cfg_duplicateId        = 'config.id "{0}" is already used by "{1}" (id must be globally unique, generate a new UUID)'
+        i18n_spacing           = 'Chinese and English must be separated by a space at {0}: "{1}"'
         noIssues               = 'No issues found'
     }
     'zh-CN' = @{
         title                  = '补全检查结果'
-        checked                = '检查 **{0}** 个补全 | ✅ **{1}** 通过 | ❌ **{2}** 有问题'
+        checked                = '检查 **{0}** 个补全 | ✅ **{1}** 通过 | ❌ **{2}** 有问题 | 📝 **{3}** 需要仔细审查'
         colCompletion          = '补全'
         colSchema              = 'Schema'
         colConfig              = '配置'
@@ -105,11 +108,14 @@ $L = @{
         cat_usageRootPrefix    = 'usage 根前缀'
         cat_rate               = '翻译完成度'
         cfg_missingLanguage    = 'config.json 缺少 language 数组'
+        cfg_missingFile        = '缺少 {0}（必需）'
         cfg_langNoFile         = 'config.language 含 "{0}" 但 language/{0}.json 不存在'
         cfg_fileNoLang         = 'language/{0}.json 存在但 config.language 未声明'
         cfg_hooksFlagNoFile    = 'config.hooks 为 true/false 但 hooks.lua 不存在'
         cfg_hooksFileNoFlag    = 'hooks.lua 存在但 config.hooks 未声明（请设为 true 或 false）'
         cfg_aliasExtension     = 'config.alias "{0}" 不应含 .cmd/.exe/.bat 后缀'
+        cfg_duplicateId        = 'config.id "{0}" 已被 "{1}" 使用（id 必须全局唯一，请生成新的 UUID）'
+        i18n_spacing           = '中英之间需空格于 {0}："{1}"'
         noIssues               = '未发现问题'
     }
 }
@@ -121,10 +127,11 @@ function Get-Report {
 
     $ok = @($Results | Where-Object { -not $_.hasIssues }).Count
     $bad = @($Results | Where-Object { $_.hasIssues }).Count
+    $hooks = @($Results | Where-Object { $_.hasHooks }).Count
 
     [void]$sb.AppendLine("## $($m.title)")
     [void]$sb.AppendLine('')
-    [void]$sb.AppendLine(($m.checked -f $Results.Count, $ok, $bad))
+    [void]$sb.AppendLine(($m.checked -f $Results.Count, $ok, $bad, $hooks))
     [void]$sb.AppendLine('')
 
     [void]$sb.AppendLine("| $($m.colCompletion) | $($m.colSchema) | $($m.colConfig) | $($m.colHooks) | $($m.colCompare) |")
@@ -147,7 +154,16 @@ function Get-Report {
 
         if ($r.issues.schema.Count) {
             [void]$sb.AppendLine("**$($m.secSchema)**")
-            foreach ($i in $r.issues.schema) { [void]$sb.AppendLine("- $($i.file): $($i.text)") }
+            foreach ($i in $r.issues.schema) {
+                if ($i.code) {
+                    $tpl = $m[$i.code]
+                    $txt = if ($i.args.Count) { $tpl -f $i.args } else { $tpl }
+                    [void]$sb.AppendLine("- $($i.file): $txt")
+                }
+                else {
+                    [void]$sb.AppendLine("- $($i.file): $($i.text)")
+                }
+            }
             [void]$sb.AppendLine('')
         }
         if ($r.issues.config.Count) {
@@ -187,11 +203,6 @@ function Get-Report {
         [void]$sb.AppendLine('')
     }
 
-    if ($bad -eq 0) {
-        [void]$sb.AppendLine("> ✅ $($m.noIssues)")
-        [void]$sb.AppendLine('')
-    }
-
     return $sb.ToString()
 }
 
@@ -212,7 +223,7 @@ function Get-JsonErrors {
 }
 
 function Get-ConfigIssues {
-    param([hashtable]$Config, [string]$LangDir)
+    param([hashtable]$Config, [string[]]$LangFileNames, [bool]$HasHooks)
     $issues = [System.Collections.Generic.List[object]]::new()
 
     if (-not $Config.ContainsKey('language') -or @($Config['language']).Count -eq 0) {
@@ -220,25 +231,20 @@ function Get-ConfigIssues {
     }
     else {
         $cfgLangs = @($Config['language'])
-        $langFiles = @()
-        if (Test-Path -LiteralPath $LangDir) {
-            $langFiles = @(Get-ChildItem -LiteralPath $LangDir -Filter '*.json' | ForEach-Object { $_.BaseName })
-        }
         foreach ($l in $cfgLangs) {
-            if ($l -notin $langFiles) { $issues.Add(@{ code = 'cfg_langNoFile'; args = @($l) }) }
+            if ($l -notin $LangFileNames) { $issues.Add(@{ code = 'cfg_langNoFile'; args = @($l) }) }
         }
-        foreach ($f in $langFiles) {
+        foreach ($f in $LangFileNames) {
             if ($f -notin $cfgLangs) { $issues.Add(@{ code = 'cfg_fileNoLang'; args = @($f) }) }
         }
     }
 
-    $hooksFile = Join-Path (Split-Path -Parent $LangDir) 'hooks.lua'
     if ($Config.ContainsKey('hooks')) {
         # hooks: true or false both declare a hooks.lua (false = present but disabled by default).
-        if (-not (Test-Path -LiteralPath $hooksFile)) { $issues.Add(@{ code = 'cfg_hooksFlagNoFile'; args = @() }) }
+        if (-not $HasHooks) { $issues.Add(@{ code = 'cfg_hooksFlagNoFile'; args = @() }) }
     }
     else {
-        if (Test-Path -LiteralPath $hooksFile) { $issues.Add(@{ code = 'cfg_hooksFileNoFlag'; args = @() }) }
+        if ($HasHooks) { $issues.Add(@{ code = 'cfg_hooksFileNoFlag'; args = @() }) }
     }
 
     if ($Config.ContainsKey('alias')) {
@@ -248,6 +254,85 @@ function Get-ConfigIssues {
     }
 
     return $issues
+}
+
+function Get-IdIssues {
+    param([string[]]$Names, [string]$Root, [string]$CompletionsDir)
+    $issuesByName = @{}
+
+    # Baseline: completions.json
+    # In CI the workspace holds base/ and pr/ side by side (check-completion.yml),
+    # so prefer the trusted base index; locally fall back to the repo index.
+    $localIndex = Join-Path $Root 'completions.json'
+    $baseIndex = Join-Path (Split-Path -Parent $Root) 'base/completions.json'
+    $baselineFile = $localIndex
+    if ($env:GITHUB_ACTIONS -and (Test-Path -LiteralPath $baseIndex)) { $baselineFile = $baseIndex }
+
+    $baselineIdToNames = @{}
+    try {
+        if (Test-Path -LiteralPath $baselineFile) {
+            $idx = Get-Content -LiteralPath $baselineFile -Raw -ErrorAction Stop | ConvertFrom-Json -AsHashtable -ErrorAction Stop
+            $meta = $idx['meta']
+            if ($meta -is [System.Collections.IDictionary]) {
+                foreach ($k in $meta.Keys) {
+                    $entry = $meta[$k]
+                    $id = if ($entry -is [System.Collections.IDictionary]) { $entry['id'] } else { $null }
+                    if ($id -is [string]) {
+                        if (-not $baselineIdToNames.ContainsKey($id)) { $baselineIdToNames[$id] = [System.Collections.Generic.List[object]]::new() }
+                        $baselineIdToNames[$id].Add($k)
+                    }
+                }
+            }
+        }
+    }
+    catch { }
+
+    $currentIds = @{}
+    $currentOrigIds = @{}
+    foreach ($n in $Names) {
+        $cfgFile = Join-Path (Join-Path $CompletionsDir $n) 'config.json'
+        try {
+            $cfg = Get-Content -LiteralPath $cfgFile -Raw -ErrorAction Stop | ConvertFrom-Json -AsHashtable -ErrorAction Stop
+            $id = $cfg['id']
+            if ($id -is [string]) {
+                $currentIds[$n] = $currentOrigIds[$n] = $id
+            }
+        }
+        catch { }
+    }
+
+    # Duplicates within the current batch (e.g. two new completions sharing one id).
+    $byId = @{}
+    foreach ($n in $currentIds.Keys) {
+        $id = $currentIds[$n]
+        if (-not $byId.ContainsKey($id)) { $byId[$id] = [System.Collections.Generic.List[object]]::new() }
+        $byId[$id].Add($n)
+    }
+    foreach ($id in $byId.Keys) {
+        if (@($byId[$id]).Count -gt 1) {
+            $owners = (($byId[$id] | Sort-Object) -join ', ')
+            foreach ($n in @($byId[$id])) {
+                if (-not $issuesByName.ContainsKey($n)) { $issuesByName[$n] = [System.Collections.Generic.List[object]]::new() }
+                $issuesByName[$n].Add(@{ code = 'cfg_duplicateId'; args = @($currentOrigIds[$n], $owners) })
+            }
+        }
+    }
+
+    # Duplicates against the baseline index. Same name + same id is fine (update).
+    # A baseline owner whose directory no longer exists is a rename, allow it.
+    foreach ($n in @($currentIds.Keys)) {
+        $id = $currentIds[$n]
+        if (-not $baselineIdToNames.ContainsKey($id)) { continue }
+        foreach ($owner in @($baselineIdToNames[$id])) {
+            if ($owner -eq $n) { continue }
+            if (-not (Test-Path -LiteralPath (Join-Path $CompletionsDir $owner))) { continue }
+            if ($owner -in @($byId[$id])) { continue }
+            if (-not $issuesByName.ContainsKey($n)) { $issuesByName[$n] = [System.Collections.Generic.List[object]]::new() }
+            $issuesByName[$n].Add(@{ code = 'cfg_duplicateId'; args = @($currentOrigIds[$n], $owner) })
+        }
+    }
+
+    return $issuesByName
 }
 
 function Get-HookSyntaxIssues {
@@ -262,6 +347,58 @@ function Get-HookSyntaxIssues {
         return @(@{ text = 'hooks.lua missing' })
     }
     return @()
+}
+
+function Get-I18nSpacingIssues {
+    param([string]$JsonPath)
+    $issues = [System.Collections.Generic.List[object]]::new()
+    try {
+        $text = Get-Content -LiteralPath $JsonPath -Raw -ErrorAction Stop
+        $obj = $text | ConvertFrom-Json -ErrorAction Stop
+    }
+    catch { return $issues }
+    $pattern = '[\u4e00-\u9fff][A-Za-z]|[A-Za-z][\u4e00-\u9fff]'
+    function Walk($node, $path) {
+        if ($null -eq $node) { return }
+        if ($node -is [System.Collections.IDictionary] -or $node -is [psobject]) {
+            $props = if ($node -is [System.Collections.IDictionary]) { $node.Keys } else { $node.PSObject.Properties.Name }
+            foreach ($k in $props) {
+                $v = if ($node -is [System.Collections.IDictionary]) { $node[$k] } else { $node.PSObject.Properties[$k].Value }
+                $curPath = if ($path) { "$path/$k" } else { $k }
+                if ($k -in @('tip', 'usage', 'example', 'description')) {
+                    $arr = @()
+                    if ($v -is [System.Collections.IList] -and -not ($v -is [string])) { $arr = $v }
+                    elseif ($v -is [string]) { $arr = @($v) }
+                    if ($arr.Count -gt 0) {
+                        for ($i = 0; $i -lt $arr.Count; $i++) {
+                            $item = $arr[$i]
+                            $itemPath = "$curPath[$i]"
+                            if ($item -is [string] -and $item -match $pattern) {
+                                $issues.Add(@{ code = 'i18n_spacing'; args = @($itemPath, $item); file = [System.IO.Path]::GetFileName($JsonPath) })
+                            }
+                            elseif ($item -is [System.Collections.IDictionary] -or $item -is [psobject]) {
+                                $cmd = if ($item -is [System.Collections.IDictionary]) { $item['cmd'] } else { $item.cmd }
+                                $desc = if ($item -is [System.Collections.IDictionary]) { $item['desc'] } else { $item.desc }
+                                if ($cmd -is [string] -and $cmd -match $pattern) { $issues.Add(@{ code = 'i18n_spacing'; args = @("$itemPath/cmd", $cmd); file = [System.IO.Path]::GetFileName($JsonPath) }) }
+                                if ($desc -is [string] -and $desc -match $pattern) { $issues.Add(@{ code = 'i18n_spacing'; args = @("$itemPath/desc", $desc); file = [System.IO.Path]::GetFileName($JsonPath) }) }
+                            }
+                        }
+                        continue
+                    }
+                }
+                if ($v -is [System.Collections.IDictionary] -or $v -is [psobject] -or $v -is [System.Collections.IList]) {
+                    Walk $v $curPath
+                }
+            }
+        }
+        elseif ($node -is [System.Collections.IList] -and -not ($node -is [string])) {
+            for ($i = 0; $i -lt $node.Count; $i++) {
+                Walk $node[$i] "$path[$i]"
+            }
+        }
+    }
+    Walk $obj ''
+    return $issues
 }
 
 foreach ($name in $CompletionList) {
@@ -286,36 +423,50 @@ foreach ($name in $CompletionList) {
         fileCount = 0
     }
 
+    # Probe each path once; every check below reads these instead of re-stat'ing.
+    $hasDir = Test-Path -LiteralPath $completionDir
+    $hasLangDir = Test-Path -LiteralPath $langDir
+    $hasConfig = Test-Path -LiteralPath $configFile
+    $hasHooks = Test-Path -LiteralPath $hooksFile
+    $langFiles = if ($hasLangDir) { @(Get-ChildItem -LiteralPath $langDir -Filter '*.json') } else { @() }
+    $langFileNames = @($langFiles | ForEach-Object { $_.BaseName })
+
     $fileList = @()
-    if (Test-Path -LiteralPath $configFile) { $fileList += 'config.json' }
-    if (Test-Path -LiteralPath $hooksFile) { $fileList += 'hooks.lua' }
-    if (Test-Path -LiteralPath $langDir) { $fileList += @(Get-ChildItem -LiteralPath $langDir -Filter '*.json' | ForEach-Object { "language/$($_.Name)" }) }
+    if ($hasConfig) { $fileList += 'config.json' }
+    if ($hasHooks) { $fileList += 'hooks.lua' }
+    if ($hasLangDir) { $fileList += @($langFiles | ForEach-Object { "language/$($_.Name)" }) }
     $entry.files = $fileList
     $entry.fileCount = $fileList.Count
 
-    if (Test-Path -LiteralPath $langDir) {
-        foreach ($f in Get-ChildItem -LiteralPath $langDir -Filter '*.json') {
-            $jsonText = Get-Content -LiteralPath $f.FullName -Raw
-            $errs = Get-JsonErrors -JsonText $jsonText -SchemaFile $manifestSchema
-            foreach ($e in $errs) { $entry.issues.schema.Add(@{ file = $f.Name; text = $e }) }
-        }
+    # config.json is required. Only flag a missing one when the completion
+    # directory itself exists, so a deliberately removed completion stays clean.
+    if ($hasDir -and -not $hasConfig) {
+        $entry.issues.config.Add(@{ code = 'cfg_missingFile'; args = @('config.json') })
     }
-    if (Test-Path -LiteralPath $configFile) {
+
+    foreach ($f in $langFiles) {
+        $jsonText = Get-Content -LiteralPath $f.FullName -Raw
+        $errs = Get-JsonErrors -JsonText $jsonText -SchemaFile $manifestSchema
+        foreach ($e in $errs) { $entry.issues.schema.Add(@{ file = $f.Name; text = $e }) }
+        $i18n = Get-I18nSpacingIssues -JsonPath $f.FullName
+        foreach ($e in $i18n) { $entry.issues.schema.Add($e) }
+    }
+
+    if ($hasConfig) {
+        # One read serves both the schema check and the parsed form below.
         $cfgText = Get-Content -LiteralPath $configFile -Raw
         $errs = Get-JsonErrors -JsonText $cfgText -SchemaFile $configSchema
         foreach ($e in $errs) { $entry.issues.config.Add(@{ code = 'cfg_schema'; args = @($e) }) }
-    }
 
-    $config = $null
-    if (Test-Path -LiteralPath $configFile) {
-        try { $config = Get-Content -LiteralPath $configFile -Raw | ConvertFrom-Json -AsHashtable } catch { $config = $null }
+        $config = $null
+        try { $config = $cfgText | ConvertFrom-Json -AsHashtable } catch { $config = $null }
         if ($config) {
-            $cfgIssues = Get-ConfigIssues -Config $config -LangDir $langDir
+            $cfgIssues = Get-ConfigIssues -Config $config -LangFileNames $langFileNames -HasHooks $hasHooks
             foreach ($i in $cfgIssues) { $entry.issues.config.Add($i) }
         }
     }
 
-    if (Test-Path -LiteralPath $hooksFile) {
+    if ($hasHooks) {
         $entry.hasHooks = $true
         $hookIssues = Get-HookSyntaxIssues -HooksFile $hooksFile
         foreach ($i in $hookIssues) { $entry.issues.hooks.Add($i) }
@@ -324,6 +475,17 @@ foreach ($name in $CompletionList) {
     $entry.hasIssues = $entry.issues.schema.Count -gt 0 -or $entry.issues.config.Count -gt 0 -or $entry.issues.hooks.Count -gt 0 -or $entry.issues.compare.Count -gt 0
 
     $results.Add([pscustomobject]$entry)
+}
+
+# id uniqueness across completions (baseline: base/completions.json in CI, else local completions.json)
+if ($results.Count -gt 0) {
+    $idIssues = Get-IdIssues -Names @($results | ForEach-Object { $_.name }) -Root $root -CompletionsDir $completionsDir
+    foreach ($entry in $results) {
+        if ($idIssues.ContainsKey($entry.name)) {
+            foreach ($i in $idIssues[$entry.name]) { $entry.issues.config.Add($i) }
+            $entry.hasIssues = $true
+        }
+    }
 }
 
 # compare-json processes all completions at once

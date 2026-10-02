@@ -1,9 +1,10 @@
 //! Tests for the Lua hooks runtime.
 
-use super::api::{api_which, normalize_glob_pattern};
+use super::api::{api_which, glob_stop_at, glob_walk, normalize_glob_pattern, GLOB_BUDGET};
+use super::helpers::collect_node_names;
 use super::runner::{new_sandbox_lua, run_hook_with_timeout};
 use super::*;
-use std::time::Duration;
+use std::time::{Duration, Instant};
 
 fn ctx() -> HookContext {
     HookContext {
@@ -155,10 +156,12 @@ fn hook_completes_well_within_timeout() {
     // deadline. The budget is generous (still well under the 10 s cap) so parallel test
     // load cannot exhaust it before the subprocess finishes — the assertion is about
     // completing with correct output, not about a tight timing window.
+    // `echo` is a shell builtin on Windows, not an executable: spawning it directly
+    // fails there, so run through the platform shell instead.
     let script = r#"
     local t = {}
     for i = 1, 1000 do t[i] = { name = "x" .. i } end
-    local lines = psc.run({ "echo", "hello" })
+    local lines = psc.run({ "echo", "hello" }, { shell = true })
     t[1001] = { name = lines[1] }
     return t
 "#;
@@ -267,7 +270,10 @@ fn provide_injects_inside_command_context_and_stamps_repeat() {
 }
 
 #[test]
-fn provide_promises_switch_on_parent_including_aliases() {
+fn provide_no_injection_or_switch_at_parent_including_aliases() {
+    // Targeting a command that the user has not entered yet: the spec must not fire, and must
+    // not stamp a switch on the parent rows either — otherwise the menu would promise a landing
+    // the hook cannot deliver. The alias `x` is included so alias resolution cannot sneak a match.
     let script = r#"
     psc.on({ command = "exec" }, function()
         psc.add({ name = "eslint" })
@@ -296,7 +302,7 @@ fn provide_empty_yield_leaves_default_symbol() {
     psc.on({ command = "exec" }, function() end)
     "#;
     let out = run_hook(&root_provide_ctx(), script, &static_rows(&["exec"])).unwrap();
-    assert!(out.iter().all(|i| i.symbol == None));
+    assert!(out.iter().all(|i| i.symbol.is_none()));
 }
 
 /// Runs a hook against a temp log dir and returns the resulting error.log content.
@@ -311,6 +317,53 @@ fn capture_error_log(c: &mut HookContext, script: &str) -> String {
     let logged = std::fs::read_to_string(dir.join("error.log")).unwrap_or_default();
     let _ = std::fs::remove_dir_all(&dir);
     logged
+}
+
+#[test]
+fn collect_node_names_matches_name_alias_case_and_every_scope() {
+    // `collect_node_names` is what validates a psc.on target against the manifest, and its
+    // contract promises four things: a target matches by canonical name OR by any alias,
+    // case-insensitively, and the walk reaches scoped `option` arrays as well as the root
+    // `global_option` array. Each is pinned here because a miss fails silently - the hook's
+    // handler just never fires, with no error to explain it.
+    let manifest = serde_json::json!({
+        "next": [
+            { "name": "install", "alias": ["i"], "next": [ { "name": "add" } ] },
+            { "name": "build", "option": [ { "name": "--jobs", "alias": ["-j"] } ] }
+        ],
+        "global_option": [ { "name": "--help", "alias": ["-h"] } ]
+    });
+
+    // By canonical name, matched case-insensitively; the owner name comes first, then its forms.
+    assert_eq!(
+        collect_node_names(&manifest, "INSTALL"),
+        Some(vec!["install".to_string(), "i".to_string()])
+    );
+    // By alias - the same owner is resolved, so an alias in a spec reaches the real node.
+    assert_eq!(
+        collect_node_names(&manifest, "i"),
+        Some(vec!["install".to_string(), "i".to_string()])
+    );
+    // An option scoped to a subcommand is reachable, by name and by its short alias.
+    assert_eq!(
+        collect_node_names(&manifest, "-j"),
+        Some(vec!["--jobs".to_string(), "-j".to_string()])
+    );
+    // The root global_option array is walked as well, not just next/option.
+    assert_eq!(
+        collect_node_names(&manifest, "--HELP"),
+        Some(vec!["--help".to_string(), "-h".to_string()])
+    );
+    // An unknown target yields an EMPTY vec, not None - None only means the manifest root is
+    // not an object. Callers rely on is_none_or(|v| v.is_empty()) to reject it, so pin the
+    // distinction: a future reader must not "simplify" that into is_none().
+    assert_eq!(collect_node_names(&manifest, "nope"), Some(Vec::new()));
+    assert_eq!(collect_node_names(&serde_json::json!([1, 2]), "x"), None);
+    // Repeat lookups hit the memo cache; results must not drift from the first call.
+    assert_eq!(
+        collect_node_names(&manifest, "INSTALL"),
+        Some(vec!["install".to_string(), "i".to_string()])
+    );
 }
 
 #[test]
@@ -343,25 +396,24 @@ fn provide_rejects_wrong_provider_type_degrades_with_log() {
 
 #[test]
 fn api_misuse_degrades_without_aborting() {
-    // A grab-bag of authoring mistakes across several APIs: none may abort the process —
-    // hooks degrade (raise into Lua cleanly / return empty) and the static menu survives.
+    // A grab-bag of authoring mistakes across several APIs: none may abort the process. Each
+    // must degrade instead (yield nil / add nothing) and leave the static menu intact, so one
+    // bad call still shows the authored candidates rather than an empty or crashed menu.
     let script = r#"
-    local a = psc.add(5)
-    local b = psc.add(5)
-    local c2 = psc.items({1, 2, 3}, "stay")
-    local d = psc.json("nope-does-not-exist.json")
-    local e = psc.mount_items({ "next", "zzz", "next" })
-    local f = psc.split(123)
-    local g = psc.token({})
-    local h = psc.eq(nil, "x")
+    psc.add(5)
+    psc.add(5)
+    psc.items({1, 2, 3}, "stay")
+    psc.json("nope-does-not-exist.json")
+    psc.mount_items({ "next", "zzz", "next" })
+    psc.split(123)
+    psc.token({})
+    psc.eq(nil, "x")
     return completions
     "#;
-    let out = run_hook(&root_provide_ctx(), script, &empty_static());
-    assert!(
-        out.is_ok(),
-        "API misuse must degrade, not abort: {:?}",
-        out.err()
-    );
+    let out = run_hook(&root_provide_ctx(), script, &static_rows(&["built-in"]))
+        .expect("API misuse must degrade, not abort");
+    let texts: Vec<&str> = out.iter().map(|i| i.text.as_str()).collect();
+    assert_eq!(texts, vec!["built-in"], "static menu must survive misuse");
 }
 
 #[test]
@@ -443,19 +495,16 @@ fn provide_empty_command_chain_is_redundant() {
 }
 
 #[test]
-fn provide_empty_string_values_fail_loudly() {
-    // Empty command "" is a wildcard (valid), and so is an empty option segment
-    // (symmetric chain wildcard). What remains invalid: non-option-like option
-    // segments (must start with '-').
-    let cases = [(
-        r#"psc.on({ option = "config" }, function() end)"#,
-        "option segments must be options",
-    )];
-    for (script, expect) in cases {
-        let mut c = root_provide_ctx();
-        let logged = capture_error_log(&mut c, script);
-        assert!(logged.contains(expect), "expected {expect:?} in: {logged}");
-    }
+fn provide_non_option_segment_in_option_chain_fails_loudly() {
+    // Every segment of an `option` chain must look like an option. Note the two shapes that are
+    // deliberately NOT errors, and so are absent here: an empty `command` string is a wildcard,
+    // and an empty `option` segment is its symmetric chain wildcard.
+    let mut c = root_provide_ctx();
+    let logged = capture_error_log(&mut c, r#"psc.on({ option = "config" }, function() end)"#);
+    assert!(
+        logged.contains("option segments must be options"),
+        "{logged}"
+    );
 }
 
 #[test]
@@ -1478,24 +1527,52 @@ fn add_skips_empty_names() {
 }
 
 #[test]
-fn add_without_tip_keeps_tip_absent() {
+fn add_without_tip_falls_back_to_the_name() {
     let script = r#"
-        psc.add({ name = "branch" })
+        psc.add({ name = "src/deep/nested/module.rs" })
 "#;
     let out = run_hook(&ctx(), script, &empty_static()).unwrap();
-    assert_eq!(out[0].text, "branch");
-    assert!(out[0].tip.is_none());
+    assert_eq!(out[0].text, "src/deep/nested/module.rs");
+    assert_eq!(out[0].tip.as_deref(), Some("src/deep/nested/module.rs"));
 }
 
 #[test]
-fn run_items_adds_each_line_without_tip() {
+fn add_tip_empty_string_opts_out_of_the_default() {
+    // `tip = ""` is the per-item escape hatch: an explicitly empty tip means "no description",
+    // and must not be replaced by the name. `enable_tip = false` remains the global opt-out.
+    let script = r#"
+        psc.add({ name = "kept", tip = "" })
+        psc.add({ name = "defaulted" })
+"#;
+    let out = run_hook(&ctx(), script, &empty_static()).unwrap();
+    let kept = out.iter().find(|i| i.text == "kept").unwrap();
+    let defaulted = out.iter().find(|i| i.text == "defaulted").unwrap();
+    assert_eq!(
+        kept.tip.as_deref(),
+        Some(""),
+        "explicit empty tip must survive"
+    );
+    assert_eq!(defaulted.tip.as_deref(), Some("defaulted"));
+}
+
+#[test]
+fn add_explicit_tip_still_wins_over_the_name() {
+    let script = r#"
+        psc.add({ name = "git", tip = "version control --- git" })
+"#;
+    let out = run_hook(&ctx(), script, &empty_static()).unwrap();
+    assert_eq!(out[0].tip.as_deref(), Some("version control --- git"));
+}
+
+#[test]
+fn run_items_adds_each_line_tipped_with_its_own_line() {
     let script = r#"
         psc.add(psc.items(psc.run({ "echo", "alpha" }, { shell = true })))
 "#;
     let out = run_hook(&ctx(), script, &empty_static()).unwrap();
     assert_eq!(out.len(), 1);
     assert_eq!(out[0].text, "alpha");
-    assert!(out[0].tip.is_none());
+    assert_eq!(out[0].tip.as_deref(), Some("alpha"));
 }
 
 #[test]
@@ -1553,13 +1630,14 @@ fn dynamic_items_carry_usage_and_example() {
         out[0].example.as_deref(),
         Some("a out.7z  # create an archive")
     );
-    // psc.add without a tip leaves the tip absent (no implicit name-as-tip)
+    // psc.add without a tip falls back to the name
     assert_eq!(out[1].text, "extract");
     assert_eq!(out[1].usage.as_deref(), Some("extract|e"));
     assert_eq!(out[1].example.as_deref(), Some("e demo.7z  # extract"));
-    assert!(out[1].tip.is_none());
-    // Static items are unaffected (renamed to avoid colliding with used tokens and repeat-filtering)
+    assert_eq!(out[1].tip.as_deref(), Some("extract"));
+    // Static items are unaffected (renamed to avoid colliding with used tokens and repeat-filtering).
     assert_eq!(out[2].text, "help");
+    assert!(out[2].tip.is_none(), "static items must keep their own tip");
     assert!(out[2].usage.is_none());
     assert!(out[2].example.is_none());
 }
@@ -1999,6 +2077,88 @@ fn glob_returns_nil_on_invalid_pattern() {
     assert_eq!(out[0].text, "nil-ok");
 }
 
+/// Create `count` empty files named `<prefix><i><suffix>` in `dir`.
+fn make_files(dir: &std::path::Path, count: usize, prefix: &str, suffix: &str) {
+    std::fs::create_dir_all(dir).unwrap();
+    for i in 0..count {
+        std::fs::write(dir.join(format!("{prefix}{i}{suffix}")), "").unwrap();
+    }
+}
+
+/// A matcher for `<dir>/<prefix>*<suffix>`, mirroring what `api_glob` compiles.
+fn test_matcher(dir: &std::path::Path, prefix: &str, suffix: &str) -> globset::GlobMatcher {
+    let pat = format!(
+        "{}/{prefix}*{suffix}",
+        dir.to_string_lossy().replace('\\', "/")
+    );
+    globset::GlobBuilder::new(&pat)
+        .literal_separator(true)
+        .case_insensitive(cfg!(windows))
+        .backslash_escape(false)
+        .build()
+        .unwrap()
+        .compile_matcher()
+}
+
+#[test]
+fn glob_walk_cuts_short_at_stop_instant() {
+    // Regression guard: the instruction-count timeout cannot fire inside a native walk (it
+    // executes no Lua instructions), so the walk must honor its own stop instant. A stop time
+    // already in the past must stop it early and hand back a partial result — unbounded, it
+    // returns all 300 files and freezes the menu on a deep tree.
+    // Driven through `glob_walk` directly (the instant is a parameter, not the process-global
+    // slot), so the assertion is deterministic and cannot interfere with sibling hook tests.
+    let base = std::env::temp_dir().join("psc-glob-deadline-test");
+    let _ = std::fs::remove_dir_all(&base);
+    make_files(&base, 300, "f", ".txt");
+    let matcher = test_matcher(&base, "f", ".txt");
+
+    let past = std::time::Instant::now() - Duration::from_secs(1);
+    let cut = glob_walk(&base, &matcher, None, past);
+    assert!(
+        cut.len() < 300,
+        "a past stop instant must cut the walk short, got {} of 300",
+        cut.len()
+    );
+
+    // A future stop instant must not truncate.
+    let future = std::time::Instant::now() + Duration::from_secs(60);
+    let full = glob_walk(&base, &matcher, None, future);
+    assert_eq!(full.len(), 300);
+    // Results are still real, deduped matches.
+    let mut sorted = full.clone();
+    sorted.sort();
+    sorted.dedup();
+    assert_eq!(sorted.len(), full.len(), "results must stay deduped");
+    assert!(full.iter().all(|p| p.ends_with(".txt")), "{full:?}");
+
+    let _ = std::fs::remove_dir_all(&base);
+}
+
+#[test]
+fn glob_stop_at_takes_the_earlier_bound() {
+    // A glob must never outlast the hook it runs in, but it also has its own (much shorter)
+    // budget so a menu never waits seconds. Whichever bound lands first wins.
+    let now = Instant::now();
+
+    // No hook deadline (no hook running): the glob's own budget applies.
+    let alone = glob_stop_at(now, None);
+    assert_eq!(alone, now + GLOB_BUDGET);
+    assert!(
+        alone > now,
+        "the budget must leave the walk time to make progress"
+    );
+
+    // A hook deadline further out than the budget: the budget still wins.
+    let slack = glob_stop_at(now, Some(now + Duration::from_secs(3600)));
+    assert_eq!(slack, now + GLOB_BUDGET);
+
+    // A hook deadline nearer than the budget: the hook's remaining time wins, so a glob can
+    // never push the hook past its own cap.
+    let tight = now + Duration::from_millis(50);
+    assert_eq!(glob_stop_at(now, Some(tight)), tight);
+}
+
 #[test]
 fn all_hooks_parse() {
     // Syntax-check every hooks.lua in the repo so a bad edit fails here, not at runtime.
@@ -2142,6 +2302,33 @@ fn toml_yaml_and_env_return_nil_on_missing() {
 }
 
 #[test]
+fn json5_syntax_beyond_jsonc_parses() {
+    // Full JSON5: single-quoted strings, unquoted keys, hex numbers.
+    let dir = std::env::temp_dir().join("psc-json5-test");
+    let _ = std::fs::create_dir_all(&dir);
+    let f = dir.join("config.json5");
+    std::fs::write(
+        &f,
+        "{\n    // comment\n    unquoted: 'single',\n    hex: 0xFF,\n    trailing: [1,],\n}\n",
+    )
+    .unwrap();
+    let p = f.to_string_lossy().replace('\\', "/");
+    let script = format!(
+        r#"
+    local c = psc.json("{p}")
+    if c == nil then return nil end
+    if c.unquoted ~= "single" then return nil end
+    if c.hex ~= 255 then return nil end
+    if c.trailing[1] ~= 1 then return nil end
+    return {{ {{ name = "ok" }} }}
+"#
+    );
+    let out = run_hook(&ctx(), &script, &empty_static()).unwrap();
+    assert_eq!(out[0].text, "ok");
+    let _ = std::fs::remove_dir_all(&dir);
+}
+
+#[test]
 fn ls_batch_lists_directories_in_parallel() {
     let dir = std::env::temp_dir().join("psc-lsbatch-test");
     let _ = std::fs::create_dir_all(dir.join("sub1"));
@@ -2211,6 +2398,35 @@ fn batch_missing_entries_yield_nil() {
     let out3 = run_hook(&ctx(), &script3, &empty_static()).unwrap();
     assert_eq!(out3[0].text, "ok");
 
+    let _ = std::fs::remove_dir_all(&dir);
+}
+
+#[test]
+fn json_with_comments_and_trailing_commas_parses() {
+    // JSONC tolerance: comments + trailing commas parse; string content
+    // (URLs, comment-like text) survives the strip pipeline untouched.
+    let dir = std::env::temp_dir().join("psc-jsonc-test");
+    let _ = std::fs::create_dir_all(&dir);
+    let f = dir.join("settings.jsonc");
+    std::fs::write(
+        &f,
+        "{\n    // editor\n    \"fontSize\": 14, // trailing\n    \"url\": \"https://a//b\", /* block */\n    \"exclude\": {\n        \"**/.git\": true,\n    },\n    \"list\": [1, 2,],\n}\n",
+    )
+    .unwrap();
+    let p = f.to_string_lossy().replace('\\', "/");
+    let script = format!(
+        r#"
+    local c = psc.json("{p}")
+    if c == nil then return nil end
+    if c.fontSize ~= 14 then return nil end
+    if c.url ~= "https://a//b" then return nil end
+    if c.exclude["**/.git"] ~= true then return nil end
+    if c.list[2] ~= 2 then return nil end
+    return {{ {{ name = "ok" }} }}
+"#
+    );
+    let out = run_hook(&ctx(), &script, &empty_static()).unwrap();
+    assert_eq!(out[0].text, "ok");
     let _ = std::fs::remove_dir_all(&dir);
 }
 

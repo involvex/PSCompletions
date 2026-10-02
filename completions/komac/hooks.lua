@@ -8,11 +8,6 @@ local function add_package_ids()
             if #completions > 200 then break end
         end
     end
-    -- also try current directory package manifests
-    for _, p in ipairs(psc.glob("*.yaml") or {}) do
-        local n = p:match("([^/\\]+)$")
-        if n then psc.add({ name = n, tip = p }) end
-    end
 end
 
 local function add_versions()
@@ -56,12 +51,6 @@ local function add_manifest_dirs()
         local n = p:match("([^/\\]+)$")
         if n then psc.add({ name = p, tip = n }) end
     end
-    local entries = psc.ls(".")
-    if entries then
-        for _, e in ipairs(entries) do
-            if e.is_dir then psc.add({ name = e.name, tip = e.path }) end
-        end
-    end
 end
 
 psc.on({
@@ -77,10 +66,3 @@ psc.on({
 }, add_versions)
 
 psc.on({ command = "submit" }, add_manifest_dirs)
-
-psc.on({ command = "analyze" }, function()
-    for _, p in ipairs(psc.glob("**/*.{exe,msi,msix}") or {}) do
-        psc.add({ name = p, tip = "installer" })
-        if #completions > 80 then break end
-    end
-end)

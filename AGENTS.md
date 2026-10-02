@@ -183,7 +183,7 @@ Running `.\scripts\create-completion.ps1 <command>` generates:
 
 ```
 completions/<command>/
-├── config.json           # { "language": ["en-US", "zh-CN"] }
+├── config.json           # { "id": "<uuid>", "language": ["en-US", "zh-CN"] }
 └── language/
     ├── en-US.json        # Template content, needs full rewrite
     └── zh-CN.json        # Template content, needs full rewrite
@@ -306,12 +306,14 @@ Before writing, skim a few existing completions to match the house style — e.g
 
 ```jsonc
 {
+  "id": "<uuid>",
   "language": ["en-US", "zh-CN"],
   // "alias": [...],
   // "hooks": true
 }
 ```
 
+- `id` (required): Random UUID generated at creation (`create-completion.ps1`), never changes — the engine uses it to detect upstream renames
 - `language` (required): Language array, corresponds to files in `language/` directory
 - `alias` (optional): Alternative command names that trigger this completion
   - **If not set**, the directory name is used as the trigger name
@@ -351,7 +353,9 @@ For the full field definitions (`meta`, `next`, `option`, `global_option`, `conf
 
 **`next` for options** — prefer `next: [...]` over `next: []` whenever you know the value's shape well enough to give representative examples; keep `next: []` only for genuinely free-form values. If `hooks: true` is enabled, `hooks.lua` dynamically generated completions are **appended** to the static array, not replaced. See `design/completion.md` for the full `next` semantics.
 
-**Duplicate detection**: an option counts as a duplicate only if it is **fully structurally identical** to a `global_option` entry — same `name`, `alias`, `tip`, `usage`, `example`, `next`, `option`, and all nested substructure. If the description or `next` differs in any way, they are **different** options: when you reach a subcommand context, the module uses the subcommand's own `option` (it overrides the `global_option`). Fix a duplicate by removing the subcommand/root copy and keeping the one in `global_option` — the module shows `global_option` at every level, so the copy is redundant.
+**`separator` for list values** — an option whose value is a separator-joined list (`--exclude a,b,c`) declares `"separator": ","` (any non-empty string except whitespace/`=`; typically `,`/`;`). Requires `next` (boolean flags must not carry it). Selecting a candidate replaces only the current segment and adds **no** trailing space — the user types the separator to continue, Space to finish. `usage` should show the shape (`--exclude <A,B,...>`). See `design/completion.md` for the full semantics.
+
+**Duplicate detection**: an option counts as a duplicate only if it is **fully structurally identical** to a `global_option` entry — same `name`, `alias`, `tip`, `usage`, `example`, `separator`, `next`, `option`, and all nested substructure. If the description or `next` differs in any way, they are **different** options: when you reach a subcommand context, the module uses the subcommand's own `option` (it overrides the `global_option`). Fix a duplicate by removing the subcommand/root copy and keeping the one in `global_option` — the module shows `global_option` at every level, so the copy is redundant.
 
 ### Duplicate Prevention
 
@@ -362,7 +366,7 @@ No duplicate `name` within the same array. `compare-json.ps1` matches by `name` 
 Every item may carry three text arrays. `tip` is the description (shown under `[Description]`); `usage` and `example` are optional and shown under `[Usage]` / `[Example]`.
 
 - Each array element is one line, no inline line breaks allowed.
-- Spaces required between Chinese/English/number characters.
+- Spaces required between Chinese and English characters.
 - `tip` — the description line. If `tip` exists, it should be a real description; do not put `U:`/`E:` prefixed lines in it — those belong in `usage` / `example`.
 - `usage` — invocation syntax. **Not mandatory; add it when it conveys something the name alone doesn't.**
   - **Must add `usage` when**: the item has an alias — the short form must be shown (`-f, --force`, `rm|remove`).
@@ -375,7 +379,7 @@ Every item may carry three text arrays. `tip` is the description (shown under `[
   - **Always order from short to long** — shorter form comes first: `rm|remove`, `-g, --global`. Never reverse the order.
   - **Usage starts from the current command level, never include root command name.** Each level only describes its own invocation syntax. For `git worktree add <PATH>`, the path is `root → worktree → add`, so `add`'s usage should be `add <PATH>`, not `worktree add <path>`.
 - `example` — optional, add when examples clarify usage. Each item is a plain string, or an object `{ "cmd": ..., "desc": ... }` when an explanation is wanted — **both** `cmd` and `desc` are required in object form (use a plain string when there is no explanation). Multiple examples are separate array elements. Skip when usage is sufficient.
-- Order of fields in the JSON: `name`, `alias`, `usage`, `tip`, `example`, then `repeat` / `option` / `next`.
+- Order of fields in the JSON: `name`, `alias`, `usage`, `tip`, `example`, then `repeat` / `separator` / `option` / `next`.
 
 **`usage` examples — correct vs wrong:**
 
@@ -396,7 +400,7 @@ Every item may carry three text arrays. `tip` is the description (shown under `[
 
 ## Validation & Design Rules
 
-`compare-json.ps1` enforces the rules below. Fix every reported item until it runs clean.
+The validation scripts (`compare-json.ps1` for structure/usage, `validate-completion.ps1` for schema/config/hooks) enforce the rules below. Fix every reported item until both run clean.
 
 ### Usage Checks
 
@@ -407,6 +411,9 @@ Every item may carry three text arrays. `tip` is the description (shown under `[
 | usage too simple | the `usage` equals the name, but the item has an alias or `next` | make the `usage` show the alias and/or a value placeholder, or remove it |
 | usage order wrong | a long form comes before its short form | order short → long: `-s, --long` / `short | long` |
 | usage separator wrong | an option uses `\|`, or a subcommand uses `,` | options use `,`; subcommands use `\|` |
+| option value without `next` | an option has `usage <...>` but no `next` field | add `next: []` (free-form value) or `next: [...]` (known candidates) |
+| `next: []` on a command | an item inside a `next` array has an empty `next` | omit `next` for leaf commands, or fill in real subcommands |
+| `usage` repeats root command | a `usage` line starts with the root command name | start `usage` at the current level (e.g. `add <PATH>`, not `worktree add <PATH>`) |
 
 **Option vs subcommand**: an item is treated as an option (expects `,`) when its name starts with `-`, even if it lives inside a `next` array.
 
@@ -437,7 +444,7 @@ Leaf values inside a `next` array follow the same rules as commands: with an ali
 - [ ] `zh-CN.json` and `en-US.json` have identical structure — only `tip`/`usage`/`example` content is translated
 - [ ] `name`, `alias`, and other non-`tip` fields unchanged during translation
 - [ ] No file extensions (`.cmd`, `.exe`, `.bat`) in `config.json` `alias` field
-- [ ] `.\scripts\compare-json.ps1 <command>` runs clean
+- [ ] `.\scripts\compare-json.ps1 <command>` and `.\scripts\validate-completion.ps1 <command>` run clean
 
 All items satisfied = task complete. Re-run `compare-json.ps1 <command>` after changes stabilize to confirm no _content_ differences. Run with `<command>` to check just one, or with `-All` to check every completion (slower). Without arguments it checks only recently changed / uncommitted completions.
 
@@ -601,7 +608,7 @@ A new config key touches several places — follow the full chain:
 5. If the engine consumes it at build time, read it from the build context's `global_config`
    (not a new per-field input), and update `design/protocol.md` if the build input changes.
 6. Run `.\scripts\compare-json.ps1 psc` (structure + translation) and
-   `cargo test` (config registry).
+   `cargo test --manifest-path core/Cargo.toml` (config registry).
 
 ## Dynamic Completions (`hooks.lua`)
 
@@ -610,6 +617,19 @@ Use hooks when a static list can't know the real values at authoring time — th
 > **Before writing a `hooks.lua`, read `design/hooks.md`** — it is the authoritative reference for the `psc.*` API, the prelude helpers, and the semantics rules. **Style is also defined there** — follow `design/hooks.md §9 Style Guide`.
 
 If `config.json` has `hooks: true` but no dynamic behavior is actually needed, remove `hooks: true` and delete `hooks.lua`.
+
+**Slot rule**: inject a value kind only where the CLI itself accepts it — check `--help` usage, docs, and examples, not the manifest alone. Never offer files at a context whose slot takes subcommands, names, keys, or nothing (`{}`, `{ command = "build" }` offering `rspress.config.ts` where only `build`/`preview` are valid). If a slot accepts files but the manifest shows no placeholder, add the `usage` placeholder (`[FILES]...`) so the slot is documented. For allowed `psc.ls` candidates in a relative file or directory slot, use `entry.name` as the completion `name`; use `entry.path` only when the slot requires an absolute path or as a tip.
+
+**Path-candidate rule — one question settles it: can native path completion do this job?** Native path completion works *inside the current directory* and only once the user has typed a path prefix (`./`, `../`, `/`, `C:\`, `~/`). It never searches by name at a depth the user has not typed. Everything follows from that:
+
+- **A hook must provide it** when the candidate is found *by name* at a depth the user has not typed — a config file that may live anywhere in the tree (`tsconfig*.json`, `biome.{json,jsonc}`, `.swcrc`, `Cargo.toml`, `wrangler.toml`). A recursive glob whose **last segment contains a literal name fragment** (letters/digits that are not merely the extension) is the right tool.
+- **Leave it to native path completion** when the candidate is only "a file of this type somewhere" — `**/*.{js,ts,jsx,tsx}`, `**/*.py`, `**/*.{yaml,yml}`. Such a set is **unbounded by construction**: it grows with the repository instead of staying a small list. The user usually already knows where their own file is, so typing a prefix reaches it faster than scanning a flat list that buries the subcommands and options.
+
+**An extension is not a filter.** `**/*.{js,ts}` is not a "small, semantically filtered set" — it is the whole repository, and it will bury the static candidates. Never add a file listing to make discovery *look* complete.
+
+**Carve-out — an extension-only glob is allowed only when the CLI accepts no other kind of file in that slot *and* the format belongs to the tool rather than to the user** (e.g. `buf` takes `.proto` and nothing else; `dotnet build` takes a project/solution). Ask: when the user wants this, do they want *their own* file of that type, or a file *this tool* owns? If the answer is "their own", native path completion wins. Also prefer narrowing to a fixed depth when the CLI does not need arbitrary depth.
+
+See `design/hooks.md §9` for the full rule with worked examples.
 
 ## Updating Existing Completions (New Tool Version)
 
@@ -624,6 +644,6 @@ If `config.json` has `hooks: true` but no dynamic behavior is actually needed, r
 
 1. Structure must be identical to `en-US.json` — same nesting, same array order, same entries
 2. Only translate `tip` / `usage` / `example` content — `name`, `alias`, `repeat`, `next` values stay as-is
-3. Spaces between Chinese/English/number characters
+3. Spaces between Chinese and English characters
 4. Don't translate proper nouns — command names, option names, tool names stay as-is
 5. When a `tip` value is a proper noun that cannot be translated, append a trailing space so `compare-json.ps1` does not flag it as untranslated. For example, `"Chromium"` → `"Chromium "`

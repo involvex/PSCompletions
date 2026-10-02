@@ -100,6 +100,26 @@ fn v_ok(v: &serde_json::Value) -> bool {
         .unwrap_or(false)
 }
 
+fn rewrite_settings(d: &Path, f: impl FnOnce(&mut serde_json::Value)) {
+    let p = d.join("settings.json");
+    let mut v = parse_json(&std::fs::read_to_string(&p).unwrap());
+    f(&mut v);
+    std::fs::write(&p, serde_json::to_string(&v).unwrap()).unwrap();
+}
+
+fn set_live_aliases(d: &Path, aliases: &[&str]) {
+    rewrite_settings(d, |v| {
+        v["alias"]["git"] = serde_json::json!(aliases);
+    });
+}
+
+fn set_config_alias(d: &Path, aliases: &[&str]) {
+    let p = d.join("completions/git/config.json");
+    let mut v = parse_json(&std::fs::read_to_string(&p).unwrap());
+    v["alias"] = serde_json::json!(aliases);
+    std::fs::write(&p, serde_json::to_string(&v).unwrap()).unwrap();
+}
+
 /// Standard remote index + demo completion served by the local server.
 fn demo_routes() -> Vec<(&'static str, String)> {
     vec![
@@ -186,22 +206,100 @@ fn json_alias_bad_subcmd() {
 }
 
 #[test]
-fn json_add_no_args_param_err() {
-    let d = make_data("json-add-noargs", "http://127.0.0.1:9");
-    let (code, out) = psc(&d, &["--json", "add"]);
-    assert_eq!(code, 0);
+fn json_unknown_top_level_command_is_in_band() {
+    let d = make_data("json-unknown-cmd", "http://127.0.0.1:9");
+    let (code, out) = psc(&d, &["--json", "nosuchcommand"]);
+    assert_eq!(code, 0, "{out}");
     let v = parse_json(&out);
-    assert!(!((v["ok"]).as_bool().unwrap_or(false)));
-    assert_eq!(v["error"], "Too few parameters.");
+    assert!(!((v["ok"]).as_bool().unwrap_or(false)), "{out}");
+    assert_eq!(v["error"], "Invalid subcommand.");
 }
 
 #[test]
-fn json_rm_no_args_param_err() {
-    let d = make_data("json-rm-noargs", "http://127.0.0.1:9");
-    let (code, out) = psc(&d, &["--json", "rm"]);
-    assert_eq!(code, 0);
+fn text_unknown_top_level_command_fails() {
+    let d = make_data("txt-unknown-cmd", "http://127.0.0.1:9");
+    let (code, out) = psc(&d, &["nosuchcommand"]);
+    assert_eq!(code, 1, "{out}");
+    assert!(out.contains("Invalid subcommand."), "{out}");
+}
+
+#[test]
+fn json_alias_global_reset_reports_resulting_aliases() {
+    let d = make_data("json-alias-reset", "http://127.0.0.1:9");
+    set_live_aliases(&d, &["git", "g", "gg"]);
+    let (code, out) = psc(&d, &["--json", "alias", "--reset"]);
+    assert_eq!(code, 0, "{out}");
     let v = parse_json(&out);
-    assert!(!((v["ok"]).as_bool().unwrap_or(false)));
+    assert_eq!(v["ok"], true, "{out}");
+    let entry = &v["reset"][0];
+    assert_eq!(entry["name"], "git", "{out}");
+    assert_eq!(entry["aliases"], serde_json::json!(["git"]), "{out}");
+}
+
+#[test]
+fn json_alias_named_reset_reports_resulting_aliases() {
+    let d = make_data("json-alias-named-reset", "http://127.0.0.1:9");
+    set_live_aliases(&d, &["git", "g", "gg"]);
+    set_config_alias(&d, &["git", "g"]);
+    let (code, out) = psc(&d, &["--json", "alias", "add", "git", "--reset"]);
+    assert_eq!(code, 0, "{out}");
+    let v = parse_json(&out);
+    assert_eq!(v["name"], "git", "{out}");
+    assert_eq!(v["ok"], true, "{out}");
+    assert_eq!(v["reset"], serde_json::json!(["git", "g"]), "{out}");
+}
+
+#[test]
+fn json_alias_named_reset_reports_skipped_words() {
+    let d = make_data("json-alias-reset-skip", "http://127.0.0.1:9");
+    set_live_aliases(&d, &["git"]);
+    rewrite_settings(&d, |v| {
+        v["alias"] = serde_json::json!({ "aaa": ["shared"], "git": ["git"] });
+    });
+    set_config_alias(&d, &["git", "shared"]);
+    let (code, out) = psc(&d, &["--json", "alias", "add", "git", "--reset"]);
+    assert_eq!(code, 0, "{out}");
+    let v = parse_json(&out);
+    assert_eq!(v["reset"], serde_json::json!(["git"]), "{out}");
+    assert_eq!(v["skipped"][0]["alias"], "shared", "{out}");
+    assert_eq!(v["skipped"][0]["owner"], "aaa", "{out}");
+}
+
+#[test]
+fn json_alias_rm_success_stdout_is_only_json() {
+    let d = make_data("json-alias-rm-clean", "http://127.0.0.1:9");
+    set_live_aliases(&d, &["git", "g", "gg"]);
+    let (code, out) = psc(&d, &["--json", "alias", "rm", "git", "g"]);
+    assert_eq!(code, 0, "{out}");
+    let v = parse_json(&out);
+    assert_eq!(v["ok"], true, "{out}");
+    assert_eq!(v["removed"], serde_json::json!(["g"]), "{out}");
+}
+
+#[test]
+fn json_alias_add_success_stdout_is_only_json() {
+    let d = make_data("json-alias-add-clean", "http://127.0.0.1:9");
+    set_live_aliases(&d, &["git"]);
+    let (code, out) = psc(&d, &["--json", "alias", "add", "git", "zz"]);
+    assert_eq!(code, 0, "{out}");
+    let v = parse_json(&out);
+    assert_eq!(v[0]["ok"], true, "{out}");
+    assert_eq!(v[0]["added"], serde_json::json!(["zz"]), "{out}");
+}
+
+#[test]
+fn json_add_and_rm_no_args_report_param_err() {
+    // Both commands route an empty argv through the same param_err, so both must report the
+    // identical contract: exit 0, ok=false, and the message itself. (The rm half used to
+    // assert only ok=false, so a wrong or missing message would have passed.)
+    for cmd in ["add", "rm"] {
+        let d = make_data(&format!("json-{cmd}-noargs"), "http://127.0.0.1:9");
+        let (code, out) = psc(&d, &["--json", cmd]);
+        assert_eq!(code, 0, "{cmd}: {out}");
+        let v = parse_json(&out);
+        assert!(!((v["ok"]).as_bool().unwrap_or(false)), "{cmd}: {out}");
+        assert_eq!(v["error"], "Too few parameters.", "{cmd}: {out}");
+    }
 }
 
 // ---------- add/rm flows over the local HTTP source ----------
@@ -235,25 +333,20 @@ fn json_rm_removes_installed_completion() {
 }
 
 #[test]
-fn json_add_unknown_name_reports_in_band() {
+fn json_add_and_rm_unknown_name_report_in_band() {
+    // An unknown name is a per-completion failure, not a whole-command abort: both commands
+    // exit 0 and report the name back inside the array. (The rm half used to assert only
+    // ok=false, so a response missing the `completion` field would have passed.)
     let srv = spawn_server(demo_routes());
-    let d = make_data("flow-add-unknown", &srv);
-    let (code, out) = psc(&d, &["--json", "add", "zzz-nope"]);
-    assert_eq!(code, 0);
-    let v = parse_json(&out);
-    let e = v.as_array().unwrap()[0].clone();
-    assert_eq!(e["completion"], "zzz-nope");
-    assert!(!((e["ok"]).as_bool().unwrap_or(false)));
-}
-
-#[test]
-fn json_rm_unknown_name_reports_in_band() {
-    let srv = spawn_server(demo_routes());
-    let d = make_data("flow-rm-unknown", &srv);
-    let (code, out) = psc(&d, &["--json", "rm", "zzz-nope"]);
-    assert_eq!(code, 0);
-    let v = parse_json(&out);
-    assert!(!((v.as_array().unwrap()[0]["ok"]).as_bool().unwrap_or(false)));
+    for cmd in ["add", "rm"] {
+        let d = make_data(&format!("flow-{cmd}-unknown"), &srv);
+        let (code, out) = psc(&d, &["--json", cmd, "zzz-nope"]);
+        assert_eq!(code, 0, "{cmd}: {out}");
+        let v = parse_json(&out);
+        let e = v.as_array().unwrap()[0].clone();
+        assert_eq!(e["completion"], "zzz-nope", "{cmd}: {out}");
+        assert!(!((e["ok"]).as_bool().unwrap_or(false)), "{cmd}: {out}");
+    }
 }
 
 // ---------- update flows ----------
@@ -348,6 +441,30 @@ fn json_update_named_updates_version_marker() {
     assert_eq!(
         std::fs::read_to_string(d.join("completions/demo/.update")).unwrap(),
         "v3",
+        "{out}"
+    );
+}
+
+#[test]
+fn json_update_save_failure_still_emits_one_document() {
+    let srv = spawn_server(demo_routes());
+    let d = make_data("flow-update-savefail", &srv);
+    psc(&d, &["--json", "add", "demo"]);
+    let sp = d.join("settings.json");
+    let mut perm = std::fs::metadata(&sp).unwrap().permissions();
+    perm.set_readonly(true);
+    std::fs::set_permissions(&sp, perm.clone()).unwrap();
+    let (code, out) = psc(&d, &["--json", "update", "demo"]);
+    let _ = std::fs::set_permissions(&sp, perm);
+    assert_eq!(code, 0, "{out}");
+    assert_eq!(
+        out.trim().lines().count(),
+        1,
+        "--json mode owes exactly one document: {out}"
+    );
+    let v = parse_json(&out);
+    assert!(
+        v.as_array().unwrap().iter().any(|e| e["ok"] == true),
         "{out}"
     );
 }

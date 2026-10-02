@@ -262,16 +262,34 @@ pub fn completion_defaults(data_dir: &str, name: &str) -> Value {
     Value::Object(map)
 }
 
-/// After adding/updating a completion, refresh its alias + config defaults, preserving user overrides.
+/// After adding/updating a completion, refresh its alias + config defaults.
+/// `reinstall` selects the discipline: `add` reinstalls — the whole per-completion
+/// entry (trigger aliases + `config.completion`) is dropped and rebuilt from remote
+/// defaults (like `rm` + `add`); `update` patches — a missing/empty trigger entry is
+/// filled, per-completion config only gains missing keys, customizations survive.
+/// Words already owned by another completion stay with their owner in both modes;
+/// skipped words are returned for the warning.
 pub fn refresh_settings_after_add(
     settings: &mut Settings,
     data_dir: &str,
     name: &str,
-) -> Result<(), String> {
+    reinstall: bool,
+) -> Result<Vec<(String, String)>, String> {
     let config_path = format!("{data_dir}/completions/{name}/config.json");
     let text =
         crate::data::read_text(&config_path).ok_or_else(|| "missing config.json".to_string())?;
     let config: Value = serde_json::from_str(&text).map_err(|e| e.to_string())?;
+    if reinstall {
+        // Reinstall feel: drop the whole per-completion config entry so the manifest
+        // defaults below rebuild it from scratch (removed upstream keys vanish too).
+        if let Some(comp) = settings
+            .config
+            .get_mut("completion")
+            .and_then(|c| c.as_object_mut())
+        {
+            comp.remove(name);
+        }
+    }
     // Whether this completion already had per-completion settings before the manifest
     // defaults below may create it (first install vs update).
     let first_install = settings
@@ -281,7 +299,7 @@ pub fn refresh_settings_after_add(
         .is_none();
     let hooks_disabled = config.get("hooks").and_then(|h| h.as_bool()) == Some(false);
 
-    let aliases: Vec<String> = config
+    let desired: Vec<String> = config
         .get("alias")
         .and_then(|a| a.as_array())
         .map(|a| {
@@ -291,7 +309,19 @@ pub fn refresh_settings_after_add(
         })
         .filter(|a: &Vec<String>| !a.is_empty())
         .unwrap_or_else(|| vec![name.to_string()]);
-    settings.alias.insert(name.to_string(), aliases);
+    let skipped = if reinstall
+        || settings
+            .alias
+            .get(name)
+            .map(|v| v.is_empty())
+            .unwrap_or(true)
+    {
+        let (kept, skipped) = crate::validate::filter_owned_triggers(settings, name, desired);
+        settings.alias.insert(name.to_string(), kept);
+        skipped
+    } else {
+        Vec::new()
+    };
 
     // Per-completion config defaults from the first language manifest's `config` field.
     let lang = config
@@ -357,7 +387,7 @@ pub fn refresh_settings_after_add(
             .unwrap()
             .insert("enable_hooks".to_string(), serde_json::json!(false));
     }
-    Ok(())
+    Ok(skipped)
 }
 
 /// Read a locally installed completion's stable id from its config.json.
@@ -509,11 +539,15 @@ mod tests {
         .unwrap();
         let mut s = Settings::default();
         // First install: `hooks: false` seeds enable_hooks=false (disabled by default).
-        refresh_settings_after_add(&mut s, base.to_str().unwrap(), "x").unwrap();
+        let skipped =
+            refresh_settings_after_add(&mut s, base.to_str().unwrap(), "x", true).unwrap();
+        assert!(skipped.is_empty());
         assert_eq!(s.config["completion"]["x"]["enable_hooks"], false);
-        // Update: an existing entry is never rewritten (the user's opt-in survives).
+        // Update (patch): an existing entry is never rewritten (the user's opt-in survives).
         s.config["completion"]["x"]["enable_hooks"] = serde_json::json!(true);
-        refresh_settings_after_add(&mut s, base.to_str().unwrap(), "x").unwrap();
+        let skipped =
+            refresh_settings_after_add(&mut s, base.to_str().unwrap(), "x", false).unwrap();
+        assert!(skipped.is_empty());
         assert_eq!(s.config["completion"]["x"]["enable_hooks"], true);
         std::fs::remove_dir_all(&base).ok();
     }
@@ -534,9 +568,96 @@ mod tests {
         )
         .unwrap();
         let mut s = Settings::default();
-        refresh_settings_after_add(&mut s, base.to_str().unwrap(), "x").unwrap();
+        let skipped =
+            refresh_settings_after_add(&mut s, base.to_str().unwrap(), "x", true).unwrap();
         // `hooks: true` writes no enable_hooks entry (absence means enabled).
+        assert!(skipped.is_empty());
         assert!(s.config["completion"]["x"].get("enable_hooks").is_none());
+        std::fs::remove_dir_all(&base).ok();
+    }
+
+    #[test]
+    fn refresh_settings_after_add_keeps_earlier_owner() {
+        let base = test_base();
+        let dir = base.join("completions/new");
+        std::fs::create_dir_all(&dir).unwrap();
+        std::fs::write(
+            dir.join("config.json"),
+            r#"{"language":["en-US"],"alias":["hx","new"]}"#,
+        )
+        .unwrap();
+        let mut s = Settings::default();
+        s.alias.insert(
+            "helix".to_string(),
+            vec!["helix".to_string(), "hx".to_string()],
+        );
+        // `hx` stays with the earlier owner; only `new` is installed.
+        let skipped =
+            refresh_settings_after_add(&mut s, base.to_str().unwrap(), "new", true).unwrap();
+        assert_eq!(skipped, vec![("hx".to_string(), "helix".to_string())]);
+        assert_eq!(s.alias.get("new").unwrap(), &vec!["new".to_string()]);
+        assert_eq!(
+            s.alias.get("helix").unwrap(),
+            &vec!["helix".to_string(), "hx".to_string()]
+        );
+        std::fs::remove_dir_all(&base).ok();
+    }
+
+    #[test]
+    fn refresh_patch_keeps_custom_aliases_but_fills_missing() {
+        let base = test_base();
+        let dir = base.join("completions/x");
+        std::fs::create_dir_all(&dir).unwrap();
+        std::fs::write(
+            dir.join("config.json"),
+            r#"{"language":["en-US"],"alias":["x","ex"]}"#,
+        )
+        .unwrap();
+        // Customized entry survives patch mode untouched.
+        let mut s = Settings::default();
+        s.alias
+            .insert("x".to_string(), vec!["x".to_string(), "mine".to_string()]);
+        let skipped =
+            refresh_settings_after_add(&mut s, base.to_str().unwrap(), "x", false).unwrap();
+        assert!(skipped.is_empty());
+        assert_eq!(
+            s.alias.get("x").unwrap(),
+            &vec!["x".to_string(), "mine".to_string()]
+        );
+        // Missing entry is filled from remote defaults.
+        let mut s = Settings::default();
+        let skipped =
+            refresh_settings_after_add(&mut s, base.to_str().unwrap(), "x", false).unwrap();
+        assert!(skipped.is_empty());
+        assert_eq!(
+            s.alias.get("x").unwrap(),
+            &vec!["x".to_string(), "ex".to_string()]
+        );
+        // Empty entry counts as missing.
+        let mut s = Settings::default();
+        s.alias.insert("x".to_string(), Vec::new());
+        let skipped =
+            refresh_settings_after_add(&mut s, base.to_str().unwrap(), "x", false).unwrap();
+        assert!(skipped.is_empty());
+        assert_eq!(
+            s.alias.get("x").unwrap(),
+            &vec!["x".to_string(), "ex".to_string()]
+        );
+        // Overwrite mode resets customs (add = reinstall feel).
+        let mut s = Settings::default();
+        s.alias
+            .insert("x".to_string(), vec!["x".to_string(), "mine".to_string()]);
+        s.config = serde_json::json!({"completion": {"x": {"enable_tip": 0, "custom": 1}}});
+        let skipped =
+            refresh_settings_after_add(&mut s, base.to_str().unwrap(), "x", true).unwrap();
+        assert!(skipped.is_empty());
+        assert_eq!(
+            s.alias.get("x").unwrap(),
+            &vec!["x".to_string(), "ex".to_string()]
+        );
+        // The whole per-completion config entry is rebuilt (this manifest has no
+        // `config` array, so customs simply vanish).
+        assert!(s.config["completion"].get("x").is_none());
         std::fs::remove_dir_all(&base).ok();
     }
 

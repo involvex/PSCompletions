@@ -2,6 +2,42 @@
 
 [简体中文](./CHANGELOG.zh-CN.md)
 
+## Unreleased
+
+- `psc.add` uses `name` as the default value for `tip`.
+- Fixed the menu freezing when a hook globbed a very large or deeply nested directory tree.
+
+## 7.6.0
+
+- Moved the data directory out of the module folder by default; set `PSCOMPLETIONS_DATA_DIR` to override it.
+  - Windows: `%APPDATA%\com.abgox\PSCompletions`
+  - macOS: `~/Library/Application Support/com.abgox/PSCompletions`
+  - Linux: `${XDG_DATA_HOME:-$HOME/.local/share}/com.abgox/PSCompletions`
+- Filter prompt no longer uses the `focus` semantic color.
+- Fixed menu selection delays caused by dynamic hooks.
+- Other optimizations and fixes.
+
+## 7.5.2
+
+- Fixed a crash when history lines contain multi-byte characters.
+- Fixed the selected row scrolling out of view when the menu list shrinks.
+- Other optimizations and fixes.
+
+## 7.5.1
+
+- Improved the semantics of [completion predict symbol](https://pscompletions.abgox.com/docs/completion-predict-symbol).
+- Other optimizations and fixes.
+
+## 7.5.0
+
+- Hooks API：added JSON5 support to `psc.json`.
+- Removed execution-alias auto-import and the real-command conflict check when adding aliases.
+  - `psc alias` now only decides which trigger aliases open the completion menu.
+  - Add your own `Set-Alias` if you need execution aliases.
+- Supported both `--opt=value` and `--opt value` for option values.
+- Supported separator-joined option values (`--exclude a,b,c`): defined by `separator`.
+- Other optimizations and fixes.
+
 ## 7.4.0
 
 - Hooks API: added `psc.on`/`psc.path`, removed `psc.set_symbol`/`psc.set_tip` and other changes.
