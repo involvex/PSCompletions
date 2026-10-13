@@ -40,8 +40,11 @@ local function add_plugins()
     end
 end
 
+-- generate takes tool names in some of its forms (config, devcontainer,
+-- tool-stub), so the same bare-tool producer serves both slots.
 psc.on({
-    { command = "list" }
+    { command = "list" },
+    { command = "generate" }
 }, add_pure_tools)
 
 psc.on({
@@ -50,7 +53,11 @@ psc.on({
     { command = "uninstall" },
     { command = "upgrade" },
     { command = "where" },
-    { command = "which" }
+    { command = "which" },
+    { command = "exec" },
+    { command = "latest" },
+    { command = "list-remote" },
+    { command = "link" }
 }, add_tools)
 
 psc.on({
@@ -59,6 +66,6 @@ psc.on({
 }, add_tasks)
 
 psc.on({
-    { command = { "plugins", "update" } },
-    { command = { "plugins", "uninstall" } }
+    { command = { "plugin-list", "upgrade" } },
+    { command = { "plugin-list", "uninstall" } }
 }, add_plugins)

@@ -1,23 +1,8 @@
-local function add_key_files()
-    for _, p in ipairs(psc.glob("*.pub") or {}) do
-        psc.add({ name = p, tip = "public key" })
-    end
-    local ssh_dir = psc.path(psc.env("HOME") or psc.env("USERPROFILE") or psc.cwd, ".ssh")
-    for _, e in ipairs(psc.ls(ssh_dir) or {}) do
-        if not e.is_dir and e.name:match("^id_") then
-            if e.name:match("%.pub$") then
-                psc.add({ name = e.path, tip = "public key" })
-            else
-                psc.add({ name = e.path, tip = "private key" })
-            end
-        end
-    end
-end
-
 local function add_known_hosts()
     local kh = psc.path(psc.env("HOME") or psc.env("USERPROFILE") or "", ".ssh", "known_hosts")
     local txt = psc.read(kh)
     if txt then
+        -- a hashed entry (|1|...) is not a name that can be typed back at -F/-R
         for line in txt:gmatch("[^\r\n]+") do
             local host = line:match("^([^%s,]+)")
             if host and not host:match("^#") and not host:match("^|") then
@@ -28,12 +13,6 @@ local function add_known_hosts()
 end
 
 psc.on({
-    { option = "-f" },
-    { option = "-s" }
-}, add_key_files)
-
-psc.on({
     { option = "-F" },
-    { option = "-R" },
-    { option = "-r" }
+    { option = "-R" }
 }, add_known_hosts)

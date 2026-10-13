@@ -93,6 +93,31 @@ end)
 | `psc.cwd` | The current working directory. |
 | `psc.platform` | The current system platform. (`"windows"` / `"macos"` / `"linux"`) |
 
+> **A Windows-only environment variable needs a platform guard.** `APPDATA` is always
+> empty on Linux, and `psc.path("")` degrades to a path relative to the current directory, so
+> the lookup silently succeeds somewhere wrong. Prefer a portable path first and put the
+> Windows one behind a non-empty check:
+>
+> ```lua
+> -- wrong
+> local cfg = psc.json(psc.path(psc.env("APPDATA") or "", "Claude", "settings.json"))
+>
+> -- right
+> local home = psc.env("HOME") or psc.env("USERPROFILE") or ""
+> local cfg = psc.json(psc.path(home, ".claude", "settings.json"))
+> if not cfg and psc.platform == "windows" then
+>     local appdata = psc.env("APPDATA") or ""
+>     if appdata ~= "" then
+>         cfg = psc.json(psc.path(appdata, "Claude", "settings.json"))
+>     end
+> end
+> ```
+>
+> `HOME or USERPROFILE or ""` is safe on its own — `HOME` exists on Linux. The dangerous
+> shape is narrower: a **Windows-only variable as the first link of an `or ""` chain**. The
+> worked counter-example is `completions/claude/hooks.lua`, which still gets this wrong.
+> Background: [`decisions/authoring.md`](../decisions/authoring.md#d19).
+
 ## 5. psc.\* Capability Functions (Rust)
 
 The functions split into three groups: **completion-item** (build/manipulate completion
@@ -390,23 +415,70 @@ allowed via the index signature.
 This section is normative for AI and human authors. `design/hooks.md` is the style authority.
 
 - **Comments — why only, one line**: explain *why* when the code is not self-evident, not *what*. Keep a single short line in **English**. Do not add a file header like `-- <tool> dynamic completions` or section labels like `-- node commands` — the `psc.on` spec already says it. Generic headers and what-only section comments are forbidden.
-- **Registration — merge same handler**: multiple `psc.on` with the same handler must be a single array spec — `psc.on({{ option = "--a" }, { option = "--b" }}, add_files)` — not three separate `psc.on(..., add_files)` calls. See `§8 Declarative psc.on` for the `spec[]` OR form.
-- **Targets — validate against the manifest before adding**: every `command`/`option` in a spec must exist in `completions/<cmd>/language/en-US.json` and be a location that actually takes a runtime value — commands need a positional placeholder (`usage` with `<...>`/`[...]` or a free-form position), options need `next: []`/`next: [...]` (value-taking). **Match the value kind to the slot**: judge by what the CLI itself accepts there — its `--help` usage, docs, and examples — not by the manifest alone. Never offer files at a context whose slot takes subcommands, names, keys, or nothing (`{}`, `{ command = "build" }` offering `rspress.config.ts` where only `build`/`preview` are valid). If a slot accepts files but the manifest shows no placeholder, add the `usage` placeholder (`[FILES]...`) so the slot is documented. For allowed `psc.ls` candidates in a relative file or directory slot, use `entry.name` as the completion `name`; use `entry.path` only when the slot requires an absolute path or as a tip.
-- **File candidates — one question settles it: can native path completion do this job?** Native path completion works **inside the current directory** and only once the user has typed a path prefix (`./`, `../`, `/`, `C:\`, `~/`); it never searches by name at a depth the user has not typed. Every path-candidate decision follows from that asymmetry, so decide by asking which side of it the candidate falls on.
+- **Registration — one array per producer, split only with a reason**: `psc.on` takes either one spec or an array of them (`psc_on_spec|psc_on_spec[]`, any spec matching), so both shapes are valid API; the *grouping* is a style decision, and `psc.on` has no per-command multi-handler entry, which fixes the axis you can group on.
+  - **Default to one array per producer.** Every target a producer serves goes in a single `psc.on` array — `psc.on({{ option = "--a" }, { option = "--b" }}, add_files)`, not three calls to `add_files`. Measured across the repository this is 86 files against 3, and the 3 are the interesting part.
+  - **Split only when the groups trigger for different reasons, and say why.** The test: *would the two groups still read correctly merged into one array?* If yes, merge. If no, keep them apart — and each split block carries its own one-line `why` comment, because that is the only record of the intent. Without the comment a reader cannot tell a deliberate split from a stray extra call, and an uncommented second block is a trap: the next person to add a path option has to guess which block it belongs to. `kustomize` is the model — `build` takes a directory that holds a kustomization and `edit add base` takes a base to add, so the same producer is bound twice and the second block carries the one-line comment saying why they must not be merged.
+  - **One target needs no array.** Write the bare spec: `psc.on({ option = "--netrc-file" }, add_netrc)`. Do not wrap a lone target in `{ { ... } }` for the sake of looking uniform.
+  - **Do not group by command.** When one command needs several producers it must appear in each of their arrays — `git merge` is listed by `add_branch`, `add_head`, `add_commit` and `add_tag`, and those four arrays share fifteen identical targets. That repetition is a consequence of the API, not a mistake to be tidied away; there is no spelling of "call two handlers when the user typed `merge`".
+  - After any change, `./scripts/check-hook-targets.ps1 [name...]` — merging blocks is exactly the edit that can silently drop a target.
+- **Targets — validate against the manifest before adding**: every `command`/`option` in a spec must exist in `completions/<cmd>/language/en-US.json` and be a location that actually takes a runtime value — commands need a positional placeholder (`usage` with `<...>`/`[...]` or a free-form position), options need `next: []`/`next: [...]` (value-taking). **Match the value kind to the slot**: judge by what the CLI itself accepts there — its `--help` usage, docs, and examples — not by the manifest alone. Never offer files at a context whose slot takes subcommands, names, keys, or nothing — e.g., offering a config file at a `build` subcommand slot where only subcommand names are valid. If a slot accepts files but the manifest shows no placeholder, add the `usage` placeholder (`[FILES]...`) so the slot is documented. For allowed `psc.ls` candidates in a relative file or directory slot, use `entry.name` as the completion `name`; use `entry.path` only when the slot requires an absolute path or as a tip.
+- **File candidates — hooks do not do path completion; native completion owns paths.** Default to no file candidates. Native path completion works **inside the current directory** and only once the user has typed a path prefix (`./`, `../`, `/`, `C:\`, `~/`); it never searches by name at a depth the user has not typed. A hook's file list is **unbounded by construction** — it grows with the repository — so it buries the subcommands and options the user is actually looking for, and the user normally already knows where their own file is. A hook adds nothing the shell cannot already give it, so the rule is a ban rather than a boundary.
 
-  **(a) Found by name at an untyped depth → the hook must provide it.** A config file that may live anywhere in the tree is exactly what native completion cannot reach, and these sets stay small because the name is what is being matched. Use a recursive glob whose **last segment carries a literal name fragment** — letters/digits that are not merely the extension:
+  **No hook may offer a file path as a completion candidate**, and this does not depend on how the
+  path was obtained: `psc.glob` with or without a wildcard (`psc.glob(".env")` is still
+  `psc.glob`), a `psc.ls` of the current directory, and a `psc.run` of `ls` all count the same.
+  Keying the rule on the API would only let an author route around it by picking another one — which
+  is the drift a hard rule exists to prevent.
 
-  | pattern | verdict |
-  | --- | --- |
-  | `tsconfig*.json`, `biome.{json,jsonc}`, `.swcrc`, `Cargo.toml` | **allowed** — name-anchored, bounded, unreachable otherwise |
-  | `.env`, `.netrc`, `trivy.yaml` (no `*` at all) | **allowed** — a specific filename, not a type |
-  | `*.db`, `*.sqlite` (depth 1) | **allowed** — shallow, and the type is the tool's own |
+  The exception is a **slot that takes a *name* the CLI cannot enumerate itself**, sourced from a
+  known directory — `hugo --theme` wants a theme *name*, not a path, so `psc.ls("themes")` stands;
+  `typst init` wants a package *name*, so `psc.ls` over the package cache stands. All three of these
+  must hold: the directory is known and fixed (`themes/`, not "any directory in the tree"), the
+  candidate surfaced is `entry.name` and never `entry.path`, and the CLI's slot takes a name rather
+  than a path. Where a slot wants a path and there is nothing to enumerate, offer nothing and let
+  native path completion take it.
 
-  **(b) "A file of this type somewhere" → leave it to native path completion.** `**/*.{js,ts,jsx,tsx}`, `**/*.py`, `**/*.{yaml,yml}` match every source file in the repository. They are **unbounded by construction** — the list grows with the repo instead of staying a small set — and the user normally already knows where their own file is, so typing a prefix reaches it faster than scanning a flat list that buries the subcommands and options. An **extension is not a filter**: `**/*.{js,ts}` is not a "small, semantically filtered set", it is the whole repository.
+  A **CLI-filtered subset** is a separate case and is not this exception: the hook runs a command
+  whose own answer *is* the candidate set, so the set is bounded by what the user did rather than by
+  how big the repository is. It is legal only when the answer also carries something native
+  completion cannot produce — a status code, not the bare path. The two-question test that keeps it
+  apart from general path browsing is in `../authoring/hooks.md`.
 
-  **(c) Carve-out — an extension-only glob is allowed only when the CLI accepts no other kind of file in that slot *and* the format belongs to the tool rather than the user.** `buf lint` takes `.proto` and nothing else; `dotnet build` takes a project or solution. Ask: when the user wants this, do they want *their own* file of that type, or a file *this tool* owns? "Their own" means native completion wins. When the carve-out applies, still prefer the narrowest depth that works.
+  **The API is free; only the offering is banned.** `psc.glob` may discover the files that hold data
+  the CLI cannot enumerate, provided the path never becomes the selectable value. `scoop` globs
+  `**/*.json` across every bucket and offers the app **names** read out of those manifests with
+  `psc.json_batch` — no CLI call lists installable apps, so the glob is the only source and nothing
+  can be moved into `next`. `pm2` globs `ecosystem.config.*` and offers `name = p`: the path *is* the
+  candidate, so it is out.
 
-  Never add a file listing to make discovery *look* complete, and never register one handler that injects paths into several unrelated contexts (`{ command = "check" }, { command = "ci" }, { command = "format" }` all offering the same file list) — the paths then compete with each context's own options. Register a path candidate only at the slot that actually takes the file. Hooks do not cover general path browsing.
+  A **bare filename** is not a workaround. Stripping the directory leaves a repository-sized list,
+  so the objection stands; and a basename in a path slot is usually a broken argument. What decides
+  it is the slot's expected kind, not the shape of the string. A path in a `tip` is explanatory
+  text — it neither licenses an offering nor invalidates one.
+
+  Never register one handler that injects the same candidate list into several unrelated contexts (`{ command = "check" }, { command = "ci" }, { command = "format" }` all offering the same list) — the candidates then compete with each context's own options. A **wandering** path handler has no slot to be registered at: those contexts have nothing to do with paths, so the list is noise everywhere it lands. That is a claim about unrelated contexts, not about paths in general — a CLI-filtered subset has a real slot, and the two-question test in `../authoring/hooks.md` is what separates it from general path browsing.
+- **Target names — the longest form, and check them mechanically**: `psc.on` matches a `command` segment against the **canonical** name (`bindings.rs` calls a segment *"an exact canonical name"*) and anchors the chain at the root, so a target naming an **alias** never fires — silently, with nothing reported. A manifest that stores `add` as an alias of `stage` cannot be targeted as `command = "add"`. Which spelling to write is not a judgement call: `sort-json.ps1` puts the longest form in `name` on every run, so **write the longest form** and the script has already made it canonical. A tool whose own primary name is shorter — jj's `evolog`, mise's `ls` — is normal and is not an error, because the tool's preference is not what `psc.on` compares against. Verify with `./scripts/check-hook-targets.ps1 [name...]`, which resolves every target against the manifest; it is the only check that catches this, since `compare-json` and `validate-completion` only look at internal consistency. Nine were found this way across the repository, all of this one kind. To find a canonical name: `python3 -c "import json;d=json.load(open('completions/X/language/en-US.json'));print([(i['name'],i.get('alias')) for i in d['next']])"`.
+- **Data — never write an empty tip**: some CLIs list an option with no description at all (podman does this for `--help` in some contexts), and a parser that transcribes faithfully will emit `"tip": [""]`, which the schema rejects. Substitute a generic description or drop the field; do not pass the empty string through.
+- **One shape per producer — no plaintext retry**: read the structured form and stop there. A
+  fallback earns its keep only from *evidence that a build cannot serve the first shape*; one
+  justified by "the first read might fail" is dead code, because every reachable state either
+  returns before it or reaches it with a valid empty result and turns it into a duplicate read.
+  A retry between two forms of the same query is a different thing and is allowed (§10.1).
+
+  ```lua
+  -- right
+  local data = psc.run({ "gh", "pr", "list", "--json", "number,title" }, { format = "json" }) or {}
+  for _, pr in ipairs(data) do ... end
+
+  -- wrong: a nil from format=json means the command itself failed -- no auth, no
+  -- such repository, a field this build does not know -- and the retry returns
+  -- nothing either, while hiding the reason. An empty menu says less than a
+  -- command that visibly failed.
+  if data then ... return end
+  for _, line in ipairs(psc.run({ "gh", "pr", "list" }) or {}) do ... end
+  ```
+- **Offer every kind of a value at the same slots**: if a slot accepts one kind of ref it generally accepts the others. Tags are refs, so a branch-completion hook that fires in twenty-five places and a tag hook that fires in six leave `git describe` — whose entire job is resolving a tag — offering branches and commits but no tag. Keep the target lists of same-kind producers in step. Narrow deliberately where a kind is rarely wanted, and say why: remote branches go to `checkout`/`switch` only, because spreading `origin/*` through `log`/`describe` buries the local refs.
+- **Do not reshape what a tool already prints**: ask for the form you want instead of post-processing. `git branch -r --format=%(refname:lstrip=2)` followed by a Lua `^origin/(.+)$` strip produced a name that collided with the local branch of the same name, and only ever worked for the remote literally called `origin`. `--format=%(refname:short)` needs no cleanup and behaves the same for every remote.
 - **Naming — `add_*` for candidates**: prefer `local function add_*()` for candidate producers and pass the named function to `psc.on`. Helpers that only load config are `load_*`/`get_*` and are never registered directly. Anonymous `function() ... end` is allowed for one-off handlers that do not warrant a separate `add_*` abstraction; only avoid the redundant wrapper `psc.on({}, function() add_x() end)` — pass `add_x` directly: `psc.on({}, add_x)`.
 - **Guards — `or {}` for iteration**: iterate with `psc.run(...) or {}` / `psc.glob(...) or {}` / `psc.ls(...) or {}`. Branch only when a fallback is needed (`if data then ... return end`).
 - **Mapping — `psc.items` for pure mapping, loops for logic**: a loop body that only turns each result into a `name` (`for _, x in ipairs(...) do psc.add({ name = x }) end`) must be `psc.add(psc.items(... or {}))` instead; when the body parses, filters, or builds tips, keep the explicit `for` loop. Never force one form into the other's shape.
@@ -417,7 +489,7 @@ This section is normative for AI and human authors. `design/hooks.md` is the sty
   - tables/arrays do **not** add a trailing comma on the last element (`{ option = "--a" }` / `{ command = "exec" }`) — keep it clean;
   - `psc.on` specs: single spec `psc.on({ command = "exec" }, add_x)` on one line; multi-spec array `psc.on({{...},{...}}, add_x)` with one spec per line;
   - no semicolons; 4-space indent; keep lines short (wrap long `psc.run` arg lists).
-- **References — when in doubt, copy the canonicals**: `completions/git/hooks.lua` (array `psc.on` merging, `--`/`type` value handling, `psc.run` `or {}`), `completions/jj/hooks.lua` (`psc.run` with `format="json"` + fallback, `psc.mount_items`), `completions/scoop/hooks.lua` (complex manifests, `psc.json_batch`/`psc.glob`, `psc.join` for `string|array` tips, `shell=true` for shims), `completions/zoxide/hooks.lua` (minimal `psc.on` with `multiple`). Skim one before writing a new hook.
+- **References — when in doubt, copy the canonicals**: `completions/git/hooks.lua` (array `psc.on` merging, `--`/`type` value handling, `psc.run` `or {}`, `psc.run_batch` for a fixed command list, ref-shaped candidates), `completions/jj/hooks.lua` (`psc.run` with `format="json"`, `psc.mount_items`), `completions/gh/hooks.lua` (ten producers, one JSON shape each, no retries, two sibling queries batched), `completions/kind/hooks.lua` (`run_batch` for a real per-item fan-out inside a fallback chain), `completions/scoop/hooks.lua` (complex manifests, `psc.json_batch`/`psc.glob`, `psc.join` for `string|array` tips, `shell=true` for shims), `completions/zoxide/hooks.lua` (minimal `psc.on` with `multiple`). Skim one before writing a new hook, and run `./scripts/check-hook-targets.ps1` afterwards.
 
 ## 10. Performance: parallel primitives
 
@@ -446,6 +518,58 @@ end
 ```
 
 Do **not** spawn threads from Lua.
+
+### 10.1 Two hand-written calls, not just a loop
+
+The example above is fan-out over N items. A producer that issues **two separate
+`psc.run` calls** is the same question and needs the same answer: if the second
+does not consume the first's output, batch them.
+
+```lua
+-- wrong: two independent queries, run one after the other
+for _, b in ipairs(psc.run({ "git", "branch", "--format=%(refname:lstrip=2)" }) or {}) do
+    if not b:match("^%(.+ detach") then psc.add({ name = b, tip = "branch" }) end
+end
+for _, b in ipairs(psc.run({ "git", "branch", "-r", "--format=%(refname:short)" }) or {}) do
+    if not b:match("/HEAD$") then psc.add({ name = b, tip = "remote branch" }) end
+end
+
+-- right
+local r = psc.run_batch({
+    { "git", "branch", "--format=%(refname:lstrip=2)" },
+    { "git", "branch", "-r", "--format=%(refname:short)" }
+}) or {}
+for _, b in ipairs(r[1] or {}) do
+    if not b:match("^%(.+ detach") then psc.add({ name = b, tip = "branch" }) end
+end
+for _, b in ipairs(r[2] or {}) do
+    if not b:match("/HEAD$") then psc.add({ name = b, tip = "remote branch" }) end
+end
+```
+
+Wall clock is rarely the reason — two `git branch` calls in a small repository
+measured 6.0 ms against 4.3 ms. The better reasons are that `run_batch` drains
+stdout concurrently, so a query with large output (`git branch -r` on a repo with
+many remotes) cannot wedge on a full pipe, and that the rewrite costs nothing in
+clarity.
+
+**The trap: a retry chain looks identical and must stay sequential.** The second
+command should not run at all when the first succeeded, so batching it changes
+behaviour, not just timing:
+
+```lua
+-- retry, NOT batchable
+local lines = psc.run({ "copilot", "plugins", "list" })
+if not lines then lines = psc.run({ "copilot", "plugin", "list" }) end
+
+-- also a retry, and harder to see: the fallback is inside the expression
+local lines = psc.run({ "sfsu", "list" }) or psc.run({ "scoop", "list" }, { shell = true })
+```
+
+Neither shape can be detected by looking for an early `return` or a deeper
+indentation — the second call sits at the same level in both. Decide by asking
+whether the second command is *wanted* when the first succeeds, not by looking
+at the code's shape.
 
 ## 11. Security
 
