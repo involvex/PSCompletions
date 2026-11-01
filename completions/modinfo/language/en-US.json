@@ -1,0 +1,157 @@
+{
+  "meta": {
+    "url": "https://github.com/kmod-project/kmod",
+    "description": [
+      "Show information about a kernel module."
+    ]
+  },
+  "option": [
+    {
+      "name": "--author",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --author"
+      ],
+      "tip": [
+        "Print only the author."
+      ]
+    },
+    {
+      "name": "--basedir",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --basedir=DIR"
+      ],
+      "tip": [
+        "Use DIR as the /lib/modules root."
+      ],
+      "next": []
+    },
+    {
+      "name": "--description",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --description"
+      ],
+      "tip": [
+        "Print only the description."
+      ]
+    },
+    {
+      "name": "--field",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --field=FIELD"
+      ],
+      "tip": [
+        "Print only the given field."
+      ],
+      "next": []
+    },
+    {
+      "name": "--filename",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --filename"
+      ],
+      "tip": [
+        "Print only the filename."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this help."
+      ]
+    },
+    {
+      "name": "--license",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --license"
+      ],
+      "tip": [
+        "Print only the license."
+      ]
+    },
+    {
+      "name": "--modname",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --modname"
+      ],
+      "tip": [
+        "Treat the argument as a module name."
+      ]
+    },
+    {
+      "name": "--null",
+      "alias": [
+        "-0"
+      ],
+      "usage": [
+        "-0, --null"
+      ],
+      "tip": [
+        "Use NUL instead of newline."
+      ]
+    },
+    {
+      "name": "--parameters",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --parameters"
+      ],
+      "tip": [
+        "Print only the parameters."
+      ]
+    },
+    {
+      "name": "--set-version",
+      "alias": [
+        "-k"
+      ],
+      "usage": [
+        "-k, --set-version=VERSION"
+      ],
+      "tip": [
+        "Use VERSION instead of uname -r."
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Show the version."
+      ]
+    }
+  ]
+}

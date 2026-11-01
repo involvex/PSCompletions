@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "url": "https://github.com/kmod-project/kmod",
+    "description": [
+      "Manage kernel modules."
+    ]
+  },
+  "next": [
+    {
+      "name": "help",
+      "tip": [
+        "Show help message."
+      ]
+    },
+    {
+      "name": "list",
+      "tip": [
+        "List currently loaded modules."
+      ]
+    },
+    {
+      "name": "static-nodes",
+      "tip": [
+        "Output static-node information for the running kernel."
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this help."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Show the version."
+      ]
+    }
+  ]
+}

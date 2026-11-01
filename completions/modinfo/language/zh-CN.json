@@ -1,0 +1,157 @@
+{
+  "meta": {
+    "url": "https://github.com/kmod-project/kmod",
+    "description": [
+      "显示内核模块的信息。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--author",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --author"
+      ],
+      "tip": [
+        "仅打印作者。"
+      ]
+    },
+    {
+      "name": "--basedir",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --basedir=DIR"
+      ],
+      "tip": [
+        "将 DIR 用作 /lib/modules 根目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--description",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --description"
+      ],
+      "tip": [
+        "仅打印描述。"
+      ]
+    },
+    {
+      "name": "--field",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --field=FIELD"
+      ],
+      "tip": [
+        "仅打印给定字段。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--filename",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --filename"
+      ],
+      "tip": [
+        "仅打印文件名。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--license",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --license"
+      ],
+      "tip": [
+        "仅打印许可证。"
+      ]
+    },
+    {
+      "name": "--modname",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --modname"
+      ],
+      "tip": [
+        "将参数视为模块名。"
+      ]
+    },
+    {
+      "name": "--null",
+      "alias": [
+        "-0"
+      ],
+      "usage": [
+        "-0, --null"
+      ],
+      "tip": [
+        "使用 NUL 而不是换行。"
+      ]
+    },
+    {
+      "name": "--parameters",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --parameters"
+      ],
+      "tip": [
+        "仅打印参数。"
+      ]
+    },
+    {
+      "name": "--set-version",
+      "alias": [
+        "-k"
+      ],
+      "usage": [
+        "-k, --set-version=VERSION"
+      ],
+      "tip": [
+        "使用 VERSION 而不是 uname -r。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示版本。"
+      ]
+    }
+  ]
+}

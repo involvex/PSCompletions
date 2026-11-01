@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "url": "https://github.com/kmod-project/kmod",
+    "description": [
+      "管理内核模块。"
+    ]
+  },
+  "next": [
+    {
+      "name": "help",
+      "tip": [
+        "显示帮助信息。"
+      ]
+    },
+    {
+      "name": "list",
+      "tip": [
+        "列出当前加载的模块。"
+      ]
+    },
+    {
+      "name": "static-nodes",
+      "tip": [
+        "输出当前内核的静态节点信息。"
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示版本。"
+      ]
+    }
+  ]
+}

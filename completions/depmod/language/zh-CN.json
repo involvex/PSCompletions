@@ -1,0 +1,197 @@
+{
+  "meta": {
+    "url": "https://github.com/kmod-project/kmod",
+    "description": [
+      "生成 modules.dep 和映射文件。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--all",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --all"
+      ],
+      "tip": [
+        "探测所有模块。"
+      ]
+    },
+    {
+      "name": "--basedir",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --basedir=DIR"
+      ],
+      "tip": [
+        "设置根路径（默认 /）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--config",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --config=PATH"
+      ],
+      "tip": [
+        "从 PATH 读取配置。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--errsyms",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --errsyms"
+      ],
+      "tip": [
+        "报告未提供的符号。"
+      ]
+    },
+    {
+      "name": "--filesyms",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --filesyms=FILE"
+      ],
+      "tip": [
+        "使用文件而不是当前内核符号。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--moduledir",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --moduledir=DIR"
+      ],
+      "tip": [
+        "设置模块目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--outdir",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --outdir=DIR"
+      ],
+      "tip": [
+        "设置输出根路径。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--quick",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --quick"
+      ],
+      "tip": [
+        "仅在有新模块时运行。"
+      ]
+    },
+    {
+      "name": "--show",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --show"
+      ],
+      "tip": [
+        "将依赖文件写入标准输出。"
+      ]
+    },
+    {
+      "name": "--symbol-prefix",
+      "alias": [
+        "-P"
+      ],
+      "usage": [
+        "-P, --symbol-prefix"
+      ],
+      "tip": [
+        "设置架构符号前缀。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--symvers",
+      "alias": [
+        "-E"
+      ],
+      "usage": [
+        "-E, --symvers=FILE"
+      ],
+      "tip": [
+        "使用 Module.symvers 文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "启用详细模式。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示版本。"
+      ]
+    },
+    {
+      "name": "--warn",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --warn"
+      ],
+      "tip": [
+        "对重复项发出警告。"
+      ]
+    }
+  ]
+}

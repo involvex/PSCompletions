@@ -1,0 +1,197 @@
+{
+  "meta": {
+    "url": "https://github.com/kmod-project/kmod",
+    "description": [
+      "Generate modules.dep and map files."
+    ]
+  },
+  "option": [
+    {
+      "name": "--all",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --all"
+      ],
+      "tip": [
+        "Probe all modules."
+      ]
+    },
+    {
+      "name": "--basedir",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --basedir=DIR"
+      ],
+      "tip": [
+        "Set the root path (default /)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--config",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --config=PATH"
+      ],
+      "tip": [
+        "Read the configuration from PATH."
+      ],
+      "next": []
+    },
+    {
+      "name": "--errsyms",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --errsyms"
+      ],
+      "tip": [
+        "Report symbols that are not supplied."
+      ]
+    },
+    {
+      "name": "--filesyms",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --filesyms=FILE"
+      ],
+      "tip": [
+        "Use the file instead of current kernel symbols."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this help."
+      ]
+    },
+    {
+      "name": "--moduledir",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --moduledir=DIR"
+      ],
+      "tip": [
+        "Set the module directory."
+      ],
+      "next": []
+    },
+    {
+      "name": "--outdir",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --outdir=DIR"
+      ],
+      "tip": [
+        "Set the output root path."
+      ],
+      "next": []
+    },
+    {
+      "name": "--quick",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --quick"
+      ],
+      "tip": [
+        "Only run if there is a new module."
+      ]
+    },
+    {
+      "name": "--show",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --show"
+      ],
+      "tip": [
+        "Write the dependency file to stdout."
+      ]
+    },
+    {
+      "name": "--symbol-prefix",
+      "alias": [
+        "-P"
+      ],
+      "usage": [
+        "-P, --symbol-prefix"
+      ],
+      "tip": [
+        "Set the architecture symbol prefix."
+      ],
+      "next": []
+    },
+    {
+      "name": "--symvers",
+      "alias": [
+        "-E"
+      ],
+      "usage": [
+        "-E, --symvers=FILE"
+      ],
+      "tip": [
+        "Use the Module.symvers file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Enable verbose mode."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Show the version."
+      ]
+    },
+    {
+      "name": "--warn",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --warn"
+      ],
+      "tip": [
+        "Warn about duplicates."
+      ]
+    }
+  ]
+}
