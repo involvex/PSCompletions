@@ -128,6 +128,7 @@
 |[debugfs](https://e2fsprogs.sourceforge.net)|交互式调试和修改 ext2/ext3/ext4 文件系统。|
 |[delta](https://github.com/dandavison/delta)|Git 和 diff 输出的查看器。|
 |[deno](https://deno.com/)|现代 JavaScript 和 TypeScript 运行时。|
+|[depmod](https://github.com/kmod-project/kmod)|生成 modules.dep 和映射文件。|
 |[devlink](https://github.com/iproute2/iproute2)|Devlink 工具。|
 |[df@GNU](https://www.gnu.org/software/coreutils/)|显示每个 FILE 所在文件系统的信息，默认显示所有文件系统的信息。|
 |[df@uutils](https://uutils.org)|显示每个 FILE 所在文件系统的信息，默认显示所有文件系统|
@@ -231,6 +232,10 @@
 |[godot](https://godotengine.org)|Godot Engine - 免费开源 2D 和 3D 游戏引擎。|
 |[gpasswd](https://github.com/shadow-maint/shadow)|管理 /etc/group 和 /etc/gshadow。|
 |[gpg](https://gnupg.org)|GNU Privacy Guard - 一款依据 RFC4880 规范实现的完整且免费的 OpenPGP 标准工具|
+|[gpg-agent](https://gnupg.org)|GnuPG 的密钥管理代理。|
+|[gpg-connect-agent](https://gnupg.org)|连接到运行中的代理并发送命令。|
+|[gpgconf](https://gnupg.org)|管理 GnuPG 工具的配置选项。|
+|[gpgsm](https://gnupg.org)|使用 S/MIME 签名、检查、加密或解密。|
 |[gping](https://github.com/orf/gping)|带图表的 ping 工具。|
 |[gprof](https://www.gnu.org/software/binutils)|显示调用图性能数据。|
 |[gprofng](https://www.gnu.org/software/binutils)|gprofng 性能分析工具的驱动程序。|
@@ -267,6 +272,7 @@
 |[id@GNU](https://www.gnu.org/software/coreutils/)|打印每个指定 USER 的用户和组信息；省略 USER 时打印当前进程的信息。|
 |[id@uutils](https://uutils.org)|打印每个指定 USER 的用户和组信息，省略 USER 则打印当前用户的|
 |[ifstat](https://github.com/iproute2/iproute2)|打印网络接口统计信息。|
+|[insmod](https://github.com/kmod-project/kmod)|将模块插入 Linux 内核。|
 |[install@GNU](https://www.gnu.org/software/coreutils/)|这个 install 程序把文件（通常是刚编译好的）复制到你选择的目标位置。|
 |[install@uutils](https://uutils.org)|将 SOURCE 复制到 DEST，或将多个 SOURCE 复制到已存在的目录|
 |[ionic](https://ionicframework.com/docs/cli)|Ionic CLI - Ionic 的命令行界面|
@@ -292,6 +298,7 @@
 |[kernel-install](https://github.com/systemd/systemd)|在启动分区中添加和移除内核与 initrd 镜像。|
 |[kill](https://gitlab.com/procps-ng/procps)|向进程发送信号。|
 |[kind](https://kind.sigs.k8s.io/)|kind 是一个使用 Docker 容器 'nodes' 运行本地 Kubernetes 集群的工具。<br>kind 最初主要用于测试 Kubernetes 本身，但也可用于本地开发或 CI。|
+|[kmod](https://github.com/kmod-project/kmod)|管理内核模块。|
 |[komac](https://github.com/russellbanks/Komac)|WinGet 的社区清单创建器。|
 |[kubectl](https://kubernetes.io/zh-cn/docs/reference/kubectl)|Kubernetes 又称 K8s，是一个开源系统，用于自动化部署、扩展和管理容器化应用程序。<br>kubectl 是它的命令行工具|
 |[kubectx](https://github.com/ahmetb/kubectx)|在不同 Kubernetes 上下文之间切换（kubectl config use-context）。|
@@ -328,6 +335,7 @@
 |[lslocks](https://github.com/util-linux/util-linux)|列出本地系统锁。|
 |[lslogins](https://github.com/util-linux/util-linux)|显示系统中已知用户的信息。|
 |[lsmem](https://github.com/util-linux/util-linux)|列出可用内存范围及其在线状态。|
+|[lsmod](https://github.com/kmod-project/kmod)|列出当前加载的内核模块。|
 |[lsns](https://github.com/util-linux/util-linux)|列出系统命名空间。|
 |[lua](https://www.lua.org/)|功能强大、高效、轻量且可嵌入的脚本语言|
 |[lychee](https://github.com/lycheeverse/lychee)|一个快速、异步的链接检查器。<br>检测本地文件和网站中的失效 URL 和邮件地址。|
@@ -353,6 +361,8 @@
 |[mkswap](https://github.com/util-linux/util-linux)|设置 Linux 交换区。|
 |[mktemp@GNU](https://www.gnu.org/software/coreutils/)|安全地创建临时文件或目录，并打印其名字。|
 |[mktemp@uutils](https://uutils.org)|创建临时文件或目录|
+|[modinfo](https://github.com/kmod-project/kmod)|显示内核模块的信息。|
+|[modprobe](https://github.com/kmod-project/kmod)|在 Linux 内核中添加和移除模块。|
 |[more](https://github.com/util-linux/util-linux)|逐屏显示文本文件内容。|
 |[mount](https://github.com/util-linux/util-linux)|挂载文件系统。|
 |[mountpoint](https://github.com/util-linux/util-linux)|检查目录或文件是否为挂载点。|
@@ -503,6 +513,7 @@
 |[rm@uutils](https://uutils.org)|删除（取消链接）FILE|
 |[rmdir@GNU](https://www.gnu.org/software/coreutils/)|删除这些目录（如果它们为空）。|
 |[rmdir@uutils](https://uutils.org)|删除 DIRECTORY（如果为空）|
+|[rmmod](https://github.com/kmod-project/kmod)|从 Linux 内核移除模块。|
 |[routel](https://github.com/iproute2/iproute2)|显示路由表。|
 |[rsbuild](https://rsbuild.rs)|基于 Rspack 的快速可扩展现代 Web 构建工具。|
 |[rsdoctor](https://rsdoctor.rs)|AI 友好的构建分析器，让构建过程透明可见。|

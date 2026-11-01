@@ -1,5 +1,5 @@
 {
-  "count": 750,
+  "count": 761,
   "update": {
     "7z": "cac4d4accba5c11d5b3ae1fde2e491070f69e522c974cc3004950acea1ffa593",
     "act": "3c17f2f2959410d3ac7c443cad5cfcab4d660eba2a6ca7e2b9f636eab63a2b6e",
@@ -121,6 +121,7 @@
     "debugfs": "2e63ca44fde410ec02e988cd8cb03c0a7f824616f168700bf09872313ef5baee",
     "delta": "88c2d48aaac9734d3cac03816758703cf4baecef7f92e373978e53b08a0ea57f",
     "deno": "51d1bf3e3941ee289c581c5f1f402b044a109d06b98d5aaf00383077a79f709e",
+    "depmod": "39078fc01af819e8ce3286d0df801f701166752fd65964b8942e04c5ca7bc726",
     "devlink": "fafda4000d130450e2298b5b11d14b04e06a13e9e1df2c03dff8dacb36c189e5",
     "df@GNU": "2b44fb127ed12ae8b27264dca9fb4809128f5abdb80ae1153a03977738ed132b",
     "df@uutils": "055667f1e0feb1579e5eb0373e937ee2985ad597f727972e499f615315365608",
@@ -224,6 +225,10 @@
     "godot": "5da4f985710bcd2f41beba1f4898496488f4bd1569acc248953df0483f70210d",
     "gpasswd": "6ddf90618456c3f07639f0b85523f0126aeb647ed0912a9d2efd2fa0eea1223b",
     "gpg": "c97b16f8626b2f76ee62bcfdbedb9c3e6c789a7dfb97e10ed33dd0490a3be7b5",
+    "gpg-agent": "95f985ef69d50172eee5bc15a08a667a3543493172c219434a0bef61f207d50a",
+    "gpg-connect-agent": "9858b1c6e0290a7054c3e010f9028f1eedb3d4bc52686e0ad471e813d6f5b3e1",
+    "gpgconf": "013e57221b36fcbea281a857b255babcdd68a8a633955313bbad4a91123a5440",
+    "gpgsm": "8a832a063d2d0235ff4665155e083e39f5e74f1a898681cf85c161bb802a9117",
     "gping": "b54144da65e0434a57307cfe7f97962d33b9046f8e266dbcf11083057589996c",
     "gprof": "4b1a82856183e6f07929c5fef2cbf06bc508e0d01bda1775953341dde8761bf4",
     "gprofng": "308e736caec77b0dc3156ad809482cecb153b2c19b060b787a854f9b56e3c8ee",
@@ -260,6 +265,7 @@
     "id@GNU": "cb81b178b5b58c4b6b43f8938331d87cbc0c26b30170ce7a0c80977cd29b39be",
     "id@uutils": "4116a344bea88c96b0fa5e7ab2d16832456077b9764e00d55b2f1b403c15eb5e",
     "ifstat": "32d14d5f8a7821a7855e738e28e63c39c0f67a4bdcb7633df665dcf64ced521a",
+    "insmod": "69220cd4ccbb7206b828dfad00ae7f09f39d8100ad839ef6b35c8631e183e444",
     "install@GNU": "af686464be8c5bb3ef9250ea06cdc266e0f0982decab310eb6e463c545deb4f6",
     "install@uutils": "336318d8498ebf6115f824f2334f54a069f94563f71aa07dfee4022b7cbe66fd",
     "ionic": "521416419b860d3728bb7b58ab066881e3ae03a8d9948c2a92cb2acd65bf4eff",
@@ -285,6 +291,7 @@
     "kernel-install": "9a0d60368adfad40fe4be9a90d204a2cb4f99c23d33647ac829864130e30c90f",
     "kill": "34e728b3fc68ac028bbfa879e75aee7fb87b02605f810fa704ca1cd72a3ee1fd",
     "kind": "d14459da42dec1d143e6c3458b563b8e64bfe603e8b38ec5fb6032baf0ab92b8",
+    "kmod": "402220e520f121893a68cece32c74b7eae5fec839563f788120076d5736e10d7",
     "komac": "09d8c3fff035488a20ef5144c4c78880db3989958a4e5f1396616a9403a6cbc1",
     "kubectl": "d1ce103669e3152d53f3d1e3ab7cf48f7ea84a22cac6622a1b4b555e2c457fb0",
     "kubectx": "a7cc967512acaa8dbfbfc793e918fc207db9d697bd480ebc1ff57e3aecb19ba6",
@@ -321,6 +328,7 @@
     "lslocks": "a8d45f7a30fd35937b62b9c22ee1a4454cca1bd6e2c1dae79b22ec28c69b6b44",
     "lslogins": "81829e1e0f87eebabcb44e5f92eb7c226f10b56d8df0f57268816aa508134273",
     "lsmem": "0dac01ea91dbf33e8d4faf847427d5f2364218994107c77ebe5d5ab059bcb826",
+    "lsmod": "428f377ccb7ee95e648e63e1c7a48193ac8b3b50602a6376599c4231c54067ae",
     "lsns": "cd2466c5dda1edd4c6eee1b88f1fe03945192d8064af967985fa1b6026c8cc18",
     "lua": "b047bbe69d03faa0b74cf8fd5cf2c4cdfeb866f3e4b4b2c5b4e6d2b5e0198394",
     "lychee": "6424d6f85591e5c0b793f69f5caf077ad475ba6657295caf47cf5faa9517286a",
@@ -346,6 +354,8 @@
     "mkswap": "5b1b1a69b4086bec944ccb6967304df3b3521a649420be041477bc4d6b91e602",
     "mktemp@GNU": "51cc43a902803db1baae99af90508bb8af5eaa372a836854dcdecf90d5028f03",
     "mktemp@uutils": "cafb5eb273db4b7aff666b4b682d829626ffcea2d91f6ddb66b254cfa9c9737c",
+    "modinfo": "a5b3a234a991ee3d90574381d7dc76f361da40413b45b99f6084d559438e5011",
+    "modprobe": "78860dafe59eedc841f85e92ef8a820b9f8763748baa943e4b24254fd73d19fa",
     "more": "d74d4ef8a01f0891564fcc70bb1454afc33e930eb38664b85d462cf63d154639",
     "mount": "d72da51c8f9a7563425aa07788fd1f9803da0b74295223a276d9544df014c0b3",
     "mountpoint": "a50e07108cd01dfa3996115b0e4873b2bf3af6a6564df90b9206e7d1d92769d5",
@@ -496,6 +506,7 @@
     "rm@uutils": "cdee860a6d87d4714ae7a4bc462c231821871d2dbad94bab5a649883e73d8c3d",
     "rmdir@GNU": "70f4a0616015916bff29277cd712b1ea989bff2b1cfd4e505a94aa8e44a6507e",
     "rmdir@uutils": "d3d33311983a78426a4d93b3d2655709e5ba6647219124ba15e57604c70cb116",
+    "rmmod": "65855a6afa10943cd1e90b337c1216aa25c0a4ce6a69b284e40d6082fa8ac1e7",
     "routel": "ce3d563f12a98bee836892a2f08642756a4200683044f2a6393f7dff75a97d6e",
     "rsbuild": "c6d84600f670a9d621c952709f6052fb827fe0e4ca839fc6d165c5000cc245b1",
     "rsdoctor": "9fcb5406bb435cf81a502bd1ea7eb844b7734a83eb4c70ff7a086da2cfa5fe8f",
@@ -2115,6 +2126,17 @@
         "description": "现代 JavaScript 和 TypeScript 运行时。"
       }
     },
+    "depmod": {
+      "id": "51e7c449-5b39-56f9-9d61-45d6d3d46729",
+      "en-US": {
+        "url": "https://github.com/kmod-project/kmod",
+        "description": "Generate modules.dep and map files."
+      },
+      "zh-CN": {
+        "url": "https://github.com/kmod-project/kmod",
+        "description": "生成 modules.dep 和映射文件。"
+      }
+    },
     "devlink": {
       "id": "c54509e1-1114-5650-ae49-e29445daf8ba",
       "en-US": {
@@ -3279,6 +3301,50 @@
         "description": "GNU Privacy Guard - 一款依据 RFC4880 规范实现的完整且免费的 OpenPGP 标准工具"
       }
     },
+    "gpg-agent": {
+      "id": "0d255ece-0baa-5a22-bbfc-d191a806fb00",
+      "en-US": {
+        "url": "https://gnupg.org",
+        "description": "Secret key management for GnuPG."
+      },
+      "zh-CN": {
+        "url": "https://gnupg.org",
+        "description": "GnuPG 的密钥管理代理。"
+      }
+    },
+    "gpg-connect-agent": {
+      "id": "ad568515-c36f-5464-84ce-8f1a7ee0a067",
+      "en-US": {
+        "url": "https://gnupg.org",
+        "description": "Connect to a running agent and send commands."
+      },
+      "zh-CN": {
+        "url": "https://gnupg.org",
+        "description": "连接到运行中的代理并发送命令。"
+      }
+    },
+    "gpgconf": {
+      "id": "cd4c9f6a-e163-53d3-9133-ebe840a1b1dc",
+      "en-US": {
+        "url": "https://gnupg.org",
+        "description": "Manage configuration options for GnuPG tools."
+      },
+      "zh-CN": {
+        "url": "https://gnupg.org",
+        "description": "管理 GnuPG 工具的配置选项。"
+      }
+    },
+    "gpgsm": {
+      "id": "73189eff-7e6a-5150-8601-7299dc3c28f9",
+      "en-US": {
+        "url": "https://gnupg.org",
+        "description": "Sign, check, encrypt or decrypt using S/MIME."
+      },
+      "zh-CN": {
+        "url": "https://gnupg.org",
+        "description": "使用 S/MIME 签名、检查、加密或解密。"
+      }
+    },
     "gping": {
       "id": "07447c7b-7117-4984-a32e-94778b4d2d07",
       "en-US": {
@@ -3685,6 +3751,17 @@
         "description": "打印网络接口统计信息。"
       }
     },
+    "insmod": {
+      "id": "02526f08-a2d1-5b77-9ad9-a36cc1631b59",
+      "en-US": {
+        "url": "https://github.com/kmod-project/kmod",
+        "description": "Insert a module into the Linux kernel."
+      },
+      "zh-CN": {
+        "url": "https://github.com/kmod-project/kmod",
+        "description": "将模块插入 Linux 内核。"
+      }
+    },
     "install@GNU": {
       "id": "624103ee-362d-42af-9cf2-de6c72df6a36",
       "alias": "install",
@@ -3962,6 +4039,17 @@
       "zh-CN": {
         "url": "https://kind.sigs.k8s.io/",
         "description": "kind 是一个使用 Docker 容器 'nodes' 运行本地 Kubernetes 集群的工具。\nkind 最初主要用于测试 Kubernetes 本身，但也可用于本地开发或 CI。"
+      }
+    },
+    "kmod": {
+      "id": "a7623c03-2d74-5c0a-b4ed-9347373c1a25",
+      "en-US": {
+        "url": "https://github.com/kmod-project/kmod",
+        "description": "Manage kernel modules."
+      },
+      "zh-CN": {
+        "url": "https://github.com/kmod-project/kmod",
+        "description": "管理内核模块。"
       }
     },
     "komac": {
@@ -4369,6 +4457,17 @@
         "description": "列出可用内存范围及其在线状态。"
       }
     },
+    "lsmod": {
+      "id": "6c9012a0-af46-501e-a41c-05797aa2503b",
+      "en-US": {
+        "url": "https://github.com/kmod-project/kmod",
+        "description": "List currently loaded kernel modules."
+      },
+      "zh-CN": {
+        "url": "https://github.com/kmod-project/kmod",
+        "description": "列出当前加载的内核模块。"
+      }
+    },
     "lsns": {
       "id": "afabfc06-bc5f-4a84-9aa0-fb4dcc30327c",
       "en-US": {
@@ -4655,6 +4754,28 @@
       "zh-CN": {
         "url": "https://uutils.org",
         "description": "创建临时文件或目录"
+      }
+    },
+    "modinfo": {
+      "id": "8d3d52f7-2282-5042-8967-c002cfb63b35",
+      "en-US": {
+        "url": "https://github.com/kmod-project/kmod",
+        "description": "Show information about a kernel module."
+      },
+      "zh-CN": {
+        "url": "https://github.com/kmod-project/kmod",
+        "description": "显示内核模块的信息。"
+      }
+    },
+    "modprobe": {
+      "id": "44b3a6d2-84e1-5e99-86a5-35ac2fec3747",
+      "en-US": {
+        "url": "https://github.com/kmod-project/kmod",
+        "description": "Add and remove modules from the Linux kernel."
+      },
+      "zh-CN": {
+        "url": "https://github.com/kmod-project/kmod",
+        "description": "在 Linux 内核中添加和移除模块。"
       }
     },
     "more": {
@@ -6351,6 +6472,17 @@
       "zh-CN": {
         "url": "https://uutils.org",
         "description": "删除 DIRECTORY（如果为空）"
+      }
+    },
+    "rmmod": {
+      "id": "e8bbb62d-3a7a-5b13-bd4e-5092cd577972",
+      "en-US": {
+        "url": "https://github.com/kmod-project/kmod",
+        "description": "Remove a module from the Linux kernel."
+      },
+      "zh-CN": {
+        "url": "https://github.com/kmod-project/kmod",
+        "description": "从 Linux 内核移除模块。"
       }
     },
     "routel": {

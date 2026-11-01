@@ -128,6 +128,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[debugfs](https://e2fsprogs.sourceforge.net)|Debug and modify an ext2/ext3/ext4 file system interactively.|
 |[delta](https://github.com/dandavison/delta)|Viewer for git and diff output.|
 |[deno](https://deno.com/)|A modern JavaScript and TypeScript runtime.|
+|[depmod](https://github.com/kmod-project/kmod)|Generate modules.dep and map files.|
 |[devlink](https://github.com/iproute2/iproute2)|Devlink tool.|
 |[df@GNU](https://www.gnu.org/software/coreutils/)|Show information about the file system on which each FILE resides, or all file systems by default.|
 |[df@uutils](https://uutils.org)|Show information about the file system on which each FILE resides, or all file systems by default.|
@@ -231,6 +232,10 @@ English | [简体中文](./completions.zh-CN.md)
 |[godot](https://godotengine.org)|Godot Engine - Free and open source 2D and 3D game engine.|
 |[gpasswd](https://github.com/shadow-maint/shadow)|Administer /etc/group and /etc/gshadow.|
 |[gpg](https://gnupg.org)|GNU Privacy Guard - A complete and free implementation of the OpenPGP standard as defined by RFC4880|
+|[gpg-agent](https://gnupg.org)|Secret key management for GnuPG.|
+|[gpg-connect-agent](https://gnupg.org)|Connect to a running agent and send commands.|
+|[gpgconf](https://gnupg.org)|Manage configuration options for GnuPG tools.|
+|[gpgsm](https://gnupg.org)|Sign, check, encrypt or decrypt using S/MIME.|
 |[gping](https://github.com/orf/gping)|Ping, but with a graph.|
 |[gprof](https://www.gnu.org/software/binutils)|Display call graph profile data.|
 |[gprofng](https://www.gnu.org/software/binutils)|Driver for the gprofng profiling tools.|
@@ -267,6 +272,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[id@GNU](https://www.gnu.org/software/coreutils/)|Print user and group information for each specified USER, or (when USER omitted) for the current process.|
 |[id@uutils](https://uutils.org)|Print user and group information for each specified USER, or (when USER omitted) for the current user.|
 |[ifstat](https://github.com/iproute2/iproute2)|Print network interface statistics.|
+|[insmod](https://github.com/kmod-project/kmod)|Insert a module into the Linux kernel.|
 |[install@GNU](https://www.gnu.org/software/coreutils/)|This install program copies files (often just compiled) into destination locations you choose.|
 |[install@uutils](https://uutils.org)|Copy SOURCE to DEST or multiple SOURCE(s) to the existing|
 |[ionic](https://ionicframework.com/docs/cli)|Ionic CLI - The command-line interface for Ionic|
@@ -292,6 +298,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[kernel-install](https://github.com/systemd/systemd)|Add and remove kernel and initrd images to and from the boot partition.|
 |[kill](https://gitlab.com/procps-ng/procps)|Send a signal to processes.|
 |[kind](https://kind.sigs.k8s.io/)|kind is a tool for running local Kubernetes clusters using Docker container 'nodes'.<br>kind was primarily designed for testing Kubernetes itself, but may be used for local development or CI.|
+|[kmod](https://github.com/kmod-project/kmod)|Manage kernel modules.|
 |[komac](https://github.com/russellbanks/Komac)|The Community Manifest Creator for WinGet.|
 |[kubectl](https://kubernetes.io/docs/reference/kubectl)|Kubernetes, also known as K8s, is an open source system for automating deployment, scaling, and management of containerized applications.<br>kubectl is its command-line tool.|
 |[kubectx](https://github.com/ahmetb/kubectx)|Switch between Kubernetes contexts (kubectl config use-context).|
@@ -328,6 +335,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[lslocks](https://github.com/util-linux/util-linux)|List local system locks.|
 |[lslogins](https://github.com/util-linux/util-linux)|Display information about known users in the system.|
 |[lsmem](https://github.com/util-linux/util-linux)|List the ranges of available memory with their online status.|
+|[lsmod](https://github.com/kmod-project/kmod)|List currently loaded kernel modules.|
 |[lsns](https://github.com/util-linux/util-linux)|List system namespaces.|
 |[lua](https://www.lua.org/)|Powerful, efficient, lightweight, embeddable scripting language|
 |[lychee](https://github.com/lycheeverse/lychee)|A fast, asynchronous link checker<br>Detects broken URLs and mail addresses in local files and websites|
@@ -353,6 +361,8 @@ English | [简体中文](./completions.zh-CN.md)
 |[mkswap](https://github.com/util-linux/util-linux)|Set up a Linux swap area.|
 |[mktemp@GNU](https://www.gnu.org/software/coreutils/)|Create a temporary file or directory, safely, and print its name.|
 |[mktemp@uutils](https://uutils.org)|Create a temporary file or directory.|
+|[modinfo](https://github.com/kmod-project/kmod)|Show information about a kernel module.|
+|[modprobe](https://github.com/kmod-project/kmod)|Add and remove modules from the Linux kernel.|
 |[more](https://github.com/util-linux/util-linux)|Display the contents of a text file one screen at a time.|
 |[mount](https://github.com/util-linux/util-linux)|Mount a filesystem.|
 |[mountpoint](https://github.com/util-linux/util-linux)|Check whether a directory or file is a mountpoint.|
@@ -503,6 +513,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[rm@uutils](https://uutils.org)|Remove (unlink) the FILE(s)|
 |[rmdir@GNU](https://www.gnu.org/software/coreutils/)|Remove the DIRECTORY(ies), if they are empty.|
 |[rmdir@uutils](https://uutils.org)|Remove the DIRECTORY(ies), if they are empty.|
+|[rmmod](https://github.com/kmod-project/kmod)|Remove a module from the Linux kernel.|
 |[routel](https://github.com/iproute2/iproute2)|Display the routing table.|
 |[rsbuild](https://rsbuild.rs)|A fast, extensible build tool for modern web development, powered by Rspack.|
 |[rsdoctor](https://rsdoctor.rs)|An AI-friendly build analyzer that makes the build process transparent.|
