@@ -1,5 +1,5 @@
 {
-  "count": 763,
+  "count": 766,
   "update": {
     "7z": "cac4d4accba5c11d5b3ae1fde2e491070f69e522c974cc3004950acea1ffa593",
     "act": "3c17f2f2959410d3ac7c443cad5cfcab4d660eba2a6ca7e2b9f636eab63a2b6e",
@@ -17,6 +17,7 @@
     "arch@uutils": "b1d9505f6ea63d2b9df0184935da1906c48eb8cc8eeb63d8ade4e85eb865ad0c",
     "aria2c": "901d03b53bff2d6b2f3700f627f641a2da9f65f832c94261e35921876d90202c",
     "arpd": "bc10d6f804dabb2c0da3ba5eef321fd590deb72b935ebe8edd239c135f26f81f",
+    "arping": "0a05314aa76dc4b2b5a8415ea15c2359d639c773148d9c885ae5bb59ff22575d",
     "as": "7cbf6df5aa7a0457ea3ad4a06280b1d94e0d33a7a59a8938bbc359243ffc5e5e",
     "ast-grep": "ce914180f66b39ad807bfac1c92d53654a9599e0b7ee7d1c29fbb4e71d32c4b6",
     "atac": "66e9567c23d60c26d180166ac16def9db3cf99819e35f3e14973eeaf869d3aaf",
@@ -90,6 +91,7 @@
     "cksum@GNU": "148b16213d59aa6f83869bcd0a39253fd5a6bf8efebc36dac10ff90201938fc0",
     "cksum@uutils": "279673286e83cd612f86403fc632f549f1b0100754495cb19e9d3c9235126333",
     "claude": "05eb99a6dcb5d892a37e2973a25b59f137977c81381c120b94444fde7c7e37f5",
+    "clockdiff": "2e2068a7cb3f970a7461171d868bd8115f56a32abe0ec4f8e0ca722c0d8453dd",
     "cmake": "97435959bdcdb443d26e6f4e6b4e521cb947347b14cfd24d55d61354954e1f97",
     "code": "143c60e7e48af0a7487b0815bbb7fba0942029e4c87eef71f7965ce638178579",
     "codewhale": "6de8b21d46a75543e62366590e85537dcb501090d0c6f42ae3d11df760fbf461",
@@ -665,6 +667,7 @@
     "touch@uutils": "641922de72bbf3ec2cbbdacdceff5c864f03be6454d8ecafa2e7bcf5f6894252",
     "tr@GNU": "32de4e218c4317856c2f4bf79f6f1fb0ad1194e09325c9d3865ffea9bb77daf0",
     "tr@uutils": "6cbde2133c0e0ba9c231e9467338306a92806272754d8a4aad07ea50ea04bd54",
+    "tracepath": "48c09d73823599a53b059992f5ad232ec8fb3a6bbbe95911fbfa6a534f6a2ec9",
     "trivy": "6ee823ca844b3b3b29936467aa756e0b62c14575dd828845c58a3d18b35ccbbb",
     "true@GNU": "639deb52fc683991764496962c3b854a2f6d7a4ae3bca4ffbce03e66f0157911",
     "true@uutils": "5657e037f3b70305e46b874b65da3b1b6bb783e9ac40e5d754b6819b19580a0d",
@@ -943,6 +946,17 @@
       "zh-CN": {
         "url": "https://github.com/iproute2/iproute2",
         "description": "用户空间 ARP 守护进程。"
+      }
+    },
+    "arping": {
+      "id": "fbcddec5-5b49-5bbe-a6fd-5e4ebb7e00a5",
+      "en-US": {
+        "url": "https://github.com/iputils/iputils",
+        "description": "Send ARP REQUESTs to a network host."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iputils/iputils",
+        "description": "向网络主机发送 ARP 请求。"
       }
     },
     "as": {
@@ -1773,6 +1787,17 @@
       "zh-CN": {
         "url": "https://docs.anthropic.com/en/docs/claude-code",
         "description": "Claude Code - Anthropic 的终端 AI 编程助手。"
+      }
+    },
+    "clockdiff": {
+      "id": "f6195a0f-dabb-5716-a717-a66cb90727ab",
+      "en-US": {
+        "url": "https://github.com/iputils/iputils",
+        "description": "Measure clock difference between hosts."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iputils/iputils",
+        "description": "测量主机之间的时钟差异。"
       }
     },
     "cmake": {
@@ -8277,6 +8302,17 @@
       "zh-CN": {
         "url": "https://uutils.org",
         "description": "转换或删除字符"
+      }
+    },
+    "tracepath": {
+      "id": "26d99465-7b36-5dc1-bd5a-1e22510caa95",
+      "en-US": {
+        "url": "https://github.com/iputils/iputils",
+        "description": "Trace the path to a network host."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iputils/iputils",
+        "description": "跟踪到网络主机的路径。"
       }
     },
     "trivy": {

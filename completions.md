@@ -24,6 +24,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[arch@uutils](https://uutils.org)|Display machine architecture|
 |[aria2c](https://aria2.github.io)|Lightweight multi-protocol and multi-source download utility.|
 |[arpd](https://github.com/iproute2/iproute2)|Userspace ARP daemon.|
+|[arping](https://github.com/iputils/iputils)|Send ARP REQUESTs to a network host.|
 |[as](https://www.gnu.org/software/binutils)|The GNU assembler.|
 |[ast-grep](https://github.com/ast-grep/ast-grep)|Search and Rewrite code at large scale using AST pattern.|
 |[atac](https://github.com/Julien-cpsn/ATAC)|A simple API client in your terminal|
@@ -97,6 +98,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[cksum@GNU](https://www.gnu.org/software/coreutils/)|Print or verify checksums.|
 |[cksum@uutils](https://uutils.org)|Print CRC and size for each file.|
 |[claude](https://docs.anthropic.com/en/docs/claude-code)|Claude Code - Anthropic's AI-powered coding assistant in the terminal.|
+|[clockdiff](https://github.com/iputils/iputils)|Measure clock difference between hosts.|
 |[cmake](https://cmake.org)|Cross-platform build system generator.|
 |[code](https://code.visualstudio.com)|Command line interface of Visual Studio Code.|
 |[codewhale](https://codewhale.net)|Open-source, community-driven terminal coding agent for DeepSeek V4 and other models.|
@@ -672,6 +674,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[touch@uutils](https://uutils.org)|Update the access and modification times of each FILE to the current time.|
 |[tr@GNU](https://www.gnu.org/software/coreutils/)|Translate, squeeze, and/or delete characters from standard input, writing to standard output.|
 |[tr@uutils](https://uutils.org)|Translate or delete characters|
+|[tracepath](https://github.com/iputils/iputils)|Trace the path to a network host.|
 |[trivy](https://trivy.dev)|Scanner for vulnerabilities in container images, file systems, and Git repositories, as well as for configuration issues and hard-coded secrets.|
 |[true@GNU](https://www.gnu.org/software/coreutils/)|Exit with a status code indicating success.|
 |[true@uutils](https://uutils.org)|Returns true, a successful exit status.|

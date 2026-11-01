@@ -24,6 +24,7 @@
 |[arch@uutils](https://uutils.org)|显示机器架构|
 |[aria2c](https://aria2.github.io)|轻量级多协议多源下载工具。|
 |[arpd](https://github.com/iproute2/iproute2)|用户空间 ARP 守护进程。|
+|[arping](https://github.com/iputils/iputils)|向网络主机发送 ARP 请求。|
 |[as](https://www.gnu.org/software/binutils)|GNU 汇编器。|
 |[ast-grep](https://github.com/ast-grep/ast-grep)|使用 AST 模式在大规模代码中搜索与重写。|
 |[atac](https://github.com/Julien-cpsn/ATAC)|在终端中使用的简易 API 客户端|
@@ -97,6 +98,7 @@
 |[cksum@GNU](https://www.gnu.org/software/coreutils/)|打印或校验校验和。|
 |[cksum@uutils](https://uutils.org)|输出每个文件的 CRC 和大小。|
 |[claude](https://docs.anthropic.com/en/docs/claude-code)|Claude Code - Anthropic 的终端 AI 编程助手。|
+|[clockdiff](https://github.com/iputils/iputils)|测量主机之间的时钟差异。|
 |[cmake](https://cmake.org)|跨平台构建系统生成器。|
 |[code](https://code.visualstudio.com)|Visual Studio Code 的命令行界面。|
 |[codewhale](https://codewhale.net)|面向 DeepSeek V4 及其他模型、由社区驱动的开源终端代码智能代理|
@@ -672,6 +674,7 @@
 |[touch@uutils](https://uutils.org)|将每个 FILE 的访问和修改时间更新为当前时间|
 |[tr@GNU](https://www.gnu.org/software/coreutils/)|对标准输入中的字符做转换、压缩和/或删除，结果写入标准输出。|
 |[tr@uutils](https://uutils.org)|转换或删除字符|
+|[tracepath](https://github.com/iputils/iputils)|跟踪到网络主机的路径。|
 |[trivy](https://trivy.dev)|扫描容器镜像、文件系统与 Git 仓库的漏洞，以及配置问题与硬编码密钥。|
 |[true@GNU](https://www.gnu.org/software/coreutils/)|以表示成功的状态码退出。|
 |[true@uutils](https://uutils.org)|返回 true，成功的退出状态|
