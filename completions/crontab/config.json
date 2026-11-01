@@ -1,0 +1,9 @@
+{
+  "id": "0c8e4ffa-8ff0-5bb3-89c9-eeea4b81adfb",
+  "version": "cron 3.0pl1-197",
+  "hooks": true,
+  "language": [
+    "en-US",
+    "zh-CN"
+  ]
+}

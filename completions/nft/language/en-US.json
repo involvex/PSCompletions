@@ -1,0 +1,272 @@
+{
+  "meta": {
+    "url": "https://www.nftables.org",
+    "description": [
+      "Administration tool for nftables."
+    ]
+  },
+  "option": [
+    {
+      "name": "--check",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --check"
+      ],
+      "tip": [
+        "Check command validity without applying changes."
+      ]
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug <level[,level...]>"
+      ],
+      "tip": [
+        "Set debugging levels (scanner, parser, eval, netlink, mnl, proto-ctx, segtree, all)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--define",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --define <name=value>"
+      ],
+      "tip": [
+        "Define a variable."
+      ],
+      "next": []
+    },
+    {
+      "name": "--echo",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --echo"
+      ],
+      "tip": [
+        "Echo added, inserted or replaced rules."
+      ]
+    },
+    {
+      "name": "--file",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --file <filename>"
+      ],
+      "tip": [
+        "Read input from the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--guid",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --guid"
+      ],
+      "tip": [
+        "Print UID/GID names."
+      ]
+    },
+    {
+      "name": "--handle",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --handle"
+      ],
+      "tip": [
+        "Output rule handles."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this help."
+      ]
+    },
+    {
+      "name": "--includepath",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --includepath <directory>"
+      ],
+      "tip": [
+        "Add a directory to the include search path."
+      ],
+      "next": []
+    },
+    {
+      "name": "--interactive",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --interactive"
+      ],
+      "tip": [
+        "Read input from the interactive CLI."
+      ]
+    },
+    {
+      "name": "--json",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --json"
+      ],
+      "tip": [
+        "Format output in JSON."
+      ]
+    },
+    {
+      "name": "--numeric",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --numeric"
+      ],
+      "tip": [
+        "Print fully numerical output."
+      ]
+    },
+    {
+      "name": "--numeric-priority",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --numeric-priority"
+      ],
+      "tip": [
+        "Print chain priorities numerically."
+      ]
+    },
+    {
+      "name": "--numeric-protocol",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --numeric-protocol"
+      ],
+      "tip": [
+        "Print layer 4 protocols numerically."
+      ]
+    },
+    {
+      "name": "--numeric-time",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --numeric-time"
+      ],
+      "tip": [
+        "Print time values numerically."
+      ]
+    },
+    {
+      "name": "--optimize",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --optimize"
+      ],
+      "tip": [
+        "Optimize the ruleset."
+      ]
+    },
+    {
+      "name": "--reversedns",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --reversedns"
+      ],
+      "tip": [
+        "Translate IP addresses to names."
+      ]
+    },
+    {
+      "name": "--service",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --service"
+      ],
+      "tip": [
+        "Translate ports to service names."
+      ]
+    },
+    {
+      "name": "--stateless",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --stateless"
+      ],
+      "tip": [
+        "Omit stateful ruleset information."
+      ]
+    },
+    {
+      "name": "--terse",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --terse"
+      ],
+      "tip": [
+        "Omit set contents."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --version"
+      ],
+      "tip": [
+        "Show version information."
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "Show extended version information."
+      ]
+    }
+  ]
+}

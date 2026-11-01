@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "url": "https://cron.sourceforge.net",
+    "description": [
+      "维护用户的 crontab 文件。"
+    ]
+  },
+  "option": [
+    {
+      "name": "-e",
+      "tip": [
+        "编辑用户的 crontab。"
+      ]
+    },
+    {
+      "name": "-h",
+      "tip": [
+        "显示此帮助信息。"
+      ]
+    },
+    {
+      "name": "-i",
+      "tip": [
+        "删除 crontab 前提示。"
+      ]
+    },
+    {
+      "name": "-l",
+      "tip": [
+        "列出用户的 crontab。"
+      ]
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "试运行：检查语法后退出。"
+      ]
+    },
+    {
+      "name": "-r",
+      "tip": [
+        "删除用户的 crontab。"
+      ]
+    },
+    {
+      "name": "-u",
+      "usage": [
+        "-u user"
+      ],
+      "tip": [
+        "选择要操作其 crontab 的用户。"
+      ],
+      "next": []
+    }
+  ]
+}

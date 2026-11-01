@@ -1,0 +1,272 @@
+{
+  "meta": {
+    "url": "https://www.nftables.org",
+    "description": [
+      "nftables 管理工具。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--check",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --check"
+      ],
+      "tip": [
+        "检查命令有效性而不应用更改。"
+      ]
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug <level[,level...]>"
+      ],
+      "tip": [
+        "设置调试级别（scanner、parser、eval、netlink、mnl、proto-ctx、segtree、all）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--define",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --define <name=value>"
+      ],
+      "tip": [
+        "定义变量。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--echo",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --echo"
+      ],
+      "tip": [
+        "回显添加、插入或替换的规则。"
+      ]
+    },
+    {
+      "name": "--file",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --file <filename>"
+      ],
+      "tip": [
+        "从文件读取输入。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--guid",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --guid"
+      ],
+      "tip": [
+        "打印 UID/GID 名称。"
+      ]
+    },
+    {
+      "name": "--handle",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --handle"
+      ],
+      "tip": [
+        "输出规则句柄。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--includepath",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --includepath <directory>"
+      ],
+      "tip": [
+        "将目录添加到包含搜索路径。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--interactive",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --interactive"
+      ],
+      "tip": [
+        "从交互式 CLI 读取输入。"
+      ]
+    },
+    {
+      "name": "--json",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --json"
+      ],
+      "tip": [
+        "以 JSON 格式化输出。"
+      ]
+    },
+    {
+      "name": "--numeric",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --numeric"
+      ],
+      "tip": [
+        "打印完全数字化的输出。"
+      ]
+    },
+    {
+      "name": "--numeric-priority",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --numeric-priority"
+      ],
+      "tip": [
+        "以数字打印链优先级。"
+      ]
+    },
+    {
+      "name": "--numeric-protocol",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --numeric-protocol"
+      ],
+      "tip": [
+        "以数字打印第 4 层协议。"
+      ]
+    },
+    {
+      "name": "--numeric-time",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --numeric-time"
+      ],
+      "tip": [
+        "以数字打印时间值。"
+      ]
+    },
+    {
+      "name": "--optimize",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --optimize"
+      ],
+      "tip": [
+        "优化规则集。"
+      ]
+    },
+    {
+      "name": "--reversedns",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --reversedns"
+      ],
+      "tip": [
+        "将 IP 地址转换为名称。"
+      ]
+    },
+    {
+      "name": "--service",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --service"
+      ],
+      "tip": [
+        "将端口转换为服务名。"
+      ]
+    },
+    {
+      "name": "--stateless",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --stateless"
+      ],
+      "tip": [
+        "省略有状态规则集信息。"
+      ]
+    },
+    {
+      "name": "--terse",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --terse"
+      ],
+      "tip": [
+        "省略集合内容。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --version"
+      ],
+      "tip": [
+        "显示版本信息。"
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "显示扩展版本信息。"
+      ]
+    }
+  ]
+}
