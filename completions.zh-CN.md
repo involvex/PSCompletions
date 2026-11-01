@@ -112,6 +112,7 @@
 |[cp@uutils](https://uutils.org)|将 SOURCE 复制到 DEST，或将多个 SOURCE 复制到 DIRECTORY|
 |[cpio](https://www.gnu.org/software/cpio)|GNU cpio 在归档和文件系统之间复制文件。|
 |[croc](https://github.com/schollz/croc)|轻松安全地在计算机之间传输文件。|
+|[crontab](https://cron.sourceforge.net)|维护用户的 crontab 文件。|
 |[csplit@GNU](https://www.gnu.org/software/coreutils/)|把 FILE 按一个或多个 PATTERN 切分为 'xx00'、'xx01' 等文件，并把每一部分的字节数输出到标准输出。|
 |[csplit@uutils](https://uutils.org)|按上下文行将文件分割为多个部分。|
 |[ctstat](https://github.com/iproute2/iproute2)|显示连接跟踪统计信息。|
@@ -383,6 +384,7 @@
 |[newuidmap](https://github.com/shadow-maint/shadow)|设置用户命名空间的 uid 映射。|
 |[newusers](https://github.com/shadow-maint/shadow)|批量更新并创建新用户。|
 |[nexttrace](https://github.com/nxtrace/NexTrace)|开源的视觉化路由追踪 CLI 工具|
+|[nft](https://www.nftables.org)|nftables 管理工具。|
 |[ngrok](https://ngrok.com/)|面向开发人员的统一入口平台。<br>将 localhost 连接到 Internet 以测试应用程序和 API。|
 |[nice@GNU](https://www.gnu.org/software/coreutils/)|以调整后的优先级运行 COMMAND，该值会影响进程调度。|
 |[nice@uutils](https://uutils.org)|以调整后的 niceness 运行 COMMAND，影响进程调度|

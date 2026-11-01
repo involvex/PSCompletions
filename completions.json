@@ -1,5 +1,5 @@
 {
-  "count": 761,
+  "count": 763,
   "update": {
     "7z": "cac4d4accba5c11d5b3ae1fde2e491070f69e522c974cc3004950acea1ffa593",
     "act": "3c17f2f2959410d3ac7c443cad5cfcab4d660eba2a6ca7e2b9f636eab63a2b6e",
@@ -105,6 +105,7 @@
     "cp@uutils": "50b87cb6f6d7764745af24d168028010b8b28f3f1a4a99f27d4fa945d7539fb8",
     "cpio": "fadf185c188f2dab5feeab5fd4dca52e13027e14e18c0e9f36471caa1fcf7c64",
     "croc": "0f1e4fc983fbcc4fcd0abcccb47dd1f5aea21ca097971db2a0890aaef7314731",
+    "crontab": "d906d9fa7392bf88d7c9bc340b314b360962037cce683e7bf880f314ab1c8234",
     "csplit@GNU": "c64e53b63883190ff7dd6ed1bb16b152cfcf372f06ceeae0a17756d8475ee640",
     "csplit@uutils": "a4545285fdecf0cf088f95ac6436de65bffdedb44862c8a048a23b6b75ae89b6",
     "ctstat": "5a45738c547a8cca3678f4d17d7d6a311ea212569e362fb02b1978c8cceb95cf",
@@ -376,6 +377,7 @@
     "newuidmap": "cd7b466aa050c96c82e72cbf26e561df39623ea54b0e37fd6a6c76351a791de3",
     "newusers": "149747651aaecde487bcce0c05095e8dcf2cc17d4d4adb78d03e0e980540b517",
     "nexttrace": "15969281bc919c92c2224ac772cffff93666690875e7f6fa1bd12a8eb12b7ed7",
+    "nft": "ca6f1654f5128c72c0a68bc6ef9adf8c9ecf290feeedceec9d2a38461939017a",
     "ngrok": "54daa94fdbb3c8d26bfaf699172193851a04e4fd3100e26edc232a06eeb34ce2",
     "nice@GNU": "d0170bf3ab9c8cab989d8a3003d7ac6bc8e02bda308bc24608a6aca8bdf5a0db",
     "nice@uutils": "782a0c5a9a07131320aa23bc5ab0719e00c2488b9a423513145b14ba241eba80",
@@ -1940,6 +1942,17 @@
       "zh-CN": {
         "url": "https://github.com/schollz/croc",
         "description": "轻松安全地在计算机之间传输文件。"
+      }
+    },
+    "crontab": {
+      "id": "0c8e4ffa-8ff0-5bb3-89c9-eeea4b81adfb",
+      "en-US": {
+        "url": "https://cron.sourceforge.net",
+        "description": "Maintain crontab files for individual users."
+      },
+      "zh-CN": {
+        "url": "https://cron.sourceforge.net",
+        "description": "维护用户的 crontab 文件。"
       }
     },
     "csplit@GNU": {
@@ -4999,6 +5012,17 @@
       "zh-CN": {
         "url": "https://github.com/nxtrace/NexTrace",
         "description": "开源的视觉化路由追踪 CLI 工具"
+      }
+    },
+    "nft": {
+      "id": "f0c4001e-312a-51ab-aa99-b2eb3daa2e0b",
+      "en-US": {
+        "url": "https://www.nftables.org",
+        "description": "Administration tool for nftables."
+      },
+      "zh-CN": {
+        "url": "https://www.nftables.org",
+        "description": "nftables 管理工具。"
       }
     },
     "ngrok": {

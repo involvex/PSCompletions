@@ -112,6 +112,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[cp@uutils](https://uutils.org)|Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.|
 |[cpio](https://www.gnu.org/software/cpio)|GNU cpio copies files to and from archives.|
 |[croc](https://github.com/schollz/croc)|Easily and securely transfer files from one computer to another.|
+|[crontab](https://cron.sourceforge.net)|Maintain crontab files for individual users.|
 |[csplit@GNU](https://www.gnu.org/software/coreutils/)|Output pieces of FILE separated by PATTERN(s) to files 'xx00', 'xx01', ..., and output byte counts of each piece to standard output.|
 |[csplit@uutils](https://uutils.org)|Split a file into sections determined by context lines.|
 |[ctstat](https://github.com/iproute2/iproute2)|Show connection tracking statistics.|
@@ -383,6 +384,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[newuidmap](https://github.com/shadow-maint/shadow)|Set the uid mapping of a user namespace.|
 |[newusers](https://github.com/shadow-maint/shadow)|Update and create new users in batch.|
 |[nexttrace](https://github.com/nxtrace/NexTrace)|An open source visual route tracking CLI tool|
+|[nft](https://www.nftables.org)|Administration tool for nftables.|
 |[ngrok](https://ngrok.com/)|Unified Ingress Platform for developers.<br>Connect localhost to the internet for testing applications and APIs.|
 |[nice@GNU](https://www.gnu.org/software/coreutils/)|Run COMMAND with an adjusted niceness, which affects process scheduling.|
 |[nice@uutils](https://uutils.org)|Run COMMAND with an adjusted niceness, which affects process scheduling.|
