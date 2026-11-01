@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "url": "https://github.com/systemd/systemd",
+    "description": [
+      "Notify the init system about service status updates."
+    ]
+  },
+  "option": [
+    {
+      "name": "--booted",
+      "tip": [
+        "Check whether the system was booted with systemd."
+      ]
+    },
+    {
+      "name": "--exec",
+      "tip": [
+        "Execute the command line after notification."
+      ]
+    },
+    {
+      "name": "--fd",
+      "usage": [
+        "--fd=FD"
+      ],
+      "tip": [
+        "Pass the file descriptor with the message."
+      ],
+      "next": []
+    },
+    {
+      "name": "--fdname",
+      "usage": [
+        "--fdname=NAME"
+      ],
+      "tip": [
+        "Assign a name to passed file descriptors."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this help."
+      ]
+    },
+    {
+      "name": "--no-block",
+      "tip": [
+        "Do not wait for the operation to finish."
+      ]
+    },
+    {
+      "name": "--pid",
+      "usage": [
+        "--pid[=PID]"
+      ],
+      "tip": [
+        "Set the main PID of the daemon."
+      ],
+      "next": []
+    },
+    {
+      "name": "--ready",
+      "tip": [
+        "Report service start-up or reload completion."
+      ]
+    },
+    {
+      "name": "--reloading",
+      "tip": [
+        "Report configuration reloading."
+      ]
+    },
+    {
+      "name": "--status",
+      "usage": [
+        "--status=TEXT"
+      ],
+      "tip": [
+        "Set the status text."
+      ],
+      "next": []
+    },
+    {
+      "name": "--stopping",
+      "tip": [
+        "Report service shutdown."
+      ]
+    },
+    {
+      "name": "--uid",
+      "usage": [
+        "--uid=USER"
+      ],
+      "tip": [
+        "Set the user to send from."
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Show package version."
+      ]
+    }
+  ]
+}

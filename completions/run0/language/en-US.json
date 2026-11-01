@@ -1,0 +1,187 @@
+{
+  "meta": {
+    "url": "https://github.com/systemd/systemd",
+    "description": [
+      "Elevate privileges interactively."
+    ]
+  },
+  "option": [
+    {
+      "name": "--background",
+      "usage": [
+        "--background=COLOR"
+      ],
+      "tip": [
+        "Set the ANSI background color."
+      ],
+      "next": []
+    },
+    {
+      "name": "--chdir",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --chdir=PATH"
+      ],
+      "tip": [
+        "Set the working directory."
+      ],
+      "next": []
+    },
+    {
+      "name": "--description",
+      "usage": [
+        "--description=TEXT"
+      ],
+      "tip": [
+        "Set the unit description."
+      ],
+      "next": []
+    },
+    {
+      "name": "--group",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --group=GROUP"
+      ],
+      "tip": [
+        "Run as the specified system group."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this help."
+      ]
+    },
+    {
+      "name": "--machine",
+      "usage": [
+        "--machine=CONTAINER"
+      ],
+      "tip": [
+        "Operate on a local container."
+      ],
+      "next": []
+    },
+    {
+      "name": "--nice",
+      "usage": [
+        "--nice=NICE"
+      ],
+      "tip": [
+        "Set the nice level."
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-ask-password",
+      "tip": [
+        "Do not prompt for a password."
+      ]
+    },
+    {
+      "name": "--pipe",
+      "tip": [
+        "Request a direct pipe for stdio."
+      ]
+    },
+    {
+      "name": "--property",
+      "usage": [
+        "--property=NAME=VALUE"
+      ],
+      "tip": [
+        "Set a service or scope unit property."
+      ],
+      "next": []
+    },
+    {
+      "name": "--pty",
+      "tip": [
+        "Request a pseudo TTY for stdio."
+      ]
+    },
+    {
+      "name": "--setenv",
+      "usage": [
+        "--setenv=NAME[=VALUE]"
+      ],
+      "tip": [
+        "Set an environment variable."
+      ],
+      "next": []
+    },
+    {
+      "name": "--shell-prompt-prefix",
+      "usage": [
+        "--shell-prompt-prefix=PREFIX"
+      ],
+      "tip": [
+        "Set $SHELL_PROMPT_PREFIX."
+      ],
+      "next": []
+    },
+    {
+      "name": "--slice",
+      "usage": [
+        "--slice=SLICE"
+      ],
+      "tip": [
+        "Run in the specified slice."
+      ],
+      "next": []
+    },
+    {
+      "name": "--slice-inherit",
+      "tip": [
+        "Inherit the slice."
+      ]
+    },
+    {
+      "name": "--unit",
+      "usage": [
+        "--unit=UNIT"
+      ],
+      "tip": [
+        "Run under the specified unit name."
+      ],
+      "next": []
+    },
+    {
+      "name": "--user",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --user=USER"
+      ],
+      "tip": [
+        "Run as the specified system user."
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Show package version."
+      ]
+    }
+  ]
+}

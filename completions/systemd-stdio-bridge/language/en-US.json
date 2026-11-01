@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "url": "https://github.com/systemd/systemd",
+    "description": [
+      "Forward messages between a pipe or socket and D-Bus."
+    ]
+  },
+  "option": [
+    {
+      "name": "--bus-path",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --bus-path=PATH"
+      ],
+      "tip": [
+        "Set the bus address path."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this help."
+      ]
+    },
+    {
+      "name": "--machine",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --machine=CONTAINER"
+      ],
+      "tip": [
+        "Connect to a local container."
+      ],
+      "next": []
+    },
+    {
+      "name": "--system",
+      "tip": [
+        "Connect to the system bus."
+      ]
+    },
+    {
+      "name": "--user",
+      "tip": [
+        "Connect to the user bus."
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Show package version."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "url": "https://github.com/systemd/systemd",
+    "description": [
+      "Process system password requests."
+    ]
+  },
+  "option": [
+    {
+      "name": "--console",
+      "usage": [
+        "--console[=DEVICE]"
+      ],
+      "tip": [
+        "Ask on /dev/console or the device."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this help."
+      ]
+    },
+    {
+      "name": "--list",
+      "tip": [
+        "Show pending password requests."
+      ]
+    },
+    {
+      "name": "--plymouth",
+      "tip": [
+        "Ask with Plymouth instead of on the TTY."
+      ]
+    },
+    {
+      "name": "--query",
+      "tip": [
+        "Process pending password requests."
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Show package version."
+      ]
+    },
+    {
+      "name": "--wall",
+      "tip": [
+        "Forward requests to wall continuously."
+      ]
+    },
+    {
+      "name": "--watch",
+      "tip": [
+        "Continuously process password requests."
+      ]
+    }
+  ]
+}

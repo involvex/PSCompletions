@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "url": "https://github.com/systemd/systemd",
+    "description": [
+      "报告是否连接到外部电源。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--low",
+      "tip": [
+        "检查电池是否正在放电且电量低。"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "以文本显示状态。"
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "显示软件包版本。"
+      ]
+    }
+  ]
+}

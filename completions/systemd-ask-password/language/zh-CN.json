@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "url": "https://github.com/systemd/systemd",
+    "description": [
+      "向用户询问密码短语。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--accept-cached",
+      "tip": [
+        "接受缓存的密码。"
+      ]
+    },
+    {
+      "name": "--credential",
+      "usage": [
+        "--credential=NAME"
+      ],
+      "tip": [
+        "设置凭据名。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--echo",
+      "usage": [
+        "--echo=yes|no|masked"
+      ],
+      "tip": [
+        "控制输入时是否显示密码。"
+      ],
+      "next": [
+        {
+          "name": "masked"
+        },
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "--emoji",
+      "usage": [
+        "--emoji=yes|no|auto"
+      ],
+      "tip": [
+        "显示锁和钥匙表情。"
+      ],
+      "next": [
+        {
+          "name": "auto"
+        },
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--icon",
+      "usage": [
+        "--icon=NAME"
+      ],
+      "tip": [
+        "设置图标名。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--id",
+      "usage": [
+        "--id=ID"
+      ],
+      "tip": [
+        "设置查询标识符。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--keyname",
+      "usage": [
+        "--keyname=NAME"
+      ],
+      "tip": [
+        "设置内核密钥名。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--multiple",
+      "tip": [
+        "如可用则列出多个密码。"
+      ]
+    },
+    {
+      "name": "--no-output",
+      "tip": [
+        "不将密码打印到标准输出。"
+      ]
+    },
+    {
+      "name": "--no-tty",
+      "tip": [
+        "即使在 TTY 上也通过代理询问。"
+      ]
+    },
+    {
+      "name": "--system",
+      "tip": [
+        "询问系统及所有用户的代理。"
+      ]
+    },
+    {
+      "name": "--timeout",
+      "usage": [
+        "--timeout=SEC"
+      ],
+      "tip": [
+        "以秒设置超时。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--user",
+      "tip": [
+        "仅询问当前用户的代理。"
+      ]
+    },
+    {
+      "name": "-e",
+      "tip": [
+        "等同于 --echo=yes。"
+      ]
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "密码后不添加换行。"
+      ]
+    }
+  ]
+}

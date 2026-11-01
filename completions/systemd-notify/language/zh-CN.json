@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "url": "https://github.com/systemd/systemd",
+    "description": [
+      "向 init 系统通知服务状态更新。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--booted",
+      "tip": [
+        "检查系统是否由 systemd 启动。"
+      ]
+    },
+    {
+      "name": "--exec",
+      "tip": [
+        "通知后执行命令行。"
+      ]
+    },
+    {
+      "name": "--fd",
+      "usage": [
+        "--fd=FD"
+      ],
+      "tip": [
+        "随消息传递文件描述符。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--fdname",
+      "usage": [
+        "--fdname=NAME"
+      ],
+      "tip": [
+        "为传递的文件描述符命名。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--no-block",
+      "tip": [
+        "不等待操作完成。"
+      ]
+    },
+    {
+      "name": "--pid",
+      "usage": [
+        "--pid[=PID]"
+      ],
+      "tip": [
+        "设置守护进程主 PID。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--ready",
+      "tip": [
+        "报告服务启动或重载完成。"
+      ]
+    },
+    {
+      "name": "--reloading",
+      "tip": [
+        "报告配置重新加载。"
+      ]
+    },
+    {
+      "name": "--status",
+      "usage": [
+        "--status=TEXT"
+      ],
+      "tip": [
+        "设置状态文本。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--stopping",
+      "tip": [
+        "报告服务关闭。"
+      ]
+    },
+    {
+      "name": "--uid",
+      "usage": [
+        "--uid=USER"
+      ],
+      "tip": [
+        "设置发送用户。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "显示软件包版本。"
+      ]
+    }
+  ]
+}

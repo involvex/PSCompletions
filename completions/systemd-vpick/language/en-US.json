@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "url": "https://github.com/systemd/systemd",
+    "description": [
+      "Pick an entry from a versioned directory."
+    ]
+  },
+  "option": [
+    {
+      "name": "--basename",
+      "alias": [
+        "-B"
+      ],
+      "usage": [
+        "-B, --basename=BASENAME"
+      ],
+      "tip": [
+        "Look for the specified basename."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this help."
+      ]
+    },
+    {
+      "name": "--print",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --print=filename|version|type|arch|tries|all"
+      ],
+      "tip": [
+        "Print the selected field rather than the path."
+      ],
+      "next": [
+        {
+          "name": "all"
+        },
+        {
+          "name": "arch"
+        },
+        {
+          "name": "filename"
+        },
+        {
+          "name": "tries"
+        },
+        {
+          "name": "type"
+        },
+        {
+          "name": "version"
+        }
+      ]
+    },
+    {
+      "name": "--resolve",
+      "usage": [
+        "--resolve=yes"
+      ],
+      "tip": [
+        "Canonicalize the result path."
+      ],
+      "next": [
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "--suffix",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --suffix=SUFFIX"
+      ],
+      "tip": [
+        "Look for the specified suffix."
+      ],
+      "next": []
+    },
+    {
+      "name": "--type",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --type=TYPE"
+      ],
+      "tip": [
+        "Look for the specified inode type."
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Show package version."
+      ]
+    },
+    {
+      "name": "-A",
+      "usage": [
+        "-A ARCH"
+      ],
+      "tip": [
+        "Look for the specified architecture."
+      ],
+      "next": []
+    },
+    {
+      "name": "-V",
+      "usage": [
+        "-V VERSION"
+      ],
+      "tip": [
+        "Look for the specified version."
+      ],
+      "next": []
+    }
+  ]
+}

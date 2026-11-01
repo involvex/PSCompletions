@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "url": "https://github.com/systemd/systemd",
+    "description": [
+      "Query the user for a passphrase."
+    ]
+  },
+  "option": [
+    {
+      "name": "--accept-cached",
+      "tip": [
+        "Accept cached passwords."
+      ]
+    },
+    {
+      "name": "--credential",
+      "usage": [
+        "--credential=NAME"
+      ],
+      "tip": [
+        "Set the credential name."
+      ],
+      "next": []
+    },
+    {
+      "name": "--echo",
+      "usage": [
+        "--echo=yes|no|masked"
+      ],
+      "tip": [
+        "Control whether to show the password while typing."
+      ],
+      "next": [
+        {
+          "name": "masked"
+        },
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "--emoji",
+      "usage": [
+        "--emoji=yes|no|auto"
+      ],
+      "tip": [
+        "Show a lock and key emoji."
+      ],
+      "next": [
+        {
+          "name": "auto"
+        },
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this help."
+      ]
+    },
+    {
+      "name": "--icon",
+      "usage": [
+        "--icon=NAME"
+      ],
+      "tip": [
+        "Set the icon name."
+      ],
+      "next": []
+    },
+    {
+      "name": "--id",
+      "usage": [
+        "--id=ID"
+      ],
+      "tip": [
+        "Set the query identifier."
+      ],
+      "next": []
+    },
+    {
+      "name": "--keyname",
+      "usage": [
+        "--keyname=NAME"
+      ],
+      "tip": [
+        "Set the kernel key name."
+      ],
+      "next": []
+    },
+    {
+      "name": "--multiple",
+      "tip": [
+        "List multiple passwords if available."
+      ]
+    },
+    {
+      "name": "--no-output",
+      "tip": [
+        "Do not print the password to stdout."
+      ]
+    },
+    {
+      "name": "--no-tty",
+      "tip": [
+        "Ask via an agent even on a TTY."
+      ]
+    },
+    {
+      "name": "--system",
+      "tip": [
+        "Ask system and all users' agents."
+      ]
+    },
+    {
+      "name": "--timeout",
+      "usage": [
+        "--timeout=SEC"
+      ],
+      "tip": [
+        "Set the timeout in seconds."
+      ],
+      "next": []
+    },
+    {
+      "name": "--user",
+      "tip": [
+        "Ask only the current user's agents."
+      ]
+    },
+    {
+      "name": "-e",
+      "tip": [
+        "Equivalent to --echo=yes."
+      ]
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "Do not append a newline to the password."
+      ]
+    }
+  ]
+}

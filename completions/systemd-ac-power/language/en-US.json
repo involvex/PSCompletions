@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "url": "https://github.com/systemd/systemd",
+    "description": [
+      "Report whether connected to external power."
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this help."
+      ]
+    },
+    {
+      "name": "--low",
+      "tip": [
+        "Check whether the battery is discharging and low."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Show the state as text."
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Show package version."
+      ]
+    }
+  ]
+}
