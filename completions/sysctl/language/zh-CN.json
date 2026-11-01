@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "在运行时配置内核参数。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--all",
+      "alias": [
+        "-a",
+        "-A",
+        "-X"
+      ],
+      "usage": [
+        "-a, -A, -X, --all"
+      ],
+      "tip": [
+        "显示所有变量。"
+      ]
+    },
+    {
+      "name": "--binary",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --binary"
+      ],
+      "tip": [
+        "打印值时不带尾随换行。"
+      ]
+    },
+    {
+      "name": "--deprecated",
+      "tip": [
+        "在列表中包含已弃用的参数。"
+      ]
+    },
+    {
+      "name": "--dry-run",
+      "tip": [
+        "打印键和值但不写入。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h",
+        "-d"
+      ],
+      "usage": [
+        "-h, -d, --help"
+      ],
+      "tip": [
+        "显示此帮助并退出。"
+      ]
+    },
+    {
+      "name": "--ignore",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --ignore"
+      ],
+      "tip": [
+        "忽略未知变量的错误。"
+      ]
+    },
+    {
+      "name": "--load",
+      "alias": [
+        "-p",
+        "-f"
+      ],
+      "usage": [
+        "-p, -f, --load[=<file>]"
+      ],
+      "tip": [
+        "从文件读取值。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--names",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --names"
+      ],
+      "tip": [
+        "仅打印变量名而不打印值。"
+      ]
+    },
+    {
+      "name": "--pattern",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --pattern <expression>"
+      ],
+      "tip": [
+        "选择匹配表达式的设置。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "不回显变量设置。"
+      ]
+    },
+    {
+      "name": "--system",
+      "tip": [
+        "从所有系统目录读取值。"
+      ]
+    },
+    {
+      "name": "--values",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --values"
+      ],
+      "tip": [
+        "仅打印给定变量的值。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "输出版本信息并退出。"
+      ]
+    },
+    {
+      "name": "--write",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --write"
+      ],
+      "tip": [
+        "允许向变量写入值。"
+      ]
+    },
+    {
+      "name": "-o",
+      "tip": [
+        "不执行任何操作。"
+      ]
+    },
+    {
+      "name": "-x",
+      "tip": [
+        "不执行任何操作。"
+      ]
+    }
+  ]
+}

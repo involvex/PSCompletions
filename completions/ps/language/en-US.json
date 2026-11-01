@@ -1,0 +1,545 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "Report a snapshot of the current processes."
+    ]
+  },
+  "option": [
+    {
+      "name": "--columns",
+      "alias": [
+        "--width",
+        "--cols"
+      ],
+      "usage": [
+        "--cols, --width, --columns <num>"
+      ],
+      "tip": [
+        "Set the screen width."
+      ],
+      "next": []
+    },
+    {
+      "name": "--context",
+      "tip": [
+        "Display the security context (for SELinux)."
+      ]
+    },
+    {
+      "name": "--cumulative",
+      "alias": [
+        "S"
+      ],
+      "usage": [
+        "S, --cumulative"
+      ],
+      "tip": [
+        "Include some dead child process data."
+      ]
+    },
+    {
+      "name": "--deselect",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --deselect"
+      ],
+      "tip": [
+        "Negate the selection."
+      ]
+    },
+    {
+      "name": "--forest",
+      "alias": [
+        "f"
+      ],
+      "usage": [
+        "f, --forest"
+      ],
+      "tip": [
+        "Show an ASCII art process tree."
+      ]
+    },
+    {
+      "name": "--format",
+      "alias": [
+        "-o",
+        "o"
+      ],
+      "usage": [
+        "o, -o, --format <format>"
+      ],
+      "tip": [
+        "Use a user-defined format."
+      ],
+      "next": []
+    },
+    {
+      "name": "--group",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --group <group>"
+      ],
+      "tip": [
+        "Select by session or effective group name."
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--Group",
+      "alias": [
+        "-G"
+      ],
+      "usage": [
+        "-G, --Group <GID>"
+      ],
+      "tip": [
+        "Select by real group ID or name."
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--headers",
+      "tip": [
+        "Repeat header lines, one per page."
+      ]
+    },
+    {
+      "name": "--help",
+      "usage": [
+        "--help <simple|list|output|threads|misc|all>"
+      ],
+      "tip": [
+        "Display help and exit.",
+        "Possible values: simple, list, output, threads, misc, all"
+      ],
+      "next": [
+        {
+          "name": "all"
+        },
+        {
+          "name": "list"
+        },
+        {
+          "name": "misc"
+        },
+        {
+          "name": "output"
+        },
+        {
+          "name": "simple"
+        },
+        {
+          "name": "threads"
+        }
+      ]
+    },
+    {
+      "name": "--lines",
+      "alias": [
+        "--rows"
+      ],
+      "usage": [
+        "--rows, --lines <num>"
+      ],
+      "tip": [
+        "Set the screen height."
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-headers",
+      "tip": [
+        "Do not print a header at all."
+      ]
+    },
+    {
+      "name": "--pid",
+      "alias": [
+        "-p",
+        "p"
+      ],
+      "usage": [
+        "p, -p, --pid <PID>"
+      ],
+      "tip": [
+        "Select by process ID."
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--ppid",
+      "usage": [
+        "--ppid <PID>"
+      ],
+      "tip": [
+        "Select by parent process ID."
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--quick-pid",
+      "alias": [
+        "-q",
+        "q"
+      ],
+      "usage": [
+        "q, -q, --quick-pid <PID>"
+      ],
+      "tip": [
+        "Select by process ID in quick mode."
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--sid",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --sid <session>"
+      ],
+      "tip": [
+        "Select by session ID."
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--signames",
+      "tip": [
+        "Display signal masks using signal names."
+      ]
+    },
+    {
+      "name": "--sort",
+      "alias": [
+        "k"
+      ],
+      "usage": [
+        "k, --sort <order>"
+      ],
+      "tip": [
+        "Specify the sort order."
+      ],
+      "next": []
+    },
+    {
+      "name": "--tty",
+      "alias": [
+        "-t",
+        "t"
+      ],
+      "usage": [
+        "t, -t, --tty <tty>"
+      ],
+      "tip": [
+        "Select by terminal."
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--user",
+      "alias": [
+        "-u",
+        "U"
+      ],
+      "usage": [
+        "U, -u, --user <UID>"
+      ],
+      "tip": [
+        "Select by effective user ID or name."
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--User",
+      "alias": [
+        "-U"
+      ],
+      "usage": [
+        "-U, --User <UID>"
+      ],
+      "tip": [
+        "Select by real user ID or name."
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V",
+        "V"
+      ],
+      "usage": [
+        "V, -V, --version"
+      ],
+      "tip": [
+        "Display version information and exit."
+      ]
+    },
+    {
+      "name": "-a",
+      "tip": [
+        "Select all processes with a tty except session leaders."
+      ]
+    },
+    {
+      "name": "-A",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-A, -e"
+      ],
+      "tip": [
+        "Select all processes."
+      ]
+    },
+    {
+      "name": "-c",
+      "tip": [
+        "Show the scheduling class with -l."
+      ]
+    },
+    {
+      "name": "-C",
+      "usage": [
+        "-C <command>"
+      ],
+      "tip": [
+        "Select by command name."
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "-d",
+      "tip": [
+        "Select all processes except session leaders."
+      ]
+    },
+    {
+      "name": "-D",
+      "usage": [
+        "-D <format>"
+      ],
+      "tip": [
+        "Set the date format for lstart."
+      ],
+      "next": []
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "Use the full format including command lines."
+      ]
+    },
+    {
+      "name": "-F",
+      "tip": [
+        "Use the extra full format."
+      ]
+    },
+    {
+      "name": "-H",
+      "tip": [
+        "Show the process hierarchy."
+      ]
+    },
+    {
+      "name": "-j",
+      "tip": [
+        "Use the jobs format."
+      ]
+    },
+    {
+      "name": "-l",
+      "tip": [
+        "Use the long format."
+      ]
+    },
+    {
+      "name": "-L",
+      "tip": [
+        "Show LWP and NLWP columns."
+      ]
+    },
+    {
+      "name": "-m",
+      "tip": [
+        "Show threads after processes."
+      ]
+    },
+    {
+      "name": "-M",
+      "alias": [
+        "Z"
+      ],
+      "usage": [
+        "Z, -M"
+      ],
+      "tip": [
+        "Add security data (for SELinux)."
+      ]
+    },
+    {
+      "name": "-O",
+      "usage": [
+        "-O <format>"
+      ],
+      "tip": [
+        "Preload the default columns with the given format."
+      ],
+      "next": []
+    },
+    {
+      "name": "-P",
+      "tip": [
+        "Add the psr column."
+      ]
+    },
+    {
+      "name": "-T",
+      "tip": [
+        "Show the SPID column."
+      ]
+    },
+    {
+      "name": "-w",
+      "alias": [
+        "w"
+      ],
+      "usage": [
+        "w, -w"
+      ],
+      "tip": [
+        "Use unlimited output width."
+      ]
+    },
+    {
+      "name": "-y",
+      "tip": [
+        "Do not show flags; show rss instead of addr with -l."
+      ]
+    },
+    {
+      "name": "a",
+      "tip": [
+        "Select all processes with a tty, including other users."
+      ]
+    },
+    {
+      "name": "c",
+      "tip": [
+        "Show the true command name."
+      ]
+    },
+    {
+      "name": "e",
+      "tip": [
+        "Show the environment after the command."
+      ]
+    },
+    {
+      "name": "H",
+      "tip": [
+        "Show threads as if they were processes."
+      ]
+    },
+    {
+      "name": "j",
+      "tip": [
+        "Use the BSD job control format."
+      ]
+    },
+    {
+      "name": "l",
+      "tip": [
+        "Use the BSD long format."
+      ]
+    },
+    {
+      "name": "L",
+      "tip": [
+        "Show format specifiers."
+      ]
+    },
+    {
+      "name": "m",
+      "tip": [
+        "Show threads after processes (BSD)."
+      ]
+    },
+    {
+      "name": "n",
+      "tip": [
+        "Display numeric uid and wchan."
+      ]
+    },
+    {
+      "name": "O",
+      "usage": [
+        "O <format>"
+      ],
+      "tip": [
+        "Like -O, with BSD personality."
+      ],
+      "next": []
+    },
+    {
+      "name": "r",
+      "tip": [
+        "Select only running processes."
+      ]
+    },
+    {
+      "name": "s",
+      "tip": [
+        "Use the signal format."
+      ]
+    },
+    {
+      "name": "T",
+      "tip": [
+        "Select all processes on this terminal."
+      ]
+    },
+    {
+      "name": "u",
+      "tip": [
+        "Use the user-oriented format."
+      ]
+    },
+    {
+      "name": "v",
+      "tip": [
+        "Use the virtual memory format."
+      ]
+    },
+    {
+      "name": "x",
+      "tip": [
+        "Select processes without controlling terminals."
+      ]
+    },
+    {
+      "name": "X",
+      "tip": [
+        "Use the register format."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "更改由表达式选择的进程的优先级。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--command",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --command <command>"
+      ],
+      "tip": [
+        "将表达式视为命令名。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--fast",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --fast"
+      ],
+      "tip": [
+        "快速模式（未实现）。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助并退出。"
+      ]
+    },
+    {
+      "name": "--interactive",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --interactive"
+      ],
+      "tip": [
+        "交互模式。"
+      ]
+    },
+    {
+      "name": "--list",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --list"
+      ],
+      "tip": [
+        "列出所有信号名称。"
+      ]
+    },
+    {
+      "name": "--no-action",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --no-action"
+      ],
+      "tip": [
+        "不执行操作；打印将发生的事情。"
+      ]
+    },
+    {
+      "name": "--ns",
+      "usage": [
+        "--ns <pid>"
+      ],
+      "tip": [
+        "匹配与给定 PID 属于同一命名空间的进程。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--nslist",
+      "usage": [
+        "--nslist <ns,...>"
+      ],
+      "tip": [
+        "将 --ns 限制为列出的命名空间。"
+      ],
+      "separator": ",",
+      "next": [
+        {
+          "name": "ipc"
+        },
+        {
+          "name": "mnt"
+        },
+        {
+          "name": "net"
+        },
+        {
+          "name": "pid"
+        },
+        {
+          "name": "user"
+        },
+        {
+          "name": "uts"
+        }
+      ]
+    },
+    {
+      "name": "--pid",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --pid <pid>"
+      ],
+      "tip": [
+        "将表达式视为进程 ID。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--table",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --table"
+      ],
+      "tip": [
+        "以表格列出所有信号名称。"
+      ]
+    },
+    {
+      "name": "--tty",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --tty <tty>"
+      ],
+      "tip": [
+        "将表达式视为终端。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--user",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --user <username>"
+      ],
+      "tip": [
+        "将表达式视为用户名。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "解释正在执行的操作。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "输出版本信息并退出。"
+      ]
+    },
+    {
+      "name": "--warnings",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --warnings"
+      ],
+      "tip": [
+        "启用警告（未实现）。"
+      ]
+    }
+  ]
+}

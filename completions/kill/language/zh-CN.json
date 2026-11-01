@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "向进程发送信号。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助并退出。"
+      ]
+    },
+    {
+      "name": "--list",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --list[=<signal>]"
+      ],
+      "tip": [
+        "列出信号名称或将信号转换为名称。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--queue",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --queue <value>"
+      ],
+      "tip": [
+        "随信号发送的整数值。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--signal",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --signal <signal>"
+      ],
+      "tip": [
+        "指定要发送的信号（名称或编号）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--table",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --table"
+      ],
+      "tip": [
+        "以表格列出所有信号名称。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "输出版本信息并退出。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,545 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "报告当前进程的快照。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--columns",
+      "alias": [
+        "--width",
+        "--cols"
+      ],
+      "usage": [
+        "--cols, --width, --columns <num>"
+      ],
+      "tip": [
+        "设置屏幕宽度。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--context",
+      "tip": [
+        "显示安全上下文（用于 SELinux）。"
+      ]
+    },
+    {
+      "name": "--cumulative",
+      "alias": [
+        "S"
+      ],
+      "usage": [
+        "S, --cumulative"
+      ],
+      "tip": [
+        "包含一些已死亡子进程的数据。"
+      ]
+    },
+    {
+      "name": "--deselect",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --deselect"
+      ],
+      "tip": [
+        "反转选择条件。"
+      ]
+    },
+    {
+      "name": "--forest",
+      "alias": [
+        "f"
+      ],
+      "usage": [
+        "f, --forest"
+      ],
+      "tip": [
+        "显示 ASCII 进程树。"
+      ]
+    },
+    {
+      "name": "--format",
+      "alias": [
+        "-o",
+        "o"
+      ],
+      "usage": [
+        "o, -o, --format <format>"
+      ],
+      "tip": [
+        "使用用户定义的格式。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--group",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --group <group>"
+      ],
+      "tip": [
+        "按会话或有效组名选择。"
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--Group",
+      "alias": [
+        "-G"
+      ],
+      "usage": [
+        "-G, --Group <GID>"
+      ],
+      "tip": [
+        "按真实组 ID 或名称选择。"
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--headers",
+      "tip": [
+        "每页重复表头行。"
+      ]
+    },
+    {
+      "name": "--help",
+      "usage": [
+        "--help <simple|list|output|threads|misc|all>"
+      ],
+      "tip": [
+        "显示帮助并退出。",
+        "可能值: simple, list, output, threads, misc, all"
+      ],
+      "next": [
+        {
+          "name": "all"
+        },
+        {
+          "name": "list"
+        },
+        {
+          "name": "misc"
+        },
+        {
+          "name": "output"
+        },
+        {
+          "name": "simple"
+        },
+        {
+          "name": "threads"
+        }
+      ]
+    },
+    {
+      "name": "--lines",
+      "alias": [
+        "--rows"
+      ],
+      "usage": [
+        "--rows, --lines <num>"
+      ],
+      "tip": [
+        "设置屏幕高度。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-headers",
+      "tip": [
+        "完全不打印表头。"
+      ]
+    },
+    {
+      "name": "--pid",
+      "alias": [
+        "-p",
+        "p"
+      ],
+      "usage": [
+        "p, -p, --pid <PID>"
+      ],
+      "tip": [
+        "按进程 ID 选择。"
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--ppid",
+      "usage": [
+        "--ppid <PID>"
+      ],
+      "tip": [
+        "按父进程 ID 选择。"
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--quick-pid",
+      "alias": [
+        "-q",
+        "q"
+      ],
+      "usage": [
+        "q, -q, --quick-pid <PID>"
+      ],
+      "tip": [
+        "以快速模式按进程 ID 选择。"
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--sid",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --sid <session>"
+      ],
+      "tip": [
+        "按会话 ID 选择。"
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--signames",
+      "tip": [
+        "使用信号名称显示信号掩码。"
+      ]
+    },
+    {
+      "name": "--sort",
+      "alias": [
+        "k"
+      ],
+      "usage": [
+        "k, --sort <order>"
+      ],
+      "tip": [
+        "指定排序顺序。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--tty",
+      "alias": [
+        "-t",
+        "t"
+      ],
+      "usage": [
+        "t, -t, --tty <tty>"
+      ],
+      "tip": [
+        "按终端选择。"
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--user",
+      "alias": [
+        "-u",
+        "U"
+      ],
+      "usage": [
+        "U, -u, --user <UID>"
+      ],
+      "tip": [
+        "按有效用户 ID 或名称选择。"
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--User",
+      "alias": [
+        "-U"
+      ],
+      "usage": [
+        "-U, --User <UID>"
+      ],
+      "tip": [
+        "按真实用户 ID 或名称选择。"
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V",
+        "V"
+      ],
+      "usage": [
+        "V, -V, --version"
+      ],
+      "tip": [
+        "显示版本信息并退出。"
+      ]
+    },
+    {
+      "name": "-a",
+      "tip": [
+        "选择有终端的进程，但排除会话首进程。"
+      ]
+    },
+    {
+      "name": "-A",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-A, -e"
+      ],
+      "tip": [
+        "选择所有进程。"
+      ]
+    },
+    {
+      "name": "-c",
+      "tip": [
+        "与 -l 一起显示调度类。"
+      ]
+    },
+    {
+      "name": "-C",
+      "usage": [
+        "-C <command>"
+      ],
+      "tip": [
+        "按命令名选择。"
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "-d",
+      "tip": [
+        "选择除会话首进程外的所有进程。"
+      ]
+    },
+    {
+      "name": "-D",
+      "usage": [
+        "-D <format>"
+      ],
+      "tip": [
+        "设置 lstart 的日期格式。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "使用包含命令行的完整格式。"
+      ]
+    },
+    {
+      "name": "-F",
+      "tip": [
+        "使用额外完整格式。"
+      ]
+    },
+    {
+      "name": "-H",
+      "tip": [
+        "显示进程层次结构。"
+      ]
+    },
+    {
+      "name": "-j",
+      "tip": [
+        "使用作业格式。"
+      ]
+    },
+    {
+      "name": "-l",
+      "tip": [
+        "使用长格式。"
+      ]
+    },
+    {
+      "name": "-L",
+      "tip": [
+        "显示 LWP 和 NLWP 列。"
+      ]
+    },
+    {
+      "name": "-m",
+      "tip": [
+        "在进程后显示线程。"
+      ]
+    },
+    {
+      "name": "-M",
+      "alias": [
+        "Z"
+      ],
+      "usage": [
+        "Z, -M"
+      ],
+      "tip": [
+        "添加安全数据（用于 SELinux）。"
+      ]
+    },
+    {
+      "name": "-O",
+      "usage": [
+        "-O <format>"
+      ],
+      "tip": [
+        "用指定格式预加载默认列。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-P",
+      "tip": [
+        "添加 psr 列。"
+      ]
+    },
+    {
+      "name": "-T",
+      "tip": [
+        "显示 SPID 列。"
+      ]
+    },
+    {
+      "name": "-w",
+      "alias": [
+        "w"
+      ],
+      "usage": [
+        "w, -w"
+      ],
+      "tip": [
+        "使用无限输出宽度。"
+      ]
+    },
+    {
+      "name": "-y",
+      "tip": [
+        "不显示标志；与 -l 一起时显示 rss 而不是 addr。"
+      ]
+    },
+    {
+      "name": "a",
+      "tip": [
+        "选择有终端的进程，包括其他用户的进程。"
+      ]
+    },
+    {
+      "name": "c",
+      "tip": [
+        "显示真实命令名。"
+      ]
+    },
+    {
+      "name": "e",
+      "tip": [
+        "在命令后显示环境。"
+      ]
+    },
+    {
+      "name": "H",
+      "tip": [
+        "将线程显示为进程。"
+      ]
+    },
+    {
+      "name": "j",
+      "tip": [
+        "使用 BSD 作业控制格式。"
+      ]
+    },
+    {
+      "name": "l",
+      "tip": [
+        "使用 BSD 长格式。"
+      ]
+    },
+    {
+      "name": "L",
+      "tip": [
+        "显示格式说明符。"
+      ]
+    },
+    {
+      "name": "m",
+      "tip": [
+        "在进程后显示线程（BSD）。"
+      ]
+    },
+    {
+      "name": "n",
+      "tip": [
+        "显示数字 uid 和 wchan。"
+      ]
+    },
+    {
+      "name": "O",
+      "usage": [
+        "O <format>"
+      ],
+      "tip": [
+        "类似于 -O，使用 BSD 风格。"
+      ],
+      "next": []
+    },
+    {
+      "name": "r",
+      "tip": [
+        "仅选择正在运行的进程。"
+      ]
+    },
+    {
+      "name": "s",
+      "tip": [
+        "使用信号格式。"
+      ]
+    },
+    {
+      "name": "T",
+      "tip": [
+        "选择此终端上的所有进程。"
+      ]
+    },
+    {
+      "name": "u",
+      "tip": [
+        "使用面向用户的格式。"
+      ]
+    },
+    {
+      "name": "v",
+      "tip": [
+        "使用虚拟内存格式。"
+      ]
+    },
+    {
+      "name": "x",
+      "tip": [
+        "选择没有控制终端的进程。"
+      ]
+    },
+    {
+      "name": "X",
+      "tip": [
+        "使用寄存器格式。"
+      ]
+    }
+  ]
+}

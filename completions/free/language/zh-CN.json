@@ -1,0 +1,222 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "显示空闲和已用内存量。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--bytes",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --bytes"
+      ],
+      "tip": [
+        "以字节显示输出。"
+      ]
+    },
+    {
+      "name": "--committed",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --committed"
+      ],
+      "tip": [
+        "显示已提交内存和提交限制。"
+      ]
+    },
+    {
+      "name": "--count",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c N, --count N"
+      ],
+      "tip": [
+        "重复打印 N 次后退出。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--gibi",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --gibi"
+      ],
+      "tip": [
+        "以 gibibyte 显示输出。"
+      ]
+    },
+    {
+      "name": "--giga",
+      "tip": [
+        "以吉字节显示输出。"
+      ]
+    },
+    {
+      "name": "--help",
+      "tip": [
+        "显示此帮助并退出。"
+      ]
+    },
+    {
+      "name": "--human",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --human"
+      ],
+      "tip": [
+        "显示人类可读的输出。"
+      ]
+    },
+    {
+      "name": "--kibi",
+      "alias": [
+        "-k"
+      ],
+      "usage": [
+        "-k, --kibi"
+      ],
+      "tip": [
+        "以 kibibyte 显示输出。"
+      ]
+    },
+    {
+      "name": "--kilo",
+      "tip": [
+        "以千字节显示输出。"
+      ]
+    },
+    {
+      "name": "--line",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --line"
+      ],
+      "tip": [
+        "在单行显示输出。"
+      ]
+    },
+    {
+      "name": "--lohi",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --lohi"
+      ],
+      "tip": [
+        "显示详细的低端和高端内存统计。"
+      ]
+    },
+    {
+      "name": "--mebi",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --mebi"
+      ],
+      "tip": [
+        "以 mebibyte 显示输出。"
+      ]
+    },
+    {
+      "name": "--mega",
+      "tip": [
+        "以兆字节显示输出。"
+      ]
+    },
+    {
+      "name": "--pebi",
+      "tip": [
+        "以 pebibyte 显示输出。"
+      ]
+    },
+    {
+      "name": "--peta",
+      "tip": [
+        "以拍字节显示输出。"
+      ]
+    },
+    {
+      "name": "--seconds",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s N, --seconds N"
+      ],
+      "tip": [
+        "每 N 秒重复打印。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--si",
+      "tip": [
+        "使用 1000 的幂而不是 1024。"
+      ]
+    },
+    {
+      "name": "--tebi",
+      "tip": [
+        "以 tebibyte 显示输出。"
+      ]
+    },
+    {
+      "name": "--tera",
+      "tip": [
+        "以太字节显示输出。"
+      ]
+    },
+    {
+      "name": "--total",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --total"
+      ],
+      "tip": [
+        "显示 RAM 加交换空间的总计。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "输出版本信息并退出。"
+      ]
+    },
+    {
+      "name": "--wide",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --wide"
+      ],
+      "tip": [
+        "使用宽输出。"
+      ]
+    }
+  ]
+}

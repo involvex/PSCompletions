@@ -1,0 +1,194 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "报告虚拟内存统计信息。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--active",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --active"
+      ],
+      "tip": [
+        "显示活动/非活动内存。"
+      ]
+    },
+    {
+      "name": "--disk",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --disk"
+      ],
+      "tip": [
+        "显示磁盘统计信息。"
+      ]
+    },
+    {
+      "name": "--disk-sum",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --disk-sum"
+      ],
+      "tip": [
+        "汇总磁盘统计信息。"
+      ]
+    },
+    {
+      "name": "--forks",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --forks"
+      ],
+      "tip": [
+        "显示自启动以来的 fork 次数。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助并退出。"
+      ]
+    },
+    {
+      "name": "--no-first",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --no-first"
+      ],
+      "tip": [
+        "跳过输出的第一行。"
+      ]
+    },
+    {
+      "name": "--one-header",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --one-header"
+      ],
+      "tip": [
+        "不重复显示表头。"
+      ]
+    },
+    {
+      "name": "--partition",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --partition <dev>"
+      ],
+      "tip": [
+        "显示特定分区的统计信息。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--slabs",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --slabs"
+      ],
+      "tip": [
+        "显示 slab 信息。"
+      ]
+    },
+    {
+      "name": "--stats",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --stats"
+      ],
+      "tip": [
+        "显示事件计数器统计信息。"
+      ]
+    },
+    {
+      "name": "--timestamp",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --timestamp"
+      ],
+      "tip": [
+        "显示时间戳。"
+      ]
+    },
+    {
+      "name": "--unit",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --unit <char>"
+      ],
+      "tip": [
+        "定义显示单位。",
+        "可能值: k, K, m, M"
+      ],
+      "next": [
+        {
+          "name": "k"
+        },
+        {
+          "name": "K"
+        },
+        {
+          "name": "m"
+        },
+        {
+          "name": "M"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "输出版本信息并退出。"
+      ]
+    },
+    {
+      "name": "--wide",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --wide"
+      ],
+      "tip": [
+        "使用宽输出。"
+      ]
+    }
+  ]
+}

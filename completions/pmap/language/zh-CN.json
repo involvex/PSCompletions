@@ -1,0 +1,157 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "报告进程的内存映射。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--create-rc",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --create-rc"
+      ],
+      "tip": [
+        "创建新的默认 rc。"
+      ]
+    },
+    {
+      "name": "--create-rc-to",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --create-rc-to=<file>"
+      ],
+      "tip": [
+        "在文件中创建新的 rc。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--device",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --device"
+      ],
+      "tip": [
+        "显示设备格式。"
+      ]
+    },
+    {
+      "name": "--extended",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --extended"
+      ],
+      "tip": [
+        "显示详细信息。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助并退出。"
+      ]
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "不显示页眉和页脚。"
+      ]
+    },
+    {
+      "name": "--range",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --range=<low>[,<high>]"
+      ],
+      "tip": [
+        "将结果限制在给定地址范围内。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--read-rc",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --read-rc"
+      ],
+      "tip": [
+        "读取默认 rc。"
+      ]
+    },
+    {
+      "name": "--read-rc-from",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --read-rc-from=<file>"
+      ],
+      "tip": [
+        "从文件读取 rc。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--show-path",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --show-path"
+      ],
+      "tip": [
+        "在映射中显示路径。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "输出版本信息并退出。"
+      ]
+    },
+    {
+      "name": "-X",
+      "tip": [
+        "显示更多详细信息。"
+      ]
+    },
+    {
+      "name": "-XX",
+      "tip": [
+        "显示内核提供的全部信息。"
+      ]
+    }
+  ]
+}

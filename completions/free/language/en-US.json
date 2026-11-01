@@ -1,0 +1,222 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "Display the amount of free and used memory."
+    ]
+  },
+  "option": [
+    {
+      "name": "--bytes",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --bytes"
+      ],
+      "tip": [
+        "Show output in bytes."
+      ]
+    },
+    {
+      "name": "--committed",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --committed"
+      ],
+      "tip": [
+        "Show committed memory and the commit limit."
+      ]
+    },
+    {
+      "name": "--count",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c N, --count N"
+      ],
+      "tip": [
+        "Repeat printing N times, then exit."
+      ],
+      "next": []
+    },
+    {
+      "name": "--gibi",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --gibi"
+      ],
+      "tip": [
+        "Show output in gibibytes."
+      ]
+    },
+    {
+      "name": "--giga",
+      "tip": [
+        "Show output in gigabytes."
+      ]
+    },
+    {
+      "name": "--help",
+      "tip": [
+        "Display this help and exit."
+      ]
+    },
+    {
+      "name": "--human",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --human"
+      ],
+      "tip": [
+        "Show human-readable output."
+      ]
+    },
+    {
+      "name": "--kibi",
+      "alias": [
+        "-k"
+      ],
+      "usage": [
+        "-k, --kibi"
+      ],
+      "tip": [
+        "Show output in kibibytes."
+      ]
+    },
+    {
+      "name": "--kilo",
+      "tip": [
+        "Show output in kilobytes."
+      ]
+    },
+    {
+      "name": "--line",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --line"
+      ],
+      "tip": [
+        "Show the output on a single line."
+      ]
+    },
+    {
+      "name": "--lohi",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --lohi"
+      ],
+      "tip": [
+        "Show detailed low and high memory statistics."
+      ]
+    },
+    {
+      "name": "--mebi",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --mebi"
+      ],
+      "tip": [
+        "Show output in mebibytes."
+      ]
+    },
+    {
+      "name": "--mega",
+      "tip": [
+        "Show output in megabytes."
+      ]
+    },
+    {
+      "name": "--pebi",
+      "tip": [
+        "Show output in pebibytes."
+      ]
+    },
+    {
+      "name": "--peta",
+      "tip": [
+        "Show output in petabytes."
+      ]
+    },
+    {
+      "name": "--seconds",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s N, --seconds N"
+      ],
+      "tip": [
+        "Repeat printing every N seconds."
+      ],
+      "next": []
+    },
+    {
+      "name": "--si",
+      "tip": [
+        "Use powers of 1000 instead of 1024."
+      ]
+    },
+    {
+      "name": "--tebi",
+      "tip": [
+        "Show output in tebibytes."
+      ]
+    },
+    {
+      "name": "--tera",
+      "tip": [
+        "Show output in terabytes."
+      ]
+    },
+    {
+      "name": "--total",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --total"
+      ],
+      "tip": [
+        "Show the total for RAM plus swap."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Output version information and exit."
+      ]
+    },
+    {
+      "name": "--wide",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --wide"
+      ],
+      "tip": [
+        "Use wide output."
+      ]
+    }
+  ]
+}

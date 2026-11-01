@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "Graph the system load average."
+    ]
+  },
+  "option": [
+    {
+      "name": "--delay",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --delay <secs>"
+      ],
+      "tip": [
+        "Set the update delay in seconds."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this help and exit."
+      ]
+    },
+    {
+      "name": "--scale",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --scale <num>"
+      ],
+      "tip": [
+        "Set the vertical scale."
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Output version information and exit."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,390 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "Look up processes by name and other attributes."
+    ]
+  },
+  "option": [
+    {
+      "name": "--cgroup",
+      "usage": [
+        "--cgroup <grp,...>"
+      ],
+      "tip": [
+        "Match the listed cgroup v2 names."
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--count",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --count"
+      ],
+      "tip": [
+        "Count matching processes."
+      ]
+    },
+    {
+      "name": "--delimiter",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --delimiter <string>"
+      ],
+      "tip": [
+        "Specify the output delimiter."
+      ],
+      "next": []
+    },
+    {
+      "name": "--euid",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --euid <ID,...>"
+      ],
+      "tip": [
+        "Match the listed effective user IDs or names."
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--exact",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --exact"
+      ],
+      "tip": [
+        "Match the command name exactly."
+      ]
+    },
+    {
+      "name": "--full",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --full"
+      ],
+      "tip": [
+        "Match against the full command line."
+      ]
+    },
+    {
+      "name": "--group",
+      "alias": [
+        "-G"
+      ],
+      "usage": [
+        "-G, --group <GID,...>"
+      ],
+      "tip": [
+        "Match the listed real group IDs."
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this help and exit."
+      ]
+    },
+    {
+      "name": "--ignore-ancestors",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --ignore-ancestors"
+      ],
+      "tip": [
+        "Exclude the caller's ancestors from the results."
+      ]
+    },
+    {
+      "name": "--ignore-case",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --ignore-case"
+      ],
+      "tip": [
+        "Match case-insensitively."
+      ]
+    },
+    {
+      "name": "--inverse",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --inverse"
+      ],
+      "tip": [
+        "Negate the matching."
+      ]
+    },
+    {
+      "name": "--lightweight",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --lightweight"
+      ],
+      "tip": [
+        "List all thread IDs."
+      ]
+    },
+    {
+      "name": "--list-full",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --list-full"
+      ],
+      "tip": [
+        "List the PID and full command line."
+      ]
+    },
+    {
+      "name": "--list-name",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --list-name"
+      ],
+      "tip": [
+        "List the PID and process name."
+      ]
+    },
+    {
+      "name": "--logpidfile",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --logpidfile"
+      ],
+      "tip": [
+        "Fail if the PID file is not locked."
+      ]
+    },
+    {
+      "name": "--newest",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --newest"
+      ],
+      "tip": [
+        "Select the most recently started process."
+      ]
+    },
+    {
+      "name": "--ns",
+      "usage": [
+        "--ns <PID>"
+      ],
+      "tip": [
+        "Match processes in the same namespace as the given PID."
+      ],
+      "next": []
+    },
+    {
+      "name": "--nslist",
+      "usage": [
+        "--nslist <ns,...>"
+      ],
+      "tip": [
+        "Limit the --ns option to the listed namespaces.",
+        "Available namespaces: ipc, mnt, net, pid, user, uts"
+      ],
+      "separator": ",",
+      "next": [
+        {
+          "name": "ipc"
+        },
+        {
+          "name": "mnt"
+        },
+        {
+          "name": "net"
+        },
+        {
+          "name": "pid"
+        },
+        {
+          "name": "user"
+        },
+        {
+          "name": "uts"
+        }
+      ]
+    },
+    {
+      "name": "--older",
+      "alias": [
+        "-O"
+      ],
+      "usage": [
+        "-O, --older <seconds>"
+      ],
+      "tip": [
+        "Select processes older than the given seconds."
+      ],
+      "next": []
+    },
+    {
+      "name": "--oldest",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --oldest"
+      ],
+      "tip": [
+        "Select the least recently started process."
+      ]
+    },
+    {
+      "name": "--parent",
+      "alias": [
+        "-P"
+      ],
+      "usage": [
+        "-P, --parent <PPID,...>"
+      ],
+      "tip": [
+        "Match only children of the listed parent PIDs."
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--pgroup",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --pgroup <PGID,...>"
+      ],
+      "tip": [
+        "Match the listed process group IDs."
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--pidfile",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --pidfile <file>"
+      ],
+      "tip": [
+        "Read PIDs from the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--runstates",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --runstates <state>"
+      ],
+      "tip": [
+        "Match the listed run states (D,S,Z,...)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--session",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --session <SID,...>"
+      ],
+      "tip": [
+        "Match the listed session IDs."
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--signal",
+      "usage": [
+        "--signal <sig>"
+      ],
+      "tip": [
+        "Signal to send (name or number)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--terminal",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --terminal <tty,...>"
+      ],
+      "tip": [
+        "Match the listed controlling terminals."
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--uid",
+      "alias": [
+        "-U"
+      ],
+      "usage": [
+        "-U, --uid <ID,...>"
+      ],
+      "tip": [
+        "Match the listed real user IDs or names."
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Output version information and exit."
+      ]
+    }
+  ]
+}

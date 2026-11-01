@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "绘制系统平均负载图。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--delay",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --delay <secs>"
+      ],
+      "tip": [
+        "设置更新延迟（秒）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助并退出。"
+      ]
+    },
+    {
+      "name": "--scale",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --scale <num>"
+      ],
+      "tip": [
+        "设置垂直缩放。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "输出版本信息并退出。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "实时显示内核 slab 缓存信息。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--delay",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --delay <secs>"
+      ],
+      "tip": [
+        "设置更新延迟（秒）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助并退出。"
+      ]
+    },
+    {
+      "name": "--once",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --once"
+      ],
+      "tip": [
+        "显示一次后退出。"
+      ]
+    },
+    {
+      "name": "--sort",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --sort <char>"
+      ],
+      "tip": [
+        "按指定字符排序。",
+        "可能值: a, b, c, l, v, n, o, p, s, u"
+      ],
+      "next": [
+        {
+          "name": "a"
+        },
+        {
+          "name": "b"
+        },
+        {
+          "name": "c"
+        },
+        {
+          "name": "l"
+        },
+        {
+          "name": "n"
+        },
+        {
+          "name": "o"
+        },
+        {
+          "name": "p"
+        },
+        {
+          "name": "s"
+        },
+        {
+          "name": "u"
+        },
+        {
+          "name": "v"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "输出版本信息并退出。"
+      ]
+    }
+  ]
+}

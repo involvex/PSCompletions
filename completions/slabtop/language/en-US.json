@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "Display kernel slab cache information in real time."
+    ]
+  },
+  "option": [
+    {
+      "name": "--delay",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --delay <secs>"
+      ],
+      "tip": [
+        "Set the update delay in seconds."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this help and exit."
+      ]
+    },
+    {
+      "name": "--once",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --once"
+      ],
+      "tip": [
+        "Display once, then exit."
+      ]
+    },
+    {
+      "name": "--sort",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --sort <char>"
+      ],
+      "tip": [
+        "Sort by the given character.",
+        "Possible values: a, b, c, l, v, n, o, p, s, u"
+      ],
+      "next": [
+        {
+          "name": "a"
+        },
+        {
+          "name": "b"
+        },
+        {
+          "name": "c"
+        },
+        {
+          "name": "l"
+        },
+        {
+          "name": "n"
+        },
+        {
+          "name": "o"
+        },
+        {
+          "name": "p"
+        },
+        {
+          "name": "s"
+        },
+        {
+          "name": "u"
+        },
+        {
+          "name": "v"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Output version information and exit."
+      ]
+    }
+  ]
+}

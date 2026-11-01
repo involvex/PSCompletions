@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "Show who is logged on and what they are doing."
+    ]
+  },
+  "option": [
+    {
+      "name": "--from",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --from"
+      ],
+      "tip": [
+        "Show the remote hostname field."
+      ]
+    },
+    {
+      "name": "--help",
+      "tip": [
+        "Display this help and exit."
+      ]
+    },
+    {
+      "name": "--ip-addr",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --ip-addr"
+      ],
+      "tip": [
+        "Display IP addresses instead of hostnames."
+      ]
+    },
+    {
+      "name": "--no-current",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --no-current"
+      ],
+      "tip": [
+        "Ignore the current process username."
+      ]
+    },
+    {
+      "name": "--no-header",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --no-header"
+      ],
+      "tip": [
+        "Do not print the header."
+      ]
+    },
+    {
+      "name": "--old-style",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --old-style"
+      ],
+      "tip": [
+        "Use old-style output."
+      ]
+    },
+    {
+      "name": "--pids",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --pids"
+      ],
+      "tip": [
+        "Show the PIDs of processes in WHAT."
+      ]
+    },
+    {
+      "name": "--short",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --short"
+      ],
+      "tip": [
+        "Use the short format."
+      ]
+    },
+    {
+      "name": "--terminal",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --terminal"
+      ],
+      "tip": [
+        "Show terminals."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Output version information and exit."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,390 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "按名称和其他属性查找进程。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--cgroup",
+      "usage": [
+        "--cgroup <grp,...>"
+      ],
+      "tip": [
+        "匹配列出的 cgroup v2 名称。"
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--count",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --count"
+      ],
+      "tip": [
+        "统计匹配的进程数。"
+      ]
+    },
+    {
+      "name": "--delimiter",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --delimiter <string>"
+      ],
+      "tip": [
+        "指定输出分隔符。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--euid",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --euid <ID,...>"
+      ],
+      "tip": [
+        "匹配列出的有效用户 ID 或名称。"
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--exact",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --exact"
+      ],
+      "tip": [
+        "精确匹配命令名。"
+      ]
+    },
+    {
+      "name": "--full",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --full"
+      ],
+      "tip": [
+        "匹配完整命令行。"
+      ]
+    },
+    {
+      "name": "--group",
+      "alias": [
+        "-G"
+      ],
+      "usage": [
+        "-G, --group <GID,...>"
+      ],
+      "tip": [
+        "匹配列出的真实组 ID。"
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助并退出。"
+      ]
+    },
+    {
+      "name": "--ignore-ancestors",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --ignore-ancestors"
+      ],
+      "tip": [
+        "从结果中排除调用者的祖先进程。"
+      ]
+    },
+    {
+      "name": "--ignore-case",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --ignore-case"
+      ],
+      "tip": [
+        "不区分大小写匹配。"
+      ]
+    },
+    {
+      "name": "--inverse",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --inverse"
+      ],
+      "tip": [
+        "反转匹配结果。"
+      ]
+    },
+    {
+      "name": "--lightweight",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --lightweight"
+      ],
+      "tip": [
+        "列出所有线程 ID。"
+      ]
+    },
+    {
+      "name": "--list-full",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --list-full"
+      ],
+      "tip": [
+        "列出 PID 和完整命令行。"
+      ]
+    },
+    {
+      "name": "--list-name",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --list-name"
+      ],
+      "tip": [
+        "列出 PID 和进程名。"
+      ]
+    },
+    {
+      "name": "--logpidfile",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --logpidfile"
+      ],
+      "tip": [
+        "PID 文件未锁定时失败。"
+      ]
+    },
+    {
+      "name": "--newest",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --newest"
+      ],
+      "tip": [
+        "选择最近启动的进程。"
+      ]
+    },
+    {
+      "name": "--ns",
+      "usage": [
+        "--ns <PID>"
+      ],
+      "tip": [
+        "匹配与给定 PID 属于同一命名空间的进程。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--nslist",
+      "usage": [
+        "--nslist <ns,...>"
+      ],
+      "tip": [
+        "将 --ns 限制为列出的命名空间。",
+        "可用命名空间: ipc, mnt, net, pid, user, uts"
+      ],
+      "separator": ",",
+      "next": [
+        {
+          "name": "ipc"
+        },
+        {
+          "name": "mnt"
+        },
+        {
+          "name": "net"
+        },
+        {
+          "name": "pid"
+        },
+        {
+          "name": "user"
+        },
+        {
+          "name": "uts"
+        }
+      ]
+    },
+    {
+      "name": "--older",
+      "alias": [
+        "-O"
+      ],
+      "usage": [
+        "-O, --older <seconds>"
+      ],
+      "tip": [
+        "选择早于指定秒数启动的进程。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--oldest",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --oldest"
+      ],
+      "tip": [
+        "选择最早启动的进程。"
+      ]
+    },
+    {
+      "name": "--parent",
+      "alias": [
+        "-P"
+      ],
+      "usage": [
+        "-P, --parent <PPID,...>"
+      ],
+      "tip": [
+        "仅匹配列出的父 PID 的子进程。"
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--pgroup",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --pgroup <PGID,...>"
+      ],
+      "tip": [
+        "匹配列出的进程组 ID。"
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--pidfile",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --pidfile <file>"
+      ],
+      "tip": [
+        "从文件读取 PID。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--runstates",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --runstates <state>"
+      ],
+      "tip": [
+        "匹配列出的运行状态（D、S、Z 等）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--session",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --session <SID,...>"
+      ],
+      "tip": [
+        "匹配列出的会话 ID。"
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--signal",
+      "usage": [
+        "--signal <sig>"
+      ],
+      "tip": [
+        "要发送的信号（名称或编号）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--terminal",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --terminal <tty,...>"
+      ],
+      "tip": [
+        "匹配列出的控制终端。"
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--uid",
+      "alias": [
+        "-U"
+      ],
+      "usage": [
+        "-U, --uid <ID,...>"
+      ],
+      "tip": [
+        "匹配列出的真实用户 ID 或名称。"
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "输出版本信息并退出。"
+      ]
+    }
+  ]
+}
