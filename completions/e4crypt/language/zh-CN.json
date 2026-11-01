@@ -1,0 +1,127 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "管理 ext4 文件系统加密。"
+    ]
+  },
+  "next": [
+    {
+      "name": "add_key",
+      "usage": [
+        "add_key -S salt [-k keyring] [-v] [-q] [-p pad] [path...]"
+      ],
+      "tip": [
+        "向密钥环添加密钥，可选地设置目录策略。"
+      ],
+      "option": [
+        {
+          "name": "-k",
+          "usage": [
+            "-k keyring"
+          ],
+          "tip": [
+            "指定要添加密钥的密钥环。"
+          ],
+          "next": []
+        },
+        {
+          "name": "-p",
+          "usage": [
+            "-p pad"
+          ],
+          "tip": [
+            "设置目录名填充。",
+            "可能值: 4, 8, 16, 32"
+          ],
+          "next": [
+            {
+              "name": "16"
+            },
+            {
+              "name": "32"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "8"
+            }
+          ]
+        },
+        {
+          "name": "-q",
+          "tip": [
+            "静默模式。"
+          ]
+        },
+        {
+          "name": "-S",
+          "usage": [
+            "-S salt"
+          ],
+          "tip": [
+            "指定用于派生加密密钥的盐值。"
+          ],
+          "next": []
+        },
+        {
+          "name": "-v",
+          "tip": [
+            "详细模式。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "get_policy",
+      "usage": [
+        "get_policy path..."
+      ],
+      "tip": [
+        "打印目录的加密策略。"
+      ]
+    },
+    {
+      "name": "new_session",
+      "tip": [
+        "为调用进程分配新的会话密钥环。"
+      ]
+    },
+    {
+      "name": "set_policy",
+      "usage": [
+        "set_policy [-p pad] policy path..."
+      ],
+      "tip": [
+        "设置空目录的加密策略。"
+      ],
+      "option": [
+        {
+          "name": "-p",
+          "usage": [
+            "-p pad"
+          ],
+          "tip": [
+            "设置目录名填充。",
+            "可能值: 4, 8, 16, 32"
+          ],
+          "next": [
+            {
+              "name": "16"
+            },
+            {
+              "name": "32"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "8"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

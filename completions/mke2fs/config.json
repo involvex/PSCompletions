@@ -1,0 +1,14 @@
+{
+  "id": "16ae3efd-501a-5bf8-b1f7-b90049c611cb",
+  "version": "e2fsprogs 1.47.2",
+  "alias": [
+    "mke2fs",
+    "mkfs.ext2",
+    "mkfs.ext3",
+    "mkfs.ext4"
+  ],
+  "language": [
+    "en-US",
+    "zh-CN"
+  ]
+}

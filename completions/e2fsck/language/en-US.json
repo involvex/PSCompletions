@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "Check an ext2/ext3/ext4 file system."
+    ]
+  },
+  "option": [
+    {
+      "name": "-a",
+      "tip": [
+        "Same as -p, provided for backwards compatibility."
+      ]
+    },
+    {
+      "name": "-b",
+      "usage": [
+        "-b superblock"
+      ],
+      "tip": [
+        "Use the alternative superblock at this location."
+      ],
+      "next": []
+    },
+    {
+      "name": "-B",
+      "usage": [
+        "-B blocksize"
+      ],
+      "tip": [
+        "Force the superblock search to use this block size."
+      ],
+      "next": []
+    },
+    {
+      "name": "-c",
+      "tip": [
+        "Scan the device for bad blocks with badblocks(8).",
+        "Specify twice for a non-destructive read-write test."
+      ],
+      "repeat": 2
+    },
+    {
+      "name": "-C",
+      "usage": [
+        "-C fd"
+      ],
+      "tip": [
+        "Write completion information to the file descriptor."
+      ],
+      "next": []
+    },
+    {
+      "name": "-d",
+      "tip": [
+        "Print debugging output."
+      ]
+    },
+    {
+      "name": "-D",
+      "tip": [
+        "Optimize all directories in the file system."
+      ]
+    },
+    {
+      "name": "-E",
+      "usage": [
+        "-E extended_options"
+      ],
+      "tip": [
+        "Set comma-separated e2fsck extended options.",
+        "See e2fsck(8) for the supported options."
+      ],
+      "next": []
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "Force checking even if the file system seems clean."
+      ]
+    },
+    {
+      "name": "-F",
+      "tip": [
+        "Flush the device buffer caches before starting."
+      ]
+    },
+    {
+      "name": "-j",
+      "usage": [
+        "-j external-journal"
+      ],
+      "tip": [
+        "Set the pathname of the external journal."
+      ],
+      "next": []
+    },
+    {
+      "name": "-k",
+      "tip": [
+        "Preserve existing bad blocks when used with -c."
+      ]
+    },
+    {
+      "name": "-l",
+      "usage": [
+        "-l filename"
+      ],
+      "tip": [
+        "Add the block numbers listed in the file to the bad blocks list."
+      ],
+      "next": []
+    },
+    {
+      "name": "-L",
+      "usage": [
+        "-L filename"
+      ],
+      "tip": [
+        "Set the bad blocks list to the blocks listed in the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "Open the file system read-only and answer no to all questions."
+      ]
+    },
+    {
+      "name": "-p",
+      "tip": [
+        "Automatically repair the file system without questions."
+      ]
+    },
+    {
+      "name": "-r",
+      "tip": [
+        "Does nothing; provided for backwards compatibility."
+      ]
+    },
+    {
+      "name": "-t",
+      "tip": [
+        "Print timing statistics.",
+        "Specify twice for per-pass statistics."
+      ],
+      "repeat": 2
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "Verbose mode."
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "Print version information and exit."
+      ]
+    },
+    {
+      "name": "-y",
+      "tip": [
+        "Assume yes to all questions."
+      ]
+    },
+    {
+      "name": "-z",
+      "usage": [
+        "-z undo_file"
+      ],
+      "tip": [
+        "Write the old contents of each block to an undo file."
+      ],
+      "next": []
+    }
+  ]
+}

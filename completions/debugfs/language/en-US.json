@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "Debug and modify an ext2/ext3/ext4 file system interactively."
+    ]
+  },
+  "option": [
+    {
+      "name": "-b",
+      "usage": [
+        "-b blocksize"
+      ],
+      "tip": [
+        "Force the file system block size."
+      ],
+      "next": []
+    },
+    {
+      "name": "-c",
+      "tip": [
+        "Open the file system in catastrophic mode."
+      ]
+    },
+    {
+      "name": "-d",
+      "usage": [
+        "-d data_source_device"
+      ],
+      "tip": [
+        "Use this device when reading blocks not found in the image."
+      ],
+      "next": []
+    },
+    {
+      "name": "-D",
+      "tip": [
+        "Open the device using direct I/O."
+      ]
+    },
+    {
+      "name": "-f",
+      "usage": [
+        "-f cmd_file"
+      ],
+      "tip": [
+        "Read and execute commands from the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "-i",
+      "tip": [
+        "Treat the device as an e2image image file."
+      ]
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "Disable metadata checksum verification."
+      ]
+    },
+    {
+      "name": "-R",
+      "usage": [
+        "-R request"
+      ],
+      "tip": [
+        "Execute a single request and exit.",
+        "See debugfs(8) for the request syntax."
+      ],
+      "next": []
+    },
+    {
+      "name": "-s",
+      "usage": [
+        "-s superblock"
+      ],
+      "tip": [
+        "Read the superblock from this block number."
+      ],
+      "next": []
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "Print the version number and exit."
+      ]
+    },
+    {
+      "name": "-w",
+      "tip": [
+        "Open the file system in read-write mode."
+      ]
+    },
+    {
+      "name": "-z",
+      "usage": [
+        "-z undo_file"
+      ],
+      "tip": [
+        "Write the old contents of each block to an undo file."
+      ],
+      "next": []
+    }
+  ]
+}

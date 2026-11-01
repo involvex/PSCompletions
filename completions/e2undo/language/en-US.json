@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "Replay an undo log for an ext2/ext3/ext4 file system."
+    ]
+  },
+  "option": [
+    {
+      "name": "-f",
+      "tip": [
+        "Skip the superblock check that the undo log matches the file system."
+      ]
+    },
+    {
+      "name": "-h",
+      "tip": [
+        "Display a usage message."
+      ]
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "Dry-run; do not write blocks back to the file system."
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o offset"
+      ],
+      "tip": [
+        "Specify the file system offset in bytes from the start of the device or file."
+      ],
+      "next": []
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "Report which block is currently being replayed."
+      ]
+    },
+    {
+      "name": "-z",
+      "usage": [
+        "-z undo_file"
+      ],
+      "tip": [
+        "Write the old contents of each block to an undo file."
+      ],
+      "next": []
+    }
+  ]
+}

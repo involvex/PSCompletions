@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "报告文件碎片和 extent 布局。"
+    ]
+  },
+  "option": [
+    {
+      "name": "-b",
+      "usage": [
+        "-b{blocksize}[KMG]"
+      ],
+      "tip": [
+        "使用指定的块大小输出。",
+        "值必须紧贴选项，例如 -b4096。"
+      ]
+    },
+    {
+      "name": "-B",
+      "tip": [
+        "强制使用较旧的 FIBMAP ioctl。"
+      ]
+    },
+    {
+      "name": "-e",
+      "tip": [
+        "即使对块映射文件也以 extent 格式输出。"
+      ]
+    },
+    {
+      "name": "-E",
+      "tip": [
+        "显示 ext4 extent 状态缓存。"
+      ]
+    },
+    {
+      "name": "-k",
+      "tip": [
+        "输出时使用 1024 字节块。"
+      ]
+    },
+    {
+      "name": "-P",
+      "tip": [
+        "为文件预加载 ext4 extent 状态缓存。"
+      ]
+    },
+    {
+      "name": "-s",
+      "tip": [
+        "请求映射前同步文件。"
+      ]
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "详细模式。"
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "打印版本；重复时输出 FIEMAP 标志。"
+      ],
+      "repeat": 2
+    },
+    {
+      "name": "-x",
+      "tip": [
+        "显示扩展属性的映射。"
+      ]
+    },
+    {
+      "name": "-X",
+      "tip": [
+        "以十六进制显示 extent 块号。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,289 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "调整 ext2/ext3/ext4 文件系统的可调参数。"
+    ]
+  },
+  "option": [
+    {
+      "name": "-c",
+      "usage": [
+        "-c max-mount-counts"
+      ],
+      "tip": [
+        "设置挂载多少次后由 e2fsck 检查文件系统。",
+        "可使用 random、0 或 -1 等特殊值。"
+      ],
+      "next": [
+        {
+          "name": "-1"
+        },
+        {
+          "name": "0"
+        },
+        {
+          "name": "random"
+        }
+      ]
+    },
+    {
+      "name": "-C",
+      "usage": [
+        "-C mount-count"
+      ],
+      "tip": [
+        "设置文件系统的已挂载次数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-e",
+      "usage": [
+        "-e error-behavior"
+      ],
+      "tip": [
+        "设置检测到错误时的内核行为。",
+        "可能值: continue, remount-ro, panic"
+      ],
+      "next": [
+        {
+          "name": "continue"
+        },
+        {
+          "name": "panic"
+        },
+        {
+          "name": "remount-ro"
+        }
+      ]
+    },
+    {
+      "name": "-E",
+      "usage": [
+        "-E extended-options"
+      ],
+      "tip": [
+        "设置以逗号分隔的扩展选项。",
+        "支持的选项见 tune2fs(8)。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "即使遇到错误也强制执行。"
+      ]
+    },
+    {
+      "name": "-g",
+      "usage": [
+        "-g group"
+      ],
+      "tip": [
+        "设置可使用保留块的组。",
+        "接受组名或数字 gid。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-i",
+      "usage": [
+        "-i interval-between-checks[d|m|w]"
+      ],
+      "tip": [
+        "设置两次文件系统检查之间的最长时间。",
+        "使用 d、m 或 w 后缀；0 表示禁用检查。"
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1d"
+        },
+        {
+          "name": "1m"
+        },
+        {
+          "name": "1w"
+        }
+      ]
+    },
+    {
+      "name": "-I",
+      "usage": [
+        "-I new_inode_size"
+      ],
+      "tip": [
+        "更改文件系统使用的 inode 大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-j",
+      "tip": [
+        "为文件系统添加 ext3 日志。"
+      ]
+    },
+    {
+      "name": "-J",
+      "usage": [
+        "-J journal-options"
+      ],
+      "tip": [
+        "设置以逗号分隔的日志选项。",
+        "支持的选项见 tune2fs(8)。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-l",
+      "tip": [
+        "列出文件系统超级块的内容。"
+      ]
+    },
+    {
+      "name": "-L",
+      "usage": [
+        "-L volume-label"
+      ],
+      "tip": [
+        "设置卷标，最多 16 个字符。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-m",
+      "usage": [
+        "-m reserved-blocks-percentage"
+      ],
+      "tip": [
+        "设置保留给特权进程的块百分比。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-M",
+      "usage": [
+        "-M last-mounted-directory"
+      ],
+      "tip": [
+        "设置最后挂载目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o [^]mount-option[,...]"
+      ],
+      "tip": [
+        "设置或清除默认挂载选项。",
+        "在选项前加 ^ 可清除该选项。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-O",
+      "usage": [
+        "-O [^]feature[,...]"
+      ],
+      "tip": [
+        "设置或清除文件系统特性。",
+        "在特性前加 ^ 可清除该特性。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-Q",
+      "usage": [
+        "-Q quota-options"
+      ],
+      "tip": [
+        "设置配额选项和配额特性。",
+        "可能值: usrquota, grpquota, prjquota",
+        "在选项前加 ^ 可清除该选项。"
+      ],
+      "next": [
+        {
+          "name": "grpquota"
+        },
+        {
+          "name": "prjquota"
+        },
+        {
+          "name": "usrquota"
+        }
+      ]
+    },
+    {
+      "name": "-r",
+      "usage": [
+        "-r reserved-blocks-count"
+      ],
+      "tip": [
+        "设置保留的文件系统块数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-T",
+      "usage": [
+        "-T time-last-checked"
+      ],
+      "tip": [
+        "设置文件系统上次检查的时间。",
+        "使用 now 或系统可识别的日期。"
+      ],
+      "next": [
+        {
+          "name": "now"
+        }
+      ]
+    },
+    {
+      "name": "-u",
+      "usage": [
+        "-u user"
+      ],
+      "tip": [
+        "设置可使用保留块的用户。",
+        "接受用户名或数字 uid。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-U",
+      "usage": [
+        "-U UUID"
+      ],
+      "tip": [
+        "设置文件系统 UUID。",
+        "可能值: clear, random, time",
+        "也接受显式指定的 UUID。"
+      ],
+      "next": [
+        {
+          "name": "clear"
+        },
+        {
+          "name": "random"
+        },
+        {
+          "name": "time"
+        }
+      ]
+    },
+    {
+      "name": "-z",
+      "usage": [
+        "-z undo_file"
+      ],
+      "tip": [
+        "将每个块的旧内容写入撤销文件。"
+      ],
+      "next": []
+    }
+  ]
+}

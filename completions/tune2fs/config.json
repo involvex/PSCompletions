@@ -1,0 +1,9 @@
+{
+  "id": "dd733bc4-4add-5b80-ae95-ab549ca026f9",
+  "version": "e2fsprogs 1.47.2",
+  "hooks": true,
+  "language": [
+    "en-US",
+    "zh-CN"
+  ]
+}

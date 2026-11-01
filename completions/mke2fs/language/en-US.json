@@ -1,0 +1,346 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "Create an ext2/ext3/ext4 file system."
+    ]
+  },
+  "option": [
+    {
+      "name": "-b",
+      "usage": [
+        "-b block-size"
+      ],
+      "tip": [
+        "Specify the size of blocks in bytes.",
+        "Valid sizes are powers of two from 1024 to 65536."
+      ],
+      "next": [
+        {
+          "name": "1024"
+        },
+        {
+          "name": "16384"
+        },
+        {
+          "name": "2048"
+        },
+        {
+          "name": "32768"
+        },
+        {
+          "name": "4096"
+        },
+        {
+          "name": "65536"
+        },
+        {
+          "name": "8192"
+        }
+      ]
+    },
+    {
+      "name": "-c",
+      "tip": [
+        "Check the device for bad blocks before creating the file system.",
+        "Specify twice for a slower read-write test."
+      ],
+      "repeat": 2
+    },
+    {
+      "name": "-C",
+      "usage": [
+        "-C cluster-size"
+      ],
+      "tip": [
+        "Specify the cluster size in bytes for bigalloc file systems."
+      ],
+      "next": []
+    },
+    {
+      "name": "-d",
+      "usage": [
+        "-d root-directory|tarball"
+      ],
+      "tip": [
+        "Copy the contents of the directory or tarball into the file system root."
+      ],
+      "next": []
+    },
+    {
+      "name": "-D",
+      "tip": [
+        "Use direct I/O when writing to the disk."
+      ]
+    },
+    {
+      "name": "-e",
+      "usage": [
+        "-e error-behavior"
+      ],
+      "tip": [
+        "Set the kernel behavior when errors are detected.",
+        "Possible values: continue, remount-ro, panic"
+      ],
+      "next": [
+        {
+          "name": "continue"
+        },
+        {
+          "name": "panic"
+        },
+        {
+          "name": "remount-ro"
+        }
+      ]
+    },
+    {
+      "name": "-E",
+      "usage": [
+        "-E extended-options"
+      ],
+      "tip": [
+        "Set comma-separated extended file system options.",
+        "See mke2fs(8) for the supported options."
+      ],
+      "next": []
+    },
+    {
+      "name": "-F",
+      "tip": [
+        "Force mke2fs to create a file system even when the device or parameters look wrong."
+      ]
+    },
+    {
+      "name": "-g",
+      "usage": [
+        "-g blocks-per-group"
+      ],
+      "tip": [
+        "Specify the number of blocks in a block group."
+      ],
+      "next": []
+    },
+    {
+      "name": "-G",
+      "usage": [
+        "-G number-of-groups"
+      ],
+      "tip": [
+        "Specify how many block groups are packed into a larger virtual block group."
+      ],
+      "next": []
+    },
+    {
+      "name": "-i",
+      "usage": [
+        "-i bytes-per-inode"
+      ],
+      "tip": [
+        "Specify the bytes/inode ratio."
+      ],
+      "next": []
+    },
+    {
+      "name": "-I",
+      "usage": [
+        "-I inode-size"
+      ],
+      "tip": [
+        "Specify the size of each inode in bytes."
+      ],
+      "next": []
+    },
+    {
+      "name": "-j",
+      "tip": [
+        "Create the file system with an ext3 journal."
+      ]
+    },
+    {
+      "name": "-J",
+      "usage": [
+        "-J journal-options"
+      ],
+      "tip": [
+        "Set comma-separated journal options such as size=, device= or location=."
+      ],
+      "next": []
+    },
+    {
+      "name": "-l",
+      "usage": [
+        "-l filename"
+      ],
+      "tip": [
+        "Read the bad blocks list from the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "-L",
+      "usage": [
+        "-L new-volume-label"
+      ],
+      "tip": [
+        "Set the volume label, up to 16 bytes."
+      ],
+      "next": []
+    },
+    {
+      "name": "-m",
+      "usage": [
+        "-m reserved-blocks-percentage"
+      ],
+      "tip": [
+        "Set the percentage of blocks reserved for the super-user."
+      ],
+      "next": []
+    },
+    {
+      "name": "-M",
+      "usage": [
+        "-M last-mounted-directory"
+      ],
+      "tip": [
+        "Set the last mounted directory for the file system."
+      ],
+      "next": []
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "Do not create a file system; only display what would be done."
+      ]
+    },
+    {
+      "name": "-N",
+      "usage": [
+        "-N number-of-inodes"
+      ],
+      "tip": [
+        "Override the number of inodes to reserve."
+      ],
+      "next": []
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o creator-os"
+      ],
+      "tip": [
+        "Override the creator operating system field."
+      ],
+      "next": []
+    },
+    {
+      "name": "-O",
+      "usage": [
+        "-O [^]feature[,...]"
+      ],
+      "tip": [
+        "Create the file system with the given features.",
+        "Prefix a feature with ^ to disable it."
+      ],
+      "next": []
+    },
+    {
+      "name": "-q",
+      "tip": [
+        "Quiet execution."
+      ]
+    },
+    {
+      "name": "-R",
+      "usage": [
+        "-R extended-options"
+      ],
+      "tip": [
+        "Deprecated spelling of -E."
+      ],
+      "next": []
+    },
+    {
+      "name": "-S",
+      "tip": [
+        "Write only the superblock and group descriptors."
+      ]
+    },
+    {
+      "name": "-t",
+      "usage": [
+        "-t fs-type"
+      ],
+      "tip": [
+        "Specify the file system type to create.",
+        "Possible values: ext2, ext3, ext4"
+      ],
+      "next": [
+        {
+          "name": "ext2"
+        },
+        {
+          "name": "ext3"
+        },
+        {
+          "name": "ext4"
+        }
+      ]
+    },
+    {
+      "name": "-T",
+      "usage": [
+        "-T usage-type[,...]"
+      ],
+      "tip": [
+        "Set the usage type so mke2fs can choose optimal parameters.",
+        "Usage types are defined in /etc/mke2fs.conf."
+      ],
+      "next": []
+    },
+    {
+      "name": "-U",
+      "usage": [
+        "-U UUID"
+      ],
+      "tip": [
+        "Set the file system UUID.",
+        "Possible values: clear, random, time",
+        "Any explicit UUID is also accepted."
+      ],
+      "next": [
+        {
+          "name": "clear"
+        },
+        {
+          "name": "random"
+        },
+        {
+          "name": "time"
+        }
+      ]
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "Verbose execution."
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "Print the version number and exit."
+      ]
+    },
+    {
+      "name": "-z",
+      "usage": [
+        "-z undo_file"
+      ],
+      "tip": [
+        "Write the old contents of each block to an undo file."
+      ],
+      "next": []
+    }
+  ]
+}

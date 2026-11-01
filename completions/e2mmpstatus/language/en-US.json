@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "Check the MMP status of an ext4 file system."
+    ]
+  },
+  "option": [
+    {
+      "name": "-i",
+      "tip": [
+        "Print the MMP information instead of checking it."
+      ]
+    }
+  ]
+}

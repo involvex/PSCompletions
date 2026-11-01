@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "在设备上搜索坏块。"
+    ]
+  },
+  "option": [
+    {
+      "name": "-b",
+      "usage": [
+        "-b block_size"
+      ],
+      "tip": [
+        "指定块大小（字节，默认 1024）。"
+      ],
+      "next": [
+        {
+          "name": "1024"
+        },
+        {
+          "name": "2048"
+        },
+        {
+          "name": "4096"
+        }
+      ]
+    },
+    {
+      "name": "-B",
+      "tip": [
+        "使用缓冲 I/O 而不是直接 I/O。"
+      ]
+    },
+    {
+      "name": "-c",
+      "usage": [
+        "-c blocks_at_once"
+      ],
+      "tip": [
+        "指定每次测试的块数（默认 64）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-d",
+      "usage": [
+        "-d read_delay_factor"
+      ],
+      "tip": [
+        "未发现错误时在读取之间休眠。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-e",
+      "usage": [
+        "-e max_bad_blocks"
+      ],
+      "tip": [
+        "达到此坏块数后中止（0 表示永不中止）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "强制对已挂载设备执行读写或非破坏性测试。"
+      ]
+    },
+    {
+      "name": "-i",
+      "usage": [
+        "-i input_file"
+      ],
+      "tip": [
+        "从文件读取已知坏块列表并跳过测试。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "使用非破坏性读写模式。"
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o output_file"
+      ],
+      "tip": [
+        "将坏块列表写入文件而不是标准输出。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p num_passes"
+      ],
+      "tip": [
+        "重复扫描，直到连续此次数未发现新坏块。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-s",
+      "tip": [
+        "扫描时显示大致的完成百分比。"
+      ]
+    },
+    {
+      "name": "-t",
+      "usage": [
+        "-t test_pattern"
+      ],
+      "tip": [
+        "指定数字测试模式或 random。"
+      ],
+      "next": [
+        {
+          "name": "random"
+        }
+      ]
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "详细模式。"
+      ]
+    },
+    {
+      "name": "-w",
+      "tip": [
+        "使用写模式测试。"
+      ]
+    },
+    {
+      "name": "-X",
+      "tip": [
+        "供 e2fsck 和 mke2fs 使用的内部标志，用于绕过设备占用检查。"
+      ]
+    }
+  ]
+}

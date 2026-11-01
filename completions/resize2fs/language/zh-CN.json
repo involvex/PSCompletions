@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "调整 ext2/ext3/ext4 文件系统的大小。"
+    ]
+  },
+  "option": [
+    {
+      "name": "-b",
+      "tip": [
+        "启用 64bit 特性并按需移动元数据。"
+      ]
+    },
+    {
+      "name": "-d",
+      "usage": [
+        "-d debug-flags"
+      ],
+      "tip": [
+        "启用 resize2fs 调试特性。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "强制调整大小，覆盖安全检查。"
+      ]
+    },
+    {
+      "name": "-F",
+      "tip": [
+        "开始前刷新设备缓冲区缓存。"
+      ]
+    },
+    {
+      "name": "-M",
+      "tip": [
+        "将文件系统缩小到最小大小。"
+      ]
+    },
+    {
+      "name": "-p",
+      "tip": [
+        "为每个阶段打印完成百分比。"
+      ]
+    },
+    {
+      "name": "-P",
+      "tip": [
+        "打印文件系统可缩小到的最小大小。"
+      ]
+    },
+    {
+      "name": "-s",
+      "tip": [
+        "禁用 64bit 特性并释放未使用的块。"
+      ]
+    },
+    {
+      "name": "-S",
+      "usage": [
+        "-S RAID-stride"
+      ],
+      "tip": [
+        "设置 RAID 步长，而不是启发式检测。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-z",
+      "usage": [
+        "-z undo_file"
+      ],
+      "tip": [
+        "将每个块的旧内容写入撤销文件。"
+      ],
+      "next": []
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "List file attributes on an ext2/ext3/ext4 file system."
+    ]
+  },
+  "option": [
+    {
+      "name": "-a",
+      "tip": [
+        "List all files, including hidden files."
+      ]
+    },
+    {
+      "name": "-d",
+      "tip": [
+        "List directories like other files instead of their contents."
+      ]
+    },
+    {
+      "name": "-l",
+      "tip": [
+        "Print attributes using long names."
+      ]
+    },
+    {
+      "name": "-p",
+      "tip": [
+        "List the file's project number."
+      ]
+    },
+    {
+      "name": "-R",
+      "tip": [
+        "Recursively list attributes of directories and their contents."
+      ]
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "List the file's version/generation number."
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "Display the program version."
+      ]
+    }
+  ]
+}
