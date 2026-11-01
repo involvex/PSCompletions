@@ -11,15 +11,18 @@
 |[7z](https://7-zip.org/)|7-Zip 的命令行界面。|
 |[act](https://github.com/nektos/act)|本地运行 GitHub Actions。|
 |[adb](https://developer.android.com/tools/adb)|Android 调试桥命令行工具。|
+|[addr2line](https://www.gnu.org/software/binutils)|将地址转换为行号和文件名。|
 |[agetty](https://github.com/util-linux/util-linux)|打开终端并设置其模式。|
 |[android](https://developer.android.com/tools/agents/android-cli)|供 AI agent 做 Android 应用开发的命令行界面。|
 |[apt](https://wiki.debian.org/Apt)|Debian 及衍生系统的命令行包管理器。|
 |[apt-cache](https://wiki.debian.org/Apt)|从本地缓存查询并显示软件包信息，不改变系统状态。|
 |[apt-get](https://wiki.debian.org/Apt)|APT 软件包处理工具，软件包管理的命令行后端。|
+|[ar](https://www.gnu.org/software/binutils)|创建、修改和提取归档。|
 |[arch@GNU](https://www.gnu.org/software/coreutils/)|打印机器架构。|
 |[arch@uutils](https://uutils.org)|显示机器架构|
 |[aria2c](https://aria2.github.io)|轻量级多协议多源下载工具。|
 |[arpd](https://github.com/iproute2/iproute2)|用户空间 ARP 守护进程。|
+|[as](https://www.gnu.org/software/binutils)|GNU 汇编器。|
 |[ast-grep](https://github.com/ast-grep/ast-grep)|使用 AST 模式在大规模代码中搜索与重写。|
 |[atac](https://github.com/Julien-cpsn/ATAC)|在终端中使用的简易 API 客户端|
 |[atuin](https://atuin.sh)|魔法 shell 历史记录<br>Atuin 使用 SQLite 数据库取代你现有的命令行历史记录，并为你的命令记录额外的上下文信息|
@@ -59,6 +62,7 @@
 |[bunx](https://bun.com/docs/cli/bunx)|执行一个 npm 包可执行文件 (CLI)，如果未安装在 node_modules 中，会自动安装到全局共享缓存。|
 |[busctl](https://github.com/systemd/systemd)|内省 D-Bus IPC 总线。|
 |[bx](https://github.com/brave/brave-search-cli)|零依赖、Token 高效的 Brave Search API 命令行工具，为 AI Agent 和大语言模型打造。|
+|[c++filt](https://www.gnu.org/software/binutils)|解码 C++ 和 Java 符号。|
 |[carapace](https://carapace.sh/)|多 shell 补全二进制文件|
 |[cargo](https://doc.rust-lang.org/cargo)|Rust 包管理器。|
 |[cat@GNU](https://www.gnu.org/software/coreutils/)|把这些文件的内容拼接后写入标准输出。|
@@ -162,6 +166,7 @@
 |[echo@GNU](https://www.gnu.org/software/coreutils/)|把这些字符串回显到标准输出。|
 |[echo@uutils](https://uutils.org)|显示一行文本|
 |[eddy](https://github.com/70sh1/eddy)|简单快速的文件加密工具|
+|[elfedit](https://www.gnu.org/software/binutils)|更新 ELF 文件的 ELF 头。|
 |[env@GNU](https://www.gnu.org/software/coreutils/)|把每个 NAME 在环境中设为 VALUE，然后运行 COMMAND。|
 |[env@uutils](https://uutils.org)|设置环境中的每个 NAME 为 VALUE 并运行 COMMAND。|
 |[esbuild](https://esbuild.github.io/)|极速 JavaScript 和 CSS 打包器与压缩器。|
@@ -218,6 +223,8 @@
 |[gpasswd](https://github.com/shadow-maint/shadow)|管理 /etc/group 和 /etc/gshadow。|
 |[gpg](https://gnupg.org)|GNU Privacy Guard - 一款依据 RFC4880 规范实现的完整且免费的 OpenPGP 标准工具|
 |[gping](https://github.com/orf/gping)|带图表的 ping 工具。|
+|[gprof](https://www.gnu.org/software/binutils)|显示调用图性能数据。|
+|[gprofng](https://www.gnu.org/software/binutils)|gprofng 性能分析工具的驱动程序。|
 |[gradle](https://gradle.org)|JVM 的强大构建系统。|
 |[grep@BSD](https://cgit.freebsd.org/src/tree/usr.bin/grep)|在每个 FILE 中搜索 PATTERNS。<br>BSD grep 是 macOS 和 FreeBSD 上的默认实现。<br>标记为 (macOS only) 的选项不被 FreeBSD 的 grep 接受。|
 |[grep@GNU](https://www.gnu.org/software/grep)|在每个 FILE 中搜索 PATTERNS。<br>GNU grep 是 Linux、WSL、Git for Windows 和 NetBSD 上的默认实现。|
@@ -285,6 +292,7 @@
 |[lastlog](https://github.com/shadow-maint/shadow)|格式化并打印最近登录日志。|
 |[lazydocker](https://github.com/jesseduffield/lazydocker)|更轻松地管理 Docker。|
 |[lazygit](https://github.com/jesseduffield/lazygit)|一个简单的 git 命令终端 UI。|
+|[ld](https://www.gnu.org/software/binutils)|GNU 链接器。|
 |[ldattach](https://github.com/util-linux/util-linux)|将线路规程附加到串行线路。|
 |[lefthook](https://github.com/evilmartians/lefthook)|Git 钩子管理器。|
 |[less](https://greenwoodsoftware.com/less)|在终端中逐屏显示文件内容。|
@@ -361,6 +369,7 @@
 |[nice@uutils](https://uutils.org)|以调整后的 niceness 运行 COMMAND，影响进程调度|
 |[nl@GNU](https://www.gnu.org/software/coreutils/)|把每个 FILE 写入标准输出，并加上行号。|
 |[nl@uutils](https://uutils.org)|为文件行编号。|
+|[nm](https://www.gnu.org/software/binutils)|列出目标文件中的符号。|
 |[nmap](https://nmap.org)|网络探测工具和安全/端口扫描器。|
 |[node](https://nodejs.org/)|一个免费、开源、跨平台的 JavaScript 运行时环境。|
 |[nodemon](https://github.com/remy/nodemon)|监控文件变化并自动重启 Node.js 服务器。|
@@ -383,6 +392,8 @@
 |[numfmt@uutils](https://uutils.org)|在数字和人类可读字符串之间转换。|
 |[nvim](https://neovim.io/)|专注于可扩展性和易用性的 Vim 分支。|
 |[nvm](https://github.com/nvm-sh/nvm)|Node.js 版本管理器。|
+|[objcopy](https://www.gnu.org/software/binutils)|复制并转换目标文件。|
+|[objdump](https://www.gnu.org/software/binutils)|显示目标文件中的信息。|
 |[od@GNU](https://www.gnu.org/software/coreutils/)|把 FILE 以明确的表示形式（默认为八进制字节）写入标准输出。|
 |[od@uutils](https://uutils.org)|以八进制和其他格式转储文件。|
 |[oh-my-posh](https://ohmyposh.dev)|跨平台终端提示符渲染工具。|
@@ -458,9 +469,11 @@
 |[python3](https://www.python.org)|Python 解释器命令行。|
 |[quilt](https://savannah.nongnu.org/projects/quilt)|管理补丁序列的工具。|
 |[rake](https://github.com/ruby/rake)|Ruby 的 make 风格构建工具。|
+|[ranlib](https://www.gnu.org/software/binutils)|生成索引以加快归档访问。|
 |[rbenv](https://github.com/rbenv/rbenv)|管理应用的 Ruby 环境。|
 |[rclone](https://rclone.org)|在云存储提供商之间同步文件。|
 |[rdma](https://github.com/iproute2/iproute2)|RDMA 工具。|
+|[readelf](https://www.gnu.org/software/binutils)|显示 ELF 格式文件内容的信息。|
 |[readlink@GNU](https://www.gnu.org/software/coreutils/)|打印符号链接的目标值或规范化后的文件名|
 |[readlink@uutils](https://uutils.org)|打印符号链接的值或规范文件名|
 |[readprofile](https://github.com/util-linux/util-linux)|显示内核性能分析信息。|
@@ -537,6 +550,7 @@
 |[shred@uutils](https://uutils.org)|反复覆盖指定的 FILE，使即使非常昂贵的硬件探测也难以恢复数据|
 |[shuf@GNU](https://www.gnu.org/software/coreutils/)|把输入行的一个随机排列写入标准输出。|
 |[shuf@uutils](https://uutils.org)|输出输入行的随机排列来打乱输入|
+|[size](https://www.gnu.org/software/binutils)|显示二进制文件中各节的大小。|
 |[sk](https://github.com/skim-rs/skim)|一款用 Rust 语言编写的命令行快速模糊查找工具|
 |[skill](https://gitlab.com/procps-ng/procps)|向由表达式选择的进程发送信号。|
 |[slabtop](https://gitlab.com/procps-ng/procps)|实时显示内核 slab 缓存信息。|
@@ -566,6 +580,8 @@
 |[stdbuf@uutils](https://uutils.org)|以修改后的缓冲操作运行 COMMAND，作用于其标准流|
 |[stern](https://github.com/stern/stern)|同时 tail 多个 Kubernetes pod 与容器的日志。|
 |[strace](https://strace.io)|跟踪系统调用和信号。|
+|[strings](https://www.gnu.org/software/binutils)|显示文件中可打印的字符串。|
+|[strip](https://www.gnu.org/software/binutils)|从文件中移除符号和节。|
 |[stripe](https://docs.stripe.com/cli)|与 Stripe 交互的官方命令行工具。|
 |[stty@GNU](https://www.gnu.org/software/coreutils/)|打印或修改终端特性。|
 |[stty@uutils](https://uutils.org)|打印或更改终端特性|

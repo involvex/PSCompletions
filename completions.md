@@ -11,15 +11,18 @@ English | [简体中文](./completions.zh-CN.md)
 |[7z](https://7-zip.org/)|The command line interface of 7-Zip.|
 |[act](https://github.com/nektos/act)|Run GitHub Actions locally.|
 |[adb](https://developer.android.com/tools/adb)|Android Debug Bridge command-line tool.|
+|[addr2line](https://www.gnu.org/software/binutils)|Convert addresses into line number and file name pairs.|
 |[agetty](https://github.com/util-linux/util-linux)|Open a terminal and set its mode.|
 |[android](https://developer.android.com/tools/agents/android-cli)|Command-line interface for Android app development with AI agents.|
 |[apt](https://wiki.debian.org/Apt)|A command-line package manager for Debian and derivatives.|
 |[apt-cache](https://wiki.debian.org/Apt)|Query and display package information from the local cache, without changing the system.|
 |[apt-get](https://wiki.debian.org/Apt)|APT package handling utility, the command-line back-end for package management.|
+|[ar](https://www.gnu.org/software/binutils)|Create, modify and extract from archives.|
 |[arch@GNU](https://www.gnu.org/software/coreutils/)|Print machine architecture.|
 |[arch@uutils](https://uutils.org)|Display machine architecture|
 |[aria2c](https://aria2.github.io)|Lightweight multi-protocol and multi-source download utility.|
 |[arpd](https://github.com/iproute2/iproute2)|Userspace ARP daemon.|
+|[as](https://www.gnu.org/software/binutils)|The GNU assembler.|
 |[ast-grep](https://github.com/ast-grep/ast-grep)|Search and Rewrite code at large scale using AST pattern.|
 |[atac](https://github.com/Julien-cpsn/ATAC)|A simple API client in your terminal|
 |[atuin](https://atuin.sh)|Magical shell history.<br>Atuin replaces your existing shell history with a SQLite database, and records additional context for your commands.|
@@ -59,6 +62,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[bunx](https://bun.com/docs/cli/bunx)|Execute an npm package executable (CLI), automatically installing into a global shared cache if not installed in node_modules.|
 |[busctl](https://github.com/systemd/systemd)|Introspect the D-Bus IPC bus.|
 |[bx](https://github.com/brave/brave-search-cli)|Zero-dependency, token-efficient CLI for the Brave Search API, built for AI agents and LLMs.|
+|[c++filt](https://www.gnu.org/software/binutils)|Demangle C++ and Java symbols.|
 |[carapace](https://carapace.sh/)|A multi-shell completion binary|
 |[cargo](https://doc.rust-lang.org/cargo)|Rust package manager.|
 |[cat@GNU](https://www.gnu.org/software/coreutils/)|Concatenate FILE(s) to standard output.|
@@ -162,6 +166,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[echo@GNU](https://www.gnu.org/software/coreutils/)|Echo the STRING(s) to standard output.|
 |[echo@uutils](https://uutils.org)|Display a line of text|
 |[eddy](https://github.com/70sh1/eddy)|Simple and fast file encryption|
+|[elfedit](https://www.gnu.org/software/binutils)|Update the ELF header of ELF files.|
 |[env@GNU](https://www.gnu.org/software/coreutils/)|Set each NAME to VALUE in the environment and run COMMAND.|
 |[env@uutils](https://uutils.org)|Set each NAME to VALUE in the environment and run COMMAND.|
 |[esbuild](https://esbuild.github.io/)|Extremely fast JavaScript and CSS bundler and minifier.|
@@ -218,6 +223,8 @@ English | [简体中文](./completions.zh-CN.md)
 |[gpasswd](https://github.com/shadow-maint/shadow)|Administer /etc/group and /etc/gshadow.|
 |[gpg](https://gnupg.org)|GNU Privacy Guard - A complete and free implementation of the OpenPGP standard as defined by RFC4880|
 |[gping](https://github.com/orf/gping)|Ping, but with a graph.|
+|[gprof](https://www.gnu.org/software/binutils)|Display call graph profile data.|
+|[gprofng](https://www.gnu.org/software/binutils)|Driver for the gprofng profiling tools.|
 |[gradle](https://gradle.org)|Powerful build system for the JVM.|
 |[grep@BSD](https://cgit.freebsd.org/src/tree/usr.bin/grep)|Search for PATTERNS in each FILE.<br>BSD grep is the default on macOS and FreeBSD.<br>Options marked (macOS only) are not accepted by FreeBSD's grep.|
 |[grep@GNU](https://www.gnu.org/software/grep)|Search for PATTERNS in each FILE.<br>GNU grep is the default on Linux, WSL, Git for Windows and NetBSD.|
@@ -285,6 +292,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[lastlog](https://github.com/shadow-maint/shadow)|Format and print the last login log.|
 |[lazydocker](https://github.com/jesseduffield/lazydocker)|The lazier way to manage everything docker.|
 |[lazygit](https://github.com/jesseduffield/lazygit)|A simple terminal UI for git commands.|
+|[ld](https://www.gnu.org/software/binutils)|The GNU linker.|
 |[ldattach](https://github.com/util-linux/util-linux)|Attach a line discipline to a serial line.|
 |[lefthook](https://github.com/evilmartians/lefthook)|Git hooks manager.|
 |[less](https://greenwoodsoftware.com/less)|Display the contents of a file in a terminal.|
@@ -361,6 +369,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[nice@uutils](https://uutils.org)|Run COMMAND with an adjusted niceness, which affects process scheduling.|
 |[nl@GNU](https://www.gnu.org/software/coreutils/)|Write each FILE to standard output, with line numbers added.|
 |[nl@uutils](https://uutils.org)|Number lines of files.|
+|[nm](https://www.gnu.org/software/binutils)|List symbols from object files.|
 |[nmap](https://nmap.org)|Network exploration tool and security/port scanner.|
 |[node](https://nodejs.org/)|A free, open-source, cross-platform JavaScript runtime environment.|
 |[nodemon](https://github.com/remy/nodemon)|Monitor for changes and automatically restart Node.js server.|
@@ -383,6 +392,8 @@ English | [简体中文](./completions.zh-CN.md)
 |[numfmt@uutils](https://uutils.org)|Convert numbers from/to human-readable strings|
 |[nvim](https://neovim.io/)|Vim-fork focused on extensibility and usability.|
 |[nvm](https://github.com/nvm-sh/nvm)|Node.js Version Manager.|
+|[objcopy](https://www.gnu.org/software/binutils)|Copy and transform object files.|
+|[objdump](https://www.gnu.org/software/binutils)|Display information from object files.|
 |[od@GNU](https://www.gnu.org/software/coreutils/)|Write an unambiguous representation, octal bytes by default, of FILE to standard output.|
 |[od@uutils](https://uutils.org)|Dump files in octal and other formats.|
 |[oh-my-posh](https://ohmyposh.dev)|Cross-platform tool to render your prompt.|
@@ -458,9 +469,11 @@ English | [简体中文](./completions.zh-CN.md)
 |[python3](https://www.python.org)|Python interpreter command-line.|
 |[quilt](https://savannah.nongnu.org/projects/quilt)|Tool to manage a series of patches.|
 |[rake](https://github.com/ruby/rake)|A make-like build utility for Ruby.|
+|[ranlib](https://www.gnu.org/software/binutils)|Generate an index to speed access to archives.|
 |[rbenv](https://github.com/rbenv/rbenv)|Manage your app's Ruby environment.|
 |[rclone](https://rclone.org)|Syncs files to and from cloud storage providers.|
 |[rdma](https://github.com/iproute2/iproute2)|RDMA tool.|
+|[readelf](https://www.gnu.org/software/binutils)|Display information about the contents of ELF format files.|
 |[readlink@GNU](https://www.gnu.org/software/coreutils/)|Print value of a symbolic link or canonical file name|
 |[readlink@uutils](https://uutils.org)|Print value of a symbolic link or canonical file name.|
 |[readprofile](https://github.com/util-linux/util-linux)|Display kernel profiling information.|
@@ -537,6 +550,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[shred@uutils](https://uutils.org)|Overwrite the specified FILE(s) repeatedly, in order to make it harder for even very expensive hardware probing to recover the data.|
 |[shuf@GNU](https://www.gnu.org/software/coreutils/)|Write a random permutation of the input lines to standard output.|
 |[shuf@uutils](https://uutils.org)|Shuffle the input by outputting a random permutation of input lines.|
+|[size](https://www.gnu.org/software/binutils)|Display the sizes of sections inside binary files.|
 |[sk](https://github.com/skim-rs/skim)|A fast fuzzy finder for the command line written in Rust|
 |[skill](https://gitlab.com/procps-ng/procps)|Send a signal to processes selected by expression.|
 |[slabtop](https://gitlab.com/procps-ng/procps)|Display kernel slab cache information in real time.|
@@ -566,6 +580,8 @@ English | [简体中文](./completions.zh-CN.md)
 |[stdbuf@uutils](https://uutils.org)|Run COMMAND, with modified buffering operations for its standard streams.|
 |[stern](https://github.com/stern/stern)|Tail multiple pods and containers from Kubernetes.|
 |[strace](https://strace.io)|Trace system calls and signals.|
+|[strings](https://www.gnu.org/software/binutils)|Display printable strings in files.|
+|[strip](https://www.gnu.org/software/binutils)|Remove symbols and sections from files.|
 |[stripe](https://docs.stripe.com/cli)|The official command-line tool to interact with Stripe.|
 |[stty@GNU](https://www.gnu.org/software/coreutils/)|Print or change terminal characteristics.|
 |[stty@uutils](https://uutils.org)|Print or change terminal characteristics.|

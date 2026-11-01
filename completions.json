@@ -1,18 +1,21 @@
 {
-  "count": 724,
+  "count": 740,
   "update": {
     "7z": "cac4d4accba5c11d5b3ae1fde2e491070f69e522c974cc3004950acea1ffa593",
     "act": "3c17f2f2959410d3ac7c443cad5cfcab4d660eba2a6ca7e2b9f636eab63a2b6e",
     "adb": "f8a068298edc7b64e9f89c6b8c6302faeb90e4461ceea56f3ac936c985100c6c",
+    "addr2line": "8a47cca84b3ea631153f89434d152fe023bdf5fe32a688a5f9035998eb8f8f37",
     "agetty": "3dd4cdeb8af7c2d4c69e60be64a2c93b8c0b5ebfe7ce8469275e8e2df7b24c4b",
     "android": "c7214cc37d88a814b4fd3bd68c2197aa087520ae6c1b374129d7654e0f83fc38",
     "apt": "48553ea278bcc7491c2c4406c7b3889e6d35552b7e4045e5739bff0273246c4c",
     "apt-cache": "beac23c009eda57263703ebf7d5418b8bb092085da4a477ee727bbcd150aa132",
     "apt-get": "19f0bffe72a84200a8084d7d174e73fee4f59d48ca4893c742e6c07821c7b718",
+    "ar": "8775d3932c737478c349368ac71f9a722a52ba3bec48abade7164ab3988a2530",
     "arch@GNU": "1e4b9a258fc4af163ab3ce70dd1f8c93e97ca3cbc9996ced8f2bda278c6ae66f",
     "arch@uutils": "b1d9505f6ea63d2b9df0184935da1906c48eb8cc8eeb63d8ade4e85eb865ad0c",
     "aria2c": "901d03b53bff2d6b2f3700f627f641a2da9f65f832c94261e35921876d90202c",
     "arpd": "bc10d6f804dabb2c0da3ba5eef321fd590deb72b935ebe8edd239c135f26f81f",
+    "as": "7cbf6df5aa7a0457ea3ad4a06280b1d94e0d33a7a59a8938bbc359243ffc5e5e",
     "ast-grep": "ce914180f66b39ad807bfac1c92d53654a9599e0b7ee7d1c29fbb4e71d32c4b6",
     "atac": "66e9567c23d60c26d180166ac16def9db3cf99819e35f3e14973eeaf869d3aaf",
     "atuin": "06772dddec2baf2c09093d3e062cdf9e929a7dbed978976053baa6f0ce83edfe",
@@ -52,6 +55,7 @@
     "bunx": "81d42ed12d4f32cfa4eecee64f63ba5807215e7bdffc573297c8bae2df986ed1",
     "busctl": "7b4a5ec9fb0677ad61898cd553a25147eb36bca15124358b25ac6df447b2908c",
     "bx": "6b73fddf63f1997036eaef54dae433be45951df9066d14fa4991b3c1724c331a",
+    "c++filt": "b244c31854b22d3b3719cebdb29e035ea149dd0b8be62a0e1d1d5d7d40a93c69",
     "carapace": "ac4c1ea06d3614256734b9d57e3a12c8c99a7f39eba13065cc18fcb808cecf57",
     "cargo": "a0cfd5885375ad630fea0b5a10daaa6cad2fa79178a917dcc8f231381e4910d0",
     "cat@GNU": "53f01ad90205e9d5cbc1f4cfc66c417b9d64ad492936cbe2e97cdc64b3e0f70f",
@@ -155,6 +159,7 @@
     "echo@GNU": "c93430abc2e7ed0f7bdc5ff810d98b5da8903ec5a1b9b11d9a9bde108f44d22b",
     "echo@uutils": "771fee93d6cd317c3fe69b2bf9219453c6ee4d74e8cc6fae89028316241565d4",
     "eddy": "715f41d5d627f784eece29b674db858a5523c226027ec901e0043732113bc5c2",
+    "elfedit": "7c88b18b3caf36ab4269d4f92c3627165cc59f1f9cfe78dee977ba4cd4d8b257",
     "env@GNU": "cb96452d45382eb51dbf41b6b6f9264f113c1664efe1af4d117f504d0e88702c",
     "env@uutils": "955d8d3c45444873d1a13ae3ea80c5a0d76ff2ea4b9aed4bab305c01f1455b60",
     "esbuild": "fee220de50aff32a5b31afcd84a0d0e5a7541abeb8e4d31003e1a32b32d54986",
@@ -211,6 +216,8 @@
     "gpasswd": "6ddf90618456c3f07639f0b85523f0126aeb647ed0912a9d2efd2fa0eea1223b",
     "gpg": "c97b16f8626b2f76ee62bcfdbedb9c3e6c789a7dfb97e10ed33dd0490a3be7b5",
     "gping": "b54144da65e0434a57307cfe7f97962d33b9046f8e266dbcf11083057589996c",
+    "gprof": "4b1a82856183e6f07929c5fef2cbf06bc508e0d01bda1775953341dde8761bf4",
+    "gprofng": "308e736caec77b0dc3156ad809482cecb153b2c19b060b787a854f9b56e3c8ee",
     "gradle": "be292ed0aeea16446a1933ab3515048b5118cfe7830a17835d3c61fcc11cfac1",
     "grep@BSD": "7cd77b9d97206af8ae94b2939a6038c6ff1216acda0847274e7b6f0b882117f3",
     "grep@GNU": "283d5c6ba2e21b1d6be2eca02c427b1a23727b3e056a4c9c6073620388291c8f",
@@ -278,6 +285,7 @@
     "lastlog": "c2700b0d2bebb9be12fc902bb95c34c03273256d139964fe50e088100c663e18",
     "lazydocker": "d95a413e504d80b917df5dac498a33e21c040722ca51fa490b3c2ec9c793feb0",
     "lazygit": "b06a6e62bcbf141e4a5a4832b1e917463437462d53556f551677eeafd7063e87",
+    "ld": "ed3e52d46cffc41d3739fd5fcf87e833d50000e812c667be377b2894dd705216",
     "ldattach": "66e1aae5e4038359c079dbdf44bb9f8dde669797878dd075e891b0a404b390e0",
     "lefthook": "2956ad0e87626980b520b7f62a2089537ad078b5d8886f7f586662a5d27a5fdf",
     "less": "1af5a0bbce8f90cabe3e801f231df05782f176bdbc5e1adeb096b8eb679d34ac",
@@ -354,6 +362,7 @@
     "nice@uutils": "782a0c5a9a07131320aa23bc5ab0719e00c2488b9a423513145b14ba241eba80",
     "nl@GNU": "9a63e31d112bcfff173e986e867531a262ffe00520ed6a21591414dd0fc2b607",
     "nl@uutils": "4390628adaf6fdd8fdaa828ed1a4ec10d33dd34a2494a12e22a794475da92ab2",
+    "nm": "78112e1df471a6cc54591b80aa3b4c6554564f679f0aac525c326ed6de03c5d7",
     "nmap": "a539f6fb877510d2db477e61285cf581f489bf91c05122adf39e77421be404ee",
     "node": "bcac6d0d3ccabb1f01954e92db31bce37bb1bf14eddf3e829ac534669b1c4471",
     "nodemon": "fb48b1d912fcc40fe51f39fde479637ac0a2a5686295230bd414e65274bdae2a",
@@ -376,6 +385,8 @@
     "numfmt@uutils": "a06295d4ca3b30c8767fccfd37f24e9a6fbb8d7edf9532f9afaf131d8486f961",
     "nvim": "2a92e4d72f3e104dd98c559308690ebbe0b559b212a547ebaa80814e1e2dfff3",
     "nvm": "8aabf6825531ec0ba5f4c68e70571676f985ade52bd3fddad47e127e0a7f423d",
+    "objcopy": "f6b9ca3dc0d7ebca7fe044a8434a993e36b8c965f9f98478a229291aba0900ce",
+    "objdump": "74f6b09f2b076f57b388f44585378add22cbf566036030046aabb85cb7d5583a",
     "od@GNU": "02cbe9c27ab06ddbdcbfad37ae651b209d7528e9a15a579713dacc1bf17af60f",
     "od@uutils": "4e722a1040e0745a5881d83218d6b18d7987a2926b55ea21247d0b9ebcb3e8ae",
     "oh-my-posh": "e711b0098337e7dd323b4dbb3883afaf84632c70ba2a7c7ad191d16f0664c685",
@@ -451,9 +462,11 @@
     "python3": "7c21d1c2cabb2c091c1024fcacae86734045c908c3f650f9a90fac2bcd104583",
     "quilt": "3fa64dc5b9270d5dc05c2de9f0460effa232ebba4ef41aca00e101574c441321",
     "rake": "19e56c926ae42a9fe449432926b80680a38872b53712e7d88960eb7a57899cad",
+    "ranlib": "8497524ca801fa26365efb8622aad9eb21e52f08797feb732c8a5e8621a49d39",
     "rbenv": "923623cf74b916808cd5b5e7d735170e054def80e93dcc0eb8382ed5d62af188",
     "rclone": "6770ff1c46fb9a8bd945e6f19c47c03c9b64d975ea4fa224fb84c7409a9320f1",
     "rdma": "48d8529ad2eaa02ae96b462f4c795905dba9aa19ed577fd89698b6be29aad4ed",
+    "readelf": "cd1c480885758b3080ae75a61c6c42eb53a7c7a19e1716536edc8820265d1882",
     "readlink@GNU": "93c52d92f26628521eee150e3fb296a5ee31656eabb48b6f114c7ffb92b9db09",
     "readlink@uutils": "39e2ddf4c0daa303b5fe5a27fc5defd922dc95a102de20ef1372399b5fb3b975",
     "readprofile": "c52859d19dca24c0dcfde572cf584da2b5a2c628ec7a0267e78e7b30982ec77d",
@@ -530,6 +543,7 @@
     "shred@uutils": "ef16ff2b8c746a8e44f3b618ab27b7b96b480e9fe4575ce45982d4198a60f874",
     "shuf@GNU": "51fb93ccec50c0af18e614a05af36a2a85fc869cb97f0548c4ffddf7f38ef48e",
     "shuf@uutils": "4681064ac6423d4e99222bd01e71383ebc6a77ab8910ab5f136c830836d55b08",
+    "size": "2265e5cec77e88e4a576a505c11557f8065aab30397d18996252e0494052f327",
     "sk": "3375369c085013af85dd7d9b8ef9c57b1d9f3edbcbdc19ac2c99a277df41ebb0",
     "skill": "a9fa48b3502d782b1a31b95625bd61a69627d0694b526cdefe3d9ba5c601ba3e",
     "slabtop": "13b84a9d61330e693db0141bc51d225828c8c69e72024c0b1d9f5d03e1177446",
@@ -559,6 +573,8 @@
     "stdbuf@uutils": "ecb481d366de0d7eb6b105513a10310f76442796705ed0884b28676a7c66466c",
     "stern": "779b3d5d7bb068714600d456d368492aff41cfcdc4bcebfd3e1f6078677b8eff",
     "strace": "6c5cf70210bc7850878498f5621a751fb7a88a420b94c77936f75debdc750bf6",
+    "strings": "8988a7395df7cc11b346a215214c21a1176d6adeedcc3e84c81ac5e183b9f8ab",
+    "strip": "23698d28da9196b47958ec786cd780f44afc4ac282fc40fac256aca9dbeeca3f",
     "stripe": "eac64b9aa6978f534f3d15b66b2cc8affc1f869c9b2c99aed42f779d970d6f96",
     "stty@GNU": "62a1b5ef70498827f9b345815c7cdd396f9e974e9f10aebc6f4b384f4882f09d",
     "stty@uutils": "4dad974f52921cb7b1393ef48c64a2232021281c94c6ac3e5f08e60b929398a9",
@@ -760,6 +776,17 @@
         "description": "Android 调试桥命令行工具。"
       }
     },
+    "addr2line": {
+      "id": "6b82e08d-6e9e-5a52-b403-e16588171e87",
+      "en-US": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "Convert addresses into line number and file name pairs."
+      },
+      "zh-CN": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "将地址转换为行号和文件名。"
+      }
+    },
     "agetty": {
       "id": "2ca11e10-bbde-4ab3-9efb-e49a7c3e64fd",
       "alias": "getty agetty",
@@ -816,6 +843,17 @@
         "description": "APT 软件包处理工具，软件包管理的命令行后端。"
       }
     },
+    "ar": {
+      "id": "c2e77489-b880-5f1e-bada-b9198f8a516d",
+      "en-US": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "Create, modify and extract from archives."
+      },
+      "zh-CN": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "创建、修改和提取归档。"
+      }
+    },
     "arch@GNU": {
       "id": "f95ca8f7-af9a-4288-b00d-f1131f4f53a3",
       "alias": "arch",
@@ -860,6 +898,17 @@
       "zh-CN": {
         "url": "https://github.com/iproute2/iproute2",
         "description": "用户空间 ARP 守护进程。"
+      }
+    },
+    "as": {
+      "id": "461ee704-120f-5fed-91b7-326d1b03e5bf",
+      "en-US": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "The GNU assembler."
+      },
+      "zh-CN": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "GNU 汇编器。"
       }
     },
     "ast-grep": {
@@ -1302,6 +1351,17 @@
       "zh-CN": {
         "url": "https://github.com/brave/brave-search-cli",
         "description": "零依赖、Token 高效的 Brave Search API 命令行工具，为 AI Agent 和大语言模型打造。"
+      }
+    },
+    "c++filt": {
+      "id": "5e3477ae-2600-5f5f-977e-3dbf87e65320",
+      "en-US": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "Demangle C++ and Java symbols."
+      },
+      "zh-CN": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "解码 C++ 和 Java 符号。"
       }
     },
     "carapace": {
@@ -2478,6 +2538,17 @@
         "description": "简单快速的文件加密工具"
       }
     },
+    "elfedit": {
+      "id": "830798b3-58ae-5822-9ee6-d2534c49e584",
+      "en-US": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "Update the ELF header of ELF files."
+      },
+      "zh-CN": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "更新 ELF 文件的 ELF 头。"
+      }
+    },
     "env@GNU": {
       "id": "2210b507-d63d-4466-a3d9-7918eadbad99",
       "alias": "env",
@@ -3108,6 +3179,28 @@
       "zh-CN": {
         "url": "https://github.com/orf/gping",
         "description": "带图表的 ping 工具。"
+      }
+    },
+    "gprof": {
+      "id": "7860008d-20a4-54f6-96c0-96f18b7a5859",
+      "en-US": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "Display call graph profile data."
+      },
+      "zh-CN": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "显示调用图性能数据。"
+      }
+    },
+    "gprofng": {
+      "id": "d65929a6-cc0a-550e-b07e-ed6a1a67aa3c",
+      "en-US": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "Driver for the gprofng profiling tools."
+      },
+      "zh-CN": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "gprofng 性能分析工具的驱动程序。"
       }
     },
     "gradle": {
@@ -3859,6 +3952,18 @@
       "zh-CN": {
         "url": "https://github.com/jesseduffield/lazygit",
         "description": "一个简单的 git 命令终端 UI。"
+      }
+    },
+    "ld": {
+      "id": "90f1c68f-1481-57fa-a366-5b837f1ab471",
+      "alias": "ld ld.bfd",
+      "en-US": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "The GNU linker."
+      },
+      "zh-CN": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "GNU 链接器。"
       }
     },
     "ldattach": {
@@ -4725,6 +4830,17 @@
         "description": "为文件行编号。"
       }
     },
+    "nm": {
+      "id": "7973707d-349e-55ac-ac69-fbab98a4f637",
+      "en-US": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "List symbols from object files."
+      },
+      "zh-CN": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "列出目标文件中的符号。"
+      }
+    },
     "nmap": {
       "id": "5c5dd7d8-1c86-4fe2-acb4-da404bf95c57",
       "en-US": {
@@ -4971,6 +5087,28 @@
       "zh-CN": {
         "url": "https://github.com/nvm-sh/nvm",
         "description": "Node.js 版本管理器。"
+      }
+    },
+    "objcopy": {
+      "id": "74d43bc7-16de-5faf-95f9-4db3f010befb",
+      "en-US": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "Copy and transform object files."
+      },
+      "zh-CN": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "复制并转换目标文件。"
+      }
+    },
+    "objdump": {
+      "id": "15eabb88-7d6a-5d08-9861-acccdd5fd71e",
+      "en-US": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "Display information from object files."
+      },
+      "zh-CN": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "显示目标文件中的信息。"
       }
     },
     "od@GNU": {
@@ -5823,6 +5961,17 @@
         "description": "Ruby 的 make 风格构建工具。"
       }
     },
+    "ranlib": {
+      "id": "8828a495-e584-5e3b-ae11-23dff5a797dc",
+      "en-US": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "Generate an index to speed access to archives."
+      },
+      "zh-CN": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "生成索引以加快归档访问。"
+      }
+    },
     "rbenv": {
       "id": "94221d7e-ddd5-442c-bc1d-78f7d120c436",
       "en-US": {
@@ -5854,6 +6003,17 @@
       "zh-CN": {
         "url": "https://github.com/iproute2/iproute2",
         "description": "RDMA 工具。"
+      }
+    },
+    "readelf": {
+      "id": "61bae741-25db-5742-bfd2-0a2311541bff",
+      "en-US": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "Display information about the contents of ELF format files."
+      },
+      "zh-CN": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "显示 ELF 格式文件内容的信息。"
       }
     },
     "readlink@GNU": {
@@ -6721,6 +6881,17 @@
         "description": "输出输入行的随机排列来打乱输入"
       }
     },
+    "size": {
+      "id": "31ebab59-8b6c-5283-b520-f974d0876ec7",
+      "en-US": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "Display the sizes of sections inside binary files."
+      },
+      "zh-CN": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "显示二进制文件中各节的大小。"
+      }
+    },
     "sk": {
       "id": "ea0c539c-94d9-4dde-9b57-e57cbbbc1f90",
       "en-US": {
@@ -7048,6 +7219,28 @@
       "zh-CN": {
         "url": "https://strace.io",
         "description": "跟踪系统调用和信号。"
+      }
+    },
+    "strings": {
+      "id": "07b38039-0394-5374-aeab-d09348cbafa5",
+      "en-US": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "Display printable strings in files."
+      },
+      "zh-CN": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "显示文件中可打印的字符串。"
+      }
+    },
+    "strip": {
+      "id": "e2f20be6-ba3c-51cb-8037-de7d4aa0392c",
+      "en-US": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "Remove symbols and sections from files."
+      },
+      "zh-CN": {
+        "url": "https://www.gnu.org/software/binutils",
+        "description": "从文件中移除符号和节。"
       }
     },
     "stripe": {
