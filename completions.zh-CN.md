@@ -534,6 +534,7 @@
 |[ruby](https://www.ruby-lang.org)|一种解释型的面向对象编程语言。|
 |[ruby-build](https://github.com/rbenv/ruby-build)|编译并安装 Ruby。|
 |[ruff](https://github.com/astral-sh/ruff)|极速的 Python linter 和代码格式化工具。|
+|[run0](https://github.com/systemd/systemd)|交互式提升权限。|
 |[runcon@GNU](https://www.gnu.org/software/coreutils/)|在不同的 SELinux 安全上下文中运行程序。|
 |[runcon@uutils](https://uutils.org)|在启用 SELinux 的系统上以指定的安全上下文运行命令|
 |[runuser](https://github.com/util-linux/util-linux)|以 <user> 的有效用户 ID 和组 ID 运行命令。<br>未指定 -u 时，回退到与 su(1) 兼容的语义。|
@@ -626,7 +627,9 @@
 |[sync@uutils](https://uutils.org)|将缓存的写入同步到持久存储|
 |[sysctl](https://gitlab.com/procps-ng/procps)|在运行时配置内核参数。|
 |[systemctl](https://github.com/systemd/systemd)|向系统管理器查询或发送控制命令。|
+|[systemd-ac-power](https://github.com/systemd/systemd)|报告是否连接到外部电源。|
 |[systemd-analyze](https://github.com/systemd/systemd)|分析 systemd、显示单元依赖并检查单元文件。|
+|[systemd-ask-password](https://github.com/systemd/systemd)|向用户询问密码短语。|
 |[systemd-cat](https://github.com/systemd/systemd)|执行进程并将其标准输出/标准错误连接到日志。|
 |[systemd-cgls](https://github.com/systemd/systemd)|递归显示控制组内容。|
 |[systemd-cgtop](https://github.com/systemd/systemd)|按资源使用情况显示排名靠前的控制组。|
@@ -638,13 +641,19 @@
 |[systemd-firstboot](https://github.com/systemd/systemd)|配置系统的基本设置。|
 |[systemd-id128](https://github.com/systemd/systemd)|生成并打印 128 位标识符。|
 |[systemd-inhibit](https://github.com/systemd/systemd)|在执行进程时抑制关机、睡眠或空闲。|
+|[systemd-machine-id-setup](https://github.com/systemd/systemd)|从随机源初始化 /etc/machine-id。|
 |[systemd-mount](https://github.com/systemd/systemd)|临时建立挂载或自动挂载点。|
+|[systemd-notify](https://github.com/systemd/systemd)|向 init 系统通知服务状态更新。|
 |[systemd-path](https://github.com/systemd/systemd)|显示系统和用户路径。|
 |[systemd-run](https://github.com/systemd/systemd)|在临时作用域或服务中运行指定命令。|
+|[systemd-socket-activate](https://github.com/systemd/systemd)|监听套接字并在连接时启动子进程。|
+|[systemd-stdio-bridge](https://github.com/systemd/systemd)|在管道/套接字与 D-Bus 之间转发消息。|
 |[systemd-sysext](https://github.com/systemd/systemd)|将系统扩展镜像合并到 /usr/ 和 /opt/。|
 |[systemd-sysusers](https://github.com/systemd/systemd)|创建系统用户账户。|
 |[systemd-tmpfiles](https://github.com/systemd/systemd)|创建、删除和清理文件与目录。|
+|[systemd-tty-ask-password-agent](https://github.com/systemd/systemd)|处理系统密码请求。|
 |[systemd-umount](https://github.com/systemd/systemd)|临时卸载挂载点或设备。|
+|[systemd-vpick](https://github.com/systemd/systemd)|从版本化目录中选择条目。|
 |[tac@GNU](https://www.gnu.org/software/coreutils/)|把每个 FILE 写入标准输出，最后一行在最前。|
 |[tac@uutils](https://uutils.org)|将每个文件写到标准输出，最后一行在前|
 |[tail@GNU](https://www.gnu.org/software/coreutils/)|把每个 FILE 的最后 10 行打印到标准输出。|

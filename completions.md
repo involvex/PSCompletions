@@ -534,6 +534,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[ruby](https://www.ruby-lang.org)|An interpreted object-oriented programming language.|
 |[ruby-build](https://github.com/rbenv/ruby-build)|Compile and install Ruby.|
 |[ruff](https://github.com/astral-sh/ruff)|An extremely fast Python linter and code formatter.|
+|[run0](https://github.com/systemd/systemd)|Elevate privileges interactively.|
 |[runcon@GNU](https://www.gnu.org/software/coreutils/)|Run a program in a different SELinux security context.|
 |[runcon@uutils](https://uutils.org)|Run command with specified security context under SELinux enabled systems.|
 |[runuser](https://github.com/util-linux/util-linux)|Run a command with the effective user ID and group ID of <user>.<br>Without -u, fall back to su(1)-compatible semantics.|
@@ -626,7 +627,9 @@ English | [简体中文](./completions.zh-CN.md)
 |[sync@uutils](https://uutils.org)|Synchronize cached writes to persistent storage|
 |[sysctl](https://gitlab.com/procps-ng/procps)|Configure kernel parameters at runtime.|
 |[systemctl](https://github.com/systemd/systemd)|Query or send control commands to the system manager.|
+|[systemd-ac-power](https://github.com/systemd/systemd)|Report whether connected to external power.|
 |[systemd-analyze](https://github.com/systemd/systemd)|Profile systemd, show unit dependencies, check unit files.|
+|[systemd-ask-password](https://github.com/systemd/systemd)|Query the user for a passphrase.|
 |[systemd-cat](https://github.com/systemd/systemd)|Execute a process with stdout/stderr connected to the journal.|
 |[systemd-cgls](https://github.com/systemd/systemd)|Recursively show control group contents.|
 |[systemd-cgtop](https://github.com/systemd/systemd)|Show top control groups by their resource usage.|
@@ -638,13 +641,19 @@ English | [简体中文](./completions.zh-CN.md)
 |[systemd-firstboot](https://github.com/systemd/systemd)|Configure basic settings of the system.|
 |[systemd-id128](https://github.com/systemd/systemd)|Generate and print 128-bit identifiers.|
 |[systemd-inhibit](https://github.com/systemd/systemd)|Execute a process while inhibiting shutdown, sleep or idle.|
+|[systemd-machine-id-setup](https://github.com/systemd/systemd)|Initialize /etc/machine-id from a random source.|
 |[systemd-mount](https://github.com/systemd/systemd)|Establish a mount or auto-mount point transiently.|
+|[systemd-notify](https://github.com/systemd/systemd)|Notify the init system about service status updates.|
 |[systemd-path](https://github.com/systemd/systemd)|Show system and user paths.|
 |[systemd-run](https://github.com/systemd/systemd)|Run the specified command in a transient scope or service.|
+|[systemd-socket-activate](https://github.com/systemd/systemd)|Listen on sockets and launch a child on connection.|
+|[systemd-stdio-bridge](https://github.com/systemd/systemd)|Forward messages between a pipe or socket and D-Bus.|
 |[systemd-sysext](https://github.com/systemd/systemd)|Merge system extension images into /usr/ and /opt/.|
 |[systemd-sysusers](https://github.com/systemd/systemd)|Create system user accounts.|
 |[systemd-tmpfiles](https://github.com/systemd/systemd)|Create, delete, and clean up files and directories.|
+|[systemd-tty-ask-password-agent](https://github.com/systemd/systemd)|Process system password requests.|
 |[systemd-umount](https://github.com/systemd/systemd)|Unmount mount points or devices transiently.|
+|[systemd-vpick](https://github.com/systemd/systemd)|Pick an entry from a versioned directory.|
 |[tac@GNU](https://www.gnu.org/software/coreutils/)|Write each FILE to standard output, last line first.|
 |[tac@uutils](https://uutils.org)|Write each file to standard output, last line first.|
 |[tail@GNU](https://www.gnu.org/software/coreutils/)|Print the last 10 lines of each FILE to standard output.|

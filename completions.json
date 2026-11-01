@@ -1,5 +1,5 @@
 {
-  "count": 766,
+  "count": 775,
   "update": {
     "7z": "cac4d4accba5c11d5b3ae1fde2e491070f69e522c974cc3004950acea1ffa593",
     "act": "3c17f2f2959410d3ac7c443cad5cfcab4d660eba2a6ca7e2b9f636eab63a2b6e",
@@ -527,6 +527,7 @@
     "ruby": "5dd063f6b3cce3b1795141b3ce67f7b8d14e6de3b3f4509cd3260cefb191d480",
     "ruby-build": "5387cd2bf5c4f234c87c30c58c015b44841b5d9d86138a137b748d8b57789d32",
     "ruff": "8bfeb0464330c1ee8d195429f8d3ca8c727c32619afe1a3c7b97ce89c053a6db",
+    "run0": "61dcbc96f7c7c64ca79891e2bbfe68747eb2941964f325c70a60a6ef5e0e092a",
     "runcon@GNU": "39d1b2c43e15e4773346a3a282b40ce159f223573a7a02720d4ea852c9439b41",
     "runcon@uutils": "4702eff7d4f00568f2550dd0f4056403155c0832175c7efb0d009ecee65b7e3c",
     "runuser": "4ec89dcbb58f1bb9d7b5b36e42427d2dc0c7fedfc2b920ff96044e62426b1f1a",
@@ -619,7 +620,9 @@
     "sync@uutils": "87961be083af09477ac27f65920c8dfb2eec1b6a002e99de65b9fda6ec09019e",
     "sysctl": "5da2fb96d59d80b79c7b5edf4acc7a1b53f2546fb83c9feced8487b0e5cca9f6",
     "systemctl": "abe0221b8d1cb1a3a99263f0f9f958c2c07b7e9f442d61fdef381b88b3925ae5",
+    "systemd-ac-power": "3086bc7c0e5b340a31a8baf29b7fa670d08d541e0a2880b8a009e05d8d44eee9",
     "systemd-analyze": "022c39e9d5713848fc5419c938fc930a926730bafa19341098534fe17bbc5811",
+    "systemd-ask-password": "847b9e927106018a6ec618dc8d073cff3724026b1cf17d7a03115d5cc8f26f44",
     "systemd-cat": "0774e0744b964575012bfdbd694f2aa7e406e3ce3b976dc66c1d13d75da9b811",
     "systemd-cgls": "ab5a01651ea82e20d0844a821c02f898ef9d91ae55bb05f926b1387040fdbb08",
     "systemd-cgtop": "d38945cdd0774699594900e9f9c8b57616672231a2e7fd1eceaa6dbe6309aab8",
@@ -631,13 +634,19 @@
     "systemd-firstboot": "f90f3bbee989b529915bb7ce8485145edaf36762a70a539f35d77beb15875bb9",
     "systemd-id128": "e6abb8f9fb3b6c77b3ba3856238b5ffa4e2367cf112df2a4fc10bba46bc16f63",
     "systemd-inhibit": "75db8781dcf4b5d2aa42f8a606a0ba75d3514c54eddb2f1596c862a20cc6463b",
+    "systemd-machine-id-setup": "956cb2025505dbd2574962794c4050e3309317a9696257834fe30626af557da2",
     "systemd-mount": "b2041e3a6cd91034b61f40d5a7a8ef3abdee4a6cd9945847cb25c7f3ca7c8c4f",
+    "systemd-notify": "c6781e05eda306683c57606015eb242e19ff723e56f9eace4e96d80199d90855",
     "systemd-path": "90ca14a4a0050b60f435c3bd1e8fbffc6dd4957fc43816229e67d3c10d102700",
     "systemd-run": "38e00d56d9f7e238ec90a8ea156f939c093a372459599794df34e8158c824359",
+    "systemd-socket-activate": "0f59da3a374598130225fd2e25c9ef37e5fe11119e08ef1b1d2cc5c2f60491dc",
+    "systemd-stdio-bridge": "e412bdf998d0912239cfce4daf3a58fd3beb4a1038153b5430c62a97f14f2cd1",
     "systemd-sysext": "f000301c342afd0ff411acd91d71a0be596c3abbfbdb60030309048dc57b437b",
     "systemd-sysusers": "341ce3adebc422f3e08d97b9f7eda0340b977de3adfd9193ef561576f7a4a1a0",
     "systemd-tmpfiles": "0fb6222bf4f2483a057ac7435811ca13f485936fec8935b8ba402d6f8fec873d",
+    "systemd-tty-ask-password-agent": "e61ee9aa6d9ac9624df9f65411d231c917d424d686a4b9e8b7820da0ec6ab75f",
     "systemd-umount": "177833f269500172766996880fb17a62c894abb8f421be7bd1070f796a522782",
+    "systemd-vpick": "3b0674ce8d935745652a64bb6b4dd2136e5d3de4d20fe03f2e772a5c5604896b",
     "tac@GNU": "5c39d65c81b01ef2618a18f2160e182c8a9f3c8bc097d3de85da93b587405027",
     "tac@uutils": "2959b4a6b89ab2358cf576b001f23ab0dfb97736ee52667a3a2f495d8cb88e97",
     "tail@GNU": "45f8fdea0d101534b6cf4f2ff30cfe65817214e557d930773f3af219e21f18b5",
@@ -6710,6 +6719,17 @@
         "description": "极速的 Python linter 和代码格式化工具。"
       }
     },
+    "run0": {
+      "id": "451c216a-ea4f-5c94-8465-c27e6873c443",
+      "en-US": {
+        "url": "https://github.com/systemd/systemd",
+        "description": "Elevate privileges interactively."
+      },
+      "zh-CN": {
+        "url": "https://github.com/systemd/systemd",
+        "description": "交互式提升权限。"
+      }
+    },
     "runcon@GNU": {
       "id": "3474f543-6468-499f-82b5-bcab524281e2",
       "alias": "runcon",
@@ -7762,6 +7782,17 @@
         "description": "向系统管理器查询或发送控制命令。"
       }
     },
+    "systemd-ac-power": {
+      "id": "9b0594aa-26c0-5603-b64f-686f33668a91",
+      "en-US": {
+        "url": "https://github.com/systemd/systemd",
+        "description": "Report whether connected to external power."
+      },
+      "zh-CN": {
+        "url": "https://github.com/systemd/systemd",
+        "description": "报告是否连接到外部电源。"
+      }
+    },
     "systemd-analyze": {
       "id": "6b265973-1a26-5efd-8645-a90ab7fb4bee",
       "en-US": {
@@ -7771,6 +7802,17 @@
       "zh-CN": {
         "url": "https://github.com/systemd/systemd",
         "description": "分析 systemd、显示单元依赖并检查单元文件。"
+      }
+    },
+    "systemd-ask-password": {
+      "id": "5c33cede-4abd-5887-bc5d-030edd454ee0",
+      "en-US": {
+        "url": "https://github.com/systemd/systemd",
+        "description": "Query the user for a passphrase."
+      },
+      "zh-CN": {
+        "url": "https://github.com/systemd/systemd",
+        "description": "向用户询问密码短语。"
       }
     },
     "systemd-cat": {
@@ -7894,6 +7936,17 @@
         "description": "在执行进程时抑制关机、睡眠或空闲。"
       }
     },
+    "systemd-machine-id-setup": {
+      "id": "598f9d47-8b0a-5379-beac-b0bbf6b23388",
+      "en-US": {
+        "url": "https://github.com/systemd/systemd",
+        "description": "Initialize /etc/machine-id from a random source."
+      },
+      "zh-CN": {
+        "url": "https://github.com/systemd/systemd",
+        "description": "从随机源初始化 /etc/machine-id。"
+      }
+    },
     "systemd-mount": {
       "id": "67c78bfa-d98c-5422-8b5a-809810e1cba1",
       "en-US": {
@@ -7903,6 +7956,17 @@
       "zh-CN": {
         "url": "https://github.com/systemd/systemd",
         "description": "临时建立挂载或自动挂载点。"
+      }
+    },
+    "systemd-notify": {
+      "id": "dbc4e12f-3383-55d9-b489-6fed6aab8628",
+      "en-US": {
+        "url": "https://github.com/systemd/systemd",
+        "description": "Notify the init system about service status updates."
+      },
+      "zh-CN": {
+        "url": "https://github.com/systemd/systemd",
+        "description": "向 init 系统通知服务状态更新。"
       }
     },
     "systemd-path": {
@@ -7925,6 +7989,28 @@
       "zh-CN": {
         "url": "https://github.com/systemd/systemd",
         "description": "在临时作用域或服务中运行指定命令。"
+      }
+    },
+    "systemd-socket-activate": {
+      "id": "d0d80318-4981-5853-9188-a135ba5f38b0",
+      "en-US": {
+        "url": "https://github.com/systemd/systemd",
+        "description": "Listen on sockets and launch a child on connection."
+      },
+      "zh-CN": {
+        "url": "https://github.com/systemd/systemd",
+        "description": "监听套接字并在连接时启动子进程。"
+      }
+    },
+    "systemd-stdio-bridge": {
+      "id": "642f49f3-2e97-5020-acaf-35ad7591a515",
+      "en-US": {
+        "url": "https://github.com/systemd/systemd",
+        "description": "Forward messages between a pipe or socket and D-Bus."
+      },
+      "zh-CN": {
+        "url": "https://github.com/systemd/systemd",
+        "description": "在管道/套接字与 D-Bus 之间转发消息。"
       }
     },
     "systemd-sysext": {
@@ -7960,6 +8046,17 @@
         "description": "创建、删除和清理文件与目录。"
       }
     },
+    "systemd-tty-ask-password-agent": {
+      "id": "8923f642-7561-5303-9ddf-b59275e278cd",
+      "en-US": {
+        "url": "https://github.com/systemd/systemd",
+        "description": "Process system password requests."
+      },
+      "zh-CN": {
+        "url": "https://github.com/systemd/systemd",
+        "description": "处理系统密码请求。"
+      }
+    },
     "systemd-umount": {
       "id": "6365a249-715c-58cb-8e9a-e7ad9c4bb571",
       "en-US": {
@@ -7969,6 +8066,17 @@
       "zh-CN": {
         "url": "https://github.com/systemd/systemd",
         "description": "临时卸载挂载点或设备。"
+      }
+    },
+    "systemd-vpick": {
+      "id": "9d9fb990-d44a-5944-800f-5c6b9cbf683a",
+      "en-US": {
+        "url": "https://github.com/systemd/systemd",
+        "description": "Pick an entry from a versioned directory."
+      },
+      "zh-CN": {
+        "url": "https://github.com/systemd/systemd",
+        "description": "从版本化目录中选择条目。"
       }
     },
     "tac@GNU": {
