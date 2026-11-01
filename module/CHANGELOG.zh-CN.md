@@ -2,7 +2,7 @@
 
 [English](./CHANGELOG.md) | 简体中文
 
-## 未发布
+## 8.0.6
 
 - bridge: 修复了所有补全都已是最新时 `psc update --old` 没有任何输出的问题
 - bridge: `psc` 改为导出的函数而非别名，因此导入时不再调用 `Set-Alias`

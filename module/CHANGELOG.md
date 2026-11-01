@@ -2,7 +2,7 @@
 
 English | [简体中文](./CHANGELOG.zh-CN.md)
 
-## Unreleased
+## 8.0.6
 
 - bridge: Fixed `psc update --old` printing nothing when every completion was already current
 - bridge: Made `psc` an exported function instead of an alias, so the import no longer calls `Set-Alias`
