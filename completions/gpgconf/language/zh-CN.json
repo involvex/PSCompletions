@@ -1,0 +1,229 @@
+{
+  "meta": {
+    "url": "https://gnupg.org",
+    "description": [
+      "管理 GnuPG 工具的配置选项。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--apply-defaults",
+      "tip": [
+        "应用全局默认值。"
+      ]
+    },
+    {
+      "name": "--apply-profile",
+      "usage": [
+        "--apply-profile FILE"
+      ],
+      "tip": [
+        "使用 FILE 更新配置文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--change-options",
+      "usage": [
+        "--change-options COMPONENT"
+      ],
+      "tip": [
+        "更改组件的选项。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--check-config",
+      "tip": [
+        "检查全局配置文件。"
+      ]
+    },
+    {
+      "name": "--check-options",
+      "usage": [
+        "--check-options COMPONENT"
+      ],
+      "tip": [
+        "检查组件的选项。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--check-programs",
+      "tip": [
+        "检查所有程序。"
+      ]
+    },
+    {
+      "name": "--dry-run",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --dry-run"
+      ],
+      "tip": [
+        "不做任何更改。"
+      ]
+    },
+    {
+      "name": "--kill",
+      "alias": [
+        "-K"
+      ],
+      "usage": [
+        "-K, --kill"
+      ],
+      "tip": [
+        "终止组件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--launch",
+      "usage": [
+        "--launch COMPONENT"
+      ],
+      "tip": [
+        "启动组件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--list-components",
+      "tip": [
+        "列出所有组件。"
+      ]
+    },
+    {
+      "name": "--list-config",
+      "tip": [
+        "列出全局配置文件。"
+      ]
+    },
+    {
+      "name": "--list-dirs",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --list-dirs"
+      ],
+      "tip": [
+        "获取配置目录。"
+      ]
+    },
+    {
+      "name": "--list-options",
+      "usage": [
+        "--list-options COMPONENT"
+      ],
+      "tip": [
+        "列出组件的选项。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--output",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --output"
+      ],
+      "tip": [
+        "用作输出文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--query-swdb",
+      "tip": [
+        "查询软件版本数据库。"
+      ]
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "静默模式。"
+      ]
+    },
+    {
+      "name": "--reload",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --reload"
+      ],
+      "tip": [
+        "重新加载所有或指定组件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--runtime",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --runtime"
+      ],
+      "tip": [
+        "在运行时激活更改。"
+      ]
+    },
+    {
+      "name": "--show-configs",
+      "alias": [
+        "-X"
+      ],
+      "usage": [
+        "-X, --show-configs"
+      ],
+      "tip": [
+        "显示组件配置。"
+      ]
+    },
+    {
+      "name": "--show-versions",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --show-versions"
+      ],
+      "tip": [
+        "显示组件版本。"
+      ]
+    },
+    {
+      "name": "--status-fd",
+      "usage": [
+        "--status-fd FD"
+      ],
+      "tip": [
+        "将状态信息写入此文件描述符。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "详细模式。"
+      ]
+    }
+  ]
+}

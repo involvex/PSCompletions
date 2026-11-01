@@ -1,0 +1,320 @@
+{
+  "meta": {
+    "url": "https://gnupg.org",
+    "description": [
+      "GnuPG 的密钥管理代理。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--allow-emacs-pinentry",
+      "tip": [
+        "允许通过 Emacs 提示。"
+      ]
+    },
+    {
+      "name": "--allow-preset-passphrase",
+      "tip": [
+        "允许预设密码短语。"
+      ]
+    },
+    {
+      "name": "--batch",
+      "tip": [
+        "从不使用 PIN 输入。"
+      ]
+    },
+    {
+      "name": "--check-passphrase-pattern",
+      "usage": [
+        "--check-passphrase-pattern FILE"
+      ],
+      "tip": [
+        "根据模式文件检查密码短语。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--csh",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --csh"
+      ],
+      "tip": [
+        "使用 csh 风格命令输出。"
+      ]
+    },
+    {
+      "name": "--daemon",
+      "tip": [
+        "以守护模式运行（后台）。"
+      ]
+    },
+    {
+      "name": "--default-cache-ttl",
+      "usage": [
+        "--default-cache-ttl N"
+      ],
+      "tip": [
+        "N 秒后过期缓存的 PIN。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--default-cache-ttl-ssh",
+      "usage": [
+        "--default-cache-ttl-ssh N"
+      ],
+      "tip": [
+        "N 秒后过期 SSH 密钥。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--disable-scdaemon",
+      "tip": [
+        "不使用 SCdaemon。"
+      ]
+    },
+    {
+      "name": "--enable-passphrase-history",
+      "tip": [
+        "禁止重用旧密码短语。"
+      ]
+    },
+    {
+      "name": "--enable-ssh-support",
+      "tip": [
+        "启用 SSH 支持。"
+      ]
+    },
+    {
+      "name": "--enforce-passphrase-constraints",
+      "tip": [
+        "不允许绕过密码短语策略。"
+      ]
+    },
+    {
+      "name": "--extra-socket",
+      "usage": [
+        "--extra-socket NAME"
+      ],
+      "tip": [
+        "通过 NAME 接受部分命令。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--grab",
+      "tip": [
+        "允许 pinentry 抓取键盘和鼠标。"
+      ]
+    },
+    {
+      "name": "--ignore-cache-for-signing",
+      "tip": [
+        "签名时不使用 PIN 缓存。"
+      ]
+    },
+    {
+      "name": "--keep-display",
+      "tip": [
+        "忽略更改 X 显示的请求。"
+      ]
+    },
+    {
+      "name": "--keep-tty",
+      "tip": [
+        "忽略更改 TTY 的请求。"
+      ]
+    },
+    {
+      "name": "--log-file",
+      "usage": [
+        "--log-file FILE"
+      ],
+      "tip": [
+        "将服务器模式日志写入 FILE。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--max-cache-ttl",
+      "usage": [
+        "--max-cache-ttl N"
+      ],
+      "tip": [
+        "设置 PIN 缓存最大生存时间。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--max-cache-ttl-ssh",
+      "usage": [
+        "--max-cache-ttl-ssh N"
+      ],
+      "tip": [
+        "设置 SSH 密钥最大生存时间。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--max-passphrase-days",
+      "usage": [
+        "--max-passphrase-days N"
+      ],
+      "tip": [
+        "N 天后密码短语过期。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--min-passphrase-len",
+      "usage": [
+        "--min-passphrase-len N"
+      ],
+      "tip": [
+        "设置最小密码短语长度。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--min-passphrase-nonalpha",
+      "usage": [
+        "--min-passphrase-nonalpha N"
+      ],
+      "tip": [
+        "要求 N 个非字母字符。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-allow-external-cache",
+      "tip": [
+        "禁止外部密码缓存。"
+      ]
+    },
+    {
+      "name": "--no-allow-loopback-pinentry",
+      "tip": [
+        "禁止覆盖 pinentry。"
+      ]
+    },
+    {
+      "name": "--no-allow-mark-trusted",
+      "tip": [
+        "禁止将密钥标记为可信。"
+      ]
+    },
+    {
+      "name": "--no-detach",
+      "tip": [
+        "不从控制台分离。"
+      ]
+    },
+    {
+      "name": "--options",
+      "usage": [
+        "--options FILE"
+      ],
+      "tip": [
+        "从 FILE 读取选项。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--pinentry-program",
+      "usage": [
+        "--pinentry-program PGM"
+      ],
+      "tip": [
+        "使用 PGM 作为 pinentry 程序。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--pinentry-timeout",
+      "usage": [
+        "--pinentry-timeout N"
+      ],
+      "tip": [
+        "设置 pinentry 超时。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "稍微安静一些。"
+      ]
+    },
+    {
+      "name": "--scdaemon-program",
+      "usage": [
+        "--scdaemon-program PGM"
+      ],
+      "tip": [
+        "使用 PGM 作为 SCdaemon 程序。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--server",
+      "tip": [
+        "以服务器模式运行（前台）。"
+      ]
+    },
+    {
+      "name": "--sh",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --sh"
+      ],
+      "tip": [
+        "使用 sh 风格命令输出。"
+      ]
+    },
+    {
+      "name": "--ssh-fingerprint-digest",
+      "usage": [
+        "--ssh-fingerprint-digest ALGO"
+      ],
+      "tip": [
+        "使用 ALGO 显示 SSH 指纹。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--tpm2daemon-program",
+      "usage": [
+        "--tpm2daemon-program PGM"
+      ],
+      "tip": [
+        "使用 PGM 作为 tpm2daemon 程序。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "详细模式。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,320 @@
+{
+  "meta": {
+    "url": "https://gnupg.org",
+    "description": [
+      "Secret key management for GnuPG."
+    ]
+  },
+  "option": [
+    {
+      "name": "--allow-emacs-pinentry",
+      "tip": [
+        "Allow prompting through Emacs."
+      ]
+    },
+    {
+      "name": "--allow-preset-passphrase",
+      "tip": [
+        "Allow presetting a passphrase."
+      ]
+    },
+    {
+      "name": "--batch",
+      "tip": [
+        "Never use the PIN-entry."
+      ]
+    },
+    {
+      "name": "--check-passphrase-pattern",
+      "usage": [
+        "--check-passphrase-pattern FILE"
+      ],
+      "tip": [
+        "Check passphrases against a pattern file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--csh",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --csh"
+      ],
+      "tip": [
+        "Use csh-style command output."
+      ]
+    },
+    {
+      "name": "--daemon",
+      "tip": [
+        "Run in daemon mode (background)."
+      ]
+    },
+    {
+      "name": "--default-cache-ttl",
+      "usage": [
+        "--default-cache-ttl N"
+      ],
+      "tip": [
+        "Expire cached PINs after N seconds."
+      ],
+      "next": []
+    },
+    {
+      "name": "--default-cache-ttl-ssh",
+      "usage": [
+        "--default-cache-ttl-ssh N"
+      ],
+      "tip": [
+        "Expire SSH keys after N seconds."
+      ],
+      "next": []
+    },
+    {
+      "name": "--disable-scdaemon",
+      "tip": [
+        "Do not use the SCdaemon."
+      ]
+    },
+    {
+      "name": "--enable-passphrase-history",
+      "tip": [
+        "Disallow reusing old passphrases."
+      ]
+    },
+    {
+      "name": "--enable-ssh-support",
+      "tip": [
+        "Enable SSH support."
+      ]
+    },
+    {
+      "name": "--enforce-passphrase-constraints",
+      "tip": [
+        "Do not allow bypassing the passphrase policy."
+      ]
+    },
+    {
+      "name": "--extra-socket",
+      "usage": [
+        "--extra-socket NAME"
+      ],
+      "tip": [
+        "Accept some commands via NAME."
+      ],
+      "next": []
+    },
+    {
+      "name": "--grab",
+      "tip": [
+        "Let pinentry grab keyboard and mouse."
+      ]
+    },
+    {
+      "name": "--ignore-cache-for-signing",
+      "tip": [
+        "Do not use the PIN cache when signing."
+      ]
+    },
+    {
+      "name": "--keep-display",
+      "tip": [
+        "Ignore requests to change the X display."
+      ]
+    },
+    {
+      "name": "--keep-tty",
+      "tip": [
+        "Ignore requests to change the TTY."
+      ]
+    },
+    {
+      "name": "--log-file",
+      "usage": [
+        "--log-file FILE"
+      ],
+      "tip": [
+        "Write server mode logs to FILE."
+      ],
+      "next": []
+    },
+    {
+      "name": "--max-cache-ttl",
+      "usage": [
+        "--max-cache-ttl N"
+      ],
+      "tip": [
+        "Set the maximum PIN cache lifetime."
+      ],
+      "next": []
+    },
+    {
+      "name": "--max-cache-ttl-ssh",
+      "usage": [
+        "--max-cache-ttl-ssh N"
+      ],
+      "tip": [
+        "Set the maximum SSH key lifetime."
+      ],
+      "next": []
+    },
+    {
+      "name": "--max-passphrase-days",
+      "usage": [
+        "--max-passphrase-days N"
+      ],
+      "tip": [
+        "Expire the passphrase after N days."
+      ],
+      "next": []
+    },
+    {
+      "name": "--min-passphrase-len",
+      "usage": [
+        "--min-passphrase-len N"
+      ],
+      "tip": [
+        "Set the minimal passphrase length."
+      ],
+      "next": []
+    },
+    {
+      "name": "--min-passphrase-nonalpha",
+      "usage": [
+        "--min-passphrase-nonalpha N"
+      ],
+      "tip": [
+        "Require N non-alpha characters."
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-allow-external-cache",
+      "tip": [
+        "Disallow an external password cache."
+      ]
+    },
+    {
+      "name": "--no-allow-loopback-pinentry",
+      "tip": [
+        "Disallow overriding the pinentry."
+      ]
+    },
+    {
+      "name": "--no-allow-mark-trusted",
+      "tip": [
+        "Disallow marking keys as trusted."
+      ]
+    },
+    {
+      "name": "--no-detach",
+      "tip": [
+        "Do not detach from the console."
+      ]
+    },
+    {
+      "name": "--options",
+      "usage": [
+        "--options FILE"
+      ],
+      "tip": [
+        "Read options from FILE."
+      ],
+      "next": []
+    },
+    {
+      "name": "--pinentry-program",
+      "usage": [
+        "--pinentry-program PGM"
+      ],
+      "tip": [
+        "Use PGM as the pinentry program."
+      ],
+      "next": []
+    },
+    {
+      "name": "--pinentry-timeout",
+      "usage": [
+        "--pinentry-timeout N"
+      ],
+      "tip": [
+        "Set the pinentry timeout."
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "Be somewhat more quiet."
+      ]
+    },
+    {
+      "name": "--scdaemon-program",
+      "usage": [
+        "--scdaemon-program PGM"
+      ],
+      "tip": [
+        "Use PGM as the SCdaemon program."
+      ],
+      "next": []
+    },
+    {
+      "name": "--server",
+      "tip": [
+        "Run in server mode (foreground)."
+      ]
+    },
+    {
+      "name": "--sh",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --sh"
+      ],
+      "tip": [
+        "Use sh-style command output."
+      ]
+    },
+    {
+      "name": "--ssh-fingerprint-digest",
+      "usage": [
+        "--ssh-fingerprint-digest ALGO"
+      ],
+      "tip": [
+        "Use ALGO for SSH fingerprints."
+      ],
+      "next": []
+    },
+    {
+      "name": "--tpm2daemon-program",
+      "usage": [
+        "--tpm2daemon-program PGM"
+      ],
+      "tip": [
+        "Use PGM as the tpm2daemon program."
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Verbose mode."
+      ]
+    }
+  ]
+}

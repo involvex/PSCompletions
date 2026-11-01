@@ -1,0 +1,229 @@
+{
+  "meta": {
+    "url": "https://gnupg.org",
+    "description": [
+      "Manage configuration options for GnuPG tools."
+    ]
+  },
+  "option": [
+    {
+      "name": "--apply-defaults",
+      "tip": [
+        "Apply global default values."
+      ]
+    },
+    {
+      "name": "--apply-profile",
+      "usage": [
+        "--apply-profile FILE"
+      ],
+      "tip": [
+        "Update configuration files using FILE."
+      ],
+      "next": []
+    },
+    {
+      "name": "--change-options",
+      "usage": [
+        "--change-options COMPONENT"
+      ],
+      "tip": [
+        "Change options of a component."
+      ],
+      "next": []
+    },
+    {
+      "name": "--check-config",
+      "tip": [
+        "Check the global configuration file."
+      ]
+    },
+    {
+      "name": "--check-options",
+      "usage": [
+        "--check-options COMPONENT"
+      ],
+      "tip": [
+        "Check options of a component."
+      ],
+      "next": []
+    },
+    {
+      "name": "--check-programs",
+      "tip": [
+        "Check all programs."
+      ]
+    },
+    {
+      "name": "--dry-run",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --dry-run"
+      ],
+      "tip": [
+        "Do not make any changes."
+      ]
+    },
+    {
+      "name": "--kill",
+      "alias": [
+        "-K"
+      ],
+      "usage": [
+        "-K, --kill"
+      ],
+      "tip": [
+        "Kill a component."
+      ],
+      "next": []
+    },
+    {
+      "name": "--launch",
+      "usage": [
+        "--launch COMPONENT"
+      ],
+      "tip": [
+        "Launch a component."
+      ],
+      "next": []
+    },
+    {
+      "name": "--list-components",
+      "tip": [
+        "List all components."
+      ]
+    },
+    {
+      "name": "--list-config",
+      "tip": [
+        "List the global configuration file."
+      ]
+    },
+    {
+      "name": "--list-dirs",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --list-dirs"
+      ],
+      "tip": [
+        "Get the configuration directories."
+      ]
+    },
+    {
+      "name": "--list-options",
+      "usage": [
+        "--list-options COMPONENT"
+      ],
+      "tip": [
+        "List options of a component."
+      ],
+      "next": []
+    },
+    {
+      "name": "--output",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --output"
+      ],
+      "tip": [
+        "Use as output file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--query-swdb",
+      "tip": [
+        "Query the software version database."
+      ]
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "Quiet mode."
+      ]
+    },
+    {
+      "name": "--reload",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --reload"
+      ],
+      "tip": [
+        "Reload all or a given component."
+      ],
+      "next": []
+    },
+    {
+      "name": "--runtime",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --runtime"
+      ],
+      "tip": [
+        "Activate changes at runtime."
+      ]
+    },
+    {
+      "name": "--show-configs",
+      "alias": [
+        "-X"
+      ],
+      "usage": [
+        "-X, --show-configs"
+      ],
+      "tip": [
+        "Show component configurations."
+      ]
+    },
+    {
+      "name": "--show-versions",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --show-versions"
+      ],
+      "tip": [
+        "Show component versions."
+      ]
+    },
+    {
+      "name": "--status-fd",
+      "usage": [
+        "--status-fd FD"
+      ],
+      "tip": [
+        "Write status info to this file descriptor."
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Verbose mode."
+      ]
+    }
+  ]
+}
