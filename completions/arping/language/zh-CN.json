@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "url": "https://github.com/iputils/iputils",
+    "description": [
+      "向网络主机发送 ARP 请求。"
+    ]
+  },
+  "option": [
+    {
+      "name": "-A",
+      "tip": [
+        "ARP 应答模式。"
+      ]
+    },
+    {
+      "name": "-b",
+      "tip": [
+        "持续广播，不使用单播。"
+      ]
+    },
+    {
+      "name": "-c",
+      "usage": [
+        "-c <count>"
+      ],
+      "tip": [
+        "发送的数据包数量。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-D",
+      "tip": [
+        "重复地址检测模式。"
+      ]
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "收到第一个回复后退出。"
+      ]
+    },
+    {
+      "name": "-i",
+      "usage": [
+        "-i <interval>"
+      ],
+      "tip": [
+        "数据包间隔（默认 1 秒）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-I",
+      "usage": [
+        "-I <device>"
+      ],
+      "tip": [
+        "使用的以太网设备。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-q",
+      "tip": [
+        "安静模式。"
+      ]
+    },
+    {
+      "name": "-s",
+      "usage": [
+        "-s <source>"
+      ],
+      "tip": [
+        "源 IP 地址。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-U",
+      "tip": [
+        "无请求 ARP 模式。"
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "打印版本并退出。"
+      ]
+    },
+    {
+      "name": "-w",
+      "usage": [
+        "-w <timeout>"
+      ],
+      "tip": [
+        "等待回复的时间。"
+      ],
+      "next": []
+    }
+  ]
+}

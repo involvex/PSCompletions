@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "url": "https://github.com/iputils/iputils",
+    "description": [
+      "测量主机之间的时钟差异。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--time-format",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --time-format <ctime|iso>"
+      ],
+      "tip": [
+        "设置显示时间格式。"
+      ],
+      "next": [
+        {
+          "name": "ctime"
+        },
+        {
+          "name": "iso"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "打印版本并退出。"
+      ]
+    },
+    {
+      "name": "-I",
+      "tip": [
+        "--time-format=iso 的别名。"
+      ]
+    },
+    {
+      "name": "-o",
+      "tip": [
+        "使用 IP 时间戳和 ICMP 回显。"
+      ]
+    },
+    {
+      "name": "-o1",
+      "tip": [
+        "使用三术语 IP 时间戳和 ICMP 回显。"
+      ]
+    }
+  ]
+}

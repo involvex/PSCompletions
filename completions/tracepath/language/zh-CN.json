@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "url": "https://github.com/iputils/iputils",
+    "description": [
+      "跟踪到网络主机的路径。"
+    ]
+  },
+  "option": [
+    {
+      "name": "-4",
+      "tip": [
+        "使用 IPv4。"
+      ]
+    },
+    {
+      "name": "-6",
+      "tip": [
+        "使用 IPv6。"
+      ]
+    },
+    {
+      "name": "-b",
+      "tip": [
+        "同时打印名称和 IP。"
+      ]
+    },
+    {
+      "name": "-l",
+      "usage": [
+        "-l <length>"
+      ],
+      "tip": [
+        "使用指定的数据包长度。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-m",
+      "usage": [
+        "-m <hops>"
+      ],
+      "tip": [
+        "使用最大跳数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "不解析反向 DNS 名称。"
+      ]
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p <port>"
+      ],
+      "tip": [
+        "使用目标端口。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "打印版本并退出。"
+      ]
+    }
+  ]
+}
