@@ -1,5 +1,5 @@
 {
-  "count": 790,
+  "count": 819,
   "update": {
     "7z": "cac4d4accba5c11d5b3ae1fde2e491070f69e522c974cc3004950acea1ffa593",
     "accessdb": "11f75135b12fe904afe6e383a3c12bab63005550e28f361fb43b7acbf1aa1c91",
@@ -18,11 +18,14 @@
     "arch@GNU": "1e4b9a258fc4af163ab3ce70dd1f8c93e97ca3cbc9996ced8f2bda278c6ae66f",
     "arch@uutils": "b1d9505f6ea63d2b9df0184935da1906c48eb8cc8eeb63d8ade4e85eb865ad0c",
     "aria2c": "901d03b53bff2d6b2f3700f627f641a2da9f65f832c94261e35921876d90202c",
+    "arp": "58dd97cfa63f4073a6015ce08ec7d920b27a576617f5e910def5fbef28d4c609",
     "arpd": "bc10d6f804dabb2c0da3ba5eef321fd590deb72b935ebe8edd239c135f26f81f",
     "arping": "0a05314aa76dc4b2b5a8415ea15c2359d639c773148d9c885ae5bb59ff22575d",
     "as": "7cbf6df5aa7a0457ea3ad4a06280b1d94e0d33a7a59a8938bbc359243ffc5e5e",
     "ast-grep": "ce914180f66b39ad807bfac1c92d53654a9599e0b7ee7d1c29fbb4e71d32c4b6",
+    "at": "bca1c2d53d79299f74bc480f73940e81aafdd38dd50b7ea7683cca5669962196",
     "atac": "66e9567c23d60c26d180166ac16def9db3cf99819e35f3e14973eeaf869d3aaf",
+    "atd": "a5fa6bde4044a28e0b8884e4c2abdef8bb808bb5b6f020178bb9b89c49975c76",
     "atuin": "06772dddec2baf2c09093d3e062cdf9e929a7dbed978976053baa6f0ce83edfe",
     "aube": "8d36ebf03abadbc7abd5c60d852d3e30a395dc50099c56ce4aceaee19162735c",
     "aubr": "21a6c4690e577f899fb5b7d83b5cfa85693c7ffb78e27deb7d6ac5f367caf943",
@@ -43,6 +46,7 @@
     "basenc@GNU": "5bde1ff4d2c337948c1854fa5b69660005d8bc2179ab277b8ac993f6b73ac914",
     "basenc@uutils": "f494ee115ad1dd24b519870a9588ed884ddfdf98ddc252c7934bd6dc948e81d3",
     "bat": "2c9c045fd76be16b8d388259e8d320050b2045f52cc77b133b26f35181aaf8f2",
+    "batch": "0111b5494fbb136a49039702f905566e745f49f699507f3b58e1bfe8885ef111",
     "biome": "3c933a4b4c7e7ec19b59caf4abb509d6913456a68815b8d7b507dbc5b04fa373",
     "bison": "bb79530aece238e3413ce49c478a591afccdae1adb6f026eab6eb7614aa053ac",
     "black": "c9c2d4919d91d347e9d74435a7f20a6d57c7349027fa3c5daf2e14b048d945eb",
@@ -91,6 +95,7 @@
     "chrt": "14f7343ef8114ab35a343660fcefd8780f612fb083ad182233b79da892c0a2b7",
     "chsh": "e9c41f7ae4580c2887e9deb728365856d2301161c7691709f3e626dd9541cca0",
     "chsrc": "b7c61263181a40f0a0a04b253b36feb99ee6d6e509baa93b6c2f28d3c948c955",
+    "cifsiostat": "b7dfd56681c7ce451236f35939df8ecd3543c7561ad3c8fb40c6b20375855c56",
     "cksum@GNU": "148b16213d59aa6f83869bcd0a39253fd5a6bf8efebc36dac10ff90201938fc0",
     "cksum@uutils": "279673286e83cd612f86403fc632f549f1b0100754495cb19e9d3c9235126333",
     "claude": "05eb99a6dcb5d892a37e2973a25b59f137977c81381c120b94444fde7c7e37f5",
@@ -111,6 +116,9 @@
     "cpio": "fadf185c188f2dab5feeab5fd4dca52e13027e14e18c0e9f36471caa1fcf7c64",
     "croc": "0f1e4fc983fbcc4fcd0abcccb47dd1f5aea21ca097971db2a0890aaef7314731",
     "crontab": "d906d9fa7392bf88d7c9bc340b314b360962037cce683e7bf880f314ab1c8234",
+    "cryptdisks_start": "18db5cc010492ed2d94e108e098960e861611e5c14a4f993074f595d46b6208a",
+    "cryptdisks_stop": "0a0c53881f8898b64afa3823f5cc3d529d407f5d90c8a1146bd680a746c41355",
+    "cryptsetup": "24dab90fb401a7a49d3378851c9972d8fa3de2ae75395e1405dcf50656c4e6c3",
     "csplit@GNU": "c64e53b63883190ff7dd6ed1bb16b152cfcf372f06ceeae0a17756d8475ee640",
     "csplit@uutils": "a4545285fdecf0cf088f95ac6436de65bffdedb44862c8a048a23b6b75ae89b6",
     "ctstat": "5a45738c547a8cca3678f4d17d7d6a311ea212569e362fb02b1978c8cceb95cf",
@@ -271,16 +279,21 @@
     "icdiff": "bf9a5b3d0a7e97f0be587ede3c244547baf109ae306256ac3945f6db875aa752",
     "id@GNU": "cb81b178b5b58c4b6b43f8938331d87cbc0c26b30170ce7a0c80977cd29b39be",
     "id@uutils": "4116a344bea88c96b0fa5e7ab2d16832456077b9764e00d55b2f1b403c15eb5e",
+    "ifconfig": "417ac10539b2691180d27811aa12407f76b4a63af86e8a2d5e396809d245b261",
     "ifstat": "32d14d5f8a7821a7855e738e28e63c39c0f67a4bdcb7633df665dcf64ced521a",
     "insmod": "69220cd4ccbb7206b828dfad00ae7f09f39d8100ad839ef6b35c8631e183e444",
     "install@GNU": "af686464be8c5bb3ef9250ea06cdc266e0f0982decab310eb6e463c545deb4f6",
     "install@uutils": "336318d8498ebf6115f824f2334f54a069f94563f71aa07dfee4022b7cbe66fd",
+    "integritysetup": "19f0660c2f60fc36bd192c9a426e9f7b76a330b161b2e96ff1ba4bbbf8696353",
     "ionic": "521416419b860d3728bb7b58ab066881e3ae03a8d9948c2a92cb2acd65bf4eff",
     "ionice": "b53abc21c60280cf705a884643457f738de680e88e378757c527e984af002644",
+    "iostat": "b5cf3aaf798cb330f90918b7524bdaf99ab93f04dde89456f6388cac4bea86f8",
     "ip": "13c767c0d437ced053a5b94f6bc71618e535dbfab93aaf37e5bcf4f2323c16cf",
     "ipcmk": "0e7c2e3de1b7ab7a86f35e97768d2d20c34ea5fa8d84151d98612b542e0257a9",
     "ipcrm": "539844a6890a8e723cf0e4e007771a9ecc0e83cc78dc051a67bb20a51b848494",
     "ipcs": "0d73677ef5903fabbc22e903c929453996a529c83585bcf67b8960ea2e79f17f",
+    "ipmaddr": "a53abfbfa2251cd414dfefcff6c7e39f79595c7bc648ca2e680ed522e5355b29",
+    "iptunnel": "1aa46c2fca179f09c13fc5742c67cf584e98e48fcb8929f0ade04fb5f514bc16",
     "isosize": "3a4538f2039f94ee6dd9728634c48294cdc92560ad61712fdc959115e50d9ef3",
     "istioctl": "b9d07d4020209adf6162750bd2c408e59a765349c4f05e7c0ac616610947b017",
     "jaq": "cee90e7066a50d573add05e1809ce5630014ac179593ea805420f9982cc95063",
@@ -340,6 +353,7 @@
     "lsmod": "428f377ccb7ee95e648e63e1c7a48193ac8b3b50602a6376599c4231c54067ae",
     "lsns": "cd2466c5dda1edd4c6eee1b88f1fe03945192d8064af967985fa1b6026c8cc18",
     "lua": "b047bbe69d03faa0b74cf8fd5cf2c4cdfeb866f3e4b4b2c5b4e6d2b5e0198394",
+    "luksformat": "19a60b93fdfb5bd332e3d78a38dbb9ec44db06ae8df88b6f348ad6d96342487a",
     "lychee": "6424d6f85591e5c0b793f69f5caf077ad475ba6657295caf47cf5faa9517286a",
     "m4@GNU": "510ce4451ceae803a5494e6260b750c73c3cef58ff11af864505410da1eccf79",
     "machinectl": "9c9ead39bfa3ec129a4bb1bad13ceff24da054fc5e86cda11ed02a9c376c0382",
@@ -353,6 +367,9 @@
     "mcookie": "e6c978bd681995970489a6a515dfd301bea7cddf1658f8177d20b37dcd5f45c2",
     "md5sum@GNU": "1c814b3a2ff3eba8b9ba66d22b19f55227db215e904ee094b15e6212420a51e8",
     "md5sum@uutils": "9cfdbcbba9d7844748868d141c1dd6c9611d85a14c0e10581517211ad47a8b4c",
+    "mdadm": "be59ddcc8e15125dd24e72a37213a9068c74ab66938df9d2e4dd8facf27d93e0",
+    "mdmon": "36fb6e5dc11dff7598dfa6a6950cd235843479b8350b85ac0e081b4c9101416d",
+    "mii-tool": "271564641b8e1d871ecb792a1d4297e9cdfb1563ff37cb0c4c8a76dacf7b4978",
     "mimo": "dcd0394ecc53c42e41819dee434f60c00cde02dc36ee06200941effd5dae2446",
     "minikube": "97095ef3ee68252760d80b43ff535647aee9a05a35837eac65fe2c460cbcd994",
     "mise": "d77a80ac6a2ed3baf450e5b24968e184492c49e98a5d712065da9098fda51ea0",
@@ -372,6 +389,7 @@
     "more": "d74d4ef8a01f0891564fcc70bb1454afc33e930eb38664b85d462cf63d154639",
     "mount": "d72da51c8f9a7563425aa07788fd1f9803da0b74295223a276d9544df014c0b3",
     "mountpoint": "a50e07108cd01dfa3996115b0e4873b2bf3af6a6564df90b9206e7d1d92769d5",
+    "mpstat": "509542941abfb437c526bc0940b60207a5e1aa20ba0142d8ef26328d0e48e426",
     "mpv": "f4758dcf9160c1e2914c4163ed6cb1fce7f508f40b4e904dd26eec1c2c311dc3",
     "mv@GNU": "8a0c3d64fdfe47f50f013d13a295a61a59078a7ba4997a573b4c76b179b3210e",
     "mv@uutils": "121d62c6e8841b3937aa91b392d0b01930c923d724e63dbab994185d6402220e",
@@ -380,8 +398,10 @@
     "mysql": "4e5b18db3e74c98ad8666bd86b0989a1495d002bf6d4bebf0c4f187af4ae346a",
     "N_m3u8DL-RE": "dfd7f517e85c8e321daf2c18de4792993e913610f65f361f6f4fa9ee4af900db",
     "namei": "f733139294e143a0098bc7b8f08ee6fea93ba0b5c69724bcdd5531c15d9838c1",
+    "nameif": "489d96b6f302986d02ce1f596a6dabcd773ba3338fd165613f91acbc446f2b2d",
     "ncat": "276948ec46301c88fa690fa4fecd97cc5fbaef4948788f694ea45d94b56eca8c",
     "netlify": "b0202874c1cda6ed5637123d0aeba6c9bdcad788ebb3e132bf548609375e81e2",
+    "netstat": "077d8295aa43907a58e7fa8a77a620710a38b34a53081b475dc034a5ce221425",
     "netwatch": "2f7162452bbfed65c8e4e38951a35262912106cab36c50fdfc0a7657dc02e735",
     "networkctl": "1366cfce22401d79bb36e3678286b62ba8dfeeb2114c3e6370d4b22e5c671e78",
     "newgidmap": "399b43760d639fe2edd24c257eb8059d6ff65107fef36d1e3e631f781f3fc171",
@@ -448,6 +468,7 @@
     "php": "0625a69458af42115b3675a2472b3be6c9264968046ecaf93daee1928f6e4751",
     "phpunit": "d7485a53148f810defab7b05e2b471cd5485e4425281c12e6861eeea9c0ac8fa",
     "pidof": "870c58eb7256a2b514dcb2f670fb80e9a910f61f2626e67f5a81b118ec2e454f",
+    "pidstat": "ef34c4b7c243a6644a63639c927ea83addfe00dda54ef96560bdc3f5c4e6b117",
     "pidwait": "fabc684d0951d5ee54ba1ac804eb75f997ba81776375e6979ca8c61c3e6943e6",
     "ping": "3b6039521a0836479de2e4a3bd620d89db9aa965573f700e42306f345557aab0",
     "pinky@GNU": "7dfb8c1e94ded91dee7cb2143733e8a8018512f167849c2f1dc6c7d16f93d9ba",
@@ -459,6 +480,7 @@
     "pixi": "e81ef79764f59949703ceb16ae2b0b88a18fd673228085da93add50952716236",
     "pkill": "30ecbde440932f9d3b6f3efa8a57d19389e40d6068fb099d698d5523d4d49290",
     "playwright": "0cf5e9f8b66696599da6715576608275cff377b5f67d505aa074bb401a60e649",
+    "plipconfig": "c9114b4693f3ecb6097be2f494dc2c0650cb9ca7aff79f6d4b1783c6d3c438e4",
     "pm2": "ad4a6c9277589a256ae096f445a5b66b266fd96971fc20167b66b1927a83b2ef",
     "pmap": "e00ea707b3e8f9b54cd9e0f5550f542efa6254190b536eefad3bbe6ac97f3263",
     "pnpm": "90abec40bc261a9e4d2f26b1b2f7fb4dae8d03f898c868a214d3bc539399d35a",
@@ -500,6 +522,7 @@
     "quilt": "3fa64dc5b9270d5dc05c2de9f0460effa232ebba4ef41aca00e101574c441321",
     "rake": "19e56c926ae42a9fe449432926b80680a38872b53712e7d88960eb7a57899cad",
     "ranlib": "8497524ca801fa26365efb8622aad9eb21e52f08797feb732c8a5e8621a49d39",
+    "rarp": "372b2473863e3f6840ac2db0f36594de1cb8294745fc7f4a0fe6bb006ae86779",
     "rbenv": "923623cf74b916808cd5b5e7d735170e054def80e93dcc0eb8382ed5d62af188",
     "rclone": "6770ff1c46fb9a8bd945e6f19c47c03c9b64d975ea4fa224fb84c7409a9320f1",
     "rdma": "48d8529ad2eaa02ae96b462f4c795905dba9aa19ed577fd89698b6be29aad4ed",
@@ -525,6 +548,7 @@
     "rmdir@GNU": "70f4a0616015916bff29277cd712b1ea989bff2b1cfd4e505a94aa8e44a6507e",
     "rmdir@uutils": "d3d33311983a78426a4d93b3d2655709e5ba6647219124ba15e57604c70cb116",
     "rmmod": "65855a6afa10943cd1e90b337c1216aa25c0a4ce6a69b284e40d6082fa8ac1e7",
+    "route": "b54bc8e0c8060a4d94df8d5d21376071d0e9794952bd0806390a514390489c58",
     "routel": "ce3d563f12a98bee836892a2f08642756a4200683044f2a6393f7dff75a97d6e",
     "rsbuild": "c6d84600f670a9d621c952709f6052fb827fe0e4ca839fc6d165c5000cc245b1",
     "rsdoctor": "9fcb5406bb435cf81a502bd1ea7eb844b7734a83eb4c70ff7a086da2cfa5fe8f",
@@ -548,6 +572,8 @@
     "rustc": "7534b15f5c65fe820f04db83fb4a24c9bece5f4b0f83c9f0ff641f4c3214add3",
     "rustfmt": "6a6deb843f3579c710bab4c59c36faed8c6a17c55b7a25eac90f323653929452",
     "rustup": "ea095b6dcc3a2a02cd1467516afe780667f4de077e532d4d2c450650171a949b",
+    "sadf": "c1d0f784efd6fb245afff5b3bcd20b1f71aa5eabd7d95c055f36c5f75d4af63f",
+    "sar": "ebfcf644e2a722ea14498e63291bad4c7e37f68bbdfdcb10ade40e4c6d6f5e9a",
     "scoop": "8e79935648acede229109ec95b037b46037e23f1c4e109443f4587937217b6fb",
     "scoop-checkver": "c8a67ea35058773b0baeda89bf0fcf6cfe582a7713f0a7ff63aa32d7d7ad8030",
     "scoop-install": "a3e6207e908dad15f5884fb23a6257c097aa83b6760adb7efe9376e045999bf1",
@@ -586,6 +612,7 @@
     "sk": "3375369c085013af85dd7d9b8ef9c57b1d9f3edbcbdc19ac2c99a277df41ebb0",
     "skill": "a9fa48b3502d782b1a31b95625bd61a69627d0694b526cdefe3d9ba5c601ba3e",
     "slabtop": "13b84a9d61330e693db0141bc51d225828c8c69e72024c0b1d9f5d03e1177446",
+    "slattach": "0cbfe72b207a6314f64114da5d0aed4b4dd0665ad169998ba24eb79b747d231a",
     "sleep@GNU": "fa9e8d547024e34bab26bcbc3d2e6bb0713d77b958280dae6862ec4e7f7eeff6",
     "sleep@uutils": "1a842b665cb02919f3aab747590ed63d5473e3b84ac860c2ea395cb287eaf99b",
     "snice": "947c1c3f900ccb592e83b345f4337cad3a94653edf911259416f0213ba790c76",
@@ -665,6 +692,7 @@
     "tac@uutils": "2959b4a6b89ab2358cf576b001f23ab0dfb97736ee52667a3a2f495d8cb88e97",
     "tail@GNU": "45f8fdea0d101534b6cf4f2ff30cfe65817214e557d930773f3af219e21f18b5",
     "tail@uutils": "6ae118c810d0236744aafdc4668515920866729e44792775b1e2e54dda3d1c47",
+    "tapestat": "7648c821adcfa053dabf2af09afee56c85b7cf854d58a2c76bd0f107bfa68883",
     "tar@BSD": "5e8b46f175931d31e198b3b7b058cafbb42c6526b428333c3e5e02d1514b3a18",
     "tar@GNU": "f5273f288419ef8869855f4f5b06c126bf6df5f1e84564609b6aab2fae20a064",
     "taskset": "e6fc9f6887fffe458fe927debebea8179d890c879017fe5aea5bbe00b80696a3",
@@ -736,6 +764,7 @@
     "vdir@uutils": "aa0c652b79fbada8b16fe84246100d57d1ffcaa37a60d89e51211ab17833f26d",
     "vdpa": "90b7759e216cc1fadc33b09f15de2b6547e262fe9a741aba3a0884d36a3e77b7",
     "vercel": "d4d4c759462a6bc9c66cf6c1b0620697ed01d25b1e6d5de0a3232165043b2daf",
+    "veritysetup": "915007950770396f7816d5cb10e28775c7d8a06951a64acb082af99228813675",
     "vhs": "af8e6cda0a8010ba5ea7d703ba950f96f03e07ff938b70de7c2530cb83da4eba",
     "viddy": "1b04c452508c626db351edaabcd67d6e7135b0939a9467854f586defab38bffc",
     "vipw": "5c2f68ee269b9f66c5b5e1c1917cc9358ae552cf552c3c4e15a39d2bb94f328b",
@@ -983,6 +1012,17 @@
         "description": "轻量级多协议多源下载工具。"
       }
     },
+    "arp": {
+      "id": "ec2e176e-390c-5d52-91cb-8c137ea875fb",
+      "en-US": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "Manipulate the system ARP cache."
+      },
+      "zh-CN": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "管理系统的 ARP 缓存。"
+      }
+    },
     "arpd": {
       "id": "6365c77b-3b50-524f-86af-8e44dc97d675",
       "en-US": {
@@ -1027,6 +1067,18 @@
         "description": "使用 AST 模式在大规模代码中搜索与重写。"
       }
     },
+    "at": {
+      "id": "7564293c-6bd9-577f-ad0e-ecaa5971582a",
+      "alias": "at atq atrm",
+      "en-US": {
+        "url": "https://salsa.debian.org/debian/at",
+        "description": "Queue, examine or delete jobs for later execution."
+      },
+      "zh-CN": {
+        "url": "https://salsa.debian.org/debian/at",
+        "description": "排队、检查或删除稍后执行的作业。"
+      }
+    },
     "atac": {
       "id": "a39c1ba9-325e-4765-b4af-96b75d4a8a90",
       "en-US": {
@@ -1036,6 +1088,17 @@
       "zh-CN": {
         "url": "https://github.com/Julien-cpsn/ATAC",
         "description": "在终端中使用的简易 API 客户端"
+      }
+    },
+    "atd": {
+      "id": "b23978b6-fdbe-54a8-855b-7367d06f9228",
+      "en-US": {
+        "url": "https://salsa.debian.org/debian/at",
+        "description": "Run jobs queued for later execution."
+      },
+      "zh-CN": {
+        "url": "https://salsa.debian.org/debian/at",
+        "description": "运行排队等待稍后执行的作业。"
       }
     },
     "atuin": {
@@ -1268,6 +1331,17 @@
       "zh-CN": {
         "url": "https://github.com/sharkdp/bat",
         "description": "带语法高亮和 Git 集成的 cat 替代品。"
+      }
+    },
+    "batch": {
+      "id": "c9d326f5-4ee9-56ad-918e-f001a7524b8d",
+      "en-US": {
+        "url": "https://salsa.debian.org/debian/at",
+        "description": "Submit a batch job."
+      },
+      "zh-CN": {
+        "url": "https://salsa.debian.org/debian/at",
+        "description": "提交批处理作业。"
       }
     },
     "biome": {
@@ -1811,6 +1885,17 @@
         "description": "全平台通用换源工具与框架。"
       }
     },
+    "cifsiostat": {
+      "id": "c2e01015-f22f-5c2f-892e-1491cc967725",
+      "en-US": {
+        "url": "https://github.com/sysstat/sysstat",
+        "description": "Report CIFS statistics."
+      },
+      "zh-CN": {
+        "url": "https://github.com/sysstat/sysstat",
+        "description": "报告 CIFS 统计信息。"
+      }
+    },
     "cksum@GNU": {
       "id": "8d69dd02-dbc4-4062-ba26-71d34055840b",
       "alias": "cksum",
@@ -2035,6 +2120,39 @@
       "zh-CN": {
         "url": "https://cron.sourceforge.net",
         "description": "维护用户的 crontab 文件。"
+      }
+    },
+    "cryptdisks_start": {
+      "id": "0dd8469a-eee3-56d9-8054-4b612454ee2d",
+      "en-US": {
+        "url": "https://gitlab.com/cryptsetup/cryptsetup",
+        "description": "Start crypto disks listed in /etc/crypttab."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/cryptsetup/cryptsetup",
+        "description": "启动 /etc/crypttab 中列出的加密磁盘。"
+      }
+    },
+    "cryptdisks_stop": {
+      "id": "9af1b93e-f027-557b-8c79-22507527e555",
+      "en-US": {
+        "url": "https://gitlab.com/cryptsetup/cryptsetup",
+        "description": "Stop crypto disks listed in /etc/crypttab."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/cryptsetup/cryptsetup",
+        "description": "停止 /etc/crypttab 中列出的加密磁盘。"
+      }
+    },
+    "cryptsetup": {
+      "id": "2a8b2fac-ab72-5c80-8d02-df45aeba0800",
+      "en-US": {
+        "url": "https://gitlab.com/cryptsetup/cryptsetup",
+        "description": "Manage plain dm-crypt, LUKS and other encrypted volumes."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/cryptsetup/cryptsetup",
+        "description": "管理普通 dm-crypt、LUKS 和其他加密卷。"
       }
     },
     "csplit@GNU": {
@@ -3846,6 +3964,17 @@
         "description": "打印每个指定 USER 的用户和组信息，省略 USER 则打印当前用户的"
       }
     },
+    "ifconfig": {
+      "id": "d9f44323-7f98-556c-8e5b-9c718cef4c0a",
+      "en-US": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "Configure a network interface."
+      },
+      "zh-CN": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "配置网络接口。"
+      }
+    },
     "ifstat": {
       "id": "6b9dad89-0b5f-554c-bf3d-76fd26ecac2d",
       "en-US": {
@@ -3892,6 +4021,17 @@
         "description": "将 SOURCE 复制到 DEST，或将多个 SOURCE 复制到已存在的目录"
       }
     },
+    "integritysetup": {
+      "id": "f839eac3-0a71-54a4-a264-15e96e873924",
+      "en-US": {
+        "url": "https://gitlab.com/cryptsetup/cryptsetup",
+        "description": "Manage dm-integrity devices."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/cryptsetup/cryptsetup",
+        "description": "管理 dm-integrity 设备。"
+      }
+    },
     "ionic": {
       "id": "ed0e9d42-65fd-408a-9ba9-184720040687",
       "en-US": {
@@ -3912,6 +4052,17 @@
       "zh-CN": {
         "url": "https://github.com/util-linux/util-linux",
         "description": "显示或更改进程的 I/O 调度类和优先级。"
+      }
+    },
+    "iostat": {
+      "id": "5e868bb0-50d5-58e8-9863-921f0263f371",
+      "en-US": {
+        "url": "https://github.com/sysstat/sysstat",
+        "description": "Report CPU and I/O statistics."
+      },
+      "zh-CN": {
+        "url": "https://github.com/sysstat/sysstat",
+        "description": "报告 CPU 和 I/O 统计信息。"
       }
     },
     "ip": {
@@ -3956,6 +4107,28 @@
       "zh-CN": {
         "url": "https://github.com/util-linux/util-linux",
         "description": "显示 IPC 设施信息。"
+      }
+    },
+    "ipmaddr": {
+      "id": "75a6b6b0-5672-5d98-be21-a36572d75a65",
+      "en-US": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "Manage multicast addresses."
+      },
+      "zh-CN": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "管理多播地址。"
+      }
+    },
+    "iptunnel": {
+      "id": "644a9d84-0901-5f37-b8f1-b5aaad82cfd3",
+      "en-US": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "Create and manage IP tunnels."
+      },
+      "zh-CN": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "创建和管理 IP 隧道。"
       }
     },
     "isosize": {
@@ -4618,6 +4791,17 @@
         "description": "功能强大、高效、轻量且可嵌入的脚本语言"
       }
     },
+    "luksformat": {
+      "id": "b56e401a-3fcb-5a69-b81d-078b87eb07ac",
+      "en-US": {
+        "url": "https://gitlab.com/cryptsetup/cryptsetup",
+        "description": "Create and format an encrypted LUKS device."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/cryptsetup/cryptsetup",
+        "description": "创建并格式化加密的 LUKS 设备。"
+      }
+    },
     "lychee": {
       "id": "a731cb66-67c5-43b8-919b-e8ce60acf07a",
       "en-US": {
@@ -4763,6 +4947,39 @@
       "zh-CN": {
         "url": "https://uutils.org",
         "description": "计算和校验 MD5 消息摘要。"
+      }
+    },
+    "mdadm": {
+      "id": "49d39bbb-6c78-5647-9fa7-f01ceaa409f3",
+      "en-US": {
+        "url": "https://git.kernel.org/pub/scm/utils/mdadm/mdadm.git",
+        "description": "Build, manage and monitor Linux md RAID arrays."
+      },
+      "zh-CN": {
+        "url": "https://git.kernel.org/pub/scm/utils/mdadm/mdadm.git",
+        "description": "构建、管理和监视 Linux md RAID 阵列。"
+      }
+    },
+    "mdmon": {
+      "id": "ae7b5243-0bbb-5a12-9765-49c7bec386d4",
+      "en-US": {
+        "url": "https://git.kernel.org/pub/scm/utils/mdadm/mdadm.git",
+        "description": "Monitor MD external metadata arrays."
+      },
+      "zh-CN": {
+        "url": "https://git.kernel.org/pub/scm/utils/mdadm/mdadm.git",
+        "description": "监视 MD 外部元数据阵列。"
+      }
+    },
+    "mii-tool": {
+      "id": "82ccd01a-a74b-5004-93a1-39ded5a26d25",
+      "en-US": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "View and manipulate MII status."
+      },
+      "zh-CN": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "查看和调整 MII 状态。"
       }
     },
     "mimo": {
@@ -4983,6 +5200,17 @@
         "description": "检查目录或文件是否为挂载点。"
       }
     },
+    "mpstat": {
+      "id": "31f9c697-7dc5-509a-aaf6-e1a667de4de5",
+      "en-US": {
+        "url": "https://github.com/sysstat/sysstat",
+        "description": "Report CPU statistics."
+      },
+      "zh-CN": {
+        "url": "https://github.com/sysstat/sysstat",
+        "description": "报告 CPU 统计信息。"
+      }
+    },
     "mpv": {
       "id": "c5efc29b-28e2-4ffe-ab68-aeb1cf4d68f9",
       "en-US": {
@@ -5073,6 +5301,17 @@
         "description": "沿路径名一直跟踪到终点。"
       }
     },
+    "nameif": {
+      "id": "d2bc61e4-f8ec-5bc5-81c7-cb77672d789f",
+      "en-US": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "Name network interfaces based on MAC addresses."
+      },
+      "zh-CN": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "根据 MAC 地址命名网络接口。"
+      }
+    },
     "ncat": {
       "id": "c50fd412-344e-4261-92b2-a2b244210ee2",
       "en-US": {
@@ -5093,6 +5332,17 @@
       "zh-CN": {
         "url": "https://www.netlify.com",
         "description": "用于管理和部署 Netlify 站点的命令行工具"
+      }
+    },
+    "netstat": {
+      "id": "736f5a05-e7f9-54e6-bd8b-777c807a78be",
+      "en-US": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "Print network connections, routing tables and interface statistics."
+      },
+      "zh-CN": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "打印网络连接、路由表和接口统计。"
       }
     },
     "netwatch": {
@@ -5839,6 +6089,17 @@
         "description": "查找正在运行程序的进程 ID。"
       }
     },
+    "pidstat": {
+      "id": "3b9a8bb0-8ccc-5365-b660-8bb3f9817975",
+      "en-US": {
+        "url": "https://github.com/sysstat/sysstat",
+        "description": "Report statistics for Linux tasks."
+      },
+      "zh-CN": {
+        "url": "https://github.com/sysstat/sysstat",
+        "description": "报告 Linux 任务统计信息。"
+      }
+    },
     "pidwait": {
       "id": "ec2d3fcb-ce99-5456-b45f-0be6ca513a28",
       "en-US": {
@@ -5961,6 +6222,17 @@
       "zh-CN": {
         "url": "https://playwright.dev/",
         "description": "Web 测试和自动化框架。"
+      }
+    },
+    "plipconfig": {
+      "id": "06a889a7-878e-54a1-9419-2e555214f833",
+      "en-US": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "Fine-tune PLIP device parameters."
+      },
+      "zh-CN": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "微调 PLIP 设备参数。"
       }
     },
     "pm2": {
@@ -6429,6 +6701,17 @@
         "description": "生成索引以加快归档访问。"
       }
     },
+    "rarp": {
+      "id": "a52bb045-e48d-5efe-8931-113ee4d4ca35",
+      "en-US": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "Manipulate the system RARP table."
+      },
+      "zh-CN": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "管理系统 RARP 表。"
+      }
+    },
     "rbenv": {
       "id": "94221d7e-ddd5-442c-bc1d-78f7d120c436",
       "en-US": {
@@ -6712,6 +6995,17 @@
         "description": "从 Linux 内核移除模块。"
       }
     },
+    "route": {
+      "id": "1057389b-3e0d-551d-80ff-c10e9c779e8c",
+      "en-US": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "Show or manipulate the IP routing table."
+      },
+      "zh-CN": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "显示或管理 IP 路由表。"
+      }
+    },
     "routel": {
       "id": "5808c2d5-2838-5467-b998-6fe520357209",
       "en-US": {
@@ -6965,6 +7259,28 @@
       "zh-CN": {
         "url": "https://rustup.rs",
         "description": "Rust 工具链安装器。"
+      }
+    },
+    "sadf": {
+      "id": "02eec307-12b1-5463-9645-0511f3bd5c85",
+      "en-US": {
+        "url": "https://github.com/sysstat/sysstat",
+        "description": "Display data collected by sar in multiple formats."
+      },
+      "zh-CN": {
+        "url": "https://github.com/sysstat/sysstat",
+        "description": "以多种格式显示 sar 收集的数据。"
+      }
+    },
+    "sar": {
+      "id": "aacbc3a9-865e-501d-a077-dfd4fd9cfc62",
+      "en-US": {
+        "url": "https://github.com/sysstat/sysstat",
+        "description": "Collect, report or save system activity information."
+      },
+      "zh-CN": {
+        "url": "https://github.com/sysstat/sysstat",
+        "description": "收集、报告或保存系统活动信息。"
       }
     },
     "scoop": {
@@ -7402,6 +7718,17 @@
       "zh-CN": {
         "url": "https://gitlab.com/procps-ng/procps",
         "description": "实时显示内核 slab 缓存信息。"
+      }
+    },
+    "slattach": {
+      "id": "28287f74-c45b-5137-8841-f22d2930eee7",
+      "en-US": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "Attach a network interface to a serial line."
+      },
+      "zh-CN": {
+        "url": "https://sourceforge.net/projects/net-tools",
+        "description": "将网络接口连接到串行线路。"
       }
     },
     "sleep@GNU": {
@@ -8296,6 +8623,17 @@
         "description": "将每个 FILE 的最后 10 行打印到标准输出"
       }
     },
+    "tapestat": {
+      "id": "6923c755-3edf-5a7e-98fe-d77231a4992c",
+      "en-US": {
+        "url": "https://github.com/sysstat/sysstat",
+        "description": "Report tape statistics."
+      },
+      "zh-CN": {
+        "url": "https://github.com/sysstat/sysstat",
+        "description": "报告磁带统计信息。"
+      }
+    },
     "tar@BSD": {
       "id": "29d3d98d-1af6-47db-93d2-b5c1381ade9d",
       "alias": "tar bsdtar",
@@ -9105,6 +9443,17 @@
       "zh-CN": {
         "url": "https://vercel.com",
         "description": "用于部署和管理 Vercel 项目的命令行工具"
+      }
+    },
+    "veritysetup": {
+      "id": "402fd763-63d1-5ac4-aa84-17bed67b7166",
+      "en-US": {
+        "url": "https://gitlab.com/cryptsetup/cryptsetup",
+        "description": "Manage dm-verity devices."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/cryptsetup/cryptsetup",
+        "description": "管理 dm-verity 设备。"
       }
     },
     "vhs": {

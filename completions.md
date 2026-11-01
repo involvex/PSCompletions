@@ -25,11 +25,14 @@ English | [简体中文](./completions.zh-CN.md)
 |[arch@GNU](https://www.gnu.org/software/coreutils/)|Print machine architecture.|
 |[arch@uutils](https://uutils.org)|Display machine architecture|
 |[aria2c](https://aria2.github.io)|Lightweight multi-protocol and multi-source download utility.|
+|[arp](https://sourceforge.net/projects/net-tools)|Manipulate the system ARP cache.|
 |[arpd](https://github.com/iproute2/iproute2)|Userspace ARP daemon.|
 |[arping](https://github.com/iputils/iputils)|Send ARP REQUESTs to a network host.|
 |[as](https://www.gnu.org/software/binutils)|The GNU assembler.|
 |[ast-grep](https://github.com/ast-grep/ast-grep)|Search and Rewrite code at large scale using AST pattern.|
+|[at](https://salsa.debian.org/debian/at)|Queue, examine or delete jobs for later execution.|
 |[atac](https://github.com/Julien-cpsn/ATAC)|A simple API client in your terminal|
+|[atd](https://salsa.debian.org/debian/at)|Run jobs queued for later execution.|
 |[atuin](https://atuin.sh)|Magical shell history.<br>Atuin replaces your existing shell history with a SQLite database, and records additional context for your commands.|
 |[aube](https://aube.jdx.dev)|A fast Node.js package manager|
 |[aubr](https://aube.jdx.dev)|Run a script defined in package.json (aube run standalone)|
@@ -50,6 +53,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[basenc@GNU](https://www.gnu.org/software/coreutils/)|basenc encode or decode FILE, or standard input, to standard output.|
 |[basenc@uutils](https://uutils.org)|Encode/decode data and print to standard output.|
 |[bat](https://github.com/sharkdp/bat)|Cat clone with syntax highlighting and Git integration.|
+|[batch](https://salsa.debian.org/debian/at)|Submit a batch job.|
 |[biome](https://biomejs.dev/)|Toolchain for web projects.|
 |[bison](https://www.gnu.org/software/bison)|GNU Bison is a general-purpose parser generator.<br>It converts an annotated context-free grammar into a deterministic LR or generalized LR (GLR) parser.|
 |[black](https://black.readthedocs.io)|The uncompromising code formatter.|
@@ -98,6 +102,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[chrt](https://github.com/util-linux/util-linux)|Show or change the real-time scheduling attributes of a process.|
 |[chsh](https://github.com/shadow-maint/shadow)|Change the login shell of a user account.<br>This determines the name of the user's initial login command.|
 |[chsrc](https://chsrc.run)|Change Source everywhere for every software.|
+|[cifsiostat](https://github.com/sysstat/sysstat)|Report CIFS statistics.|
 |[cksum@GNU](https://www.gnu.org/software/coreutils/)|Print or verify checksums.|
 |[cksum@uutils](https://uutils.org)|Print CRC and size for each file.|
 |[claude](https://docs.anthropic.com/en/docs/claude-code)|Claude Code - Anthropic's AI-powered coding assistant in the terminal.|
@@ -118,6 +123,9 @@ English | [简体中文](./completions.zh-CN.md)
 |[cpio](https://www.gnu.org/software/cpio)|GNU cpio copies files to and from archives.|
 |[croc](https://github.com/schollz/croc)|Easily and securely transfer files from one computer to another.|
 |[crontab](https://cron.sourceforge.net)|Maintain crontab files for individual users.|
+|[cryptdisks_start](https://gitlab.com/cryptsetup/cryptsetup)|Start crypto disks listed in /etc/crypttab.|
+|[cryptdisks_stop](https://gitlab.com/cryptsetup/cryptsetup)|Stop crypto disks listed in /etc/crypttab.|
+|[cryptsetup](https://gitlab.com/cryptsetup/cryptsetup)|Manage plain dm-crypt, LUKS and other encrypted volumes.|
 |[csplit@GNU](https://www.gnu.org/software/coreutils/)|Output pieces of FILE separated by PATTERN(s) to files 'xx00', 'xx01', ..., and output byte counts of each piece to standard output.|
 |[csplit@uutils](https://uutils.org)|Split a file into sections determined by context lines.|
 |[ctstat](https://github.com/iproute2/iproute2)|Show connection tracking statistics.|
@@ -278,16 +286,21 @@ English | [简体中文](./completions.zh-CN.md)
 |[icdiff](https://github.com/jeffkaufman/icdiff)|Show differences between files in a two column view.|
 |[id@GNU](https://www.gnu.org/software/coreutils/)|Print user and group information for each specified USER, or (when USER omitted) for the current process.|
 |[id@uutils](https://uutils.org)|Print user and group information for each specified USER, or (when USER omitted) for the current user.|
+|[ifconfig](https://sourceforge.net/projects/net-tools)|Configure a network interface.|
 |[ifstat](https://github.com/iproute2/iproute2)|Print network interface statistics.|
 |[insmod](https://github.com/kmod-project/kmod)|Insert a module into the Linux kernel.|
 |[install@GNU](https://www.gnu.org/software/coreutils/)|This install program copies files (often just compiled) into destination locations you choose.|
 |[install@uutils](https://uutils.org)|Copy SOURCE to DEST or multiple SOURCE(s) to the existing|
+|[integritysetup](https://gitlab.com/cryptsetup/cryptsetup)|Manage dm-integrity devices.|
 |[ionic](https://ionicframework.com/docs/cli)|Ionic CLI - The command-line interface for Ionic|
 |[ionice](https://github.com/util-linux/util-linux)|Show or change the I/O-scheduling class and priority of a process.|
+|[iostat](https://github.com/sysstat/sysstat)|Report CPU and I/O statistics.|
 |[ip](https://github.com/iproute2/iproute2)|Show / manipulate routing, network devices, interfaces and tunnels.|
 |[ipcmk](https://github.com/util-linux/util-linux)|Create various IPC resources.|
 |[ipcrm](https://github.com/util-linux/util-linux)|Remove certain IPC resources.|
 |[ipcs](https://github.com/util-linux/util-linux)|Show information on IPC facilities.|
+|[ipmaddr](https://sourceforge.net/projects/net-tools)|Manage multicast addresses.|
+|[iptunnel](https://sourceforge.net/projects/net-tools)|Create and manage IP tunnels.|
 |[isosize](https://github.com/util-linux/util-linux)|Show the length of an ISO-9660 filesystem.|
 |[istioctl](https://istio.io/)|The Istio command-line interface|
 |[jaq](https://github.com/01mf02/jaq)|Just Another Query Tool<br>A jq clone focused on correctness and performance|
@@ -347,6 +360,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[lsmod](https://github.com/kmod-project/kmod)|List currently loaded kernel modules.|
 |[lsns](https://github.com/util-linux/util-linux)|List system namespaces.|
 |[lua](https://www.lua.org/)|Powerful, efficient, lightweight, embeddable scripting language|
+|[luksformat](https://gitlab.com/cryptsetup/cryptsetup)|Create and format an encrypted LUKS device.|
 |[lychee](https://github.com/lycheeverse/lychee)|A fast, asynchronous link checker<br>Detects broken URLs and mail addresses in local files and websites|
 |[m4@GNU](https://www.gnu.org/software/m4)|Process macros in FILEs.|
 |[machinectl](https://github.com/systemd/systemd)|Control the systemd machine manager and its containers and images.|
@@ -360,6 +374,9 @@ English | [简体中文](./completions.zh-CN.md)
 |[mcookie](https://github.com/util-linux/util-linux)|Generate magic cookies for xauth.|
 |[md5sum@GNU](https://www.gnu.org/software/coreutils/)|Print or check MD5 (128-bit) checksums.|
 |[md5sum@uutils](https://uutils.org)|Compute and check MD5 message digests.|
+|[mdadm](https://git.kernel.org/pub/scm/utils/mdadm/mdadm.git)|Build, manage and monitor Linux md RAID arrays.|
+|[mdmon](https://git.kernel.org/pub/scm/utils/mdadm/mdadm.git)|Monitor MD external metadata arrays.|
+|[mii-tool](https://sourceforge.net/projects/net-tools)|View and manipulate MII status.|
 |[mimo](https://github.com/XiaomiMiMo/MiMo-Code)|mimocode - an AI-powered coding assistant.|
 |[minikube](https://minikube.sigs.k8s.io/)|Provides and manages local Kubernetes clusters optimized for development workflows.|
 |[mise](https://mise.jdx.dev/)|Polyglot tool version manager, env vars manager and task runner.|
@@ -379,6 +396,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[more](https://github.com/util-linux/util-linux)|Display the contents of a text file one screen at a time.|
 |[mount](https://github.com/util-linux/util-linux)|Mount a filesystem.|
 |[mountpoint](https://github.com/util-linux/util-linux)|Check whether a directory or file is a mountpoint.|
+|[mpstat](https://github.com/sysstat/sysstat)|Report CPU statistics.|
 |[mpv](https://mpv.io/manual/stable)|mpv is a media player based on MPlayer and mplayer2.<br>It supports a wide variety of video file formats, audio and video codecs, and subtitle types.|
 |[mv@GNU](https://www.gnu.org/software/coreutils/)|Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.|
 |[mv@uutils](https://uutils.org)|Move SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.|
@@ -387,8 +405,10 @@ English | [简体中文](./completions.zh-CN.md)
 |[mysql](https://dev.mysql.com/doc/refman/8.4/en/mysql-command-options.html)|MySQL command line client.|
 |[N_m3u8DL-RE](https://github.com/nilaoda/N_m3u8DL-RE)|Cross-platform browser stream downloader (HLS/DASH/Smooth).|
 |[namei](https://github.com/util-linux/util-linux)|Follow a pathname until a terminal point is found.|
+|[nameif](https://sourceforge.net/projects/net-tools)|Name network interfaces based on MAC addresses.|
 |[ncat](https://nmap.org/ncat)|Concatenate and redirect sockets.|
 |[netlify](https://www.netlify.com)|The Netlify CLI for managing and deploying your Netlify sites|
+|[netstat](https://sourceforge.net/projects/net-tools)|Print network connections, routing tables and interface statistics.|
 |[netwatch](https://github.com/matthart1983/netwatch)|Real-time network diagnostics in your terminal.|
 |[networkctl](https://github.com/systemd/systemd)|Query and control the networking subsystem.|
 |[newgidmap](https://github.com/shadow-maint/shadow)|Set the gid mapping of a user namespace.|
@@ -455,6 +475,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[php](https://www.php.net)|PHP Command Line Interface (CLI).|
 |[phpunit](https://phpunit.de)|A programmer-oriented testing framework for PHP.|
 |[pidof](https://gitlab.com/procps-ng/procps)|Find the process ID of a running program.|
+|[pidstat](https://github.com/sysstat/sysstat)|Report statistics for Linux tasks.|
 |[pidwait](https://gitlab.com/procps-ng/procps)|Wait for processes by name and other attributes.|
 |[ping](https://github.com/iputils/iputils)|Send ICMP ECHO_REQUEST to network hosts.|
 |[pinky@GNU](https://www.gnu.org/software/coreutils/)|A lightweight 'finger' program; print user information.|
@@ -466,6 +487,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[pixi](https://github.com/prefix-dev/pixi)|Developer Workflow and Environment Management for Multi-Platform, Language-Agnostic Workspaces.|
 |[pkill](https://gitlab.com/procps-ng/procps)|Signal processes by name and other attributes.|
 |[playwright](https://playwright.dev/)|Framework for web testing and automation.|
+|[plipconfig](https://sourceforge.net/projects/net-tools)|Fine-tune PLIP device parameters.|
 |[pm2](https://pm2.keymetrics.io/)|Node.js process manager with built-in load balancer.|
 |[pmap](https://gitlab.com/procps-ng/procps)|Report the memory map of a process.|
 |[pnpm](https://pnpm.io/)|Fast, disk-space-efficient package manager.|
@@ -507,6 +529,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[quilt](https://savannah.nongnu.org/projects/quilt)|Tool to manage a series of patches.|
 |[rake](https://github.com/ruby/rake)|A make-like build utility for Ruby.|
 |[ranlib](https://www.gnu.org/software/binutils)|Generate an index to speed access to archives.|
+|[rarp](https://sourceforge.net/projects/net-tools)|Manipulate the system RARP table.|
 |[rbenv](https://github.com/rbenv/rbenv)|Manage your app's Ruby environment.|
 |[rclone](https://rclone.org)|Syncs files to and from cloud storage providers.|
 |[rdma](https://github.com/iproute2/iproute2)|RDMA tool.|
@@ -532,6 +555,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[rmdir@GNU](https://www.gnu.org/software/coreutils/)|Remove the DIRECTORY(ies), if they are empty.|
 |[rmdir@uutils](https://uutils.org)|Remove the DIRECTORY(ies), if they are empty.|
 |[rmmod](https://github.com/kmod-project/kmod)|Remove a module from the Linux kernel.|
+|[route](https://sourceforge.net/projects/net-tools)|Show or manipulate the IP routing table.|
 |[routel](https://github.com/iproute2/iproute2)|Display the routing table.|
 |[rsbuild](https://rsbuild.rs)|A fast, extensible build tool for modern web development, powered by Rspack.|
 |[rsdoctor](https://rsdoctor.rs)|An AI-friendly build analyzer that makes the build process transparent.|
@@ -555,6 +579,8 @@ English | [简体中文](./completions.zh-CN.md)
 |[rustc](https://doc.rust-lang.org/rustc)|The Rust compiler|
 |[rustfmt](https://github.com/rust-lang/rustfmt)|A tool for formatting Rust code according to style guidelines.|
 |[rustup](https://rustup.rs)|The Rust toolchain installer.|
+|[sadf](https://github.com/sysstat/sysstat)|Display data collected by sar in multiple formats.|
+|[sar](https://github.com/sysstat/sysstat)|Collect, report or save system activity information.|
 |[scoop](https://scoop.sh)|A command-line installer for Windows.|
 |[scoop-checkver](https://scoop.sh)|Check for updates to Scoop manifests.<br>Use .\bin\checkver.ps1 to trigger completions.|
 |[scoop-install](https://github.com/abgox/scoop-tools)|A PowerShell script that allows you to temporarily use the replaced proxy URL to download app packages.|
@@ -593,6 +619,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[sk](https://github.com/skim-rs/skim)|A fast fuzzy finder for the command line written in Rust|
 |[skill](https://gitlab.com/procps-ng/procps)|Send a signal to processes selected by expression.|
 |[slabtop](https://gitlab.com/procps-ng/procps)|Display kernel slab cache information in real time.|
+|[slattach](https://sourceforge.net/projects/net-tools)|Attach a network interface to a serial line.|
 |[sleep@GNU](https://www.gnu.org/software/coreutils/)|Pause for NUMBER seconds, where NUMBER is an integer or floating-point.|
 |[sleep@uutils](https://uutils.org)|Pause for NUMBER seconds.|
 |[snice](https://gitlab.com/procps-ng/procps)|Change the priority of processes selected by expression.|
@@ -672,6 +699,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[tac@uutils](https://uutils.org)|Write each file to standard output, last line first.|
 |[tail@GNU](https://www.gnu.org/software/coreutils/)|Print the last 10 lines of each FILE to standard output.|
 |[tail@uutils](https://uutils.org)|Print the last 10 lines of each FILE to standard output.|
+|[tapestat](https://github.com/sysstat/sysstat)|Report tape statistics.|
 |[tar@BSD](https://www.libarchive.org)|Manipulate archive files with the BSD tar implementation from libarchive.|
 |[tar@GNU](https://www.gnu.org/software/tar)|GNU tar saves many files together into a single tape or disk archive, and can restore individual files from the archive.|
 |[taskset](https://github.com/util-linux/util-linux)|Show or change the CPU affinity of a process.|
@@ -743,6 +771,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[vdir@uutils](https://uutils.org)|List directory contents.|
 |[vdpa](https://github.com/iproute2/iproute2)|vdpa management tool.|
 |[vercel](https://vercel.com)|The Vercel CLI for deploying and managing your Vercel projects|
+|[veritysetup](https://gitlab.com/cryptsetup/cryptsetup)|Manage dm-verity devices.|
 |[vhs](https://github.com/charmbracelet/vhs)|Your CLI home video recorder.<br>Record terminal GIFs from shell scripts|
 |[viddy](https://github.com/sachaos/viddy)|A modern watch command<br>Time machine and pager etc.|
 |[vipw](https://github.com/shadow-maint/shadow)|Edit the password, group, shadow or gshadow file.|

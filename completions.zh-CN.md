@@ -25,11 +25,14 @@
 |[arch@GNU](https://www.gnu.org/software/coreutils/)|打印机器架构。|
 |[arch@uutils](https://uutils.org)|显示机器架构|
 |[aria2c](https://aria2.github.io)|轻量级多协议多源下载工具。|
+|[arp](https://sourceforge.net/projects/net-tools)|管理系统的 ARP 缓存。|
 |[arpd](https://github.com/iproute2/iproute2)|用户空间 ARP 守护进程。|
 |[arping](https://github.com/iputils/iputils)|向网络主机发送 ARP 请求。|
 |[as](https://www.gnu.org/software/binutils)|GNU 汇编器。|
 |[ast-grep](https://github.com/ast-grep/ast-grep)|使用 AST 模式在大规模代码中搜索与重写。|
+|[at](https://salsa.debian.org/debian/at)|排队、检查或删除稍后执行的作业。|
 |[atac](https://github.com/Julien-cpsn/ATAC)|在终端中使用的简易 API 客户端|
+|[atd](https://salsa.debian.org/debian/at)|运行排队等待稍后执行的作业。|
 |[atuin](https://atuin.sh)|魔法 shell 历史记录<br>Atuin 使用 SQLite 数据库取代你现有的命令行历史记录，并为你的命令记录额外的上下文信息|
 |[aube](https://aube.jdx.dev)|一个快速的 Node.js 包管理器|
 |[aubr](https://aube.jdx.dev)|运行 package.json 中定义的脚本（aube run 独立版本）|
@@ -50,6 +53,7 @@
 |[basenc@GNU](https://www.gnu.org/software/coreutils/)|将 FILE（未指定时为标准输入）用 basenc 编码或解码，输出到标准输出。|
 |[basenc@uutils](https://uutils.org)|编码/解码数据并输出到标准输出。|
 |[bat](https://github.com/sharkdp/bat)|带语法高亮和 Git 集成的 cat 替代品。|
+|[batch](https://salsa.debian.org/debian/at)|提交批处理作业。|
 |[biome](https://biomejs.dev/)|Web 项目工具链。|
 |[bison](https://www.gnu.org/software/bison)|GNU Bison 是一个通用的解析器生成器。<br>它将带注释的上下文无关文法转换为确定性的 LR 或广义 LR (GLR) 解析器。|
 |[black](https://black.readthedocs.io)|不妥协的代码格式化工具。|
@@ -98,6 +102,7 @@
 |[chrt](https://github.com/util-linux/util-linux)|显示或更改进程的实时调度属性。|
 |[chsh](https://github.com/shadow-maint/shadow)|更改用户账户的登录 Shell。<br>这决定了用户初始登录命令的名称。|
 |[chsrc](https://chsrc.run)|全平台通用换源工具与框架。|
+|[cifsiostat](https://github.com/sysstat/sysstat)|报告 CIFS 统计信息。|
 |[cksum@GNU](https://www.gnu.org/software/coreutils/)|打印或校验校验和。|
 |[cksum@uutils](https://uutils.org)|输出每个文件的 CRC 和大小。|
 |[claude](https://docs.anthropic.com/en/docs/claude-code)|Claude Code - Anthropic 的终端 AI 编程助手。|
@@ -118,6 +123,9 @@
 |[cpio](https://www.gnu.org/software/cpio)|GNU cpio 在归档和文件系统之间复制文件。|
 |[croc](https://github.com/schollz/croc)|轻松安全地在计算机之间传输文件。|
 |[crontab](https://cron.sourceforge.net)|维护用户的 crontab 文件。|
+|[cryptdisks_start](https://gitlab.com/cryptsetup/cryptsetup)|启动 /etc/crypttab 中列出的加密磁盘。|
+|[cryptdisks_stop](https://gitlab.com/cryptsetup/cryptsetup)|停止 /etc/crypttab 中列出的加密磁盘。|
+|[cryptsetup](https://gitlab.com/cryptsetup/cryptsetup)|管理普通 dm-crypt、LUKS 和其他加密卷。|
 |[csplit@GNU](https://www.gnu.org/software/coreutils/)|把 FILE 按一个或多个 PATTERN 切分为 'xx00'、'xx01' 等文件，并把每一部分的字节数输出到标准输出。|
 |[csplit@uutils](https://uutils.org)|按上下文行将文件分割为多个部分。|
 |[ctstat](https://github.com/iproute2/iproute2)|显示连接跟踪统计信息。|
@@ -278,16 +286,21 @@
 |[icdiff](https://github.com/jeffkaufman/icdiff)|以双栏视图显示文件之间的差异。|
 |[id@GNU](https://www.gnu.org/software/coreutils/)|打印每个指定 USER 的用户和组信息；省略 USER 时打印当前进程的信息。|
 |[id@uutils](https://uutils.org)|打印每个指定 USER 的用户和组信息，省略 USER 则打印当前用户的|
+|[ifconfig](https://sourceforge.net/projects/net-tools)|配置网络接口。|
 |[ifstat](https://github.com/iproute2/iproute2)|打印网络接口统计信息。|
 |[insmod](https://github.com/kmod-project/kmod)|将模块插入 Linux 内核。|
 |[install@GNU](https://www.gnu.org/software/coreutils/)|这个 install 程序把文件（通常是刚编译好的）复制到你选择的目标位置。|
 |[install@uutils](https://uutils.org)|将 SOURCE 复制到 DEST，或将多个 SOURCE 复制到已存在的目录|
+|[integritysetup](https://gitlab.com/cryptsetup/cryptsetup)|管理 dm-integrity 设备。|
 |[ionic](https://ionicframework.com/docs/cli)|Ionic CLI - Ionic 的命令行界面|
 |[ionice](https://github.com/util-linux/util-linux)|显示或更改进程的 I/O 调度类和优先级。|
+|[iostat](https://github.com/sysstat/sysstat)|报告 CPU 和 I/O 统计信息。|
 |[ip](https://github.com/iproute2/iproute2)|显示/操作路由、网络设备、接口和隧道。|
 |[ipcmk](https://github.com/util-linux/util-linux)|创建各种 IPC 资源。|
 |[ipcrm](https://github.com/util-linux/util-linux)|删除某些 IPC 资源。|
 |[ipcs](https://github.com/util-linux/util-linux)|显示 IPC 设施信息。|
+|[ipmaddr](https://sourceforge.net/projects/net-tools)|管理多播地址。|
+|[iptunnel](https://sourceforge.net/projects/net-tools)|创建和管理 IP 隧道。|
 |[isosize](https://github.com/util-linux/util-linux)|显示 ISO-9660 文件系统的长度。|
 |[istioctl](https://istio.io/)|Istio 命令行界面|
 |[jaq](https://github.com/01mf02/jaq)|Just Another Query Tool <br>专注于正确性和性能的 jq 克隆|
@@ -347,6 +360,7 @@
 |[lsmod](https://github.com/kmod-project/kmod)|列出当前加载的内核模块。|
 |[lsns](https://github.com/util-linux/util-linux)|列出系统命名空间。|
 |[lua](https://www.lua.org/)|功能强大、高效、轻量且可嵌入的脚本语言|
+|[luksformat](https://gitlab.com/cryptsetup/cryptsetup)|创建并格式化加密的 LUKS 设备。|
 |[lychee](https://github.com/lycheeverse/lychee)|一个快速、异步的链接检查器。<br>检测本地文件和网站中的失效 URL 和邮件地址。|
 |[m4@GNU](https://www.gnu.org/software/m4)|处理 FILEs 中的宏。|
 |[machinectl](https://github.com/systemd/systemd)|控制 systemd 机器管理器及其容器和镜像。|
@@ -360,6 +374,9 @@
 |[mcookie](https://github.com/util-linux/util-linux)|为 xauth 生成 magic cookie。|
 |[md5sum@GNU](https://www.gnu.org/software/coreutils/)|打印或校验 MD5（128 位）校验和。|
 |[md5sum@uutils](https://uutils.org)|计算和校验 MD5 消息摘要。|
+|[mdadm](https://git.kernel.org/pub/scm/utils/mdadm/mdadm.git)|构建、管理和监视 Linux md RAID 阵列。|
+|[mdmon](https://git.kernel.org/pub/scm/utils/mdadm/mdadm.git)|监视 MD 外部元数据阵列。|
+|[mii-tool](https://sourceforge.net/projects/net-tools)|查看和调整 MII 状态。|
 |[mimo](https://github.com/XiaomiMiMo/MiMo-Code)|mimocode - AI 驱动的编码助手。|
 |[minikube](https://minikube.sigs.k8s.io/)|提供并管理针对开发工作流程优化的本地 Kubernetes 集群。|
 |[mise](https://mise.jdx.dev/)|多语言工具版本管理器、环境变量管理器和任务运行器。|
@@ -379,6 +396,7 @@
 |[more](https://github.com/util-linux/util-linux)|逐屏显示文本文件内容。|
 |[mount](https://github.com/util-linux/util-linux)|挂载文件系统。|
 |[mountpoint](https://github.com/util-linux/util-linux)|检查目录或文件是否为挂载点。|
+|[mpstat](https://github.com/sysstat/sysstat)|报告 CPU 统计信息。|
 |[mpv](https://mpv.io/manual/stable)|mpv 是基于 MPlayer 和 mplayer2 的媒体播放器。<br>支持多种视频文件格式、音频/视频编解码器与字幕类型。|
 |[mv@GNU](https://www.gnu.org/software/coreutils/)|把 SOURCE 重命名为 DEST，或把多个 SOURCE 移动到 DIRECTORY 中。|
 |[mv@uutils](https://uutils.org)|将 SOURCE 移动到 DEST，或将多个 SOURCE 移动到 DIRECTORY|
@@ -387,8 +405,10 @@
 |[mysql](https://dev.mysql.com/doc/refman/8.4/en/mysql-command-options.html)|MySQL 命令行客户端。|
 |[N_m3u8DL-RE](https://github.com/nilaoda/N_m3u8DL-RE)|跨平台浏览器流下载器 (HLS/DASH/Smooth)。|
 |[namei](https://github.com/util-linux/util-linux)|沿路径名一直跟踪到终点。|
+|[nameif](https://sourceforge.net/projects/net-tools)|根据 MAC 地址命名网络接口。|
 |[ncat](https://nmap.org/ncat)|连接并重定向套接字。|
 |[netlify](https://www.netlify.com)|用于管理和部署 Netlify 站点的命令行工具|
+|[netstat](https://sourceforge.net/projects/net-tools)|打印网络连接、路由表和接口统计。|
 |[netwatch](https://github.com/matthart1983/netwatch)|在终端中运行实时网络诊断。|
 |[networkctl](https://github.com/systemd/systemd)|查询和控制网络子系统。|
 |[newgidmap](https://github.com/shadow-maint/shadow)|设置用户命名空间的 gid 映射。|
@@ -455,6 +475,7 @@
 |[php](https://www.php.net)|PHP 命令行界面 (CLI)。|
 |[phpunit](https://phpunit.de)|面向程序员的 PHP 测试框架。|
 |[pidof](https://gitlab.com/procps-ng/procps)|查找正在运行程序的进程 ID。|
+|[pidstat](https://github.com/sysstat/sysstat)|报告 Linux 任务统计信息。|
 |[pidwait](https://gitlab.com/procps-ng/procps)|按名称和其他属性等待进程。|
 |[ping](https://github.com/iputils/iputils)|向网络主机发送 ICMP ECHO_REQUEST。|
 |[pinky@GNU](https://www.gnu.org/software/coreutils/)|一个轻量级的 finger 程序；打印用户信息。|
@@ -466,6 +487,7 @@
 |[pixi](https://github.com/prefix-dev/pixi)|面向多平台、语言无关工作区的开发者工作流与环境管理。|
 |[pkill](https://gitlab.com/procps-ng/procps)|按名称和其他属性向进程发送信号。|
 |[playwright](https://playwright.dev/)|Web 测试和自动化框架。|
+|[plipconfig](https://sourceforge.net/projects/net-tools)|微调 PLIP 设备参数。|
 |[pm2](https://pm2.keymetrics.io/)|Node.js 进程管理器，内置负载均衡。|
 |[pmap](https://gitlab.com/procps-ng/procps)|报告进程的内存映射。|
 |[pnpm](https://pnpm.io/zh/)|快速、节省磁盘空间的包管理器。|
@@ -507,6 +529,7 @@
 |[quilt](https://savannah.nongnu.org/projects/quilt)|管理补丁序列的工具。|
 |[rake](https://github.com/ruby/rake)|Ruby 的 make 风格构建工具。|
 |[ranlib](https://www.gnu.org/software/binutils)|生成索引以加快归档访问。|
+|[rarp](https://sourceforge.net/projects/net-tools)|管理系统 RARP 表。|
 |[rbenv](https://github.com/rbenv/rbenv)|管理应用的 Ruby 环境。|
 |[rclone](https://rclone.org)|在云存储提供商之间同步文件。|
 |[rdma](https://github.com/iproute2/iproute2)|RDMA 工具。|
@@ -532,6 +555,7 @@
 |[rmdir@GNU](https://www.gnu.org/software/coreutils/)|删除这些目录（如果它们为空）。|
 |[rmdir@uutils](https://uutils.org)|删除 DIRECTORY（如果为空）|
 |[rmmod](https://github.com/kmod-project/kmod)|从 Linux 内核移除模块。|
+|[route](https://sourceforge.net/projects/net-tools)|显示或管理 IP 路由表。|
 |[routel](https://github.com/iproute2/iproute2)|显示路由表。|
 |[rsbuild](https://rsbuild.rs)|基于 Rspack 的快速可扩展现代 Web 构建工具。|
 |[rsdoctor](https://rsdoctor.rs)|AI 友好的构建分析器，让构建过程透明可见。|
@@ -555,6 +579,8 @@
 |[rustc](https://doc.rust-lang.org/rustc)|Rust 编译器|
 |[rustfmt](https://github.com/rust-lang/rustfmt)|根据风格指南格式化 Rust 代码的工具。|
 |[rustup](https://rustup.rs)|Rust 工具链安装器。|
+|[sadf](https://github.com/sysstat/sysstat)|以多种格式显示 sar 收集的数据。|
+|[sar](https://github.com/sysstat/sysstat)|收集、报告或保存系统活动信息。|
 |[scoop](https://scoop.sh)|适用于 Windows 的命令行安装程序|
 |[scoop-checkver](https://scoop.sh)|检查 Scoop 清单更新。<br>使用 .\bin\checkver.ps1 去触发补全|
 |[scoop-install](https://gitee.com/abgox/scoop-tools)|一个 PowerShell 脚本，它允许你临时使用替换之后的代理 url 来下载安装包。|
@@ -593,6 +619,7 @@
 |[sk](https://github.com/skim-rs/skim)|一款用 Rust 语言编写的命令行快速模糊查找工具|
 |[skill](https://gitlab.com/procps-ng/procps)|向由表达式选择的进程发送信号。|
 |[slabtop](https://gitlab.com/procps-ng/procps)|实时显示内核 slab 缓存信息。|
+|[slattach](https://sourceforge.net/projects/net-tools)|将网络接口连接到串行线路。|
 |[sleep@GNU](https://www.gnu.org/software/coreutils/)|暂停 NUMBER 秒，NUMBER 可以是整数或浮点数。|
 |[sleep@uutils](https://uutils.org)|暂停 NUMBER 秒|
 |[snice](https://gitlab.com/procps-ng/procps)|更改由表达式选择的进程的优先级。|
@@ -672,6 +699,7 @@
 |[tac@uutils](https://uutils.org)|将每个文件写到标准输出，最后一行在前|
 |[tail@GNU](https://www.gnu.org/software/coreutils/)|把每个 FILE 的最后 10 行打印到标准输出。|
 |[tail@uutils](https://uutils.org)|将每个 FILE 的最后 10 行打印到标准输出|
+|[tapestat](https://github.com/sysstat/sysstat)|报告磁带统计信息。|
 |[tar@BSD](https://www.libarchive.org)|使用 libarchive 的 BSD tar 实现操作归档文件。|
 |[tar@GNU](https://www.gnu.org/software/tar)|GNU tar 把许多文件保存到单个磁带或磁盘归档中，并可从归档中恢复单个文件。|
 |[taskset](https://github.com/util-linux/util-linux)|显示或更改进程的 CPU 亲和性。|
@@ -743,6 +771,7 @@
 |[vdir@uutils](https://uutils.org)|列出目录内容|
 |[vdpa](https://github.com/iproute2/iproute2)|vdpa 管理工具。|
 |[vercel](https://vercel.com)|用于部署和管理 Vercel 项目的命令行工具|
+|[veritysetup](https://gitlab.com/cryptsetup/cryptsetup)|管理 dm-verity 设备。|
 |[vhs](https://github.com/charmbracelet/vhs)|你的 CLI 家庭录像机<br>从 Shell 脚本录制终端 GIF|
 |[viddy](https://github.com/sachaos/viddy)|现代 watch 命令<br>时间机器和分页器等|
 |[vipw](https://github.com/shadow-maint/shadow)|编辑密码、组、shadow 或 gshadow 文件。|
