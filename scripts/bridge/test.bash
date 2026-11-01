@@ -343,6 +343,20 @@ out="$(psc update 2>&1)"
 [[ "$out" == *"up to date"* ]] \
     && { echo "ok   no-arg-update-says-up-to-date"; PASS=$((PASS+1)); } || { echo "FAIL no-arg-update-says-up-to-date [$out]"; FAIL=$((FAIL+1)); }
 rm -f "$PSCOMPLETIONS_DATA_DIR/temp/change.json"
+# `--old` with nothing out of date answers with an empty per-completion set: the reply is the same template, never silence.
+printf '%s\n' '{"ok":true,"data":{"completions":[]}}' > "$PSCOMPLETIONS_DATA_DIR/temp/empty-envelope.json"
+_SAVE_BIN3=$_PSC_BIN
+printf '%s\n' '#!/bin/sh' \
+    'case " $* " in' \
+    "    *\" --json \"*) cat \"$PSCOMPLETIONS_DATA_DIR/temp/empty-envelope.json\"; exit 0 ;;" \
+    'esac' \
+    "exec \"$_SAVE_BIN3\" \"\$@\"" > "$PSCOMPLETIONS_DATA_DIR/temp/empty-bin.sh"
+chmod +x "$PSCOMPLETIONS_DATA_DIR/temp/empty-bin.sh"
+_PSC_BIN="$PSCOMPLETIONS_DATA_DIR/temp/empty-bin.sh"
+out="$(psc update --old 2>&1)"; rc=$?
+[[ $rc -eq 0 && "$out" == *"up to date"* ]] \
+    && { echo "ok   old-update-says-up-to-date"; PASS=$((PASS+1)); } || { echo "FAIL old-update-says-up-to-date rc=$rc [$out]"; FAIL=$((FAIL+1)); }
+_PSC_BIN=$_SAVE_BIN3
 # `--json` anywhere is the machine contract: never colored, never rendered into a page.
 out="$(psc list --json 2>&1)"; rc=$?
 [[ $rc -eq 0 && "$out" == *'"ok":true'* && "$out" != *$'\033'* ]] \

@@ -661,6 +661,23 @@ else
     bad no-arg-update-says-up-to-date " [$fresh_out]"
 end
 rm -f $PSCOMPLETIONS_DATA_DIR/temp/change.json
+# `--old` with nothing out of date answers with an empty per-completion set: the reply is the same template, never silence.
+printf '%s\n' '{"ok":true,"data":{"completions":[]}}' > $PSCOMPLETIONS_DATA_DIR/temp/empty-envelope.json
+set -l save_bin3 $_PSC_BIN
+printf '%s\n' '#!/bin/sh' \
+    'case " $* " in' \
+    '    *" --json "*) cat "'$PSCOMPLETIONS_DATA_DIR'/temp/empty-envelope.json"; exit 0 ;;' \
+    'esac' \
+    'exec "'$save_bin3'" "$@"' > $PSCOMPLETIONS_DATA_DIR/temp/empty-bin.sh
+chmod +x $PSCOMPLETIONS_DATA_DIR/temp/empty-bin.sh
+set -g _PSC_BIN $PSCOMPLETIONS_DATA_DIR/temp/empty-bin.sh
+set -l old_out (psc update --old 2>&1); set -l old_rc $status
+if test $old_rc -eq 0; and string match -q '*up to date*' -- $old_out
+    ok old-update-says-up-to-date
+else
+    bad old-update-says-up-to-date " rc=$old_rc [$old_out]"
+end
+set -g _PSC_BIN $save_bin3
 
 # `--json` anywhere is the machine contract: never colored, never rendered into a page.
 set -l esc (printf '\e')

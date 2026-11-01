@@ -1242,6 +1242,7 @@ aliasmap=settings.get("alias") or {}
 stored_all=((settings.get("config",{}) or {}).get("completion",{}) or {})
 def emit(t,a,b):
     print(t); print(a); print(b)
+if cmd=="update" and not results: emit("TPL","update.no","{}")
 for r in results:
     if not isinstance(r,dict): continue
     name=r.get("name") or ""

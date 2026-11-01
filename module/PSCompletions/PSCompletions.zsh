@@ -1252,6 +1252,7 @@ if isinstance(env,dict) and env.get('ok') is False:
     err=env.get('error') or {}
     print(f"ERR{C}{C}{err.get('message','') if isinstance(err,dict) else err}")
     raise SystemExit
+if cmd=='update' and not results: print(f"TPL{C}update.no{C}"+"{}")
 for r in results:
     if not isinstance(r,dict): continue
     name=r.get('name') or ''
