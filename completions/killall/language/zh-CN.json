@@ -1,0 +1,208 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/psmisc/psmisc",
+    "description": [
+      "按名称终止进程。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--context",
+      "alias": [
+        "-Z"
+      ],
+      "usage": [
+        "-Z, --context REGEXP"
+      ],
+      "tip": [
+        "仅终止具有此安全上下文的进程。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--exact",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --exact"
+      ],
+      "tip": [
+        "长名称要求精确匹配。"
+      ]
+    },
+    {
+      "name": "--ignore-case",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --ignore-case"
+      ],
+      "tip": [
+        "不区分大小写匹配进程名。"
+      ]
+    },
+    {
+      "name": "--interactive",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --interactive"
+      ],
+      "tip": [
+        "终止前请求确认。"
+      ]
+    },
+    {
+      "name": "--list",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --list"
+      ],
+      "tip": [
+        "列出所有已知信号名。"
+      ]
+    },
+    {
+      "name": "--ns",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --ns PID"
+      ],
+      "tip": [
+        "匹配与 PID 属于相同命名空间的进程。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--older-than",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --older-than TIME"
+      ],
+      "tip": [
+        "终止比 TIME 更年长的进程。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--process-group",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --process-group"
+      ],
+      "tip": [
+        "终止进程组。"
+      ]
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "不打印抱怨信息。"
+      ]
+    },
+    {
+      "name": "--regexp",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --regexp"
+      ],
+      "tip": [
+        "将 NAME 解释为扩展正则表达式。"
+      ]
+    },
+    {
+      "name": "--signal",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --signal SIGNAL"
+      ],
+      "tip": [
+        "发送此信号而不是 SIGTERM。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--user",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --user USER"
+      ],
+      "tip": [
+        "仅终止以 USER 运行的进程。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "报告成功发送的信号。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示版本信息。"
+      ]
+    },
+    {
+      "name": "--wait",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --wait"
+      ],
+      "tip": [
+        "等待进程终止。"
+      ]
+    },
+    {
+      "name": "--younger-than",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --younger-than TIME"
+      ],
+      "tip": [
+        "终止比 TIME 更年轻的进程。"
+      ],
+      "next": []
+    }
+  ]
+}

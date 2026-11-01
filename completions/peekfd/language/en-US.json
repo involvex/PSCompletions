@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/psmisc/psmisc",
+    "description": [
+      "Peek at file descriptors of a running process."
+    ]
+  },
+  "option": [
+    {
+      "name": "--duplicates-removed",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --duplicates-removed"
+      ],
+      "tip": [
+        "Remove duplicate reads and writes."
+      ]
+    },
+    {
+      "name": "--eight-bit-clean",
+      "alias": [
+        "-8"
+      ],
+      "usage": [
+        "-8, --eight-bit-clean"
+      ],
+      "tip": [
+        "Output 8-bit clean streams."
+      ]
+    },
+    {
+      "name": "--follow",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --follow"
+      ],
+      "tip": [
+        "Peek at new child processes too."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Print this help."
+      ]
+    },
+    {
+      "name": "--no-headers",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --no-headers"
+      ],
+      "tip": [
+        "Do not display read/write headers."
+      ]
+    },
+    {
+      "name": "--tgid",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --tgid"
+      ],
+      "tip": [
+        "Peek at all threads with this tgid."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Print version information."
+      ]
+    }
+  ]
+}

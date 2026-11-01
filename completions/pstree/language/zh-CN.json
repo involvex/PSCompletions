@@ -1,0 +1,282 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/psmisc/psmisc",
+    "description": [
+      "显示进程树。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--arguments",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --arguments"
+      ],
+      "tip": [
+        "显示命令行参数。"
+      ]
+    },
+    {
+      "name": "--ascii",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --ascii"
+      ],
+      "tip": [
+        "使用 ASCII 线条字符。"
+      ]
+    },
+    {
+      "name": "--color",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --color=TYPE"
+      ],
+      "tip": [
+        "按属性（age）为进程着色。"
+      ],
+      "next": [
+        {
+          "name": "age"
+        }
+      ]
+    },
+    {
+      "name": "--compact-not",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --compact-not"
+      ],
+      "tip": [
+        "不压缩相同子树。"
+      ]
+    },
+    {
+      "name": "--hide-threads",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --hide-threads"
+      ],
+      "tip": [
+        "隐藏线程，仅显示进程。"
+      ]
+    },
+    {
+      "name": "--highlight-all",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --highlight-all"
+      ],
+      "tip": [
+        "高亮当前进程及其祖先。"
+      ]
+    },
+    {
+      "name": "--highlight-pid",
+      "alias": [
+        "-H"
+      ],
+      "usage": [
+        "-H PID, --highlight-pid=PID"
+      ],
+      "tip": [
+        "高亮此进程及其祖先。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--long",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --long"
+      ],
+      "tip": [
+        "不截断长行。"
+      ]
+    },
+    {
+      "name": "--ns-changes",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --ns-changes"
+      ],
+      "tip": [
+        "显示命名空间转换。"
+      ]
+    },
+    {
+      "name": "--ns-sort",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N TYPE, --ns-sort=TYPE"
+      ],
+      "tip": [
+        "按命名空间类型排序。"
+      ],
+      "next": [
+        {
+          "name": "cgroup"
+        },
+        {
+          "name": "ipc"
+        },
+        {
+          "name": "mnt"
+        },
+        {
+          "name": "net"
+        },
+        {
+          "name": "pid"
+        },
+        {
+          "name": "time"
+        },
+        {
+          "name": "user"
+        },
+        {
+          "name": "uts"
+        }
+      ]
+    },
+    {
+      "name": "--numeric-sort",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --numeric-sort"
+      ],
+      "tip": [
+        "按 PID 排序输出。"
+      ]
+    },
+    {
+      "name": "--security-context",
+      "alias": [
+        "-Z"
+      ],
+      "usage": [
+        "-Z, --security-context"
+      ],
+      "tip": [
+        "显示安全属性。"
+      ]
+    },
+    {
+      "name": "--show-parents",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --show-parents"
+      ],
+      "tip": [
+        "显示所选进程的父进程。"
+      ]
+    },
+    {
+      "name": "--show-pgids",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --show-pgids"
+      ],
+      "tip": [
+        "显示进程组 ID；隐含 -c。"
+      ]
+    },
+    {
+      "name": "--show-pids",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --show-pids"
+      ],
+      "tip": [
+        "显示 PID；隐含 -c。"
+      ]
+    },
+    {
+      "name": "--thread-names",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --thread-names"
+      ],
+      "tip": [
+        "显示完整线程名。"
+      ]
+    },
+    {
+      "name": "--uid-changes",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --uid-changes"
+      ],
+      "tip": [
+        "显示 UID 转换。"
+      ]
+    },
+    {
+      "name": "--unicode",
+      "alias": [
+        "-U"
+      ],
+      "usage": [
+        "-U, --unicode"
+      ],
+      "tip": [
+        "使用 UTF-8 线条字符。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示版本信息。"
+      ]
+    },
+    {
+      "name": "--vt100",
+      "alias": [
+        "-G"
+      ],
+      "usage": [
+        "-G, --vt100"
+      ],
+      "tip": [
+        "使用 VT100 线条字符。"
+      ]
+    }
+  ]
+}

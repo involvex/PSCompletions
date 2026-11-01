@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/psmisc/psmisc",
+    "description": [
+      "报告进程的日志文件。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示版本信息。"
+      ]
+    }
+  ]
+}

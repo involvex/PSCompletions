@@ -1,0 +1,208 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/psmisc/psmisc",
+    "description": [
+      "Kill processes by name."
+    ]
+  },
+  "option": [
+    {
+      "name": "--context",
+      "alias": [
+        "-Z"
+      ],
+      "usage": [
+        "-Z, --context REGEXP"
+      ],
+      "tip": [
+        "Kill only processes with this security context."
+      ],
+      "next": []
+    },
+    {
+      "name": "--exact",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --exact"
+      ],
+      "tip": [
+        "Require an exact match for long names."
+      ]
+    },
+    {
+      "name": "--ignore-case",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --ignore-case"
+      ],
+      "tip": [
+        "Match process names case-insensitively."
+      ]
+    },
+    {
+      "name": "--interactive",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --interactive"
+      ],
+      "tip": [
+        "Ask for confirmation before killing."
+      ]
+    },
+    {
+      "name": "--list",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --list"
+      ],
+      "tip": [
+        "List all known signal names."
+      ]
+    },
+    {
+      "name": "--ns",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --ns PID"
+      ],
+      "tip": [
+        "Match processes in the same namespaces as PID."
+      ],
+      "next": []
+    },
+    {
+      "name": "--older-than",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --older-than TIME"
+      ],
+      "tip": [
+        "Kill processes older than TIME."
+      ],
+      "next": []
+    },
+    {
+      "name": "--process-group",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --process-group"
+      ],
+      "tip": [
+        "Kill the process group."
+      ]
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "Do not print complaints."
+      ]
+    },
+    {
+      "name": "--regexp",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --regexp"
+      ],
+      "tip": [
+        "Interpret NAME as an extended regular expression."
+      ]
+    },
+    {
+      "name": "--signal",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --signal SIGNAL"
+      ],
+      "tip": [
+        "Send this signal instead of SIGTERM."
+      ],
+      "next": []
+    },
+    {
+      "name": "--user",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --user USER"
+      ],
+      "tip": [
+        "Kill only processes running as USER."
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Report successful signals."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Display version information."
+      ]
+    },
+    {
+      "name": "--wait",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --wait"
+      ],
+      "tip": [
+        "Wait for processes to die."
+      ]
+    },
+    {
+      "name": "--younger-than",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --younger-than TIME"
+      ],
+      "tip": [
+        "Kill processes younger than TIME."
+      ],
+      "next": []
+    }
+  ]
+}

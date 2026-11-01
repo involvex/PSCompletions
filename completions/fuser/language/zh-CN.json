@@ -1,0 +1,201 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/psmisc/psmisc",
+    "description": [
+      "显示使用文件、套接字或文件系统的进程。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--all",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --all"
+      ],
+      "tip": [
+        "同时显示未使用的文件。"
+      ]
+    },
+    {
+      "name": "--inode",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --inode"
+      ],
+      "tip": [
+        "始终按 inode 比较。"
+      ]
+    },
+    {
+      "name": "--interactive",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --interactive"
+      ],
+      "tip": [
+        "终止前询问（仅与 -k 一起）。"
+      ]
+    },
+    {
+      "name": "--ipv4",
+      "alias": [
+        "-4"
+      ],
+      "usage": [
+        "-4, --ipv4"
+      ],
+      "tip": [
+        "仅搜索 IPv4 套接字。"
+      ]
+    },
+    {
+      "name": "--ipv6",
+      "alias": [
+        "-6"
+      ],
+      "usage": [
+        "-6, --ipv6"
+      ],
+      "tip": [
+        "仅搜索 IPv6 套接字。"
+      ]
+    },
+    {
+      "name": "--ismountpoint",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --ismountpoint"
+      ],
+      "tip": [
+        "仅当 NAME 是挂载点时成功。"
+      ]
+    },
+    {
+      "name": "--kill",
+      "alias": [
+        "-k"
+      ],
+      "usage": [
+        "-k, --kill"
+      ],
+      "tip": [
+        "终止访问该文件的进程。"
+      ]
+    },
+    {
+      "name": "--list-signals",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --list-signals"
+      ],
+      "tip": [
+        "列出可用信号名。"
+      ]
+    },
+    {
+      "name": "--mount",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --mount"
+      ],
+      "tip": [
+        "显示使用文件系统或块设备的进程。"
+      ]
+    },
+    {
+      "name": "--namespace",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --namespace SPACE"
+      ],
+      "tip": [
+        "在命名空间中搜索（file、udp 或 tcp）。"
+      ],
+      "next": [
+        {
+          "name": "file"
+        },
+        {
+          "name": "tcp"
+        },
+        {
+          "name": "udp"
+        }
+      ]
+    },
+    {
+      "name": "--silent",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --silent"
+      ],
+      "tip": [
+        "静默操作。"
+      ]
+    },
+    {
+      "name": "--user",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --user"
+      ],
+      "tip": [
+        "显示用户 ID。"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "详细输出。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示版本信息。"
+      ]
+    },
+    {
+      "name": "--writeonly",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --writeonly"
+      ],
+      "tip": [
+        "仅终止具有写访问权限的进程。"
+      ]
+    }
+  ]
+}

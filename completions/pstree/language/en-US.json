@@ -1,0 +1,282 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/psmisc/psmisc",
+    "description": [
+      "Display a tree of processes."
+    ]
+  },
+  "option": [
+    {
+      "name": "--arguments",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --arguments"
+      ],
+      "tip": [
+        "Show command line arguments."
+      ]
+    },
+    {
+      "name": "--ascii",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --ascii"
+      ],
+      "tip": [
+        "Use ASCII line drawing characters."
+      ]
+    },
+    {
+      "name": "--color",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --color=TYPE"
+      ],
+      "tip": [
+        "Color processes by attribute (age)."
+      ],
+      "next": [
+        {
+          "name": "age"
+        }
+      ]
+    },
+    {
+      "name": "--compact-not",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --compact-not"
+      ],
+      "tip": [
+        "Do not compact identical subtrees."
+      ]
+    },
+    {
+      "name": "--hide-threads",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --hide-threads"
+      ],
+      "tip": [
+        "Hide threads and show only processes."
+      ]
+    },
+    {
+      "name": "--highlight-all",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --highlight-all"
+      ],
+      "tip": [
+        "Highlight the current process and ancestors."
+      ]
+    },
+    {
+      "name": "--highlight-pid",
+      "alias": [
+        "-H"
+      ],
+      "usage": [
+        "-H PID, --highlight-pid=PID"
+      ],
+      "tip": [
+        "Highlight this process and ancestors."
+      ],
+      "next": []
+    },
+    {
+      "name": "--long",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --long"
+      ],
+      "tip": [
+        "Do not truncate long lines."
+      ]
+    },
+    {
+      "name": "--ns-changes",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --ns-changes"
+      ],
+      "tip": [
+        "Show namespace transitions."
+      ]
+    },
+    {
+      "name": "--ns-sort",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N TYPE, --ns-sort=TYPE"
+      ],
+      "tip": [
+        "Sort by namespace type."
+      ],
+      "next": [
+        {
+          "name": "cgroup"
+        },
+        {
+          "name": "ipc"
+        },
+        {
+          "name": "mnt"
+        },
+        {
+          "name": "net"
+        },
+        {
+          "name": "pid"
+        },
+        {
+          "name": "time"
+        },
+        {
+          "name": "user"
+        },
+        {
+          "name": "uts"
+        }
+      ]
+    },
+    {
+      "name": "--numeric-sort",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --numeric-sort"
+      ],
+      "tip": [
+        "Sort output by PID."
+      ]
+    },
+    {
+      "name": "--security-context",
+      "alias": [
+        "-Z"
+      ],
+      "usage": [
+        "-Z, --security-context"
+      ],
+      "tip": [
+        "Show security attributes."
+      ]
+    },
+    {
+      "name": "--show-parents",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --show-parents"
+      ],
+      "tip": [
+        "Show parents of the selected process."
+      ]
+    },
+    {
+      "name": "--show-pgids",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --show-pgids"
+      ],
+      "tip": [
+        "Show process group IDs; implies -c."
+      ]
+    },
+    {
+      "name": "--show-pids",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --show-pids"
+      ],
+      "tip": [
+        "Show PIDs; implies -c."
+      ]
+    },
+    {
+      "name": "--thread-names",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --thread-names"
+      ],
+      "tip": [
+        "Show full thread names."
+      ]
+    },
+    {
+      "name": "--uid-changes",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --uid-changes"
+      ],
+      "tip": [
+        "Show UID transitions."
+      ]
+    },
+    {
+      "name": "--unicode",
+      "alias": [
+        "-U"
+      ],
+      "usage": [
+        "-U, --unicode"
+      ],
+      "tip": [
+        "Use UTF-8 line drawing characters."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Display version information."
+      ]
+    },
+    {
+      "name": "--vt100",
+      "alias": [
+        "-G"
+      ],
+      "usage": [
+        "-G, --vt100"
+      ],
+      "tip": [
+        "Use VT100 line drawing characters."
+      ]
+    }
+  ]
+}

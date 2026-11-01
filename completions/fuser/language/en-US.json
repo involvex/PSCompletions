@@ -1,0 +1,201 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/psmisc/psmisc",
+    "description": [
+      "Show which processes use files, sockets or filesystems."
+    ]
+  },
+  "option": [
+    {
+      "name": "--all",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --all"
+      ],
+      "tip": [
+        "Display unused files too."
+      ]
+    },
+    {
+      "name": "--inode",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --inode"
+      ],
+      "tip": [
+        "Always compare by inode."
+      ]
+    },
+    {
+      "name": "--interactive",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --interactive"
+      ],
+      "tip": [
+        "Ask before killing (only with -k)."
+      ]
+    },
+    {
+      "name": "--ipv4",
+      "alias": [
+        "-4"
+      ],
+      "usage": [
+        "-4, --ipv4"
+      ],
+      "tip": [
+        "Search IPv4 sockets only."
+      ]
+    },
+    {
+      "name": "--ipv6",
+      "alias": [
+        "-6"
+      ],
+      "usage": [
+        "-6, --ipv6"
+      ],
+      "tip": [
+        "Search IPv6 sockets only."
+      ]
+    },
+    {
+      "name": "--ismountpoint",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --ismountpoint"
+      ],
+      "tip": [
+        "Only succeed if NAME is a mount point."
+      ]
+    },
+    {
+      "name": "--kill",
+      "alias": [
+        "-k"
+      ],
+      "usage": [
+        "-k, --kill"
+      ],
+      "tip": [
+        "Kill processes accessing the file."
+      ]
+    },
+    {
+      "name": "--list-signals",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --list-signals"
+      ],
+      "tip": [
+        "List available signal names."
+      ]
+    },
+    {
+      "name": "--mount",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --mount"
+      ],
+      "tip": [
+        "Show processes using the filesystem or block device."
+      ]
+    },
+    {
+      "name": "--namespace",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --namespace SPACE"
+      ],
+      "tip": [
+        "Search in the namespace (file, udp or tcp)."
+      ],
+      "next": [
+        {
+          "name": "file"
+        },
+        {
+          "name": "tcp"
+        },
+        {
+          "name": "udp"
+        }
+      ]
+    },
+    {
+      "name": "--silent",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --silent"
+      ],
+      "tip": [
+        "Silent operation."
+      ]
+    },
+    {
+      "name": "--user",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --user"
+      ],
+      "tip": [
+        "Display user IDs."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Verbose output."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Display version information."
+      ]
+    },
+    {
+      "name": "--writeonly",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --writeonly"
+      ],
+      "tip": [
+        "Kill only processes with write access."
+      ]
+    }
+  ]
+}
