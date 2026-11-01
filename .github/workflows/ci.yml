@@ -15,6 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    concurrency:
+      group: update-content
+      cancel-in-progress: false
     steps:
       - name: Checkout main
         uses: actions/checkout@v6
@@ -186,7 +189,7 @@ jobs:
   publish-module:
     name: Publish to PowerShell Gallery
     runs-on: windows-latest
-    needs: [update-content, build-binaries]
+    needs: build-binaries
     if: "startsWith(github.event.head_commit.message, 'release')"
     steps:
       - name: Checkout

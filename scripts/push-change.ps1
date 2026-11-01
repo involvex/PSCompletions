@@ -15,64 +15,29 @@ if ($LASTEXITCODE -eq 0) {
     return
 }
 
-# Snapshot the local changes as a stash commit without touching the working tree.
-$stash = git stash create "push-change: $message"
-if ($LASTEXITCODE -ne 0 -or -not $stash) {
-    throw 'Could not capture the local changes as a stash.'
-}
+git -c user.name="$author" -c user.email="$email" commit --no-gpg-sign -m "$message"
 
-# The remote may move between checkout and push, so an attempt that loses the race is discarded and replayed onto the new tip.
+# Push
 $retryDelay = 15
 $maxAttempts = 10
 $pushed = $false
 for ($i = 0; $i -lt $maxAttempts; $i++) {
-    if ($i -gt 0) {
-        Write-Warning "Retrying in $retryDelay seconds..."
-        Start-Sleep -Seconds $retryDelay
-    }
-
-    Write-Host 'Resetting to the latest remote state...' -ForegroundColor Cyan
-    git fetch origin $branch
-    if ($LASTEXITCODE -ne 0) {
-        Write-Warning 'Fetch failed.'
-        continue
-    }
-    git reset --hard FETCH_HEAD
-    if ($LASTEXITCODE -ne 0) {
-        Write-Warning 'Reset failed.'
-        continue
-    }
-
-    Write-Host 'Applying local changes...' -ForegroundColor Cyan
-    git stash apply $stash
-    if ($LASTEXITCODE -ne 0) {
-        Write-Warning 'Applying the local changes failed, discarding the partial result.'
-        git reset --hard FETCH_HEAD | Out-Null
-        continue
-    }
-
-    git -c core.safecrlf=false add -u
-    git diff --cached --quiet
+    Write-Host 'Pushing updates...' -ForegroundColor Cyan
+    git push origin $branch
     if ($LASTEXITCODE -eq 0) {
-        Write-Host 'No changes left to push.' -ForegroundColor Green
         $pushed = $true
         break
     }
-
-    git -c user.name="$author" -c user.email="$email" commit --no-gpg-sign -m "$message"
+    Write-Warning 'Push failed, rebasing onto the remote tip.'
+    git pull --rebase origin $branch
     if ($LASTEXITCODE -ne 0) {
-        Write-Warning 'Commit failed.'
-        continue
+        Write-Warning 'Pull failed, aborting the rebase to restore a clean state.'
+        git rebase --abort *> $null
     }
-
-    Write-Host 'Pushing updates ...' -ForegroundColor Cyan
-    git push origin $branch
-    if ($LASTEXITCODE -ne 0) {
-        Write-Warning 'Push failed.'
-        continue
+    if ($i -lt $maxAttempts - 1) {
+        Write-Warning "Retrying in $retryDelay seconds..."
+        Start-Sleep -Seconds $retryDelay
     }
-    $pushed = $true
-    break
 }
 
 if (-not $pushed) {
