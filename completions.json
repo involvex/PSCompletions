@@ -1,5 +1,5 @@
 {
-  "count": 665,
+  "count": 685,
   "update": {
     "7z": "cac4d4accba5c11d5b3ae1fde2e491070f69e522c974cc3004950acea1ffa593",
     "act": "3c17f2f2959410d3ac7c443cad5cfcab4d660eba2a6ca7e2b9f636eab63a2b6e",
@@ -12,6 +12,7 @@
     "arch@GNU": "1e4b9a258fc4af163ab3ce70dd1f8c93e97ca3cbc9996ced8f2bda278c6ae66f",
     "arch@uutils": "b1d9505f6ea63d2b9df0184935da1906c48eb8cc8eeb63d8ade4e85eb865ad0c",
     "aria2c": "901d03b53bff2d6b2f3700f627f641a2da9f65f832c94261e35921876d90202c",
+    "arpd": "bc10d6f804dabb2c0da3ba5eef321fd590deb72b935ebe8edd239c135f26f81f",
     "ast-grep": "ce914180f66b39ad807bfac1c92d53654a9599e0b7ee7d1c29fbb4e71d32c4b6",
     "atac": "66e9567c23d60c26d180166ac16def9db3cf99819e35f3e14973eeaf869d3aaf",
     "atuin": "06772dddec2baf2c09093d3e062cdf9e929a7dbed978976053baa6f0ce83edfe",
@@ -42,6 +43,7 @@
     "blockdev": "cfcfc8d441e916a4ca6d726536caaf3e62a6544a9c91bfafa46bd1760b091385",
     "bootctl": "b97d4b7a3c2aec8468d74a4bfa77f41c3fcc56bb8f50896f9687cfc2b605b83a",
     "brew": "b8bf835633f10a3dbd08d6f15e5b44311568db06cf9c5c914ddd28a068d5b5e0",
+    "bridge": "44b0c87e5ade325ac7b80176cc1302f0e3cc6671fb0eb881a11fb7a106d6bc2a",
     "brotli": "1e50b7a45ddf95e03525b0a62efdc7e094c4d858775e328852d078af0538596f",
     "buf": "ec0f0c70897f0cd4511d91ab8fc779a55f00dde6844fa9e4923a151b207c2680",
     "bun": "f11f51ebef9128ea1c60fe16aad920e3d62428e84af4f1b40ea5a59fe527730c",
@@ -97,6 +99,7 @@
     "croc": "0f1e4fc983fbcc4fcd0abcccb47dd1f5aea21ca097971db2a0890aaef7314731",
     "csplit@GNU": "c64e53b63883190ff7dd6ed1bb16b152cfcf372f06ceeae0a17756d8475ee640",
     "csplit@uutils": "a4545285fdecf0cf088f95ac6436de65bffdedb44862c8a048a23b6b75ae89b6",
+    "ctstat": "5a45738c547a8cca3678f4d17d7d6a311ea212569e362fb02b1978c8cceb95cf",
     "curl": "dfd2d03b364bfe64cd73731ab8b6d76f23b13f26c2226c36c0da9ad9bebf8260",
     "cut@GNU": "ead23b7cce99270930fed7953de913d590b9c3cedb232d427c869d98fae3b034",
     "cut@uutils": "d2e6f1c7917953b7cb91a45e5afa5e00e74eba158af3dafd05d694010c6bc766",
@@ -104,10 +107,12 @@
     "dart": "d0d9ef49338d4f1e7b300e95fa5d6e7e3f8627edb0ce678596f0d8200e21e9c5",
     "date@GNU": "a03764079d0bc4ea0f95b06766ba007aa495fc1e805f48d6009eb073a8915464",
     "date@uutils": "94f5ee960823aaaf11b3783cd275a0b97a0428e2d1f5c24aaceb2f34e8aff27c",
+    "dcb": "366dd6eaef270a1e84f67c21ff88c8a15cb9b9fbaad242e9e368208a3e41f2e1",
     "dd@GNU": "9def923d87b96464fa1ecb27fbd2781dec9f75c2e90a63f3d5c0cca9a7712489",
     "dd@uutils": "67c340d9bd7987d2c01fbcc6feb6cacc0e9eabc9294268e84213123d0db99705",
     "delta": "88c2d48aaac9734d3cac03816758703cf4baecef7f92e373978e53b08a0ea57f",
     "deno": "51d1bf3e3941ee289c581c5f1f402b044a109d06b98d5aaf00383077a79f709e",
+    "devlink": "fafda4000d130450e2298b5b11d14b04e06a13e9e1df2c03dff8dacb36c189e5",
     "df@GNU": "2b44fb127ed12ae8b27264dca9fb4809128f5abdb80ae1153a03977738ed132b",
     "df@uutils": "055667f1e0feb1579e5eb0373e937ee2985ad597f727972e499f615315365608",
     "diff@GNU": "82c687ff36b17a3ab94fbc2b78a05a7168d0c7523152cd3a46bc934612432266",
@@ -176,6 +181,7 @@
     "gcc": "14da88c749bfdbf8b59694b7ac1447360af85de7b3156aea009e628b90b4e490",
     "gem": "da58e292811edc860a289a60de4ed980e3e669cd638b7851e3b23733c4a2836d",
     "gemini": "b3030e9746316670cd6b805b9978cec74beec77218e6c7771889c154c07c17e3",
+    "genl": "225f0ac37804d2307df69fcf8be2e9ac3cd288d7a46de4c5bb16c513d863f286",
     "getopt": "ff195514fa2a79f4536a6546171cfeba9dbbdaba26b81f9c302d2ed7b59f6a9b",
     "getsubids": "f11329f04da30fd3e56191f6732efe1050860b00b3e3601e33efa21f13a32670",
     "gh": "cea0b9dd626d4a3df52caf78f33e71ad5da628ecbbf32522d644e23b726d8869",
@@ -221,10 +227,12 @@
     "icdiff": "bf9a5b3d0a7e97f0be587ede3c244547baf109ae306256ac3945f6db875aa752",
     "id@GNU": "cb81b178b5b58c4b6b43f8938331d87cbc0c26b30170ce7a0c80977cd29b39be",
     "id@uutils": "4116a344bea88c96b0fa5e7ab2d16832456077b9764e00d55b2f1b403c15eb5e",
+    "ifstat": "32d14d5f8a7821a7855e738e28e63c39c0f67a4bdcb7633df665dcf64ced521a",
     "install@GNU": "af686464be8c5bb3ef9250ea06cdc266e0f0982decab310eb6e463c545deb4f6",
     "install@uutils": "336318d8498ebf6115f824f2334f54a069f94563f71aa07dfee4022b7cbe66fd",
     "ionic": "521416419b860d3728bb7b58ab066881e3ae03a8d9948c2a92cb2acd65bf4eff",
     "ionice": "b53abc21c60280cf705a884643457f738de680e88e378757c527e984af002644",
+    "ip": "13c767c0d437ced053a5b94f6bc71618e535dbfab93aaf37e5bcf4f2323c16cf",
     "ipcmk": "0e7c2e3de1b7ab7a86f35e97768d2d20c34ea5fa8d84151d98612b542e0257a9",
     "ipcrm": "539844a6890a8e723cf0e4e007771a9ecc0e83cc78dc051a67bb20a51b848494",
     "ipcs": "0d73677ef5903fabbc22e903c929453996a529c83585bcf67b8960ea2e79f17f",
@@ -260,6 +268,7 @@
     "link@uutils": "a529ecc3c19641219c0c109d4dfb420b0614565706eae951d098132803a10f0d",
     "ln@GNU": "b50460e16944c79f5e433d71fa6818b94d2ff49e2579fdbdb055701d2b4b57c4",
     "ln@uutils": "4238792a4a55f306c05c20ad73329498b3f02fa2f58ec8ade73d2e49958f92b7",
+    "lnstat": "1954888803c1be85cb0517805b8966e931de75d3f07ef342094fcc85f8517059",
     "localectl": "1b7ed4d7599f3ab4f44d6d0aab02f6abe4ce1ed974a7d9281abc7ea311887eb6",
     "logger": "560d3efc4596ba056504d88c5a4fdc66900cd6d0f2ba2b10507aab948a5a06f5",
     "login": "4d82e85f198178b201c4d1c5264de8d984c097ad77b4594346f903cefd0eba8f",
@@ -339,6 +348,7 @@
     "nrm": "2a0a3514942d344ac50b986441fdf87016783efcb3f541a6ab464b6d771a752e",
     "nsenter": "af6712294ccd9566717890bb85599bdd05568dbda00b99568ad4b46f0343b3ec",
     "nssm": "477bbee433f3735897cd20a87c113c7b7f5a61ac7aa55c46942bdb6ca14f352e",
+    "nstat": "0fdc1f36c042f5159565650e7b01f486aed330413bf4f453acf550a1c780019c",
     "nu": "de033f7e8f70fa26ff1565b616bd318bc5fcaa0830ce0f379e6c143bcb44e64b",
     "nub": "9d58353f474fdf017c38e84d7224bc606156cee92b67d1f07c8e0380b80647d4",
     "nubx": "ebdc313c52d3a7d824eb9b2d5a36428d46fd3834391be90b1c9e18665b2963c2",
@@ -371,6 +381,7 @@
     "perl": "5544b1f9e50d23debd9be044498c4a7f28db79afee3efa3365ac5980ad32edd8",
     "php": "0625a69458af42115b3675a2472b3be6c9264968046ecaf93daee1928f6e4751",
     "phpunit": "d7485a53148f810defab7b05e2b471cd5485e4425281c12e6861eeea9c0ac8fa",
+    "ping": "3b6039521a0836479de2e4a3bd620d89db9aa965573f700e42306f345557aab0",
     "pinky@GNU": "7dfb8c1e94ded91dee7cb2143733e8a8018512f167849c2f1dc6c7d16f93d9ba",
     "pinky@uutils": "9525faf2613f3e0a2b2334a3e486d0b6c663798f9b0cb72d950617e1a20912a3",
     "pip": "bc5e0afda8d889260416bbc5095872e307951f6cb842dc7763a1b2f30f3d8acd",
@@ -415,6 +426,7 @@
     "rake": "19e56c926ae42a9fe449432926b80680a38872b53712e7d88960eb7a57899cad",
     "rbenv": "923623cf74b916808cd5b5e7d735170e054def80e93dcc0eb8382ed5d62af188",
     "rclone": "6770ff1c46fb9a8bd945e6f19c47c03c9b64d975ea4fa224fb84c7409a9320f1",
+    "rdma": "48d8529ad2eaa02ae96b462f4c795905dba9aa19ed577fd89698b6be29aad4ed",
     "readlink@GNU": "93c52d92f26628521eee150e3fb296a5ee31656eabb48b6f114c7ffb92b9db09",
     "readlink@uutils": "39e2ddf4c0daa303b5fe5a27fc5defd922dc95a102de20ef1372399b5fb3b975",
     "readprofile": "c52859d19dca24c0dcfde572cf584da2b5a2c628ec7a0267e78e7b30982ec77d",
@@ -434,6 +446,7 @@
     "rm@uutils": "cdee860a6d87d4714ae7a4bc462c231821871d2dbad94bab5a649883e73d8c3d",
     "rmdir@GNU": "70f4a0616015916bff29277cd712b1ea989bff2b1cfd4e505a94aa8e44a6507e",
     "rmdir@uutils": "d3d33311983a78426a4d93b3d2655709e5ba6647219124ba15e57604c70cb116",
+    "routel": "ce3d563f12a98bee836892a2f08642756a4200683044f2a6393f7dff75a97d6e",
     "rsbuild": "c6d84600f670a9d621c952709f6052fb827fe0e4ca839fc6d165c5000cc245b1",
     "rsdoctor": "9fcb5406bb435cf81a502bd1ea7eb844b7734a83eb4c70ff7a086da2cfa5fe8f",
     "rslib": "4e8f1d0c201bfbdf70f1cded6f2c59570ef61f5d6b23ef00770d3d384f69e1a4",
@@ -442,7 +455,10 @@
     "rspress": "fff6623de27f1ac4d5978c11f598650111c6a3b6fa704bb53dfb78d7cd5477c5",
     "rstest": "16bbfb01de2d74717623b7e61a96de03d6607d484ceb87569b2406c95aeef681",
     "rsync": "9129f5ca1cf18f4651a56194da639634dad2273172c24db44d315fe57a985c5f",
+    "rtacct": "35e124209d8c64bc61e97a1268755954b43d33d2ec05c90177a4c2be61a35753",
     "rtcwake": "5c9d6424d2291e5edddad1b646b48160d4a7de3babdac7a602c64e94d436c5bb",
+    "rtmon": "576e6317243d423f08380954a0d52e09343ee760a1764c6037d9a915787a5a3a",
+    "rtstat": "e3f3706ad9bc5b29af202e126e466d5f2273f37d46dca41c253f909f84dffd9c",
     "ruby": "5dd063f6b3cce3b1795141b3ce67f7b8d14e6de3b3f4509cd3260cefb191d480",
     "ruby-build": "5387cd2bf5c4f234c87c30c58c015b44841b5d9d86138a137b748d8b57789d32",
     "ruff": "8bfeb0464330c1ee8d195429f8d3ca8c727c32619afe1a3c7b97ce89c053a6db",
@@ -494,6 +510,7 @@
     "split@GNU": "012f720e101d1c988be11ab650e04d75414bc87b4bb43d4836cddf2e9d8b87eb",
     "split@uutils": "1d7a44048bf1ee70c1756ffda9aa02514523f236174fb76325e4b361c53b77e2",
     "sqlite3": "31dc6519d3441ac2e6d82d76ae0ba93599953781001d9f349c00988c90d47e09",
+    "ss": "a1f63286e11b0f7444069e86b5c10cc40252040738cd1a2a8952fa809e243367",
     "ssh": "fdb890d6817d63cc318526670a097dae9dd4cbaefbccef8f3bd86e7b56c166a5",
     "ssh-add": "8d01f20a1ca1ce4ee5923aa1a164c80efae3f8d523701b9c369882f1a59d3699",
     "ssh-agent": "ebc0ee1d4110b93950811eca9aa9ec4b6de0b5cf5c2d53d3f70c87298ace37b3",
@@ -557,6 +574,7 @@
     "tar@GNU": "f5273f288419ef8869855f4f5b06c126bf6df5f1e84564609b6aab2fae20a064",
     "taskset": "e6fc9f6887fffe458fe927debebea8179d890c879017fe5aea5bbe00b80696a3",
     "taze": "9e58e3ee517bec2f5e40390a1159d1269ff3cf5c408738f8d8dceadf1ea81466",
+    "tc": "72fc70fe22c1fe38a9e3a402cb8bb61b9c9d4dd294afeeb15e8998cc213a490d",
     "tee@GNU": "53cf5519917c2b1cd26eb72d620ff1d83825c00fc8756ec0420653c49b3406d5",
     "tee@uutils": "a39c0f9e02de5759eda2a613a7f06d67ebb9b58f0252ee5b566643366ce84b76",
     "terraform": "8ffef824e5f37e7c3b63b5e51ce708cfc26217ab3c1261e180bd0b811d39b4a1",
@@ -566,6 +584,7 @@
     "timedatectl": "77ec3f0ed60fc3789035442ec129f3571090a97a61cbee7a5550c7c6a19d12d8",
     "timeout@GNU": "fb56293dcd41e64cc385f1dcea3a04cfd9516dd31e307ea75a29f4fd33824152",
     "timeout@uutils": "9072147ab12fbe9cd4f2c38e19f27d3f742a6bdabce7a93a079b9b9291c89454",
+    "tipc": "8fac0257b6534b1a3bae7be483f22d374fbca59bb9c947166c9df0158e10d364",
     "tmux": "812e26e33761e7e9e6e28b8b532c80ce56cc70b7119fe7f8a2b6a57500d6eda9",
     "tofu": "d9e4e7735bbff68a9341c772a9a320a5eb8a19ffdafd30db580ca50992410e69",
     "tokei": "d9a87fa273849001d8c62c22cdae727752bf074d9f384fa7815122aa626a368b",
@@ -614,6 +633,7 @@
     "vault": "0a62f02c92ff91a09dc8b6566ba3be9fbba7194c49232c4801e669c6253a749c",
     "vdir@GNU": "28ddb3af7dfb215413d2a6883fe968de3e469887293b37fe0d64e77374cc45ce",
     "vdir@uutils": "aa0c652b79fbada8b16fe84246100d57d1ffcaa37a60d89e51211ab17833f26d",
+    "vdpa": "90b7759e216cc1fadc33b09f15de2b6547e262fe9a741aba3a0884d36a3e77b7",
     "vercel": "d4d4c759462a6bc9c66cf6c1b0620697ed01d25b1e6d5de0a3232165043b2daf",
     "vhs": "af8e6cda0a8010ba5ea7d703ba950f96f03e07ff938b70de7c2530cb83da4eba",
     "viddy": "1b04c452508c626db351edaabcd67d6e7135b0939a9467854f586defab38bffc",
@@ -790,6 +810,17 @@
       "zh-CN": {
         "url": "https://aria2.github.io",
         "description": "轻量级多协议多源下载工具。"
+      }
+    },
+    "arpd": {
+      "id": "6365c77b-3b50-524f-86af-8e44dc97d675",
+      "en-US": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "Userspace ARP daemon."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "用户空间 ARP 守护进程。"
       }
     },
     "ast-grep": {
@@ -1132,6 +1163,17 @@
       "zh-CN": {
         "url": "https://brew.sh",
         "description": "Homebrew 是一个开源的包管理器，最初为 macOS 设计，现在还支持 Linux 和 WSL (Windows Subsystem for Linux)"
+      }
+    },
+    "bridge": {
+      "id": "563b74a0-8853-5126-a496-234e012e9711",
+      "en-US": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "Show / manipulate bridge settings."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "显示/操作网桥设置。"
       }
     },
     "brotli": {
@@ -1760,6 +1802,17 @@
         "description": "按上下文行将文件分割为多个部分。"
       }
     },
+    "ctstat": {
+      "id": "bd2e0f79-3f23-52d2-bdbc-68a1def1d564",
+      "en-US": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "Show connection tracking statistics."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "显示连接跟踪统计信息。"
+      }
+    },
     "curl": {
       "id": "c5a003bc-2084-43ca-808f-94fd37907997",
       "en-US": {
@@ -1841,6 +1894,17 @@
         "description": "显示或设置系统日期和时间。"
       }
     },
+    "dcb": {
+      "id": "b800bc11-0a4c-5fb5-902c-cd0d6e3451b2",
+      "en-US": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "Show / manipulate DCB settings."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "显示/操作 DCB 设置。"
+      }
+    },
     "dd@GNU": {
       "id": "a6df7041-d960-4b19-a4cc-34ad26a732d5",
       "alias": "dd",
@@ -1885,6 +1949,17 @@
       "zh-CN": {
         "url": "https://deno.com/",
         "description": "现代 JavaScript 和 TypeScript 运行时。"
+      }
+    },
+    "devlink": {
+      "id": "c54509e1-1114-5650-ae49-e29445daf8ba",
+      "en-US": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "Devlink tool."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "Devlink 工具。"
       }
     },
     "df@GNU": {
@@ -2665,6 +2740,17 @@
         "description": "Gemini CLI - Google 的终端 AI 编程助手。"
       }
     },
+    "genl": {
+      "id": "03f0a6f5-4627-59ad-b390-98bb11e2fb65",
+      "en-US": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "Generic netlink utility frontend."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "通用 netlink 工具前端。"
+      }
+    },
     "getopt": {
       "id": "1525e2bc-a015-4488-b088-9ed6d13ffa3b",
       "en-US": {
@@ -3170,6 +3256,17 @@
         "description": "打印每个指定 USER 的用户和组信息，省略 USER 则打印当前用户的"
       }
     },
+    "ifstat": {
+      "id": "6b9dad89-0b5f-554c-bf3d-76fd26ecac2d",
+      "en-US": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "Print network interface statistics."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "打印网络接口统计信息。"
+      }
+    },
     "install@GNU": {
       "id": "624103ee-362d-42af-9cf2-de6c72df6a36",
       "alias": "install",
@@ -3214,6 +3311,17 @@
       "zh-CN": {
         "url": "https://github.com/util-linux/util-linux",
         "description": "显示或更改进程的 I/O 调度类和优先级。"
+      }
+    },
+    "ip": {
+      "id": "8860431c-525d-5639-aa24-5292e65fa733",
+      "en-US": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "Show / manipulate routing, network devices, interfaces and tunnels."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "显示/操作路由、网络设备、接口和隧道。"
       }
     },
     "ipcmk": {
@@ -3605,6 +3713,17 @@
       "zh-CN": {
         "url": "https://uutils.org",
         "description": "创建文件之间的链接。"
+      }
+    },
+    "lnstat": {
+      "id": "2db67f80-88a6-5105-99e2-f58dbbcc68d3",
+      "en-US": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "Show Linux network statistics."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "显示 Linux 网络统计信息。"
       }
     },
     "localectl": {
@@ -4503,6 +4622,17 @@
         "description": "不坑爹的服务管理器 (Non-Sucking Service Manager)\n可以将任意可执行程序安装为 Windows 服务并管理其运行"
       }
     },
+    "nstat": {
+      "id": "80c69238-e08c-5731-a6f5-6e680a43b72e",
+      "en-US": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "Show kernel SNMP counters and network interface statistics."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "显示内核 SNMP 计数器和网络接口统计信息。"
+      }
+    },
     "nu": {
       "id": "a43d2239-06a1-477c-9b9a-452e468206f8",
       "en-US": {
@@ -4862,6 +4992,18 @@
       "zh-CN": {
         "url": "https://phpunit.de",
         "description": "面向程序员的 PHP 测试框架。"
+      }
+    },
+    "ping": {
+      "id": "68b1e2f2-3e55-531a-b5a9-03e7ddbb629c",
+      "alias": "ping ping4 ping6",
+      "en-US": {
+        "url": "https://github.com/iputils/iputils",
+        "description": "Send ICMP ECHO_REQUEST to network hosts."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iputils/iputils",
+        "description": "向网络主机发送 ICMP ECHO_REQUEST。"
       }
     },
     "pinky@GNU": {
@@ -5365,6 +5507,17 @@
         "description": "在云存储提供商之间同步文件。"
       }
     },
+    "rdma": {
+      "id": "c5a22354-3b32-5a23-8d06-2f9b3e4548be",
+      "en-US": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "RDMA tool."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "RDMA 工具。"
+      }
+    },
     "readlink@GNU": {
       "id": "f511920c-ef96-44e8-b483-45f2a10c2b82",
       "alias": "readlink",
@@ -5582,6 +5735,17 @@
         "description": "删除 DIRECTORY（如果为空）"
       }
     },
+    "routel": {
+      "id": "5808c2d5-2838-5467-b998-6fe520357209",
+      "en-US": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "Display the routing table."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "显示路由表。"
+      }
+    },
     "rsbuild": {
       "id": "53b4369a-9292-4b93-ac96-38bdc98db225",
       "en-US": {
@@ -5670,6 +5834,17 @@
         "description": "快速、多功能的远程（及本地）文件复制工具。"
       }
     },
+    "rtacct": {
+      "id": "f6c67279-8aee-5a12-80bb-73629f61b618",
+      "en-US": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "Show network statistics by realm."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "按 realm 显示网络统计信息。"
+      }
+    },
     "rtcwake": {
       "id": "678089c3-64cc-463e-b2c2-18ec9535c7ae",
       "en-US": {
@@ -5679,6 +5854,28 @@
       "zh-CN": {
         "url": "https://github.com/util-linux/util-linux",
         "description": "进入系统睡眠状态，直到指定的唤醒时间。"
+      }
+    },
+    "rtmon": {
+      "id": "9c5039ac-c326-5f74-90ed-30d3a814f117",
+      "en-US": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "RTnetlink monitor."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "RTnetlink 监视器。"
+      }
+    },
+    "rtstat": {
+      "id": "db9b2e51-40b5-56fd-b02f-d42c3bc76a3a",
+      "en-US": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "Show routing statistics."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "显示路由统计信息。"
       }
     },
     "ruby": {
@@ -6267,6 +6464,17 @@
       "zh-CN": {
         "url": "https://www.sqlite.org",
         "description": "SQLite 命令行界面。"
+      }
+    },
+    "ss": {
+      "id": "8132d5cd-f0e9-53f4-bb76-f72c7362c325",
+      "en-US": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "Dump socket statistics."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "转储套接字统计信息。"
       }
     },
     "ssh": {
@@ -6981,6 +7189,17 @@
         "description": "让你的依赖保持新鲜的现代化 CLI 工具。"
       }
     },
+    "tc": {
+      "id": "bbcd17d7-db05-5acf-8e65-ce2f8048caf9",
+      "en-US": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "Show / manipulate traffic control settings."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "显示/操作流量控制设置。"
+      }
+    },
     "tee@GNU": {
       "id": "87b20fcf-660a-47ef-8eae-6af63b431973",
       "alias": "tee",
@@ -7082,6 +7301,17 @@
       "zh-CN": {
         "url": "https://uutils.org",
         "description": "启动 COMMAND，超时仍在运行时杀掉它"
+      }
+    },
+    "tipc": {
+      "id": "c271d2b0-fca4-5cba-907d-669ff5de829d",
+      "en-US": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "TIPC configuration and management tool."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "TIPC 配置与管理工具。"
       }
     },
     "tmux": {
@@ -7634,6 +7864,17 @@
       "zh-CN": {
         "url": "https://uutils.org",
         "description": "列出目录内容"
+      }
+    },
+    "vdpa": {
+      "id": "43b1fb8a-6e4d-5b20-8f1b-f97190b9a79c",
+      "en-US": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "vdpa management tool."
+      },
+      "zh-CN": {
+        "url": "https://github.com/iproute2/iproute2",
+        "description": "vdpa 管理工具。"
       }
     },
     "vercel": {

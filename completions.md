@@ -19,6 +19,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[arch@GNU](https://www.gnu.org/software/coreutils/)|Print machine architecture.|
 |[arch@uutils](https://uutils.org)|Display machine architecture|
 |[aria2c](https://aria2.github.io)|Lightweight multi-protocol and multi-source download utility.|
+|[arpd](https://github.com/iproute2/iproute2)|Userspace ARP daemon.|
 |[ast-grep](https://github.com/ast-grep/ast-grep)|Search and Rewrite code at large scale using AST pattern.|
 |[atac](https://github.com/Julien-cpsn/ATAC)|A simple API client in your terminal|
 |[atuin](https://atuin.sh)|Magical shell history.<br>Atuin replaces your existing shell history with a SQLite database, and records additional context for your commands.|
@@ -49,6 +50,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[blockdev](https://github.com/util-linux/util-linux)|Call block device ioctls from the command line.|
 |[bootctl](https://github.com/systemd/systemd)|Control EFI firmware boot settings and manage boot loaders.|
 |[brew](https://brew.sh)|Homebrew is an open-source package manager that was originally designed for macOS and now also supports Linux and WSL (Windows Subsystem for Linux)|
+|[bridge](https://github.com/iproute2/iproute2)|Show / manipulate bridge settings.|
 |[brotli](https://github.com/google/brotli)|Compress or decompress files with the Brotli algorithm.|
 |[buf](https://github.com/bufbuild/buf)|The Buf CLI - work with Protocol Buffers and manage resources on the Buf Schema Registry (BSR).|
 |[bun](https://bun.sh)|JavaScript all-in-one toolkit.|
@@ -104,6 +106,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[croc](https://github.com/schollz/croc)|Easily and securely transfer files from one computer to another.|
 |[csplit@GNU](https://www.gnu.org/software/coreutils/)|Output pieces of FILE separated by PATTERN(s) to files 'xx00', 'xx01', ..., and output byte counts of each piece to standard output.|
 |[csplit@uutils](https://uutils.org)|Split a file into sections determined by context lines.|
+|[ctstat](https://github.com/iproute2/iproute2)|Show connection tracking statistics.|
 |[curl](https://curl.se)|Command line tool and library for transferring data with URLs.|
 |[cut@GNU](https://www.gnu.org/software/coreutils/)|Print selected parts of lines from each FILE to standard output.|
 |[cut@uutils](https://uutils.org)|Print specified byte or field columns from each line.|
@@ -111,10 +114,12 @@ English | [简体中文](./completions.zh-CN.md)
 |[dart](https://dart.dev/tools/dart-tool)|A command-line utility for Dart development.|
 |[date@GNU](https://www.gnu.org/software/coreutils/)|Display date and time in the given FORMAT.|
 |[date@uutils](https://uutils.org)|Print or set the system date and time.|
+|[dcb](https://github.com/iproute2/iproute2)|Show / manipulate DCB settings.|
 |[dd@GNU](https://www.gnu.org/software/coreutils/)|Copy a file, converting and formatting according to the operands.|
 |[dd@uutils](https://uutils.org)|Copy, and optionally convert, a file system resource|
 |[delta](https://github.com/dandavison/delta)|Viewer for git and diff output.|
 |[deno](https://deno.com/)|A modern JavaScript and TypeScript runtime.|
+|[devlink](https://github.com/iproute2/iproute2)|Devlink tool.|
 |[df@GNU](https://www.gnu.org/software/coreutils/)|Show information about the file system on which each FILE resides, or all file systems by default.|
 |[df@uutils](https://uutils.org)|Show information about the file system on which each FILE resides, or all file systems by default.|
 |[diff@GNU](https://www.gnu.org/software/diffutils)|Compare FILES line by line.|
@@ -183,6 +188,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[gcc](https://gcc.gnu.org)|The GNU Compiler Collection|
 |[gem](https://guides.rubygems.org)|RubyGems is a package manager for Ruby libraries.|
 |[gemini](https://github.com/google-gemini/gemini-cli)|Gemini CLI - Google's AI-powered coding assistant in the terminal.|
+|[genl](https://github.com/iproute2/iproute2)|Generic netlink utility frontend.|
 |[getopt](https://github.com/util-linux/util-linux)|Parse command options.|
 |[getsubids](https://github.com/shadow-maint/shadow)|Get the subordinate id ranges for a user.|
 |[gh](https://cli.github.com/)|GitHub command-line tool.|
@@ -228,10 +234,12 @@ English | [简体中文](./completions.zh-CN.md)
 |[icdiff](https://github.com/jeffkaufman/icdiff)|Show differences between files in a two column view.|
 |[id@GNU](https://www.gnu.org/software/coreutils/)|Print user and group information for each specified USER, or (when USER omitted) for the current process.|
 |[id@uutils](https://uutils.org)|Print user and group information for each specified USER, or (when USER omitted) for the current user.|
+|[ifstat](https://github.com/iproute2/iproute2)|Print network interface statistics.|
 |[install@GNU](https://www.gnu.org/software/coreutils/)|This install program copies files (often just compiled) into destination locations you choose.|
 |[install@uutils](https://uutils.org)|Copy SOURCE to DEST or multiple SOURCE(s) to the existing|
 |[ionic](https://ionicframework.com/docs/cli)|Ionic CLI - The command-line interface for Ionic|
 |[ionice](https://github.com/util-linux/util-linux)|Show or change the I/O-scheduling class and priority of a process.|
+|[ip](https://github.com/iproute2/iproute2)|Show / manipulate routing, network devices, interfaces and tunnels.|
 |[ipcmk](https://github.com/util-linux/util-linux)|Create various IPC resources.|
 |[ipcrm](https://github.com/util-linux/util-linux)|Remove certain IPC resources.|
 |[ipcs](https://github.com/util-linux/util-linux)|Show information on IPC facilities.|
@@ -267,6 +275,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[link@uutils](https://uutils.org)|Call the link function to create a link named FILE2 to an existing FILE1.|
 |[ln@GNU](https://www.gnu.org/software/coreutils/)|Make links between files.|
 |[ln@uutils](https://uutils.org)|Make links between files.|
+|[lnstat](https://github.com/iproute2/iproute2)|Show Linux network statistics.|
 |[localectl](https://github.com/systemd/systemd)|Query or change system locale and keyboard settings.|
 |[logger](https://github.com/util-linux/util-linux)|Enter messages into the system log.|
 |[login](https://github.com/util-linux/util-linux)|Begin a session on the system.|
@@ -346,6 +355,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[nrm](https://github.com/Pana/nrm)|npm registry manager.|
 |[nsenter](https://github.com/util-linux/util-linux)|Run a program with namespaces of other processes.|
 |[nssm](https://nssm.cc)|The Non-Sucking Service Manager<br>Install and manage any executable as a Windows service|
+|[nstat](https://github.com/iproute2/iproute2)|Show kernel SNMP counters and network interface statistics.|
 |[nu](https://github.com/nushell/nushell)|The nushell language and shell|
 |[nub](https://nubjs.com/)|The all-in-one Node.js toolkit: package manager, script runner and registry client.|
 |[nubx](https://nubjs.com)|Run a tool from node_modules/.bin, fetching it from the registry on a local miss (a faster npx / pnpm dlx).|
@@ -378,6 +388,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[perl](https://www.perl.org)|A highly capable, feature-rich programming language.|
 |[php](https://www.php.net)|PHP Command Line Interface (CLI).|
 |[phpunit](https://phpunit.de)|A programmer-oriented testing framework for PHP.|
+|[ping](https://github.com/iputils/iputils)|Send ICMP ECHO_REQUEST to network hosts.|
 |[pinky@GNU](https://www.gnu.org/software/coreutils/)|A lightweight 'finger' program; print user information.|
 |[pinky@uutils](https://uutils.org)|Displays brief user information on Unix-based systems|
 |[pip](https://github.com/pypa/pip)|Python Package Manager.|
@@ -422,6 +433,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[rake](https://github.com/ruby/rake)|A make-like build utility for Ruby.|
 |[rbenv](https://github.com/rbenv/rbenv)|Manage your app's Ruby environment.|
 |[rclone](https://rclone.org)|Syncs files to and from cloud storage providers.|
+|[rdma](https://github.com/iproute2/iproute2)|RDMA tool.|
 |[readlink@GNU](https://www.gnu.org/software/coreutils/)|Print value of a symbolic link or canonical file name|
 |[readlink@uutils](https://uutils.org)|Print value of a symbolic link or canonical file name.|
 |[readprofile](https://github.com/util-linux/util-linux)|Display kernel profiling information.|
@@ -441,6 +453,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[rm@uutils](https://uutils.org)|Remove (unlink) the FILE(s)|
 |[rmdir@GNU](https://www.gnu.org/software/coreutils/)|Remove the DIRECTORY(ies), if they are empty.|
 |[rmdir@uutils](https://uutils.org)|Remove the DIRECTORY(ies), if they are empty.|
+|[routel](https://github.com/iproute2/iproute2)|Display the routing table.|
 |[rsbuild](https://rsbuild.rs)|A fast, extensible build tool for modern web development, powered by Rspack.|
 |[rsdoctor](https://rsdoctor.rs)|An AI-friendly build analyzer that makes the build process transparent.|
 |[rslib](https://rslib.rs)|An Rsbuild-based library development tool for creating libraries and UI components.|
@@ -449,7 +462,10 @@ English | [简体中文](./completions.zh-CN.md)
 |[rspress](https://rspress.rs)|Lightning fast static site generator.|
 |[rstest](https://rstest.rs)|A JavaScript testing framework powered by Rspack, with a Jest-compatible API.|
 |[rsync](https://rsync.samba.org)|A fast, versatile, remote (and local) file-copying tool.|
+|[rtacct](https://github.com/iproute2/iproute2)|Show network statistics by realm.|
 |[rtcwake](https://github.com/util-linux/util-linux)|Enter a system sleep state until a specified wakeup time.|
+|[rtmon](https://github.com/iproute2/iproute2)|RTnetlink monitor.|
+|[rtstat](https://github.com/iproute2/iproute2)|Show routing statistics.|
 |[ruby](https://www.ruby-lang.org)|An interpreted object-oriented programming language.|
 |[ruby-build](https://github.com/rbenv/ruby-build)|Compile and install Ruby.|
 |[ruff](https://github.com/astral-sh/ruff)|An extremely fast Python linter and code formatter.|
@@ -501,6 +517,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[split@GNU](https://www.gnu.org/software/coreutils/)|Output pieces of FILE to PREFIXaa, PREFIXab, ...; default size is 1000 lines, and default PREFIX is 'x'.|
 |[split@uutils](https://uutils.org)|Create output files containing consecutive or interleaved sections of input|
 |[sqlite3](https://www.sqlite.org)|SQLite command line interface.|
+|[ss](https://github.com/iproute2/iproute2)|Dump socket statistics.|
 |[ssh](https://www.openssh.com)|OpenSSH remote login client.|
 |[ssh-add](https://www.openssh.com)|Add private key identities to the OpenSSH authentication agent.|
 |[ssh-agent](https://www.openssh.com)|OpenSSH authentication agent.|
@@ -564,6 +581,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[tar@GNU](https://www.gnu.org/software/tar)|GNU tar saves many files together into a single tape or disk archive, and can restore individual files from the archive.|
 |[taskset](https://github.com/util-linux/util-linux)|Show or change the CPU affinity of a process.|
 |[taze](https://github.com/antfu-collective/taze)|A modern CLI tool that keeps your deps fresh.|
+|[tc](https://github.com/iproute2/iproute2)|Show / manipulate traffic control settings.|
 |[tee@GNU](https://www.gnu.org/software/coreutils/)|Copy standard input to each FILE, and also to standard output.|
 |[tee@uutils](https://uutils.org)|Copy standard input to each FILE, and also to standard output.|
 |[terraform](https://www.terraform.io)|HashiCorp Terraform - Infrastructure as Code tool|
@@ -573,6 +591,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[timedatectl](https://github.com/systemd/systemd)|Query or change system time and date settings.|
 |[timeout@GNU](https://www.gnu.org/software/coreutils/)|Start COMMAND, and kill it if still running after DURATION.|
 |[timeout@uutils](https://uutils.org)|Start COMMAND, and kill it if still running after DURATION.|
+|[tipc](https://github.com/iproute2/iproute2)|TIPC configuration and management tool.|
 |[tmux](https://github.com/tmux/tmux)|Terminal multiplexer.|
 |[tofu](https://opentofu.org)|Open-source infrastructure as code tool.|
 |[tokei](https://github.com/XAMPPRocky/tokei)|Count your code, quickly|
@@ -621,6 +640,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[vault](https://www.vaultproject.io)|HashiCorp Vault - manage secrets and protect sensitive data.|
 |[vdir@GNU](https://www.gnu.org/software/coreutils/)|List information about the FILEs (the current directory by default).|
 |[vdir@uutils](https://uutils.org)|List directory contents.|
+|[vdpa](https://github.com/iproute2/iproute2)|vdpa management tool.|
 |[vercel](https://vercel.com)|The Vercel CLI for deploying and managing your Vercel projects|
 |[vhs](https://github.com/charmbracelet/vhs)|Your CLI home video recorder.<br>Record terminal GIFs from shell scripts|
 |[viddy](https://github.com/sachaos/viddy)|A modern watch command<br>Time machine and pager etc.|

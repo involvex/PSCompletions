@@ -19,6 +19,7 @@
 |[arch@GNU](https://www.gnu.org/software/coreutils/)|打印机器架构。|
 |[arch@uutils](https://uutils.org)|显示机器架构|
 |[aria2c](https://aria2.github.io)|轻量级多协议多源下载工具。|
+|[arpd](https://github.com/iproute2/iproute2)|用户空间 ARP 守护进程。|
 |[ast-grep](https://github.com/ast-grep/ast-grep)|使用 AST 模式在大规模代码中搜索与重写。|
 |[atac](https://github.com/Julien-cpsn/ATAC)|在终端中使用的简易 API 客户端|
 |[atuin](https://atuin.sh)|魔法 shell 历史记录<br>Atuin 使用 SQLite 数据库取代你现有的命令行历史记录，并为你的命令记录额外的上下文信息|
@@ -49,6 +50,7 @@
 |[blockdev](https://github.com/util-linux/util-linux)|从命令行调用块设备 ioctl。|
 |[bootctl](https://github.com/systemd/systemd)|控制 EFI 固件启动设置并管理引导加载器。|
 |[brew](https://brew.sh)|Homebrew 是一个开源的包管理器，最初为 macOS 设计，现在还支持 Linux 和 WSL (Windows Subsystem for Linux)|
+|[bridge](https://github.com/iproute2/iproute2)|显示/操作网桥设置。|
 |[brotli](https://github.com/google/brotli)|使用 Brotli 算法压缩或解压文件。|
 |[buf](https://github.com/bufbuild/buf)|Buf CLI - 处理 Protocol Buffers，并管理 Buf Schema Registry (BSR) 上的资源。|
 |[bun](https://bun.sh)|JavaScript 全能工具包。|
@@ -104,6 +106,7 @@
 |[croc](https://github.com/schollz/croc)|轻松安全地在计算机之间传输文件。|
 |[csplit@GNU](https://www.gnu.org/software/coreutils/)|把 FILE 按一个或多个 PATTERN 切分为 'xx00'、'xx01' 等文件，并把每一部分的字节数输出到标准输出。|
 |[csplit@uutils](https://uutils.org)|按上下文行将文件分割为多个部分。|
+|[ctstat](https://github.com/iproute2/iproute2)|显示连接跟踪统计信息。|
 |[curl](https://curl.se)|用于传输数据的命令行工具和库。|
 |[cut@GNU](https://www.gnu.org/software/coreutils/)|把每个 FILE 中各行的选定部分打印到标准输出。|
 |[cut@uutils](https://uutils.org)|输出每行中指定的字节或字段列。|
@@ -111,10 +114,12 @@
 |[dart](https://dart.dev/tools/dart-tool)|Dart 开发命令行工具。|
 |[date@GNU](https://www.gnu.org/software/coreutils/)|以给定的 FORMAT 显示日期和时间。|
 |[date@uutils](https://uutils.org)|显示或设置系统日期和时间。|
+|[dcb](https://github.com/iproute2/iproute2)|显示/操作 DCB 设置。|
 |[dd@GNU](https://www.gnu.org/software/coreutils/)|按操作数的规定转换并格式化，从而复制文件。|
 |[dd@uutils](https://uutils.org)|复制文件系统资源，并可选择转换|
 |[delta](https://github.com/dandavison/delta)|Git 和 diff 输出的查看器。|
 |[deno](https://deno.com/)|现代 JavaScript 和 TypeScript 运行时。|
+|[devlink](https://github.com/iproute2/iproute2)|Devlink 工具。|
 |[df@GNU](https://www.gnu.org/software/coreutils/)|显示每个 FILE 所在文件系统的信息，默认显示所有文件系统的信息。|
 |[df@uutils](https://uutils.org)|显示每个 FILE 所在文件系统的信息，默认显示所有文件系统|
 |[diff@GNU](https://www.gnu.org/software/diffutils)|逐行比较 FILES。|
@@ -183,6 +188,7 @@
 |[gcc](https://gcc.gnu.org)|GNU 编译器套件|
 |[gem](https://guides.rubygems.org)|RubyGems 是一个用于 Ruby 库的包管理器。|
 |[gemini](https://github.com/google-gemini/gemini-cli)|Gemini CLI - Google 的终端 AI 编程助手。|
+|[genl](https://github.com/iproute2/iproute2)|通用 netlink 工具前端。|
 |[getopt](https://github.com/util-linux/util-linux)|解析命令选项。|
 |[getsubids](https://github.com/shadow-maint/shadow)|获取用户的从属 ID 范围。|
 |[gh](https://cli.github.com/)|GitHub 命令行工具。|
@@ -228,10 +234,12 @@
 |[icdiff](https://github.com/jeffkaufman/icdiff)|以双栏视图显示文件之间的差异。|
 |[id@GNU](https://www.gnu.org/software/coreutils/)|打印每个指定 USER 的用户和组信息；省略 USER 时打印当前进程的信息。|
 |[id@uutils](https://uutils.org)|打印每个指定 USER 的用户和组信息，省略 USER 则打印当前用户的|
+|[ifstat](https://github.com/iproute2/iproute2)|打印网络接口统计信息。|
 |[install@GNU](https://www.gnu.org/software/coreutils/)|这个 install 程序把文件（通常是刚编译好的）复制到你选择的目标位置。|
 |[install@uutils](https://uutils.org)|将 SOURCE 复制到 DEST，或将多个 SOURCE 复制到已存在的目录|
 |[ionic](https://ionicframework.com/docs/cli)|Ionic CLI - Ionic 的命令行界面|
 |[ionice](https://github.com/util-linux/util-linux)|显示或更改进程的 I/O 调度类和优先级。|
+|[ip](https://github.com/iproute2/iproute2)|显示/操作路由、网络设备、接口和隧道。|
 |[ipcmk](https://github.com/util-linux/util-linux)|创建各种 IPC 资源。|
 |[ipcrm](https://github.com/util-linux/util-linux)|删除某些 IPC 资源。|
 |[ipcs](https://github.com/util-linux/util-linux)|显示 IPC 设施信息。|
@@ -267,6 +275,7 @@
 |[link@uutils](https://uutils.org)|调用 link 函数，创建指向已存在 FILE1 的名为 FILE2 的链接|
 |[ln@GNU](https://www.gnu.org/software/coreutils/)|创建文件之间的链接。|
 |[ln@uutils](https://uutils.org)|创建文件之间的链接。|
+|[lnstat](https://github.com/iproute2/iproute2)|显示 Linux 网络统计信息。|
 |[localectl](https://github.com/systemd/systemd)|查询或更改系统区域和键盘设置。|
 |[logger](https://github.com/util-linux/util-linux)|将消息写入系统日志。|
 |[login](https://github.com/util-linux/util-linux)|在系统上开始一个会话。|
@@ -346,6 +355,7 @@
 |[nrm](https://github.com/Pana/nrm)|npm 镜像源管理。|
 |[nsenter](https://github.com/util-linux/util-linux)|使用其他进程的命名空间运行程序。|
 |[nssm](https://nssm.cc)|不坑爹的服务管理器 (Non-Sucking Service Manager)<br>可以将任意可执行程序安装为 Windows 服务并管理其运行|
+|[nstat](https://github.com/iproute2/iproute2)|显示内核 SNMP 计数器和网络接口统计信息。|
 |[nu](https://github.com/nushell/nushell)|Nushell 语言与 Shell|
 |[nub](https://nubjs.com/)|一体化 Node.js 工具包: 包管理器、脚本运行器和注册表客户端。|
 |[nubx](https://nubjs.com)|从 node_modules/.bin 运行工具，本地缺失时从 registry 拉取 (更快的 npx / pnpm dlx)。|
@@ -378,6 +388,7 @@
 |[perl](https://www.perl.org)|一种功能强大、特性丰富的编程语言。|
 |[php](https://www.php.net)|PHP 命令行界面 (CLI)。|
 |[phpunit](https://phpunit.de)|面向程序员的 PHP 测试框架。|
+|[ping](https://github.com/iputils/iputils)|向网络主机发送 ICMP ECHO_REQUEST。|
 |[pinky@GNU](https://www.gnu.org/software/coreutils/)|一个轻量级的 finger 程序；打印用户信息。|
 |[pinky@uutils](https://uutils.org)|在基于 Unix 的系统上显示简要用户信息|
 |[pip](https://github.com/pypa/pip)|Python 包管理器。|
@@ -422,6 +433,7 @@
 |[rake](https://github.com/ruby/rake)|Ruby 的 make 风格构建工具。|
 |[rbenv](https://github.com/rbenv/rbenv)|管理应用的 Ruby 环境。|
 |[rclone](https://rclone.org)|在云存储提供商之间同步文件。|
+|[rdma](https://github.com/iproute2/iproute2)|RDMA 工具。|
 |[readlink@GNU](https://www.gnu.org/software/coreutils/)|打印符号链接的目标值或规范化后的文件名|
 |[readlink@uutils](https://uutils.org)|打印符号链接的值或规范文件名|
 |[readprofile](https://github.com/util-linux/util-linux)|显示内核性能分析信息。|
@@ -441,6 +453,7 @@
 |[rm@uutils](https://uutils.org)|删除（取消链接）FILE|
 |[rmdir@GNU](https://www.gnu.org/software/coreutils/)|删除这些目录（如果它们为空）。|
 |[rmdir@uutils](https://uutils.org)|删除 DIRECTORY（如果为空）|
+|[routel](https://github.com/iproute2/iproute2)|显示路由表。|
 |[rsbuild](https://rsbuild.rs)|基于 Rspack 的快速可扩展现代 Web 构建工具。|
 |[rsdoctor](https://rsdoctor.rs)|AI 友好的构建分析器，让构建过程透明可见。|
 |[rslib](https://rslib.rs)|基于 Rsbuild 的库开发工具，用于创建库与 UI 组件。|
@@ -449,7 +462,10 @@
 |[rspress](https://rspress.rs)|闪电般快速的静态站点生成器。|
 |[rstest](https://rstest.rs)|基于 Rspack 的 JavaScript 测试框架，兼容 Jest API。|
 |[rsync](https://rsync.samba.org)|快速、多功能的远程（及本地）文件复制工具。|
+|[rtacct](https://github.com/iproute2/iproute2)|按 realm 显示网络统计信息。|
 |[rtcwake](https://github.com/util-linux/util-linux)|进入系统睡眠状态，直到指定的唤醒时间。|
+|[rtmon](https://github.com/iproute2/iproute2)|RTnetlink 监视器。|
+|[rtstat](https://github.com/iproute2/iproute2)|显示路由统计信息。|
 |[ruby](https://www.ruby-lang.org)|一种解释型的面向对象编程语言。|
 |[ruby-build](https://github.com/rbenv/ruby-build)|编译并安装 Ruby。|
 |[ruff](https://github.com/astral-sh/ruff)|极速的 Python linter 和代码格式化工具。|
@@ -501,6 +517,7 @@
 |[split@GNU](https://www.gnu.org/software/coreutils/)|把 FILE 切分后输出到 PREFIXaa、PREFIXab 等文件；默认每个文件 1000 行，默认 PREFIX 是 'x'。|
 |[split@uutils](https://uutils.org)|创建包含输入连续或交错部分的输出文件|
 |[sqlite3](https://www.sqlite.org)|SQLite 命令行界面。|
+|[ss](https://github.com/iproute2/iproute2)|转储套接字统计信息。|
 |[ssh](https://www.openssh.com)|OpenSSH 远程登录客户端。|
 |[ssh-add](https://www.openssh.com)|将私钥身份添加到 OpenSSH 认证代理。|
 |[ssh-agent](https://www.openssh.com)|OpenSSH 认证代理。|
@@ -564,6 +581,7 @@
 |[tar@GNU](https://www.gnu.org/software/tar)|GNU tar 把许多文件保存到单个磁带或磁盘归档中，并可从归档中恢复单个文件。|
 |[taskset](https://github.com/util-linux/util-linux)|显示或更改进程的 CPU 亲和性。|
 |[taze](https://github.com/antfu-collective/taze)|让你的依赖保持新鲜的现代化 CLI 工具。|
+|[tc](https://github.com/iproute2/iproute2)|显示/操作流量控制设置。|
 |[tee@GNU](https://www.gnu.org/software/coreutils/)|把标准输入复制到每个 FILE，同时也输出到标准输出。|
 |[tee@uutils](https://uutils.org)|将标准输入复制到每个 FILE，同时也复制到标准输出|
 |[terraform](https://www.terraform.io)|HashiCorp Terraform - 基础设施即代码工具|
@@ -573,6 +591,7 @@
 |[timedatectl](https://github.com/systemd/systemd)|查询或更改系统时间和日期设置。|
 |[timeout@GNU](https://www.gnu.org/software/coreutils/)|启动 COMMAND，若 DURATION 之后仍在运行则将其终止。|
 |[timeout@uutils](https://uutils.org)|启动 COMMAND，超时仍在运行时杀掉它|
+|[tipc](https://github.com/iproute2/iproute2)|TIPC 配置与管理工具。|
 |[tmux](https://github.com/tmux/tmux)|终端多路复用器。|
 |[tofu](https://opentofu.org)|开源基础设施即代码工具。|
 |[tokei](https://github.com/XAMPPRocky/tokei)|快速统计你的代码量|
@@ -621,6 +640,7 @@
 |[vault](https://www.vaultproject.io)|HashiCorp Vault - 管理机密并保护敏感数据。|
 |[vdir@GNU](https://www.gnu.org/software/coreutils/)|列出这些文件的信息（默认为当前目录）。|
 |[vdir@uutils](https://uutils.org)|列出目录内容|
+|[vdpa](https://github.com/iproute2/iproute2)|vdpa 管理工具。|
 |[vercel](https://vercel.com)|用于部署和管理 Vercel 项目的命令行工具|
 |[vhs](https://github.com/charmbracelet/vhs)|你的 CLI 家庭录像机<br>从 Shell 脚本录制终端 GIF|
 |[viddy](https://github.com/sachaos/viddy)|现代 watch 命令<br>时间机器和分页器等|
