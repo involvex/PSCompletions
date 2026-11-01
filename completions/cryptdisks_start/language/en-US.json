@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/cryptsetup/cryptsetup",
+    "description": [
+      "Start crypto disks listed in /etc/crypttab."
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h",
+        "-?"
+      ],
+      "usage": [
+        "-h, -?, --help"
+      ],
+      "tip": [
+        "Show this help message."
+      ]
+    },
+    {
+      "name": "--readonly",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --readonly"
+      ],
+      "tip": [
+        "Start the mapping in read-only mode."
+      ]
+    }
+  ]
+}

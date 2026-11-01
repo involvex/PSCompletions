@@ -1,0 +1,9 @@
+{
+  "id": "402fd763-63d1-5ac4-aa84-17bed67b7166",
+  "version": "veritysetup 2.7.5",
+  "hooks": true,
+  "language": [
+    "en-US",
+    "zh-CN"
+  ]
+}

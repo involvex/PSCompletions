@@ -1,0 +1,2591 @@
+{
+  "meta": {
+    "url": "https://git.kernel.org/pub/scm/utils/mdadm/mdadm.git",
+    "description": [
+      "构建、管理和监视 Linux md RAID 阵列。"
+    ]
+  },
+  "next": [
+    {
+      "name": "--assemble",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --assemble device [options]"
+      ],
+      "tip": [
+        "组装之前创建的阵列。"
+      ],
+      "option": [
+        {
+          "name": "--backup-file",
+          "usage": [
+            "--backup-file <FILE>"
+          ],
+          "tip": [
+            "提供完成中断重塑所需的备份文件。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--bitmap",
+          "usage": [
+            "--bitmap <FILE>"
+          ],
+          "tip": [
+            "将此外部位图文件用于阵列。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--config",
+          "alias": [
+            "-c"
+          ],
+          "usage": [
+            "-c, --config <FILE>"
+          ],
+          "tip": [
+            "使用此配置文件或目录。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--force",
+          "alias": [
+            "-f"
+          ],
+          "usage": [
+            "-f, --force"
+          ],
+          "tip": [
+            "覆盖常规检查并强制执行。"
+          ]
+        },
+        {
+          "name": "--freeze-reshape",
+          "tip": [
+            "组装时在关键区段后停止重塑。"
+          ]
+        },
+        {
+          "name": "--home-cluster",
+          "usage": [
+            "--home-cluster <CLUSTER>"
+          ],
+          "tip": [
+            "设置组装阵列所需的集群名称。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--homehost",
+          "usage": [
+            "--homehost <HOST>"
+          ],
+          "tip": [
+            "设置记录在元数据中的宿主身份。"
+          ],
+          "next": [
+            {
+              "name": "any"
+            }
+          ]
+        },
+        {
+          "name": "--invalid-backup",
+          "tip": [
+            "作为最后手段声明备份文件无效。"
+          ]
+        },
+        {
+          "name": "--metadata",
+          "alias": [
+            "-e"
+          ],
+          "usage": [
+            "-e, --metadata <METADATA>"
+          ],
+          "tip": [
+            "声明 RAID 元数据格式。"
+          ],
+          "next": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "0.90"
+            },
+            {
+              "name": "1"
+            },
+            {
+              "name": "1.0"
+            },
+            {
+              "name": "1.1"
+            },
+            {
+              "name": "1.2"
+            },
+            {
+              "name": "ddf"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "imsm"
+            }
+          ]
+        },
+        {
+          "name": "--name",
+          "alias": [
+            "-N"
+          ],
+          "usage": [
+            "-N, --name <NAME>"
+          ],
+          "tip": [
+            "使用此名称组装阵列。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--no-degraded",
+          "tip": [
+            "除非所有预期设备都存在，否则不启动阵列。"
+          ]
+        },
+        {
+          "name": "--readonly",
+          "alias": [
+            "-o"
+          ],
+          "usage": [
+            "-o, --readonly"
+          ],
+          "tip": [
+            "将阵列标记为只读。"
+          ]
+        },
+        {
+          "name": "--run",
+          "alias": [
+            "-R"
+          ],
+          "usage": [
+            "-R, --run"
+          ],
+          "tip": [
+            "即使设备不全也启动阵列。"
+          ]
+        },
+        {
+          "name": "--scan",
+          "alias": [
+            "-s"
+          ],
+          "usage": [
+            "-s, --scan"
+          ],
+          "tip": [
+            "扫描配置文件以获取缺失信息。"
+          ]
+        },
+        {
+          "name": "--super-minor",
+          "alias": [
+            "-m"
+          ],
+          "usage": [
+            "-m, --super-minor <MINOR>"
+          ],
+          "tip": [
+            "仅组装具有此超级块次设备号的设备。"
+          ],
+          "next": [
+            {
+              "name": "dev"
+            }
+          ]
+        },
+        {
+          "name": "--update",
+          "alias": [
+            "-U"
+          ],
+          "usage": [
+            "-U, --update <UPDATE>"
+          ],
+          "tip": [
+            "组装时更新超级块字段。"
+          ],
+          "next": [
+            {
+              "name": "bbl"
+            },
+            {
+              "name": "byteorder"
+            },
+            {
+              "name": "devicesize"
+            },
+            {
+              "name": "home-cluster"
+            },
+            {
+              "name": "homehost"
+            },
+            {
+              "name": "layout-alternate"
+            },
+            {
+              "name": "layout-original"
+            },
+            {
+              "name": "layout-unspecified"
+            },
+            {
+              "name": "metadata"
+            },
+            {
+              "name": "name"
+            },
+            {
+              "name": "no-bbl"
+            },
+            {
+              "name": "no-bitmap"
+            },
+            {
+              "name": "no-ppl"
+            },
+            {
+              "name": "nodes"
+            },
+            {
+              "name": "ppl"
+            },
+            {
+              "name": "resync"
+            },
+            {
+              "name": "summaries"
+            },
+            {
+              "name": "super-minor"
+            },
+            {
+              "name": "uuid"
+            }
+          ]
+        },
+        {
+          "name": "--uuid",
+          "alias": [
+            "-u"
+          ],
+          "usage": [
+            "-u, --uuid <UUID>"
+          ],
+          "tip": [
+            "仅组装具有此 UUID 的设备。"
+          ],
+          "next": []
+        }
+      ]
+    },
+    {
+      "name": "--auto-detect",
+      "tip": [
+        "请求内核启动自动检测到的阵列。"
+      ]
+    },
+    {
+      "name": "--build",
+      "alias": [
+        "-B"
+      ],
+      "usage": [
+        "-B, --build device --chunk=X --level=Y --raid-devices=Z devices"
+      ],
+      "tip": [
+        "构建没有超级块的传统阵列。"
+      ],
+      "option": [
+        {
+          "name": "--assume-clean",
+          "tip": [
+            "假定阵列已干净并跳过初始同步。"
+          ]
+        },
+        {
+          "name": "--bitmap",
+          "alias": [
+            "-b"
+          ],
+          "usage": [
+            "-b, --bitmap <FILE|internal|none>"
+          ],
+          "tip": [
+            "在此文件中存储或查找位图信息。"
+          ],
+          "next": [
+            {
+              "name": "clustered"
+            },
+            {
+              "name": "internal"
+            },
+            {
+              "name": "none"
+            }
+          ]
+        },
+        {
+          "name": "--bitmap-chunk",
+          "usage": [
+            "--bitmap-chunk <SIZE>"
+          ],
+          "tip": [
+            "以千字节设置位图块大小。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--chunk",
+          "alias": [
+            "-c"
+          ],
+          "usage": [
+            "-c, --chunk <SIZE>"
+          ],
+          "tip": [
+            "以千字节设置块大小。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--delay",
+          "alias": [
+            "-d"
+          ],
+          "usage": [
+            "-d, --delay <SECONDS>"
+          ],
+          "tip": [
+            "以秒设置位图更新延迟。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--force",
+          "alias": [
+            "-f"
+          ],
+          "usage": [
+            "-f, --force"
+          ],
+          "tip": [
+            "覆盖常规检查并强制执行。"
+          ]
+        },
+        {
+          "name": "--level",
+          "alias": [
+            "-l"
+          ],
+          "usage": [
+            "-l, --level <LEVEL>"
+          ],
+          "tip": [
+            "设置 RAID 级别。"
+          ],
+          "next": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "1"
+            },
+            {
+              "name": "10"
+            },
+            {
+              "name": "faulty"
+            },
+            {
+              "name": "linear"
+            },
+            {
+              "name": "mp"
+            },
+            {
+              "name": "multipath"
+            },
+            {
+              "name": "raid0"
+            },
+            {
+              "name": "raid1"
+            },
+            {
+              "name": "raid10"
+            },
+            {
+              "name": "stripe"
+            }
+          ]
+        },
+        {
+          "name": "--metadata",
+          "alias": [
+            "-e"
+          ],
+          "usage": [
+            "-e, --metadata <METADATA>"
+          ],
+          "tip": [
+            "声明 RAID 元数据格式。"
+          ],
+          "next": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "0.90"
+            },
+            {
+              "name": "1"
+            },
+            {
+              "name": "1.0"
+            },
+            {
+              "name": "1.1"
+            },
+            {
+              "name": "1.2"
+            },
+            {
+              "name": "ddf"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "imsm"
+            }
+          ]
+        },
+        {
+          "name": "--raid-devices",
+          "alias": [
+            "-n"
+          ],
+          "usage": [
+            "-n, --raid-devices <NUM>"
+          ],
+          "tip": [
+            "设置活动设备数。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--readonly",
+          "alias": [
+            "-o"
+          ],
+          "usage": [
+            "-o, --readonly"
+          ],
+          "tip": [
+            "将阵列标记为只读。"
+          ]
+        },
+        {
+          "name": "--rounding",
+          "usage": [
+            "--rounding <FACTOR>"
+          ],
+          "tip": [
+            "设置线性阵列的取整因子。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--run",
+          "alias": [
+            "-R"
+          ],
+          "usage": [
+            "-R, --run"
+          ],
+          "tip": [
+            "即使设备不全也启动阵列。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--create",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --create device --chunk=X --level=Y --raid-devices=Z devices"
+      ],
+      "tip": [
+        "从未使用的设备创建新阵列。"
+      ],
+      "option": [
+        {
+          "name": "--assume-clean",
+          "tip": [
+            "假定阵列已干净并跳过初始同步。"
+          ]
+        },
+        {
+          "name": "--bitmap",
+          "alias": [
+            "-b"
+          ],
+          "usage": [
+            "-b, --bitmap <FILE|internal|clustered|none>"
+          ],
+          "tip": [
+            "为阵列创建写意图位图。"
+          ],
+          "next": [
+            {
+              "name": "clustered"
+            },
+            {
+              "name": "internal"
+            },
+            {
+              "name": "none"
+            }
+          ]
+        },
+        {
+          "name": "--bitmap-chunk",
+          "usage": [
+            "--bitmap-chunk <SIZE>"
+          ],
+          "tip": [
+            "以千字节设置位图块大小。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--chunk",
+          "alias": [
+            "-c"
+          ],
+          "usage": [
+            "-c, --chunk <SIZE>"
+          ],
+          "tip": [
+            "以千字节设置块大小。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--consistency-policy",
+          "alias": [
+            "-k"
+          ],
+          "usage": [
+            "-k, --consistency-policy <POLICY>"
+          ],
+          "tip": [
+            "设置阵列的一致性策略。"
+          ],
+          "next": [
+            {
+              "name": "bitmap"
+            },
+            {
+              "name": "journal"
+            },
+            {
+              "name": "ppl"
+            },
+            {
+              "name": "resync"
+            }
+          ]
+        },
+        {
+          "name": "--data-offset",
+          "usage": [
+            "--data-offset <OFFSET>"
+          ],
+          "tip": [
+            "在设备起始位置与阵列数据之间留出间隔。"
+          ],
+          "next": [
+            {
+              "name": "variable"
+            }
+          ]
+        },
+        {
+          "name": "--delay",
+          "alias": [
+            "-d"
+          ],
+          "usage": [
+            "-d, --delay <SECONDS>"
+          ],
+          "tip": [
+            "以秒设置位图更新延迟。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--failfast",
+          "tip": [
+            "将后续设备标记为快速失败。"
+          ]
+        },
+        {
+          "name": "--force",
+          "alias": [
+            "-f"
+          ],
+          "usage": [
+            "-f, --force"
+          ],
+          "tip": [
+            "覆盖常规检查并强制执行。"
+          ]
+        },
+        {
+          "name": "--homehost",
+          "usage": [
+            "--homehost <HOST>"
+          ],
+          "tip": [
+            "设置记录在元数据中的宿主身份。"
+          ],
+          "next": [
+            {
+              "name": "any"
+            }
+          ]
+        },
+        {
+          "name": "--layout",
+          "usage": [
+            "--layout <LAYOUT>"
+          ],
+          "tip": [
+            "设置数据布局（与 --parity 相同）。"
+          ],
+          "next": [
+            {
+              "name": "alternate"
+            },
+            {
+              "name": "clear"
+            },
+            {
+              "name": "dangerous"
+            },
+            {
+              "name": "ddf-N-continue"
+            },
+            {
+              "name": "ddf-N-restart"
+            },
+            {
+              "name": "ddf-zero-restart"
+            },
+            {
+              "name": "f2"
+            },
+            {
+              "name": "flush"
+            },
+            {
+              "name": "la"
+            },
+            {
+              "name": "left-asymmetric"
+            },
+            {
+              "name": "left-asymmetric-6"
+            },
+            {
+              "name": "left-symmetric"
+            },
+            {
+              "name": "left-symmetric-6"
+            },
+            {
+              "name": "ls"
+            },
+            {
+              "name": "n2"
+            },
+            {
+              "name": "none"
+            },
+            {
+              "name": "normalise"
+            },
+            {
+              "name": "o2"
+            },
+            {
+              "name": "original"
+            },
+            {
+              "name": "parity-first"
+            },
+            {
+              "name": "parity-first-6"
+            },
+            {
+              "name": "parity-last"
+            },
+            {
+              "name": "preserve"
+            },
+            {
+              "name": "ra"
+            },
+            {
+              "name": "read-fixable"
+            },
+            {
+              "name": "read-persistent"
+            },
+            {
+              "name": "read-transient"
+            },
+            {
+              "name": "rf"
+            },
+            {
+              "name": "right-asymmetric"
+            },
+            {
+              "name": "right-asymmetric-6"
+            },
+            {
+              "name": "right-symmetric"
+            },
+            {
+              "name": "right-symmetric-6"
+            },
+            {
+              "name": "rp"
+            },
+            {
+              "name": "rs"
+            },
+            {
+              "name": "rt"
+            },
+            {
+              "name": "wp"
+            },
+            {
+              "name": "write-all"
+            },
+            {
+              "name": "write-persistent"
+            },
+            {
+              "name": "write-transient"
+            },
+            {
+              "name": "wt"
+            }
+          ]
+        },
+        {
+          "name": "--level",
+          "alias": [
+            "-l"
+          ],
+          "usage": [
+            "-l, --level <LEVEL>"
+          ],
+          "tip": [
+            "设置 RAID 级别。"
+          ],
+          "next": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "1"
+            },
+            {
+              "name": "10"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "5"
+            },
+            {
+              "name": "6"
+            },
+            {
+              "name": "container"
+            },
+            {
+              "name": "faulty"
+            },
+            {
+              "name": "linear"
+            },
+            {
+              "name": "mirror"
+            },
+            {
+              "name": "mp"
+            },
+            {
+              "name": "multipath"
+            },
+            {
+              "name": "raid0"
+            },
+            {
+              "name": "raid1"
+            },
+            {
+              "name": "raid10"
+            },
+            {
+              "name": "raid4"
+            },
+            {
+              "name": "raid5"
+            },
+            {
+              "name": "raid6"
+            },
+            {
+              "name": "stripe"
+            }
+          ]
+        },
+        {
+          "name": "--metadata",
+          "alias": [
+            "-e"
+          ],
+          "usage": [
+            "-e, --metadata <METADATA>"
+          ],
+          "tip": [
+            "声明 RAID 元数据格式。"
+          ],
+          "next": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "0.90"
+            },
+            {
+              "name": "1"
+            },
+            {
+              "name": "1.0"
+            },
+            {
+              "name": "1.1"
+            },
+            {
+              "name": "1.2"
+            },
+            {
+              "name": "ddf"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "imsm"
+            }
+          ]
+        },
+        {
+          "name": "--name",
+          "alias": [
+            "-N"
+          ],
+          "usage": [
+            "-N, --name <NAME>"
+          ],
+          "tip": [
+            "设置阵列名称（最多 32 个字符）。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--nodes",
+          "usage": [
+            "--nodes <NUM>"
+          ],
+          "tip": [
+            "设置集群节点的最大数量。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--parity",
+          "alias": [
+            "-p"
+          ],
+          "usage": [
+            "-p, --parity <ALGORITHM>"
+          ],
+          "tip": [
+            "设置 RAID5/6 校验算法。"
+          ],
+          "next": [
+            {
+              "name": "alternate"
+            },
+            {
+              "name": "clear"
+            },
+            {
+              "name": "dangerous"
+            },
+            {
+              "name": "ddf-N-continue"
+            },
+            {
+              "name": "ddf-N-restart"
+            },
+            {
+              "name": "ddf-zero-restart"
+            },
+            {
+              "name": "f2"
+            },
+            {
+              "name": "flush"
+            },
+            {
+              "name": "la"
+            },
+            {
+              "name": "left-asymmetric"
+            },
+            {
+              "name": "left-asymmetric-6"
+            },
+            {
+              "name": "left-symmetric"
+            },
+            {
+              "name": "left-symmetric-6"
+            },
+            {
+              "name": "ls"
+            },
+            {
+              "name": "n2"
+            },
+            {
+              "name": "none"
+            },
+            {
+              "name": "normalise"
+            },
+            {
+              "name": "o2"
+            },
+            {
+              "name": "original"
+            },
+            {
+              "name": "parity-first"
+            },
+            {
+              "name": "parity-first-6"
+            },
+            {
+              "name": "parity-last"
+            },
+            {
+              "name": "preserve"
+            },
+            {
+              "name": "ra"
+            },
+            {
+              "name": "read-fixable"
+            },
+            {
+              "name": "read-persistent"
+            },
+            {
+              "name": "read-transient"
+            },
+            {
+              "name": "rf"
+            },
+            {
+              "name": "right-asymmetric"
+            },
+            {
+              "name": "right-asymmetric-6"
+            },
+            {
+              "name": "right-symmetric"
+            },
+            {
+              "name": "right-symmetric-6"
+            },
+            {
+              "name": "rp"
+            },
+            {
+              "name": "rs"
+            },
+            {
+              "name": "rt"
+            },
+            {
+              "name": "wp"
+            },
+            {
+              "name": "write-all"
+            },
+            {
+              "name": "write-persistent"
+            },
+            {
+              "name": "write-transient"
+            },
+            {
+              "name": "wt"
+            }
+          ]
+        },
+        {
+          "name": "--raid-devices",
+          "alias": [
+            "-n"
+          ],
+          "usage": [
+            "-n, --raid-devices <NUM>"
+          ],
+          "tip": [
+            "设置活动设备数。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--readonly",
+          "alias": [
+            "-o"
+          ],
+          "usage": [
+            "-o, --readonly"
+          ],
+          "tip": [
+            "将阵列标记为只读。"
+          ]
+        },
+        {
+          "name": "--rounding",
+          "usage": [
+            "--rounding <FACTOR>"
+          ],
+          "tip": [
+            "设置线性阵列的取整因子。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--run",
+          "alias": [
+            "-R"
+          ],
+          "usage": [
+            "-R, --run"
+          ],
+          "tip": [
+            "即使设备不全也启动阵列。"
+          ]
+        },
+        {
+          "name": "--size",
+          "alias": [
+            "-z"
+          ],
+          "usage": [
+            "-z, --size <SIZE>"
+          ],
+          "tip": [
+            "以千字节设置每个设备使用的容量。"
+          ],
+          "next": [
+            {
+              "name": "max"
+            }
+          ]
+        },
+        {
+          "name": "--spare-devices",
+          "alias": [
+            "-x"
+          ],
+          "usage": [
+            "-x, --spare-devices <NUM>"
+          ],
+          "tip": [
+            "设置备用设备数。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--uuid",
+          "alias": [
+            "-u"
+          ],
+          "usage": [
+            "-u, --uuid <UUID>"
+          ],
+          "tip": [
+            "选择新阵列的 UUID。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--write-behind",
+          "usage": [
+            "--write-behind[=<COUNT>]"
+          ],
+          "tip": [
+            "启用写后模式，并可设置未完成写入上限。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--write-journal",
+          "usage": [
+            "--write-journal <DEVICE>"
+          ],
+          "tip": [
+            "为 RAID4/5/6 阵列指定日志设备。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--write-mostly",
+          "alias": [
+            "-W"
+          ],
+          "usage": [
+            "-W, --write-mostly"
+          ],
+          "tip": [
+            "将后续设备标记为写入优先。"
+          ]
+        },
+        {
+          "name": "--write-zeroes",
+          "tip": [
+            "创建阵列前向磁盘写入零。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--grow",
+      "alias": [
+        "-G"
+      ],
+      "usage": [
+        "-G, --grow device options"
+      ],
+      "tip": [
+        "调整活动阵列的大小或形状。"
+      ],
+      "option": [
+        {
+          "name": "--add",
+          "alias": [
+            "-a"
+          ],
+          "usage": [
+            "-a, --add <DEVICE>"
+          ],
+          "tip": [
+            "在重塑过程中添加设备。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--array-size",
+          "alias": [
+            "-Z"
+          ],
+          "usage": [
+            "-Z, --array-size <SIZE>"
+          ],
+          "tip": [
+            "更改阵列的可见大小。"
+          ],
+          "next": [
+            {
+              "name": "max"
+            }
+          ]
+        },
+        {
+          "name": "--assume-clean",
+          "tip": [
+            "扩容后避免对新空间进行同步。"
+          ]
+        },
+        {
+          "name": "--backup-file",
+          "usage": [
+            "--backup-file <FILE>"
+          ],
+          "tip": [
+            "将重塑数据存储在单独的设备上。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--bitmap",
+          "alias": [
+            "-b"
+          ],
+          "usage": [
+            "-b, --bitmap <FILE|internal|none>"
+          ],
+          "tip": [
+            "添加或移除写意图位图。"
+          ],
+          "next": [
+            {
+              "name": "clustered"
+            },
+            {
+              "name": "internal"
+            },
+            {
+              "name": "none"
+            }
+          ]
+        },
+        {
+          "name": "--chunk",
+          "alias": [
+            "-c"
+          ],
+          "usage": [
+            "-c, --chunk <SIZE>"
+          ],
+          "tip": [
+            "更改阵列的块大小。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--consistency-policy",
+          "alias": [
+            "-k"
+          ],
+          "usage": [
+            "-k, --consistency-policy <POLICY>"
+          ],
+          "tip": [
+            "更改活动阵列的一致性策略。"
+          ],
+          "next": [
+            {
+              "name": "bitmap"
+            },
+            {
+              "name": "journal"
+            },
+            {
+              "name": "ppl"
+            },
+            {
+              "name": "resync"
+            }
+          ]
+        },
+        {
+          "name": "--continue",
+          "tip": [
+            "继续被中断或冻结的重塑。"
+          ]
+        },
+        {
+          "name": "--data-offset",
+          "usage": [
+            "--data-offset <OFFSET>"
+          ],
+          "tip": [
+            "移动设备上数据的起始位置。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--force",
+          "alias": [
+            "-f"
+          ],
+          "usage": [
+            "-f, --force"
+          ],
+          "tip": [
+            "覆盖常规检查并强制执行。"
+          ]
+        },
+        {
+          "name": "--layout",
+          "alias": [
+            "-p"
+          ],
+          "usage": [
+            "-p, --layout <LAYOUT>"
+          ],
+          "tip": [
+            "更改阵列布局或故障错误模式。"
+          ],
+          "next": [
+            {
+              "name": "alternate"
+            },
+            {
+              "name": "clear"
+            },
+            {
+              "name": "dangerous"
+            },
+            {
+              "name": "ddf-N-continue"
+            },
+            {
+              "name": "ddf-N-restart"
+            },
+            {
+              "name": "ddf-zero-restart"
+            },
+            {
+              "name": "f2"
+            },
+            {
+              "name": "flush"
+            },
+            {
+              "name": "la"
+            },
+            {
+              "name": "left-asymmetric"
+            },
+            {
+              "name": "left-asymmetric-6"
+            },
+            {
+              "name": "left-symmetric"
+            },
+            {
+              "name": "left-symmetric-6"
+            },
+            {
+              "name": "ls"
+            },
+            {
+              "name": "n2"
+            },
+            {
+              "name": "none"
+            },
+            {
+              "name": "normalise"
+            },
+            {
+              "name": "o2"
+            },
+            {
+              "name": "original"
+            },
+            {
+              "name": "parity-first"
+            },
+            {
+              "name": "parity-first-6"
+            },
+            {
+              "name": "parity-last"
+            },
+            {
+              "name": "preserve"
+            },
+            {
+              "name": "ra"
+            },
+            {
+              "name": "read-fixable"
+            },
+            {
+              "name": "read-persistent"
+            },
+            {
+              "name": "read-transient"
+            },
+            {
+              "name": "rf"
+            },
+            {
+              "name": "right-asymmetric"
+            },
+            {
+              "name": "right-asymmetric-6"
+            },
+            {
+              "name": "right-symmetric"
+            },
+            {
+              "name": "right-symmetric-6"
+            },
+            {
+              "name": "rp"
+            },
+            {
+              "name": "rs"
+            },
+            {
+              "name": "rt"
+            },
+            {
+              "name": "wp"
+            },
+            {
+              "name": "write-all"
+            },
+            {
+              "name": "write-persistent"
+            },
+            {
+              "name": "write-transient"
+            },
+            {
+              "name": "wt"
+            }
+          ]
+        },
+        {
+          "name": "--level",
+          "alias": [
+            "-l"
+          ],
+          "usage": [
+            "-l, --level <LEVEL>"
+          ],
+          "tip": [
+            "设置要转换为的 RAID 级别。"
+          ],
+          "next": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "1"
+            },
+            {
+              "name": "10"
+            },
+            {
+              "name": "5"
+            },
+            {
+              "name": "6"
+            },
+            {
+              "name": "linear"
+            },
+            {
+              "name": "multipath"
+            }
+          ]
+        },
+        {
+          "name": "--raid-devices",
+          "alias": [
+            "-n"
+          ],
+          "usage": [
+            "-n, --raid-devices <NUM>"
+          ],
+          "tip": [
+            "更改活动设备数。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--readonly",
+          "alias": [
+            "-o"
+          ],
+          "usage": [
+            "-o, --readonly"
+          ],
+          "tip": [
+            "将阵列标记为只读。"
+          ]
+        },
+        {
+          "name": "--run",
+          "alias": [
+            "-R"
+          ],
+          "usage": [
+            "-R, --run"
+          ],
+          "tip": [
+            "即使设备不全也启动阵列。"
+          ]
+        },
+        {
+          "name": "--size",
+          "alias": [
+            "-z"
+          ],
+          "usage": [
+            "-z, --size <SIZE>"
+          ],
+          "tip": [
+            "更改设备的可用容量。"
+          ],
+          "next": [
+            {
+              "name": "max"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--incremental",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --incremental [options] device"
+      ],
+      "tip": [
+        "向阵列添加或从阵列移除单个设备。"
+      ],
+      "option": [
+        {
+          "name": "--export",
+          "alias": [
+            "-Y"
+          ],
+          "usage": [
+            "-Y, --export"
+          ],
+          "tip": [
+            "使用 key=value 输出，便于导入环境变量。"
+          ]
+        },
+        {
+          "name": "--fail",
+          "alias": [
+            "-f"
+          ],
+          "usage": [
+            "-f, --fail"
+          ],
+          "tip": [
+            "将设备标记为故障并从其所属阵列移除。"
+          ]
+        },
+        {
+          "name": "--force",
+          "tip": [
+            "覆盖常规检查。"
+          ]
+        },
+        {
+          "name": "--path",
+          "usage": [
+            "--path <PATH>"
+          ],
+          "tip": [
+            "记录设备路径以便自动替换。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--rebuild-map",
+          "alias": [
+            "-r"
+          ],
+          "usage": [
+            "-r, --rebuild-map"
+          ],
+          "tip": [
+            "重建用于跟踪部分阵列的映射文件。"
+          ]
+        },
+        {
+          "name": "--run",
+          "alias": [
+            "-R"
+          ],
+          "usage": [
+            "-R, --run"
+          ],
+          "tip": [
+            "在设备数量达到最低要求时立即运行阵列。"
+          ]
+        },
+        {
+          "name": "--scan",
+          "alias": [
+            "-s"
+          ],
+          "usage": [
+            "-s, --scan"
+          ],
+          "tip": [
+            "启动尚未启动的增量组装阵列。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--manage",
+      "usage": [
+        "--manage device options... devices..."
+      ],
+      "tip": [
+        "更改阵列的组件设备。"
+      ],
+      "option": [
+        {
+          "name": "--add",
+          "alias": [
+            "-a"
+          ],
+          "usage": [
+            "-a, --add"
+          ],
+          "tip": [
+            "将后续设备热添加到阵列。"
+          ]
+        },
+        {
+          "name": "--add-journal",
+          "tip": [
+            "向现有的只读 RAID4/5/6 阵列添加日志。"
+          ]
+        },
+        {
+          "name": "--add-spare",
+          "tip": [
+            "将设备添加为备用，不尝试重新添加。"
+          ]
+        },
+        {
+          "name": "--cluster-confirm",
+          "usage": [
+            "--cluster-confirm <SLOT:DEVICE>"
+          ],
+          "tip": [
+            "确认集群中设备的存在。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--fail",
+          "alias": [
+            "-f"
+          ],
+          "usage": [
+            "-f, --fail"
+          ],
+          "tip": [
+            "将后续设备标记为故障。"
+          ]
+        },
+        {
+          "name": "--failfast",
+          "tip": [
+            "在后续设备上设置快速失败标志。"
+          ]
+        },
+        {
+          "name": "--force",
+          "tip": [
+            "覆盖常规检查。"
+          ]
+        },
+        {
+          "name": "--nofailfast",
+          "tip": [
+            "重新添加设备时清除快速失败标志。"
+          ]
+        },
+        {
+          "name": "--re-add",
+          "tip": [
+            "重新添加最近曾属于该阵列的设备。"
+          ]
+        },
+        {
+          "name": "--readonly",
+          "alias": [
+            "-o"
+          ],
+          "usage": [
+            "-o, --readonly"
+          ],
+          "tip": [
+            "将阵列标记为只读。"
+          ]
+        },
+        {
+          "name": "--readwrite",
+          "alias": [
+            "-w"
+          ],
+          "usage": [
+            "-w, --readwrite"
+          ],
+          "tip": [
+            "清除后续设备的写入优先标志。"
+          ]
+        },
+        {
+          "name": "--remove",
+          "alias": [
+            "-r"
+          ],
+          "usage": [
+            "-r, --remove"
+          ],
+          "tip": [
+            "移除后续设备，这些设备必须未处于活动状态。"
+          ]
+        },
+        {
+          "name": "--replace",
+          "tip": [
+            "将设备标记为需要用备用设备替换。"
+          ]
+        },
+        {
+          "name": "--run",
+          "alias": [
+            "-R"
+          ],
+          "usage": [
+            "-R, --run"
+          ],
+          "tip": [
+            "即使设备不全也启动阵列。"
+          ]
+        },
+        {
+          "name": "--set-faulty",
+          "tip": [
+            "与 --fail 相同。"
+          ]
+        },
+        {
+          "name": "--stop",
+          "alias": [
+            "-S"
+          ],
+          "usage": [
+            "-S, --stop"
+          ],
+          "tip": [
+            "停用阵列并释放其资源。"
+          ]
+        },
+        {
+          "name": "--test",
+          "alias": [
+            "-t"
+          ],
+          "usage": [
+            "-t, --test"
+          ],
+          "tip": [
+            "当间接设备指示符未匹配时报告失败。"
+          ]
+        },
+        {
+          "name": "--update",
+          "alias": [
+            "-U"
+          ],
+          "usage": [
+            "-U, --update <UPDATE>"
+          ],
+          "tip": [
+            "重新添加时更新超级块字段。"
+          ],
+          "next": [
+            {
+              "name": "bbl"
+            },
+            {
+              "name": "byteorder"
+            },
+            {
+              "name": "devicesize"
+            },
+            {
+              "name": "home-cluster"
+            },
+            {
+              "name": "homehost"
+            },
+            {
+              "name": "layout-alternate"
+            },
+            {
+              "name": "layout-original"
+            },
+            {
+              "name": "layout-unspecified"
+            },
+            {
+              "name": "metadata"
+            },
+            {
+              "name": "name"
+            },
+            {
+              "name": "no-bbl"
+            },
+            {
+              "name": "no-bitmap"
+            },
+            {
+              "name": "no-ppl"
+            },
+            {
+              "name": "nodes"
+            },
+            {
+              "name": "ppl"
+            },
+            {
+              "name": "resync"
+            },
+            {
+              "name": "summaries"
+            },
+            {
+              "name": "super-minor"
+            },
+            {
+              "name": "uuid"
+            }
+          ]
+        },
+        {
+          "name": "--with",
+          "tip": [
+            "为之前的 --replace 优先使用这些备用设备。"
+          ]
+        },
+        {
+          "name": "--write-mostly",
+          "tip": [
+            "在后续设备上设置写入优先标志。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--misc",
+      "usage": [
+        "--misc options... devices..."
+      ],
+      "tip": [
+        "报告或修改 md 设备及其组件。"
+      ],
+      "option": [
+        {
+          "name": "--action",
+          "usage": [
+            "--action <ACTION>"
+          ],
+          "tip": [
+            "设置设备的同步动作。"
+          ],
+          "next": [
+            {
+              "name": "check"
+            },
+            {
+              "name": "frozen"
+            },
+            {
+              "name": "idle"
+            },
+            {
+              "name": "repair"
+            }
+          ]
+        },
+        {
+          "name": "--brief",
+          "alias": [
+            "-b"
+          ],
+          "usage": [
+            "-b, --brief"
+          ],
+          "tip": [
+            "在 --detail 和 --examine 时减少输出。"
+          ]
+        },
+        {
+          "name": "--config",
+          "usage": [
+            "--config <FILE>"
+          ],
+          "tip": [
+            "使用此配置文件或目录。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--detail",
+          "alias": [
+            "-D"
+          ],
+          "usage": [
+            "-D, --detail"
+          ],
+          "tip": [
+            "显示阵列的详细信息。"
+          ]
+        },
+        {
+          "name": "--detail-platform",
+          "usage": [
+            "--detail-platform [<DEVICE>]"
+          ],
+          "tip": [
+            "显示平台的 RAID 能力。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--dump",
+          "usage": [
+            "--dump=<DIRECTORY>"
+          ],
+          "tip": [
+            "将所列设备的元数据写入此目录。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--examine",
+          "alias": [
+            "-E"
+          ],
+          "usage": [
+            "-E, --examine"
+          ],
+          "tip": [
+            "打印指定设备上存储的元数据。"
+          ]
+        },
+        {
+          "name": "--examine-badblocks",
+          "tip": [
+            "列出设备记录的坏块。"
+          ]
+        },
+        {
+          "name": "--examine-bitmap",
+          "alias": [
+            "-X"
+          ],
+          "usage": [
+            "-X, --examine-bitmap"
+          ],
+          "tip": [
+            "报告位图信息。"
+          ]
+        },
+        {
+          "name": "--export",
+          "alias": [
+            "-Y"
+          ],
+          "usage": [
+            "-Y, --export"
+          ],
+          "tip": [
+            "使用 key=value 输出，便于导入环境变量。"
+          ]
+        },
+        {
+          "name": "--force",
+          "tip": [
+            "覆盖常规检查。"
+          ]
+        },
+        {
+          "name": "--homehost",
+          "usage": [
+            "--homehost <HOST>"
+          ],
+          "tip": [
+            "设置记录在元数据中的宿主身份。"
+          ],
+          "next": [
+            {
+              "name": "any"
+            }
+          ]
+        },
+        {
+          "name": "--kill-subarray",
+          "usage": [
+            "--kill-subarray <SUBARRAY>"
+          ],
+          "tip": [
+            "从容器中删除非活动子阵列。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--metadata",
+          "alias": [
+            "-e"
+          ],
+          "usage": [
+            "-e, --metadata <METADATA>"
+          ],
+          "tip": [
+            "声明 RAID 元数据格式。"
+          ],
+          "next": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "0.90"
+            },
+            {
+              "name": "1"
+            },
+            {
+              "name": "1.0"
+            },
+            {
+              "name": "1.1"
+            },
+            {
+              "name": "1.2"
+            },
+            {
+              "name": "ddf"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "imsm"
+            }
+          ]
+        },
+        {
+          "name": "--prefer",
+          "usage": [
+            "--prefer <COMPONENT>"
+          ],
+          "tip": [
+            "优先使用包含此路径组成部分的设备名。"
+          ],
+          "next": [
+            {
+              "name": "by-id"
+            },
+            {
+              "name": "by-path"
+            },
+            {
+              "name": "by-uuid"
+            }
+          ]
+        },
+        {
+          "name": "--query",
+          "alias": [
+            "-Q"
+          ],
+          "usage": [
+            "-Q, --query"
+          ],
+          "tip": [
+            "报告设备与 md 驱动的关系。"
+          ]
+        },
+        {
+          "name": "--readonly",
+          "alias": [
+            "-o"
+          ],
+          "usage": [
+            "-o, --readonly"
+          ],
+          "tip": [
+            "将阵列标记为只读。"
+          ]
+        },
+        {
+          "name": "--readwrite",
+          "alias": [
+            "-w"
+          ],
+          "usage": [
+            "-w, --readwrite"
+          ],
+          "tip": [
+            "将阵列标记为读写。"
+          ]
+        },
+        {
+          "name": "--restore",
+          "usage": [
+            "--restore=<DIRECTORY>"
+          ],
+          "tip": [
+            "从此目录将元数据恢复到所列设备。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--run",
+          "alias": [
+            "-R"
+          ],
+          "usage": [
+            "-R, --run"
+          ],
+          "tip": [
+            "即使设备不全也启动阵列。"
+          ]
+        },
+        {
+          "name": "--scan",
+          "alias": [
+            "-s"
+          ],
+          "usage": [
+            "-s, --scan"
+          ],
+          "tip": [
+            "对 /proc/mdstat 中列出的所有阵列执行操作。"
+          ]
+        },
+        {
+          "name": "--stop",
+          "alias": [
+            "-S"
+          ],
+          "usage": [
+            "-S, --stop"
+          ],
+          "tip": [
+            "停用阵列并释放其资源。"
+          ]
+        },
+        {
+          "name": "--test",
+          "alias": [
+            "-t"
+          ],
+          "usage": [
+            "-t, --test"
+          ],
+          "tip": [
+            "设置退出状态以反映阵列状态。"
+          ]
+        },
+        {
+          "name": "--udev-rules",
+          "usage": [
+            "--udev-rules=<FILE>"
+          ],
+          "tip": [
+            "将 udev 规则生成到此文件。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--update",
+          "alias": [
+            "-U"
+          ],
+          "usage": [
+            "-U, --update <UPDATE>"
+          ],
+          "tip": [
+            "选择要更新的超级块字段。"
+          ],
+          "next": [
+            {
+              "name": "bbl"
+            },
+            {
+              "name": "byteorder"
+            },
+            {
+              "name": "devicesize"
+            },
+            {
+              "name": "home-cluster"
+            },
+            {
+              "name": "homehost"
+            },
+            {
+              "name": "layout-alternate"
+            },
+            {
+              "name": "layout-original"
+            },
+            {
+              "name": "layout-unspecified"
+            },
+            {
+              "name": "metadata"
+            },
+            {
+              "name": "name"
+            },
+            {
+              "name": "no-bbl"
+            },
+            {
+              "name": "no-bitmap"
+            },
+            {
+              "name": "no-ppl"
+            },
+            {
+              "name": "nodes"
+            },
+            {
+              "name": "ppl"
+            },
+            {
+              "name": "resync"
+            },
+            {
+              "name": "summaries"
+            },
+            {
+              "name": "super-minor"
+            },
+            {
+              "name": "uuid"
+            }
+          ]
+        },
+        {
+          "name": "--update-subarray",
+          "usage": [
+            "--update-subarray <SUBARRAY>"
+          ],
+          "tip": [
+            "更新容器子阵列的超级块字段。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--wait",
+          "alias": [
+            "-W"
+          ],
+          "usage": [
+            "-W, --wait"
+          ],
+          "tip": [
+            "等待重新同步、恢复或重塑活动完成。"
+          ]
+        },
+        {
+          "name": "--wait-clean",
+          "tip": [
+            "安排尽快将阵列标记为干净。"
+          ]
+        },
+        {
+          "name": "--zero-superblock",
+          "tip": [
+            "用零覆盖有效的 md 超级块。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--monitor",
+      "alias": [
+        "--follow",
+        "-F"
+      ],
+      "usage": [
+        "-F, --follow, --monitor options... devices..."
+      ],
+      "tip": [
+        "监视阵列的重大变化。"
+      ],
+      "option": [
+        {
+          "name": "--config",
+          "alias": [
+            "-c"
+          ],
+          "usage": [
+            "-c, --config <FILE>"
+          ],
+          "tip": [
+            "使用此配置文件或目录。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--daemonise",
+          "alias": [
+            "-f"
+          ],
+          "usage": [
+            "-f, --daemonise"
+          ],
+          "tip": [
+            "派生并继续在后台运行。"
+          ]
+        },
+        {
+          "name": "--delay",
+          "alias": [
+            "-d"
+          ],
+          "usage": [
+            "-d, --delay <SECONDS>"
+          ],
+          "tip": [
+            "以秒设置轮询之间的延迟。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--increment",
+          "alias": [
+            "-r"
+          ],
+          "usage": [
+            "-r, --increment <PERCENT>"
+          ],
+          "tip": [
+            "按此百分比增量报告 RebuildNN 事件。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--mail",
+          "alias": [
+            "-m"
+          ],
+          "usage": [
+            "-m, --mail <ADDRESS>"
+          ],
+          "tip": [
+            "将故障警报发送到此邮箱。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--no-sharing",
+          "tip": [
+            "禁止在阵列之间移动备用设备。"
+          ]
+        },
+        {
+          "name": "--oneshot",
+          "alias": [
+            "-1"
+          ],
+          "usage": [
+            "-1, --oneshot"
+          ],
+          "tip": [
+            "仅检查阵列一次，然后退出。"
+          ]
+        },
+        {
+          "name": "--pid-file",
+          "alias": [
+            "-i"
+          ],
+          "usage": [
+            "-i, --pid-file <FILE>"
+          ],
+          "tip": [
+            "将守护进程 pid 写入此文件而不是标准输出。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--prefer",
+          "usage": [
+            "--prefer <COMPONENT>"
+          ],
+          "tip": [
+            "优先使用包含此路径组成部分的设备名。"
+          ],
+          "next": [
+            {
+              "name": "by-id"
+            },
+            {
+              "name": "by-path"
+            },
+            {
+              "name": "by-uuid"
+            }
+          ]
+        },
+        {
+          "name": "--program",
+          "alias": [
+            "--alert",
+            "-p"
+          ],
+          "usage": [
+            "-p, --alert, --program <PROGRAM>"
+          ],
+          "tip": [
+            "检测到事件时运行此程序。"
+          ],
+          "next": []
+        },
+        {
+          "name": "--scan",
+          "alias": [
+            "-s"
+          ],
+          "usage": [
+            "-s, --scan"
+          ],
+          "tip": [
+            "在配置文件中查找邮箱地址和程序。"
+          ]
+        },
+        {
+          "name": "--syslog",
+          "alias": [
+            "-y"
+          ],
+          "usage": [
+            "-y, --syslog"
+          ],
+          "tip": [
+            "通过 syslog 报告警报。"
+          ]
+        },
+        {
+          "name": "--test",
+          "alias": [
+            "-t"
+          ],
+          "usage": [
+            "-t, --test"
+          ],
+          "tip": [
+            "对每个阵列生成 TestMessage 事件。"
+          ]
+        }
+      ]
+    }
+  ],
+  "global_option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示通用或模式相关的帮助。"
+      ]
+    },
+    {
+      "name": "--help-options",
+      "tip": [
+        "显示关于命令行解析和常用选项的详细帮助。"
+      ]
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "避免打印纯提示性消息。"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "输出更多信息；使用两次可获得额外细节。"
+      ],
+      "repeat": 2
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "打印版本信息。"
+      ]
+    }
+  ]
+}

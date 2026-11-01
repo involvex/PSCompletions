@@ -1,0 +1,9 @@
+{
+  "id": "2a8b2fac-ab72-5c80-8d02-df45aeba0800",
+  "version": "cryptsetup 2.7.5",
+  "hooks": true,
+  "language": [
+    "en-US",
+    "zh-CN"
+  ]
+}

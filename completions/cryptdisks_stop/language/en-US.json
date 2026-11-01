@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/cryptsetup/cryptsetup",
+    "description": [
+      "Stop crypto disks listed in /etc/crypttab."
+    ]
+  }
+}

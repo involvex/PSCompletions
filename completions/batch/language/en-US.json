@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "url": "https://salsa.debian.org/debian/at",
+    "description": [
+      "Submit a batch job."
+    ]
+  }
+}

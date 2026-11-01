@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "url": "https://salsa.debian.org/debian/at",
+    "description": [
+      "排队、检查或删除稍后执行的作业。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--cat",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c"
+      ],
+      "tip": [
+        "将命令行中列出的作业输出到标准输出。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--file",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f file"
+      ],
+      "tip": [
+        "从文件而不是标准输入读取作业。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--format",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o fmt"
+      ],
+      "tip": [
+        "设置作业列表的 strftime 风格格式。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--list",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l"
+      ],
+      "tip": [
+        "列出待处理作业（atq 的别名）。"
+      ]
+    },
+    {
+      "name": "--queue",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q queue"
+      ],
+      "tip": [
+        "使用指定队列（a-z 或 A-Z）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--remove",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r"
+      ],
+      "tip": [
+        "移除作业（atrm 的别名）。"
+      ]
+    },
+    {
+      "name": "--time",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t time"
+      ],
+      "tip": [
+        "在指定时间运行作业（[[CC]YY]MMDDhhmm[.ss]）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--user",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u username"
+      ],
+      "tip": [
+        "将邮件发送给此用户而不是当前用户。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v"
+      ],
+      "tip": [
+        "读取作业前显示执行时间。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "打印版本号并退出。"
+      ]
+    },
+    {
+      "name": "-b",
+      "tip": [
+        "batch 的别名。"
+      ]
+    },
+    {
+      "name": "-d",
+      "tip": [
+        "atrm 的别名。"
+      ]
+    },
+    {
+      "name": "-m",
+      "tip": [
+        "作业完成时发送邮件，即使没有输出。"
+      ]
+    },
+    {
+      "name": "-M",
+      "tip": [
+        "从不向用户发送邮件。"
+      ]
+    }
+  ]
+}

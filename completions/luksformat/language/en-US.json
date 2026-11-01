@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/cryptsetup/cryptsetup",
+    "description": [
+      "Create and format an encrypted LUKS device."
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "tip": [
+        "Show this help message."
+      ]
+    },
+    {
+      "name": "--type",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --type <FSTYPE>"
+      ],
+      "tip": [
+        "Filesystem type to create (default vfat)."
+      ],
+      "next": []
+    }
+  ]
+}

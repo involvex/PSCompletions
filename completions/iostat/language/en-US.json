@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "url": "https://github.com/sysstat/sysstat",
+    "description": [
+      "Report CPU and I/O statistics."
+    ]
+  },
+  "option": [
+    {
+      "name": "--compact",
+      "tip": [
+        "Use compact output."
+      ]
+    },
+    {
+      "name": "--dec",
+      "usage": [
+        "--dec={0|1|2}"
+      ],
+      "tip": [
+        "Set the decimal precision."
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        },
+        {
+          "name": "2"
+        }
+      ]
+    },
+    {
+      "name": "--human",
+      "tip": [
+        "Print sizes in human-readable format."
+      ]
+    },
+    {
+      "name": "--pretty",
+      "tip": [
+        "Pretty-print JSON output."
+      ]
+    },
+    {
+      "name": "-c",
+      "tip": [
+        "Display CPU utilization."
+      ]
+    },
+    {
+      "name": "-d",
+      "tip": [
+        "Display device utilization."
+      ]
+    },
+    {
+      "name": "-f",
+      "usage": [
+        "-f <directory>"
+      ],
+      "tip": [
+        "Use the given directory for device mapping."
+      ],
+      "next": []
+    },
+    {
+      "name": "-g",
+      "usage": [
+        "-g <group_name>"
+      ],
+      "tip": [
+        "Display statistics for the device group."
+      ],
+      "next": []
+    },
+    {
+      "name": "-h",
+      "tip": [
+        "Print sizes in human-readable format."
+      ]
+    },
+    {
+      "name": "-H",
+      "tip": [
+        "Display the timestamp in ISO format."
+      ]
+    },
+    {
+      "name": "-j",
+      "usage": [
+        "-j {ID|LABEL|PATH|UUID|...}"
+      ],
+      "tip": [
+        "Display persistent device names."
+      ],
+      "next": [
+        {
+          "name": "ID"
+        },
+        {
+          "name": "LABEL"
+        },
+        {
+          "name": "PATH"
+        },
+        {
+          "name": "UUID"
+        }
+      ]
+    },
+    {
+      "name": "-k",
+      "tip": [
+        "Display sizes in kilobytes."
+      ]
+    },
+    {
+      "name": "-m",
+      "tip": [
+        "Display sizes in megabytes."
+      ]
+    },
+    {
+      "name": "-N",
+      "tip": [
+        "Display registered device mapper names."
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o JSON"
+      ],
+      "tip": [
+        "Output in JSON format."
+      ],
+      "next": [
+        {
+          "name": "JSON"
+        }
+      ]
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p [<device> [...]|ALL]"
+      ],
+      "tip": [
+        "Display statistics for devices."
+      ],
+      "next": []
+    },
+    {
+      "name": "-s",
+      "tip": [
+        "Display short output."
+      ]
+    },
+    {
+      "name": "-t",
+      "tip": [
+        "Display timestamps."
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "Print version information."
+      ]
+    },
+    {
+      "name": "-x",
+      "tip": [
+        "Display extended statistics."
+      ]
+    },
+    {
+      "name": "-y",
+      "tip": [
+        "Skip the first report."
+      ]
+    },
+    {
+      "name": "-z",
+      "tip": [
+        "Omit devices with no activity."
+      ]
+    },
+    {
+      "name": "+f",
+      "usage": [
+        "+f <directory>"
+      ],
+      "tip": [
+        "Add the directory to the device mapping search path."
+      ],
+      "next": []
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "f839eac3-0a71-54a4-a264-15e96e873924",
+  "version": "integritysetup 2.7.5",
+  "hooks": true,
+  "language": [
+    "en-US",
+    "zh-CN"
+  ]
+}

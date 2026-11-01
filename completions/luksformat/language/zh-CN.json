@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/cryptsetup/cryptsetup",
+    "description": [
+      "创建并格式化加密的 LUKS 设备。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "tip": [
+        "显示此帮助信息。"
+      ]
+    },
+    {
+      "name": "--type",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --type <FSTYPE>"
+      ],
+      "tip": [
+        "要创建的文件系统类型（默认 vfat）。"
+      ],
+      "next": []
+    }
+  ]
+}

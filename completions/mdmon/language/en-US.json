@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "url": "https://git.kernel.org/pub/scm/utils/mdadm/mdadm.git",
+    "description": [
+      "Monitor MD external metadata arrays."
+    ]
+  },
+  "option": [
+    {
+      "name": "--all",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --all"
+      ],
+      "tip": [
+        "Monitor all active containers."
+      ]
+    },
+    {
+      "name": "--foreground",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --foreground"
+      ],
+      "tip": [
+        "Run in the foreground instead of forking."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this help."
+      ]
+    },
+    {
+      "name": "--takeover",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --takeover"
+      ],
+      "tip": [
+        "Replace any active mdmon monitoring the array."
+      ]
+    }
+  ]
+}

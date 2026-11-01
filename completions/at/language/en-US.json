@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "url": "https://salsa.debian.org/debian/at",
+    "description": [
+      "Queue, examine or delete jobs for later execution."
+    ]
+  },
+  "option": [
+    {
+      "name": "--cat",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c"
+      ],
+      "tip": [
+        "Cat the jobs listed on the command line."
+      ],
+      "next": []
+    },
+    {
+      "name": "--file",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f file"
+      ],
+      "tip": [
+        "Read the job from the file rather than stdin."
+      ],
+      "next": []
+    },
+    {
+      "name": "--format",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o fmt"
+      ],
+      "tip": [
+        "Set the strftime-like format for the job list."
+      ],
+      "next": []
+    },
+    {
+      "name": "--list",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l"
+      ],
+      "tip": [
+        "List pending jobs (alias for atq)."
+      ]
+    },
+    {
+      "name": "--queue",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q queue"
+      ],
+      "tip": [
+        "Use the specified queue (a-z or A-Z)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--remove",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r"
+      ],
+      "tip": [
+        "Remove jobs (alias for atrm)."
+      ]
+    },
+    {
+      "name": "--time",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t time"
+      ],
+      "tip": [
+        "Run the job at time ([[CC]YY]MMDDhhmm[.ss])."
+      ],
+      "next": []
+    },
+    {
+      "name": "--user",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u username"
+      ],
+      "tip": [
+        "Send mail to this user instead of the current user."
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v"
+      ],
+      "tip": [
+        "Show the execution time before reading the job."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Print the version number and exit."
+      ]
+    },
+    {
+      "name": "-b",
+      "tip": [
+        "Alias for batch."
+      ]
+    },
+    {
+      "name": "-d",
+      "tip": [
+        "Alias for atrm."
+      ]
+    },
+    {
+      "name": "-m",
+      "tip": [
+        "Send mail when the job completes, even without output."
+      ]
+    },
+    {
+      "name": "-M",
+      "tip": [
+        "Never send mail to the user."
+      ]
+    }
+  ]
+}

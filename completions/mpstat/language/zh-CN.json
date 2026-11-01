@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "url": "https://github.com/sysstat/sysstat",
+    "description": [
+      "报告 CPU 统计信息。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--dec",
+      "usage": [
+        "--dec={0|1|2}"
+      ],
+      "tip": [
+        "设置小数精度。"
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        },
+        {
+          "name": "2"
+        }
+      ]
+    },
+    {
+      "name": "--human",
+      "tip": [
+        "以人类可读格式打印大小。"
+      ]
+    },
+    {
+      "name": "--pretty",
+      "tip": [
+        "美化 JSON 输出。"
+      ]
+    },
+    {
+      "name": "-A",
+      "tip": [
+        "显示所有统计信息。"
+      ]
+    },
+    {
+      "name": "-h",
+      "tip": [
+        "以人类可读格式打印大小。"
+      ]
+    },
+    {
+      "name": "-H",
+      "tip": [
+        "以 ISO 格式显示时间戳。"
+      ]
+    },
+    {
+      "name": "-I",
+      "usage": [
+        "-I {SUM|CPU|SCPU|ALL}"
+      ],
+      "tip": [
+        "显示中断统计。"
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        },
+        {
+          "name": "CPU"
+        },
+        {
+          "name": "SCPU"
+        },
+        {
+          "name": "SUM"
+        }
+      ]
+    },
+    {
+      "name": "-k",
+      "tip": [
+        "以千字节显示大小。"
+      ]
+    },
+    {
+      "name": "-m",
+      "tip": [
+        "以兆字节显示大小。"
+      ]
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "显示每节点统计。"
+      ]
+    },
+    {
+      "name": "-N",
+      "usage": [
+        "-N {<node_list>|ALL}"
+      ],
+      "tip": [
+        "显示节点统计。"
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        }
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o JSON"
+      ],
+      "tip": [
+        "以 JSON 格式输出。"
+      ],
+      "next": [
+        {
+          "name": "JSON"
+        }
+      ]
+    },
+    {
+      "name": "-P",
+      "usage": [
+        "-P {<cpu_list>|ALL}"
+      ],
+      "tip": [
+        "显示 CPU 统计。"
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        }
+      ]
+    },
+    {
+      "name": "-t",
+      "tip": [
+        "显示时间戳。"
+      ]
+    },
+    {
+      "name": "-T",
+      "tip": [
+        "显示拓扑信息。"
+      ]
+    },
+    {
+      "name": "-u",
+      "tip": [
+        "显示 CPU 利用率。"
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "打印版本信息。"
+      ]
+    }
+  ]
+}

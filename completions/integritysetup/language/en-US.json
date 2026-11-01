@@ -1,0 +1,469 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/cryptsetup/cryptsetup",
+    "description": [
+      "Manage dm-integrity devices."
+    ]
+  },
+  "next": [
+    {
+      "name": "close",
+      "usage": [
+        "close <NAME>"
+      ],
+      "tip": [
+        "Close a mapping."
+      ]
+    },
+    {
+      "name": "dump",
+      "usage": [
+        "dump <INTEGRITY_DEVICE>"
+      ],
+      "tip": [
+        "Show on-disk information."
+      ]
+    },
+    {
+      "name": "format",
+      "usage": [
+        "format <INTEGRITY_DEVICE>"
+      ],
+      "tip": [
+        "Format a device with integrity tags."
+      ]
+    },
+    {
+      "name": "open",
+      "usage": [
+        "open <INTEGRITY_DEVICE> <NAME>"
+      ],
+      "tip": [
+        "Open a device and create a mapping."
+      ]
+    },
+    {
+      "name": "resize",
+      "usage": [
+        "resize <NAME>"
+      ],
+      "tip": [
+        "Resize an active device."
+      ]
+    },
+    {
+      "name": "status",
+      "usage": [
+        "status <NAME>"
+      ],
+      "tip": [
+        "Show the status of an active device."
+      ]
+    }
+  ],
+  "global_option": [
+    {
+      "name": "--allow-discards",
+      "tip": [
+        "Allow discard (TRIM) requests for the device."
+      ]
+    },
+    {
+      "name": "--batch-mode",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --batch-mode"
+      ],
+      "tip": [
+        "Do not ask for confirmation."
+      ]
+    },
+    {
+      "name": "--bitmap-flush-time",
+      "usage": [
+        "--bitmap-flush-time=<MS>"
+      ],
+      "tip": [
+        "Bitmap mode flush time in milliseconds."
+      ],
+      "next": []
+    },
+    {
+      "name": "--bitmap-sectors-per-bit",
+      "usage": [
+        "--bitmap-sectors-per-bit=<INT>"
+      ],
+      "tip": [
+        "Number of 512-byte sectors per bitmap bit."
+      ],
+      "next": []
+    },
+    {
+      "name": "--buffer-sectors",
+      "usage": [
+        "--buffer-sectors=<SECTORS>"
+      ],
+      "tip": [
+        "Buffer size in sectors."
+      ],
+      "next": []
+    },
+    {
+      "name": "--cancel-deferred",
+      "tip": [
+        "Cancel a previously set deferred device removal."
+      ]
+    },
+    {
+      "name": "--data-device",
+      "usage": [
+        "--data-device=<PATH>"
+      ],
+      "tip": [
+        "Path to the data device when it is separate."
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "tip": [
+        "Show debug messages."
+      ]
+    },
+    {
+      "name": "--deferred",
+      "tip": [
+        "Defer device removal until the last user closes it."
+      ]
+    },
+    {
+      "name": "--device-size",
+      "usage": [
+        "--device-size=<BYTES>"
+      ],
+      "tip": [
+        "Use only the specified device size (DANGEROUS)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--disable-blkid",
+      "tip": [
+        "Disable blkid on-disk signature detection and wiping."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "Show this help message."
+      ]
+    },
+    {
+      "name": "--integrity",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --integrity=<STRING>"
+      ],
+      "tip": [
+        "Data integrity algorithm."
+      ],
+      "next": []
+    },
+    {
+      "name": "--integrity-bitmap-mode",
+      "alias": [
+        "-B"
+      ],
+      "usage": [
+        "-B, --integrity-bitmap-mode"
+      ],
+      "tip": [
+        "Use a bitmap to track changes and disable the journal."
+      ]
+    },
+    {
+      "name": "--integrity-key-file",
+      "usage": [
+        "--integrity-key-file=<STRING>"
+      ],
+      "tip": [
+        "Read the integrity key from this file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--integrity-key-size",
+      "usage": [
+        "--integrity-key-size=<BITS>"
+      ],
+      "tip": [
+        "Size of the data integrity key."
+      ],
+      "next": []
+    },
+    {
+      "name": "--integrity-legacy-hmac",
+      "tip": [
+        "Do not protect the superblock with HMAC."
+      ]
+    },
+    {
+      "name": "--integrity-legacy-padding",
+      "tip": [
+        "Use inefficient legacy padding for old kernels."
+      ]
+    },
+    {
+      "name": "--integrity-legacy-recalculate",
+      "tip": [
+        "Allow recalculation of volumes with HMAC keys."
+      ]
+    },
+    {
+      "name": "--integrity-no-journal",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --integrity-no-journal"
+      ],
+      "tip": [
+        "Disable the journal for the integrity device."
+      ]
+    },
+    {
+      "name": "--integrity-recalculate",
+      "tip": [
+        "Recalculate initial tags automatically."
+      ]
+    },
+    {
+      "name": "--integrity-recalculate-reset",
+      "tip": [
+        "Reset the automatic recalculate position."
+      ]
+    },
+    {
+      "name": "--integrity-recovery-mode",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --integrity-recovery-mode"
+      ],
+      "tip": [
+        "Use recovery mode with no journal and no tag checking."
+      ]
+    },
+    {
+      "name": "--interleave-sectors",
+      "usage": [
+        "--interleave-sectors=<SECTORS>"
+      ],
+      "tip": [
+        "Interleave sectors."
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal-commit-time",
+      "usage": [
+        "--journal-commit-time=<MS>"
+      ],
+      "tip": [
+        "Journal commit time in milliseconds."
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal-crypt",
+      "usage": [
+        "--journal-crypt=<STRING>"
+      ],
+      "tip": [
+        "Journal encryption algorithm."
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal-crypt-key-file",
+      "usage": [
+        "--journal-crypt-key-file=<STRING>"
+      ],
+      "tip": [
+        "Read the journal encryption key from this file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal-crypt-key-size",
+      "usage": [
+        "--journal-crypt-key-size=<BITS>"
+      ],
+      "tip": [
+        "Size of the journal encryption key."
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal-integrity",
+      "usage": [
+        "--journal-integrity=<STRING>"
+      ],
+      "tip": [
+        "Journal integrity algorithm."
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal-integrity-key-file",
+      "usage": [
+        "--journal-integrity-key-file=<STRING>"
+      ],
+      "tip": [
+        "Read the journal integrity key from this file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal-integrity-key-size",
+      "usage": [
+        "--journal-integrity-key-size=<BITS>"
+      ],
+      "tip": [
+        "Size of the journal integrity key."
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal-size",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --journal-size=<BYTES>"
+      ],
+      "tip": [
+        "Journal size."
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal-watermark",
+      "usage": [
+        "--journal-watermark=<PERCENT>"
+      ],
+      "tip": [
+        "Journal watermark percentage."
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-wipe",
+      "tip": [
+        "Do not wipe the device after format."
+      ]
+    },
+    {
+      "name": "--progress-frequency",
+      "usage": [
+        "--progress-frequency=<SECS>"
+      ],
+      "tip": [
+        "Progress line update interval in seconds."
+      ],
+      "next": []
+    },
+    {
+      "name": "--progress-json",
+      "tip": [
+        "Print wipe progress data in JSON format."
+      ]
+    },
+    {
+      "name": "--sector-size",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --sector-size=<BYTES>"
+      ],
+      "tip": [
+        "Sector size in bytes."
+      ],
+      "next": []
+    },
+    {
+      "name": "--size",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --size=<SECTORS>"
+      ],
+      "tip": [
+        "The size of the device in sectors."
+      ],
+      "next": []
+    },
+    {
+      "name": "--tag-size",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --tag-size=<BYTES>"
+      ],
+      "tip": [
+        "Tag size per sector in bytes."
+      ],
+      "next": []
+    },
+    {
+      "name": "--usage",
+      "tip": [
+        "Display brief usage."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Show more detailed error messages."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Print package version."
+      ]
+    },
+    {
+      "name": "--wipe",
+      "tip": [
+        "Wipe the end of the device after resize."
+      ]
+    }
+  ]
+}

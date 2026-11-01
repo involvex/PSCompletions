@@ -1,0 +1,242 @@
+{
+  "meta": {
+    "url": "https://github.com/sysstat/sysstat",
+    "description": [
+      "Display data collected by sar in multiple formats."
+    ]
+  },
+  "option": [
+    {
+      "name": "--dec",
+      "usage": [
+        "--dec={0|1|2}"
+      ],
+      "tip": [
+        "Set the decimal precision."
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        },
+        {
+          "name": "2"
+        }
+      ]
+    },
+    {
+      "name": "--dev",
+      "usage": [
+        "--dev=<dev_list>"
+      ],
+      "tip": [
+        "Select devices."
+      ],
+      "next": []
+    },
+    {
+      "name": "--fs",
+      "usage": [
+        "--fs=<fs_list>"
+      ],
+      "tip": [
+        "Select filesystems."
+      ],
+      "next": []
+    },
+    {
+      "name": "--human",
+      "tip": [
+        "Print sizes in human-readable format."
+      ]
+    },
+    {
+      "name": "--iface",
+      "usage": [
+        "--iface=<iface_list>"
+      ],
+      "tip": [
+        "Select interfaces."
+      ],
+      "next": []
+    },
+    {
+      "name": "--int",
+      "usage": [
+        "--int=<int_list>"
+      ],
+      "tip": [
+        "Select interrupts."
+      ],
+      "next": []
+    },
+    {
+      "name": "--pretty",
+      "tip": [
+        "Pretty-print JSON output."
+      ]
+    },
+    {
+      "name": "-c",
+      "tip": [
+        "Convert to CSV."
+      ]
+    },
+    {
+      "name": "-C",
+      "tip": [
+        "Display comments."
+      ]
+    },
+    {
+      "name": "-d",
+      "tip": [
+        "Convert to XML."
+      ]
+    },
+    {
+      "name": "-e",
+      "usage": [
+        "-e [<end_time>]"
+      ],
+      "tip": [
+        "Set the end time."
+      ],
+      "next": []
+    },
+    {
+      "name": "-g",
+      "tip": [
+        "Convert to SVG."
+      ]
+    },
+    {
+      "name": "-h",
+      "tip": [
+        "Print sizes in human-readable format."
+      ]
+    },
+    {
+      "name": "-H",
+      "tip": [
+        "Display the timestamp in ISO format."
+      ]
+    },
+    {
+      "name": "-j",
+      "tip": [
+        "Convert to JSON."
+      ]
+    },
+    {
+      "name": "-k",
+      "tip": [
+        "Display sizes in kilobytes."
+      ]
+    },
+    {
+      "name": "-l",
+      "tip": [
+        "Display average statistics."
+      ]
+    },
+    {
+      "name": "-m",
+      "tip": [
+        "Display sizes in megabytes."
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o JSON"
+      ],
+      "tip": [
+        "Output in JSON format."
+      ],
+      "next": [
+        {
+          "name": "JSON"
+        }
+      ]
+    },
+    {
+      "name": "-O",
+      "usage": [
+        "-O <opts> [,...]"
+      ],
+      "tip": [
+        "Set output options."
+      ],
+      "next": []
+    },
+    {
+      "name": "-p",
+      "tip": [
+        "Convert to SQL."
+      ]
+    },
+    {
+      "name": "-P",
+      "usage": [
+        "-P {<cpu> [...]|ALL}"
+      ],
+      "tip": [
+        "Select CPUs."
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        }
+      ]
+    },
+    {
+      "name": "-r",
+      "tip": [
+        "Convert to raw format."
+      ]
+    },
+    {
+      "name": "-s",
+      "usage": [
+        "-s [<start_time>]"
+      ],
+      "tip": [
+        "Set the start time."
+      ],
+      "next": []
+    },
+    {
+      "name": "-t",
+      "tip": [
+        "Display timestamps in local time."
+      ]
+    },
+    {
+      "name": "-T",
+      "tip": [
+        "Display timestamps in seconds."
+      ]
+    },
+    {
+      "name": "-U",
+      "tip": [
+        "Display timestamps in UTC."
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "Print version information."
+      ]
+    },
+    {
+      "name": "-x",
+      "tip": [
+        "Convert to XML (alternative)."
+      ]
+    }
+  ]
+}

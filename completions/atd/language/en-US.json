@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "url": "https://salsa.debian.org/debian/at",
+    "description": [
+      "Run jobs queued for later execution."
+    ]
+  },
+  "option": [
+    {
+      "name": "--batch-interval",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b batch_interval"
+      ],
+      "tip": [
+        "Set the minimum batch interval in seconds."
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d"
+      ],
+      "tip": [
+        "Print errors to stderr instead of syslog."
+      ]
+    },
+    {
+      "name": "--foreground",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f"
+      ],
+      "tip": [
+        "Run atd in the foreground."
+      ]
+    },
+    {
+      "name": "--load",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l load_avg"
+      ],
+      "tip": [
+        "Set the limiting load factor."
+      ],
+      "next": []
+    },
+    {
+      "name": "--single",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s"
+      ],
+      "tip": [
+        "Process the queue only once."
+      ]
+    }
+  ]
+}

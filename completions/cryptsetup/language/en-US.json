@@ -1,0 +1,1572 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/cryptsetup/cryptsetup",
+    "description": [
+      "Manage plain dm-crypt, LUKS and other encrypted volumes."
+    ]
+  },
+  "next": [
+    {
+      "name": "benchmark",
+      "tip": [
+        "Benchmark the cipher."
+      ]
+    },
+    {
+      "name": "bitlkDump",
+      "usage": [
+        "bitlkDump <DEVICE>"
+      ],
+      "tip": [
+        "Dump BITLK device information."
+      ]
+    },
+    {
+      "name": "config",
+      "usage": [
+        "config <DEVICE>"
+      ],
+      "tip": [
+        "Set permanent configuration options for LUKS2."
+      ]
+    },
+    {
+      "name": "convert",
+      "usage": [
+        "convert <DEVICE>"
+      ],
+      "tip": [
+        "Convert between LUKS1 and LUKS2 format."
+      ]
+    },
+    {
+      "name": "fvault2Dump",
+      "usage": [
+        "fvault2Dump <DEVICE>"
+      ],
+      "tip": [
+        "Dump FVAULT2 device information."
+      ]
+    },
+    {
+      "name": "isLuks",
+      "usage": [
+        "isLuks <DEVICE>"
+      ],
+      "tip": [
+        "Test whether a device has a LUKS header."
+      ]
+    },
+    {
+      "name": "loopaesClose",
+      "alias": [
+        "fvault2Close",
+        "tcryptClose",
+        "plainClose",
+        "bitlkClose",
+        "luksClose",
+        "remove",
+        "close"
+      ],
+      "usage": [
+        "close|remove|luksClose|plainClose|bitlkClose|tcryptClose|loopaesClose|fvault2Close <NAME>"
+      ],
+      "tip": [
+        "Close a mapping and wipe the key from kernel memory."
+      ]
+    },
+    {
+      "name": "loopaesOpen",
+      "alias": [
+        "tcryptOpen_",
+        "fvault2Open",
+        "tcryptOpen",
+        "plainOpen",
+        "bitlkOpen",
+        "luksOpen",
+        "create",
+        "open"
+      ],
+      "usage": [
+        "open|create|luksOpen|plainOpen|bitlkOpen|tcryptOpen|loopaesOpen|tcryptOpen_|fvault2Open <DEVICE> [<NAME>]",
+        "create <NAME> <DEVICE>"
+      ],
+      "tip": [
+        "Open a device and create a mapping."
+      ]
+    },
+    {
+      "name": "luksAddKey",
+      "usage": [
+        "luksAddKey <DEVICE> [<NEW_KEY_FILE>]"
+      ],
+      "tip": [
+        "Add a new passphrase to a LUKS device."
+      ]
+    },
+    {
+      "name": "luksChangeKey",
+      "usage": [
+        "luksChangeKey <DEVICE> [<KEY_FILE>]"
+      ],
+      "tip": [
+        "Change a passphrase of a LUKS device."
+      ]
+    },
+    {
+      "name": "luksConvertKey",
+      "usage": [
+        "luksConvertKey <DEVICE> [<KEY_FILE>]"
+      ],
+      "tip": [
+        "Convert a keyslot to new PBKDF parameters."
+      ]
+    },
+    {
+      "name": "luksDump",
+      "usage": [
+        "luksDump <DEVICE>"
+      ],
+      "tip": [
+        "Dump LUKS header information."
+      ]
+    },
+    {
+      "name": "luksErase",
+      "alias": [
+        "erase"
+      ],
+      "usage": [
+        "erase|luksErase <DEVICE>"
+      ],
+      "tip": [
+        "Erase all keyslots and remove the encryption key."
+      ]
+    },
+    {
+      "name": "luksFormat",
+      "usage": [
+        "luksFormat <DEVICE> [<NEW_KEY_FILE>]"
+      ],
+      "tip": [
+        "Format a LUKS device."
+      ]
+    },
+    {
+      "name": "luksHeaderBackup",
+      "usage": [
+        "luksHeaderBackup <DEVICE>"
+      ],
+      "tip": [
+        "Back up the LUKS header and keyslots."
+      ]
+    },
+    {
+      "name": "luksHeaderRestore",
+      "usage": [
+        "luksHeaderRestore <DEVICE>"
+      ],
+      "tip": [
+        "Restore the LUKS header and keyslots."
+      ]
+    },
+    {
+      "name": "luksKillSlot",
+      "usage": [
+        "luksKillSlot <DEVICE> <KEY_SLOT>"
+      ],
+      "tip": [
+        "Wipe a key slot from a LUKS device."
+      ]
+    },
+    {
+      "name": "luksRemoveKey",
+      "usage": [
+        "luksRemoveKey <DEVICE> [<KEY_FILE>]"
+      ],
+      "tip": [
+        "Remove a passphrase from a LUKS device."
+      ]
+    },
+    {
+      "name": "luksResume",
+      "usage": [
+        "luksResume <NAME>"
+      ],
+      "tip": [
+        "Resume a suspended LUKS device."
+      ]
+    },
+    {
+      "name": "luksSuspend",
+      "usage": [
+        "luksSuspend <NAME>"
+      ],
+      "tip": [
+        "Suspend a LUKS device and wipe the key."
+      ]
+    },
+    {
+      "name": "luksUUID",
+      "usage": [
+        "luksUUID <DEVICE>"
+      ],
+      "tip": [
+        "Print or set the UUID of a LUKS device."
+      ]
+    },
+    {
+      "name": "reencrypt",
+      "usage": [
+        "reencrypt <DEVICE>",
+        "reencrypt --active-name <NAME> [<NEW_NAME>]"
+      ],
+      "tip": [
+        "Reencrypt a LUKS2 device."
+      ]
+    },
+    {
+      "name": "refresh",
+      "usage": [
+        "refresh <NAME>"
+      ],
+      "tip": [
+        "Refresh the parameters of an active mapping."
+      ]
+    },
+    {
+      "name": "repair",
+      "usage": [
+        "repair <DEVICE>"
+      ],
+      "tip": [
+        "Try to repair on-disk metadata."
+      ]
+    },
+    {
+      "name": "resize",
+      "usage": [
+        "resize <NAME>"
+      ],
+      "tip": [
+        "Resize an active mapping."
+      ]
+    },
+    {
+      "name": "status",
+      "usage": [
+        "status <NAME>"
+      ],
+      "tip": [
+        "Report the status of a mapping."
+      ]
+    },
+    {
+      "name": "tcryptDump",
+      "usage": [
+        "tcryptDump <DEVICE>"
+      ],
+      "tip": [
+        "Dump TCRYPT device information."
+      ]
+    },
+    {
+      "name": "token",
+      "usage": [
+        "token <add|remove|import|export|unassign> <DEVICE>"
+      ],
+      "tip": [
+        "Manipulate LUKS2 tokens."
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add <DEVICE>"
+          ],
+          "tip": [
+            "Create a new keyring token."
+          ]
+        },
+        {
+          "name": "export",
+          "usage": [
+            "export <DEVICE>"
+          ],
+          "tip": [
+            "Write the requested token JSON to a file or stdout."
+          ]
+        },
+        {
+          "name": "import",
+          "usage": [
+            "import <DEVICE>"
+          ],
+          "tip": [
+            "Import a valid token JSON into the LUKS2 header."
+          ]
+        },
+        {
+          "name": "remove",
+          "usage": [
+            "remove <DEVICE>"
+          ],
+          "tip": [
+            "Remove the token specified by --token-id."
+          ]
+        },
+        {
+          "name": "unassign",
+          "usage": [
+            "unassign <DEVICE>"
+          ],
+          "tip": [
+            "Remove the token binding to the specified keyslot."
+          ]
+        }
+      ]
+    }
+  ],
+  "global_option": [
+    {
+      "name": "--active-name",
+      "usage": [
+        "--active-name=<STRING>"
+      ],
+      "tip": [
+        "Override device autodetection of the dm device to reencrypt."
+      ],
+      "next": []
+    },
+    {
+      "name": "--align-payload",
+      "usage": [
+        "--align-payload=<SECTORS>"
+      ],
+      "tip": [
+        "Align the payload at this many sector boundaries."
+      ],
+      "next": []
+    },
+    {
+      "name": "--allow-discards",
+      "tip": [
+        "Allow discard (TRIM) requests for the device."
+      ]
+    },
+    {
+      "name": "--batch-mode",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --batch-mode"
+      ],
+      "tip": [
+        "Do not ask for confirmation."
+      ]
+    },
+    {
+      "name": "--block-size",
+      "alias": [
+        "-B"
+      ],
+      "usage": [
+        "-B, --block-size=<MIB>"
+      ],
+      "tip": [
+        "Reencryption block size."
+      ],
+      "next": []
+    },
+    {
+      "name": "--cancel-deferred",
+      "tip": [
+        "Cancel a previously set deferred device removal."
+      ]
+    },
+    {
+      "name": "--cipher",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --cipher=<STRING>"
+      ],
+      "tip": [
+        "The cipher used to encrypt the disk (see /proc/crypto)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "tip": [
+        "Show debug messages."
+      ]
+    },
+    {
+      "name": "--debug-json",
+      "tip": [
+        "Show debug messages including JSON metadata."
+      ]
+    },
+    {
+      "name": "--decrypt",
+      "tip": [
+        "Decrypt a LUKS2 device by removing encryption."
+      ]
+    },
+    {
+      "name": "--deferred",
+      "tip": [
+        "Defer device removal until the last user closes it."
+      ]
+    },
+    {
+      "name": "--device-size",
+      "usage": [
+        "--device-size=<BYTES>"
+      ],
+      "tip": [
+        "Use only the specified device size (DANGEROUS)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--disable-blkid",
+      "tip": [
+        "Disable blkid on-disk signature detection and wiping."
+      ]
+    },
+    {
+      "name": "--disable-external-tokens",
+      "tip": [
+        "Disable loading of external LUKS2 token plugins."
+      ]
+    },
+    {
+      "name": "--disable-keyring",
+      "tip": [
+        "Disable loading volume keys via the kernel keyring."
+      ]
+    },
+    {
+      "name": "--disable-locks",
+      "tip": [
+        "Disable locking of on-disk metadata."
+      ]
+    },
+    {
+      "name": "--disable-veracrypt",
+      "tip": [
+        "Do not scan for a VeraCrypt compatible device."
+      ]
+    },
+    {
+      "name": "--dump-json-metadata",
+      "tip": [
+        "Dump info in JSON format (LUKS2 only)."
+      ]
+    },
+    {
+      "name": "--dump-volume-key",
+      "alias": [
+        "--dump-master-key"
+      ],
+      "usage": [
+        "--dump-volume-key, --dump-master-key"
+      ],
+      "tip": [
+        "Dump the volume key instead of keyslots info."
+      ]
+    },
+    {
+      "name": "--dump-volume-key-file",
+      "alias": [
+        "--master-key-file"
+      ],
+      "usage": [
+        "--dump-volume-key-file=<FILE>, --master-key-file=<FILE>"
+      ],
+      "tip": [
+        "Write the volume key to this file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--encrypt",
+      "tip": [
+        "Encrypt a LUKS2 device in place."
+      ]
+    },
+    {
+      "name": "--external-tokens-path",
+      "usage": [
+        "--external-tokens-path=<STRING>"
+      ],
+      "tip": [
+        "Path to the directory with external token handlers."
+      ],
+      "next": []
+    },
+    {
+      "name": "--force-offline-reencrypt",
+      "tip": [
+        "Force offline LUKS2 reencryption and bypass active device detection."
+      ]
+    },
+    {
+      "name": "--force-password",
+      "tip": [
+        "Disable the password quality check."
+      ]
+    },
+    {
+      "name": "--hash",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --hash=<STRING>"
+      ],
+      "tip": [
+        "The hash used to create the encryption key from the passphrase."
+      ],
+      "next": []
+    },
+    {
+      "name": "--header",
+      "usage": [
+        "--header=<STRING>"
+      ],
+      "tip": [
+        "Device or file with a separated LUKS header."
+      ],
+      "next": []
+    },
+    {
+      "name": "--header-backup-file",
+      "usage": [
+        "--header-backup-file=<STRING>"
+      ],
+      "tip": [
+        "File with a LUKS header and keyslots backup."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "Show this help message."
+      ]
+    },
+    {
+      "name": "--hotzone-size",
+      "usage": [
+        "--hotzone-size=<BYTES>"
+      ],
+      "tip": [
+        "Maximal reencryption hotzone size."
+      ],
+      "next": []
+    },
+    {
+      "name": "--hw-opal",
+      "tip": [
+        "Use HW OPAL encryption together with SW encryption."
+      ]
+    },
+    {
+      "name": "--hw-opal-factory-reset",
+      "tip": [
+        "Wipe the whole OPAL disk on luksErase."
+      ]
+    },
+    {
+      "name": "--hw-opal-only",
+      "tip": [
+        "Use only HW OPAL encryption."
+      ]
+    },
+    {
+      "name": "--init-only",
+      "tip": [
+        "Initialize LUKS2 reencryption in metadata only."
+      ]
+    },
+    {
+      "name": "--integrity",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --integrity=<STRING>"
+      ],
+      "tip": [
+        "Data integrity algorithm (LUKS2 only)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--integrity-legacy-padding",
+      "tip": [
+        "Use inefficient legacy padding for old kernels."
+      ]
+    },
+    {
+      "name": "--integrity-no-journal",
+      "tip": [
+        "Disable the journal for the integrity device."
+      ]
+    },
+    {
+      "name": "--integrity-no-wipe",
+      "tip": [
+        "Do not wipe the device after format."
+      ]
+    },
+    {
+      "name": "--iter-time",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --iter-time=<MSECS>"
+      ],
+      "tip": [
+        "PBKDF iteration time for LUKS in milliseconds."
+      ],
+      "next": []
+    },
+    {
+      "name": "--iv-large-sectors",
+      "tip": [
+        "Count the IV in sector size instead of 512-byte units."
+      ]
+    },
+    {
+      "name": "--json-file",
+      "usage": [
+        "--json-file=<STRING>"
+      ],
+      "tip": [
+        "Read or write the JSON from or to a file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--keep-key",
+      "tip": [
+        "Do not change the volume key."
+      ]
+    },
+    {
+      "name": "--key-description",
+      "usage": [
+        "--key-description=<STRING>"
+      ],
+      "tip": [
+        "Key description in the keyring."
+      ],
+      "next": []
+    },
+    {
+      "name": "--key-file",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --key-file=<STRING>"
+      ],
+      "tip": [
+        "Read the key from this file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--key-size",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --key-size=<BITS>"
+      ],
+      "tip": [
+        "The size of the encryption key."
+      ],
+      "next": []
+    },
+    {
+      "name": "--key-slot",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --key-slot=<INT>"
+      ],
+      "tip": [
+        "Slot number for the new key (default is first free)."
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        },
+        {
+          "name": "10"
+        },
+        {
+          "name": "11"
+        },
+        {
+          "name": "12"
+        },
+        {
+          "name": "13"
+        },
+        {
+          "name": "14"
+        },
+        {
+          "name": "15"
+        },
+        {
+          "name": "16"
+        },
+        {
+          "name": "17"
+        },
+        {
+          "name": "18"
+        },
+        {
+          "name": "19"
+        },
+        {
+          "name": "2"
+        },
+        {
+          "name": "20"
+        },
+        {
+          "name": "21"
+        },
+        {
+          "name": "22"
+        },
+        {
+          "name": "23"
+        },
+        {
+          "name": "24"
+        },
+        {
+          "name": "25"
+        },
+        {
+          "name": "26"
+        },
+        {
+          "name": "27"
+        },
+        {
+          "name": "28"
+        },
+        {
+          "name": "29"
+        },
+        {
+          "name": "3"
+        },
+        {
+          "name": "30"
+        },
+        {
+          "name": "31"
+        },
+        {
+          "name": "4"
+        },
+        {
+          "name": "5"
+        },
+        {
+          "name": "6"
+        },
+        {
+          "name": "7"
+        },
+        {
+          "name": "8"
+        },
+        {
+          "name": "9"
+        }
+      ]
+    },
+    {
+      "name": "--keyfile-offset",
+      "usage": [
+        "--keyfile-offset=<BYTES>"
+      ],
+      "tip": [
+        "Number of bytes to skip in the keyfile."
+      ],
+      "next": []
+    },
+    {
+      "name": "--keyfile-size",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --keyfile-size=<BYTES>"
+      ],
+      "tip": [
+        "Limit the read from the keyfile."
+      ],
+      "next": []
+    },
+    {
+      "name": "--keyslot-cipher",
+      "usage": [
+        "--keyslot-cipher=<STRING>"
+      ],
+      "tip": [
+        "LUKS2 keyslot cipher."
+      ],
+      "next": []
+    },
+    {
+      "name": "--keyslot-key-size",
+      "usage": [
+        "--keyslot-key-size=<BITS>"
+      ],
+      "tip": [
+        "LUKS2 keyslot key size."
+      ],
+      "next": []
+    },
+    {
+      "name": "--label",
+      "usage": [
+        "--label=<STRING>"
+      ],
+      "tip": [
+        "Set a label for the LUKS2 device."
+      ],
+      "next": []
+    },
+    {
+      "name": "--link-vk-to-keyring",
+      "usage": [
+        "--link-vk-to-keyring=<STRING>"
+      ],
+      "tip": [
+        "Set the keyring where the volume key is linked."
+      ],
+      "next": []
+    },
+    {
+      "name": "--luks2-keyslots-size",
+      "usage": [
+        "--luks2-keyslots-size=<BYTES>"
+      ],
+      "tip": [
+        "LUKS2 header keyslots area size."
+      ],
+      "next": []
+    },
+    {
+      "name": "--luks2-metadata-size",
+      "usage": [
+        "--luks2-metadata-size=<BYTES>"
+      ],
+      "tip": [
+        "LUKS2 header metadata area size."
+      ],
+      "next": []
+    },
+    {
+      "name": "--new",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --new"
+      ],
+      "tip": [
+        "Create a new header on a not-yet-encrypted device."
+      ]
+    },
+    {
+      "name": "--new-key-slot",
+      "usage": [
+        "--new-key-slot=<INT>"
+      ],
+      "tip": [
+        "Slot number for the new key (default is first free)."
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        },
+        {
+          "name": "10"
+        },
+        {
+          "name": "11"
+        },
+        {
+          "name": "12"
+        },
+        {
+          "name": "13"
+        },
+        {
+          "name": "14"
+        },
+        {
+          "name": "15"
+        },
+        {
+          "name": "16"
+        },
+        {
+          "name": "17"
+        },
+        {
+          "name": "18"
+        },
+        {
+          "name": "19"
+        },
+        {
+          "name": "2"
+        },
+        {
+          "name": "20"
+        },
+        {
+          "name": "21"
+        },
+        {
+          "name": "22"
+        },
+        {
+          "name": "23"
+        },
+        {
+          "name": "24"
+        },
+        {
+          "name": "25"
+        },
+        {
+          "name": "26"
+        },
+        {
+          "name": "27"
+        },
+        {
+          "name": "28"
+        },
+        {
+          "name": "29"
+        },
+        {
+          "name": "3"
+        },
+        {
+          "name": "30"
+        },
+        {
+          "name": "31"
+        },
+        {
+          "name": "4"
+        },
+        {
+          "name": "5"
+        },
+        {
+          "name": "6"
+        },
+        {
+          "name": "7"
+        },
+        {
+          "name": "8"
+        },
+        {
+          "name": "9"
+        }
+      ]
+    },
+    {
+      "name": "--new-keyfile",
+      "usage": [
+        "--new-keyfile=<STRING>"
+      ],
+      "tip": [
+        "Read the key for a new slot from this file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--new-keyfile-offset",
+      "usage": [
+        "--new-keyfile-offset=<BYTES>"
+      ],
+      "tip": [
+        "Number of bytes to skip in the newly added keyfile."
+      ],
+      "next": []
+    },
+    {
+      "name": "--new-keyfile-size",
+      "usage": [
+        "--new-keyfile-size=<BYTES>"
+      ],
+      "tip": [
+        "Limit the read from the newly added keyfile."
+      ],
+      "next": []
+    },
+    {
+      "name": "--new-token-id",
+      "usage": [
+        "--new-token-id=<INT>"
+      ],
+      "tip": [
+        "Token number (default any)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--offset",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --offset=<SECTORS>"
+      ],
+      "tip": [
+        "The start offset in the backend device."
+      ],
+      "next": []
+    },
+    {
+      "name": "--pbkdf",
+      "usage": [
+        "--pbkdf=<STRING>"
+      ],
+      "tip": [
+        "PBKDF algorithm for LUKS2."
+      ],
+      "next": [
+        {
+          "name": "argon2i"
+        },
+        {
+          "name": "argon2id"
+        },
+        {
+          "name": "pbkdf2"
+        }
+      ]
+    },
+    {
+      "name": "--pbkdf-force-iterations",
+      "usage": [
+        "--pbkdf-force-iterations=<LONG>"
+      ],
+      "tip": [
+        "Forced PBKDF iteration cost, disabling benchmark."
+      ],
+      "next": []
+    },
+    {
+      "name": "--pbkdf-memory",
+      "usage": [
+        "--pbkdf-memory=<KILOBYTES>"
+      ],
+      "tip": [
+        "PBKDF memory cost limit."
+      ],
+      "next": []
+    },
+    {
+      "name": "--pbkdf-parallel",
+      "usage": [
+        "--pbkdf-parallel=<THREADS>"
+      ],
+      "tip": [
+        "PBKDF parallel cost."
+      ],
+      "next": []
+    },
+    {
+      "name": "--perf-no_read_workqueue",
+      "tip": [
+        "Bypass the dm-crypt read workqueue."
+      ]
+    },
+    {
+      "name": "--perf-no_write_workqueue",
+      "tip": [
+        "Bypass the dm-crypt write workqueue."
+      ]
+    },
+    {
+      "name": "--perf-same_cpu_crypt",
+      "tip": [
+        "Use the dm-crypt same_cpu_crypt option."
+      ]
+    },
+    {
+      "name": "--perf-submit_from_crypt_cpus",
+      "tip": [
+        "Use the dm-crypt submit_from_crypt_cpus option."
+      ]
+    },
+    {
+      "name": "--persistent",
+      "tip": [
+        "Set activation flags persistently for the device."
+      ]
+    },
+    {
+      "name": "--priority",
+      "usage": [
+        "--priority=<STRING>"
+      ],
+      "tip": [
+        "Keyslot priority."
+      ],
+      "next": [
+        {
+          "name": "ignore"
+        },
+        {
+          "name": "normal"
+        },
+        {
+          "name": "prefer"
+        }
+      ]
+    },
+    {
+      "name": "--progress-frequency",
+      "usage": [
+        "--progress-frequency=<SECS>"
+      ],
+      "tip": [
+        "Progress line update interval in seconds."
+      ],
+      "next": []
+    },
+    {
+      "name": "--progress-json",
+      "tip": [
+        "Print progress data in JSON format."
+      ]
+    },
+    {
+      "name": "--readonly",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --readonly"
+      ],
+      "tip": [
+        "Create a read-only mapping."
+      ]
+    },
+    {
+      "name": "--reduce-device-size",
+      "usage": [
+        "--reduce-device-size=<BYTES>"
+      ],
+      "tip": [
+        "Reduce the data device size by moving the data offset (DANGEROUS)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--refresh",
+      "tip": [
+        "Refresh (reactivate) the device with new parameters."
+      ]
+    },
+    {
+      "name": "--resilience",
+      "usage": [
+        "--resilience=<STRING>"
+      ],
+      "tip": [
+        "Reencryption hotzone resilience type."
+      ],
+      "next": [
+        {
+          "name": "checksum"
+        },
+        {
+          "name": "journal"
+        },
+        {
+          "name": "none"
+        }
+      ]
+    },
+    {
+      "name": "--resilience-hash",
+      "usage": [
+        "--resilience-hash=<STRING>"
+      ],
+      "tip": [
+        "Reencryption hotzone checksums hash."
+      ],
+      "next": []
+    },
+    {
+      "name": "--resume-only",
+      "tip": [
+        "Resume an initialized LUKS2 reencryption only."
+      ]
+    },
+    {
+      "name": "--sector-size",
+      "usage": [
+        "--sector-size=<INT>"
+      ],
+      "tip": [
+        "Encryption sector size (default 512 bytes)."
+      ],
+      "next": [
+        {
+          "name": "4096"
+        },
+        {
+          "name": "512"
+        }
+      ]
+    },
+    {
+      "name": "--serialize-memory-hard-pbkdf",
+      "tip": [
+        "Serialize memory-hard PBKDF with a global lock."
+      ]
+    },
+    {
+      "name": "--shared",
+      "tip": [
+        "Share the device with another non-overlapping crypt segment."
+      ]
+    },
+    {
+      "name": "--size",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --size=<SECTORS>"
+      ],
+      "tip": [
+        "The size of the device in sectors."
+      ],
+      "next": []
+    },
+    {
+      "name": "--skip",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --skip=<SECTORS>"
+      ],
+      "tip": [
+        "Sectors of encrypted data to skip at the beginning."
+      ],
+      "next": []
+    },
+    {
+      "name": "--subsystem",
+      "usage": [
+        "--subsystem=<STRING>"
+      ],
+      "tip": [
+        "Set a subsystem label for the LUKS2 device."
+      ],
+      "next": []
+    },
+    {
+      "name": "--tcrypt-backup",
+      "tip": [
+        "Use the backup (secondary) TCRYPT header."
+      ]
+    },
+    {
+      "name": "--tcrypt-hidden",
+      "tip": [
+        "Use the hidden TCRYPT header."
+      ]
+    },
+    {
+      "name": "--tcrypt-system",
+      "tip": [
+        "Treat the device as a system TCRYPT drive."
+      ]
+    },
+    {
+      "name": "--test-args",
+      "tip": [
+        "Only validate the command line parameters."
+      ]
+    },
+    {
+      "name": "--test-passphrase",
+      "tip": [
+        "Only check the passphrase, do not activate the device."
+      ]
+    },
+    {
+      "name": "--timeout",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --timeout=<SECS>"
+      ],
+      "tip": [
+        "Timeout for the interactive passphrase prompt."
+      ],
+      "next": []
+    },
+    {
+      "name": "--token-id",
+      "usage": [
+        "--token-id=<INT>"
+      ],
+      "tip": [
+        "Token number (default any)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--token-only",
+      "tip": [
+        "Do not ask for a passphrase if activation by token fails."
+      ]
+    },
+    {
+      "name": "--token-replace",
+      "tip": [
+        "Replace the current token."
+      ]
+    },
+    {
+      "name": "--token-type",
+      "usage": [
+        "--token-type=<STRING>"
+      ],
+      "tip": [
+        "Restrict allowed token types used to retrieve the LUKS2 key."
+      ],
+      "next": []
+    },
+    {
+      "name": "--tries",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --tries=<INT>"
+      ],
+      "tip": [
+        "How often the passphrase input can be retried."
+      ],
+      "next": []
+    },
+    {
+      "name": "--type",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --type=<STRING>"
+      ],
+      "tip": [
+        "Device metadata type."
+      ],
+      "next": [
+        {
+          "name": "bitlk"
+        },
+        {
+          "name": "fvault2"
+        },
+        {
+          "name": "loopaes"
+        },
+        {
+          "name": "luks"
+        },
+        {
+          "name": "luks1"
+        },
+        {
+          "name": "luks2"
+        },
+        {
+          "name": "plain"
+        },
+        {
+          "name": "tcrypt"
+        }
+      ]
+    },
+    {
+      "name": "--unbound",
+      "tip": [
+        "Create or dump an unbound LUKS2 keyslot or token."
+      ]
+    },
+    {
+      "name": "--usage",
+      "tip": [
+        "Display brief usage."
+      ]
+    },
+    {
+      "name": "--use-directio",
+      "tip": [
+        "Use direct-io when accessing devices."
+      ]
+    },
+    {
+      "name": "--use-fsync",
+      "tip": [
+        "Use fsync after each block."
+      ]
+    },
+    {
+      "name": "--use-random",
+      "tip": [
+        "Use /dev/random for generating the volume key."
+      ]
+    },
+    {
+      "name": "--use-urandom",
+      "tip": [
+        "Use /dev/urandom for generating the volume key."
+      ]
+    },
+    {
+      "name": "--uuid",
+      "usage": [
+        "--uuid=<STRING>"
+      ],
+      "tip": [
+        "UUID for the device to use."
+      ],
+      "next": []
+    },
+    {
+      "name": "--veracrypt",
+      "tip": [
+        "Scan also for VeraCrypt compatible devices."
+      ]
+    },
+    {
+      "name": "--veracrypt-pim",
+      "usage": [
+        "--veracrypt-pim=<INT>"
+      ],
+      "tip": [
+        "Personal Iteration Multiplier for a VeraCrypt device."
+      ],
+      "next": []
+    },
+    {
+      "name": "--veracrypt-query-pim",
+      "tip": [
+        "Query the Personal Iteration Multiplier."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Show more detailed error messages."
+      ]
+    },
+    {
+      "name": "--verify-passphrase",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --verify-passphrase"
+      ],
+      "tip": [
+        "Verify the passphrase by asking for it twice."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Print package version."
+      ]
+    },
+    {
+      "name": "--volume-key-file",
+      "usage": [
+        "--volume-key-file=<STRING>"
+      ],
+      "tip": [
+        "Use the volume key from this file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--volume-key-keyring",
+      "usage": [
+        "--volume-key-keyring=<STRING>"
+      ],
+      "tip": [
+        "Use the specified keyring key as the volume key."
+      ],
+      "next": []
+    },
+    {
+      "name": "--write-log",
+      "tip": [
+        "Update the log file after every block."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "meta": {
+    "url": "https://github.com/sysstat/sysstat",
+    "description": [
+      "Report statistics for Linux tasks."
+    ]
+  },
+  "option": [
+    {
+      "name": "--dec",
+      "usage": [
+        "--dec={0|1|2}"
+      ],
+      "tip": [
+        "Set the decimal precision."
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        },
+        {
+          "name": "2"
+        }
+      ]
+    },
+    {
+      "name": "--human",
+      "tip": [
+        "Print sizes in human-readable format."
+      ]
+    },
+    {
+      "name": "--pretty",
+      "tip": [
+        "Pretty-print JSON output."
+      ]
+    },
+    {
+      "name": "-C",
+      "usage": [
+        "-C <command>"
+      ],
+      "tip": [
+        "Only report tasks with this command name."
+      ],
+      "next": []
+    },
+    {
+      "name": "-d",
+      "tip": [
+        "Report I/O statistics."
+      ]
+    },
+    {
+      "name": "-G",
+      "usage": [
+        "-G <process_name>"
+      ],
+      "tip": [
+        "Only report tasks with this process name."
+      ],
+      "next": []
+    },
+    {
+      "name": "-h",
+      "tip": [
+        "Print sizes in human-readable format."
+      ]
+    },
+    {
+      "name": "-H",
+      "tip": [
+        "Display the timestamp in ISO format."
+      ]
+    },
+    {
+      "name": "-I",
+      "tip": [
+        "Display the number of threads."
+      ]
+    },
+    {
+      "name": "-k",
+      "tip": [
+        "Display sizes in kilobytes."
+      ]
+    },
+    {
+      "name": "-l",
+      "tip": [
+        "Display the command name."
+      ]
+    },
+    {
+      "name": "-m",
+      "tip": [
+        "Display sizes in megabytes."
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o JSON"
+      ],
+      "tip": [
+        "Output in JSON format."
+      ],
+      "next": [
+        {
+          "name": "JSON"
+        }
+      ]
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p {<pid> [...]|SELF|ALL}"
+      ],
+      "tip": [
+        "Only report these PIDs."
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        },
+        {
+          "name": "SELF"
+        }
+      ]
+    },
+    {
+      "name": "-r",
+      "tip": [
+        "Report page fault statistics."
+      ]
+    },
+    {
+      "name": "-R",
+      "tip": [
+        "Report memory page fault statistics."
+      ]
+    },
+    {
+      "name": "-s",
+      "tip": [
+        "Report stack utilization."
+      ]
+    },
+    {
+      "name": "-t",
+      "tip": [
+        "Display statistics for threads."
+      ]
+    },
+    {
+      "name": "-T",
+      "usage": [
+        "-T {TASK|CHILD|ALL}"
+      ],
+      "tip": [
+        "Report tasks, children or both."
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        },
+        {
+          "name": "CHILD"
+        },
+        {
+          "name": "TASK"
+        }
+      ]
+    },
+    {
+      "name": "-u",
+      "tip": [
+        "Report CPU utilization."
+      ]
+    },
+    {
+      "name": "-U",
+      "usage": [
+        "-U [<username>]"
+      ],
+      "tip": [
+        "Display the real user name."
+      ],
+      "next": []
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "Report task statistics."
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "Print version information."
+      ]
+    },
+    {
+      "name": "-w",
+      "tip": [
+        "Report task switching statistics."
+      ]
+    }
+  ]
+}
