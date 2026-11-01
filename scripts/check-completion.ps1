@@ -209,6 +209,7 @@ else {
     # A per-completion verdict line is what makes the log readable without fetching the comment: which definitions were checked, and which of them failed on what.
     foreach ($v in @($validationData)) {
         $counts = 'schema {0}, config {1}, hooks {2}, compare {3}' -f $v.counts.schema, $v.counts.config, $v.counts.hooks, $v.counts.compare
+        if (@($v.alias).Count -gt 0) { $counts += ' · aliases: {0}' -f (@($v.alias) -join ', ') }
         if ($v.hasIssues) {
             Write-CiLog ('{0}: FAILED ({1})' -f $v.name, $counts) -Level error
         }

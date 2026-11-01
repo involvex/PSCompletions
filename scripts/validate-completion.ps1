@@ -73,6 +73,7 @@ $L = @{
         secCompare             = 'Compare'
         version                = 'CLI version baseline'
         versionChanged         = 'CLI version baseline changed'
+        alias                  = 'Trigger aliases'
         versionOld             = 'old'
         versionNew             = 'new'
         cat_missingInTarget    = 'Missing items'
@@ -114,6 +115,7 @@ $L = @{
         secCompare             = 'Compare'
         version                = 'CLI 版本基线'
         versionChanged         = 'CLI 版本基线已变更'
+        alias                  = '触发别名'
         versionOld             = '旧'
         versionNew             = '新'
         cat_missingInTarget    = '缺少的项'
@@ -230,8 +232,9 @@ function Get-Report {
         $pCell = if ($r.issues.compare.Count) { "❌ $($r.issues.compare.Count)" } else { '✅' }
         [void]$sb.AppendLine("> $($m.secSchema) $sCell · $($m.secConfig) $cCell · $($m.secHooks) $hCell · $($m.secCompare) $pCell")
         [void]$sb.AppendLine('')
+        $metaLines = @()
         if ($r.version) {
-            $verLines = if ($VersionChanged.ContainsKey($r.name)) {
+            $metaLines += if ($VersionChanged.ContainsKey($r.name)) {
                 @(
                     ('> {0}:' -f $m.versionChanged),
                     ('> - {0}: `{1}`' -f $m.versionOld, $VersionChanged[$r.name]),
@@ -239,9 +242,13 @@ function Get-Report {
                 )
             }
             else { @(('> {0}: `{1}`' -f $m.version, $r.version)) }
-            foreach ($vl in $verLines) { [void]$sb.AppendLine($vl) }
-            [void]$sb.AppendLine('')
         }
+        if (@($r.alias).Count -gt 0) {
+            $aliasList = (@($r.alias) | ForEach-Object { '`{0}`' -f $_ }) -join ', '
+            $metaLines += ('> {0}: {1}' -f $m.alias, $aliasList)
+        }
+        foreach ($ml in $metaLines) { [void]$sb.AppendLine($ml) }
+        if ($metaLines.Count -gt 0) { [void]$sb.AppendLine('') }
 
         $dead = @($HookTargetDetails | Where-Object { $_.completion -eq $r.name })
         if ($dead.Count -gt 0) {
@@ -580,6 +587,7 @@ foreach ($name in $CompletionList) {
         hasHooks  = $false
         fileCount = 0
         version   = $null
+        alias     = @()
     }
 
     # Probe each path once; every check below reads these instead of re-stat'ing.
@@ -623,6 +631,10 @@ foreach ($name in $CompletionList) {
             foreach ($i in $cfgIssues) { $entry.issues.config.Add($i) }
             if ($config['version'] -is [string] -and $config['version'] -ne '') {
                 $entry.version = $config['version']
+            }
+            # Reported next to the version: the spellings a user actually types when config.alias is set.
+            if ($config.ContainsKey('alias')) {
+                $entry.alias = @($config['alias'] | Where-Object { $_ -is [string] -and $_ -ne '' })
             }
         }
     }
@@ -692,6 +704,7 @@ if ($Json) {
             hasIssues = [bool]$entry.hasIssues
             hasHooks  = [bool]$entry.hasHooks
             version   = $entry.version
+            alias     = @($entry.alias)
             counts    = [pscustomobject]@{
                 schema  = $entry.issues.schema.Count
                 config  = $entry.issues.config.Count
