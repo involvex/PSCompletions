@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/man-db/man-db",
+    "description": [
+      "Parse header information in man pages."
+    ]
+  },
+  "option": [
+    {
+      "name": "--cat",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --cat"
+      ],
+      "tip": [
+        "Parse as a cat page."
+      ]
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "Emit debugging messages."
+      ]
+    },
+    {
+      "name": "--encoding",
+      "alias": [
+        "-E"
+      ],
+      "usage": [
+        "-E, --encoding=ENCODING"
+      ],
+      "tip": [
+        "Use the selected output encoding."
+      ],
+      "next": []
+    },
+    {
+      "name": "--filters",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --filters"
+      ],
+      "tip": [
+        "Show guessed preprocessing filters."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "Give this help list."
+      ]
+    },
+    {
+      "name": "--man",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --man"
+      ],
+      "tip": [
+        "Parse as a man page."
+      ]
+    },
+    {
+      "name": "--usage",
+      "tip": [
+        "Give a short usage message."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Print program version."
+      ]
+    },
+    {
+      "name": "--whatis",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --whatis"
+      ],
+      "tip": [
+        "Show whatis information."
+      ]
+    }
+  ]
+}

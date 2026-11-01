@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/man-db/man-db",
+    "description": [
+      "创建或更新手册页索引缓存。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--config-file",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --config-file=FILE"
+      ],
+      "tip": [
+        "使用此用户配置文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--create",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --create"
+      ],
+      "tip": [
+        "从头创建数据库。"
+      ]
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "输出调试消息。"
+      ]
+    },
+    {
+      "name": "--filename",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --filename=FILENAME"
+      ],
+      "tip": [
+        "仅更新此文件名条目。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "给出此帮助列表。"
+      ]
+    },
+    {
+      "name": "--no-purge",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --no-purge"
+      ],
+      "tip": [
+        "不清除过时条目。"
+      ]
+    },
+    {
+      "name": "--no-straycats",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --no-straycats"
+      ],
+      "tip": [
+        "不查找或添加游离 cat 页。"
+      ]
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "安静工作。"
+      ]
+    },
+    {
+      "name": "--test",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --test"
+      ],
+      "tip": [
+        "检查手册页的正确性。"
+      ]
+    },
+    {
+      "name": "--usage",
+      "tip": [
+        "给出简短用法消息。"
+      ]
+    },
+    {
+      "name": "--user-db",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --user-db"
+      ],
+      "tip": [
+        "仅生成用户数据库。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "打印程序版本。"
+      ]
+    }
+  ]
+}

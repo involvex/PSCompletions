@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/man-db/man-db",
+    "description": [
+      "将手册页转换为另一种编码。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "输出调试消息。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "给出此帮助列表。"
+      ]
+    },
+    {
+      "name": "--in-place",
+      "tip": [
+        "就地覆盖输入文件。"
+      ]
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "产生更少警告。"
+      ]
+    },
+    {
+      "name": "--suffix",
+      "usage": [
+        "--suffix=SUFFIX"
+      ],
+      "tip": [
+        "追加到输出文件名的后缀。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--to-code",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --to-code=CODE"
+      ],
+      "tip": [
+        "输出编码。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--usage",
+      "tip": [
+        "给出简短用法消息。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "打印程序版本。"
+      ]
+    }
+  ]
+}

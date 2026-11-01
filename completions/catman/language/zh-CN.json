@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/man-db/man-db",
+    "description": [
+      "创建或更新预格式化手册页。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--config-file",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --config-file=FILE"
+      ],
+      "tip": [
+        "使用此用户配置文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "输出调试消息。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "给出此帮助列表。"
+      ]
+    },
+    {
+      "name": "--manpath",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --manpath=PATH"
+      ],
+      "tip": [
+        "设置手册页搜索路径。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--usage",
+      "tip": [
+        "给出简短用法消息。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "打印程序版本。"
+      ]
+    }
+  ]
+}

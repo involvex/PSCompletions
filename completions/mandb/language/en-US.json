@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/man-db/man-db",
+    "description": [
+      "Create or update the manual page index caches."
+    ]
+  },
+  "option": [
+    {
+      "name": "--config-file",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --config-file=FILE"
+      ],
+      "tip": [
+        "Use this user configuration file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--create",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --create"
+      ],
+      "tip": [
+        "Create databases from scratch."
+      ]
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "Emit debugging messages."
+      ]
+    },
+    {
+      "name": "--filename",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --filename=FILENAME"
+      ],
+      "tip": [
+        "Update just this filename entry."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "Give this help list."
+      ]
+    },
+    {
+      "name": "--no-purge",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --no-purge"
+      ],
+      "tip": [
+        "Do not purge obsolete entries."
+      ]
+    },
+    {
+      "name": "--no-straycats",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --no-straycats"
+      ],
+      "tip": [
+        "Do not look for or add stray cats."
+      ]
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "Work quietly."
+      ]
+    },
+    {
+      "name": "--test",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --test"
+      ],
+      "tip": [
+        "Check manual pages for correctness."
+      ]
+    },
+    {
+      "name": "--usage",
+      "tip": [
+        "Give a short usage message."
+      ]
+    },
+    {
+      "name": "--user-db",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --user-db"
+      ],
+      "tip": [
+        "Produce user databases only."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Print program version."
+      ]
+    }
+  ]
+}

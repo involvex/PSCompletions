@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/man-db/man-db",
+    "description": [
+      "Convert manual pages to another encoding."
+    ]
+  },
+  "option": [
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "Emit debugging messages."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "Give this help list."
+      ]
+    },
+    {
+      "name": "--in-place",
+      "tip": [
+        "Overwrite input files in place."
+      ]
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "Produce fewer warnings."
+      ]
+    },
+    {
+      "name": "--suffix",
+      "usage": [
+        "--suffix=SUFFIX"
+      ],
+      "tip": [
+        "Suffix to append to the output file name."
+      ],
+      "next": []
+    },
+    {
+      "name": "--to-code",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --to-code=CODE"
+      ],
+      "tip": [
+        "Encoding for the output."
+      ],
+      "next": []
+    },
+    {
+      "name": "--usage",
+      "tip": [
+        "Give a short usage message."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Print program version."
+      ]
+    }
+  ]
+}
