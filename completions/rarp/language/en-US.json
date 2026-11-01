@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "Manipulate the system RARP table."
+    ]
+  },
+  "option": [
+    {
+      "name": "--delete",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --delete <HOST>"
+      ],
+      "tip": [
+        "Remove all RARP entries for the specified host."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this help."
+      ]
+    },
+    {
+      "name": "--list",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --list"
+      ],
+      "tip": [
+        "List the entries in the RARP table."
+      ]
+    },
+    {
+      "name": "--set",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --set <HOST> <HW_ADDR>"
+      ],
+      "tip": [
+        "Create a RARP address mapping entry."
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Display version information."
+      ]
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "Add entries from /etc/ethers."
+      ]
+    },
+    {
+      "name": "-t",
+      "usage": [
+        "-t <TYPE>"
+      ],
+      "tip": [
+        "Check only entries of this hardware type (default ether)."
+      ],
+      "next": [
+        {
+          "name": "arcnet"
+        },
+        {
+          "name": "ash"
+        },
+        {
+          "name": "ax25"
+        },
+        {
+          "name": "dlci"
+        },
+        {
+          "name": "ether"
+        },
+        {
+          "name": "eui64"
+        },
+        {
+          "name": "fddi"
+        },
+        {
+          "name": "hippi"
+        },
+        {
+          "name": "irda"
+        },
+        {
+          "name": "netrom"
+        },
+        {
+          "name": "rose"
+        },
+        {
+          "name": "x25"
+        }
+      ]
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "Tell the user what is going on by being verbose."
+      ]
+    }
+  ]
+}

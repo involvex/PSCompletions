@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "Fine-tune PLIP device parameters."
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this help."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Display version information."
+      ]
+    },
+    {
+      "name": "nibble",
+      "usage": [
+        "nibble <NN>"
+      ],
+      "tip": [
+        "Set the nibble wait value in microseconds."
+      ],
+      "next": []
+    },
+    {
+      "name": "trigger",
+      "usage": [
+        "trigger <NN>"
+      ],
+      "tip": [
+        "Set the trigger wait value in microseconds."
+      ],
+      "next": []
+    }
+  ]
+}

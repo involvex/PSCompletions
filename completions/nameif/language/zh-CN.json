@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "根据 MAC 地址命名网络接口。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "-c",
+      "usage": [
+        "-c <CONFIGURATIONFILE>"
+      ],
+      "tip": [
+        "从此文件读取映射，而不是 /etc/mactab。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-s",
+      "tip": [
+        "将所有错误消息发送到 syslog。"
+      ]
+    }
+  ]
+}

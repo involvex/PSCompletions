@@ -1,0 +1,491 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "打印网络连接、路由表和接口统计。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--all",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --all"
+      ],
+      "tip": [
+        "同时显示监听和非监听套接字。"
+      ]
+    },
+    {
+      "name": "--appletalk",
+      "alias": [
+        "--ddp"
+      ],
+      "usage": [
+        "--ddp, --appletalk"
+      ],
+      "tip": [
+        "显示 AppleTalk DDP 套接字。"
+      ]
+    },
+    {
+      "name": "--ax25",
+      "tip": [
+        "显示 AX.25 套接字。"
+      ]
+    },
+    {
+      "name": "--bluetooth",
+      "tip": [
+        "显示蓝牙套接字。"
+      ]
+    },
+    {
+      "name": "--cache",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --cache"
+      ],
+      "tip": [
+        "从路由缓存打印路由信息。"
+      ]
+    },
+    {
+      "name": "--context",
+      "alias": [
+        "-Z"
+      ],
+      "usage": [
+        "-Z, --context"
+      ],
+      "tip": [
+        "显示套接字的 SELinux 安全上下文。"
+      ]
+    },
+    {
+      "name": "--continuous",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --continuous"
+      ],
+      "tip": [
+        "每秒打印所选信息。"
+      ]
+    },
+    {
+      "name": "--extend",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --extend"
+      ],
+      "tip": [
+        "显示附加信息；使用两次可获得最多细节。"
+      ],
+      "repeat": 2
+    },
+    {
+      "name": "--fib",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --fib"
+      ],
+      "tip": [
+        "从 FIB 打印路由信息（默认）。"
+      ]
+    },
+    {
+      "name": "--groups",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --groups"
+      ],
+      "tip": [
+        "显示多播组成员关系。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--inet6",
+      "alias": [
+        "-6"
+      ],
+      "usage": [
+        "-6, --inet6"
+      ],
+      "tip": [
+        "使用 inet6（IPv6）地址族。"
+      ]
+    },
+    {
+      "name": "--interfaces",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --interfaces"
+      ],
+      "tip": [
+        "显示接口表。"
+      ]
+    },
+    {
+      "name": "--ipx",
+      "tip": [
+        "显示 IPX 套接字。"
+      ]
+    },
+    {
+      "name": "--l2cap",
+      "alias": [
+        "-2"
+      ],
+      "usage": [
+        "-2, --l2cap"
+      ],
+      "tip": [
+        "显示蓝牙 L2CAP 套接字。"
+      ]
+    },
+    {
+      "name": "--listening",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --listening"
+      ],
+      "tip": [
+        "仅显示监听套接字。"
+      ]
+    },
+    {
+      "name": "--masquerade",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --masquerade"
+      ],
+      "tip": [
+        "显示伪装连接。"
+      ]
+    },
+    {
+      "name": "--netrom",
+      "tip": [
+        "显示 NET/ROM 套接字。"
+      ]
+    },
+    {
+      "name": "--numeric",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --numeric"
+      ],
+      "tip": [
+        "显示数字地址，不解析名称。"
+      ]
+    },
+    {
+      "name": "--numeric-hosts",
+      "tip": [
+        "仅显示数字主机地址。"
+      ]
+    },
+    {
+      "name": "--numeric-ports",
+      "tip": [
+        "仅显示数字端口号。"
+      ]
+    },
+    {
+      "name": "--numeric-users",
+      "tip": [
+        "仅显示数字用户 ID。"
+      ]
+    },
+    {
+      "name": "--programs",
+      "alias": [
+        "--program",
+        "-p"
+      ],
+      "usage": [
+        "-p, --program, --programs"
+      ],
+      "tip": [
+        "显示拥有每个套接字的程序的 PID 和名称。"
+      ]
+    },
+    {
+      "name": "--protocol",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --protocol <FAMILY,...>"
+      ],
+      "tip": [
+        "显示逗号分隔的地址族的连接。"
+      ],
+      "separator": ",",
+      "next": [
+        {
+          "name": "ash"
+        },
+        {
+          "name": "ax25"
+        },
+        {
+          "name": "bluetooth"
+        },
+        {
+          "name": "ddp"
+        },
+        {
+          "name": "econet"
+        },
+        {
+          "name": "inet"
+        },
+        {
+          "name": "inet6"
+        },
+        {
+          "name": "ipx"
+        },
+        {
+          "name": "netrom"
+        },
+        {
+          "name": "rose"
+        },
+        {
+          "name": "unix"
+        },
+        {
+          "name": "x25"
+        }
+      ]
+    },
+    {
+      "name": "--raw",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --raw"
+      ],
+      "tip": [
+        "显示原始套接字。"
+      ]
+    },
+    {
+      "name": "--rfcomm",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --rfcomm"
+      ],
+      "tip": [
+        "显示蓝牙 RFCOMM 套接字。"
+      ]
+    },
+    {
+      "name": "--rose",
+      "tip": [
+        "显示 ROSE 套接字。"
+      ]
+    },
+    {
+      "name": "--route",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --route"
+      ],
+      "tip": [
+        "显示路由表。"
+      ]
+    },
+    {
+      "name": "--sctp",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --sctp"
+      ],
+      "tip": [
+        "显示 SCTP 套接字。"
+      ]
+    },
+    {
+      "name": "--statistics",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --statistics"
+      ],
+      "tip": [
+        "显示网络统计信息（类似 SNMP）。"
+      ]
+    },
+    {
+      "name": "--symbolic",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --symbolic"
+      ],
+      "tip": [
+        "解析硬件名称。"
+      ]
+    },
+    {
+      "name": "--tcp",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --tcp"
+      ],
+      "tip": [
+        "显示 TCP 套接字。"
+      ]
+    },
+    {
+      "name": "--tcpip",
+      "alias": [
+        "--inet",
+        "--ip",
+        "-4"
+      ],
+      "usage": [
+        "-4, --ip, --inet, --tcpip"
+      ],
+      "tip": [
+        "使用 inet（IPv4）地址族。"
+      ]
+    },
+    {
+      "name": "--timers",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --timers"
+      ],
+      "tip": [
+        "包含与网络定时器相关的信息。"
+      ]
+    },
+    {
+      "name": "--udp",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --udp"
+      ],
+      "tip": [
+        "显示 UDP 套接字。"
+      ]
+    },
+    {
+      "name": "--udplite",
+      "alias": [
+        "-U"
+      ],
+      "usage": [
+        "-U, --udplite"
+      ],
+      "tip": [
+        "显示 UDPLite 套接字。"
+      ]
+    },
+    {
+      "name": "--unix",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --unix"
+      ],
+      "tip": [
+        "显示 UNIX 域套接字。"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "输出详细信息，尤其是关于未配置的地址族。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示版本信息。"
+      ]
+    },
+    {
+      "name": "--wide",
+      "alias": [
+        "-W"
+      ],
+      "usage": [
+        "-W, --wide"
+      ],
+      "tip": [
+        "不截断 IP 地址。"
+      ]
+    },
+    {
+      "name": "--x25",
+      "tip": [
+        "显示 X.25 套接字。"
+      ]
+    }
+  ]
+}

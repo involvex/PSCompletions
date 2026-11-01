@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "View and manipulate MII status."
+    ]
+  },
+  "option": [
+    {
+      "name": "--advertise",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --advertise=<MEDIA,...>"
+      ],
+      "tip": [
+        "Advertise only the specified media technologies."
+      ],
+      "separator": ",",
+      "next": [
+        {
+          "name": "1000baseT"
+        },
+        {
+          "name": "1000baseT-FD"
+        },
+        {
+          "name": "1000baseT-HD"
+        },
+        {
+          "name": "100baseT4"
+        },
+        {
+          "name": "100baseTx"
+        },
+        {
+          "name": "100baseTx-FD"
+        },
+        {
+          "name": "100baseTx-HD"
+        },
+        {
+          "name": "10baseT"
+        },
+        {
+          "name": "10baseT-FD"
+        },
+        {
+          "name": "10baseT-HD"
+        }
+      ]
+    },
+    {
+      "name": "--force",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --force=<MEDIA>"
+      ],
+      "tip": [
+        "Force the specified media technology."
+      ],
+      "next": [
+        {
+          "name": "1000baseT-FD"
+        },
+        {
+          "name": "1000baseT-HD"
+        },
+        {
+          "name": "100baseT4"
+        },
+        {
+          "name": "100baseTx-FD"
+        },
+        {
+          "name": "100baseTx-HD"
+        },
+        {
+          "name": "10baseT-FD"
+        },
+        {
+          "name": "10baseT-HD"
+        }
+      ]
+    },
+    {
+      "name": "--help",
+      "tip": [
+        "Display this help."
+      ]
+    },
+    {
+      "name": "--log",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --log"
+      ],
+      "tip": [
+        "With --watch, record link status changes in the system log."
+      ]
+    },
+    {
+      "name": "--phy",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --phy=<ADDR>"
+      ],
+      "tip": [
+        "Override the MII address provided by the kernel."
+      ],
+      "next": []
+    },
+    {
+      "name": "--reset",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --reset"
+      ],
+      "tip": [
+        "Reset the MII to its default configuration."
+      ]
+    },
+    {
+      "name": "--restart",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --restart"
+      ],
+      "tip": [
+        "Restart autonegotiation."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Display more detailed MII status information."
+      ],
+      "repeat": 3
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Display version information."
+      ]
+    },
+    {
+      "name": "--watch",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --watch"
+      ],
+      "tip": [
+        "Watch interfaces and report changes in link status."
+      ]
+    }
+  ]
+}

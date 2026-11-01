@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "查看和调整 MII 状态。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--advertise",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --advertise=<MEDIA,...>"
+      ],
+      "tip": [
+        "仅通告指定的介质技术。"
+      ],
+      "separator": ",",
+      "next": [
+        {
+          "name": "1000baseT"
+        },
+        {
+          "name": "1000baseT-FD"
+        },
+        {
+          "name": "1000baseT-HD"
+        },
+        {
+          "name": "100baseT4"
+        },
+        {
+          "name": "100baseTx"
+        },
+        {
+          "name": "100baseTx-FD"
+        },
+        {
+          "name": "100baseTx-HD"
+        },
+        {
+          "name": "10baseT"
+        },
+        {
+          "name": "10baseT-FD"
+        },
+        {
+          "name": "10baseT-HD"
+        }
+      ]
+    },
+    {
+      "name": "--force",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --force=<MEDIA>"
+      ],
+      "tip": [
+        "强制使用指定的介质技术。"
+      ],
+      "next": [
+        {
+          "name": "1000baseT-FD"
+        },
+        {
+          "name": "1000baseT-HD"
+        },
+        {
+          "name": "100baseT4"
+        },
+        {
+          "name": "100baseTx-FD"
+        },
+        {
+          "name": "100baseTx-HD"
+        },
+        {
+          "name": "10baseT-FD"
+        },
+        {
+          "name": "10baseT-HD"
+        }
+      ]
+    },
+    {
+      "name": "--help",
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--log",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --log"
+      ],
+      "tip": [
+        "与 --watch 一起使用时，将链路状态变化记录到系统日志。"
+      ]
+    },
+    {
+      "name": "--phy",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --phy=<ADDR>"
+      ],
+      "tip": [
+        "覆盖内核提供的 MII 地址。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--reset",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --reset"
+      ],
+      "tip": [
+        "将 MII 重置为默认配置。"
+      ]
+    },
+    {
+      "name": "--restart",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --restart"
+      ],
+      "tip": [
+        "重新启动自动协商。"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "显示更详细的 MII 状态信息。"
+      ],
+      "repeat": 3
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示版本信息。"
+      ]
+    },
+    {
+      "name": "--watch",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --watch"
+      ],
+      "tip": [
+        "监视接口并报告链路状态变化。"
+      ]
+    }
+  ]
+}

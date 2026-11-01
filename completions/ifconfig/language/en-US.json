@@ -1,0 +1,467 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "Configure a network interface."
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "tip": [
+        "Display this help."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Be more verbose for some error conditions."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Display version information."
+      ]
+    },
+    {
+      "name": "-a",
+      "tip": [
+        "Display all interfaces, even those that are down."
+      ]
+    },
+    {
+      "name": "-allmulti",
+      "tip": [
+        "Disable all-multicast mode."
+      ]
+    },
+    {
+      "name": "-arp",
+      "tip": [
+        "Disable the use of the ARP protocol on this interface."
+      ]
+    },
+    {
+      "name": "-broadcast",
+      "tip": [
+        "Clear the broadcast flag."
+      ]
+    },
+    {
+      "name": "-dynamic",
+      "tip": [
+        "Clear the dynamic flag of the interface."
+      ]
+    },
+    {
+      "name": "-pointopoint",
+      "tip": [
+        "Disable point-to-point mode."
+      ]
+    },
+    {
+      "name": "-promisc",
+      "tip": [
+        "Disable promiscuous mode."
+      ]
+    },
+    {
+      "name": "-s",
+      "tip": [
+        "Display a short list (like netstat -i)."
+      ]
+    },
+    {
+      "name": "-trailers",
+      "tip": [
+        "Disable trailer encapsulation."
+      ]
+    },
+    {
+      "name": "add",
+      "usage": [
+        "add <ADDRESS>[/<PREFIXLEN>]"
+      ],
+      "tip": [
+        "Add an IPv6 address to the interface."
+      ],
+      "next": []
+    },
+    {
+      "name": "allmulti",
+      "tip": [
+        "Enable all-multicast mode."
+      ]
+    },
+    {
+      "name": "arp",
+      "tip": [
+        "Enable the use of the ARP protocol on this interface."
+      ]
+    },
+    {
+      "name": "ash",
+      "tip": [
+        "Use the ash address family."
+      ]
+    },
+    {
+      "name": "ax25",
+      "tip": [
+        "Use the ax25 address family."
+      ]
+    },
+    {
+      "name": "broadcast",
+      "usage": [
+        "broadcast [<ADDRESS>]"
+      ],
+      "tip": [
+        "Set the broadcast address, or set the broadcast flag."
+      ],
+      "next": []
+    },
+    {
+      "name": "ddp",
+      "tip": [
+        "Use the ddp address family."
+      ]
+    },
+    {
+      "name": "del",
+      "usage": [
+        "del <ADDRESS>[/<PREFIXLEN>]"
+      ],
+      "tip": [
+        "Remove an IPv6 address from the interface."
+      ],
+      "next": []
+    },
+    {
+      "name": "down",
+      "tip": [
+        "Shut down the interface."
+      ]
+    },
+    {
+      "name": "dstaddr",
+      "usage": [
+        "dstaddr <ADDRESS>"
+      ],
+      "tip": [
+        "Set the remote IP address for a point-to-point link (obsolete; use pointopoint)."
+      ],
+      "next": []
+    },
+    {
+      "name": "dynamic",
+      "tip": [
+        "Mark the interface as dynamically created."
+      ]
+    },
+    {
+      "name": "ec",
+      "tip": [
+        "Use the ec address family."
+      ]
+    },
+    {
+      "name": "hw",
+      "usage": [
+        "hw <CLASS> <ADDRESS>"
+      ],
+      "tip": [
+        "Set the hardware address of this interface."
+      ],
+      "next": [
+        {
+          "name": "adaptive"
+        },
+        {
+          "name": "arcnet"
+        },
+        {
+          "name": "ash"
+        },
+        {
+          "name": "ax25"
+        },
+        {
+          "name": "cslip"
+        },
+        {
+          "name": "cslip6"
+        },
+        {
+          "name": "dlci"
+        },
+        {
+          "name": "ec"
+        },
+        {
+          "name": "ether"
+        },
+        {
+          "name": "eui64"
+        },
+        {
+          "name": "fddi"
+        },
+        {
+          "name": "frad"
+        },
+        {
+          "name": "hdlc"
+        },
+        {
+          "name": "hippi"
+        },
+        {
+          "name": "irda"
+        },
+        {
+          "name": "lapb"
+        },
+        {
+          "name": "loop"
+        },
+        {
+          "name": "netrom"
+        },
+        {
+          "name": "ppp"
+        },
+        {
+          "name": "rose"
+        },
+        {
+          "name": "sit"
+        },
+        {
+          "name": "slip"
+        },
+        {
+          "name": "slip6"
+        },
+        {
+          "name": "tunnel"
+        },
+        {
+          "name": "x25"
+        }
+      ]
+    },
+    {
+      "name": "inet",
+      "tip": [
+        "Use the inet address family."
+      ]
+    },
+    {
+      "name": "inet6",
+      "tip": [
+        "Use the inet6 address family."
+      ]
+    },
+    {
+      "name": "io_addr",
+      "usage": [
+        "io_addr <ADDRESS>"
+      ],
+      "tip": [
+        "Set the start address in I/O space for this device."
+      ],
+      "next": []
+    },
+    {
+      "name": "ipx",
+      "tip": [
+        "Use the ipx address family."
+      ]
+    },
+    {
+      "name": "irq",
+      "usage": [
+        "irq <ADDRESS>"
+      ],
+      "tip": [
+        "Set the interrupt line used by this device."
+      ],
+      "next": []
+    },
+    {
+      "name": "keepalive",
+      "usage": [
+        "keepalive <NN>"
+      ],
+      "tip": [
+        "Set the keepalive value for SLIP devices."
+      ],
+      "next": []
+    },
+    {
+      "name": "media",
+      "usage": [
+        "media <TYPE>"
+      ],
+      "tip": [
+        "Set the physical port or medium type used by the device."
+      ],
+      "next": [
+        {
+          "name": "10base2"
+        },
+        {
+          "name": "10baseT"
+        },
+        {
+          "name": "AUI"
+        },
+        {
+          "name": "auto"
+        }
+      ]
+    },
+    {
+      "name": "mem_start",
+      "usage": [
+        "mem_start <ADDRESS>"
+      ],
+      "tip": [
+        "Set the start address of shared memory used by this device."
+      ],
+      "next": []
+    },
+    {
+      "name": "mtu",
+      "usage": [
+        "mtu <N>"
+      ],
+      "tip": [
+        "Set the maximum transfer unit of the interface."
+      ],
+      "next": []
+    },
+    {
+      "name": "multicast",
+      "tip": [
+        "Set the multicast flag on the interface."
+      ]
+    },
+    {
+      "name": "name",
+      "usage": [
+        "name <NEWNAME>"
+      ],
+      "tip": [
+        "Change the name of this interface."
+      ],
+      "next": []
+    },
+    {
+      "name": "netmask",
+      "usage": [
+        "netmask <ADDRESS>"
+      ],
+      "tip": [
+        "Set the IP network mask for this interface."
+      ],
+      "next": []
+    },
+    {
+      "name": "netrom",
+      "tip": [
+        "Use the netrom address family."
+      ]
+    },
+    {
+      "name": "outfill",
+      "usage": [
+        "outfill <NN>"
+      ],
+      "tip": [
+        "Set the outfill value for SLIP devices."
+      ],
+      "next": []
+    },
+    {
+      "name": "pointopoint",
+      "usage": [
+        "pointopoint [<ADDRESS>]"
+      ],
+      "tip": [
+        "Enable point-to-point mode and optionally set the peer address."
+      ],
+      "next": []
+    },
+    {
+      "name": "promisc",
+      "tip": [
+        "Enable promiscuous mode."
+      ]
+    },
+    {
+      "name": "rose",
+      "tip": [
+        "Use the rose address family."
+      ]
+    },
+    {
+      "name": "trailers",
+      "tip": [
+        "Enable trailer encapsulation."
+      ]
+    },
+    {
+      "name": "tunnel",
+      "usage": [
+        "tunnel <ADDRESS>"
+      ],
+      "tip": [
+        "Create a new SIT device tunnelling to the destination."
+      ],
+      "next": []
+    },
+    {
+      "name": "txqueuelen",
+      "usage": [
+        "txqueuelen <LENGTH>"
+      ],
+      "tip": [
+        "Set the length of the transmit queue of the device."
+      ],
+      "next": []
+    },
+    {
+      "name": "unix",
+      "tip": [
+        "Use the unix address family."
+      ]
+    },
+    {
+      "name": "up",
+      "tip": [
+        "Activate the interface."
+      ]
+    },
+    {
+      "name": "x25",
+      "tip": [
+        "Use the x25 address family."
+      ]
+    }
+  ]
+}

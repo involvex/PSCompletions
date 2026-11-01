@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "Attach a network interface to a serial line."
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "tip": [
+        "Display this help."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Display version information."
+      ]
+    },
+    {
+      "name": "-c",
+      "usage": [
+        "-c <COMMAND>"
+      ],
+      "tip": [
+        "Execute this command when the line is hung up."
+      ],
+      "next": []
+    },
+    {
+      "name": "-e",
+      "tip": [
+        "Exit right after initializing the device."
+      ]
+    },
+    {
+      "name": "-h",
+      "tip": [
+        "Exit when the carrier is lost."
+      ]
+    },
+    {
+      "name": "-l",
+      "tip": [
+        "Create a UUCP-style lockfile for the device."
+      ]
+    },
+    {
+      "name": "-L",
+      "tip": [
+        "Enable 3-wire operation."
+      ]
+    },
+    {
+      "name": "-m",
+      "tip": [
+        "Do not initialize the line into 8-bit raw mode."
+      ]
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "Equivalent to the mesg n command."
+      ]
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p <PROTOCOL>"
+      ],
+      "tip": [
+        "Set the protocol used on the line."
+      ],
+      "next": [
+        {
+          "name": "adaptive"
+        },
+        {
+          "name": "cslip"
+        },
+        {
+          "name": "kiss"
+        },
+        {
+          "name": "ppp"
+        },
+        {
+          "name": "slip"
+        },
+        {
+          "name": "tty"
+        }
+      ]
+    },
+    {
+      "name": "-q",
+      "tip": [
+        "Operate in quiet mode."
+      ]
+    },
+    {
+      "name": "-s",
+      "usage": [
+        "-s <SPEED>"
+      ],
+      "tip": [
+        "Set a specific line speed."
+      ],
+      "next": [
+        {
+          "name": "115200"
+        },
+        {
+          "name": "1200"
+        },
+        {
+          "name": "19200"
+        },
+        {
+          "name": "2400"
+        },
+        {
+          "name": "38400"
+        },
+        {
+          "name": "4800"
+        },
+        {
+          "name": "57600"
+        },
+        {
+          "name": "9600"
+        }
+      ]
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "Enable verbose output."
+      ]
+    }
+  ]
+}

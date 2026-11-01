@@ -1,0 +1,491 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "Print network connections, routing tables and interface statistics."
+    ]
+  },
+  "option": [
+    {
+      "name": "--all",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --all"
+      ],
+      "tip": [
+        "Show both listening and non-listening sockets."
+      ]
+    },
+    {
+      "name": "--appletalk",
+      "alias": [
+        "--ddp"
+      ],
+      "usage": [
+        "--ddp, --appletalk"
+      ],
+      "tip": [
+        "Show Appletalk DDP sockets."
+      ]
+    },
+    {
+      "name": "--ax25",
+      "tip": [
+        "Show AX.25 sockets."
+      ]
+    },
+    {
+      "name": "--bluetooth",
+      "tip": [
+        "Show Bluetooth sockets."
+      ]
+    },
+    {
+      "name": "--cache",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --cache"
+      ],
+      "tip": [
+        "Print routing information from the route cache."
+      ]
+    },
+    {
+      "name": "--context",
+      "alias": [
+        "-Z"
+      ],
+      "usage": [
+        "-Z, --context"
+      ],
+      "tip": [
+        "Display the SELinux security context for sockets."
+      ]
+    },
+    {
+      "name": "--continuous",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --continuous"
+      ],
+      "tip": [
+        "Print the selected information every second."
+      ]
+    },
+    {
+      "name": "--extend",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --extend"
+      ],
+      "tip": [
+        "Display additional information; use twice for maximum detail."
+      ],
+      "repeat": 2
+    },
+    {
+      "name": "--fib",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --fib"
+      ],
+      "tip": [
+        "Print routing information from the FIB (default)."
+      ]
+    },
+    {
+      "name": "--groups",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --groups"
+      ],
+      "tip": [
+        "Display multicast group memberships."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this help."
+      ]
+    },
+    {
+      "name": "--inet6",
+      "alias": [
+        "-6"
+      ],
+      "usage": [
+        "-6, --inet6"
+      ],
+      "tip": [
+        "Use the inet6 (IPv6) address family."
+      ]
+    },
+    {
+      "name": "--interfaces",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --interfaces"
+      ],
+      "tip": [
+        "Display the interface table."
+      ]
+    },
+    {
+      "name": "--ipx",
+      "tip": [
+        "Show IPX sockets."
+      ]
+    },
+    {
+      "name": "--l2cap",
+      "alias": [
+        "-2"
+      ],
+      "usage": [
+        "-2, --l2cap"
+      ],
+      "tip": [
+        "Show Bluetooth L2CAP sockets."
+      ]
+    },
+    {
+      "name": "--listening",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --listening"
+      ],
+      "tip": [
+        "Show only listening sockets."
+      ]
+    },
+    {
+      "name": "--masquerade",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --masquerade"
+      ],
+      "tip": [
+        "Display masqueraded connections."
+      ]
+    },
+    {
+      "name": "--netrom",
+      "tip": [
+        "Show NET/ROM sockets."
+      ]
+    },
+    {
+      "name": "--numeric",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --numeric"
+      ],
+      "tip": [
+        "Show numerical addresses instead of resolving names."
+      ]
+    },
+    {
+      "name": "--numeric-hosts",
+      "tip": [
+        "Show numerical host addresses only."
+      ]
+    },
+    {
+      "name": "--numeric-ports",
+      "tip": [
+        "Show numerical port numbers only."
+      ]
+    },
+    {
+      "name": "--numeric-users",
+      "tip": [
+        "Show numerical user IDs only."
+      ]
+    },
+    {
+      "name": "--programs",
+      "alias": [
+        "--program",
+        "-p"
+      ],
+      "usage": [
+        "-p, --program, --programs"
+      ],
+      "tip": [
+        "Show the PID and name of the program owning each socket."
+      ]
+    },
+    {
+      "name": "--protocol",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --protocol <FAMILY,...>"
+      ],
+      "tip": [
+        "Show connections for the comma-separated address families."
+      ],
+      "separator": ",",
+      "next": [
+        {
+          "name": "ash"
+        },
+        {
+          "name": "ax25"
+        },
+        {
+          "name": "bluetooth"
+        },
+        {
+          "name": "ddp"
+        },
+        {
+          "name": "econet"
+        },
+        {
+          "name": "inet"
+        },
+        {
+          "name": "inet6"
+        },
+        {
+          "name": "ipx"
+        },
+        {
+          "name": "netrom"
+        },
+        {
+          "name": "rose"
+        },
+        {
+          "name": "unix"
+        },
+        {
+          "name": "x25"
+        }
+      ]
+    },
+    {
+      "name": "--raw",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --raw"
+      ],
+      "tip": [
+        "Show raw sockets."
+      ]
+    },
+    {
+      "name": "--rfcomm",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --rfcomm"
+      ],
+      "tip": [
+        "Show Bluetooth RFCOMM sockets."
+      ]
+    },
+    {
+      "name": "--rose",
+      "tip": [
+        "Show ROSE sockets."
+      ]
+    },
+    {
+      "name": "--route",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --route"
+      ],
+      "tip": [
+        "Display the routing table."
+      ]
+    },
+    {
+      "name": "--sctp",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --sctp"
+      ],
+      "tip": [
+        "Show SCTP sockets."
+      ]
+    },
+    {
+      "name": "--statistics",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --statistics"
+      ],
+      "tip": [
+        "Display networking statistics (like SNMP)."
+      ]
+    },
+    {
+      "name": "--symbolic",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --symbolic"
+      ],
+      "tip": [
+        "Resolve hardware names."
+      ]
+    },
+    {
+      "name": "--tcp",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --tcp"
+      ],
+      "tip": [
+        "Show TCP sockets."
+      ]
+    },
+    {
+      "name": "--tcpip",
+      "alias": [
+        "--inet",
+        "--ip",
+        "-4"
+      ],
+      "usage": [
+        "-4, --ip, --inet, --tcpip"
+      ],
+      "tip": [
+        "Use the inet (IPv4) address family."
+      ]
+    },
+    {
+      "name": "--timers",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --timers"
+      ],
+      "tip": [
+        "Include information related to networking timers."
+      ]
+    },
+    {
+      "name": "--udp",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --udp"
+      ],
+      "tip": [
+        "Show UDP sockets."
+      ]
+    },
+    {
+      "name": "--udplite",
+      "alias": [
+        "-U"
+      ],
+      "usage": [
+        "-U, --udplite"
+      ],
+      "tip": [
+        "Show UDPLite sockets."
+      ]
+    },
+    {
+      "name": "--unix",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --unix"
+      ],
+      "tip": [
+        "Show UNIX domain sockets."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Be verbose, especially about unconfigured address families."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Display version information."
+      ]
+    },
+    {
+      "name": "--wide",
+      "alias": [
+        "-W"
+      ],
+      "usage": [
+        "-W, --wide"
+      ],
+      "tip": [
+        "Do not truncate IP addresses."
+      ]
+    },
+    {
+      "name": "--x25",
+      "tip": [
+        "Show X.25 sockets."
+      ]
+    }
+  ]
+}

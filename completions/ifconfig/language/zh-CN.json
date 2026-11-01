@@ -1,0 +1,467 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "配置网络接口。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "在某些错误情况下输出更多信息。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示版本信息。"
+      ]
+    },
+    {
+      "name": "-a",
+      "tip": [
+        "显示所有接口，包括已关闭的接口。"
+      ]
+    },
+    {
+      "name": "-allmulti",
+      "tip": [
+        "禁用全多播模式。"
+      ]
+    },
+    {
+      "name": "-arp",
+      "tip": [
+        "在此接口上禁用 ARP 协议。"
+      ]
+    },
+    {
+      "name": "-broadcast",
+      "tip": [
+        "清除广播标志。"
+      ]
+    },
+    {
+      "name": "-dynamic",
+      "tip": [
+        "清除接口的动态标志。"
+      ]
+    },
+    {
+      "name": "-pointopoint",
+      "tip": [
+        "禁用点对点模式。"
+      ]
+    },
+    {
+      "name": "-promisc",
+      "tip": [
+        "禁用混杂模式。"
+      ]
+    },
+    {
+      "name": "-s",
+      "tip": [
+        "显示简短列表（类似 netstat -i）。"
+      ]
+    },
+    {
+      "name": "-trailers",
+      "tip": [
+        "禁用尾部封装。"
+      ]
+    },
+    {
+      "name": "add",
+      "usage": [
+        "add <ADDRESS>[/<PREFIXLEN>]"
+      ],
+      "tip": [
+        "向接口添加 IPv6 地址。"
+      ],
+      "next": []
+    },
+    {
+      "name": "allmulti",
+      "tip": [
+        "启用全多播模式。"
+      ]
+    },
+    {
+      "name": "arp",
+      "tip": [
+        "在此接口上启用 ARP 协议。"
+      ]
+    },
+    {
+      "name": "ash",
+      "tip": [
+        "使用 ash 地址族。"
+      ]
+    },
+    {
+      "name": "ax25",
+      "tip": [
+        "使用 ax25 地址族。"
+      ]
+    },
+    {
+      "name": "broadcast",
+      "usage": [
+        "broadcast [<ADDRESS>]"
+      ],
+      "tip": [
+        "设置广播地址，或设置广播标志。"
+      ],
+      "next": []
+    },
+    {
+      "name": "ddp",
+      "tip": [
+        "使用 ddp 地址族。"
+      ]
+    },
+    {
+      "name": "del",
+      "usage": [
+        "del <ADDRESS>[/<PREFIXLEN>]"
+      ],
+      "tip": [
+        "从接口移除 IPv6 地址。"
+      ],
+      "next": []
+    },
+    {
+      "name": "down",
+      "tip": [
+        "关闭接口。"
+      ]
+    },
+    {
+      "name": "dstaddr",
+      "usage": [
+        "dstaddr <ADDRESS>"
+      ],
+      "tip": [
+        "设置点对点链路的远端 IP 地址（已过时，请使用 pointopoint）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "dynamic",
+      "tip": [
+        "将接口标记为动态创建。"
+      ]
+    },
+    {
+      "name": "ec",
+      "tip": [
+        "使用 ec 地址族。"
+      ]
+    },
+    {
+      "name": "hw",
+      "usage": [
+        "hw <CLASS> <ADDRESS>"
+      ],
+      "tip": [
+        "设置此接口的硬件地址。"
+      ],
+      "next": [
+        {
+          "name": "adaptive"
+        },
+        {
+          "name": "arcnet"
+        },
+        {
+          "name": "ash"
+        },
+        {
+          "name": "ax25"
+        },
+        {
+          "name": "cslip"
+        },
+        {
+          "name": "cslip6"
+        },
+        {
+          "name": "dlci"
+        },
+        {
+          "name": "ec"
+        },
+        {
+          "name": "ether"
+        },
+        {
+          "name": "eui64"
+        },
+        {
+          "name": "fddi"
+        },
+        {
+          "name": "frad"
+        },
+        {
+          "name": "hdlc"
+        },
+        {
+          "name": "hippi"
+        },
+        {
+          "name": "irda"
+        },
+        {
+          "name": "lapb"
+        },
+        {
+          "name": "loop"
+        },
+        {
+          "name": "netrom"
+        },
+        {
+          "name": "ppp"
+        },
+        {
+          "name": "rose"
+        },
+        {
+          "name": "sit"
+        },
+        {
+          "name": "slip"
+        },
+        {
+          "name": "slip6"
+        },
+        {
+          "name": "tunnel"
+        },
+        {
+          "name": "x25"
+        }
+      ]
+    },
+    {
+      "name": "inet",
+      "tip": [
+        "使用 inet 地址族。"
+      ]
+    },
+    {
+      "name": "inet6",
+      "tip": [
+        "使用 inet6 地址族。"
+      ]
+    },
+    {
+      "name": "io_addr",
+      "usage": [
+        "io_addr <ADDRESS>"
+      ],
+      "tip": [
+        "设置此设备的 I/O 空间起始地址。"
+      ],
+      "next": []
+    },
+    {
+      "name": "ipx",
+      "tip": [
+        "使用 ipx 地址族。"
+      ]
+    },
+    {
+      "name": "irq",
+      "usage": [
+        "irq <ADDRESS>"
+      ],
+      "tip": [
+        "设置此设备使用的中断线。"
+      ],
+      "next": []
+    },
+    {
+      "name": "keepalive",
+      "usage": [
+        "keepalive <NN>"
+      ],
+      "tip": [
+        "设置 SLIP 设备的 keepalive 值。"
+      ],
+      "next": []
+    },
+    {
+      "name": "media",
+      "usage": [
+        "media <TYPE>"
+      ],
+      "tip": [
+        "设置设备使用的物理端口或介质类型。"
+      ],
+      "next": [
+        {
+          "name": "10base2"
+        },
+        {
+          "name": "10baseT"
+        },
+        {
+          "name": "AUI"
+        },
+        {
+          "name": "auto"
+        }
+      ]
+    },
+    {
+      "name": "mem_start",
+      "usage": [
+        "mem_start <ADDRESS>"
+      ],
+      "tip": [
+        "设置此设备使用的共享内存起始地址。"
+      ],
+      "next": []
+    },
+    {
+      "name": "mtu",
+      "usage": [
+        "mtu <N>"
+      ],
+      "tip": [
+        "设置接口的最大传输单元。"
+      ],
+      "next": []
+    },
+    {
+      "name": "multicast",
+      "tip": [
+        "在接口上设置多播标志。"
+      ]
+    },
+    {
+      "name": "name",
+      "usage": [
+        "name <NEWNAME>"
+      ],
+      "tip": [
+        "更改此接口的名称。"
+      ],
+      "next": []
+    },
+    {
+      "name": "netmask",
+      "usage": [
+        "netmask <ADDRESS>"
+      ],
+      "tip": [
+        "设置此接口的 IP 网络掩码。"
+      ],
+      "next": []
+    },
+    {
+      "name": "netrom",
+      "tip": [
+        "使用 netrom 地址族。"
+      ]
+    },
+    {
+      "name": "outfill",
+      "usage": [
+        "outfill <NN>"
+      ],
+      "tip": [
+        "设置 SLIP 设备的 outfill 值。"
+      ],
+      "next": []
+    },
+    {
+      "name": "pointopoint",
+      "usage": [
+        "pointopoint [<ADDRESS>]"
+      ],
+      "tip": [
+        "启用点对点模式，并可选设置对端地址。"
+      ],
+      "next": []
+    },
+    {
+      "name": "promisc",
+      "tip": [
+        "启用混杂模式。"
+      ]
+    },
+    {
+      "name": "rose",
+      "tip": [
+        "使用 rose 地址族。"
+      ]
+    },
+    {
+      "name": "trailers",
+      "tip": [
+        "启用尾部封装。"
+      ]
+    },
+    {
+      "name": "tunnel",
+      "usage": [
+        "tunnel <ADDRESS>"
+      ],
+      "tip": [
+        "创建通向该目的地址的 SIT 设备。"
+      ],
+      "next": []
+    },
+    {
+      "name": "txqueuelen",
+      "usage": [
+        "txqueuelen <LENGTH>"
+      ],
+      "tip": [
+        "设置设备的发送队列长度。"
+      ],
+      "next": []
+    },
+    {
+      "name": "unix",
+      "tip": [
+        "使用 unix 地址族。"
+      ]
+    },
+    {
+      "name": "up",
+      "tip": [
+        "激活接口。"
+      ]
+    },
+    {
+      "name": "x25",
+      "tip": [
+        "使用 x25 地址族。"
+      ]
+    }
+  ]
+}

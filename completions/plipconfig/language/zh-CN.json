@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "微调 PLIP 设备参数。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示版本信息。"
+      ]
+    },
+    {
+      "name": "nibble",
+      "usage": [
+        "nibble <NN>"
+      ],
+      "tip": [
+        "以微秒设置 nibble 等待值。"
+      ],
+      "next": []
+    },
+    {
+      "name": "trigger",
+      "usage": [
+        "trigger <NN>"
+      ],
+      "tip": [
+        "以微秒设置 trigger 等待值。"
+      ],
+      "next": []
+    }
+  ]
+}

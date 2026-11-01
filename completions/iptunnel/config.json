@@ -1,0 +1,9 @@
+{
+  "id": "644a9d84-0901-5f37-b8f1-b5aaad82cfd3",
+  "version": "net-tools 2.10",
+  "hooks": true,
+  "language": [
+    "en-US",
+    "zh-CN"
+  ]
+}

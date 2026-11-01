@@ -1,0 +1,117 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "Manage multicast addresses."
+    ]
+  },
+  "next": [
+    {
+      "name": "add",
+      "usage": [
+        "add <MULTIADDR> dev <INTERFACE>"
+      ],
+      "tip": [
+        "Add a multicast address."
+      ],
+      "option": [
+        {
+          "name": "dev",
+          "usage": [
+            "dev <INTERFACE>"
+          ],
+          "tip": [
+            "Network interface name."
+          ],
+          "next": []
+        }
+      ]
+    },
+    {
+      "name": "del",
+      "usage": [
+        "del <MULTIADDR> dev <INTERFACE>"
+      ],
+      "tip": [
+        "Delete a multicast address."
+      ],
+      "option": [
+        {
+          "name": "dev",
+          "usage": [
+            "dev <INTERFACE>"
+          ],
+          "tip": [
+            "Network interface name."
+          ],
+          "next": []
+        }
+      ]
+    },
+    {
+      "name": "show",
+      "usage": [
+        "show [dev <INTERFACE>] [ipv4 | ipv6 | link | all]"
+      ],
+      "tip": [
+        "Show multicast addresses."
+      ],
+      "option": [
+        {
+          "name": "all",
+          "tip": [
+            "Show all multicast addresses."
+          ]
+        },
+        {
+          "name": "dev",
+          "usage": [
+            "dev <INTERFACE>"
+          ],
+          "tip": [
+            "Network interface name."
+          ],
+          "next": []
+        },
+        {
+          "name": "ipv4",
+          "tip": [
+            "Show IPv4 multicast addresses."
+          ]
+        },
+        {
+          "name": "ipv6",
+          "tip": [
+            "Show IPv6 multicast addresses."
+          ]
+        },
+        {
+          "name": "link",
+          "tip": [
+            "Show link-layer multicast addresses."
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--help",
+      "tip": [
+        "Display this help."
+      ]
+    },
+    {
+      "name": "-version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, -version"
+      ],
+      "tip": [
+        "Display version information."
+      ]
+    }
+  ]
+}

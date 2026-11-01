@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "管理系统 RARP 表。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--delete",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --delete <HOST>"
+      ],
+      "tip": [
+        "移除指定主机的所有 RARP 条目。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--list",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --list"
+      ],
+      "tip": [
+        "列出 RARP 表中的条目。"
+      ]
+    },
+    {
+      "name": "--set",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --set <HOST> <HW_ADDR>"
+      ],
+      "tip": [
+        "创建 RARP 地址映射条目。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示版本信息。"
+      ]
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "从 /etc/ethers 添加条目。"
+      ]
+    },
+    {
+      "name": "-t",
+      "usage": [
+        "-t <TYPE>"
+      ],
+      "tip": [
+        "仅检查此硬件类型的条目（默认 ether）。"
+      ],
+      "next": [
+        {
+          "name": "arcnet"
+        },
+        {
+          "name": "ash"
+        },
+        {
+          "name": "ax25"
+        },
+        {
+          "name": "dlci"
+        },
+        {
+          "name": "ether"
+        },
+        {
+          "name": "eui64"
+        },
+        {
+          "name": "fddi"
+        },
+        {
+          "name": "hippi"
+        },
+        {
+          "name": "irda"
+        },
+        {
+          "name": "netrom"
+        },
+        {
+          "name": "rose"
+        },
+        {
+          "name": "x25"
+        }
+      ]
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "详细说明正在进行的操作。"
+      ]
+    }
+  ]
+}

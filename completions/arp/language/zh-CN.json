@@ -1,0 +1,252 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "管理系统的 ARP 缓存。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--delete",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --delete <HOST>"
+      ],
+      "tip": [
+        "删除指定的 ARP 条目。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--device",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --device <INTERFACE>"
+      ],
+      "tip": [
+        "限定或关联到给定接口。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--file",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --file [<FILENAME>]"
+      ],
+      "tip": [
+        "从文件读取新条目；省略时读取 /etc/ethers。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--hw-type",
+      "alias": [
+        "-H",
+        "-t"
+      ],
+      "usage": [
+        "-t, -H, --hw-type <TYPE>"
+      ],
+      "tip": [
+        "仅检查此硬件类型的条目（默认 ether）。"
+      ],
+      "next": [
+        {
+          "name": "arcnet"
+        },
+        {
+          "name": "ash"
+        },
+        {
+          "name": "ax25"
+        },
+        {
+          "name": "dlci"
+        },
+        {
+          "name": "ether"
+        },
+        {
+          "name": "eui64"
+        },
+        {
+          "name": "fddi"
+        },
+        {
+          "name": "hippi"
+        },
+        {
+          "name": "irda"
+        },
+        {
+          "name": "netrom"
+        },
+        {
+          "name": "rose"
+        },
+        {
+          "name": "x25"
+        }
+      ]
+    },
+    {
+      "name": "--numeric",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --numeric"
+      ],
+      "tip": [
+        "显示数字地址，不解析主机、端口或用户名。"
+      ]
+    },
+    {
+      "name": "--protocol",
+      "alias": [
+        "-A",
+        "-p"
+      ],
+      "usage": [
+        "-p, -A, --protocol <FAMILY>"
+      ],
+      "tip": [
+        "指定协议族。"
+      ],
+      "next": [
+        {
+          "name": "ax25"
+        },
+        {
+          "name": "ddp"
+        },
+        {
+          "name": "econet"
+        },
+        {
+          "name": "inet"
+        },
+        {
+          "name": "inet6"
+        },
+        {
+          "name": "ipx"
+        },
+        {
+          "name": "netrom"
+        },
+        {
+          "name": "rose"
+        },
+        {
+          "name": "unix"
+        },
+        {
+          "name": "x25"
+        }
+      ]
+    },
+    {
+      "name": "--set",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --set <HOST> <HW_ADDR>"
+      ],
+      "tip": [
+        "设置新的 ARP 条目。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--use-device",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --use-device"
+      ],
+      "tip": [
+        "从给定接口读取硬件地址。"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "详细说明正在进行的操作。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示版本信息。"
+      ]
+    },
+    {
+      "name": "-a",
+      "tip": [
+        "使用无固定列的 BSD 风格输出格式。"
+      ]
+    },
+    {
+      "name": "-e",
+      "tip": [
+        "使用带固定列的默认 Linux 风格输出格式。"
+      ]
+    },
+    {
+      "name": "dontpub",
+      "tip": [
+        "不发布此条目（2.4 及更新内核不支持）。"
+      ]
+    },
+    {
+      "name": "netmask",
+      "usage": [
+        "netmask <NETMASK>"
+      ],
+      "tip": [
+        "设置代理 ARP 条目的网络掩码。"
+      ],
+      "next": []
+    },
+    {
+      "name": "pub",
+      "tip": [
+        "为此条目启用代理 ARP。"
+      ]
+    },
+    {
+      "name": "temp",
+      "tip": [
+        "将条目设为临时而非永久。"
+      ]
+    }
+  ]
+}
