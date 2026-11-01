@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "Mark packages as automatically or manually installed."
+    ]
+  },
+  "next": [
+    {
+      "name": "auto",
+      "tip": [
+        "Mark packages as automatically installed."
+      ]
+    },
+    {
+      "name": "hold",
+      "tip": [
+        "Mark a package as held back."
+      ]
+    },
+    {
+      "name": "manual",
+      "tip": [
+        "Mark packages as manually installed."
+      ]
+    },
+    {
+      "name": "minimize-manual",
+      "tip": [
+        "Mark dependencies of meta packages as automatically installed."
+      ]
+    },
+    {
+      "name": "showauto",
+      "tip": [
+        "List automatically installed packages."
+      ]
+    },
+    {
+      "name": "showhold",
+      "tip": [
+        "List packages on hold."
+      ]
+    },
+    {
+      "name": "showmanual",
+      "tip": [
+        "List manually installed packages."
+      ]
+    },
+    {
+      "name": "unhold",
+      "tip": [
+        "Unset a package set as held back."
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--config-file",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --config-file"
+      ],
+      "tip": [
+        "Use the configuration file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--file",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --file"
+      ],
+      "tip": [
+        "Read package state from the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this help."
+      ]
+    },
+    {
+      "name": "--option",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --option"
+      ],
+      "tip": [
+        "Set a configuration option."
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "Quiet output."
+      ]
+    },
+    {
+      "name": "--simulate",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --simulate"
+      ],
+      "tip": [
+        "Simulate the operation."
+      ]
+    }
+  ]
+}

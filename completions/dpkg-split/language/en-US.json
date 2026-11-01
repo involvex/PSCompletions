@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "Split and join Debian archives."
+    ]
+  },
+  "option": [
+    {
+      "name": "--admindir",
+      "usage": [
+        "--admindir <directory>"
+      ],
+      "tip": [
+        "Set the administrative directory."
+      ],
+      "next": []
+    },
+    {
+      "name": "--auto",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --auto -o <complete> <part>"
+      ],
+      "tip": [
+        "Auto-accumulate parts."
+      ],
+      "next": []
+    },
+    {
+      "name": "--depotdir",
+      "usage": [
+        "--depotdir <directory>"
+      ],
+      "tip": [
+        "Set the parts depot directory."
+      ],
+      "next": []
+    },
+    {
+      "name": "--discard",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --discard [<filename> ...]"
+      ],
+      "tip": [
+        "Discard unmatched pieces."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "Show this help message."
+      ]
+    },
+    {
+      "name": "--info",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --info <part> ..."
+      ],
+      "tip": [
+        "Display info about a part."
+      ],
+      "next": []
+    },
+    {
+      "name": "--join",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --join <part> <part> ..."
+      ],
+      "tip": [
+        "Join parts together."
+      ],
+      "next": []
+    },
+    {
+      "name": "--listq",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --listq"
+      ],
+      "tip": [
+        "List unmatched pieces."
+      ]
+    },
+    {
+      "name": "--msdos",
+      "tip": [
+        "Generate 8.3 filenames."
+      ]
+    },
+    {
+      "name": "--npquiet",
+      "alias": [
+        "-Q"
+      ],
+      "usage": [
+        "-Q, --npquiet"
+      ],
+      "tip": [
+        "Be quiet when -a is not a part."
+      ]
+    },
+    {
+      "name": "--output",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --output <file>"
+      ],
+      "tip": [
+        "Set the output file for -j."
+      ],
+      "next": []
+    },
+    {
+      "name": "--partsize",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --partsize <size>"
+      ],
+      "tip": [
+        "Set the part size in KiB (default 450)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--root",
+      "usage": [
+        "--root <directory>"
+      ],
+      "tip": [
+        "Set the root directory."
+      ],
+      "next": []
+    },
+    {
+      "name": "--split",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --split <file> [<prefix>]"
+      ],
+      "tip": [
+        "Split an archive."
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Show the version."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "Query the dpkg database."
+    ]
+  },
+  "option": [
+    {
+      "name": "--admindir",
+      "usage": [
+        "--admindir=<directory>"
+      ],
+      "tip": [
+        "Use the directory instead of /var/lib/dpkg."
+      ],
+      "next": []
+    },
+    {
+      "name": "--control-list",
+      "usage": [
+        "--control-list <package>"
+      ],
+      "tip": [
+        "Print the package control file list."
+      ],
+      "next": []
+    },
+    {
+      "name": "--control-path",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --control-path <package> [<file>]"
+      ],
+      "tip": [
+        "Print the control file path."
+      ],
+      "next": []
+    },
+    {
+      "name": "--control-show",
+      "usage": [
+        "--control-show <package> <file>"
+      ],
+      "tip": [
+        "Show a package control file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "Show this help message."
+      ]
+    },
+    {
+      "name": "--list",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --list [<pattern>...]"
+      ],
+      "tip": [
+        "List packages concisely."
+      ],
+      "next": []
+    },
+    {
+      "name": "--listfiles",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --listfiles <package>..."
+      ],
+      "tip": [
+        "List files owned by packages."
+      ],
+      "next": []
+    },
+    {
+      "name": "--load-avail",
+      "tip": [
+        "Use the available file on --show and --list."
+      ]
+    },
+    {
+      "name": "--no-pager",
+      "tip": [
+        "Disable the pager."
+      ]
+    },
+    {
+      "name": "--print-avail",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --print-avail [<package>...]"
+      ],
+      "tip": [
+        "Display available version details."
+      ],
+      "next": []
+    },
+    {
+      "name": "--root",
+      "usage": [
+        "--root=<directory>"
+      ],
+      "tip": [
+        "Use the directory instead of the root."
+      ],
+      "next": []
+    },
+    {
+      "name": "--search",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --search <pattern>..."
+      ],
+      "tip": [
+        "Find packages owning files."
+      ],
+      "next": []
+    },
+    {
+      "name": "--show",
+      "alias": [
+        "-W"
+      ],
+      "usage": [
+        "-W, --show [<pattern>...]"
+      ],
+      "tip": [
+        "Show package information."
+      ],
+      "next": []
+    },
+    {
+      "name": "--showformat",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --showformat=<format>"
+      ],
+      "tip": [
+        "Use an alternative format for --show."
+      ],
+      "next": []
+    },
+    {
+      "name": "--status",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --status [<package>...]"
+      ],
+      "tip": [
+        "Display package status details."
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Show the version."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "查询 APT 配置设置。"
+    ]
+  },
+  "next": [
+    {
+      "name": "dump",
+      "tip": [
+        "显示活动配置设置。"
+      ]
+    },
+    {
+      "name": "shell",
+      "tip": [
+        "通过 shell 求值获取配置值。"
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--config-file",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --config-file"
+      ],
+      "tip": [
+        "使用配置文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--option",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --option"
+      ],
+      "tip": [
+        "设置配置选项。"
+      ],
+      "next": []
+    }
+  ]
+}

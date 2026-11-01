@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "触发软件包处理事件。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--admindir",
+      "usage": [
+        "--admindir=<directory>"
+      ],
+      "tip": [
+        "使用指定目录而不是 /var/lib/dpkg。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--await",
+      "tip": [
+        "软件包需要等待处理。"
+      ]
+    },
+    {
+      "name": "--by-package",
+      "usage": [
+        "--by-package=<package>"
+      ],
+      "tip": [
+        "覆盖触发器等待者。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--check-supported",
+      "tip": [
+        "检查正在运行的 dpkg 是否支持触发器。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "显示此帮助信息。"
+      ]
+    },
+    {
+      "name": "--no-act",
+      "tip": [
+        "仅测试，不做任何更改。"
+      ]
+    },
+    {
+      "name": "--no-await",
+      "tip": [
+        "没有软件包需要等待处理。"
+      ]
+    },
+    {
+      "name": "--root",
+      "usage": [
+        "--root=<directory>"
+      ],
+      "tip": [
+        "使用指定目录而不是根目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "显示版本。"
+      ]
+    }
+  ]
+}

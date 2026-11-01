@@ -1,0 +1,184 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "查询 dpkg 数据库。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--admindir",
+      "usage": [
+        "--admindir=<directory>"
+      ],
+      "tip": [
+        "使用指定目录而不是 /var/lib/dpkg。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--control-list",
+      "usage": [
+        "--control-list <package>"
+      ],
+      "tip": [
+        "打印软件包控制文件列表。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--control-path",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --control-path <package> [<file>]"
+      ],
+      "tip": [
+        "打印控制文件路径。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--control-show",
+      "usage": [
+        "--control-show <package> <file>"
+      ],
+      "tip": [
+        "显示软件包控制文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "显示此帮助信息。"
+      ]
+    },
+    {
+      "name": "--list",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --list [<pattern>...]"
+      ],
+      "tip": [
+        "简要列出软件包。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--listfiles",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --listfiles <package>..."
+      ],
+      "tip": [
+        "列出软件包拥有的文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--load-avail",
+      "tip": [
+        "在 --show 和 --list 上使用 available 文件。"
+      ]
+    },
+    {
+      "name": "--no-pager",
+      "tip": [
+        "禁用分页器。"
+      ]
+    },
+    {
+      "name": "--print-avail",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --print-avail [<package>...]"
+      ],
+      "tip": [
+        "显示可用版本详情。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--root",
+      "usage": [
+        "--root=<directory>"
+      ],
+      "tip": [
+        "使用指定目录而不是根目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--search",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --search <pattern>..."
+      ],
+      "tip": [
+        "查找拥有文件的软件包。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--show",
+      "alias": [
+        "-W"
+      ],
+      "usage": [
+        "-W, --show [<pattern>...]"
+      ],
+      "tip": [
+        "显示软件包信息。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--showformat",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --showformat=<format>"
+      ],
+      "tip": [
+        "为 --show 使用替代格式。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--status",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --status [<package>...]"
+      ],
+      "tip": [
+        "显示软件包状态详情。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "显示版本。"
+      ]
+    }
+  ]
+}

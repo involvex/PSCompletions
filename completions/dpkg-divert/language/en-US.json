@@ -1,0 +1,152 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "Override package file locations."
+    ]
+  },
+  "option": [
+    {
+      "name": "--add",
+      "usage": [
+        "[--add] <file>"
+      ],
+      "tip": [
+        "Add a diversion."
+      ],
+      "next": []
+    },
+    {
+      "name": "--admindir",
+      "usage": [
+        "--admindir <directory>"
+      ],
+      "tip": [
+        "Set the diversions database directory."
+      ],
+      "next": []
+    },
+    {
+      "name": "--divert",
+      "usage": [
+        "--divert <divert-to>"
+      ],
+      "tip": [
+        "Set the name used by other packages."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "tip": [
+        "Show this help message."
+      ]
+    },
+    {
+      "name": "--instdir",
+      "usage": [
+        "--instdir <directory>"
+      ],
+      "tip": [
+        "Set the root without the admin dir."
+      ],
+      "next": []
+    },
+    {
+      "name": "--list",
+      "usage": [
+        "--list [<glob-pattern>]"
+      ],
+      "tip": [
+        "Show file diversions."
+      ],
+      "next": []
+    },
+    {
+      "name": "--listpackage",
+      "usage": [
+        "--listpackage <file>"
+      ],
+      "tip": [
+        "Show which package diverts the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--local",
+      "tip": [
+        "Divert all packages' versions."
+      ]
+    },
+    {
+      "name": "--no-rename",
+      "tip": [
+        "Do not move the file aside (default)."
+      ]
+    },
+    {
+      "name": "--package",
+      "usage": [
+        "--package <package>"
+      ],
+      "tip": [
+        "Set the package whose file is not diverted."
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "tip": [
+        "Quiet operation, minimal output."
+      ]
+    },
+    {
+      "name": "--remove",
+      "usage": [
+        "--remove <file>"
+      ],
+      "tip": [
+        "Remove a diversion."
+      ],
+      "next": []
+    },
+    {
+      "name": "--rename",
+      "tip": [
+        "Actually move the file aside."
+      ]
+    },
+    {
+      "name": "--root",
+      "usage": [
+        "--root <directory>"
+      ],
+      "tip": [
+        "Set the root filesystem directory."
+      ],
+      "next": []
+    },
+    {
+      "name": "--test",
+      "tip": [
+        "Do nothing; just demonstrate."
+      ]
+    },
+    {
+      "name": "--truename",
+      "usage": [
+        "--truename <file>"
+      ],
+      "tip": [
+        "Return the diverted file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Show the version."
+      ]
+    }
+  ]
+}

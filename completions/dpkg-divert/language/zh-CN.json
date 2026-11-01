@@ -1,0 +1,152 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "覆盖软件包文件位置。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--add",
+      "usage": [
+        "[--add] <file>"
+      ],
+      "tip": [
+        "添加转移。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--admindir",
+      "usage": [
+        "--admindir <directory>"
+      ],
+      "tip": [
+        "设置转移数据库目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--divert",
+      "usage": [
+        "--divert <divert-to>"
+      ],
+      "tip": [
+        "设置其他软件包使用的名称。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "tip": [
+        "显示此帮助信息。"
+      ]
+    },
+    {
+      "name": "--instdir",
+      "usage": [
+        "--instdir <directory>"
+      ],
+      "tip": [
+        "设置根目录但不改变管理目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--list",
+      "usage": [
+        "--list [<glob-pattern>]"
+      ],
+      "tip": [
+        "显示文件转移。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--listpackage",
+      "usage": [
+        "--listpackage <file>"
+      ],
+      "tip": [
+        "显示哪个软件包转移了该文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--local",
+      "tip": [
+        "转移所有软件包的版本。"
+      ]
+    },
+    {
+      "name": "--no-rename",
+      "tip": [
+        "不移动文件（默认）。"
+      ]
+    },
+    {
+      "name": "--package",
+      "usage": [
+        "--package <package>"
+      ],
+      "tip": [
+        "设置不转移其文件的软件包。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "tip": [
+        "静默操作，输出最少。"
+      ]
+    },
+    {
+      "name": "--remove",
+      "usage": [
+        "--remove <file>"
+      ],
+      "tip": [
+        "移除转移。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--rename",
+      "tip": [
+        "实际移动文件。"
+      ]
+    },
+    {
+      "name": "--root",
+      "usage": [
+        "--root <directory>"
+      ],
+      "tip": [
+        "设置根文件系统目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--test",
+      "tip": [
+        "不做任何事，仅演示。"
+      ]
+    },
+    {
+      "name": "--truename",
+      "usage": [
+        "--truename <file>"
+      ],
+      "tip": [
+        "返回转移后的文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "显示版本。"
+      ]
+    }
+  ]
+}

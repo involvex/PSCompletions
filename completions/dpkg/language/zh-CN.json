@@ -1,0 +1,559 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "Debian 软件包管理器。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--abort-after",
+      "usage": [
+        "--abort-after <n>"
+      ],
+      "tip": [
+        "遇到 n 个错误后中止。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--add-architecture",
+      "usage": [
+        "--add-architecture <arch>"
+      ],
+      "tip": [
+        "添加架构。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--admindir",
+      "usage": [
+        "--admindir=<directory>"
+      ],
+      "tip": [
+        "使用指定目录而不是 /var/lib/dpkg。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--assert-help",
+      "tip": [
+        "显示断言帮助。"
+      ]
+    },
+    {
+      "name": "--audit",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --audit [<package>...]"
+      ],
+      "tip": [
+        "检查损坏的软件包。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--auto-deconfigure",
+      "alias": [
+        "-B"
+      ],
+      "usage": [
+        "-B, --auto-deconfigure"
+      ],
+      "tip": [
+        "即使破坏其他软件包也安装。"
+      ]
+    },
+    {
+      "name": "--clear-avail",
+      "tip": [
+        "清除可用软件包信息。"
+      ]
+    },
+    {
+      "name": "--clear-selections",
+      "tip": [
+        "取消选择所有非必要软件包。"
+      ]
+    },
+    {
+      "name": "--compare-versions",
+      "usage": [
+        "--compare-versions <a> <op> <b>"
+      ],
+      "tip": [
+        "比较版本号。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--configure",
+      "usage": [
+        "--configure <package>..."
+      ],
+      "tip": [
+        "配置已解包的软件包。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --debug=<octal>"
+      ],
+      "tip": [
+        "启用调试（见 --debug=help）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--force-help",
+      "tip": [
+        "显示强制选项帮助。"
+      ]
+    },
+    {
+      "name": "--forget-old-unavail",
+      "tip": [
+        "遗忘未安装的不可用软件包。"
+      ]
+    },
+    {
+      "name": "--get-selections",
+      "usage": [
+        "--get-selections [<pattern>...]"
+      ],
+      "tip": [
+        "打印软件包选择。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "显示此帮助信息。"
+      ]
+    },
+    {
+      "name": "--ignore-depends",
+      "usage": [
+        "--ignore-depends=<package>[,...]"
+      ],
+      "tip": [
+        "忽略涉及该软件包的依赖。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--install",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --install <.deb file>..."
+      ],
+      "tip": [
+        "安装软件包。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--instdir",
+      "usage": [
+        "--instdir=<directory>"
+      ],
+      "tip": [
+        "更改安装目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--list",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --list [<pattern>...]"
+      ],
+      "tip": [
+        "简要列出软件包。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--listfiles",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --listfiles <package>..."
+      ],
+      "tip": [
+        "列出软件包拥有的文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--log",
+      "usage": [
+        "--log=<filename>"
+      ],
+      "tip": [
+        "将状态更改记录到文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--merge-avail",
+      "usage": [
+        "--merge-avail [<Packages-file>]"
+      ],
+      "tip": [
+        "合并可用软件包信息。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-debsig",
+      "tip": [
+        "不验证软件包签名。"
+      ]
+    },
+    {
+      "name": "--no-pager",
+      "tip": [
+        "禁用分页器。"
+      ]
+    },
+    {
+      "name": "--no-triggers",
+      "tip": [
+        "跳过后续触发器处理。"
+      ]
+    },
+    {
+      "name": "--path-exclude",
+      "usage": [
+        "--path-exclude=<pattern>"
+      ],
+      "tip": [
+        "不安装匹配的路径。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--path-include",
+      "usage": [
+        "--path-include=<pattern>"
+      ],
+      "tip": [
+        "重新包含先前排除的模式。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--post-invoke",
+      "usage": [
+        "--post-invoke=<command>"
+      ],
+      "tip": [
+        "设置调用后钩子。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--pre-invoke",
+      "usage": [
+        "--pre-invoke=<command>"
+      ],
+      "tip": [
+        "设置调用前钩子。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--predep-package",
+      "tip": [
+        "打印要解包的预依赖。"
+      ]
+    },
+    {
+      "name": "--print-architecture",
+      "tip": [
+        "打印 dpkg 架构。"
+      ]
+    },
+    {
+      "name": "--print-avail",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --print-avail [<package>...]"
+      ],
+      "tip": [
+        "显示可用版本详情。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--print-foreign-architectures",
+      "tip": [
+        "打印允许的外部架构。"
+      ]
+    },
+    {
+      "name": "--purge",
+      "alias": [
+        "-P"
+      ],
+      "usage": [
+        "-P, --purge <package>..."
+      ],
+      "tip": [
+        "清除软件包及配置。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--record-avail",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --record-avail <.deb file>..."
+      ],
+      "tip": [
+        "记录可用软件包信息。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--refuse-downgrade",
+      "alias": [
+        "-G"
+      ],
+      "usage": [
+        "-G, --refuse-downgrade"
+      ],
+      "tip": [
+        "跳过版本较低的软件包。"
+      ]
+    },
+    {
+      "name": "--remove",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --remove <package>..."
+      ],
+      "tip": [
+        "移除软件包。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--remove-architecture",
+      "usage": [
+        "--remove-architecture <arch>"
+      ],
+      "tip": [
+        "移除架构。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--robot",
+      "tip": [
+        "使用机器可读输出。"
+      ]
+    },
+    {
+      "name": "--root",
+      "usage": [
+        "--root=<directory>"
+      ],
+      "tip": [
+        "安装到不同的根目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--search",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --search <pattern>..."
+      ],
+      "tip": [
+        "查找拥有文件的软件包。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--selected-only",
+      "alias": [
+        "-O"
+      ],
+      "usage": [
+        "-O, --selected-only"
+      ],
+      "tip": [
+        "跳过未选择安装的软件包。"
+      ]
+    },
+    {
+      "name": "--set-selections",
+      "tip": [
+        "从标准输入设置软件包选择。"
+      ]
+    },
+    {
+      "name": "--simulate",
+      "alias": [
+        "--dry-run",
+        "--no-act"
+      ],
+      "usage": [
+        "--no-act, --dry-run, --simulate"
+      ],
+      "tip": [
+        "仅显示将要执行的操作。"
+      ]
+    },
+    {
+      "name": "--skip-same-version",
+      "alias": [
+        "-E"
+      ],
+      "usage": [
+        "-E, --skip-same-version"
+      ],
+      "tip": [
+        "跳过版本相同的软件包。"
+      ]
+    },
+    {
+      "name": "--status",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --status [<package>...]"
+      ],
+      "tip": [
+        "显示软件包状态详情。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--status-fd",
+      "usage": [
+        "--status-fd <n>"
+      ],
+      "tip": [
+        "将状态更新发送到文件描述符。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--status-logger",
+      "usage": [
+        "--status-logger=<command>"
+      ],
+      "tip": [
+        "将状态更新发送到命令的标准输入。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--triggers",
+      "tip": [
+        "处理后续触发器。"
+      ]
+    },
+    {
+      "name": "--triggers-only",
+      "usage": [
+        "--triggers-only <package>..."
+      ],
+      "tip": [
+        "仅处理触发器。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--unpack",
+      "usage": [
+        "--unpack <.deb file>..."
+      ],
+      "tip": [
+        "解包软件包但不配置。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--update-avail",
+      "usage": [
+        "--update-avail [<Packages-file>]"
+      ],
+      "tip": [
+        "替换可用软件包信息。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--verify",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --verify [<package>...]"
+      ],
+      "tip": [
+        "验证软件包完整性。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--verify-format",
+      "usage": [
+        "--verify-format=<format>"
+      ],
+      "tip": [
+        "设置验证输出格式（rpm）。"
+      ],
+      "next": [
+        {
+          "name": "rpm"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "显示版本。"
+      ]
+    },
+    {
+      "name": "--yet-to-unpack",
+      "tip": [
+        "打印选择安装的软件包。"
+      ]
+    }
+  ]
+}

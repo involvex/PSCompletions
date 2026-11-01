@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "Manage file permission overrides."
+    ]
+  },
+  "next": [
+    {
+      "name": "--add",
+      "tip": [
+        "Add an override entry (owner group mode path)."
+      ]
+    },
+    {
+      "name": "--list",
+      "tip": [
+        "List current overrides, optionally matching a glob."
+      ]
+    },
+    {
+      "name": "--remove",
+      "tip": [
+        "Remove a path from the override database."
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--admindir",
+      "usage": [
+        "--admindir <directory>"
+      ],
+      "tip": [
+        "Set the statoverride database directory."
+      ],
+      "next": []
+    },
+    {
+      "name": "--force",
+      "tip": [
+        "Deprecated alias for --force-all."
+      ]
+    },
+    {
+      "name": "--force-help",
+      "usage": [
+        "--force-<thing>[,...]"
+      ],
+      "tip": [
+        "Override problems; see --force-help."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "tip": [
+        "Show this help message."
+      ]
+    },
+    {
+      "name": "--instdir",
+      "usage": [
+        "--instdir <directory>"
+      ],
+      "tip": [
+        "Set the root directory without the admin dir."
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-force-help",
+      "usage": [
+        "--no-force-<thing>[,...]"
+      ],
+      "tip": [
+        "Stop when problems are encountered."
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "tip": [
+        "Quiet operation with minimal output."
+      ]
+    },
+    {
+      "name": "--refuse-help",
+      "usage": [
+        "--refuse-<thing>[,...]"
+      ],
+      "tip": [
+        "Stop when problems are encountered."
+      ],
+      "next": []
+    },
+    {
+      "name": "--root",
+      "usage": [
+        "--root <directory>"
+      ],
+      "tip": [
+        "Set the root filesystem directory."
+      ],
+      "next": []
+    },
+    {
+      "name": "--update",
+      "tip": [
+        "Immediately update path permissions."
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Show the version."
+      ]
+    }
+  ]
+}

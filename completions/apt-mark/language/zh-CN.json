@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "将软件包标记为自动或手动安装。"
+    ]
+  },
+  "next": [
+    {
+      "name": "auto",
+      "tip": [
+        "将软件包标记为自动安装。"
+      ]
+    },
+    {
+      "name": "hold",
+      "tip": [
+        "将软件包标记为保持。"
+      ]
+    },
+    {
+      "name": "manual",
+      "tip": [
+        "将软件包标记为手动安装。"
+      ]
+    },
+    {
+      "name": "minimize-manual",
+      "tip": [
+        "将元包的依赖标记为自动安装。"
+      ]
+    },
+    {
+      "name": "showauto",
+      "tip": [
+        "列出自动安装的软件包。"
+      ]
+    },
+    {
+      "name": "showhold",
+      "tip": [
+        "列出保持状态的软件包。"
+      ]
+    },
+    {
+      "name": "showmanual",
+      "tip": [
+        "列出手动安装的软件包。"
+      ]
+    },
+    {
+      "name": "unhold",
+      "tip": [
+        "取消软件包的保持状态。"
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--config-file",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --config-file"
+      ],
+      "tip": [
+        "使用配置文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--file",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --file"
+      ],
+      "tip": [
+        "从文件读取包状态。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--option",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --option"
+      ],
+      "tip": [
+        "设置配置选项。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "静默输出。"
+      ]
+    },
+    {
+      "name": "--simulate",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --simulate"
+      ],
+      "tip": [
+        "模拟操作。"
+      ]
+    }
+  ]
+}

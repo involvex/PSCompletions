@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "拆分和合并 Debian 归档。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--admindir",
+      "usage": [
+        "--admindir <directory>"
+      ],
+      "tip": [
+        "设置管理目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--auto",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --auto -o <complete> <part>"
+      ],
+      "tip": [
+        "自动累积分片。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--depotdir",
+      "usage": [
+        "--depotdir <directory>"
+      ],
+      "tip": [
+        "设置分片仓库目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--discard",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --discard [<filename> ...]"
+      ],
+      "tip": [
+        "丢弃未匹配的分片。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "显示此帮助信息。"
+      ]
+    },
+    {
+      "name": "--info",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --info <part> ..."
+      ],
+      "tip": [
+        "显示分片信息。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--join",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --join <part> <part> ..."
+      ],
+      "tip": [
+        "合并分片。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--listq",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --listq"
+      ],
+      "tip": [
+        "列出未匹配的分片。"
+      ]
+    },
+    {
+      "name": "--msdos",
+      "tip": [
+        "生成 8.3 文件名。"
+      ]
+    },
+    {
+      "name": "--npquiet",
+      "alias": [
+        "-Q"
+      ],
+      "usage": [
+        "-Q, --npquiet"
+      ],
+      "tip": [
+        "-a 不是分片时保持安静。"
+      ]
+    },
+    {
+      "name": "--output",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --output <file>"
+      ],
+      "tip": [
+        "设置 -j 的输出文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--partsize",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --partsize <size>"
+      ],
+      "tip": [
+        "设置分片大小（KiB，默认 450）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--root",
+      "usage": [
+        "--root <directory>"
+      ],
+      "tip": [
+        "设置根目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--split",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --split <file> [<prefix>]"
+      ],
+      "tip": [
+        "拆分归档。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "显示版本。"
+      ]
+    }
+  ]
+}
