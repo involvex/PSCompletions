@@ -217,6 +217,7 @@
 |[fresh](https://getfresh.dev/docs)|支持多光标的终端文本编辑器。|
 |[fsfreeze](https://github.com/util-linux/util-linux)|暂停对文件系统的访问。|
 |[fstrim](https://github.com/util-linux/util-linux)|丢弃已挂载文件系统上未使用的块。|
+|[fuser](https://gitlab.com/psmisc/psmisc)|显示使用文件、套接字或文件系统的进程。|
 |[fx](https://fx.wtf)|终端 JSON 查看器|
 |[fzf](https://junegunn.github.io/fzf)|适用于任何类型列表的交互式过滤程序。|
 |[gcc](https://gcc.gnu.org)|GNU 编译器套件|
@@ -300,6 +301,7 @@
 |[k9s](https://k9scli.io/)|K9s 是一个基于终端的用户界面，用于与你的 Kubernetes 集群交互。<br>它简化了浏览、观察和管理你部署的应用程序。|
 |[kernel-install](https://github.com/systemd/systemd)|在启动分区中添加和移除内核与 initrd 镜像。|
 |[kill](https://gitlab.com/procps-ng/procps)|向进程发送信号。|
+|[killall](https://gitlab.com/psmisc/psmisc)|按名称终止进程。|
 |[kind](https://kind.sigs.k8s.io/)|kind 是一个使用 Docker 容器 'nodes' 运行本地 Kubernetes 集群的工具。<br>kind 最初主要用于测试 Kubernetes 本身，但也可用于本地开发或 CI。|
 |[kmod](https://github.com/kmod-project/kmod)|管理内核模块。|
 |[komac](https://github.com/russellbanks/Komac)|WinGet 的社区清单创建器。|
@@ -439,6 +441,7 @@
 |[pathchk@uutils](https://www.gnu.org/software/coreutils/)|诊断无效或不可移植的文件名。|
 |[pdfcpu](https://github.com/pdfcpu/pdfcpu)|Go PDF 处理器<br>用于处理 PDF 文件的命令行工具|
 |[pdm](https://github.com/pdm-project/pdm)|现代 Python 包和依赖管理器。|
+|[peekfd](https://gitlab.com/psmisc/psmisc)|查看运行中进程的文件描述符。|
 |[perl](https://www.perl.org)|一种功能强大、特性丰富的编程语言。|
 |[pgrep](https://gitlab.com/procps-ng/procps)|按名称和其他属性查找进程。|
 |[php](https://www.php.net)|PHP 命令行界面 (CLI)。|
@@ -471,10 +474,13 @@
 |[printf@uutils](https://uutils.org)|根据格式字符串和后续参数打印输出|
 |[prisma](https://www.prisma.io/docs/cli)|终端里的 Prisma Developer Platform。|
 |[prlimit](https://github.com/util-linux/util-linux)|显示或更改进程的资源限制。<br>资源选项单独使用时打印限制；使用 --<resource>=<limit> 设置限制。<br>短选项直接粘接值，例如 -c<limit>。|
+|[prtstat](https://gitlab.com/psmisc/psmisc)|打印进程信息。|
 |[ps](https://gitlab.com/procps-ng/procps)|报告当前进程的快照。|
 |[psc](https://pscompletions.abgox.com)|PSCompletions 模块的补全。|
 |[psc-compare](https://pscompletions.abgox.com)|PSCompletions(psc) 的开发脚本补全<br>scripts/compare-json.ps1 的补全：比较补全各语言的结构、用法与翻译。|
 |[psc-link](https://pscompletions.abgox.com)|PSCompletions(psc) 的开发脚本补全<br>scripts/link-completion.ps1 的补全：链接补全以供本地测试。|
+|[pslog](https://gitlab.com/psmisc/psmisc)|报告进程的日志文件。|
+|[pstree](https://gitlab.com/psmisc/psmisc)|显示进程树。|
 |[ptx@GNU](https://www.gnu.org/software/coreutils/)|输出输入文件中各词（含上下文）的置换索引。|
 |[ptx@uutils](https://uutils.org)|生成文件内容的排序索引|
 |[pulumi](https://www.pulumi.com/)|Pulumi - 用任意编程语言实现基础设施即代码|

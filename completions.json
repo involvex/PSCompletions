@@ -1,5 +1,5 @@
 {
-  "count": 775,
+  "count": 781,
   "update": {
     "7z": "cac4d4accba5c11d5b3ae1fde2e491070f69e522c974cc3004950acea1ffa593",
     "act": "3c17f2f2959410d3ac7c443cad5cfcab4d660eba2a6ca7e2b9f636eab63a2b6e",
@@ -210,6 +210,7 @@
     "fresh": "25374a3712254f8edee8276c10596849a20d1ce7f82304f70edc3513c6ba625c",
     "fsfreeze": "fc2f390d2cb5f95df2b0b70a06bc2b2d91e54f0a4260f01fb61d6a7cc52b40f9",
     "fstrim": "777c6ae0738223a41edd48c511fcd393394479c8bf26a9ce1d27e0c030ee5fb6",
+    "fuser": "6541b5795ba2338590a9fb61e3adcde5d007211be8c0524e9438893932a4a540",
     "fx": "9de709893a0e0d8efe747321d8dcaefb68725924ffa9e4eb8b960f2f50527092",
     "fzf": "3831a478662502260f3dd6feb02cbc5c34ff13f0e51f4e611d82ca67a51f0fe8",
     "gcc": "14da88c749bfdbf8b59694b7ac1447360af85de7b3156aea009e628b90b4e490",
@@ -293,6 +294,7 @@
     "k9s": "14b48643bbac253d6bb1c0e3d0cdc656e3c5a52e3c554c7d68d5e37d678028f0",
     "kernel-install": "9a0d60368adfad40fe4be9a90d204a2cb4f99c23d33647ac829864130e30c90f",
     "kill": "34e728b3fc68ac028bbfa879e75aee7fb87b02605f810fa704ca1cd72a3ee1fd",
+    "killall": "e30d8d326197e343a7168cb82f4c0eeb832c2aebba6aac3d810fc38bfdde21d4",
     "kind": "d14459da42dec1d143e6c3458b563b8e64bfe603e8b38ec5fb6032baf0ab92b8",
     "kmod": "402220e520f121893a68cece32c74b7eae5fec839563f788120076d5736e10d7",
     "komac": "09d8c3fff035488a20ef5144c4c78880db3989958a4e5f1396616a9403a6cbc1",
@@ -432,6 +434,7 @@
     "pathchk@uutils": "cce5984d411e0f47fe37fe0e36ec5a16898bd3130300ebd8b03bc61dbba6be4b",
     "pdfcpu": "6677f3461567a810c9f56d186c1254f4a360bc0ed63a0c45e092e30a48ebaad0",
     "pdm": "df603d9610652a330e65633c9cbf56c52d9777a795ec893088e5d0a208636a9f",
+    "peekfd": "adc82aa3a32588a482a39c51ac3a6b37f41f494634903938cdd282d6cd53bbd1",
     "perl": "5544b1f9e50d23debd9be044498c4a7f28db79afee3efa3365ac5980ad32edd8",
     "pgrep": "49e9e26fd799b8c5adb77bf28190bfde2f477eb7cb72b319852ad492e3f95d8a",
     "php": "0625a69458af42115b3675a2472b3be6c9264968046ecaf93daee1928f6e4751",
@@ -464,10 +467,13 @@
     "printf@uutils": "1475a1849b62938a8c871c2311e0441967d22e3e48456cf0fc3a983d4f6c3896",
     "prisma": "fb47e585d1d9e1ab83a23b9d078f8b678a5dd53bcd820637c40499209fed86db",
     "prlimit": "7f17c1d0f08a39a1cd73c09d6c159f94a4a30fa829c193dfad77fe5f9ae43deb",
+    "prtstat": "65fc1298cebcb0e919912c471c707b0f83ca7b3a1fa382d632c822e2906a9a0f",
     "ps": "733785951da606f15640f962150c3231509ff080b7900bb8d88a72ef0a2aa12a",
     "psc": "692f37b078335e5c7304baa8dde520bc33dca9da6a0b721836e7297504804292",
     "psc-compare": "3811c2588450b1d567bbb42f47290338c8520d0cb285c9b78630c389b733553f",
     "psc-link": "ce2ae57c6ef4fb187c9deaf186847bff4119785375ec903ffdcf3de418a33d84",
+    "pslog": "7b798ffd2faa28782bff020dbacbc4b31798e221d67dd87941fc22c77403c1cc",
+    "pstree": "287e48d46f2bd8ae67d5cdce71f11271af8fe14c3285eb82aef8fe5c29dd3b99",
     "ptx@GNU": "cd83a309b29592a8490ff911315769938d1ef823bd0b6330d6cbe5753e5e85c5",
     "ptx@uutils": "2957b76291596b25148a60d5769a370f7787205212ff02cb3994fc1f80fb480c",
     "pulumi": "150a4552d2674c19134ff847c873f610d7d79a00d235d1502e34244ad109b866",
@@ -3150,6 +3156,17 @@
         "description": "丢弃已挂载文件系统上未使用的块。"
       }
     },
+    "fuser": {
+      "id": "c8797255-fda0-53e7-baaa-d82752066ae9",
+      "en-US": {
+        "url": "https://gitlab.com/psmisc/psmisc",
+        "description": "Show which processes use files, sockets or filesystems."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/psmisc/psmisc",
+        "description": "显示使用文件、套接字或文件系统的进程。"
+      }
+    },
     "fx": {
       "id": "cede1c7f-ce6c-478f-89e5-63e2ef51203d",
       "en-US": {
@@ -4075,6 +4092,17 @@
       "zh-CN": {
         "url": "https://gitlab.com/procps-ng/procps",
         "description": "向进程发送信号。"
+      }
+    },
+    "killall": {
+      "id": "f6b2e5e1-a6fc-54dc-ba05-5f794d271945",
+      "en-US": {
+        "url": "https://gitlab.com/psmisc/psmisc",
+        "description": "Kill processes by name."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/psmisc/psmisc",
+        "description": "按名称终止进程。"
       }
     },
     "kind": {
@@ -5648,6 +5676,17 @@
         "description": "现代 Python 包和依赖管理器。"
       }
     },
+    "peekfd": {
+      "id": "948d108d-8ded-5c10-bcca-f897958072da",
+      "en-US": {
+        "url": "https://gitlab.com/psmisc/psmisc",
+        "description": "Peek at file descriptors of a running process."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/psmisc/psmisc",
+        "description": "查看运行中进程的文件描述符。"
+      }
+    },
     "perl": {
       "id": "b3f0430d-d15e-4b87-934d-80204bf395e6",
       "en-US": {
@@ -6009,6 +6048,17 @@
         "description": "显示或更改进程的资源限制。\n资源选项单独使用时打印限制；使用 --<resource>=<limit> 设置限制。\n短选项直接粘接值，例如 -c<limit>。"
       }
     },
+    "prtstat": {
+      "id": "79daf292-9dc0-50de-96c4-5ca8628de62c",
+      "en-US": {
+        "url": "https://gitlab.com/psmisc/psmisc",
+        "description": "Print information about a process."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/psmisc/psmisc",
+        "description": "打印进程信息。"
+      }
+    },
     "ps": {
       "id": "896e6323-68af-51dc-ab26-8d63a493de75",
       "en-US": {
@@ -6054,6 +6104,28 @@
       "zh-CN": {
         "url": "https://pscompletions.abgox.com",
         "description": "PSCompletions(psc) 的开发脚本补全\nscripts/link-completion.ps1 的补全：链接补全以供本地测试。"
+      }
+    },
+    "pslog": {
+      "id": "bb0589f7-232a-5328-a54f-b2fdb2b5f519",
+      "en-US": {
+        "url": "https://gitlab.com/psmisc/psmisc",
+        "description": "Report the log file of a process."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/psmisc/psmisc",
+        "description": "报告进程的日志文件。"
+      }
+    },
+    "pstree": {
+      "id": "5ff5c5c2-b0b4-558d-8a40-63ab677af5aa",
+      "en-US": {
+        "url": "https://gitlab.com/psmisc/psmisc",
+        "description": "Display a tree of processes."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/psmisc/psmisc",
+        "description": "显示进程树。"
       }
     },
     "ptx@GNU": {

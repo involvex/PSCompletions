@@ -217,6 +217,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[fresh](https://getfresh.dev/docs)|A terminal text editor with multi-cursor support.|
 |[fsfreeze](https://github.com/util-linux/util-linux)|Suspend access to a filesystem.|
 |[fstrim](https://github.com/util-linux/util-linux)|Discard unused blocks on a mounted filesystem.|
+|[fuser](https://gitlab.com/psmisc/psmisc)|Show which processes use files, sockets or filesystems.|
 |[fx](https://fx.wtf)|Terminal JSON viewer|
 |[fzf](https://junegunn.github.io/fzf)|Interactive filter program for any kind of list.|
 |[gcc](https://gcc.gnu.org)|The GNU Compiler Collection|
@@ -300,6 +301,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[k9s](https://k9scli.io/)|K9s is a terminal based UI to interact with your Kubernetes clusters.<br>It eases navigating, observing and managing your deployed applications.|
 |[kernel-install](https://github.com/systemd/systemd)|Add and remove kernel and initrd images to and from the boot partition.|
 |[kill](https://gitlab.com/procps-ng/procps)|Send a signal to processes.|
+|[killall](https://gitlab.com/psmisc/psmisc)|Kill processes by name.|
 |[kind](https://kind.sigs.k8s.io/)|kind is a tool for running local Kubernetes clusters using Docker container 'nodes'.<br>kind was primarily designed for testing Kubernetes itself, but may be used for local development or CI.|
 |[kmod](https://github.com/kmod-project/kmod)|Manage kernel modules.|
 |[komac](https://github.com/russellbanks/Komac)|The Community Manifest Creator for WinGet.|
@@ -439,6 +441,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[pathchk@uutils](https://www.gnu.org/software/coreutils/)|Diagnose invalid or unportable file names.|
 |[pdfcpu](https://github.com/pdfcpu/pdfcpu)|A Go PDF processor<br>Command-line tools for working with PDF files|
 |[pdm](https://github.com/pdm-project/pdm)|Modern Python package and dependency manager.|
+|[peekfd](https://gitlab.com/psmisc/psmisc)|Peek at file descriptors of a running process.|
 |[perl](https://www.perl.org)|A highly capable, feature-rich programming language.|
 |[pgrep](https://gitlab.com/procps-ng/procps)|Look up processes by name and other attributes.|
 |[php](https://www.php.net)|PHP Command Line Interface (CLI).|
@@ -471,10 +474,13 @@ English | [简体中文](./completions.zh-CN.md)
 |[printf@uutils](https://uutils.org)|Print output based off of the format string and proceeding arguments.|
 |[prisma](https://www.prisma.io/docs/cli)|The Prisma Developer Platform, from your terminal.|
 |[prlimit](https://github.com/util-linux/util-linux)|Show or change the resource limits of a process.<br>A resource option used bare prints the limit; set it with --<resource>=<limit>.<br>The short forms glue the value, e.g. -c<limit>.|
+|[prtstat](https://gitlab.com/psmisc/psmisc)|Print information about a process.|
 |[ps](https://gitlab.com/procps-ng/procps)|Report a snapshot of the current processes.|
 |[psc](https://pscompletions.abgox.com)|PSCompletions module's completion.|
 |[psc-compare](https://pscompletions.abgox.com)|Developer script completions for PSCompletions (psc).<br>Completions for scripts/compare-json.ps1: compare completion languages for structure, usage and translation.|
 |[psc-link](https://pscompletions.abgox.com)|Developer script completions for PSCompletions (psc).<br>Completions for scripts/link-completion.ps1: link completions for local testing.|
+|[pslog](https://gitlab.com/psmisc/psmisc)|Report the log file of a process.|
+|[pstree](https://gitlab.com/psmisc/psmisc)|Display a tree of processes.|
 |[ptx@GNU](https://www.gnu.org/software/coreutils/)|Output a permuted index, including context, of the words in the input files.|
 |[ptx@uutils](https://uutils.org)|Produce a permuted index of file contents|
 |[pulumi](https://www.pulumi.com/)|Pulumi - Infrastructure as Code in any programming language|
