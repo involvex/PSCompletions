@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "按 realm 显示网络统计信息。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h",
+        "-?"
+      ],
+      "usage": [
+        "-h, -?, --help"
+      ],
+      "tip": [
+        "打印帮助。"
+      ]
+    },
+    {
+      "name": "--ignore",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --ignore"
+      ],
+      "tip": [
+        "转储计数器绝对值。"
+      ]
+    },
+    {
+      "name": "--interval",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --interval <INTERVAL>"
+      ],
+      "tip": [
+        "设置速率平均间隔。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--nooutput",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --nooutput"
+      ],
+      "tip": [
+        "仅更新历史，不显示内容。"
+      ]
+    },
+    {
+      "name": "--noupdate",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --noupdate"
+      ],
+      "tip": [
+        "不更新历史。"
+      ]
+    },
+    {
+      "name": "--reset",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --reset"
+      ],
+      "tip": [
+        "重置历史。"
+      ]
+    },
+    {
+      "name": "--scan",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --scan <INTERVAL>"
+      ],
+      "tip": [
+        "以指定间隔运行守护模式。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V",
+        "-v"
+      ],
+      "usage": [
+        "-V, -v, --version"
+      ],
+      "tip": [
+        "打印版本。"
+      ]
+    },
+    {
+      "name": "--zeros",
+      "alias": [
+        "-z"
+      ],
+      "usage": [
+        "-z, --zeros"
+      ],
+      "tip": [
+        "同时转储零计数器。"
+      ]
+    }
+  ]
+}

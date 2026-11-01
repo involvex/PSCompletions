@@ -1,0 +1,362 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "vdpa management tool."
+    ]
+  },
+  "next": [
+    {
+      "name": "dev",
+      "tip": [
+        "vdpa device management."
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add name NAME mgmtdev MGMTDEV [ device_features DEVICE_FEATURES ] [ mac MACADDR ] [ mtu MTU ] [ max_vqp MAX_VQ_PAIRS ]"
+          ],
+          "tip": [
+            "Add a new vdpa device."
+          ],
+          "option": [
+            {
+              "name": "device_features",
+              "usage": [
+                "device_features DEVICE_FEATURES"
+              ],
+              "tip": [
+                "Virtio device feature bit-mask."
+              ],
+              "next": []
+            },
+            {
+              "name": "mac",
+              "usage": [
+                "mac MACADDR"
+              ],
+              "tip": [
+                "MAC address for a network vdpa device."
+              ],
+              "next": []
+            },
+            {
+              "name": "max_vqp",
+              "usage": [
+                "max_vqp MAX_VQ_PAIRS"
+              ],
+              "tip": [
+                "Maximum number of virtqueue pairs."
+              ],
+              "next": []
+            },
+            {
+              "name": "mgmtdev",
+              "usage": [
+                "mgmtdev MGMTDEV"
+              ],
+              "tip": [
+                "Management device to use."
+              ],
+              "next": []
+            },
+            {
+              "name": "mtu",
+              "usage": [
+                "mtu MTU"
+              ],
+              "tip": [
+                "MTU for a network vdpa device."
+              ],
+              "next": []
+            },
+            {
+              "name": "name",
+              "usage": [
+                "name NAME"
+              ],
+              "tip": [
+                "Name of the vdpa device."
+              ],
+              "next": []
+            },
+            {
+              "name": "qidx",
+              "usage": [
+                "qidx QUEUE_INDEX"
+              ],
+              "tip": [
+                "Queue index for vstats."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "config",
+          "tip": [
+            "Show the vdpa device configuration."
+          ],
+          "next": [
+            {
+              "name": "show",
+              "usage": [
+                "show [ DEV ]"
+              ],
+              "tip": [
+                "Show the device configuration."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del DEV"
+          ],
+          "tip": [
+            "Delete a vdpa device."
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show the dev help."
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set name NAME mac [ MACADDR ]"
+          ],
+          "tip": [
+            "Set vdpa device attributes."
+          ],
+          "option": [
+            {
+              "name": "device_features",
+              "usage": [
+                "device_features DEVICE_FEATURES"
+              ],
+              "tip": [
+                "Virtio device feature bit-mask."
+              ],
+              "next": []
+            },
+            {
+              "name": "mac",
+              "usage": [
+                "mac MACADDR"
+              ],
+              "tip": [
+                "MAC address for a network vdpa device."
+              ],
+              "next": []
+            },
+            {
+              "name": "max_vqp",
+              "usage": [
+                "max_vqp MAX_VQ_PAIRS"
+              ],
+              "tip": [
+                "Maximum number of virtqueue pairs."
+              ],
+              "next": []
+            },
+            {
+              "name": "mgmtdev",
+              "usage": [
+                "mgmtdev MGMTDEV"
+              ],
+              "tip": [
+                "Management device to use."
+              ],
+              "next": []
+            },
+            {
+              "name": "mtu",
+              "usage": [
+                "mtu MTU"
+              ],
+              "tip": [
+                "MTU for a network vdpa device."
+              ],
+              "next": []
+            },
+            {
+              "name": "name",
+              "usage": [
+                "name NAME"
+              ],
+              "tip": [
+                "Name of the vdpa device."
+              ],
+              "next": []
+            },
+            {
+              "name": "qidx",
+              "usage": [
+                "qidx QUEUE_INDEX"
+              ],
+              "tip": [
+                "Queue index for vstats."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ DEV ]"
+          ],
+          "tip": [
+            "Show vdpa device attributes."
+          ]
+        },
+        {
+          "name": "vstats",
+          "tip": [
+            "Show vdpa device statistics."
+          ],
+          "next": [
+            {
+              "name": "show",
+              "usage": [
+                "show DEV qidx QUEUE_INDEX"
+              ],
+              "tip": [
+                "Show statistics for a queue."
+              ],
+              "option": [
+                {
+                  "name": "device_features",
+                  "usage": [
+                    "device_features DEVICE_FEATURES"
+                  ],
+                  "tip": [
+                    "Virtio device feature bit-mask."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "mac",
+                  "usage": [
+                    "mac MACADDR"
+                  ],
+                  "tip": [
+                    "MAC address for a network vdpa device."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "max_vqp",
+                  "usage": [
+                    "max_vqp MAX_VQ_PAIRS"
+                  ],
+                  "tip": [
+                    "Maximum number of virtqueue pairs."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "mgmtdev",
+                  "usage": [
+                    "mgmtdev MGMTDEV"
+                  ],
+                  "tip": [
+                    "Management device to use."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "mtu",
+                  "usage": [
+                    "mtu MTU"
+                  ],
+                  "tip": [
+                    "MTU for a network vdpa device."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "name",
+                  "usage": [
+                    "name NAME"
+                  ],
+                  "tip": [
+                    "Name of the vdpa device."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "qidx",
+                  "usage": [
+                    "qidx QUEUE_INDEX"
+                  ],
+                  "tip": [
+                    "Queue index for vstats."
+                  ],
+                  "next": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mgmtdev",
+      "tip": [
+        "vdpa management device view."
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show the mgmtdev help."
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ MGMTDEV ]"
+          ],
+          "tip": [
+            "Show management device attributes."
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "-j",
+      "usage": [
+        "-j, --json"
+      ],
+      "tip": [
+        "Generate JSON output."
+      ]
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p, --pretty"
+      ],
+      "tip": [
+        "Pretty-print JSON output."
+      ]
+    },
+    {
+      "name": "-V",
+      "usage": [
+        "-V, --Version"
+      ],
+      "tip": [
+        "Print the version of the vdpa utility and exit."
+      ]
+    }
+  ]
+}

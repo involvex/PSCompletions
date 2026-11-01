@@ -1,0 +1,13 @@
+{
+  "id": "68b1e2f2-3e55-531a-b5a9-03e7ddbb629c",
+  "version": "iputils 20240905",
+  "alias": [
+    "ping",
+    "ping4",
+    "ping6"
+  ],
+  "language": [
+    "en-US",
+    "zh-CN"
+  ]
+}

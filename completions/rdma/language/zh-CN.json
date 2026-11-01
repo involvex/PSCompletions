@@ -1,0 +1,503 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "RDMA 工具。"
+    ]
+  },
+  "next": [
+    {
+      "name": "dev",
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add [ NAME ] type TYPE parent PARENT_DEV"
+          ],
+          "tip": [
+            "添加 RDMA 设备。"
+          ],
+          "option": [
+            {
+              "name": "parent",
+              "usage": [
+                "parent PARENT_DEV"
+              ],
+              "tip": [
+                "父设备。"
+              ]
+            },
+            {
+              "name": "type",
+              "usage": [
+                "type TYPE"
+              ],
+              "tip": [
+                "设备类型。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "usage": [
+            "delete [ NAME ]"
+          ],
+          "tip": [
+            "删除 RDMA 设备。"
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 dev 帮助。"
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set [ DEV ] name NEWNAME"
+          ],
+          "tip": [
+            "重命名 RDMA 设备。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "name",
+              "usage": [
+                "name NEWNAME"
+              ],
+              "tip": [
+                "新名称。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ DEV ]"
+          ],
+          "tip": [
+            "显示 RDMA 设备。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "link",
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add NAME type TYPE netdev NETDEV"
+          ],
+          "tip": [
+            "添加 RDMA 链路。"
+          ],
+          "option": [
+            {
+              "name": "netdev",
+              "usage": [
+                "netdev NETDEV"
+              ],
+              "tip": [
+                "网络设备。"
+              ]
+            },
+            {
+              "name": "type",
+              "usage": [
+                "type TYPE"
+              ],
+              "tip": [
+                "链路类型。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "usage": [
+            "delete NAME"
+          ],
+          "tip": [
+            "删除 RDMA 链路。"
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 link 帮助。"
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ DEV/PORT_INDEX ]"
+          ],
+          "tip": [
+            "显示 RDMA 链路。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "设备或端口。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "monitor",
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 monitor 帮助。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "resource",
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 resource 帮助。"
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ DEV/PORT_INDEX ]"
+          ],
+          "tip": [
+            "显示 RDMA 资源。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "设备或端口。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "statistic",
+      "next": [
+        {
+          "name": "bind",
+          "usage": [
+            "bind COUNTER_SCOPE [ DEV/PORT_INDEX ] [ OBJECT-ID ] [ COUNTER-ID ]"
+          ],
+          "tip": [
+            "绑定计数器。"
+          ],
+          "option": [
+            {
+              "name": "scope",
+              "usage": [
+                "scope COUNTER_SCOPE"
+              ],
+              "tip": [
+                "计数器范围。"
+              ],
+              "next": [
+                {
+                  "name": "dev"
+                },
+                {
+                  "name": "link"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 statistic 帮助。"
+          ]
+        },
+        {
+          "name": "mode",
+          "usage": [
+            "mode [ supported ] link [ DEV/PORT_INDEX ]"
+          ],
+          "tip": [
+            "显示统计模式。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "设备或端口。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set COUNTER_SCOPE [ DEV/PORT_INDEX ] auto { CRITERIA | off } [ optional-counters { on | off } ]"
+          ],
+          "tip": [
+            "设置计数器配置。"
+          ],
+          "option": [
+            {
+              "name": "auto",
+              "usage": [
+                "auto CRITERIA|off"
+              ],
+              "tip": [
+                "自动条件。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "pid"
+                },
+                {
+                  "name": "type"
+                }
+              ]
+            },
+            {
+              "name": "optional-counters",
+              "usage": [
+                "optional-counters {on|off}"
+              ],
+              "tip": [
+                "可选计数器。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "scope",
+              "usage": [
+                "scope COUNTER_SCOPE"
+              ],
+              "tip": [
+                "计数器范围。"
+              ],
+              "next": [
+                {
+                  "name": "dev"
+                },
+                {
+                  "name": "link"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ link [ DEV/PORT_INDEX ] [ FILTER_NAME FILTER_VALUE ] ]"
+          ],
+          "tip": [
+            "显示 RDMA 统计。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "设备或端口。"
+              ]
+            },
+            {
+              "name": "filter",
+              "usage": [
+                "filter FILTER_NAME FILTER_VALUE"
+              ],
+              "tip": [
+                "过滤名和值。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "unbind",
+          "usage": [
+            "unbind COUNTER_SCOPE [ DEV/PORT_INDEX ] [ OBJECT-ID ] [ COUNTER-ID ]"
+          ],
+          "tip": [
+            "解绑计数器。"
+          ],
+          "option": [
+            {
+              "name": "scope",
+              "usage": [
+                "scope COUNTER_SCOPE"
+              ],
+              "tip": [
+                "计数器范围。"
+              ],
+              "next": [
+                {
+                  "name": "dev"
+                },
+                {
+                  "name": "link"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "unset",
+          "usage": [
+            "unset link [ DEV/PORT_INDEX ] optional-counters"
+          ],
+          "tip": [
+            "取消可选计数器。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sys",
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 sys 帮助。"
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set netns NEWMODE | privileged-qkey NEWSTATE"
+          ],
+          "tip": [
+            "设置子系统参数。"
+          ],
+          "option": [
+            {
+              "name": "netns",
+              "usage": [
+                "netns NEWMODE"
+              ],
+              "tip": [
+                "命名空间模式。"
+              ]
+            },
+            {
+              "name": "privileged-qkey",
+              "usage": [
+                "privileged-qkey NEWSTATE"
+              ],
+              "tip": [
+                "新特权 qkey 状态。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "tip": [
+            "显示 RDMA 子系统模式。"
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "-b",
+      "usage": [
+        "-b, -batch <FILENAME>"
+      ],
+      "next": []
+    },
+    {
+      "name": "-d",
+      "usage": [
+        "-d, --details"
+      ]
+    },
+    {
+      "name": "-force"
+    },
+    {
+      "name": "-j",
+      "usage": [
+        "-j, --json"
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o, -oneline"
+      ]
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p, --pretty"
+      ]
+    },
+    {
+      "name": "-r",
+      "usage": [
+        "-r, --raw"
+      ]
+    },
+    {
+      "name": "-V",
+      "usage": [
+        "-V, -Version"
+      ]
+    }
+  ]
+}

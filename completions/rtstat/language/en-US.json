@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "Show routing statistics."
+    ]
+  },
+  "option": [
+    {
+      "name": "--count",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --count <count>"
+      ],
+      "tip": [
+        "Print the given number of intervals."
+      ],
+      "next": []
+    },
+    {
+      "name": "--dump",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --dump"
+      ],
+      "tip": [
+        "Dump the list of available files and keys."
+      ]
+    },
+    {
+      "name": "--file",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --file <file>"
+      ],
+      "tip": [
+        "Use the statistics file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this help message."
+      ]
+    },
+    {
+      "name": "--interval",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --interval <intv>"
+      ],
+      "tip": [
+        "Set the interval in seconds."
+      ],
+      "next": []
+    },
+    {
+      "name": "--json",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --json"
+      ],
+      "tip": [
+        "Display in JSON format."
+      ]
+    },
+    {
+      "name": "--keys",
+      "alias": [
+        "-k"
+      ],
+      "usage": [
+        "-k, --keys k,k,k,..."
+      ],
+      "tip": [
+        "Display only the listed keys."
+      ],
+      "next": []
+    },
+    {
+      "name": "--subject",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --subject [0-2]"
+      ],
+      "tip": [
+        "Control header printing.",
+        "Possible values: 0, 1, 2"
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        },
+        {
+          "name": "2"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Print the program version."
+      ]
+    },
+    {
+      "name": "--width",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --width n,n,n,..."
+      ],
+      "tip": [
+        "Set the width of each field."
+      ],
+      "next": []
+    }
+  ]
+}

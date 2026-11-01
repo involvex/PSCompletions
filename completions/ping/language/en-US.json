@@ -1,0 +1,331 @@
+{
+  "meta": {
+    "url": "https://github.com/iputils/iputils",
+    "description": [
+      "Send ICMP ECHO_REQUEST to network hosts."
+    ]
+  },
+  "option": [
+    {
+      "name": "-3",
+      "tip": [
+        "Use RTT precision without rounding up."
+      ]
+    },
+    {
+      "name": "-4",
+      "tip": [
+        "Use IPv4."
+      ]
+    },
+    {
+      "name": "-6",
+      "tip": [
+        "Use IPv6."
+      ]
+    },
+    {
+      "name": "-a",
+      "tip": [
+        "Use audible ping."
+      ]
+    },
+    {
+      "name": "-A",
+      "tip": [
+        "Use adaptive ping."
+      ]
+    },
+    {
+      "name": "-b",
+      "tip": [
+        "Allow pinging a broadcast address."
+      ]
+    },
+    {
+      "name": "-B",
+      "tip": [
+        "Use a sticky source address."
+      ]
+    },
+    {
+      "name": "-c",
+      "usage": [
+        "-c <count>"
+      ],
+      "tip": [
+        "Stop after the given number of replies."
+      ],
+      "next": []
+    },
+    {
+      "name": "-C",
+      "tip": [
+        "Call connect() on socket creation."
+      ]
+    },
+    {
+      "name": "-d",
+      "tip": [
+        "Use the SO_DEBUG socket option."
+      ]
+    },
+    {
+      "name": "-D",
+      "tip": [
+        "Print timestamps."
+      ]
+    },
+    {
+      "name": "-e",
+      "usage": [
+        "-e <identifier>"
+      ],
+      "tip": [
+        "Set the ping session identifier."
+      ],
+      "next": []
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "Flood ping."
+      ]
+    },
+    {
+      "name": "-F",
+      "usage": [
+        "-F <flowlabel>"
+      ],
+      "tip": [
+        "Set the IPv6 flow label."
+      ],
+      "next": []
+    },
+    {
+      "name": "-h",
+      "tip": [
+        "Print help and exit."
+      ]
+    },
+    {
+      "name": "-H",
+      "tip": [
+        "Force reverse DNS name resolution."
+      ]
+    },
+    {
+      "name": "-i",
+      "usage": [
+        "-i <interval>"
+      ],
+      "tip": [
+        "Seconds between packets."
+      ],
+      "next": []
+    },
+    {
+      "name": "-I",
+      "usage": [
+        "-I <interface>"
+      ],
+      "tip": [
+        "Use the interface name or address."
+      ],
+      "next": []
+    },
+    {
+      "name": "-l",
+      "usage": [
+        "-l <preload>"
+      ],
+      "tip": [
+        "Send the given number of packets while waiting for replies."
+      ],
+      "next": []
+    },
+    {
+      "name": "-L",
+      "tip": [
+        "Suppress loopback of multicast packets."
+      ]
+    },
+    {
+      "name": "-m",
+      "usage": [
+        "-m <mark>"
+      ],
+      "tip": [
+        "Tag outgoing packets with the mark."
+      ],
+      "next": []
+    },
+    {
+      "name": "-M",
+      "usage": [
+        "-M <pmtud opt>"
+      ],
+      "tip": [
+        "Set path MTU discovery.",
+        "Possible values: do, dont, want, probe"
+      ],
+      "next": [
+        {
+          "name": "do"
+        },
+        {
+          "name": "dont"
+        },
+        {
+          "name": "probe"
+        },
+        {
+          "name": "want"
+        }
+      ]
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "Disable reverse DNS name resolution."
+      ]
+    },
+    {
+      "name": "-N",
+      "usage": [
+        "-N <nodeinfo opt>"
+      ],
+      "tip": [
+        "Use an IPv6 node info query."
+      ],
+      "next": []
+    },
+    {
+      "name": "-O",
+      "tip": [
+        "Report outstanding replies."
+      ]
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p <pattern>"
+      ],
+      "tip": [
+        "Set the padding byte contents."
+      ],
+      "next": []
+    },
+    {
+      "name": "-q",
+      "tip": [
+        "Quiet output."
+      ]
+    },
+    {
+      "name": "-Q",
+      "usage": [
+        "-Q <tclass>"
+      ],
+      "tip": [
+        "Set the QoS tclass bits."
+      ],
+      "next": []
+    },
+    {
+      "name": "-R",
+      "tip": [
+        "Record the route."
+      ]
+    },
+    {
+      "name": "-s",
+      "usage": [
+        "-s <size>"
+      ],
+      "tip": [
+        "Set the number of data bytes to send."
+      ],
+      "next": []
+    },
+    {
+      "name": "-S",
+      "usage": [
+        "-S <size>"
+      ],
+      "tip": [
+        "Set the SO_SNDBUF socket option value."
+      ],
+      "next": []
+    },
+    {
+      "name": "-t",
+      "usage": [
+        "-t <ttl>"
+      ],
+      "tip": [
+        "Set the time to live."
+      ],
+      "next": []
+    },
+    {
+      "name": "-T",
+      "usage": [
+        "-T <timestamp>"
+      ],
+      "tip": [
+        "Set the timestamp option.",
+        "Possible values: tsonly, tsandaddr, tsprespec"
+      ],
+      "next": [
+        {
+          "name": "tsandaddr"
+        },
+        {
+          "name": "tsonly"
+        },
+        {
+          "name": "tsprespec"
+        }
+      ]
+    },
+    {
+      "name": "-U",
+      "tip": [
+        "Print user-to-user latency."
+      ]
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "Verbose output."
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "Print version and exit."
+      ]
+    },
+    {
+      "name": "-w",
+      "usage": [
+        "-w <deadline>"
+      ],
+      "tip": [
+        "Set the reply wait deadline in seconds."
+      ],
+      "next": []
+    },
+    {
+      "name": "-W",
+      "usage": [
+        "-W <timeout>"
+      ],
+      "tip": [
+        "Set the response timeout."
+      ],
+      "next": []
+    }
+  ]
+}

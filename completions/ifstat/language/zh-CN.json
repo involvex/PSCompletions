@@ -1,0 +1,174 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "打印网络接口统计信息。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--errors",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --errors"
+      ],
+      "tip": [
+        "显示错误。"
+      ]
+    },
+    {
+      "name": "--extended",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --extended=TYPE"
+      ],
+      "tip": [
+        "显示指定类型的扩展统计信息。",
+        "可能值: cpu_hits"
+      ],
+      "next": [
+        {
+          "name": "cpu_hits"
+        }
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示选项摘要。"
+      ]
+    },
+    {
+      "name": "--ignore",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --ignore"
+      ],
+      "tip": [
+        "忽略历史文件。"
+      ]
+    },
+    {
+      "name": "--interval",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --interval=SECS"
+      ],
+      "tip": [
+        "报告最近 SECS 秒的平均值。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--json",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --json"
+      ],
+      "tip": [
+        "以 JSON 显示结果。"
+      ]
+    },
+    {
+      "name": "--nooutput",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --nooutput"
+      ],
+      "tip": [
+        "仅更新历史文件，不显示输出。"
+      ]
+    },
+    {
+      "name": "--noupdate",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --noupdate"
+      ],
+      "tip": [
+        "不更新历史文件。"
+      ]
+    },
+    {
+      "name": "--pretty",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --pretty"
+      ],
+      "tip": [
+        "美化 JSON 输出。"
+      ]
+    },
+    {
+      "name": "--reset",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --reset"
+      ],
+      "tip": [
+        "重置历史。"
+      ]
+    },
+    {
+      "name": "--scan",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --scan=SECS"
+      ],
+      "tip": [
+        "每 SECS 秒采样统计信息。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示程序版本。"
+      ]
+    },
+    {
+      "name": "--zeros",
+      "alias": [
+        "-z"
+      ],
+      "usage": [
+        "-z, --zeros"
+      ],
+      "tip": [
+        "显示零活动条目。"
+      ]
+    }
+  ]
+}

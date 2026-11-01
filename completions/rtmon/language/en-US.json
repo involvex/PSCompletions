@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "RTnetlink monitor."
+    ]
+  },
+  "next": [
+    {
+      "name": "help",
+      "tip": [
+        "Show a summary of options."
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "-0",
+      "tip": [
+        "Shortcut for -family link."
+      ]
+    },
+    {
+      "name": "-4",
+      "tip": [
+        "Shortcut for -family inet."
+      ]
+    },
+    {
+      "name": "-6",
+      "tip": [
+        "Shortcut for -family inet6."
+      ]
+    },
+    {
+      "name": "-family",
+      "usage": [
+        "-family {inet|inet6|link|help}"
+      ],
+      "tip": [
+        "Specify the protocol family.",
+        "Possible values: inet, inet6, link, help"
+      ],
+      "next": [
+        {
+          "name": "help"
+        },
+        {
+          "name": "inet"
+        },
+        {
+          "name": "inet6"
+        },
+        {
+          "name": "link"
+        }
+      ]
+    },
+    {
+      "name": "-Version",
+      "tip": [
+        "Print version and exit."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "Show network statistics by realm."
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h",
+        "-?"
+      ],
+      "usage": [
+        "-h, -?, --help"
+      ],
+      "tip": [
+        "Print help."
+      ]
+    },
+    {
+      "name": "--ignore",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --ignore"
+      ],
+      "tip": [
+        "Dump absolute counter values."
+      ]
+    },
+    {
+      "name": "--interval",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --interval <INTERVAL>"
+      ],
+      "tip": [
+        "Set the rate averaging interval."
+      ],
+      "next": []
+    },
+    {
+      "name": "--nooutput",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --nooutput"
+      ],
+      "tip": [
+        "Only update history; display nothing."
+      ]
+    },
+    {
+      "name": "--noupdate",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --noupdate"
+      ],
+      "tip": [
+        "Do not update history."
+      ]
+    },
+    {
+      "name": "--reset",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --reset"
+      ],
+      "tip": [
+        "Reset history."
+      ]
+    },
+    {
+      "name": "--scan",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --scan <INTERVAL>"
+      ],
+      "tip": [
+        "Run in daemon mode with the given interval."
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V",
+        "-v"
+      ],
+      "usage": [
+        "-V, -v, --version"
+      ],
+      "tip": [
+        "Print version."
+      ]
+    },
+    {
+      "name": "--zeros",
+      "alias": [
+        "-z"
+      ],
+      "usage": [
+        "-z, --zeros"
+      ],
+      "tip": [
+        "Dump zero counters too."
+      ]
+    }
+  ]
+}

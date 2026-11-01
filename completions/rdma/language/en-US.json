@@ -1,0 +1,503 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "RDMA tool."
+    ]
+  },
+  "next": [
+    {
+      "name": "dev",
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add [ NAME ] type TYPE parent PARENT_DEV"
+          ],
+          "tip": [
+            "Add an RDMA device."
+          ],
+          "option": [
+            {
+              "name": "parent",
+              "usage": [
+                "parent PARENT_DEV"
+              ],
+              "tip": [
+                "Parent device."
+              ]
+            },
+            {
+              "name": "type",
+              "usage": [
+                "type TYPE"
+              ],
+              "tip": [
+                "Device type."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "usage": [
+            "delete [ NAME ]"
+          ],
+          "tip": [
+            "Delete an RDMA device."
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show dev help."
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set [ DEV ] name NEWNAME"
+          ],
+          "tip": [
+            "Rename an RDMA device."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "name",
+              "usage": [
+                "name NEWNAME"
+              ],
+              "tip": [
+                "New name."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ DEV ]"
+          ],
+          "tip": [
+            "Show RDMA devices."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "link",
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add NAME type TYPE netdev NETDEV"
+          ],
+          "tip": [
+            "Add an RDMA link."
+          ],
+          "option": [
+            {
+              "name": "netdev",
+              "usage": [
+                "netdev NETDEV"
+              ],
+              "tip": [
+                "Network device."
+              ]
+            },
+            {
+              "name": "type",
+              "usage": [
+                "type TYPE"
+              ],
+              "tip": [
+                "Link type."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "usage": [
+            "delete NAME"
+          ],
+          "tip": [
+            "Delete an RDMA link."
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show link help."
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ DEV/PORT_INDEX ]"
+          ],
+          "tip": [
+            "Show RDMA links."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "Device or port."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "monitor",
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show monitor help."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "resource",
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show resource help."
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ DEV/PORT_INDEX ]"
+          ],
+          "tip": [
+            "Show RDMA resources."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "Device or port."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "statistic",
+      "next": [
+        {
+          "name": "bind",
+          "usage": [
+            "bind COUNTER_SCOPE [ DEV/PORT_INDEX ] [ OBJECT-ID ] [ COUNTER-ID ]"
+          ],
+          "tip": [
+            "Bind a counter."
+          ],
+          "option": [
+            {
+              "name": "scope",
+              "usage": [
+                "scope COUNTER_SCOPE"
+              ],
+              "tip": [
+                "Counter scope."
+              ],
+              "next": [
+                {
+                  "name": "dev"
+                },
+                {
+                  "name": "link"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show statistic help."
+          ]
+        },
+        {
+          "name": "mode",
+          "usage": [
+            "mode [ supported ] link [ DEV/PORT_INDEX ]"
+          ],
+          "tip": [
+            "Show statistic mode."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "Device or port."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set COUNTER_SCOPE [ DEV/PORT_INDEX ] auto { CRITERIA | off } [ optional-counters { on | off } ]"
+          ],
+          "tip": [
+            "Set counter configuration."
+          ],
+          "option": [
+            {
+              "name": "auto",
+              "usage": [
+                "auto CRITERIA|off"
+              ],
+              "tip": [
+                "Automatic criteria."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "pid"
+                },
+                {
+                  "name": "type"
+                }
+              ]
+            },
+            {
+              "name": "optional-counters",
+              "usage": [
+                "optional-counters {on|off}"
+              ],
+              "tip": [
+                "Optional counters."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "scope",
+              "usage": [
+                "scope COUNTER_SCOPE"
+              ],
+              "tip": [
+                "Counter scope."
+              ],
+              "next": [
+                {
+                  "name": "dev"
+                },
+                {
+                  "name": "link"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ link [ DEV/PORT_INDEX ] [ FILTER_NAME FILTER_VALUE ] ]"
+          ],
+          "tip": [
+            "Show RDMA statistics."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "Device or port."
+              ]
+            },
+            {
+              "name": "filter",
+              "usage": [
+                "filter FILTER_NAME FILTER_VALUE"
+              ],
+              "tip": [
+                "Filter name and value."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "unbind",
+          "usage": [
+            "unbind COUNTER_SCOPE [ DEV/PORT_INDEX ] [ OBJECT-ID ] [ COUNTER-ID ]"
+          ],
+          "tip": [
+            "Unbind a counter."
+          ],
+          "option": [
+            {
+              "name": "scope",
+              "usage": [
+                "scope COUNTER_SCOPE"
+              ],
+              "tip": [
+                "Counter scope."
+              ],
+              "next": [
+                {
+                  "name": "dev"
+                },
+                {
+                  "name": "link"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "unset",
+          "usage": [
+            "unset link [ DEV/PORT_INDEX ] optional-counters"
+          ],
+          "tip": [
+            "Unset optional counters."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sys",
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show sys help."
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set netns NEWMODE | privileged-qkey NEWSTATE"
+          ],
+          "tip": [
+            "Set subsystem parameters."
+          ],
+          "option": [
+            {
+              "name": "netns",
+              "usage": [
+                "netns NEWMODE"
+              ],
+              "tip": [
+                "Namespace mode."
+              ]
+            },
+            {
+              "name": "privileged-qkey",
+              "usage": [
+                "privileged-qkey NEWSTATE"
+              ],
+              "tip": [
+                "New privileged qkey state."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "tip": [
+            "Show the RDMA subsystem mode."
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "-b",
+      "usage": [
+        "-b, -batch <FILENAME>"
+      ],
+      "next": []
+    },
+    {
+      "name": "-d",
+      "usage": [
+        "-d, --details"
+      ]
+    },
+    {
+      "name": "-force"
+    },
+    {
+      "name": "-j",
+      "usage": [
+        "-j, --json"
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o, -oneline"
+      ]
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p, --pretty"
+      ]
+    },
+    {
+      "name": "-r",
+      "usage": [
+        "-r, --raw"
+      ]
+    },
+    {
+      "name": "-V",
+      "usage": [
+        "-V, -Version"
+      ]
+    }
+  ]
+}

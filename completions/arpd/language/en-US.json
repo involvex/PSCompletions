@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "Userspace ARP daemon."
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h",
+        "-?"
+      ],
+      "usage": [
+        "-h, -?, --help"
+      ],
+      "tip": [
+        "Print help."
+      ]
+    },
+    {
+      "name": "-a",
+      "usage": [
+        "-a <NUMBER>"
+      ],
+      "tip": [
+        "Send broadcast queries before considering a destination dead."
+      ],
+      "next": []
+    },
+    {
+      "name": "-b",
+      "usage": [
+        "-b <DATABASE>"
+      ],
+      "tip": [
+        "Set the database file location."
+      ],
+      "next": []
+    },
+    {
+      "name": "-B",
+      "usage": [
+        "-B <NUMBER>"
+      ],
+      "tip": [
+        "Set the number of back-to-back broadcasts."
+      ],
+      "next": []
+    },
+    {
+      "name": "-f",
+      "usage": [
+        "-f <FILE>"
+      ],
+      "tip": [
+        "Load the arpd database from the file and exit."
+      ],
+      "next": []
+    },
+    {
+      "name": "-k",
+      "tip": [
+        "Suppress kernel broadcast queries."
+      ]
+    },
+    {
+      "name": "-l",
+      "tip": [
+        "Dump the arpd database to stdout and exit."
+      ]
+    },
+    {
+      "name": "-n",
+      "usage": [
+        "-n <TIME>"
+      ],
+      "tip": [
+        "Set the negative cache timeout."
+      ],
+      "next": []
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p <TIME>"
+      ],
+      "tip": [
+        "Set the polling interval for the kernel ARP table."
+      ],
+      "next": []
+    },
+    {
+      "name": "-R",
+      "usage": [
+        "-R <RATE>"
+      ],
+      "tip": [
+        "Set the maximum broadcast rate."
+      ],
+      "next": []
+    }
+  ]
+}

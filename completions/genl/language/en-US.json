@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "Generic netlink utility frontend."
+    ]
+  },
+  "next": [
+    {
+      "name": "ctrl",
+      "tip": [
+        "Generic netlink controller."
+      ],
+      "next": [
+        {
+          "name": "get",
+          "usage": [
+            "get get PARMS"
+          ],
+          "tip": [
+            "Query the controller by name or id."
+          ],
+          "option": [
+            {
+              "name": "id",
+              "usage": [
+                "id ID"
+              ],
+              "tip": [
+                "User id."
+              ],
+              "next": []
+            },
+            {
+              "name": "name",
+              "usage": [
+                "name NAME"
+              ],
+              "tip": [
+                "User name."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Print help for the ctrl object."
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "Show the registered netlink users."
+          ]
+        },
+        {
+          "name": "monitor",
+          "tip": [
+            "Listen for generic netlink notifications."
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--details",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --details"
+      ],
+      "tip": [
+        "Show object details."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show a summary of options."
+      ]
+    },
+    {
+      "name": "--raw",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --raw"
+      ],
+      "tip": [
+        "Dump raw output only."
+      ]
+    },
+    {
+      "name": "--statistics",
+      "alias": [
+        "-stats",
+        "-s"
+      ],
+      "usage": [
+        "-s, -stats, --statistics"
+      ],
+      "tip": [
+        "Show object statistics."
+      ]
+    },
+    {
+      "name": "--Version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --Version"
+      ],
+      "tip": [
+        "Show the program version."
+      ]
+    }
+  ]
+}

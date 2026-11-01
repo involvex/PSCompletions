@@ -1,0 +1,1096 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "显示/操作 DCB 设置。"
+    ]
+  },
+  "next": [
+    {
+      "name": "app",
+      "tip": [
+        "应用优先级表配置。"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add dev STRING [ default-prio PRIO ] [ ethtype-prio ET:PRIO ] [ stream-port-prio PORT:PRIO ] [ dgram-port-prio PORT:PRIO ] [ port-prio PORT:PRIO ] [ dscp-prio INTEGER:PRIO ] [ pcp-prio PCP:PRIO ]"
+          ],
+          "tip": [
+            "添加应用优先级条目。"
+          ],
+          "option": [
+            {
+              "name": "default-prio",
+              "usage": [
+                "default-prio PRIO"
+              ],
+              "tip": [
+                "默认优先级。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "dgram-port-prio",
+              "usage": [
+                "dgram-port-prio PORT:PRIO"
+              ],
+              "tip": [
+                "数据报端口优先级。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dscp-prio",
+              "usage": [
+                "dscp-prio INTEGER:PRIO"
+              ],
+              "tip": [
+                "DSCP 优先级。"
+              ],
+              "next": []
+            },
+            {
+              "name": "ethtype-prio",
+              "usage": [
+                "ethtype-prio ET:PRIO"
+              ],
+              "tip": [
+                "EtherType 优先级。"
+              ],
+              "next": []
+            },
+            {
+              "name": "pcp-prio",
+              "usage": [
+                "pcp-prio PCP:PRIO"
+              ],
+              "tip": [
+                "PCP 优先级。"
+              ],
+              "next": []
+            },
+            {
+              "name": "port-prio",
+              "usage": [
+                "port-prio PORT:PRIO"
+              ],
+              "tip": [
+                "端口优先级。"
+              ],
+              "next": []
+            },
+            {
+              "name": "stream-port-prio",
+              "usage": [
+                "stream-port-prio PORT:PRIO"
+              ],
+              "tip": [
+                "流端口优先级。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del dev STRING"
+          ],
+          "tip": [
+            "删除应用优先级条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "flush",
+          "usage": [
+            "flush dev STRING"
+          ],
+          "tip": [
+            "清空应用优先级表。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 app 帮助。"
+          ]
+        },
+        {
+          "name": "replace",
+          "usage": [
+            "replace dev STRING"
+          ],
+          "tip": [
+            "替换应用优先级条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show dev STRING [ default-prio ] [ ethtype-prio ] [ stream-port-prio ] [ dgram-port-prio ] [ port-prio ] [ dscp-prio ] [ pcp-prio ]"
+          ],
+          "tip": [
+            "显示应用优先级表。"
+          ],
+          "option": [
+            {
+              "name": "default-prio",
+              "tip": [
+                "显示默认优先级。"
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "dgram-port-prio",
+              "tip": [
+                "显示数据报端口优先级。"
+              ]
+            },
+            {
+              "name": "dscp-prio",
+              "tip": [
+                "显示 DSCP 优先级。"
+              ]
+            },
+            {
+              "name": "ethtype-prio",
+              "tip": [
+                "显示 EtherType 优先级。"
+              ]
+            },
+            {
+              "name": "pcp-prio",
+              "tip": [
+                "显示 PCP 优先级。"
+              ]
+            },
+            {
+              "name": "port-prio",
+              "tip": [
+                "显示端口优先级。"
+              ]
+            },
+            {
+              "name": "stream-port-prio",
+              "tip": [
+                "显示流端口优先级。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "apptrust",
+      "tip": [
+        "应用信任表配置。"
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 apptrust 帮助。"
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set dev STRING [ order [ ethtype | stream-port | dgram-port | port | dscp | pcp ] ]"
+          ],
+          "tip": [
+            "设置应用信任表。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "dgram-port",
+              "tip": [
+                "使用数据报端口信任。"
+              ]
+            },
+            {
+              "name": "dscp",
+              "tip": [
+                "使用 DSCP 信任。"
+              ]
+            },
+            {
+              "name": "ethtype",
+              "tip": [
+                "使用 EtherType 信任。"
+              ]
+            },
+            {
+              "name": "order",
+              "tip": [
+                "设置信任顺序。"
+              ]
+            },
+            {
+              "name": "pcp",
+              "tip": [
+                "使用 PCP 信任。"
+              ]
+            },
+            {
+              "name": "port",
+              "tip": [
+                "使用端口信任。"
+              ]
+            },
+            {
+              "name": "stream-port",
+              "tip": [
+                "使用流端口信任。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show dev STRING [ order ]"
+          ],
+          "tip": [
+            "显示应用信任表。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "order",
+              "tip": [
+                "显示信任顺序。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "buffer",
+      "tip": [
+        "端口缓冲区配置。"
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 buffer 帮助。"
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set dev STRING [ prio-buffer PRIO-MAP ] [ buffer-size SIZE-MAP ]"
+          ],
+          "tip": [
+            "设置端口缓冲区配置。"
+          ],
+          "option": [
+            {
+              "name": "buffer-size",
+              "usage": [
+                "buffer-size SIZE-MAP"
+              ],
+              "tip": [
+                "缓冲区大小映射。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "prio-buffer",
+              "usage": [
+                "prio-buffer PRIO-MAP"
+              ],
+              "tip": [
+                "优先级缓冲区映射。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show dev STRING [ prio-buffer ] [ buffer-size ] [ total-size ]"
+          ],
+          "tip": [
+            "显示端口缓冲区配置。"
+          ],
+          "option": [
+            {
+              "name": "buffer-size",
+              "tip": [
+                "显示缓冲区大小。"
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "prio-buffer",
+              "tip": [
+                "显示优先级缓冲区映射。"
+              ]
+            },
+            {
+              "name": "total-size",
+              "tip": [
+                "显示总大小。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dcbx",
+      "tip": [
+        "DCB eXchange 配置。"
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 dcbx 帮助。"
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set dev STRING [ host | lld-managed ] [ cee | ieee ] [ static ]"
+          ],
+          "tip": [
+            "设置 DCBX 配置。"
+          ],
+          "option": [
+            {
+              "name": "cee",
+              "tip": [
+                "使用 CEE 模式。"
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "host",
+              "tip": [
+                "使用主机配置。"
+              ]
+            },
+            {
+              "name": "ieee",
+              "tip": [
+                "使用 IEEE 模式。"
+              ]
+            },
+            {
+              "name": "lld-managed",
+              "tip": [
+                "使用 LLDP 管理配置。"
+              ]
+            },
+            {
+              "name": "static",
+              "tip": [
+                "使用静态配置。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show dev STRING"
+          ],
+          "tip": [
+            "显示 DCBX 配置。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ets",
+      "tip": [
+        "增强传输选择配置。"
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 ets 帮助。"
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set dev STRING [ willing { on | off } ] [ { tc-tsa | reco-tc-tsa } TSA-MAP ] [ { pg-bw | tc-bw | reco-tc-bw } BW-MAP ] [ { prio-tc | reco-prio-tc } PRIO-MAP ]"
+          ],
+          "tip": [
+            "设置 ETS 配置。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "pg-bw",
+              "usage": [
+                "pg-bw BW-MAP"
+              ],
+              "tip": [
+                "优先级组带宽映射。"
+              ],
+              "next": []
+            },
+            {
+              "name": "prio-tc",
+              "usage": [
+                "prio-tc PRIO-MAP"
+              ],
+              "tip": [
+                "优先级到 TC 映射。"
+              ],
+              "next": []
+            },
+            {
+              "name": "reco-prio-tc",
+              "usage": [
+                "reco-prio-tc PRIO-MAP"
+              ],
+              "tip": [
+                "推荐优先级到 TC 映射。"
+              ],
+              "next": []
+            },
+            {
+              "name": "reco-tc-bw",
+              "usage": [
+                "reco-tc-bw BW-MAP"
+              ],
+              "tip": [
+                "推荐 TC 带宽映射。"
+              ],
+              "next": []
+            },
+            {
+              "name": "reco-tc-tsa",
+              "usage": [
+                "reco-tc-tsa TSA-MAP"
+              ],
+              "tip": [
+                "推荐 TC TSA 映射。"
+              ],
+              "next": []
+            },
+            {
+              "name": "tc-bw",
+              "usage": [
+                "tc-bw BW-MAP"
+              ],
+              "tip": [
+                "TC 带宽映射。"
+              ],
+              "next": []
+            },
+            {
+              "name": "tc-tsa",
+              "usage": [
+                "tc-tsa TSA-MAP"
+              ],
+              "tip": [
+                "TC TSA 映射。"
+              ],
+              "next": []
+            },
+            {
+              "name": "willing",
+              "usage": [
+                "willing {on|off}"
+              ],
+              "tip": [
+                "设置 willing 模式。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show dev STRING [ willing ] [ ets-cap ] [ cbs ] [ tc-tsa ] [ reco-tc-tsa ] [ pg-bw ] [ tc-bw ] [ reco-tc-bw ] [ prio-tc ] [ reco-prio-tc ]"
+          ],
+          "tip": [
+            "显示 ETS 配置。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "maxrate",
+      "tip": [
+        "每 TC 最大发送速率配置。"
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 maxrate 帮助。"
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set dev STRING [ tc-maxrate RATE-MAP ]"
+          ],
+          "tip": [
+            "设置最大速率配置。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "tc-maxrate",
+              "usage": [
+                "tc-maxrate RATE-MAP"
+              ],
+              "tip": [
+                "TC 速率映射。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show dev STRING [ tc-maxrate ]"
+          ],
+          "tip": [
+            "显示最大速率配置。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "tc-maxrate",
+              "tip": [
+                "显示 TC 最大速率。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pfc",
+      "tip": [
+        "基于优先级的流控配置。"
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 pfc 帮助。"
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set dev STRING [ prio-pfc PFC-MAP ] [ macsec-bypass { on | off } ] [ delay INTEGER ]"
+          ],
+          "tip": [
+            "设置 PFC 配置。"
+          ],
+          "option": [
+            {
+              "name": "delay",
+              "usage": [
+                "delay INTEGER"
+              ],
+              "tip": [
+                "设置延迟。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "macsec-bypass",
+              "usage": [
+                "macsec-bypass {on|off}"
+              ],
+              "tip": [
+                "设置 MACsec 绕过。"
+              ],
+              "next": []
+            },
+            {
+              "name": "prio-pfc",
+              "usage": [
+                "prio-pfc PFC-MAP"
+              ],
+              "tip": [
+                "优先级 PFC 映射。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show dev STRING [ pfc-cap ] [ prio-pfc ] [ macsec-bypass ] [ delay ] [ requests ] [ indications ]"
+          ],
+          "tip": [
+            "显示 PFC 配置。"
+          ],
+          "option": [
+            {
+              "name": "delay",
+              "tip": [
+                "显示延迟。"
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "indications",
+              "tip": [
+                "显示指示。"
+              ]
+            },
+            {
+              "name": "macsec-bypass",
+              "tip": [
+                "显示 MACsec 绕过。"
+              ]
+            },
+            {
+              "name": "pfc-cap",
+              "tip": [
+                "显示 PFC 能力。"
+              ]
+            },
+            {
+              "name": "prio-pfc",
+              "tip": [
+                "显示优先级 PFC 映射。"
+              ]
+            },
+            {
+              "name": "requests",
+              "tip": [
+                "显示请求。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rewr",
+      "tip": [
+        "优先级重写配置。"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add dev STRING [ prio-pcp PRIO:PCP ] [ prio-dscp PRIO:DSCP ]"
+          ],
+          "tip": [
+            "添加重写条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "prio-dscp",
+              "usage": [
+                "prio-dscp PRIO:DSCP"
+              ],
+              "tip": [
+                "优先级 DSCP 映射。"
+              ],
+              "next": []
+            },
+            {
+              "name": "prio-pcp",
+              "usage": [
+                "prio-pcp PRIO:PCP"
+              ],
+              "tip": [
+                "优先级 PCP 映射。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del dev STRING"
+          ],
+          "tip": [
+            "删除重写条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "flush",
+          "usage": [
+            "flush dev STRING"
+          ],
+          "tip": [
+            "清空重写配置。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 rewr 帮助。"
+          ]
+        },
+        {
+          "name": "replace",
+          "usage": [
+            "replace dev STRING"
+          ],
+          "tip": [
+            "替换重写条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show dev STRING [ prio-pcp ] [ prio-dscp ]"
+          ],
+          "tip": [
+            "显示重写配置。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "prio-dscp",
+              "tip": [
+                "显示优先级 DSCP 映射。"
+              ]
+            },
+            {
+              "name": "prio-pcp",
+              "tip": [
+                "显示优先级 PCP 映射。"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--batch",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --batch <FILENAME>"
+      ],
+      "tip": [
+        "从文件或标准输入读取命令。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--force",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --force"
+      ],
+      "tip": [
+        "批处理模式下出错不终止。"
+      ]
+    },
+    {
+      "name": "--iec",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --iec"
+      ],
+      "tip": [
+        "速率使用 IEC 1024 前缀。"
+      ]
+    },
+    {
+      "name": "--json",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --json"
+      ],
+      "tip": [
+        "生成 JSON 输出。"
+      ]
+    },
+    {
+      "name": "--netns",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --netns <NETNS>"
+      ],
+      "tip": [
+        "将 dcb 切换到指定的网络命名空间。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--Numeric",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --Numeric"
+      ],
+      "tip": [
+        "抑制符号名转换。"
+      ]
+    },
+    {
+      "name": "--pretty",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --pretty"
+      ],
+      "tip": [
+        "美化 JSON 输出。"
+      ]
+    },
+    {
+      "name": "--statistics",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --statistics"
+      ],
+      "tip": [
+        "在 show 输出中显示统计计数器。"
+      ]
+    },
+    {
+      "name": "--Version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --Version"
+      ],
+      "tip": [
+        "打印 dcb 工具版本并退出。"
+      ]
+    }
+  ]
+}

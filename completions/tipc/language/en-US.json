@@ -1,0 +1,793 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "TIPC configuration and management tool."
+    ]
+  },
+  "next": [
+    {
+      "name": "bearer",
+      "tip": [
+        "Show or modify TIPC bearers."
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add media udp name NAME remoteip REMOTEIP"
+          ],
+          "tip": [
+            "Add a UDP bearer."
+          ],
+          "option": [
+            {
+              "name": "media",
+              "usage": [
+                "media udp"
+              ],
+              "tip": [
+                "Media type."
+              ],
+              "next": []
+            },
+            {
+              "name": "name",
+              "usage": [
+                "name NAME"
+              ],
+              "tip": [
+                "Bearer name."
+              ],
+              "next": []
+            },
+            {
+              "name": "remoteip",
+              "usage": [
+                "remoteip REMOTEIP"
+              ],
+              "tip": [
+                "Remote IP address."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "disable",
+          "usage": [
+            "disable disable media { eth | ib } device DEVICE | media udp name NAME"
+          ],
+          "tip": [
+            "Disable a bearer."
+          ],
+          "option": [
+            {
+              "name": "device",
+              "usage": [
+                "device DEVICE"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "media",
+              "usage": [
+                "media eth|ib|udp"
+              ],
+              "tip": [
+                "Media type."
+              ],
+              "next": [
+                {
+                  "name": "eth"
+                },
+                {
+                  "name": "ib"
+                },
+                {
+                  "name": "udp"
+                }
+              ]
+            },
+            {
+              "name": "name",
+              "usage": [
+                "name NAME"
+              ],
+              "tip": [
+                "Bearer name."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "enable",
+          "usage": [
+            "enable enable [ domain DOMAIN ] [ priority PRIORITY ] media { eth | ib } device DEVICE | media udp name NAME localip LOCALIP [ localport LOCALPORT ] [ remoteip REMOTEIP ] [ remoteport REMOTEPORT ]"
+          ],
+          "tip": [
+            "Enable a bearer."
+          ],
+          "option": [
+            {
+              "name": "device",
+              "usage": [
+                "device DEVICE"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "domain",
+              "usage": [
+                "domain DOMAIN"
+              ],
+              "tip": [
+                "Domain."
+              ],
+              "next": []
+            },
+            {
+              "name": "localip",
+              "usage": [
+                "localip LOCALIP"
+              ],
+              "tip": [
+                "Local IP."
+              ],
+              "next": []
+            },
+            {
+              "name": "localport",
+              "usage": [
+                "localport LOCALPORT"
+              ],
+              "tip": [
+                "Local port."
+              ],
+              "next": []
+            },
+            {
+              "name": "media",
+              "usage": [
+                "media eth|ib|udp"
+              ],
+              "tip": [
+                "Media type."
+              ],
+              "next": [
+                {
+                  "name": "eth"
+                },
+                {
+                  "name": "ib"
+                },
+                {
+                  "name": "udp"
+                }
+              ]
+            },
+            {
+              "name": "name",
+              "usage": [
+                "name NAME"
+              ],
+              "tip": [
+                "Bearer name."
+              ],
+              "next": []
+            },
+            {
+              "name": "priority",
+              "usage": [
+                "priority PRIORITY"
+              ],
+              "tip": [
+                "Priority."
+              ],
+              "next": []
+            },
+            {
+              "name": "remoteip",
+              "usage": [
+                "remoteip REMOTEIP"
+              ],
+              "tip": [
+                "Remote IP."
+              ],
+              "next": []
+            },
+            {
+              "name": "remoteport",
+              "usage": [
+                "remoteport REMOTEPORT"
+              ],
+              "tip": [
+                "Remote port."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "get",
+          "usage": [
+            "get get [ priority | tolerance | window ] media { eth | ib } device DEVICE | media udp name NAME"
+          ],
+          "tip": [
+            "Get bearer parameters."
+          ],
+          "option": [
+            {
+              "name": "device",
+              "usage": [
+                "device DEVICE"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "media",
+              "usage": [
+                "media eth|ib|udp"
+              ],
+              "tip": [
+                "Media type."
+              ],
+              "next": [
+                {
+                  "name": "eth"
+                },
+                {
+                  "name": "ib"
+                },
+                {
+                  "name": "udp"
+                }
+              ]
+            },
+            {
+              "name": "name",
+              "usage": [
+                "name NAME"
+              ],
+              "tip": [
+                "Bearer name."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show bearer help."
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "List bearers."
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set set { priority PRIORITY | tolerance TOLERANCE | window WINDOW } media { eth | ib } device DEVICE | media udp name NAME"
+          ],
+          "tip": [
+            "Set bearer parameters."
+          ],
+          "option": [
+            {
+              "name": "device",
+              "usage": [
+                "device DEVICE"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "media",
+              "usage": [
+                "media eth|ib|udp"
+              ],
+              "tip": [
+                "Media type."
+              ],
+              "next": [
+                {
+                  "name": "eth"
+                },
+                {
+                  "name": "ib"
+                },
+                {
+                  "name": "udp"
+                }
+              ]
+            },
+            {
+              "name": "name",
+              "usage": [
+                "name NAME"
+              ],
+              "tip": [
+                "Bearer name."
+              ],
+              "next": []
+            },
+            {
+              "name": "priority",
+              "usage": [
+                "priority PRIORITY"
+              ],
+              "tip": [
+                "Priority."
+              ],
+              "next": []
+            },
+            {
+              "name": "tolerance",
+              "usage": [
+                "tolerance TOLERANCE"
+              ],
+              "tip": [
+                "Tolerance."
+              ],
+              "next": []
+            },
+            {
+              "name": "window",
+              "usage": [
+                "window WINDOW"
+              ],
+              "tip": [
+                "Window."
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "link",
+      "tip": [
+        "Show or modify TIPC links."
+      ],
+      "next": [
+        {
+          "name": "get",
+          "usage": [
+            "get get [ priority | tolerance | window ] [ link LINK ] [ broadcast ]"
+          ],
+          "tip": [
+            "Get link parameters."
+          ],
+          "option": [
+            {
+              "name": "link",
+              "usage": [
+                "link LINK"
+              ],
+              "tip": [
+                "Link name."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show link help."
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "List links."
+          ]
+        },
+        {
+          "name": "monitor",
+          "tip": [
+            "Monitor link state."
+          ],
+          "next": [
+            {
+              "name": "get",
+              "usage": [
+                "get get { threshold }"
+              ],
+              "tip": [
+                "Get monitor threshold."
+              ]
+            },
+            {
+              "name": "set",
+              "usage": [
+                "set set { threshold }"
+              ],
+              "tip": [
+                "Set monitor threshold."
+              ]
+            },
+            {
+              "name": "summary",
+              "usage": [
+                "summary summary"
+              ],
+              "tip": [
+                "Show a monitor summary."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set set [ priority PRIORITY | tolerance TOLERANCE | window WINDOW ] [ link LINK ] [ broadcast [ BROADCAST | REPLICAST | AUTOSELECT [ ratio SIZE ] ] ]"
+          ],
+          "tip": [
+            "Set link parameters."
+          ],
+          "option": [
+            {
+              "name": "broadcast",
+              "usage": [
+                "broadcast BROADCAST|REPLICAST|AUTOSELECT"
+              ],
+              "tip": [
+                "Broadcast mode."
+              ],
+              "next": [
+                {
+                  "name": "AUTOSELECT"
+                },
+                {
+                  "name": "BROADCAST"
+                },
+                {
+                  "name": "REPLICAST"
+                }
+              ]
+            },
+            {
+              "name": "link",
+              "usage": [
+                "link LINK"
+              ],
+              "tip": [
+                "Link name."
+              ],
+              "next": []
+            },
+            {
+              "name": "priority",
+              "usage": [
+                "priority PRIORITY"
+              ],
+              "tip": [
+                "Priority."
+              ],
+              "next": []
+            },
+            {
+              "name": "ratio",
+              "usage": [
+                "ratio SIZE"
+              ],
+              "tip": [
+                "Replicast ratio."
+              ],
+              "next": []
+            },
+            {
+              "name": "tolerance",
+              "usage": [
+                "tolerance TOLERANCE"
+              ],
+              "tip": [
+                "Tolerance."
+              ],
+              "next": []
+            },
+            {
+              "name": "window",
+              "usage": [
+                "window WINDOW"
+              ],
+              "tip": [
+                "Window."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "statistics",
+          "tip": [
+            "Show or reset link statistics."
+          ],
+          "next": [
+            {
+              "name": "reset",
+              "usage": [
+                "reset reset link LINK"
+              ],
+              "tip": [
+                "Reset link statistics."
+              ],
+              "option": [
+                {
+                  "name": "link",
+                  "usage": [
+                    "link LINK"
+                  ],
+                  "tip": [
+                    "Link name."
+                  ],
+                  "next": []
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "usage": [
+                "show show [ link LINK ]"
+              ],
+              "tip": [
+                "Show link statistics."
+              ],
+              "option": [
+                {
+                  "name": "link",
+                  "usage": [
+                    "link LINK"
+                  ],
+                  "tip": [
+                    "Link name."
+                  ],
+                  "next": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "media",
+      "tip": [
+        "Show or modify TIPC media."
+      ],
+      "next": [
+        {
+          "name": "get",
+          "usage": [
+            "get get { priority | tolerance | window } media MEDIA"
+          ],
+          "tip": [
+            "Get media parameters."
+          ],
+          "option": [
+            {
+              "name": "media",
+              "usage": [
+                "media MEDIA"
+              ],
+              "tip": [
+                "Media name."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show media help."
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "List media."
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set set { priority PRIORITY | tolerance TOLERANCE | window WINDOW } media MEDIA"
+          ],
+          "tip": [
+            "Set media parameters."
+          ],
+          "option": [
+            {
+              "name": "media",
+              "usage": [
+                "media MEDIA"
+              ],
+              "tip": [
+                "Media name."
+              ],
+              "next": []
+            },
+            {
+              "name": "priority",
+              "usage": [
+                "priority PRIORITY"
+              ],
+              "tip": [
+                "Priority."
+              ],
+              "next": []
+            },
+            {
+              "name": "tolerance",
+              "usage": [
+                "tolerance TOLERANCE"
+              ],
+              "tip": [
+                "Tolerance."
+              ],
+              "next": []
+            },
+            {
+              "name": "window",
+              "usage": [
+                "window WINDOW"
+              ],
+              "tip": [
+                "Window."
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "nametable",
+      "tip": [
+        "Show the TIPC nametable."
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show nametable help."
+          ]
+        },
+        {
+          "name": "show",
+          "tip": [
+            "Show the nametable."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node",
+      "tip": [
+        "Show or modify TIPC node parameters."
+      ],
+      "next": [
+        {
+          "name": "get",
+          "usage": [
+            "get get { address | netid }"
+          ],
+          "tip": [
+            "Get node parameters."
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show node help."
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "List nodes."
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set set { address ADDRESS | netid NETID }"
+          ],
+          "tip": [
+            "Set node parameters."
+          ],
+          "option": [
+            {
+              "name": "address",
+              "usage": [
+                "address ADDRESS"
+              ],
+              "tip": [
+                "Node address."
+              ],
+              "next": []
+            },
+            {
+              "name": "netid",
+              "usage": [
+                "netid NETID"
+              ],
+              "tip": [
+                "Network ID."
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "socket",
+      "tip": [
+        "Show TIPC sockets."
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show socket help."
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "List TIPC sockets."
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "-h",
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show help for the last valid command."
+      ]
+    },
+    {
+      "name": "-j",
+      "usage": [
+        "-j, -json"
+      ],
+      "tip": [
+        "Output results in JSON."
+      ]
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p, -pretty"
+      ],
+      "tip": [
+        "Indent JSON output."
+      ]
+    }
+  ]
+}

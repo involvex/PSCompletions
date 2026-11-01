@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "RTnetlink 监视器。"
+    ]
+  },
+  "next": [
+    {
+      "name": "help",
+      "tip": [
+        "显示选项摘要。"
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "-0",
+      "tip": [
+        "-family link 的简写。"
+      ]
+    },
+    {
+      "name": "-4",
+      "tip": [
+        "-family inet 的简写。"
+      ]
+    },
+    {
+      "name": "-6",
+      "tip": [
+        "-family inet6 的简写。"
+      ]
+    },
+    {
+      "name": "-family",
+      "usage": [
+        "-family {inet|inet6|link|help}"
+      ],
+      "tip": [
+        "指定协议族。",
+        "可能值: inet, inet6, link, help"
+      ],
+      "next": [
+        {
+          "name": "help"
+        },
+        {
+          "name": "inet"
+        },
+        {
+          "name": "inet6"
+        },
+        {
+          "name": "link"
+        }
+      ]
+    },
+    {
+      "name": "-Version",
+      "tip": [
+        "打印版本并退出。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1643 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "显示/操作流量控制设置。"
+    ]
+  },
+  "next": [
+    {
+      "name": "actions",
+      "alias": [
+        "action"
+      ],
+      "usage": [
+        "action|actions"
+      ],
+      "tip": [
+        "流量动作管理。"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add action ACTDETAIL [ index INDEX ] [ hw_stats HW_STATS ] [ skip_sw | skip_hw ]"
+          ],
+          "tip": [
+            "添加动作。"
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action ACTNAME"
+              ],
+              "tip": [
+                "动作名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "hw_stats",
+              "usage": [
+                "hw_stats immediate|delayed|disabled"
+              ],
+              "tip": [
+                "硬件统计模式。"
+              ],
+              "next": [
+                {
+                  "name": "delayed"
+                },
+                {
+                  "name": "disabled"
+                },
+                {
+                  "name": "immediate"
+                }
+              ]
+            },
+            {
+              "name": "index",
+              "usage": [
+                "index INDEX"
+              ],
+              "tip": [
+                "动作索引。"
+              ],
+              "next": []
+            },
+            {
+              "name": "skip_hw",
+              "tip": [
+                "跳过硬件。"
+              ]
+            },
+            {
+              "name": "skip_sw",
+              "tip": [
+                "跳过软件。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "change",
+          "usage": [
+            "change change action ACTDETAIL [ index INDEX ]"
+          ],
+          "tip": [
+            "修改动作。"
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action ACTNAME"
+              ],
+              "tip": [
+                "动作名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "index",
+              "usage": [
+                "index INDEX"
+              ],
+              "tip": [
+                "动作索引。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "usage": [
+            "delete delete action ACTNAME [ index INDEX ]"
+          ],
+          "tip": [
+            "删除动作。"
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action ACTNAME"
+              ],
+              "tip": [
+                "动作名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "index",
+              "usage": [
+                "index INDEX"
+              ],
+              "tip": [
+                "动作索引。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "flush",
+          "usage": [
+            "flush flush [ action ACTNAME ]"
+          ],
+          "tip": [
+            "清空动作。"
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action ACTNAME"
+              ],
+              "tip": [
+                "动作名。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "get",
+          "usage": [
+            "get get action ACTNAME [ index INDEX ]"
+          ],
+          "tip": [
+            "获取动作。"
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action ACTNAME"
+              ],
+              "tip": [
+                "动作名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "index",
+              "usage": [
+                "index INDEX"
+              ],
+              "tip": [
+                "动作索引。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 action 帮助。"
+          ]
+        },
+        {
+          "name": "list",
+          "usage": [
+            "list list [ action ACTNAME ]"
+          ],
+          "tip": [
+            "列出动作。"
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action ACTNAME"
+              ],
+              "tip": [
+                "动作名。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "ls",
+          "usage": [
+            "ls ls [ action ACTNAME ]"
+          ],
+          "tip": [
+            "列出动作。"
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action ACTNAME"
+              ],
+              "tip": [
+                "动作名。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "replace",
+          "usage": [
+            "replace replace action ACTDETAIL [ index INDEX ]"
+          ],
+          "tip": [
+            "替换动作。"
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action ACTNAME"
+              ],
+              "tip": [
+                "动作名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "index",
+              "usage": [
+                "index INDEX"
+              ],
+              "tip": [
+                "动作索引。"
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "chain",
+      "tip": [
+        "过滤器链管理。"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add [ dev STRING ] [ block BLOCK_INDEX ]"
+          ],
+          "tip": [
+            "添加链。"
+          ],
+          "option": [
+            {
+              "name": "block",
+              "usage": [
+                "block BLOCK_INDEX"
+              ],
+              "tip": [
+                "块索引。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del del [ dev STRING ] [ block BLOCK_INDEX ]"
+          ],
+          "tip": [
+            "删除链。"
+          ],
+          "option": [
+            {
+              "name": "block",
+              "usage": [
+                "block BLOCK_INDEX"
+              ],
+              "tip": [
+                "块索引。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "get",
+          "usage": [
+            "get get [ dev STRING ] [ block BLOCK_INDEX ]"
+          ],
+          "tip": [
+            "获取链。"
+          ],
+          "option": [
+            {
+              "name": "block",
+              "usage": [
+                "block BLOCK_INDEX"
+              ],
+              "tip": [
+                "块索引。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 chain 帮助。"
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [ dev STRING ] [ block BLOCK_INDEX ]"
+          ],
+          "tip": [
+            "显示链。"
+          ],
+          "option": [
+            {
+              "name": "block",
+              "usage": [
+                "block BLOCK_INDEX"
+              ],
+              "tip": [
+                "块索引。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "class",
+      "tip": [
+        "流量类管理。"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add dev STRING [ classid CLASSID ] [ root | parent CLASSID ] [ QDISC_KIND [ help | OPTIONS ] ]"
+          ],
+          "tip": [
+            "添加类。"
+          ],
+          "option": [
+            {
+              "name": "classid",
+              "usage": [
+                "classid CLASSID"
+              ],
+              "tip": [
+                "类 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "父类 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "对根 qdisc 操作。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "change",
+          "usage": [
+            "change change dev STRING [ classid CLASSID ] [ root | parent CLASSID ]"
+          ],
+          "tip": [
+            "修改类。"
+          ],
+          "option": [
+            {
+              "name": "classid",
+              "usage": [
+                "classid CLASSID"
+              ],
+              "tip": [
+                "类 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "父类 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "对根 qdisc 操作。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del del dev STRING [ classid CLASSID ] [ root | parent CLASSID ]"
+          ],
+          "tip": [
+            "删除类。"
+          ],
+          "option": [
+            {
+              "name": "classid",
+              "usage": [
+                "classid CLASSID"
+              ],
+              "tip": [
+                "类 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "父类 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "对根 qdisc 操作。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 class 帮助。"
+          ]
+        },
+        {
+          "name": "replace",
+          "usage": [
+            "replace replace dev STRING [ classid CLASSID ] [ root | parent CLASSID ]"
+          ],
+          "tip": [
+            "替换类。"
+          ],
+          "option": [
+            {
+              "name": "classid",
+              "usage": [
+                "classid CLASSID"
+              ],
+              "tip": [
+                "类 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "父类 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "对根 qdisc 操作。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [ dev STRING ] [ root | parent CLASSID ]"
+          ],
+          "tip": [
+            "显示类。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "父类 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "对根 qdisc 操作。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "exec",
+      "tip": [
+        "执行 tc exec 类型。"
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 exec 帮助。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "filter",
+      "tip": [
+        "流量过滤器管理。"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add [ dev STRING ] [ block BLOCK_INDEX ] [ pref PRIO ] protocol PROTO [ chain CHAIN_INDEX ] [ estimator INTERVAL TIME_CONSTANT ] [ root | ingress | egress | parent CLASSID ] [ handle FILTERID ] [ FILTER_TYPE [ help | OPTIONS ] ]"
+          ],
+          "tip": [
+            "添加过滤器。"
+          ],
+          "option": [
+            {
+              "name": "block",
+              "usage": [
+                "block BLOCK_INDEX"
+              ],
+              "tip": [
+                "块索引。"
+              ],
+              "next": []
+            },
+            {
+              "name": "chain",
+              "usage": [
+                "chain CHAIN_INDEX"
+              ],
+              "tip": [
+                "链索引。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "egress",
+              "tip": [
+                "对出口操作。"
+              ]
+            },
+            {
+              "name": "estimator",
+              "usage": [
+                "estimator INTERVAL TIME_CONSTANT"
+              ],
+              "tip": [
+                "估算器设置。"
+              ],
+              "next": []
+            },
+            {
+              "name": "handle",
+              "usage": [
+                "handle FILTERID"
+              ],
+              "tip": [
+                "过滤器 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "ingress",
+              "tip": [
+                "对入口操作。"
+              ]
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "父类 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "pref",
+              "usage": [
+                "pref PRIO"
+              ],
+              "tip": [
+                "过滤器优先级。"
+              ],
+              "next": []
+            },
+            {
+              "name": "protocol",
+              "usage": [
+                "protocol PROTO"
+              ],
+              "tip": [
+                "协议。"
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "对根 qdisc 操作。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "change",
+          "usage": [
+            "change change [ dev STRING ] [ block BLOCK_INDEX ] [ pref PRIO ] protocol PROTO"
+          ],
+          "tip": [
+            "修改过滤器。"
+          ],
+          "option": [
+            {
+              "name": "block",
+              "usage": [
+                "block BLOCK_INDEX"
+              ],
+              "tip": [
+                "块索引。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "pref",
+              "usage": [
+                "pref PRIO"
+              ],
+              "tip": [
+                "过滤器优先级。"
+              ],
+              "next": []
+            },
+            {
+              "name": "protocol",
+              "usage": [
+                "protocol PROTO"
+              ],
+              "tip": [
+                "协议。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del del [ dev STRING ] [ block BLOCK_INDEX ] [ pref PRIO ] protocol PROTO [ chain CHAIN_INDEX ] [ root | ingress | egress | parent CLASSID ] [ handle FILTERID ]"
+          ],
+          "tip": [
+            "删除过滤器。"
+          ],
+          "option": [
+            {
+              "name": "block",
+              "usage": [
+                "block BLOCK_INDEX"
+              ],
+              "tip": [
+                "块索引。"
+              ],
+              "next": []
+            },
+            {
+              "name": "chain",
+              "usage": [
+                "chain CHAIN_INDEX"
+              ],
+              "tip": [
+                "链索引。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "egress",
+              "tip": [
+                "对出口操作。"
+              ]
+            },
+            {
+              "name": "handle",
+              "usage": [
+                "handle FILTERID"
+              ],
+              "tip": [
+                "过滤器 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "ingress",
+              "tip": [
+                "对入口操作。"
+              ]
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "父类 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "pref",
+              "usage": [
+                "pref PRIO"
+              ],
+              "tip": [
+                "过滤器优先级。"
+              ],
+              "next": []
+            },
+            {
+              "name": "protocol",
+              "usage": [
+                "protocol PROTO"
+              ],
+              "tip": [
+                "协议。"
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "对根 qdisc 操作。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "get",
+          "usage": [
+            "get get dev STRING parent CLASSID protocol PROTO handle FILTERID pref PRIO FILTER_TYPE"
+          ],
+          "tip": [
+            "获取过滤器。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "handle",
+              "usage": [
+                "handle FILTERID"
+              ],
+              "tip": [
+                "过滤器 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "父类 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "pref",
+              "usage": [
+                "pref PRIO"
+              ],
+              "tip": [
+                "过滤器优先级。"
+              ],
+              "next": []
+            },
+            {
+              "name": "protocol",
+              "usage": [
+                "protocol PROTO"
+              ],
+              "tip": [
+                "协议。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 filter 帮助。"
+          ]
+        },
+        {
+          "name": "replace",
+          "usage": [
+            "replace replace [ dev STRING ] [ block BLOCK_INDEX ] [ pref PRIO ] protocol PROTO"
+          ],
+          "tip": [
+            "替换过滤器。"
+          ],
+          "option": [
+            {
+              "name": "block",
+              "usage": [
+                "block BLOCK_INDEX"
+              ],
+              "tip": [
+                "块索引。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "pref",
+              "usage": [
+                "pref PRIO"
+              ],
+              "tip": [
+                "过滤器优先级。"
+              ],
+              "next": []
+            },
+            {
+              "name": "protocol",
+              "usage": [
+                "protocol PROTO"
+              ],
+              "tip": [
+                "协议。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [ dev STRING ] [ root | ingress | egress | parent CLASSID ]"
+          ],
+          "tip": [
+            "显示过滤器。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "egress",
+              "tip": [
+                "对出口操作。"
+              ]
+            },
+            {
+              "name": "ingress",
+              "tip": [
+                "对入口操作。"
+              ]
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "父类 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "对根 qdisc 操作。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "monitor",
+      "tip": [
+        "监视 tc 事件。"
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 monitor 帮助。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "qdisc",
+      "tip": [
+        "队列规则管理。"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add dev STRING [ handle QHANDLE ] [ root | ingress | clsact | parent CLASSID ] [ estimator INTERVAL TIME_CONSTANT ] [ stab [ help | STAB_OPTIONS] ] [ ingress_block BLOCK_INDEX ] [ egress_block BLOCK_INDEX ] [ QDISC_KIND [ help | OPTIONS ] ]"
+          ],
+          "tip": [
+            "添加 qdisc。"
+          ],
+          "option": [
+            {
+              "name": "clsact",
+              "tip": [
+                "对 clsact 操作。"
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "egress_block",
+              "usage": [
+                "egress_block BLOCK_INDEX"
+              ],
+              "tip": [
+                "出口块。"
+              ],
+              "next": []
+            },
+            {
+              "name": "estimator",
+              "usage": [
+                "estimator INTERVAL TIME_CONSTANT"
+              ],
+              "tip": [
+                "估算器设置。"
+              ],
+              "next": []
+            },
+            {
+              "name": "handle",
+              "usage": [
+                "handle QHANDLE"
+              ],
+              "tip": [
+                "Qdisc 句柄。"
+              ],
+              "next": []
+            },
+            {
+              "name": "ingress",
+              "tip": [
+                "对入口操作。"
+              ]
+            },
+            {
+              "name": "ingress_block",
+              "usage": [
+                "ingress_block BLOCK_INDEX"
+              ],
+              "tip": [
+                "入口块。"
+              ],
+              "next": []
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "父类 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "对根 qdisc 操作。"
+              ]
+            },
+            {
+              "name": "stab",
+              "usage": [
+                "stab [help|STAB_OPTIONS]"
+              ],
+              "tip": [
+                "大小表。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "change",
+          "usage": [
+            "change change dev STRING [ handle QHANDLE ] [ root | ingress | clsact | parent CLASSID ]"
+          ],
+          "tip": [
+            "修改 qdisc。"
+          ],
+          "option": [
+            {
+              "name": "clsact",
+              "tip": [
+                "对 clsact 操作。"
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "handle",
+              "usage": [
+                "handle QHANDLE"
+              ],
+              "tip": [
+                "Qdisc 句柄。"
+              ],
+              "next": []
+            },
+            {
+              "name": "ingress",
+              "tip": [
+                "对入口操作。"
+              ]
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "父类 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "对根 qdisc 操作。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del del dev STRING [ handle QHANDLE ] [ root | ingress | clsact | parent CLASSID ]"
+          ],
+          "tip": [
+            "删除 qdisc。"
+          ],
+          "option": [
+            {
+              "name": "clsact",
+              "tip": [
+                "对 clsact 操作。"
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "handle",
+              "usage": [
+                "handle QHANDLE"
+              ],
+              "tip": [
+                "Qdisc 句柄。"
+              ],
+              "next": []
+            },
+            {
+              "name": "ingress",
+              "tip": [
+                "对入口操作。"
+              ]
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "父类 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "对根 qdisc 操作。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 qdisc 帮助。"
+          ]
+        },
+        {
+          "name": "list",
+          "usage": [
+            "list list [ dev STRING ] [ QDISC_ID ] [ invisible ]"
+          ],
+          "tip": [
+            "列出 qdisc。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "replace",
+          "usage": [
+            "replace replace dev STRING [ handle QHANDLE ] [ root | ingress | clsact | parent CLASSID ]"
+          ],
+          "tip": [
+            "替换 qdisc。"
+          ],
+          "option": [
+            {
+              "name": "clsact",
+              "tip": [
+                "对 clsact 操作。"
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "handle",
+              "usage": [
+                "handle QHANDLE"
+              ],
+              "tip": [
+                "Qdisc 句柄。"
+              ],
+              "next": []
+            },
+            {
+              "name": "ingress",
+              "tip": [
+                "对入口操作。"
+              ]
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "父类 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "对根 qdisc 操作。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [ dev STRING ] [ QDISC_ID ] [ invisible ]"
+          ],
+          "tip": [
+            "显示 qdisc。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "invisible",
+              "tip": [
+                "显示不可见 qdisc。"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--color",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --color"
+      ],
+      "tip": [
+        "使用彩色输出。"
+      ]
+    },
+    {
+      "name": "--details",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --details"
+      ],
+      "tip": [
+        "显示详细信息。"
+      ]
+    },
+    {
+      "name": "--echo",
+      "tip": [
+        "回显已应用的配置。"
+      ]
+    },
+    {
+      "name": "--json",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --json"
+      ],
+      "tip": [
+        "输出 JSON。"
+      ]
+    },
+    {
+      "name": "--oneline",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --oneline"
+      ],
+      "tip": [
+        "每条记录打印为一行。"
+      ]
+    },
+    {
+      "name": "--pretty",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --pretty"
+      ],
+      "tip": [
+        "美化 JSON。"
+      ]
+    },
+    {
+      "name": "--raw",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --raw"
+      ],
+      "tip": [
+        "显示原始值。"
+      ]
+    },
+    {
+      "name": "--statistics",
+      "alias": [
+        "-stats",
+        "-s"
+      ],
+      "usage": [
+        "-s, -stats, --statistics"
+      ],
+      "tip": [
+        "显示统计信息。"
+      ]
+    },
+    {
+      "name": "--Version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --Version"
+      ],
+      "tip": [
+        "打印 tc 版本。"
+      ]
+    },
+    {
+      "name": "-batch",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, -batch <filename>"
+      ],
+      "tip": [
+        "从文件读取命令。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-brief",
+      "alias": [
+        "-br"
+      ],
+      "usage": [
+        "-br, -brief"
+      ],
+      "tip": [
+        "使用简要输出。"
+      ]
+    },
+    {
+      "name": "-conf",
+      "alias": [
+        "-cf"
+      ],
+      "usage": [
+        "-cf, -conf <path>"
+      ],
+      "tip": [
+        "使用配置文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-names",
+      "alias": [
+        "-nam"
+      ],
+      "usage": [
+        "-nam, -names"
+      ],
+      "tip": [
+        "解析名称。"
+      ]
+    },
+    {
+      "name": "-netns",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, -netns <name>"
+      ],
+      "tip": [
+        "切换到网络命名空间。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-nm",
+      "tip": [
+        "不解析名称。"
+      ]
+    },
+    {
+      "name": "-Numeric",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, -Numeric"
+      ],
+      "tip": [
+        "打印数值。"
+      ]
+    }
+  ]
+}
