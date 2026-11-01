@@ -1,5 +1,5 @@
 {
-  "count": 685,
+  "count": 704,
   "update": {
     "7z": "cac4d4accba5c11d5b3ae1fde2e491070f69e522c974cc3004950acea1ffa593",
     "act": "3c17f2f2959410d3ac7c443cad5cfcab4d660eba2a6ca7e2b9f636eab63a2b6e",
@@ -173,6 +173,7 @@
     "fnm": "f3a720c89bd929b4c7f3c72ff1f970df6353cef2775362f016bbf1274af4cb66",
     "fold@GNU": "7f1c4e6a7e76d1815eb8a0c11c5fb853791d1a7c9958a8c004d3d20b05a0eeb1",
     "fold@uutils": "5a1de279819aad6a3c7cad2f7903e04739dc7e11f6a8b98dc9169007324eaa53",
+    "free": "cf0c1de22f0a2f8b682332f44bb4fbd23030db5283f739cd3070e60f2217d80c",
     "fresh": "25374a3712254f8edee8276c10596849a20d1ce7f82304f70edc3513c6ba625c",
     "fsfreeze": "fc2f390d2cb5f95df2b0b70a06bc2b2d91e54f0a4260f01fb61d6a7cc52b40f9",
     "fstrim": "777c6ae0738223a41edd48c511fcd393394479c8bf26a9ce1d27e0c030ee5fb6",
@@ -251,6 +252,7 @@
     "k3d": "0db0cf78691313269df8bc77a5cdb72ac158a1c1caf0d320104bcf9c8fb2ab7f",
     "k9s": "14b48643bbac253d6bb1c0e3d0cdc656e3c5a52e3c554c7d68d5e37d678028f0",
     "kernel-install": "9a0d60368adfad40fe4be9a90d204a2cb4f99c23d33647ac829864130e30c90f",
+    "kill": "34e728b3fc68ac028bbfa879e75aee7fb87b02605f810fa704ca1cd72a3ee1fd",
     "kind": "d14459da42dec1d143e6c3458b563b8e64bfe603e8b38ec5fb6032baf0ab92b8",
     "komac": "09d8c3fff035488a20ef5144c4c78880db3989958a4e5f1396616a9403a6cbc1",
     "kubectl": "d1ce103669e3152d53f3d1e3ab7cf48f7ea84a22cac6622a1b4b555e2c457fb0",
@@ -379,8 +381,11 @@
     "pdfcpu": "6677f3461567a810c9f56d186c1254f4a360bc0ed63a0c45e092e30a48ebaad0",
     "pdm": "df603d9610652a330e65633c9cbf56c52d9777a795ec893088e5d0a208636a9f",
     "perl": "5544b1f9e50d23debd9be044498c4a7f28db79afee3efa3365ac5980ad32edd8",
+    "pgrep": "49e9e26fd799b8c5adb77bf28190bfde2f477eb7cb72b319852ad492e3f95d8a",
     "php": "0625a69458af42115b3675a2472b3be6c9264968046ecaf93daee1928f6e4751",
     "phpunit": "d7485a53148f810defab7b05e2b471cd5485e4425281c12e6861eeea9c0ac8fa",
+    "pidof": "870c58eb7256a2b514dcb2f670fb80e9a910f61f2626e67f5a81b118ec2e454f",
+    "pidwait": "fabc684d0951d5ee54ba1ac804eb75f997ba81776375e6979ca8c61c3e6943e6",
     "ping": "3b6039521a0836479de2e4a3bd620d89db9aa965573f700e42306f345557aab0",
     "pinky@GNU": "7dfb8c1e94ded91dee7cb2143733e8a8018512f167849c2f1dc6c7d16f93d9ba",
     "pinky@uutils": "9525faf2613f3e0a2b2334a3e486d0b6c663798f9b0cb72d950617e1a20912a3",
@@ -389,8 +394,10 @@
     "pipx": "a3824ad3ba6bb03596216380bc2051248694cb199ded7cd6ca773322458fd187",
     "pivot_root": "26e3353d9ee182658019725c258ad4895bcdeb915cfd3dc5e08b1e4485a3470d",
     "pixi": "e81ef79764f59949703ceb16ae2b0b88a18fd673228085da93add50952716236",
+    "pkill": "30ecbde440932f9d3b6f3efa8a57d19389e40d6068fb099d698d5523d4d49290",
     "playwright": "0cf5e9f8b66696599da6715576608275cff377b5f67d505aa074bb401a60e649",
     "pm2": "ad4a6c9277589a256ae096f445a5b66b266fd96971fc20167b66b1927a83b2ef",
+    "pmap": "e00ea707b3e8f9b54cd9e0f5550f542efa6254190b536eefad3bbe6ac97f3263",
     "pnpm": "90abec40bc261a9e4d2f26b1b2f7fb4dae8d03f898c868a214d3bc539399d35a",
     "pnpx": "db09fda3d83ee57a7253905535c2c5200d1e1da2566767e7510f9f4231caea87",
     "podman": "786feab374ef6f1522c7f2189e33dd4e938cd32f70a02a109aa7f1b02f9d0ba9",
@@ -405,6 +412,7 @@
     "printf@uutils": "1475a1849b62938a8c871c2311e0441967d22e3e48456cf0fc3a983d4f6c3896",
     "prisma": "fb47e585d1d9e1ab83a23b9d078f8b678a5dd53bcd820637c40499209fed86db",
     "prlimit": "7f17c1d0f08a39a1cd73c09d6c159f94a4a30fa829c193dfad77fe5f9ae43deb",
+    "ps": "733785951da606f15640f962150c3231509ff080b7900bb8d88a72ef0a2aa12a",
     "psc": "692f37b078335e5c7304baa8dde520bc33dca9da6a0b721836e7297504804292",
     "psc-compare": "3811c2588450b1d567bbb42f47290338c8520d0cb285c9b78630c389b733553f",
     "psc-link": "ce2ae57c6ef4fb187c9deaf186847bff4119785375ec903ffdcf3de418a33d84",
@@ -415,6 +423,7 @@
     "pwconv": "3baba40549ce5faf5549282a65c30a55131cc538d05a20d22a2d2a8dd2c668a1",
     "pwd@GNU": "3601aaf016f710bd235789baebd19666bbe36d56c713c1dd7ec8e8dfabb8b377",
     "pwd@uutils": "bd4fb1b97ed2b0f7c64d23a4554ef88478c974073549bdd03e9fd917dc481330",
+    "pwdx": "906ef68187c9345d38b74b489926deb60244ea2700347d3489c35b008d30a7fe",
     "pwsh": "27f6c1a376359a2bd509f0331ecb305cf94dbf65e27c292dd18a73c9ebd54a01",
     "pwunconv": "919bfd0a16270419c5c08f890f6f84fbbb9845a714ccd915a55283058fd911b1",
     "pyenv": "e8ad027dc926ddf611cb3456a45f776f8af6a223eda12f64dc1d9b4172e31f13",
@@ -503,8 +512,11 @@
     "shuf@GNU": "51fb93ccec50c0af18e614a05af36a2a85fc869cb97f0548c4ffddf7f38ef48e",
     "shuf@uutils": "4681064ac6423d4e99222bd01e71383ebc6a77ab8910ab5f136c830836d55b08",
     "sk": "3375369c085013af85dd7d9b8ef9c57b1d9f3edbcbdc19ac2c99a277df41ebb0",
+    "skill": "a9fa48b3502d782b1a31b95625bd61a69627d0694b526cdefe3d9ba5c601ba3e",
+    "slabtop": "13b84a9d61330e693db0141bc51d225828c8c69e72024c0b1d9f5d03e1177446",
     "sleep@GNU": "fa9e8d547024e34bab26bcbc3d2e6bb0713d77b958280dae6862ec4e7f7eeff6",
     "sleep@uutils": "1a842b665cb02919f3aab747590ed63d5473e3b84ac860c2ea395cb287eaf99b",
+    "snice": "947c1c3f900ccb592e83b345f4337cad3a94653edf911259416f0213ba790c76",
     "sort@GNU": "d1b798fe48bb6bd970e2bb14b758af82ac0d44e89fdc38241e9923de34866cad",
     "sort@uutils": "7cc0a7276b2b2aa81cde1995536a068ebdb3f764e711eedfe318c95d4ff8616f",
     "split@GNU": "012f720e101d1c988be11ab650e04d75414bc87b4bb43d4836cddf2e9d8b87eb",
@@ -546,6 +558,7 @@
     "switch_root": "ca109343c1671b811b2d0d5c5bcaed2c395f61a0c4e565a891efab90b3b69e86",
     "sync@GNU": "f7aeed280fe561f188317c9f563ad1c62e91d284e7874ac427fbae67cad2522e",
     "sync@uutils": "87961be083af09477ac27f65920c8dfb2eec1b6a002e99de65b9fda6ec09019e",
+    "sysctl": "5da2fb96d59d80b79c7b5edf4acc7a1b53f2546fb83c9feced8487b0e5cca9f6",
     "systemctl": "abe0221b8d1cb1a3a99263f0f9f958c2c07b7e9f442d61fdef381b88b3925ae5",
     "systemd-analyze": "022c39e9d5713848fc5419c938fc930a926730bafa19341098534fe17bbc5811",
     "systemd-cat": "0774e0744b964575012bfdbd694f2aa7e406e3ce3b976dc66c1d13d75da9b811",
@@ -585,10 +598,12 @@
     "timeout@GNU": "fb56293dcd41e64cc385f1dcea3a04cfd9516dd31e307ea75a29f4fd33824152",
     "timeout@uutils": "9072147ab12fbe9cd4f2c38e19f27d3f742a6bdabce7a93a079b9b9291c89454",
     "tipc": "8fac0257b6534b1a3bae7be483f22d374fbca59bb9c947166c9df0158e10d364",
+    "tload": "3237ca841442342c83e86a8db3ace7e5921ee63feef00929de27af6d571ca587",
     "tmux": "812e26e33761e7e9e6e28b8b532c80ce56cc70b7119fe7f8a2b6a57500d6eda9",
     "tofu": "d9e4e7735bbff68a9341c772a9a320a5eb8a19ffdafd30db580ca50992410e69",
     "tokei": "d9a87fa273849001d8c62c22cdae727752bf074d9f384fa7815122aa626a368b",
     "tombi": "7e5e03c53418899634ce649d09bb79c8d9763633156a8ed63dae9ec262a2bb1b",
+    "top": "06a92dedd19b6e1279bb60860f9d2e7179e38c25e00e5f9fbf904c8dab937823",
     "touch@GNU": "9c6c1ecd1a0609be3ec66c8b730844cb76d831ceabda82dd383e38fbc32bc049",
     "touch@uutils": "641922de72bbf3ec2cbbdacdceff5c864f03be6454d8ecafa2e7bcf5f6894252",
     "tr@GNU": "32de4e218c4317856c2f4bf79f6f1fb0ad1194e09325c9d3865ffea9bb77daf0",
@@ -622,6 +637,7 @@
     "unlink@uutils": "fa555ca0375d44bfe78e22aa82d4a64595dd4d97a47b762879d0c56394e772b2",
     "unshare": "23ede1603095551042d3fe900e5d382d6c8e0057b114da8da15f3b2359568a0e",
     "unzip": "fe7b6e510c83adec15f885c1d906e2adb273bd416f6e0f4e19503f6284b9bd44",
+    "uptime": "8f855c2ed7e17730175fa75dcb6d8e56e31eb35404b32a9a60ea5eb70b866758",
     "useradd": "e6aa36b29d7f6a9af1f7d739d2403f90e8b42053f318064088d881ec98069f23",
     "userdel": "d788c0fe351e718833b8ebbcb4f04acc2a83f9fadd97f655ff7f861f907ee5cc",
     "usermod": "011cfef06f34bd3456c925a3385e571158707ec72f0677e64fdda754250254be",
@@ -640,11 +656,14 @@
     "vipw": "5c2f68ee269b9f66c5b5e1c1917cc9358ae552cf552c3c4e15a39d2bb94f328b",
     "vite": "51defc6d1beee75ccf0b6780646bfa9aa8fdb5267a32bd5797e61a6838563335",
     "vitest": "e5968d935e88032fdb9e896c05ab1091afa5664596ca93204ad64b74253340a7",
+    "vmstat": "f9140139058736587d5dba81000c61a62d6085ac73bc68fb46bf2f9348426818",
     "volta": "a467d1e8020d1b62195de10d0cdf699c6988f0de494b1060b1ba91484b5c9076",
     "vp": "63fe79170aa85b853f956f27f51ffe31a9afc3978b37a7191e3b9ddda3b0c658",
     "vpr": "1ec1e6160f0cd2429592d85a3e23d8c83ddfdaa1029a4c2bdbcefb603c7011da",
     "vpx": "6f348149c25ed6208a213dcbd7973891b088ae624b6a84d5b97cf00ed7b93bcb",
+    "w": "9adca7246e27effa480ffaea29c90387bbf2efebda4bdabb6e1b5faf92fc02d4",
     "wall": "61a8fcbd43ff8c245af1ffbf937308510b9511f475f4a3e4876d9a433a011c22",
+    "watch": "25c0294b4915c6a72125a075fd32582e1293e1e0873587c91ebfd357e3f13514",
     "watchexec": "9cc7431e16377eb6b95a320acad5ce5b537e963e7d530004e89c8a54c1d4f7f4",
     "wc@GNU": "378ec46b5c83d19eee85af5347800c2da97a5855dd2019b1732606f244c1c62a",
     "wc@uutils": "e7d767a0fbe7b317f6b8b97ba9e2bcd63743a8f3d0f78a99e5e08caf862f36a9",
@@ -2652,6 +2671,17 @@
         "description": "将每个文件写入标准输出，同时拆分长行。"
       }
     },
+    "free": {
+      "id": "1a02cc6d-2568-5e74-beee-1dd96aded6dd",
+      "en-US": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "Display the amount of free and used memory."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "显示空闲和已用内存量。"
+      }
+    },
     "fresh": {
       "id": "bbfd2b5f-5210-4f5e-8d40-e672597550ac",
       "en-US": {
@@ -3522,6 +3552,17 @@
       "zh-CN": {
         "url": "https://github.com/systemd/systemd",
         "description": "在启动分区中添加和移除内核与 initrd 镜像。"
+      }
+    },
+    "kill": {
+      "id": "e37a9ad4-a7b2-53d3-a0e0-5aae067a46d5",
+      "en-US": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "Send a signal to processes."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "向进程发送信号。"
       }
     },
     "kind": {
@@ -4972,6 +5013,17 @@
         "description": "一种功能强大、特性丰富的编程语言。"
       }
     },
+    "pgrep": {
+      "id": "b29372b7-02e1-533e-b703-963706a77c79",
+      "en-US": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "Look up processes by name and other attributes."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "按名称和其他属性查找进程。"
+      }
+    },
     "php": {
       "id": "cece135e-852e-40c7-9b58-89d4abc1ed57",
       "en-US": {
@@ -4992,6 +5044,28 @@
       "zh-CN": {
         "url": "https://phpunit.de",
         "description": "面向程序员的 PHP 测试框架。"
+      }
+    },
+    "pidof": {
+      "id": "95120af1-4c5f-5b56-985a-969c676276b6",
+      "en-US": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "Find the process ID of a running program."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "查找正在运行程序的进程 ID。"
+      }
+    },
+    "pidwait": {
+      "id": "ec2d3fcb-ce99-5456-b45f-0be6ca513a28",
+      "en-US": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "Wait for processes by name and other attributes."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "按名称和其他属性等待进程。"
       }
     },
     "ping": {
@@ -5085,6 +5159,17 @@
         "description": "面向多平台、语言无关工作区的开发者工作流与环境管理。"
       }
     },
+    "pkill": {
+      "id": "50e30eb3-cc1e-5dd3-88c3-f171f9596e00",
+      "en-US": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "Signal processes by name and other attributes."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "按名称和其他属性向进程发送信号。"
+      }
+    },
     "playwright": {
       "id": "90c2bdab-7b90-4e23-90ed-ad876498d964",
       "en-US": {
@@ -5105,6 +5190,17 @@
       "zh-CN": {
         "url": "https://pm2.keymetrics.io/",
         "description": "Node.js 进程管理器，内置负载均衡。"
+      }
+    },
+    "pmap": {
+      "id": "c482a2d6-ecbd-51c3-a70f-8cc28978be5b",
+      "en-US": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "Report the memory map of a process."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "报告进程的内存映射。"
       }
     },
     "pnpm": {
@@ -5267,6 +5363,17 @@
         "description": "显示或更改进程的资源限制。\n资源选项单独使用时打印限制；使用 --<resource>=<limit> 设置限制。\n短选项直接粘接值，例如 -c<limit>。"
       }
     },
+    "ps": {
+      "id": "896e6323-68af-51dc-ab26-8d63a493de75",
+      "en-US": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "Report a snapshot of the current processes."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "报告当前进程的快照。"
+      }
+    },
     "psc": {
       "id": "00929632-527d-4dab-a5b3-21197faccd05",
       "alias": "psc PSCompletions",
@@ -5382,6 +5489,17 @@
       "zh-CN": {
         "url": "https://uutils.org",
         "description": "显示当前工作目录的完整文件名"
+      }
+    },
+    "pwdx": {
+      "id": "1aa42b57-b48a-5c64-8296-778f6d2e167e",
+      "en-US": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "Report the current working directory of processes."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "报告进程的当前工作目录。"
       }
     },
     "pwsh": {
@@ -6383,6 +6501,28 @@
         "description": "一款用 Rust 语言编写的命令行快速模糊查找工具"
       }
     },
+    "skill": {
+      "id": "8ba97e50-068d-5b25-a842-42f1405cd710",
+      "en-US": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "Send a signal to processes selected by expression."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "向由表达式选择的进程发送信号。"
+      }
+    },
+    "slabtop": {
+      "id": "65661c47-5436-592a-89d7-3fff550bf280",
+      "en-US": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "Display kernel slab cache information in real time."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "实时显示内核 slab 缓存信息。"
+      }
+    },
     "sleep@GNU": {
       "id": "26cb5846-0256-4984-8e13-c5482c8e78a5",
       "alias": "sleep",
@@ -6405,6 +6545,17 @@
       "zh-CN": {
         "url": "https://uutils.org",
         "description": "暂停 NUMBER 秒"
+      }
+    },
+    "snice": {
+      "id": "ff4dfa43-fb0c-5029-82c0-8fb37121e6a4",
+      "en-US": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "Change the priority of processes selected by expression."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "更改由表达式选择的进程的优先级。"
       }
     },
     "sort@GNU": {
@@ -6875,6 +7026,17 @@
         "description": "将缓存的写入同步到持久存储"
       }
     },
+    "sysctl": {
+      "id": "fd313a98-84df-511b-9adf-93b9c1f165aa",
+      "en-US": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "Configure kernel parameters at runtime."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "在运行时配置内核参数。"
+      }
+    },
     "systemctl": {
       "id": "a7a16816-c8e3-5e16-8b9a-4ca8a2f85f6e",
       "en-US": {
@@ -7314,6 +7476,17 @@
         "description": "TIPC 配置与管理工具。"
       }
     },
+    "tload": {
+      "id": "c83752c1-a7e2-5f34-8ba8-b74517656f11",
+      "en-US": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "Graph the system load average."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "绘制系统平均负载图。"
+      }
+    },
     "tmux": {
       "id": "d6b42872-3f5a-498e-8498-92046aca8f10",
       "en-US": {
@@ -7356,6 +7529,17 @@
       "zh-CN": {
         "url": "https://tombi-toml.github.io/tombi/",
         "description": "TOML 工具包"
+      }
+    },
+    "top": {
+      "id": "be8ac90d-bfc1-5539-afee-191b2492bdfe",
+      "en-US": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "Display Linux processes."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "显示 Linux 进程。"
       }
     },
     "touch@GNU": {
@@ -7741,6 +7925,17 @@
         "description": "使用 Info-ZIP UnZip 列出、测试和解压 ZIP 归档中的文件。"
       }
     },
+    "uptime": {
+      "id": "15f90efa-c1a5-52e5-b64d-3da8c3528df8",
+      "en-US": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "Tell how long the system has been running."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "显示系统已运行多长时间。"
+      }
+    },
     "useradd": {
       "id": "b936bc05-c44d-480d-98b5-facbd9889f32",
       "en-US": {
@@ -7944,6 +8139,17 @@
         "description": "下一代测试框架。"
       }
     },
+    "vmstat": {
+      "id": "8a78aa7a-a9c9-527a-995e-8e1e18b52c4a",
+      "en-US": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "Report virtual memory statistics."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "报告虚拟内存统计信息。"
+      }
+    },
     "volta": {
       "id": "70ce9c7a-ad9f-4f4e-8c48-ddde025107ce",
       "en-US": {
@@ -7988,6 +8194,17 @@
         "description": "执行本地或远程 npm 包中的命令。\n运行本地可执行文件，或下载并运行远程包。"
       }
     },
+    "w": {
+      "id": "30953e4e-ab89-5eb6-8afe-706666b9a693",
+      "en-US": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "Show who is logged on and what they are doing."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "显示谁已登录以及他们在做什么。"
+      }
+    },
     "wall": {
       "id": "22ffc6fb-b052-432c-bd73-54c5545a157f",
       "en-US": {
@@ -7997,6 +8214,17 @@
       "zh-CN": {
         "url": "https://github.com/util-linux/util-linux",
         "description": "向所有用户写入消息。"
+      }
+    },
+    "watch": {
+      "id": "6633ef4e-71c2-5a56-8661-b04787ea831b",
+      "en-US": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "Execute a program periodically and show its output."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/procps-ng/procps",
+        "description": "定期执行程序并显示其输出。"
       }
     },
     "watchexec": {

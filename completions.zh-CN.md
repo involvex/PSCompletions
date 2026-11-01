@@ -180,6 +180,7 @@
 |[fnm](https://github.com/Schniz/fnm)|使用 Rust 编写的快速简单的 Node.js 版本管理器。|
 |[fold@GNU](https://www.gnu.org/software/coreutils/)|折行每个 FILE 的输入内容，输出到标准输出。|
 |[fold@uutils](https://uutils.org)|将每个文件写入标准输出，同时拆分长行。|
+|[free](https://gitlab.com/procps-ng/procps)|显示空闲和已用内存量。|
 |[fresh](https://getfresh.dev/docs)|支持多光标的终端文本编辑器。|
 |[fsfreeze](https://github.com/util-linux/util-linux)|暂停对文件系统的访问。|
 |[fstrim](https://github.com/util-linux/util-linux)|丢弃已挂载文件系统上未使用的块。|
@@ -258,6 +259,7 @@
 |[k3d](https://k3d.io/)|在 docker 中运行 k3s（Rancher Lab 的最小化 Kubernetes 发行版）的轻量级包装器。|
 |[k9s](https://k9scli.io/)|K9s 是一个基于终端的用户界面，用于与你的 Kubernetes 集群交互。<br>它简化了浏览、观察和管理你部署的应用程序。|
 |[kernel-install](https://github.com/systemd/systemd)|在启动分区中添加和移除内核与 initrd 镜像。|
+|[kill](https://gitlab.com/procps-ng/procps)|向进程发送信号。|
 |[kind](https://kind.sigs.k8s.io/)|kind 是一个使用 Docker 容器 'nodes' 运行本地 Kubernetes 集群的工具。<br>kind 最初主要用于测试 Kubernetes 本身，但也可用于本地开发或 CI。|
 |[komac](https://github.com/russellbanks/Komac)|WinGet 的社区清单创建器。|
 |[kubectl](https://kubernetes.io/zh-cn/docs/reference/kubectl)|Kubernetes 又称 K8s，是一个开源系统，用于自动化部署、扩展和管理容器化应用程序。<br>kubectl 是它的命令行工具|
@@ -386,8 +388,11 @@
 |[pdfcpu](https://github.com/pdfcpu/pdfcpu)|Go PDF 处理器<br>用于处理 PDF 文件的命令行工具|
 |[pdm](https://github.com/pdm-project/pdm)|现代 Python 包和依赖管理器。|
 |[perl](https://www.perl.org)|一种功能强大、特性丰富的编程语言。|
+|[pgrep](https://gitlab.com/procps-ng/procps)|按名称和其他属性查找进程。|
 |[php](https://www.php.net)|PHP 命令行界面 (CLI)。|
 |[phpunit](https://phpunit.de)|面向程序员的 PHP 测试框架。|
+|[pidof](https://gitlab.com/procps-ng/procps)|查找正在运行程序的进程 ID。|
+|[pidwait](https://gitlab.com/procps-ng/procps)|按名称和其他属性等待进程。|
 |[ping](https://github.com/iputils/iputils)|向网络主机发送 ICMP ECHO_REQUEST。|
 |[pinky@GNU](https://www.gnu.org/software/coreutils/)|一个轻量级的 finger 程序；打印用户信息。|
 |[pinky@uutils](https://uutils.org)|在基于 Unix 的系统上显示简要用户信息|
@@ -396,8 +401,10 @@
 |[pipx](https://pipx.pypa.io)|从 Python 包安装并执行应用。|
 |[pivot_root](https://github.com/util-linux/util-linux)|更改根文件系统。|
 |[pixi](https://github.com/prefix-dev/pixi)|面向多平台、语言无关工作区的开发者工作流与环境管理。|
+|[pkill](https://gitlab.com/procps-ng/procps)|按名称和其他属性向进程发送信号。|
 |[playwright](https://playwright.dev/)|Web 测试和自动化框架。|
 |[pm2](https://pm2.keymetrics.io/)|Node.js 进程管理器，内置负载均衡。|
+|[pmap](https://gitlab.com/procps-ng/procps)|报告进程的内存映射。|
 |[pnpm](https://pnpm.io/zh/)|快速、节省磁盘空间的包管理器。|
 |[pnpx](https://pnpm.io/cli/dlx)|在临时环境中运行一个包。|
 |[podman](https://podman.io)|管理 Pod、容器和镜像。|
@@ -412,6 +419,7 @@
 |[printf@uutils](https://uutils.org)|根据格式字符串和后续参数打印输出|
 |[prisma](https://www.prisma.io/docs/cli)|终端里的 Prisma Developer Platform。|
 |[prlimit](https://github.com/util-linux/util-linux)|显示或更改进程的资源限制。<br>资源选项单独使用时打印限制；使用 --<resource>=<limit> 设置限制。<br>短选项直接粘接值，例如 -c<limit>。|
+|[ps](https://gitlab.com/procps-ng/procps)|报告当前进程的快照。|
 |[psc](https://pscompletions.abgox.com)|PSCompletions 模块的补全。|
 |[psc-compare](https://pscompletions.abgox.com)|PSCompletions(psc) 的开发脚本补全<br>scripts/compare-json.ps1 的补全：比较补全各语言的结构、用法与翻译。|
 |[psc-link](https://pscompletions.abgox.com)|PSCompletions(psc) 的开发脚本补全<br>scripts/link-completion.ps1 的补全：链接补全以供本地测试。|
@@ -422,6 +430,7 @@
 |[pwconv](https://github.com/shadow-maint/shadow)|从 passwd 文件创建或更新 shadow 文件。|
 |[pwd@GNU](https://www.gnu.org/software/coreutils/)|打印当前工作目录的完整路径名。|
 |[pwd@uutils](https://uutils.org)|显示当前工作目录的完整文件名|
+|[pwdx](https://gitlab.com/procps-ng/procps)|报告进程的当前工作目录。|
 |[pwsh](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_pwsh)|PowerShell 命令行。|
 |[pwunconv](https://github.com/shadow-maint/shadow)|从 shadow 文件创建 passwd 文件，并删除 shadow 文件。|
 |[pyenv](https://github.com/pyenv/pyenv#readme)|简单的 Python 版本管理。|
@@ -510,8 +519,11 @@
 |[shuf@GNU](https://www.gnu.org/software/coreutils/)|把输入行的一个随机排列写入标准输出。|
 |[shuf@uutils](https://uutils.org)|输出输入行的随机排列来打乱输入|
 |[sk](https://github.com/skim-rs/skim)|一款用 Rust 语言编写的命令行快速模糊查找工具|
+|[skill](https://gitlab.com/procps-ng/procps)|向由表达式选择的进程发送信号。|
+|[slabtop](https://gitlab.com/procps-ng/procps)|实时显示内核 slab 缓存信息。|
 |[sleep@GNU](https://www.gnu.org/software/coreutils/)|暂停 NUMBER 秒，NUMBER 可以是整数或浮点数。|
 |[sleep@uutils](https://uutils.org)|暂停 NUMBER 秒|
+|[snice](https://gitlab.com/procps-ng/procps)|更改由表达式选择的进程的优先级。|
 |[sort@GNU](https://www.gnu.org/software/coreutils/)|把所有文件排序后拼接写入标准输出。|
 |[sort@uutils](https://uutils.org)|显示所有 FILE 排序后的连接。无 FILE 或 FILE 为 - 时读取标准输入|
 |[split@GNU](https://www.gnu.org/software/coreutils/)|把 FILE 切分后输出到 PREFIXaa、PREFIXab 等文件；默认每个文件 1000 行，默认 PREFIX 是 'x'。|
@@ -553,6 +565,7 @@
 |[switch_root](https://github.com/util-linux/util-linux)|切换到另一个文件系统作为挂载树的根。|
 |[sync@GNU](https://www.gnu.org/software/coreutils/)|把缓存中的写操作同步到持久存储|
 |[sync@uutils](https://uutils.org)|将缓存的写入同步到持久存储|
+|[sysctl](https://gitlab.com/procps-ng/procps)|在运行时配置内核参数。|
 |[systemctl](https://github.com/systemd/systemd)|向系统管理器查询或发送控制命令。|
 |[systemd-analyze](https://github.com/systemd/systemd)|分析 systemd、显示单元依赖并检查单元文件。|
 |[systemd-cat](https://github.com/systemd/systemd)|执行进程并将其标准输出/标准错误连接到日志。|
@@ -592,10 +605,12 @@
 |[timeout@GNU](https://www.gnu.org/software/coreutils/)|启动 COMMAND，若 DURATION 之后仍在运行则将其终止。|
 |[timeout@uutils](https://uutils.org)|启动 COMMAND，超时仍在运行时杀掉它|
 |[tipc](https://github.com/iproute2/iproute2)|TIPC 配置与管理工具。|
+|[tload](https://gitlab.com/procps-ng/procps)|绘制系统平均负载图。|
 |[tmux](https://github.com/tmux/tmux)|终端多路复用器。|
 |[tofu](https://opentofu.org)|开源基础设施即代码工具。|
 |[tokei](https://github.com/XAMPPRocky/tokei)|快速统计你的代码量|
 |[tombi](https://tombi-toml.github.io/tombi/)|TOML 工具包|
+|[top](https://gitlab.com/procps-ng/procps)|显示 Linux 进程。|
 |[touch@GNU](https://www.gnu.org/software/coreutils/)|把每个 FILE 的访问时间和修改时间更新为当前时间。|
 |[touch@uutils](https://uutils.org)|将每个 FILE 的访问和修改时间更新为当前时间|
 |[tr@GNU](https://www.gnu.org/software/coreutils/)|对标准输入中的字符做转换、压缩和/或删除，结果写入标准输出。|
@@ -629,6 +644,7 @@
 |[unlink@uutils](https://uutils.org)|取消链接 FILE 处的文件|
 |[unshare](https://github.com/util-linux/util-linux)|在取消共享部分命名空间的情况下运行程序。|
 |[unzip](https://infozip.sourceforge.net/UnZip.html)|使用 Info-ZIP UnZip 列出、测试和解压 ZIP 归档中的文件。|
+|[uptime](https://gitlab.com/procps-ng/procps)|显示系统已运行多长时间。|
 |[useradd](https://github.com/shadow-maint/shadow)|创建新用户或更新默认的新用户信息。|
 |[userdel](https://github.com/shadow-maint/shadow)|删除用户账户及相关文件。|
 |[usermod](https://github.com/shadow-maint/shadow)|修改用户账户。|
@@ -647,11 +663,14 @@
 |[vipw](https://github.com/shadow-maint/shadow)|编辑密码、组、shadow 或 gshadow 文件。|
 |[vite](https://github.com/vitejs/vite)|下一代前端工具链。|
 |[vitest](https://github.com/vitest-dev/vitest)|下一代测试框架。|
+|[vmstat](https://gitlab.com/procps-ng/procps)|报告虚拟内存统计信息。|
 |[volta](https://volta.sh)|JavaScript 工具管理器。|
 |[vp](https://viteplus.dev)|Vite+ 命令行界面。<br>创建、开发、构建、测试、检查、格式化 JavaScript 项目并管理其依赖。|
 |[vpr](https://viteplus.dev/guide/run)|独立任务运行器（等同于 `vp run`）。<br>在工作区包中运行任务。|
 |[vpx](https://viteplus.dev/guide/vpx)|执行本地或远程 npm 包中的命令。<br>运行本地可执行文件，或下载并运行远程包。|
+|[w](https://gitlab.com/procps-ng/procps)|显示谁已登录以及他们在做什么。|
 |[wall](https://github.com/util-linux/util-linux)|向所有用户写入消息。|
+|[watch](https://gitlab.com/procps-ng/procps)|定期执行程序并显示其输出。|
 |[watchexec](https://github.com/watchexec/watchexec)|在监视的文件更改时执行命令<br>递归监视更改并运行命令|
 |[wc@GNU](https://www.gnu.org/software/coreutils/)|打印每个 FILE 的换行、单词和字节计数；指定多个 FILE 时还会打印一行总计。|
 |[wc@uutils](https://uutils.org)|打印每个 FILE 的换行数、词数和字节数，指定多个 FILE 时再加总计行|

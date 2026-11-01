@@ -180,6 +180,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[fnm](https://github.com/Schniz/fnm)|Fast and simple Node.js version manager, built in Rust.|
 |[fold@GNU](https://www.gnu.org/software/coreutils/)|Wrap input lines in each FILE, writing to standard output.|
 |[fold@uutils](https://uutils.org)|Write each file to stdout whilst breaking long lines.|
+|[free](https://gitlab.com/procps-ng/procps)|Display the amount of free and used memory.|
 |[fresh](https://getfresh.dev/docs)|A terminal text editor with multi-cursor support.|
 |[fsfreeze](https://github.com/util-linux/util-linux)|Suspend access to a filesystem.|
 |[fstrim](https://github.com/util-linux/util-linux)|Discard unused blocks on a mounted filesystem.|
@@ -258,6 +259,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[k3d](https://k3d.io/)|Lightweight wrapper to run k3s (Rancher Lab's minimal Kubernetes distribution) in docker.|
 |[k9s](https://k9scli.io/)|K9s is a terminal based UI to interact with your Kubernetes clusters.<br>It eases navigating, observing and managing your deployed applications.|
 |[kernel-install](https://github.com/systemd/systemd)|Add and remove kernel and initrd images to and from the boot partition.|
+|[kill](https://gitlab.com/procps-ng/procps)|Send a signal to processes.|
 |[kind](https://kind.sigs.k8s.io/)|kind is a tool for running local Kubernetes clusters using Docker container 'nodes'.<br>kind was primarily designed for testing Kubernetes itself, but may be used for local development or CI.|
 |[komac](https://github.com/russellbanks/Komac)|The Community Manifest Creator for WinGet.|
 |[kubectl](https://kubernetes.io/docs/reference/kubectl)|Kubernetes, also known as K8s, is an open source system for automating deployment, scaling, and management of containerized applications.<br>kubectl is its command-line tool.|
@@ -386,8 +388,11 @@ English | [简体中文](./completions.zh-CN.md)
 |[pdfcpu](https://github.com/pdfcpu/pdfcpu)|A Go PDF processor<br>Command-line tools for working with PDF files|
 |[pdm](https://github.com/pdm-project/pdm)|Modern Python package and dependency manager.|
 |[perl](https://www.perl.org)|A highly capable, feature-rich programming language.|
+|[pgrep](https://gitlab.com/procps-ng/procps)|Look up processes by name and other attributes.|
 |[php](https://www.php.net)|PHP Command Line Interface (CLI).|
 |[phpunit](https://phpunit.de)|A programmer-oriented testing framework for PHP.|
+|[pidof](https://gitlab.com/procps-ng/procps)|Find the process ID of a running program.|
+|[pidwait](https://gitlab.com/procps-ng/procps)|Wait for processes by name and other attributes.|
 |[ping](https://github.com/iputils/iputils)|Send ICMP ECHO_REQUEST to network hosts.|
 |[pinky@GNU](https://www.gnu.org/software/coreutils/)|A lightweight 'finger' program; print user information.|
 |[pinky@uutils](https://uutils.org)|Displays brief user information on Unix-based systems|
@@ -396,8 +401,10 @@ English | [简体中文](./completions.zh-CN.md)
 |[pipx](https://pipx.pypa.io)|Install and execute apps from Python packages.|
 |[pivot_root](https://github.com/util-linux/util-linux)|Change the root filesystem.|
 |[pixi](https://github.com/prefix-dev/pixi)|Developer Workflow and Environment Management for Multi-Platform, Language-Agnostic Workspaces.|
+|[pkill](https://gitlab.com/procps-ng/procps)|Signal processes by name and other attributes.|
 |[playwright](https://playwright.dev/)|Framework for web testing and automation.|
 |[pm2](https://pm2.keymetrics.io/)|Node.js process manager with built-in load balancer.|
+|[pmap](https://gitlab.com/procps-ng/procps)|Report the memory map of a process.|
 |[pnpm](https://pnpm.io/)|Fast, disk-space-efficient package manager.|
 |[pnpx](https://pnpm.io/cli/dlx)|Run a package in a temporary environment.|
 |[podman](https://podman.io)|Manage pods, containers and images.|
@@ -412,6 +419,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[printf@uutils](https://uutils.org)|Print output based off of the format string and proceeding arguments.|
 |[prisma](https://www.prisma.io/docs/cli)|The Prisma Developer Platform, from your terminal.|
 |[prlimit](https://github.com/util-linux/util-linux)|Show or change the resource limits of a process.<br>A resource option used bare prints the limit; set it with --<resource>=<limit>.<br>The short forms glue the value, e.g. -c<limit>.|
+|[ps](https://gitlab.com/procps-ng/procps)|Report a snapshot of the current processes.|
 |[psc](https://pscompletions.abgox.com)|PSCompletions module's completion.|
 |[psc-compare](https://pscompletions.abgox.com)|Developer script completions for PSCompletions (psc).<br>Completions for scripts/compare-json.ps1: compare completion languages for structure, usage and translation.|
 |[psc-link](https://pscompletions.abgox.com)|Developer script completions for PSCompletions (psc).<br>Completions for scripts/link-completion.ps1: link completions for local testing.|
@@ -422,6 +430,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[pwconv](https://github.com/shadow-maint/shadow)|Create or update the shadow file from the passwd file.|
 |[pwd@GNU](https://www.gnu.org/software/coreutils/)|Print the full filename of the current working directory.|
 |[pwd@uutils](https://uutils.org)|Display the full filename of the current working directory.|
+|[pwdx](https://gitlab.com/procps-ng/procps)|Report the current working directory of processes.|
 |[pwsh](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_pwsh)|PowerShell CLI.|
 |[pwunconv](https://github.com/shadow-maint/shadow)|Create the passwd file from the shadow file and remove the shadow file.|
 |[pyenv](https://github.com/pyenv/pyenv#readme)|Simple Python version management.|
@@ -510,8 +519,11 @@ English | [简体中文](./completions.zh-CN.md)
 |[shuf@GNU](https://www.gnu.org/software/coreutils/)|Write a random permutation of the input lines to standard output.|
 |[shuf@uutils](https://uutils.org)|Shuffle the input by outputting a random permutation of input lines.|
 |[sk](https://github.com/skim-rs/skim)|A fast fuzzy finder for the command line written in Rust|
+|[skill](https://gitlab.com/procps-ng/procps)|Send a signal to processes selected by expression.|
+|[slabtop](https://gitlab.com/procps-ng/procps)|Display kernel slab cache information in real time.|
 |[sleep@GNU](https://www.gnu.org/software/coreutils/)|Pause for NUMBER seconds, where NUMBER is an integer or floating-point.|
 |[sleep@uutils](https://uutils.org)|Pause for NUMBER seconds.|
+|[snice](https://gitlab.com/procps-ng/procps)|Change the priority of processes selected by expression.|
 |[sort@GNU](https://www.gnu.org/software/coreutils/)|Write sorted concatenation of all FILE(s) to standard output.|
 |[sort@uutils](https://uutils.org)|Display sorted concatenation of all FILE(s). With no FILE, or when FILE is -, read standard input.|
 |[split@GNU](https://www.gnu.org/software/coreutils/)|Output pieces of FILE to PREFIXaa, PREFIXab, ...; default size is 1000 lines, and default PREFIX is 'x'.|
@@ -553,6 +565,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[switch_root](https://github.com/util-linux/util-linux)|Switch to another filesystem as the root of the mount tree.|
 |[sync@GNU](https://www.gnu.org/software/coreutils/)|Synchronize cached writes to persistent storage|
 |[sync@uutils](https://uutils.org)|Synchronize cached writes to persistent storage|
+|[sysctl](https://gitlab.com/procps-ng/procps)|Configure kernel parameters at runtime.|
 |[systemctl](https://github.com/systemd/systemd)|Query or send control commands to the system manager.|
 |[systemd-analyze](https://github.com/systemd/systemd)|Profile systemd, show unit dependencies, check unit files.|
 |[systemd-cat](https://github.com/systemd/systemd)|Execute a process with stdout/stderr connected to the journal.|
@@ -592,10 +605,12 @@ English | [简体中文](./completions.zh-CN.md)
 |[timeout@GNU](https://www.gnu.org/software/coreutils/)|Start COMMAND, and kill it if still running after DURATION.|
 |[timeout@uutils](https://uutils.org)|Start COMMAND, and kill it if still running after DURATION.|
 |[tipc](https://github.com/iproute2/iproute2)|TIPC configuration and management tool.|
+|[tload](https://gitlab.com/procps-ng/procps)|Graph the system load average.|
 |[tmux](https://github.com/tmux/tmux)|Terminal multiplexer.|
 |[tofu](https://opentofu.org)|Open-source infrastructure as code tool.|
 |[tokei](https://github.com/XAMPPRocky/tokei)|Count your code, quickly|
 |[tombi](https://tombi-toml.github.io/tombi/)|TOML Toolkit|
+|[top](https://gitlab.com/procps-ng/procps)|Display Linux processes.|
 |[touch@GNU](https://www.gnu.org/software/coreutils/)|Update the access and modification times of each FILE to the current time.|
 |[touch@uutils](https://uutils.org)|Update the access and modification times of each FILE to the current time.|
 |[tr@GNU](https://www.gnu.org/software/coreutils/)|Translate, squeeze, and/or delete characters from standard input, writing to standard output.|
@@ -629,6 +644,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[unlink@uutils](https://uutils.org)|Unlink the file at FILE.|
 |[unshare](https://github.com/util-linux/util-linux)|Run a program with some namespaces unshared from the parent.|
 |[unzip](https://infozip.sourceforge.net/UnZip.html)|List, test and extract files from ZIP archives with Info-ZIP UnZip.|
+|[uptime](https://gitlab.com/procps-ng/procps)|Tell how long the system has been running.|
 |[useradd](https://github.com/shadow-maint/shadow)|Create a new user or update default new user information.|
 |[userdel](https://github.com/shadow-maint/shadow)|Delete a user account and related files.|
 |[usermod](https://github.com/shadow-maint/shadow)|Modify a user account.|
@@ -647,11 +663,14 @@ English | [简体中文](./completions.zh-CN.md)
 |[vipw](https://github.com/shadow-maint/shadow)|Edit the password, group, shadow or gshadow file.|
 |[vite](https://github.com/vitejs/vite)|Next generation frontend tooling.|
 |[vitest](https://github.com/vitest-dev/vitest)|Next generation testing framework.|
+|[vmstat](https://gitlab.com/procps-ng/procps)|Report virtual memory statistics.|
 |[volta](https://volta.sh)|JavaScript tool manager.|
 |[vp](https://viteplus.dev)|Vite+ command line interface.<br>Create, develop, build, test, lint, format, and manage JavaScript projects.|
 |[vpr](https://viteplus.dev/guide/run)|Standalone task runner (equivalent to `vp run`).<br>Run tasks across workspace packages.|
 |[vpx](https://viteplus.dev/guide/vpx)|Execute a command from a local or remote npm package.<br>Run local binaries, or download and run remote packages.|
+|[w](https://gitlab.com/procps-ng/procps)|Show who is logged on and what they are doing.|
 |[wall](https://github.com/util-linux/util-linux)|Write a message to all users.|
+|[watch](https://gitlab.com/procps-ng/procps)|Execute a program periodically and show its output.|
 |[watchexec](https://github.com/watchexec/watchexec)|Execute commands when watched files change<br>Recursively monitors for changes and runs commands|
 |[wc@GNU](https://www.gnu.org/software/coreutils/)|Print newline, word, and byte counts for each FILE, and a total line if more than one FILE is specified.|
 |[wc@uutils](https://uutils.org)|Print newline, word, and byte counts for each FILE, and a total line if more than one FILE is specified.|
