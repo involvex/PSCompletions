@@ -226,6 +226,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[fold@uutils](https://uutils.org)|Write each file to stdout whilst breaking long lines.|
 |[free](https://gitlab.com/procps-ng/procps)|Display the amount of free and used memory.|
 |[fresh](https://getfresh.dev/docs)|A terminal text editor with multi-cursor support.|
+|[fsadm](https://gitlab.com/lvmteam/lvm2)|Utility to resize or check the filesystem on a device.|
 |[fsfreeze](https://github.com/util-linux/util-linux)|Suspend access to a filesystem.|
 |[fstrim](https://github.com/util-linux/util-linux)|Discard unused blocks on a mounted filesystem.|
 |[fuser](https://gitlab.com/psmisc/psmisc)|Show which processes use files, sockets or filesystems.|
@@ -361,6 +362,24 @@ English | [简体中文](./completions.zh-CN.md)
 |[lsns](https://github.com/util-linux/util-linux)|List system namespaces.|
 |[lua](https://www.lua.org/)|Powerful, efficient, lightweight, embeddable scripting language|
 |[luksformat](https://gitlab.com/cryptsetup/cryptsetup)|Create and format an encrypted LUKS device.|
+|[lvchange](https://gitlab.com/lvmteam/lvm2)|Change the attributes of logical volume(s)|
+|[lvconvert](https://gitlab.com/lvmteam/lvm2)|Change logical volume layout|
+|[lvcreate](https://gitlab.com/lvmteam/lvm2)|Create a logical volume|
+|[lvdisplay](https://gitlab.com/lvmteam/lvm2)|Display information about a logical volume|
+|[lvextend](https://gitlab.com/lvmteam/lvm2)|Add space to a logical volume|
+|[lvm](https://gitlab.com/lvmteam/lvm2)|Manage LVM volumes and their components.|
+|[lvmconfig](https://gitlab.com/lvmteam/lvm2)|Display and manipulate configuration information|
+|[lvmdiskscan](https://gitlab.com/lvmteam/lvm2)|List devices that may be used as physical volumes|
+|[lvmdump](https://gitlab.com/lvmteam/lvm2)|Create LVM2 information dumps for diagnostic purposes.|
+|[lvmpolld](https://gitlab.com/lvmteam/lvm2)|LVM polling daemon.|
+|[lvmsadc](https://gitlab.com/lvmteam/lvm2)|Collect activity data|
+|[lvmsar](https://gitlab.com/lvmteam/lvm2)|Create activity report|
+|[lvreduce](https://gitlab.com/lvmteam/lvm2)|Reduce the size of a logical volume|
+|[lvremove](https://gitlab.com/lvmteam/lvm2)|Remove logical volume(s) from the system|
+|[lvrename](https://gitlab.com/lvmteam/lvm2)|Rename a logical volume|
+|[lvresize](https://gitlab.com/lvmteam/lvm2)|Resize a logical volume|
+|[lvs](https://gitlab.com/lvmteam/lvm2)|Display information about logical volumes|
+|[lvscan](https://gitlab.com/lvmteam/lvm2)|List all logical volumes in all volume groups|
 |[lychee](https://github.com/lycheeverse/lychee)|A fast, asynchronous link checker<br>Detects broken URLs and mail addresses in local files and websites|
 |[m4@GNU](https://www.gnu.org/software/m4)|Process macros in FILEs.|
 |[machinectl](https://github.com/systemd/systemd)|Control the systemd machine manager and its containers and images.|
@@ -514,6 +533,15 @@ English | [简体中文](./completions.zh-CN.md)
 |[ptx@GNU](https://www.gnu.org/software/coreutils/)|Output a permuted index, including context, of the words in the input files.|
 |[ptx@uutils](https://uutils.org)|Produce a permuted index of file contents|
 |[pulumi](https://www.pulumi.com/)|Pulumi - Infrastructure as Code in any programming language|
+|[pvchange](https://gitlab.com/lvmteam/lvm2)|Change attributes of physical volume(s)|
+|[pvck](https://gitlab.com/lvmteam/lvm2)|Check metadata on physical volumes|
+|[pvcreate](https://gitlab.com/lvmteam/lvm2)|Initialize physical volume(s) for use by LVM|
+|[pvdisplay](https://gitlab.com/lvmteam/lvm2)|Display various attributes of physical volume(s)|
+|[pvmove](https://gitlab.com/lvmteam/lvm2)|Move extents from one physical volume to another|
+|[pvremove](https://gitlab.com/lvmteam/lvm2)|Remove LVM label(s) from physical volume(s)|
+|[pvresize](https://gitlab.com/lvmteam/lvm2)|Resize physical volume(s)|
+|[pvs](https://gitlab.com/lvmteam/lvm2)|Display information about physical volumes|
+|[pvscan](https://gitlab.com/lvmteam/lvm2)|List all physical volumes|
 |[pwck](https://github.com/shadow-maint/shadow)|Verify the integrity of password files.|
 |[pwconv](https://github.com/shadow-maint/shadow)|Create or update the shadow file from the passwd file.|
 |[pwd@GNU](https://www.gnu.org/software/coreutils/)|Print the full filename of the current working directory.|
@@ -772,6 +800,25 @@ English | [简体中文](./completions.zh-CN.md)
 |[vdpa](https://github.com/iproute2/iproute2)|vdpa management tool.|
 |[vercel](https://vercel.com)|The Vercel CLI for deploying and managing your Vercel projects|
 |[veritysetup](https://gitlab.com/cryptsetup/cryptsetup)|Manage dm-verity devices.|
+|[vgcfgbackup](https://gitlab.com/lvmteam/lvm2)|Backup volume group configuration(s)|
+|[vgcfgrestore](https://gitlab.com/lvmteam/lvm2)|Restore volume group configuration|
+|[vgchange](https://gitlab.com/lvmteam/lvm2)|Change volume group attributes|
+|[vgck](https://gitlab.com/lvmteam/lvm2)|Check the consistency of volume group(s)|
+|[vgconvert](https://gitlab.com/lvmteam/lvm2)|Change volume group metadata format|
+|[vgcreate](https://gitlab.com/lvmteam/lvm2)|Create a volume group|
+|[vgdisplay](https://gitlab.com/lvmteam/lvm2)|Display volume group information|
+|[vgexport](https://gitlab.com/lvmteam/lvm2)|Unregister volume group(s) from the system|
+|[vgextend](https://gitlab.com/lvmteam/lvm2)|Add physical volumes to a volume group|
+|[vgimport](https://gitlab.com/lvmteam/lvm2)|Register exported volume group with system|
+|[vgimportclone](https://gitlab.com/lvmteam/lvm2)|Import a VG from cloned PVs|
+|[vgmerge](https://gitlab.com/lvmteam/lvm2)|Merge volume groups|
+|[vgmknodes](https://gitlab.com/lvmteam/lvm2)|Create the special files for volume group devices in /dev|
+|[vgreduce](https://gitlab.com/lvmteam/lvm2)|Remove physical volume(s) from a volume group|
+|[vgremove](https://gitlab.com/lvmteam/lvm2)|Remove volume group(s)|
+|[vgrename](https://gitlab.com/lvmteam/lvm2)|Rename a volume group|
+|[vgs](https://gitlab.com/lvmteam/lvm2)|Display information about volume groups|
+|[vgscan](https://gitlab.com/lvmteam/lvm2)|Search for all volume groups|
+|[vgsplit](https://gitlab.com/lvmteam/lvm2)|Move physical volumes into a new or existing volume group|
 |[vhs](https://github.com/charmbracelet/vhs)|Your CLI home video recorder.<br>Record terminal GIFs from shell scripts|
 |[viddy](https://github.com/sachaos/viddy)|A modern watch command<br>Time machine and pager etc.|
 |[vipw](https://github.com/shadow-maint/shadow)|Edit the password, group, shadow or gshadow file.|

@@ -1,5 +1,5 @@
 {
-  "count": 819,
+  "count": 866,
   "update": {
     "7z": "cac4d4accba5c11d5b3ae1fde2e491070f69e522c974cc3004950acea1ffa593",
     "accessdb": "11f75135b12fe904afe6e383a3c12bab63005550e28f361fb43b7acbf1aa1c91",
@@ -219,6 +219,7 @@
     "fold@uutils": "5a1de279819aad6a3c7cad2f7903e04739dc7e11f6a8b98dc9169007324eaa53",
     "free": "cf0c1de22f0a2f8b682332f44bb4fbd23030db5283f739cd3070e60f2217d80c",
     "fresh": "25374a3712254f8edee8276c10596849a20d1ce7f82304f70edc3513c6ba625c",
+    "fsadm": "817a6f28dd8c8d31f133274c74b7c20b5ca6d2b2cd29f4e8fa4e9e68c2ca89d8",
     "fsfreeze": "fc2f390d2cb5f95df2b0b70a06bc2b2d91e54f0a4260f01fb61d6a7cc52b40f9",
     "fstrim": "777c6ae0738223a41edd48c511fcd393394479c8bf26a9ce1d27e0c030ee5fb6",
     "fuser": "6541b5795ba2338590a9fb61e3adcde5d007211be8c0524e9438893932a4a540",
@@ -354,6 +355,24 @@
     "lsns": "cd2466c5dda1edd4c6eee1b88f1fe03945192d8064af967985fa1b6026c8cc18",
     "lua": "b047bbe69d03faa0b74cf8fd5cf2c4cdfeb866f3e4b4b2c5b4e6d2b5e0198394",
     "luksformat": "19a60b93fdfb5bd332e3d78a38dbb9ec44db06ae8df88b6f348ad6d96342487a",
+    "lvchange": "dfaa9b48787b3f5f2e24c43fc98eea84f0a47cdb416cf56335dffb6c7323311e",
+    "lvconvert": "5cf6a1785811d8b48138a2fa54bf75ca0611473c6694cfb602061c6cc0fd1fb8",
+    "lvcreate": "a352530eb8ac9b68dfeac8045248cd851f015631bda7816b5b5eca6b3053dfb1",
+    "lvdisplay": "e6a78e36f15d341d807bd6e6a44d19dd168375205e6a056022c6ca596b7ed079",
+    "lvextend": "471f607af4959a41637f7204bfd7b9b723cfeaa397ebf99d2bea71834fcfa90e",
+    "lvm": "181bff16a04be837b5a24b0f23efcfccf89e3a6efccb80368948ee69b3fc10e8",
+    "lvmconfig": "b4fcbe5f0b40ae2cf3be1ea3a98444f70fd17925068a024618bc5ee36e799846",
+    "lvmdiskscan": "19cf05cccc21c8986345046fb34bc45fbd551f02e5a1b50bba3a20090676c1e5",
+    "lvmdump": "51c769aa90a5dc7c9a82362a6a0bc6009a90dbfe8dbafcefb092d8b3601d5f20",
+    "lvmpolld": "117eab89d1572f8708776abd095d77430b20d7f4266d672a4186f5af0991edf5",
+    "lvmsadc": "7e8b55216ecfdf4ce6db36d79b79d110e9592e0f41b06ba01ef4c7b65d86a9e4",
+    "lvmsar": "c3dd9b9481464bb117d3e715a57075edabc5c445e906286e9fe9a68aa7a54bb0",
+    "lvreduce": "79df19d662534c0c1a316aa5a63784c55eab89047d6e2ea78164bd8d9542967c",
+    "lvremove": "bba267bc0d69694ddef0e07c9d33fbf3e2f5c6f7ee65d1a6fb4de0d883957907",
+    "lvrename": "1d2d324818ffcea7ee5f969c3214587b796969e89282d6368d6e40adf2ec9ea1",
+    "lvresize": "f43f988fa6574aac37ad5647d05b158544bdb33d6a8592478b304e66fee4499b",
+    "lvs": "03e4da1134b6c5199a184074a3a2bd85f3b668363b4ba4e7d9138199c0d33707",
+    "lvscan": "ad7d3ac063dc5772270e0aa33601a3b2afa977e6e6d7987e0e806c537280bb72",
     "lychee": "6424d6f85591e5c0b793f69f5caf077ad475ba6657295caf47cf5faa9517286a",
     "m4@GNU": "510ce4451ceae803a5494e6260b750c73c3cef58ff11af864505410da1eccf79",
     "machinectl": "9c9ead39bfa3ec129a4bb1bad13ceff24da054fc5e86cda11ed02a9c376c0382",
@@ -507,6 +526,15 @@
     "ptx@GNU": "cd83a309b29592a8490ff911315769938d1ef823bd0b6330d6cbe5753e5e85c5",
     "ptx@uutils": "2957b76291596b25148a60d5769a370f7787205212ff02cb3994fc1f80fb480c",
     "pulumi": "150a4552d2674c19134ff847c873f610d7d79a00d235d1502e34244ad109b866",
+    "pvchange": "a1f3c9faea8a94ba739442b0733b6cedcd44bd9a9843a8f172eed15655246616",
+    "pvck": "34d88ac03be22ebd487ef76b923428a10cce6ab8390543e4bde658b65d5b2fe5",
+    "pvcreate": "d217d70ef01d53225cce50900b4c34b0a422531e4dd332a84b2ec5b3b49b3f31",
+    "pvdisplay": "0cbac87cb66ad6a4753801487adc9ed7bb9218be455ea7884a015a09ff1c5660",
+    "pvmove": "223727e738f1ce9682ee685f93af82ce28e388aaa76c2709dbaf813a85eb62ae",
+    "pvremove": "04317ec7cc37fd058712a32fb165d3fb57446889666f170646a958bc7f6fceb4",
+    "pvresize": "9a9b3ca0f967f3f99d8456228fec5a340fef22e10b73ce93a1370ff89d6cc5a8",
+    "pvs": "249a365ca389becd467fb79be50d2e33323e4d2fb976b4a99975f96d71fa26c6",
+    "pvscan": "7731fb21f6238eb7e88ccd391bc164a7c57cb2f3fc48d4aa056111d8f0e51dcd",
     "pwck": "8c304671a1ccf7417d15e1a2947a85409a02a2158e5a5e84c06dadc648da6c13",
     "pwconv": "3baba40549ce5faf5549282a65c30a55131cc538d05a20d22a2d2a8dd2c668a1",
     "pwd@GNU": "3601aaf016f710bd235789baebd19666bbe36d56c713c1dd7ec8e8dfabb8b377",
@@ -765,6 +793,25 @@
     "vdpa": "90b7759e216cc1fadc33b09f15de2b6547e262fe9a741aba3a0884d36a3e77b7",
     "vercel": "d4d4c759462a6bc9c66cf6c1b0620697ed01d25b1e6d5de0a3232165043b2daf",
     "veritysetup": "915007950770396f7816d5cb10e28775c7d8a06951a64acb082af99228813675",
+    "vgcfgbackup": "4fe98adb2e276e7df98f5571cbfc578dbb0bf7f2bbba9a4d68cae8c12d280d61",
+    "vgcfgrestore": "3982df1623553c35cb528e1e7155036bf8bdaeb5f56e954f3b5e8be31f92f6af",
+    "vgchange": "6cd6ae5f4c567eceb61a0933ac31b427eda7d7d652a1d350c96ab552638c3a5d",
+    "vgck": "954cb95c20f7576d749e7db1f6e60347f630c69d4d27475621c397de2a51fad5",
+    "vgconvert": "3935e2ac3ce5a559c6b4cd4ae326661670f6e037c56510fdc9805e77babf5c25",
+    "vgcreate": "ff7ef1c3a56d322c71a4aa01bd3cc05d644490723bdbde9f4a9849d3b606bfc9",
+    "vgdisplay": "c2216a3c0d4c35e0ed4b35c30c0b7bc3424e335a80aa329337faf2b19999de27",
+    "vgexport": "dbdcc93a21ded8da752618e05953d13f270a4411919f2b0e4791e34cafde1472",
+    "vgextend": "eb2ec743e17ee08c474b4fbd95bf75d5d2d6a9086b4e416f40b5911ac6902677",
+    "vgimport": "6be6524161f3ffa5bdc22d3d0bdc9147018b42629991adbd23d0630526fba48f",
+    "vgimportclone": "82fac74a2b9c2b76f2ec45d7c8e5e763c2abdc8e1f01eaace60ad46b17d06d10",
+    "vgmerge": "49f2924bd78d8b9c31da07d74c44cfb9d7c99f23919d00081d473e7d0339a9f3",
+    "vgmknodes": "1a97a7c0cf2f165f51b5461ca288ea9ec01bf46b3593b6c9e92cedf627659213",
+    "vgreduce": "b7609c0b893fd285f7d9cffb7d3612e348c536a10749c204bf45109a6affc39d",
+    "vgremove": "9699bf5ec8d0e25679214cb715f3cd10efb5af3d5e9ca98c3bd35f4fb6778317",
+    "vgrename": "ef555c1e64dfcabb664d40303f28064088eef74ebaf743007f00edf69139bb4a",
+    "vgs": "4a86f56b5bc0e35ee5def7da1fabbc8a5c4d6df7f63bd7916a5010c0f628c8f5",
+    "vgscan": "2b34b02238b51bd2f2a7615996b9ed550528d9beff375bcb717d58457f677fde",
+    "vgsplit": "83370489ec80431a45d9d6a14aaeb876cbc9d8ac317f0ca01b7c79ff68223ef1",
     "vhs": "af8e6cda0a8010ba5ea7d703ba950f96f03e07ff938b70de7c2530cb83da4eba",
     "viddy": "1b04c452508c626db351edaabcd67d6e7135b0939a9467854f586defab38bffc",
     "vipw": "5c2f68ee269b9f66c5b5e1c1917cc9358ae552cf552c3c4e15a39d2bb94f328b",
@@ -3294,6 +3341,17 @@
         "description": "支持多光标的终端文本编辑器。"
       }
     },
+    "fsadm": {
+      "id": "3832aa4c-76a1-509d-bfa0-e8f844c6fd82",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Utility to resize or check the filesystem on a device."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "用于调整设备上文件系统大小或检查文件系统的工具。"
+      }
+    },
     "fsfreeze": {
       "id": "23b67feb-e501-48ff-b726-13ccc5b5707b",
       "en-US": {
@@ -4800,6 +4858,204 @@
       "zh-CN": {
         "url": "https://gitlab.com/cryptsetup/cryptsetup",
         "description": "创建并格式化加密的 LUKS 设备。"
+      }
+    },
+    "lvchange": {
+      "id": "9474d963-9866-5f41-9ca7-cca6c47f925f",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Change the attributes of logical volume(s)"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "更改逻辑卷属性"
+      }
+    },
+    "lvconvert": {
+      "id": "4fceaabb-448d-56a6-8201-2821b7006533",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Change logical volume layout"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "更改逻辑卷布局"
+      }
+    },
+    "lvcreate": {
+      "id": "623e6811-3c53-52f3-8dd9-262d4278faec",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Create a logical volume"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "创建逻辑卷"
+      }
+    },
+    "lvdisplay": {
+      "id": "4fcd203b-0851-5032-a2e3-7e169e69b926",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Display information about a logical volume"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "显示逻辑卷信息"
+      }
+    },
+    "lvextend": {
+      "id": "cd3a6c5b-fdd4-54dc-898f-eed51fa51868",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Add space to a logical volume"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "为逻辑卷增加空间"
+      }
+    },
+    "lvm": {
+      "id": "a3c961a4-3c0c-5180-b303-1b82053e7485",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Manage LVM volumes and their components."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "管理 LVM 卷及其组件。"
+      }
+    },
+    "lvmconfig": {
+      "id": "3fe75d49-49eb-5f7e-9f84-c080026fe5c4",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Display and manipulate configuration information"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "显示和操作配置信息"
+      }
+    },
+    "lvmdiskscan": {
+      "id": "d89def36-23a0-565c-a219-1b85e0be16e7",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "List devices that may be used as physical volumes"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "列出可用作物理卷的设备"
+      }
+    },
+    "lvmdump": {
+      "id": "e7189969-f3dd-593c-b980-798e1b87f74e",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Create LVM2 information dumps for diagnostic purposes."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "为诊断目的创建 LVM2 信息转储。"
+      }
+    },
+    "lvmpolld": {
+      "id": "482b5f93-a846-56e1-9930-43e3d7585cb0",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "LVM polling daemon."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "LVM 轮询守护进程。"
+      }
+    },
+    "lvmsadc": {
+      "id": "f72316e6-526f-5d26-ba0c-2eb01dc4dc00",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Collect activity data"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "收集活动数据"
+      }
+    },
+    "lvmsar": {
+      "id": "910bce9a-b05b-5051-b679-87864bec00cd",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Create activity report"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "创建活动报告"
+      }
+    },
+    "lvreduce": {
+      "id": "a387d6ac-3728-5124-9d7f-5a7c886723f1",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Reduce the size of a logical volume"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "减小逻辑卷大小"
+      }
+    },
+    "lvremove": {
+      "id": "68d31c61-495a-5826-aec5-821933961f26",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Remove logical volume(s) from the system"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "从系统移除逻辑卷"
+      }
+    },
+    "lvrename": {
+      "id": "4d46fd68-7e2e-5998-9de8-96427486fe0a",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Rename a logical volume"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "重命名逻辑卷"
+      }
+    },
+    "lvresize": {
+      "id": "cdf3dd42-273c-57cd-a990-363bfe0f8174",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Resize a logical volume"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "调整逻辑卷大小"
+      }
+    },
+    "lvs": {
+      "id": "18a3601d-596a-58b0-8f9f-9a0d7ca4cca1",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Display information about logical volumes"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "显示逻辑卷信息"
+      }
+    },
+    "lvscan": {
+      "id": "97c37b89-c182-5fd3-af41-3b5782dbce22",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "List all logical volumes in all volume groups"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "列出所有卷组中的所有逻辑卷"
       }
     },
     "lychee": {
@@ -6530,6 +6786,105 @@
       "zh-CN": {
         "url": "https://www.pulumi.com/",
         "description": "Pulumi - 用任意编程语言实现基础设施即代码"
+      }
+    },
+    "pvchange": {
+      "id": "ced9fd96-c0c9-502e-9a23-f0ccd178694e",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Change attributes of physical volume(s)"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "更改物理卷属性"
+      }
+    },
+    "pvck": {
+      "id": "addc75db-ae19-594b-a7ca-8e038588f1e0",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Check metadata on physical volumes"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "检查物理卷上的元数据"
+      }
+    },
+    "pvcreate": {
+      "id": "b7c10f6d-661a-572c-aab7-b2fd58a07632",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Initialize physical volume(s) for use by LVM"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "初始化供 LVM 使用的物理卷"
+      }
+    },
+    "pvdisplay": {
+      "id": "bfd1d902-cf23-5958-b481-a5506f3c0340",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Display various attributes of physical volume(s)"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "显示物理卷的各种属性"
+      }
+    },
+    "pvmove": {
+      "id": "51466d62-3af1-5f59-8f8e-574284108861",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Move extents from one physical volume to another"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "将区段从一个物理卷移动到另一个"
+      }
+    },
+    "pvremove": {
+      "id": "65a3c3f6-6718-5aae-a666-be66e07513ae",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Remove LVM label(s) from physical volume(s)"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "从物理卷移除 LVM 标签"
+      }
+    },
+    "pvresize": {
+      "id": "a7391f4a-109d-52fc-8b9e-a17142caeeb6",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Resize physical volume(s)"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "调整物理卷大小"
+      }
+    },
+    "pvs": {
+      "id": "3d7838a3-8129-5616-aa48-7010231bc6c8",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Display information about physical volumes"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "显示物理卷信息"
+      }
+    },
+    "pvscan": {
+      "id": "ea5c7f7d-987f-5c0b-8537-40f3cff2d3a0",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "List all physical volumes"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "列出所有物理卷"
       }
     },
     "pwck": {
@@ -9454,6 +9809,215 @@
       "zh-CN": {
         "url": "https://gitlab.com/cryptsetup/cryptsetup",
         "description": "管理 dm-verity 设备。"
+      }
+    },
+    "vgcfgbackup": {
+      "id": "102beb72-6c2a-5e9f-8208-85a42ea1764a",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Backup volume group configuration(s)"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "备份卷组配置"
+      }
+    },
+    "vgcfgrestore": {
+      "id": "b64fa4cd-20de-565e-bbd7-d7279e4e0b69",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Restore volume group configuration"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "恢复卷组配置"
+      }
+    },
+    "vgchange": {
+      "id": "baa83642-436c-597f-8353-4b86206a1807",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Change volume group attributes"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "更改卷组属性"
+      }
+    },
+    "vgck": {
+      "id": "48a3dbcb-2181-59bb-a98a-cbd009120c14",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Check the consistency of volume group(s)"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "检查卷组一致性"
+      }
+    },
+    "vgconvert": {
+      "id": "b208eb3f-a3c0-541b-8b8a-70b5a4a9093e",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Change volume group metadata format"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "更改卷组元数据格式"
+      }
+    },
+    "vgcreate": {
+      "id": "0e287e1f-57a0-59fb-ad6a-55663ed617f3",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Create a volume group"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "创建卷组"
+      }
+    },
+    "vgdisplay": {
+      "id": "bf671f02-4450-54f9-9caa-ae835c62dd84",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Display volume group information"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "显示卷组信息"
+      }
+    },
+    "vgexport": {
+      "id": "85f13468-cf46-59bd-86cd-f3dd43dea614",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Unregister volume group(s) from the system"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "从系统注销卷组"
+      }
+    },
+    "vgextend": {
+      "id": "83f769b9-9e33-565c-b1ec-0cd128adb713",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Add physical volumes to a volume group"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "将物理卷添加到卷组"
+      }
+    },
+    "vgimport": {
+      "id": "fb36619f-88c0-56a9-aa07-b1e1c09f1c8d",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Register exported volume group with system"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "向系统注册已导出的卷组"
+      }
+    },
+    "vgimportclone": {
+      "id": "4b0984f6-3857-576e-8b88-dd9f738a9d3e",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Import a VG from cloned PVs"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "从克隆的 PV 导入 VG"
+      }
+    },
+    "vgmerge": {
+      "id": "9c872688-5e05-5a6e-9060-4df3e35495b8",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Merge volume groups"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "合并卷组"
+      }
+    },
+    "vgmknodes": {
+      "id": "d9ac46d2-a08c-5c0b-b11b-ea582e2b95c9",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Create the special files for volume group devices in /dev"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "在 /dev 中为卷组设备创建设备文件"
+      }
+    },
+    "vgreduce": {
+      "id": "b20b1aee-6ae4-5414-8467-298af08f2e3f",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Remove physical volume(s) from a volume group"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "从卷组移除物理卷"
+      }
+    },
+    "vgremove": {
+      "id": "3f3f3142-6928-5032-809a-0fc506ee15a5",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Remove volume group(s)"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "移除卷组"
+      }
+    },
+    "vgrename": {
+      "id": "b7bc2a73-8607-519c-9608-69ec65313eec",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Rename a volume group"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "重命名卷组"
+      }
+    },
+    "vgs": {
+      "id": "94615115-b679-5ddb-8c6c-333766d51d85",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Display information about volume groups"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "显示卷组信息"
+      }
+    },
+    "vgscan": {
+      "id": "bd1342da-afdc-5350-b852-b8c34f624ad0",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Search for all volume groups"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "搜索所有卷组"
+      }
+    },
+    "vgsplit": {
+      "id": "caedd3ce-651b-5e0b-8e37-e87f4c8d3445",
+      "en-US": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "Move physical volumes into a new or existing volume group"
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/lvmteam/lvm2",
+        "description": "将物理卷移入新的或现有卷组"
       }
     },
     "vhs": {

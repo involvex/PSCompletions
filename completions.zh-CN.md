@@ -226,6 +226,7 @@
 |[fold@uutils](https://uutils.org)|将每个文件写入标准输出，同时拆分长行。|
 |[free](https://gitlab.com/procps-ng/procps)|显示空闲和已用内存量。|
 |[fresh](https://getfresh.dev/docs)|支持多光标的终端文本编辑器。|
+|[fsadm](https://gitlab.com/lvmteam/lvm2)|用于调整设备上文件系统大小或检查文件系统的工具。|
 |[fsfreeze](https://github.com/util-linux/util-linux)|暂停对文件系统的访问。|
 |[fstrim](https://github.com/util-linux/util-linux)|丢弃已挂载文件系统上未使用的块。|
 |[fuser](https://gitlab.com/psmisc/psmisc)|显示使用文件、套接字或文件系统的进程。|
@@ -361,6 +362,24 @@
 |[lsns](https://github.com/util-linux/util-linux)|列出系统命名空间。|
 |[lua](https://www.lua.org/)|功能强大、高效、轻量且可嵌入的脚本语言|
 |[luksformat](https://gitlab.com/cryptsetup/cryptsetup)|创建并格式化加密的 LUKS 设备。|
+|[lvchange](https://gitlab.com/lvmteam/lvm2)|更改逻辑卷属性|
+|[lvconvert](https://gitlab.com/lvmteam/lvm2)|更改逻辑卷布局|
+|[lvcreate](https://gitlab.com/lvmteam/lvm2)|创建逻辑卷|
+|[lvdisplay](https://gitlab.com/lvmteam/lvm2)|显示逻辑卷信息|
+|[lvextend](https://gitlab.com/lvmteam/lvm2)|为逻辑卷增加空间|
+|[lvm](https://gitlab.com/lvmteam/lvm2)|管理 LVM 卷及其组件。|
+|[lvmconfig](https://gitlab.com/lvmteam/lvm2)|显示和操作配置信息|
+|[lvmdiskscan](https://gitlab.com/lvmteam/lvm2)|列出可用作物理卷的设备|
+|[lvmdump](https://gitlab.com/lvmteam/lvm2)|为诊断目的创建 LVM2 信息转储。|
+|[lvmpolld](https://gitlab.com/lvmteam/lvm2)|LVM 轮询守护进程。|
+|[lvmsadc](https://gitlab.com/lvmteam/lvm2)|收集活动数据|
+|[lvmsar](https://gitlab.com/lvmteam/lvm2)|创建活动报告|
+|[lvreduce](https://gitlab.com/lvmteam/lvm2)|减小逻辑卷大小|
+|[lvremove](https://gitlab.com/lvmteam/lvm2)|从系统移除逻辑卷|
+|[lvrename](https://gitlab.com/lvmteam/lvm2)|重命名逻辑卷|
+|[lvresize](https://gitlab.com/lvmteam/lvm2)|调整逻辑卷大小|
+|[lvs](https://gitlab.com/lvmteam/lvm2)|显示逻辑卷信息|
+|[lvscan](https://gitlab.com/lvmteam/lvm2)|列出所有卷组中的所有逻辑卷|
 |[lychee](https://github.com/lycheeverse/lychee)|一个快速、异步的链接检查器。<br>检测本地文件和网站中的失效 URL 和邮件地址。|
 |[m4@GNU](https://www.gnu.org/software/m4)|处理 FILEs 中的宏。|
 |[machinectl](https://github.com/systemd/systemd)|控制 systemd 机器管理器及其容器和镜像。|
@@ -514,6 +533,15 @@
 |[ptx@GNU](https://www.gnu.org/software/coreutils/)|输出输入文件中各词（含上下文）的置换索引。|
 |[ptx@uutils](https://uutils.org)|生成文件内容的排序索引|
 |[pulumi](https://www.pulumi.com/)|Pulumi - 用任意编程语言实现基础设施即代码|
+|[pvchange](https://gitlab.com/lvmteam/lvm2)|更改物理卷属性|
+|[pvck](https://gitlab.com/lvmteam/lvm2)|检查物理卷上的元数据|
+|[pvcreate](https://gitlab.com/lvmteam/lvm2)|初始化供 LVM 使用的物理卷|
+|[pvdisplay](https://gitlab.com/lvmteam/lvm2)|显示物理卷的各种属性|
+|[pvmove](https://gitlab.com/lvmteam/lvm2)|将区段从一个物理卷移动到另一个|
+|[pvremove](https://gitlab.com/lvmteam/lvm2)|从物理卷移除 LVM 标签|
+|[pvresize](https://gitlab.com/lvmteam/lvm2)|调整物理卷大小|
+|[pvs](https://gitlab.com/lvmteam/lvm2)|显示物理卷信息|
+|[pvscan](https://gitlab.com/lvmteam/lvm2)|列出所有物理卷|
 |[pwck](https://github.com/shadow-maint/shadow)|校验密码文件的完整性。|
 |[pwconv](https://github.com/shadow-maint/shadow)|从 passwd 文件创建或更新 shadow 文件。|
 |[pwd@GNU](https://www.gnu.org/software/coreutils/)|打印当前工作目录的完整路径名。|
@@ -772,6 +800,25 @@
 |[vdpa](https://github.com/iproute2/iproute2)|vdpa 管理工具。|
 |[vercel](https://vercel.com)|用于部署和管理 Vercel 项目的命令行工具|
 |[veritysetup](https://gitlab.com/cryptsetup/cryptsetup)|管理 dm-verity 设备。|
+|[vgcfgbackup](https://gitlab.com/lvmteam/lvm2)|备份卷组配置|
+|[vgcfgrestore](https://gitlab.com/lvmteam/lvm2)|恢复卷组配置|
+|[vgchange](https://gitlab.com/lvmteam/lvm2)|更改卷组属性|
+|[vgck](https://gitlab.com/lvmteam/lvm2)|检查卷组一致性|
+|[vgconvert](https://gitlab.com/lvmteam/lvm2)|更改卷组元数据格式|
+|[vgcreate](https://gitlab.com/lvmteam/lvm2)|创建卷组|
+|[vgdisplay](https://gitlab.com/lvmteam/lvm2)|显示卷组信息|
+|[vgexport](https://gitlab.com/lvmteam/lvm2)|从系统注销卷组|
+|[vgextend](https://gitlab.com/lvmteam/lvm2)|将物理卷添加到卷组|
+|[vgimport](https://gitlab.com/lvmteam/lvm2)|向系统注册已导出的卷组|
+|[vgimportclone](https://gitlab.com/lvmteam/lvm2)|从克隆的 PV 导入 VG|
+|[vgmerge](https://gitlab.com/lvmteam/lvm2)|合并卷组|
+|[vgmknodes](https://gitlab.com/lvmteam/lvm2)|在 /dev 中为卷组设备创建设备文件|
+|[vgreduce](https://gitlab.com/lvmteam/lvm2)|从卷组移除物理卷|
+|[vgremove](https://gitlab.com/lvmteam/lvm2)|移除卷组|
+|[vgrename](https://gitlab.com/lvmteam/lvm2)|重命名卷组|
+|[vgs](https://gitlab.com/lvmteam/lvm2)|显示卷组信息|
+|[vgscan](https://gitlab.com/lvmteam/lvm2)|搜索所有卷组|
+|[vgsplit](https://gitlab.com/lvmteam/lvm2)|将物理卷移入新的或现有卷组|
 |[vhs](https://github.com/charmbracelet/vhs)|你的 CLI 家庭录像机<br>从 Shell 脚本录制终端 GIF|
 |[viddy](https://github.com/sachaos/viddy)|现代 watch 命令<br>时间机器和分页器等|
 |[vipw](https://github.com/shadow-maint/shadow)|编辑密码、组、shadow 或 gshadow 文件。|
