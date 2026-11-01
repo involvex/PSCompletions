@@ -1,12 +1,14 @@
 {
-  "count": 781,
+  "count": 790,
   "update": {
     "7z": "cac4d4accba5c11d5b3ae1fde2e491070f69e522c974cc3004950acea1ffa593",
+    "accessdb": "11f75135b12fe904afe6e383a3c12bab63005550e28f361fb43b7acbf1aa1c91",
     "act": "3c17f2f2959410d3ac7c443cad5cfcab4d660eba2a6ca7e2b9f636eab63a2b6e",
     "adb": "f8a068298edc7b64e9f89c6b8c6302faeb90e4461ceea56f3ac936c985100c6c",
     "addr2line": "8a47cca84b3ea631153f89434d152fe023bdf5fe32a688a5f9035998eb8f8f37",
     "agetty": "3dd4cdeb8af7c2d4c69e60be64a2c93b8c0b5ebfe7ce8469275e8e2df7b24c4b",
     "android": "c7214cc37d88a814b4fd3bd68c2197aa087520ae6c1b374129d7654e0f83fc38",
+    "apropos": "5db04c841974d842f42a0261c969eb904dc20a4952da26dda0eaecce2ef076e1",
     "apt": "48553ea278bcc7491c2c4406c7b3889e6d35552b7e4045e5739bff0273246c4c",
     "apt-cache": "beac23c009eda57263703ebf7d5418b8bb092085da4a477ee727bbcd150aa132",
     "apt-config": "a582f4ece8f04b9424cd13af613ed8b155ab33e6b36bf34201deb688803e6614",
@@ -63,6 +65,7 @@
     "cargo": "a0cfd5885375ad630fea0b5a10daaa6cad2fa79178a917dcc8f231381e4910d0",
     "cat@GNU": "53f01ad90205e9d5cbc1f4cfc66c417b9d64ad492936cbe2e97cdc64b3e0f70f",
     "cat@uutils": "de4c7f4e100d3974a1a884e81a18fead40e6c28ecfef7442d2978b65860f39c1",
+    "catman": "da462fe8a545be4ccaea9f03152a0c35624de82cf7343c0611415e8431f79b1b",
     "cfdisk": "34e34a7626916aa108c62fb5e011bcb6ec9e319b19b73ba2dfac4e2aca851ead",
     "chage": "f80ee9071d244dd5b781c9d131d6d2b7297638811f341a1cba8f627800b0850e",
     "chattr": "fda68ce1ed46f3d8d038adb2b34c43e3a8e316264d4856e8bd2ae3d665c2a3c4",
@@ -310,6 +313,7 @@
     "ldattach": "66e1aae5e4038359c079dbdf44bb9f8dde669797878dd075e891b0a404b390e0",
     "lefthook": "2956ad0e87626980b520b7f62a2089537ad078b5d8886f7f586662a5d27a5fdf",
     "less": "1af5a0bbce8f90cabe3e801f231df05782f176bdbc5e1adeb096b8eb679d34ac",
+    "lexgrog": "219240ecaea805aa32a89e75a16f7acab4b4c2dbba87fa405237a2bd255dec05",
     "link@GNU": "8b5d97626ceb850198c52faab97a27adb9baead5ae5d505ff4eff5c486a358b1",
     "link@uutils": "a529ecc3c19641219c0c109d4dfb420b0614565706eae951d098132803a10f0d",
     "ln@GNU": "b50460e16944c79f5e433d71fa6818b94d2ff49e2579fdbdb055701d2b4b57c4",
@@ -341,6 +345,10 @@
     "machinectl": "9c9ead39bfa3ec129a4bb1bad13ceff24da054fc5e86cda11ed02a9c376c0382",
     "magick": "9b2f328b7ce2c88bee4b3e32d60c181ca8f8b4e72750c0e30cf9301874da4240",
     "make@GNU": "3b5869a70516386a62eed27a55c7c900b2c01325bf8f7b8f1ea6496241c8605f",
+    "man": "0079fbc40d3c00df2453e5889817029face9f1edaae0b5991da3015dc8ec14eb",
+    "man-recode": "bd98a90b659074c2666984a884781ccca82eba4465aed3d84e714c4f216a7bca",
+    "mandb": "1846c8141ef837fd0ca4bb2b1ecf480c27f492d8af342f451b8c8c2ff6a92bc2",
+    "manpath": "fa5dddf2dccd490fe61a00c07dbc30458884d43be5fc1f89abe0274e660d5fbe",
     "mcfly": "29b7df9cc0ff9d16a7d2b4e073e05c222d26958aa6d7ec8a4c41d3c3f15a94ea",
     "mcookie": "e6c978bd681995970489a6a515dfd301bea7cddf1658f8177d20b37dcd5f45c2",
     "md5sum@GNU": "1c814b3a2ff3eba8b9ba66d22b19f55227db215e904ee094b15e6212420a51e8",
@@ -747,6 +755,7 @@
     "wdctl": "7065f6074e7d957bca6a4c58d332f98c48d73043f31a69c743c89604e31e1280",
     "wdiff": "75f7e5ab53b747dfd689cda77c5dbf47cf24e6e681fc633d28d0b79abfb0e349",
     "wget": "615b0b94e94ae447f79dc65442910255e4d7358a2e1f2379e7ee2c637db671e8",
+    "whatis": "1119f15da0c36d6f4ed3e1f5556880b0496365c8aa85b9ba5552bfc17e3ab832",
     "whereis": "1c78b72f0588fe62f898cb06593d4343968edbb19f8b900e685e3f1e6266f1bf",
     "which@debianutils": "b183bd577de30ca9685140b4156e62ebe928c55c71b9662002dd812cd61000d4",
     "who@GNU": "8bcdf732f6a089e8950de573c243b12cf63138376baa7a9d64fd66a627450718",
@@ -793,6 +802,17 @@
       "zh-CN": {
         "url": "https://7-zip.org/",
         "description": "7-Zip 的命令行界面。"
+      }
+    },
+    "accessdb": {
+      "id": "97afb84a-43ad-5f01-85f2-1f3f2ae923ba",
+      "en-US": {
+        "url": "https://gitlab.com/man-db/man-db",
+        "description": "Display the contents of a man-db database."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/man-db/man-db",
+        "description": "显示 man-db 数据库内容。"
       }
     },
     "act": {
@@ -849,6 +869,17 @@
       "zh-CN": {
         "url": "https://developer.android.com/tools/agents/android-cli",
         "description": "供 AI agent 做 Android 应用开发的命令行界面。"
+      }
+    },
+    "apropos": {
+      "id": "15b25df6-7fb4-589a-89a7-a5a4bec8c061",
+      "en-US": {
+        "url": "https://gitlab.com/man-db/man-db",
+        "description": "Search manual page names and descriptions."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/man-db/man-db",
+        "description": "搜索手册页名称和描述。"
       }
     },
     "apt": {
@@ -1482,6 +1513,17 @@
       "zh-CN": {
         "url": "https://uutils.org",
         "description": "将 FILE 或标准输入连接到标准输出"
+      }
+    },
+    "catman": {
+      "id": "5d0f733a-2d85-588a-92e8-628f89210b2e",
+      "en-US": {
+        "url": "https://gitlab.com/man-db/man-db",
+        "description": "Create or update preformatted manual pages."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/man-db/man-db",
+        "description": "创建或更新预格式化手册页。"
       }
     },
     "cfdisk": {
@@ -4271,6 +4313,17 @@
         "description": "在终端中逐屏显示文件内容。"
       }
     },
+    "lexgrog": {
+      "id": "2db3c8b8-28a6-5b20-98b5-96f3f31d5f0a",
+      "en-US": {
+        "url": "https://gitlab.com/man-db/man-db",
+        "description": "Parse header information in man pages."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/man-db/man-db",
+        "description": "解析手册页中的头信息。"
+      }
+    },
     "link@GNU": {
       "id": "399d033e-0360-4167-9712-00487198da12",
       "alias": "link",
@@ -4620,6 +4673,50 @@
       "zh-CN": {
         "url": "https://www.gnu.org/software/make",
         "description": "维护程序组的 GNU make 工具。"
+      }
+    },
+    "man": {
+      "id": "a282c5f0-2fa5-5527-bc78-62e2e032b8f8",
+      "en-US": {
+        "url": "https://gitlab.com/man-db/man-db",
+        "description": "Display the manual pages."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/man-db/man-db",
+        "description": "显示手册页。"
+      }
+    },
+    "man-recode": {
+      "id": "9ae5a1ff-2dbd-5280-86ff-c84365669bc6",
+      "en-US": {
+        "url": "https://gitlab.com/man-db/man-db",
+        "description": "Convert manual pages to another encoding."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/man-db/man-db",
+        "description": "将手册页转换为另一种编码。"
+      }
+    },
+    "mandb": {
+      "id": "d43c43d9-a110-5dc4-b6f9-ff4207bc19b6",
+      "en-US": {
+        "url": "https://gitlab.com/man-db/man-db",
+        "description": "Create or update the manual page index caches."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/man-db/man-db",
+        "description": "创建或更新手册页索引缓存。"
+      }
+    },
+    "manpath": {
+      "id": "0e3eef6e-e0b4-5cd4-9bd9-2f71abfeb668",
+      "en-US": {
+        "url": "https://gitlab.com/man-db/man-db",
+        "description": "Determine the search path for manual pages."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/man-db/man-db",
+        "description": "确定手册页搜索路径。"
       }
     },
     "mcfly": {
@@ -9220,6 +9317,17 @@
       "zh-CN": {
         "url": "https://www.gnu.org/software/wget/",
         "description": "非交互式网络检索工具。"
+      }
+    },
+    "whatis": {
+      "id": "8129b558-7588-5995-896f-c6bc41e12a93",
+      "en-US": {
+        "url": "https://gitlab.com/man-db/man-db",
+        "description": "Display one-line manual page descriptions."
+      },
+      "zh-CN": {
+        "url": "https://gitlab.com/man-db/man-db",
+        "description": "显示单行手册页描述。"
       }
     },
     "whereis": {

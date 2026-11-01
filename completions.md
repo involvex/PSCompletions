@@ -9,11 +9,13 @@ English | [简体中文](./completions.zh-CN.md)
 |Completion|Description|
 |:-:|-|
 |[7z](https://7-zip.org/)|The command line interface of 7-Zip.|
+|[accessdb](https://gitlab.com/man-db/man-db)|Display the contents of a man-db database.|
 |[act](https://github.com/nektos/act)|Run GitHub Actions locally.|
 |[adb](https://developer.android.com/tools/adb)|Android Debug Bridge command-line tool.|
 |[addr2line](https://www.gnu.org/software/binutils)|Convert addresses into line number and file name pairs.|
 |[agetty](https://github.com/util-linux/util-linux)|Open a terminal and set its mode.|
 |[android](https://developer.android.com/tools/agents/android-cli)|Command-line interface for Android app development with AI agents.|
+|[apropos](https://gitlab.com/man-db/man-db)|Search manual page names and descriptions.|
 |[apt](https://wiki.debian.org/Apt)|A command-line package manager for Debian and derivatives.|
 |[apt-cache](https://wiki.debian.org/Apt)|Query and display package information from the local cache, without changing the system.|
 |[apt-config](https://wiki.debian.org/Teams/Dpkg)|Query APT configuration settings.|
@@ -70,6 +72,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[cargo](https://doc.rust-lang.org/cargo)|Rust package manager.|
 |[cat@GNU](https://www.gnu.org/software/coreutils/)|Concatenate FILE(s) to standard output.|
 |[cat@uutils](https://uutils.org)|Concatenate FILE(s), or standard input, to standard output|
+|[catman](https://gitlab.com/man-db/man-db)|Create or update preformatted manual pages.|
 |[cfdisk](https://github.com/util-linux/util-linux)|Display or manipulate a disk partition table.|
 |[chage](https://github.com/shadow-maint/shadow)|Change user password expiry information.|
 |[chattr](https://e2fsprogs.sourceforge.net)|Change file attributes on an ext2/ext3/ext4 file system.|
@@ -317,6 +320,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[ldattach](https://github.com/util-linux/util-linux)|Attach a line discipline to a serial line.|
 |[lefthook](https://github.com/evilmartians/lefthook)|Git hooks manager.|
 |[less](https://greenwoodsoftware.com/less)|Display the contents of a file in a terminal.|
+|[lexgrog](https://gitlab.com/man-db/man-db)|Parse header information in man pages.|
 |[link@GNU](https://www.gnu.org/software/coreutils/)|Call the link function to create a link named FILE2 to an existing FILE1.|
 |[link@uutils](https://uutils.org)|Call the link function to create a link named FILE2 to an existing FILE1.|
 |[ln@GNU](https://www.gnu.org/software/coreutils/)|Make links between files.|
@@ -348,6 +352,10 @@ English | [简体中文](./completions.zh-CN.md)
 |[machinectl](https://github.com/systemd/systemd)|Control the systemd machine manager and its containers and images.|
 |[magick](https://imagemagick.org)|Create, edit, compose, or convert digital images.|
 |[make@GNU](https://www.gnu.org/software/make)|GNU make utility to maintain groups of programs.|
+|[man](https://gitlab.com/man-db/man-db)|Display the manual pages.|
+|[man-recode](https://gitlab.com/man-db/man-db)|Convert manual pages to another encoding.|
+|[mandb](https://gitlab.com/man-db/man-db)|Create or update the manual page index caches.|
+|[manpath](https://gitlab.com/man-db/man-db)|Determine the search path for manual pages.|
 |[mcfly](https://github.com/cantino/mcfly)|Fly through your shell history|
 |[mcookie](https://github.com/util-linux/util-linux)|Generate magic cookies for xauth.|
 |[md5sum@GNU](https://www.gnu.org/software/coreutils/)|Print or check MD5 (128-bit) checksums.|
@@ -754,6 +762,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[wdctl](https://github.com/util-linux/util-linux)|Show the status of the hardware watchdog.|
 |[wdiff](https://www.gnu.org/software/wdiff)|Compares words in two files and reports differences.|
 |[wget](https://www.gnu.org/software/wget/)|Non-interactive network retriever.|
+|[whatis](https://gitlab.com/man-db/man-db)|Display one-line manual page descriptions.|
 |[whereis](https://github.com/util-linux/util-linux)|Locate the binary, source, and manual-page files for a command.|
 |[which@debianutils](https://salsa.debian.org/debian/debianutils)|Locate a command in PATH.|
 |[who@GNU](https://www.gnu.org/software/coreutils/)|Print information about users who are currently logged in.|

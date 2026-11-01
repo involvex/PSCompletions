@@ -9,11 +9,13 @@
 |Completion|Description|
 |:-:|-|
 |[7z](https://7-zip.org/)|7-Zip 的命令行界面。|
+|[accessdb](https://gitlab.com/man-db/man-db)|显示 man-db 数据库内容。|
 |[act](https://github.com/nektos/act)|本地运行 GitHub Actions。|
 |[adb](https://developer.android.com/tools/adb)|Android 调试桥命令行工具。|
 |[addr2line](https://www.gnu.org/software/binutils)|将地址转换为行号和文件名。|
 |[agetty](https://github.com/util-linux/util-linux)|打开终端并设置其模式。|
 |[android](https://developer.android.com/tools/agents/android-cli)|供 AI agent 做 Android 应用开发的命令行界面。|
+|[apropos](https://gitlab.com/man-db/man-db)|搜索手册页名称和描述。|
 |[apt](https://wiki.debian.org/Apt)|Debian 及衍生系统的命令行包管理器。|
 |[apt-cache](https://wiki.debian.org/Apt)|从本地缓存查询并显示软件包信息，不改变系统状态。|
 |[apt-config](https://wiki.debian.org/Teams/Dpkg)|查询 APT 配置设置。|
@@ -70,6 +72,7 @@
 |[cargo](https://doc.rust-lang.org/cargo)|Rust 包管理器。|
 |[cat@GNU](https://www.gnu.org/software/coreutils/)|把这些文件的内容拼接后写入标准输出。|
 |[cat@uutils](https://uutils.org)|将 FILE 或标准输入连接到标准输出|
+|[catman](https://gitlab.com/man-db/man-db)|创建或更新预格式化手册页。|
 |[cfdisk](https://github.com/util-linux/util-linux)|显示或操作磁盘分区表。|
 |[chage](https://github.com/shadow-maint/shadow)|更改用户密码过期信息。|
 |[chattr](https://e2fsprogs.sourceforge.net)|更改 ext2/ext3/ext4 文件系统的文件属性。|
@@ -317,6 +320,7 @@
 |[ldattach](https://github.com/util-linux/util-linux)|将线路规程附加到串行线路。|
 |[lefthook](https://github.com/evilmartians/lefthook)|Git 钩子管理器。|
 |[less](https://greenwoodsoftware.com/less)|在终端中逐屏显示文件内容。|
+|[lexgrog](https://gitlab.com/man-db/man-db)|解析手册页中的头信息。|
 |[link@GNU](https://www.gnu.org/software/coreutils/)|调用 link 函数，创建一个名为 FILE2、指向已存在的 FILE1 的链接。|
 |[link@uutils](https://uutils.org)|调用 link 函数，创建指向已存在 FILE1 的名为 FILE2 的链接|
 |[ln@GNU](https://www.gnu.org/software/coreutils/)|创建文件之间的链接。|
@@ -348,6 +352,10 @@
 |[machinectl](https://github.com/systemd/systemd)|控制 systemd 机器管理器及其容器和镜像。|
 |[magick](https://imagemagick.org)|创建、编辑、合成或转换数字图像。|
 |[make@GNU](https://www.gnu.org/software/make)|维护程序组的 GNU make 工具。|
+|[man](https://gitlab.com/man-db/man-db)|显示手册页。|
+|[man-recode](https://gitlab.com/man-db/man-db)|将手册页转换为另一种编码。|
+|[mandb](https://gitlab.com/man-db/man-db)|创建或更新手册页索引缓存。|
+|[manpath](https://gitlab.com/man-db/man-db)|确定手册页搜索路径。|
 |[mcfly](https://github.com/cantino/mcfly)|在 Shell 历史记录中快速穿梭|
 |[mcookie](https://github.com/util-linux/util-linux)|为 xauth 生成 magic cookie。|
 |[md5sum@GNU](https://www.gnu.org/software/coreutils/)|打印或校验 MD5（128 位）校验和。|
@@ -754,6 +762,7 @@
 |[wdctl](https://github.com/util-linux/util-linux)|显示硬件看门狗的状态。|
 |[wdiff](https://www.gnu.org/software/wdiff)|比较两个文件中的单词并报告差异。|
 |[wget](https://www.gnu.org/software/wget/)|非交互式网络检索工具。|
+|[whatis](https://gitlab.com/man-db/man-db)|显示单行手册页描述。|
 |[whereis](https://github.com/util-linux/util-linux)|定位命令的二进制、源码和手册页文件。|
 |[which@debianutils](https://salsa.debian.org/debian/debianutils)|在 PATH 中查找命令。|
 |[who@GNU](https://www.gnu.org/software/coreutils/)|打印当前已登录用户的信息。|
