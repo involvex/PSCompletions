@@ -32,6 +32,7 @@
 |[b2sum@GNU](https://www.gnu.org/software/coreutils/)|打印或校验 BLAKE2b（512 位）校验和。|
 |[b2sum@uutils](https://uutils.org)|打印或校验 BLAKE2b（512 位）校验和。|
 |[b3sum](https://github.com/BLAKE3-team/BLAKE3)|计算和校验 BLAKE3 消息摘要。|
+|[badblocks](https://e2fsprogs.sourceforge.net)|在设备上搜索坏块。|
 |[base32@GNU](https://www.gnu.org/software/coreutils/)|将 FILE（未指定时为标准输入）做 Base32 编码或解码，输出到标准输出。|
 |[base32@uutils](https://uutils.org)|编码/解码数据并输出到标准输出。|
 |[base64@GNU](https://www.gnu.org/software/coreutils/)|将 FILE（未指定时为标准输入）做 Base64 编码或解码，输出到标准输出。|
@@ -64,6 +65,7 @@
 |[cat@uutils](https://uutils.org)|将 FILE 或标准输入连接到标准输出|
 |[cfdisk](https://github.com/util-linux/util-linux)|显示或操作磁盘分区表。|
 |[chage](https://github.com/shadow-maint/shadow)|更改用户密码过期信息。|
+|[chattr](https://e2fsprogs.sourceforge.net)|更改 ext2/ext3/ext4 文件系统的文件属性。|
 |[chcon@GNU](https://www.gnu.org/software/coreutils/)|把每个 FILE 的 SELinux 安全上下文改为 CONTEXT。|
 |[chcon@uutils](https://uutils.org)|将每个 FILE 的 SELinux 安全上下文更改为 CONTEXT|
 |[chcpu](https://github.com/util-linux/util-linux)|配置多处理器系统中的 CPU。|
@@ -117,6 +119,7 @@
 |[dcb](https://github.com/iproute2/iproute2)|显示/操作 DCB 设置。|
 |[dd@GNU](https://www.gnu.org/software/coreutils/)|按操作数的规定转换并格式化，从而复制文件。|
 |[dd@uutils](https://uutils.org)|复制文件系统资源，并可选择转换|
+|[debugfs](https://e2fsprogs.sourceforge.net)|交互式调试和修改 ext2/ext3/ext4 文件系统。|
 |[delta](https://github.com/dandavison/delta)|Git 和 diff 输出的查看器。|
 |[deno](https://deno.com/)|现代 JavaScript 和 TypeScript 运行时。|
 |[devlink](https://github.com/iproute2/iproute2)|Devlink 工具。|
@@ -144,7 +147,18 @@
 |[dua](https://github.com/Byron/dua-cli)|一个快速了解磁盘使用情况的工具！|
 |[duf](https://github.com/muesli/duf)|更好的 df 替代品，用于显示磁盘使用情况。|
 |[dufs](https://github.com/sigoden/dufs)|独特的实用文件服务器。|
+|[dumpe2fs](https://e2fsprogs.sourceforge.net)|转储 ext2/ext3/ext4 文件系统信息。|
 |[dust](https://github.com/bootandy/dust)|比 du 更直观。|
+|[e2freefrag](https://e2fsprogs.sourceforge.net)|报告 ext2/ext3/ext4 文件系统的可用空间碎片情况。|
+|[e2fsck](https://e2fsprogs.sourceforge.net)|检查 ext2/ext3/ext4 文件系统。|
+|[e2image](https://e2fsprogs.sourceforge.net)|将关键的 ext2/ext3/ext4 文件系统元数据保存到镜像文件。|
+|[e2label](https://e2fsprogs.sourceforge.net)|显示或更改 ext2/ext3/ext4 文件系统的卷标。|
+|[e2mmpstatus](https://e2fsprogs.sourceforge.net)|检查 ext4 文件系统的 MMP 状态。|
+|[e2scrub](https://e2fsprogs.sourceforge.net)|检查已挂载 ext4 文件系统的内容。|
+|[e2scrub_all](https://e2fsprogs.sourceforge.net)|清理 LVM 卷上的所有 ext4 文件系统。|
+|[e2undo](https://e2fsprogs.sourceforge.net)|为 ext2/ext3/ext4 文件系统重放撤销日志。|
+|[e4crypt](https://e2fsprogs.sourceforge.net)|管理 ext4 文件系统加密。|
+|[e4defrag](https://e2fsprogs.sourceforge.net)|对 ext4 文件系统进行碎片整理。|
 |[echo@GNU](https://www.gnu.org/software/coreutils/)|把这些字符串回显到标准输出。|
 |[echo@uutils](https://uutils.org)|显示一行文本|
 |[eddy](https://github.com/70sh1/eddy)|简单快速的文件加密工具|
@@ -168,6 +182,7 @@
 |[fd](https://github.com/sharkdp/fd)|在文件系统中查找条目的程序。|
 |[fdisk](https://github.com/util-linux/util-linux)|显示或操作磁盘分区表。|
 |[ffmpeg](https://ffmpeg.org)|完整的跨平台音视频录制、转换和流媒体解决方案。|
+|[filefrag](https://e2fsprogs.sourceforge.net)|报告文件碎片和 extent 布局。|
 |[find@GNU](https://www.gnu.org/software/findutils)|在目录层级中搜索文件。<br>表达式由运算符、选项、测试和动作构成。|
 |[find@uutils](https://github.com/uutils/findutils)|在目录层级中查找文件，GNU find 的 Rust 实现。<br>表达式由运算符、选项、测试和动作构成。|
 |[findfs](https://github.com/util-linux/util-linux)|按标签或 UUID 查找文件系统。|
@@ -289,6 +304,7 @@
 |[losetup](https://github.com/util-linux/util-linux)|设置和控制 loop 设备。|
 |[ls@GNU](https://www.gnu.org/software/coreutils/)|列出这些文件的信息（默认为当前目录）。|
 |[ls@uutils](https://uutils.org)|列出目录内容|
+|[lsattr](https://e2fsprogs.sourceforge.net)|列出 ext2/ext3/ext4 文件系统的文件属性。|
 |[lsblk](https://github.com/util-linux/util-linux)|列出块设备信息。|
 |[lscpu](https://github.com/util-linux/util-linux)|显示 CPU 体系结构信息。|
 |[lsipc](https://github.com/util-linux/util-linux)|显示 IPC 设施信息。|
@@ -311,8 +327,10 @@
 |[mise](https://mise.jdx.dev/)|多语言工具版本管理器、环境变量管理器和任务运行器。|
 |[mkdir@GNU](https://www.gnu.org/software/coreutils/)|创建这些目录（如果尚未存在）。|
 |[mkdir@uutils](https://uutils.org)|如果给定的 DIRECTORY 不存在则创建|
+|[mke2fs](https://e2fsprogs.sourceforge.net)|创建 ext2/ext3/ext4 文件系统。|
 |[mkfifo@GNU](https://www.gnu.org/software/coreutils/)|用给定的 NAME 创建具名管道（FIFO）。|
 |[mkfifo@uutils](https://uutils.org)|以给定名称创建 FIFO|
+|[mklost+found](https://e2fsprogs.sourceforge.net)|在当前目录创建 lost+found 目录。|
 |[mknod@GNU](https://www.gnu.org/software/coreutils/)|创建一个名为 NAME、类型为 TYPE 的特殊文件。|
 |[mknod@uutils](https://uutils.org)|创建给定 TYPE 的特殊文件 NAME|
 |[mkswap](https://github.com/util-linux/util-linux)|设置 Linux 交换区。|
@@ -451,6 +469,7 @@
 |[reasonix](https://reasonix.io)|面向终端的 DeepSeek 原生 AI 编码智能体。|
 |[rename.ul](https://github.com/util-linux/util-linux)|重命名文件。|
 |[renice](https://github.com/util-linux/util-linux)|更改正在运行的进程的优先级。|
+|[resize2fs](https://e2fsprogs.sourceforge.net)|调整 ext2/ext3/ext4 文件系统的大小。|
 |[resolvectl](https://github.com/systemd/systemd)|解析域名、IP 地址和 DNS 资源记录；内省并重新配置 DNS 解析器。|
 |[restic](https://restic.net)|备份程序<br>在加密仓库中保存文件和目录的多个修订版本|
 |[resvg](https://github.com/linebender/resvg)|一个 SVG 渲染应用程序。|
@@ -627,6 +646,7 @@
 |[tty@GNU](https://www.gnu.org/software/coreutils/)|打印与标准输入相连的终端的文件名。|
 |[tty@uutils](https://uutils.org)|打印连接到标准输入的终端的文件名|
 |[ttyd](https://github.com/tsl0922/ttyd)|在 Web 上共享终端的工具|
+|[tune2fs](https://e2fsprogs.sourceforge.net)|调整 ext2/ext3/ext4 文件系统的可调参数。|
 |[ty](https://github.com/astral-sh/ruff)|极速的 Python 类型检查器。|
 |[typst](https://typst.app)|一个基于标记的新排版系统。|
 |[uclampset](https://github.com/util-linux/util-linux)|显示或更改利用率钳制属性。|

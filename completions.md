@@ -32,6 +32,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[b2sum@GNU](https://www.gnu.org/software/coreutils/)|Print or check BLAKE2b (512-bit) checksums.|
 |[b2sum@uutils](https://uutils.org)|Print or check BLAKE2b (512-bit) checksums.|
 |[b3sum](https://github.com/BLAKE3-team/BLAKE3)|Compute and check BLAKE3 message digests.|
+|[badblocks](https://e2fsprogs.sourceforge.net)|Search a device for bad blocks.|
 |[base32@GNU](https://www.gnu.org/software/coreutils/)|Base32 encode or decode FILE, or standard input, to standard output.|
 |[base32@uutils](https://uutils.org)|Encode/decode data and print to standard output.|
 |[base64@GNU](https://www.gnu.org/software/coreutils/)|Base64 encode or decode FILE, or standard input, to standard output.|
@@ -64,6 +65,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[cat@uutils](https://uutils.org)|Concatenate FILE(s), or standard input, to standard output|
 |[cfdisk](https://github.com/util-linux/util-linux)|Display or manipulate a disk partition table.|
 |[chage](https://github.com/shadow-maint/shadow)|Change user password expiry information.|
+|[chattr](https://e2fsprogs.sourceforge.net)|Change file attributes on an ext2/ext3/ext4 file system.|
 |[chcon@GNU](https://www.gnu.org/software/coreutils/)|Change the SELinux security context of each FILE to CONTEXT.|
 |[chcon@uutils](https://uutils.org)|Change the SELinux security context of each FILE to CONTEXT.|
 |[chcpu](https://github.com/util-linux/util-linux)|Configure CPUs in a multi-processor system.|
@@ -117,6 +119,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[dcb](https://github.com/iproute2/iproute2)|Show / manipulate DCB settings.|
 |[dd@GNU](https://www.gnu.org/software/coreutils/)|Copy a file, converting and formatting according to the operands.|
 |[dd@uutils](https://uutils.org)|Copy, and optionally convert, a file system resource|
+|[debugfs](https://e2fsprogs.sourceforge.net)|Debug and modify an ext2/ext3/ext4 file system interactively.|
 |[delta](https://github.com/dandavison/delta)|Viewer for git and diff output.|
 |[deno](https://deno.com/)|A modern JavaScript and TypeScript runtime.|
 |[devlink](https://github.com/iproute2/iproute2)|Devlink tool.|
@@ -144,7 +147,18 @@ English | [简体中文](./completions.zh-CN.md)
 |[dua](https://github.com/Byron/dua-cli)|A tool to learn about disk usage, fast!|
 |[duf](https://github.com/muesli/duf)|Better df alternative for displaying disk usage.|
 |[dufs](https://github.com/sigoden/dufs)|Distinctive utility file server.|
+|[dumpe2fs](https://e2fsprogs.sourceforge.net)|Dump ext2/ext3/ext4 file system information.|
 |[dust](https://github.com/bootandy/dust)|Like du but more intuitive.|
+|[e2freefrag](https://e2fsprogs.sourceforge.net)|Report free space fragmentation on an ext2/ext3/ext4 file system.|
+|[e2fsck](https://e2fsprogs.sourceforge.net)|Check an ext2/ext3/ext4 file system.|
+|[e2image](https://e2fsprogs.sourceforge.net)|Save critical ext2/ext3/ext4 file system metadata to an image file.|
+|[e2label](https://e2fsprogs.sourceforge.net)|Display or change the volume label on an ext2/ext3/ext4 file system.|
+|[e2mmpstatus](https://e2fsprogs.sourceforge.net)|Check the MMP status of an ext4 file system.|
+|[e2scrub](https://e2fsprogs.sourceforge.net)|Check the contents of a mounted ext4 file system.|
+|[e2scrub_all](https://e2fsprogs.sourceforge.net)|Scrub all ext4 file systems on LVM volumes.|
+|[e2undo](https://e2fsprogs.sourceforge.net)|Replay an undo log for an ext2/ext3/ext4 file system.|
+|[e4crypt](https://e2fsprogs.sourceforge.net)|Manage ext4 file system encryption.|
+|[e4defrag](https://e2fsprogs.sourceforge.net)|Defragment an ext4 file system.|
 |[echo@GNU](https://www.gnu.org/software/coreutils/)|Echo the STRING(s) to standard output.|
 |[echo@uutils](https://uutils.org)|Display a line of text|
 |[eddy](https://github.com/70sh1/eddy)|Simple and fast file encryption|
@@ -168,6 +182,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[fd](https://github.com/sharkdp/fd)|Program to find entries in your filesystem.|
 |[fdisk](https://github.com/util-linux/util-linux)|Display or manipulate a disk partition table.|
 |[ffmpeg](https://ffmpeg.org)|Complete, cross-platform solution to record, convert and stream audio and video.|
+|[filefrag](https://e2fsprogs.sourceforge.net)|Report file fragmentation and extent layout.|
 |[find@GNU](https://www.gnu.org/software/findutils)|Search for files in a directory hierarchy.<br>The expression is built from operators, options, tests, and actions.|
 |[find@uutils](https://github.com/uutils/findutils)|Find files in a directory hierarchy, a Rust implementation of GNU find.<br>The expression is built from operators, options, tests, and actions.|
 |[findfs](https://github.com/util-linux/util-linux)|Find a filesystem by label or UUID.|
@@ -289,6 +304,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[losetup](https://github.com/util-linux/util-linux)|Set up and control loop devices.|
 |[ls@GNU](https://www.gnu.org/software/coreutils/)|List information about the FILEs (the current directory by default).|
 |[ls@uutils](https://uutils.org)|List directory contents.|
+|[lsattr](https://e2fsprogs.sourceforge.net)|List file attributes on an ext2/ext3/ext4 file system.|
 |[lsblk](https://github.com/util-linux/util-linux)|List information about block devices.|
 |[lscpu](https://github.com/util-linux/util-linux)|Display information about the CPU architecture.|
 |[lsipc](https://github.com/util-linux/util-linux)|Show information on IPC facilities.|
@@ -311,8 +327,10 @@ English | [简体中文](./completions.zh-CN.md)
 |[mise](https://mise.jdx.dev/)|Polyglot tool version manager, env vars manager and task runner.|
 |[mkdir@GNU](https://www.gnu.org/software/coreutils/)|Create the DIRECTORY(ies), if they do not already exist.|
 |[mkdir@uutils](https://uutils.org)|Create the given DIRECTORY(ies) if they do not exist|
+|[mke2fs](https://e2fsprogs.sourceforge.net)|Create an ext2/ext3/ext4 file system.|
 |[mkfifo@GNU](https://www.gnu.org/software/coreutils/)|Create named pipes (FIFOs) with the given NAMEs.|
 |[mkfifo@uutils](https://uutils.org)|Create a FIFO with the given name.|
+|[mklost+found](https://e2fsprogs.sourceforge.net)|Create a lost+found directory in the current directory.|
 |[mknod@GNU](https://www.gnu.org/software/coreutils/)|Create the special file NAME of the given TYPE.|
 |[mknod@uutils](https://uutils.org)|Create the special file NAME of the given TYPE.|
 |[mkswap](https://github.com/util-linux/util-linux)|Set up a Linux swap area.|
@@ -451,6 +469,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[reasonix](https://reasonix.io)|A DeepSeek-native AI coding agent for your terminal.|
 |[rename.ul](https://github.com/util-linux/util-linux)|Rename files.|
 |[renice](https://github.com/util-linux/util-linux)|Alter the priority of running processes.|
+|[resize2fs](https://e2fsprogs.sourceforge.net)|Resize an ext2/ext3/ext4 file system.|
 |[resolvectl](https://github.com/systemd/systemd)|Resolve domain names, IP addresses and DNS resource records; introspect and reconfigure the DNS resolver.|
 |[restic](https://restic.net)|A backup program<br>Save multiple revisions of files and directories in an encrypted repository|
 |[resvg](https://github.com/linebender/resvg)|An SVG rendering application.|
@@ -627,6 +646,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[tty@GNU](https://www.gnu.org/software/coreutils/)|Print the file name of the terminal connected to standard input.|
 |[tty@uutils](https://uutils.org)|Print the file name of the terminal connected to standard input.|
 |[ttyd](https://github.com/tsl0922/ttyd)|A tool for sharing terminal over the web|
+|[tune2fs](https://e2fsprogs.sourceforge.net)|Adjust tunable file system parameters on an ext2/ext3/ext4 file system.|
 |[ty](https://github.com/astral-sh/ruff)|An extremely fast Python type checker.|
 |[typst](https://typst.app)|A new markup-based typesetting system.|
 |[uclampset](https://github.com/util-linux/util-linux)|Show or change the utilization clamping attributes.|

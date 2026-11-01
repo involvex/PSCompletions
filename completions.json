@@ -1,5 +1,5 @@
 {
-  "count": 704,
+  "count": 724,
   "update": {
     "7z": "cac4d4accba5c11d5b3ae1fde2e491070f69e522c974cc3004950acea1ffa593",
     "act": "3c17f2f2959410d3ac7c443cad5cfcab4d660eba2a6ca7e2b9f636eab63a2b6e",
@@ -25,6 +25,7 @@
     "b2sum@GNU": "f05449bda0afdce39e61a7497e3c387d22c1b88b4314adf0ea9691d642459dc4",
     "b2sum@uutils": "d2efe36efa239db42e8911a4a5752c817ec12af3149dd9b20a081e0b0c1ac92c",
     "b3sum": "0667d53d7b91731fdcd9d7edffdabf34832da442e7e2e7d42b1a1306afa9d8ab",
+    "badblocks": "21454b1878d7f5b44d942df72d8d76bba3f50d24681ec30d22fac94fd730a3ee",
     "base32@GNU": "76f6e9de0b21ffca9960c9a2a037178aa287adee529285a309c75dbdbd12fc26",
     "base32@uutils": "d8b2d48ba008f7e954753f797c64552283fe9d85b882e5758545409fcb14dc01",
     "base64@GNU": "4e9a9708a51b6a4d5a92bd639f8a4c71b3a8174d559e9a9879e1f42fdba7b4c3",
@@ -57,6 +58,7 @@
     "cat@uutils": "de4c7f4e100d3974a1a884e81a18fead40e6c28ecfef7442d2978b65860f39c1",
     "cfdisk": "34e34a7626916aa108c62fb5e011bcb6ec9e319b19b73ba2dfac4e2aca851ead",
     "chage": "f80ee9071d244dd5b781c9d131d6d2b7297638811f341a1cba8f627800b0850e",
+    "chattr": "fda68ce1ed46f3d8d038adb2b34c43e3a8e316264d4856e8bd2ae3d665c2a3c4",
     "chcon@GNU": "b358ac7d256f75741e1270dc1b8979793dd9df3b5a1266a04a5aecdb5ff0efcd",
     "chcon@uutils": "bd3b0f44a80883e1a7a07598bd37dd38fdfa6542ecb6394aa01d528c411f20c3",
     "chcpu": "8f52a7e814b9b6af74f7cd6970bd441aa5f75440a7efd924863d6a6dbeb9a903",
@@ -110,6 +112,7 @@
     "dcb": "366dd6eaef270a1e84f67c21ff88c8a15cb9b9fbaad242e9e368208a3e41f2e1",
     "dd@GNU": "9def923d87b96464fa1ecb27fbd2781dec9f75c2e90a63f3d5c0cca9a7712489",
     "dd@uutils": "67c340d9bd7987d2c01fbcc6feb6cacc0e9eabc9294268e84213123d0db99705",
+    "debugfs": "2e63ca44fde410ec02e988cd8cb03c0a7f824616f168700bf09872313ef5baee",
     "delta": "88c2d48aaac9734d3cac03816758703cf4baecef7f92e373978e53b08a0ea57f",
     "deno": "51d1bf3e3941ee289c581c5f1f402b044a109d06b98d5aaf00383077a79f709e",
     "devlink": "fafda4000d130450e2298b5b11d14b04e06a13e9e1df2c03dff8dacb36c189e5",
@@ -137,7 +140,18 @@
     "dua": "20998c6e9028dd8bcf9b25d556293555e21ee00ea94de17304700b4f7d272aa1",
     "duf": "958c824c5437d05ba8660956a909c5edcca265f24226605efe3da672591a3c41",
     "dufs": "6a87994e1081e2381cc1a0cb44a2a0552443fbb60c7bdaafe1619ce223dc4b73",
+    "dumpe2fs": "0c1806cfbe07d13a662313d6e8002b99bf763370c53ab6df688d24867d2932bf",
     "dust": "b3e6c747e227b147ca6d89c69e883628b865c10dddd298618bace0025cf03e8c",
+    "e2freefrag": "d10eeeb710cbdbdaee53eb44e0752cfdcf6a3138a19e388e3cd8035b5226064c",
+    "e2fsck": "d039bbd5d20cfec55506634ed98a8d8a8afaec13fbff23e312989b569c1bd655",
+    "e2image": "a9215dc333da8ae9f95b52003ad0c24a0bc0c2112cfec928778c03b6e06b272f",
+    "e2label": "5987edb36f21e2252c6d2d1e07b06b2fc44d39cc0d67b9ec96cf16a6df0398de",
+    "e2mmpstatus": "67e3ee45e5abff548bb3b7384ba0ef27390c335ae2ec8c91e8dcde232f597192",
+    "e2scrub": "762989b01ab9a44a7cdb1ba56f7ba2af8e6ac4bcdcdb02dc67e5e68f0eda3d27",
+    "e2scrub_all": "935fe21cbb8ae6caa821e5c1eab530b0d4c3de695e39c578d5a34d8d81dcc472",
+    "e2undo": "6ddcece94367c90185978e8037b656868ffb4c4221b37190cce93bfc0def8d24",
+    "e4crypt": "287cc742fe42eb9a71ce5cfb7c8cf01cbe945ce2be97d705a6cbac402ee63840",
+    "e4defrag": "be94ec24662acffe75f3f69ae7bc3f6405146a859fa07618f132df0b5d353163",
     "echo@GNU": "c93430abc2e7ed0f7bdc5ff810d98b5da8903ec5a1b9b11d9a9bde108f44d22b",
     "echo@uutils": "771fee93d6cd317c3fe69b2bf9219453c6ee4d74e8cc6fae89028316241565d4",
     "eddy": "715f41d5d627f784eece29b674db858a5523c226027ec901e0043732113bc5c2",
@@ -161,6 +175,7 @@
     "fd": "c391d2e65dd2faa9c44d8bc4eb06166ba7a9442c8495c9c868d7351aefe155d3",
     "fdisk": "54502d4050142c7d9e92b451c5181366f966e9bf1c5f5fe964a708f3e8456095",
     "ffmpeg": "16418059d92fbc713f869dc049bba7efeba46111302cf4b7532fcfec4652f390",
+    "filefrag": "4002e936bc06866631dfe76142905cbe8592214e736ff45cfedfc1149643301c",
     "find@GNU": "97d57ec14ccb000d58b6bfc5a4d59635950a941b2ef5e168526a283db2b2b1ec",
     "find@uutils": "41cf833ab9c7f90669cad4a0121ff762bdf3a4f3ee2524ac94577849bb3d3f50",
     "findfs": "4035be309f4ff2de8e24c59b8485797eecf0b3b8436a75d09c4251e4183c81dc",
@@ -282,6 +297,7 @@
     "losetup": "e43551a8ed6b564d5821fd1326835aa306f2ab955972b26522b4706643e23b70",
     "ls@GNU": "f2d840b6804d143772b5327a208ab69f3e849f2aa014651b5a71e414d07e85ed",
     "ls@uutils": "a3fbd2dc2a1ece44bf640c919aab08a1c5931cf468bf6db685837bbf3cdfcba5",
+    "lsattr": "6bebdaec783a9d30aaffeba73e1b3396b150516467bce9483a0137e28c251e1b",
     "lsblk": "831f01bfc2712124e9cd4c92d251ce851b84ea2a5eac905451811c3f1fbd7775",
     "lscpu": "1a6c8a131de452201a7f2b3b7fb47d531bf71c208f72742770d54263ae0b36c3",
     "lsipc": "bce2112c959aad977f70654476f3551370df8ff3409d8f60a0177529104662fb",
@@ -304,8 +320,10 @@
     "mise": "d77a80ac6a2ed3baf450e5b24968e184492c49e98a5d712065da9098fda51ea0",
     "mkdir@GNU": "0661c894c677b62f82873e8648abfa9875f79734f5fce648fe6339da2916a7a5",
     "mkdir@uutils": "729f4187a75a8dfc225b137b6a64731d1e127005c494270d111e37af1556f0f8",
+    "mke2fs": "43d1e7d993a1f9fcf5507052c6b3d931d194eaefd3d0b785f69e93e87b40e641",
     "mkfifo@GNU": "c9928a175727b331203aae72e6baa52636a7af2eb809f7011e126c5028b31340",
     "mkfifo@uutils": "83a52267867135275a0a2c455f25664fcafddea1e6faa59610c3cf546fdc5c86",
+    "mklost+found": "8c29d2f0769b662e9c30b42bfb59b1c349df620921ac426a9692498f6624bd04",
     "mknod@GNU": "5e71e7c4f2c0ea7865a1ac861c56fde189d21ee0dda69207027dbfa0e0ae109b",
     "mknod@uutils": "1f0fb6ccbb6b23f6a4f633d23fdb6c87dbc14231e3eb7b896c90aa08da0ad08d",
     "mkswap": "5b1b1a69b4086bec944ccb6967304df3b3521a649420be041477bc4d6b91e602",
@@ -444,6 +462,7 @@
     "reasonix": "0336812b6fc7f3b0b1c13b8b6c53bd4433cc7e9bc30d7efb8bdff24b68e9f953",
     "rename.ul": "5e5de6bad3c97a3e1e930796343cf6ef1ef2506abd72eed00c4e0e277af06f13",
     "renice": "4fc2dfca8e44e36a459d4e1b7e9f0cd897feeea1b121c71baf8a41ff5a2257f6",
+    "resize2fs": "ef1269c98ff305dd68594a40ae2a25d3b56eab93ab6f361560c4f33968a962a6",
     "resolvectl": "4288676cfc611ed0dc939b964fac56d308c11392832d73b26a8f827966b15560",
     "restic": "28dec1c685ccf090b7713db8655b5bad5c439e23a65886d9bcd95411806307b3",
     "resvg": "5f781dc2e6a2fb7ae77128969f2c5eec97292593d87745232fc03a138261d2b8",
@@ -620,6 +639,7 @@
     "tty@GNU": "88961cbab82a5a4f356c1bb9e820052e4366ec3ccfb42b70163ccd8c06ec1b3e",
     "tty@uutils": "d13992320bd5a75448ca4a0d890819ec93bc43268f3dbbd1f11ed633c80c4641",
     "ttyd": "600f29c29a1ef8e06124e1db2c3ae4258d55c90bfc487797032510889c8021fd",
+    "tune2fs": "deadb895fa66b89244860bb87cb28dd6dc8b084d3b6baf81f3e65aa781d804ab",
     "ty": "eacfbb0e308b7fa0171d7ffef3a618f86c7e4d72fe8fa143a488020989460d2a",
     "typst": "f42aa93b9324ee392c3e946f0eabac8419a34c902c1160dd6a0c6dfd4be3395f",
     "uclampset": "1ebfa5e36603e41719d08c3c20b26582425c31232e533198e175e4d22ae05dea",
@@ -976,6 +996,17 @@
       "zh-CN": {
         "url": "https://github.com/BLAKE3-team/BLAKE3",
         "description": "计算和校验 BLAKE3 消息摘要。"
+      }
+    },
+    "badblocks": {
+      "id": "8e4efe65-c529-5bf4-8fd7-7296ff9c7d0f",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "Search a device for bad blocks."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "在设备上搜索坏块。"
       }
     },
     "base32@GNU": {
@@ -1339,6 +1370,17 @@
       "zh-CN": {
         "url": "https://github.com/shadow-maint/shadow",
         "description": "更改用户密码过期信息。"
+      }
+    },
+    "chattr": {
+      "id": "19653e35-752c-5e4c-ab3c-cdc50228223e",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "Change file attributes on an ext2/ext3/ext4 file system."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "更改 ext2/ext3/ext4 文件系统的文件属性。"
       }
     },
     "chcon@GNU": {
@@ -1948,6 +1990,17 @@
         "description": "复制文件系统资源，并可选择转换"
       }
     },
+    "debugfs": {
+      "id": "b8ca1d19-0208-52fb-932d-1548b5caf856",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "Debug and modify an ext2/ext3/ext4 file system interactively."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "交互式调试和修改 ext2/ext3/ext4 文件系统。"
+      }
+    },
     "delta": {
       "id": "6af89cad-40e5-412e-b882-42fd9b148af5",
       "en-US": {
@@ -2257,6 +2310,17 @@
         "description": "独特的实用文件服务器。"
       }
     },
+    "dumpe2fs": {
+      "id": "3ea4d935-7f7d-5bbc-974a-ae92d09b5a4a",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "Dump ext2/ext3/ext4 file system information."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "转储 ext2/ext3/ext4 文件系统信息。"
+      }
+    },
     "dust": {
       "id": "240c8da7-925f-4698-808f-99457f515af2",
       "en-US": {
@@ -2266,6 +2330,117 @@
       "zh-CN": {
         "url": "https://github.com/bootandy/dust",
         "description": "比 du 更直观。"
+      }
+    },
+    "e2freefrag": {
+      "id": "f20da48f-235c-5ae5-a562-4c74f995fa47",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "Report free space fragmentation on an ext2/ext3/ext4 file system."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "报告 ext2/ext3/ext4 文件系统的可用空间碎片情况。"
+      }
+    },
+    "e2fsck": {
+      "id": "37d070ae-ab71-52ef-afed-6dfa094178a8",
+      "alias": "e2fsck fsck.ext2 fsck.ext3 fsck.ext4",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "Check an ext2/ext3/ext4 file system."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "检查 ext2/ext3/ext4 文件系统。"
+      }
+    },
+    "e2image": {
+      "id": "1adc36ab-121d-554a-9daf-c7839fc51dd8",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "Save critical ext2/ext3/ext4 file system metadata to an image file."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "将关键的 ext2/ext3/ext4 文件系统元数据保存到镜像文件。"
+      }
+    },
+    "e2label": {
+      "id": "5acb98a7-a060-59fd-aada-0ae70fb93474",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "Display or change the volume label on an ext2/ext3/ext4 file system."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "显示或更改 ext2/ext3/ext4 文件系统的卷标。"
+      }
+    },
+    "e2mmpstatus": {
+      "id": "8567e9bb-3da1-5980-974f-1531fdc1191d",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "Check the MMP status of an ext4 file system."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "检查 ext4 文件系统的 MMP 状态。"
+      }
+    },
+    "e2scrub": {
+      "id": "3e14e33b-dbca-5109-a9be-f6b1d9f526e6",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "Check the contents of a mounted ext4 file system."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "检查已挂载 ext4 文件系统的内容。"
+      }
+    },
+    "e2scrub_all": {
+      "id": "4fe1a357-d1d8-5710-9090-12802ebd12f9",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "Scrub all ext4 file systems on LVM volumes."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "清理 LVM 卷上的所有 ext4 文件系统。"
+      }
+    },
+    "e2undo": {
+      "id": "21225f22-380e-5bd3-8058-7284fab18879",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "Replay an undo log for an ext2/ext3/ext4 file system."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "为 ext2/ext3/ext4 文件系统重放撤销日志。"
+      }
+    },
+    "e4crypt": {
+      "id": "ff646d8e-59a6-570b-bb7c-73e49c39174b",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "Manage ext4 file system encryption."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "管理 ext4 文件系统加密。"
+      }
+    },
+    "e4defrag": {
+      "id": "b0e167be-ea06-56d8-90bf-5dacff3071c0",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "Defragment an ext4 file system."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "对 ext4 文件系统进行碎片整理。"
       }
     },
     "echo@GNU": {
@@ -2531,6 +2706,17 @@
       "zh-CN": {
         "url": "https://ffmpeg.org",
         "description": "完整的跨平台音视频录制、转换和流媒体解决方案。"
+      }
+    },
+    "filefrag": {
+      "id": "64947711-ea6d-5443-bc1f-ce427e6996fd",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "Report file fragmentation and extent layout."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "报告文件碎片和 extent 布局。"
       }
     },
     "find@GNU": {
@@ -3892,6 +4078,17 @@
         "description": "列出目录内容"
       }
     },
+    "lsattr": {
+      "id": "c4f816c6-3c0b-5b76-97c5-7cca9c5eeb5c",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "List file attributes on an ext2/ext3/ext4 file system."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "列出 ext2/ext3/ext4 文件系统的文件属性。"
+      }
+    },
     "lsblk": {
       "id": "6fab9bb9-f308-401b-80d8-e6d10c27f907",
       "en-US": {
@@ -4140,6 +4337,18 @@
         "description": "如果给定的 DIRECTORY 不存在则创建"
       }
     },
+    "mke2fs": {
+      "id": "16ae3efd-501a-5bf8-b1f7-b90049c611cb",
+      "alias": "mke2fs mkfs.ext2 mkfs.ext3 mkfs.ext4",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "Create an ext2/ext3/ext4 file system."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "创建 ext2/ext3/ext4 文件系统。"
+      }
+    },
     "mkfifo@GNU": {
       "id": "1e7beb06-7e7c-4182-8606-9904efda194c",
       "alias": "mkfifo",
@@ -4162,6 +4371,17 @@
       "zh-CN": {
         "url": "https://uutils.org",
         "description": "以给定名称创建 FIFO"
+      }
+    },
+    "mklost+found": {
+      "id": "fb720419-f40d-5258-94da-97192bbf3f36",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "Create a lost+found directory in the current directory."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "在当前目录创建 lost+found 目录。"
       }
     },
     "mknod@GNU": {
@@ -5726,6 +5946,17 @@
       "zh-CN": {
         "url": "https://github.com/util-linux/util-linux",
         "description": "更改正在运行的进程的优先级。"
+      }
+    },
+    "resize2fs": {
+      "id": "67e4503b-7ff1-596c-abb3-4d922e40e834",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "Resize an ext2/ext3/ext4 file system."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "调整 ext2/ext3/ext4 文件系统的大小。"
       }
     },
     "resolvectl": {
@@ -7728,6 +7959,17 @@
       "zh-CN": {
         "url": "https://github.com/tsl0922/ttyd",
         "description": "在 Web 上共享终端的工具"
+      }
+    },
+    "tune2fs": {
+      "id": "dd733bc4-4add-5b80-ae95-ab549ca026f9",
+      "en-US": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "Adjust tunable file system parameters on an ext2/ext3/ext4 file system."
+      },
+      "zh-CN": {
+        "url": "https://e2fsprogs.sourceforge.net",
+        "description": "调整 ext2/ext3/ext4 文件系统的可调参数。"
       }
     },
     "ty": {
