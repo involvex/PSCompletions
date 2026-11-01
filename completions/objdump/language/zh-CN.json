@@ -1,0 +1,761 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "显示目标文件中的信息。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--adjust-vma",
+      "usage": [
+        "--adjust-vma=OFFSET"
+      ],
+      "tip": [
+        "为所有显示的节地址加上 OFFSET。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--all-headers",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --all-headers"
+      ],
+      "tip": [
+        "显示所有头。"
+      ]
+    },
+    {
+      "name": "--architecture",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --architecture=MACHINE"
+      ],
+      "tip": [
+        "指定目标架构。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--archive-headers",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --archive-headers"
+      ],
+      "tip": [
+        "显示归档头信息。"
+      ]
+    },
+    {
+      "name": "--ctf",
+      "usage": [
+        "--ctf[=SECTION]"
+      ],
+      "tip": [
+        "显示指定节的 CTF 信息（默认 .ctf）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--ctf-parent",
+      "usage": [
+        "--ctf-parent=NAME"
+      ],
+      "tip": [
+        "将 CTF 归档成员用作 CTF 父级。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug-dir",
+      "usage": [
+        "--debug-dir=<DIR>"
+      ],
+      "tip": [
+        "在目录中搜索调试信息文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--debugging",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --debugging"
+      ],
+      "tip": [
+        "显示目标文件中的调试信息。"
+      ]
+    },
+    {
+      "name": "--debugging-tags",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --debugging-tags"
+      ],
+      "tip": [
+        "以 ctags 风格显示调试信息。"
+      ]
+    },
+    {
+      "name": "--decompress",
+      "alias": [
+        "-Z"
+      ],
+      "usage": [
+        "-Z, --decompress"
+      ],
+      "tip": [
+        "显示前解压节。"
+      ]
+    },
+    {
+      "name": "--demangle",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --demangle[=STYLE]"
+      ],
+      "tip": [
+        "解码经过修饰或处理的符号名。",
+        "STYLE 可为 none、auto、gnu-v3、java、gnat、dlang 或 rust。"
+      ],
+      "next": [
+        {
+          "name": "auto"
+        },
+        {
+          "name": "dlang"
+        },
+        {
+          "name": "gnat"
+        },
+        {
+          "name": "gnu-v3"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "rust"
+        }
+      ]
+    },
+    {
+      "name": "--disassemble",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --disassemble"
+      ],
+      "tip": [
+        "反汇编可执行节。"
+      ]
+    },
+    {
+      "name": "--disassemble-all",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --disassemble-all"
+      ],
+      "tip": [
+        "反汇编所有节。"
+      ]
+    },
+    {
+      "name": "--disassemble-zeroes",
+      "alias": [
+        "-z"
+      ],
+      "usage": [
+        "-z, --disassemble-zeroes"
+      ],
+      "tip": [
+        "反汇编时不跳过零块。"
+      ]
+    },
+    {
+      "name": "--disassemble=",
+      "usage": [
+        "--disassemble=<sym>"
+      ],
+      "tip": [
+        "从指定符号开始反汇编。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--disassembler-color=",
+      "usage": [
+        "--disassembler-color=off|terminal|on|extended"
+      ],
+      "tip": [
+        "控制反汇编器的颜色输出。"
+      ],
+      "next": [
+        {
+          "name": "extended"
+        },
+        {
+          "name": "off"
+        },
+        {
+          "name": "on"
+        },
+        {
+          "name": "terminal"
+        }
+      ]
+    },
+    {
+      "name": "--disassembler-options",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --disassembler-options=OPT"
+      ],
+      "tip": [
+        "将文本 OPT 传递给反汇编器。",
+        "目标特定选项见 objdump --help。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--dwarf",
+      "alias": [
+        "-W"
+      ],
+      "usage": [
+        "-W, --dwarf[=SECTION]"
+      ],
+      "tip": [
+        "显示 DWARF 调试节内容。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--dwarf-check",
+      "tip": [
+        "进行额外的 DWARF 一致性检查。"
+      ]
+    },
+    {
+      "name": "--dwarf-depth",
+      "usage": [
+        "--dwarf-depth=N"
+      ],
+      "tip": [
+        "不显示深度为 N 或更深的 DIE。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--dwarf-start",
+      "usage": [
+        "--dwarf-start=N"
+      ],
+      "tip": [
+        "从偏移 N 开始显示 DIE。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--dynamic-reloc",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --dynamic-reloc"
+      ],
+      "tip": [
+        "显示动态重定位条目。"
+      ]
+    },
+    {
+      "name": "--dynamic-syms",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --dynamic-syms"
+      ],
+      "tip": [
+        "显示动态符号表内容。"
+      ]
+    },
+    {
+      "name": "--file-headers",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --file-headers"
+      ],
+      "tip": [
+        "显示整体文件头。"
+      ]
+    },
+    {
+      "name": "--file-offsets",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --file-offsets"
+      ],
+      "tip": [
+        "显示信息时包含文件偏移。"
+      ]
+    },
+    {
+      "name": "--file-start-context",
+      "tip": [
+        "包含文件开头的上下文（与 -S 一起）。"
+      ]
+    },
+    {
+      "name": "--full-contents",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --full-contents"
+      ],
+      "tip": [
+        "显示所请求节的完整内容。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-H"
+      ],
+      "usage": [
+        "-H, --help"
+      ],
+      "tip": [
+        "显示此信息。"
+      ]
+    },
+    {
+      "name": "--include",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --include=DIR"
+      ],
+      "tip": [
+        "将 DIR 添加到源文件搜索列表。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--info",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --info"
+      ],
+      "tip": [
+        "列出支持的对象格式和架构。"
+      ]
+    },
+    {
+      "name": "--inlines",
+      "tip": [
+        "打印源行的所有内联（与 -l 一起）。"
+      ]
+    },
+    {
+      "name": "--insn-width",
+      "usage": [
+        "--insn-width=WIDTH"
+      ],
+      "tip": [
+        "-d 时每行显示 WIDTH 字节。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--line-numbers",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --line-numbers"
+      ],
+      "tip": [
+        "在输出中包含行号和文件名。"
+      ]
+    },
+    {
+      "name": "--map-global-vars",
+      "tip": [
+        "显示全局变量的内存映射。"
+      ]
+    },
+    {
+      "name": "--no-addresses",
+      "tip": [
+        "反汇编时不打印地址。"
+      ]
+    },
+    {
+      "name": "--no-recurse-limit",
+      "tip": [
+        "禁用解码递归限制。"
+      ]
+    },
+    {
+      "name": "--no-show-raw-insn",
+      "tip": [
+        "不在符号反汇编旁显示十六进制。"
+      ]
+    },
+    {
+      "name": "--prefix",
+      "usage": [
+        "--prefix=PREFIX"
+      ],
+      "tip": [
+        "为 -S 的绝对路径添加 PREFIX。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--prefix-addresses",
+      "tip": [
+        "反汇编时打印完整地址。"
+      ]
+    },
+    {
+      "name": "--prefix-strip",
+      "usage": [
+        "--prefix-strip=LEVEL"
+      ],
+      "tip": [
+        "为 -S 去除初始目录名。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--private",
+      "alias": [
+        "-P"
+      ],
+      "usage": [
+        "-P, --private=OPT,OPT..."
+      ],
+      "tip": [
+        "显示对象格式特定内容。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--private-headers",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --private-headers"
+      ],
+      "tip": [
+        "显示对象格式特定的文件头内容。"
+      ]
+    },
+    {
+      "name": "--process-links",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --process-links"
+      ],
+      "tip": [
+        "处理独立调试信息文件中的非调试节。"
+      ]
+    },
+    {
+      "name": "--recurse-limit",
+      "tip": [
+        "启用解码递归限制（默认）。"
+      ]
+    },
+    {
+      "name": "--reloc",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --reloc"
+      ],
+      "tip": [
+        "显示重定位条目。"
+      ]
+    },
+    {
+      "name": "--section",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --section=NAME"
+      ],
+      "tip": [
+        "仅显示指定节的信息。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--section-headers",
+      "alias": [
+        "--headers",
+        "-h"
+      ],
+      "usage": [
+        "-h, --headers, --section-headers"
+      ],
+      "tip": [
+        "显示节头。"
+      ]
+    },
+    {
+      "name": "--sframe",
+      "usage": [
+        "--sframe[=SECTION]"
+      ],
+      "tip": [
+        "显示指定节的 SFrame 信息（默认 .sframe）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--show-all-symbols",
+      "tip": [
+        "反汇编时显示给定地址处的所有符号。"
+      ]
+    },
+    {
+      "name": "--show-raw-insn",
+      "tip": [
+        "在符号反汇编旁显示十六进制。"
+      ]
+    },
+    {
+      "name": "--source",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --source"
+      ],
+      "tip": [
+        "将源代码与反汇编交错显示。"
+      ]
+    },
+    {
+      "name": "--source-comment",
+      "usage": [
+        "--source-comment[=<txt>]"
+      ],
+      "tip": [
+        "为源代码行添加指定前缀。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--special-syms",
+      "tip": [
+        "在符号转储中包含特殊符号。"
+      ]
+    },
+    {
+      "name": "--stabs",
+      "alias": [
+        "-G"
+      ],
+      "usage": [
+        "-G, --stabs"
+      ],
+      "tip": [
+        "显示原始 STABS 信息。"
+      ]
+    },
+    {
+      "name": "--start-address",
+      "usage": [
+        "--start-address=ADDR"
+      ],
+      "tip": [
+        "仅处理地址不小于 ADDR 的数据。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--stop-address",
+      "usage": [
+        "--stop-address=ADDR"
+      ],
+      "tip": [
+        "仅处理地址小于 ADDR 的数据。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--syms",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --syms"
+      ],
+      "tip": [
+        "显示符号表内容。"
+      ]
+    },
+    {
+      "name": "--target",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --target=BFDNAME"
+      ],
+      "tip": [
+        "指定目标对象格式。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--unicode",
+      "alias": [
+        "-U"
+      ],
+      "usage": [
+        "-U, --unicode={default|locale|invalid|hex|escape|highlight}"
+      ],
+      "tip": [
+        "控制 UTF-8 Unicode 字符的显示。"
+      ],
+      "next": [
+        {
+          "name": "default"
+        },
+        {
+          "name": "escape"
+        },
+        {
+          "name": "hex"
+        },
+        {
+          "name": "highlight"
+        },
+        {
+          "name": "invalid"
+        },
+        {
+          "name": "locale"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --version"
+      ],
+      "tip": [
+        "显示程序版本。"
+      ]
+    },
+    {
+      "name": "--visualize-jumps",
+      "usage": [
+        "--visualize-jumps[=color|extended-color|off]"
+      ],
+      "tip": [
+        "用 ASCII 图形可视化跳转；可选颜色或禁用。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--wide",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --wide"
+      ],
+      "tip": [
+        "格式化超过 80 列的输出。"
+      ]
+    },
+    {
+      "name": "-EB",
+      "usage": [
+        "-EB, --endian=big"
+      ],
+      "tip": [
+        "反汇编时假定大端格式。"
+      ]
+    },
+    {
+      "name": "-EL",
+      "usage": [
+        "-EL, --endian=little"
+      ],
+      "tip": [
+        "反汇编时假定小端格式。"
+      ]
+    },
+    {
+      "name": "-Wk",
+      "usage": [
+        "-Wk, --dwarf=links"
+      ],
+      "tip": [
+        "显示链接到独立调试信息文件的节。"
+      ]
+    },
+    {
+      "name": "-WK",
+      "usage": [
+        "-WK, --dwarf=follow-links"
+      ],
+      "tip": [
+        "跟随指向独立调试信息文件的链接（默认）。"
+      ]
+    },
+    {
+      "name": "-WN",
+      "usage": [
+        "-WN, --dwarf=no-follow-links"
+      ],
+      "tip": [
+        "不跟随指向独立调试信息文件的链接。"
+      ]
+    }
+  ]
+}

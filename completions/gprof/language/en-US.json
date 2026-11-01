@@ -1,0 +1,496 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "Display call graph profile data."
+    ]
+  },
+  "option": [
+    {
+      "name": "--all-lines",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --all-lines"
+      ],
+      "tip": [
+        "Print all source lines in annotated output."
+      ]
+    },
+    {
+      "name": "--annotated-source",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A[symspec], --annotated-source[=symspec]"
+      ],
+      "tip": [
+        "Print annotated source code; the optional symspec filters symbols."
+      ]
+    },
+    {
+      "name": "--brief",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --brief"
+      ],
+      "tip": [
+        "Do not print the verbose explanatory blurbs."
+      ]
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d[num], --debug[=num]"
+      ],
+      "tip": [
+        "Enable debugging output; the optional num sets the level."
+      ]
+    },
+    {
+      "name": "--demangle",
+      "usage": [
+        "--demangle[=style]"
+      ],
+      "tip": [
+        "Demangle C++ symbol names."
+      ]
+    },
+    {
+      "name": "--directory-path",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I dirs, --directory-path=dirs"
+      ],
+      "tip": [
+        "Add search directories for source files."
+      ],
+      "next": []
+    },
+    {
+      "name": "--display-unused-functions",
+      "alias": [
+        "-z"
+      ],
+      "usage": [
+        "-z, --display-unused-functions"
+      ],
+      "tip": [
+        "Display functions that were never called."
+      ]
+    },
+    {
+      "name": "--exec-counts",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C[symspec], --exec-counts[=symspec]"
+      ],
+      "tip": [
+        "Print a tally of functions and their call counts."
+      ]
+    },
+    {
+      "name": "--external-symbol-table",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S filename, --external-symbol-table=filename"
+      ],
+      "tip": [
+        "Read the external symbol table from the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--file-format",
+      "alias": [
+        "-O"
+      ],
+      "usage": [
+        "-O name, --file-format=name"
+      ],
+      "tip": [
+        "Use the specified file format."
+      ],
+      "next": []
+    },
+    {
+      "name": "--file-info",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --file-info"
+      ],
+      "tip": [
+        "Display summary information about the profile data files and exit."
+      ]
+    },
+    {
+      "name": "--file-ordering",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R map_file, --file-ordering map_file"
+      ],
+      "tip": [
+        "Print a suggested file ordering based on the call graph."
+      ],
+      "next": []
+    },
+    {
+      "name": "--flat-profile",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p[symspec], --flat-profile[=symspec]"
+      ],
+      "tip": [
+        "Print a flat profile; the optional symspec filters symbols."
+      ]
+    },
+    {
+      "name": "--function-ordering",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --function-ordering"
+      ],
+      "tip": [
+        "Print a suggested function ordering based on profiling data."
+      ]
+    },
+    {
+      "name": "--graph",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q[symspec], --graph[=symspec]"
+      ],
+      "tip": [
+        "Print the call graph; the optional symspec filters symbols."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this information."
+      ]
+    },
+    {
+      "name": "--ignore-non-functions",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --ignore-non-functions"
+      ],
+      "tip": [
+        "Ignore symbols that are not functions."
+      ]
+    },
+    {
+      "name": "--inline-file-names",
+      "tip": [
+        "Print inline file names."
+      ]
+    },
+    {
+      "name": "--line",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --line"
+      ],
+      "tip": [
+        "Use line-by-line profiling."
+      ]
+    },
+    {
+      "name": "--min-count",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m num, --min-count=num"
+      ],
+      "tip": [
+        "Only print entries with at least num calls."
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-annotated-source",
+      "alias": [
+        "-J"
+      ],
+      "usage": [
+        "-J[symspec], --no-annotated-source[=symspec]"
+      ],
+      "tip": [
+        "Do not print annotated source code; the optional symspec excludes symbols."
+      ]
+    },
+    {
+      "name": "--no-demangle",
+      "tip": [
+        "Do not demangle C++ symbol names."
+      ]
+    },
+    {
+      "name": "--no-exec-counts",
+      "alias": [
+        "-Z"
+      ],
+      "usage": [
+        "-Z[symspec], --no-exec-counts[=symspec]"
+      ],
+      "tip": [
+        "Do not print the function call tally; the optional symspec excludes symbols."
+      ]
+    },
+    {
+      "name": "--no-flat-profile",
+      "alias": [
+        "-P"
+      ],
+      "usage": [
+        "-P[symspec], --no-flat-profile[=symspec]"
+      ],
+      "tip": [
+        "Suppress the flat profile; the optional symspec excludes symbols."
+      ]
+    },
+    {
+      "name": "--no-graph",
+      "alias": [
+        "-Q"
+      ],
+      "usage": [
+        "-Q[symspec], --no-graph[=symspec]"
+      ],
+      "tip": [
+        "Suppress the call graph; the optional symspec excludes symbols."
+      ]
+    },
+    {
+      "name": "--no-static",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --no-static"
+      ],
+      "tip": [
+        "Do not print static function entries in the call graph."
+      ]
+    },
+    {
+      "name": "--no-time",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N symspec, --no-time=symspec"
+      ],
+      "tip": [
+        "Exclude matching symbols from the time calculation."
+      ],
+      "next": []
+    },
+    {
+      "name": "--print-path",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --print-path"
+      ],
+      "tip": [
+        "Print the full pathname of source filenames."
+      ]
+    },
+    {
+      "name": "--separate-files",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --separate-files"
+      ],
+      "tip": [
+        "Write annotated source for each file into filename-ann."
+      ]
+    },
+    {
+      "name": "--static-call-graph",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --static-call-graph"
+      ],
+      "tip": [
+        "Print a static call graph."
+      ]
+    },
+    {
+      "name": "--sum",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --sum"
+      ],
+      "tip": [
+        "Merge the profile data into gmon.sum."
+      ]
+    },
+    {
+      "name": "--table-length",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t num, --table-length=num"
+      ],
+      "tip": [
+        "List the num most active source lines per file (default 10)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--time",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n symspec, --time=symspec"
+      ],
+      "tip": [
+        "Print only the time for matching symbols."
+      ],
+      "next": []
+    },
+    {
+      "name": "--traditional",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --traditional"
+      ],
+      "tip": [
+        "Use the traditional BSD output format."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --version"
+      ],
+      "tip": [
+        "Display the version number."
+      ]
+    },
+    {
+      "name": "--width",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w width, --width=width"
+      ],
+      "tip": [
+        "Set the output width."
+      ],
+      "next": []
+    },
+    {
+      "name": "-B",
+      "tip": [
+        "Print the call graph analysis."
+      ]
+    },
+    {
+      "name": "-e",
+      "usage": [
+        "-e function_name"
+      ],
+      "tip": [
+        "Do not print the named function and its children in the call graph."
+      ],
+      "repeat": 99,
+      "next": []
+    },
+    {
+      "name": "-E",
+      "usage": [
+        "-E function_name"
+      ],
+      "tip": [
+        "Like -e, and exclude the time from the call graph percentages."
+      ],
+      "repeat": 99,
+      "next": []
+    },
+    {
+      "name": "-f",
+      "usage": [
+        "-f function_name"
+      ],
+      "tip": [
+        "Limit the call graph to the named function and its children."
+      ],
+      "repeat": 99,
+      "next": []
+    },
+    {
+      "name": "-F",
+      "usage": [
+        "-F function_name"
+      ],
+      "tip": [
+        "Like -f, and use only that function's time for percentages."
+      ],
+      "repeat": 99,
+      "next": []
+    },
+    {
+      "name": "-k",
+      "usage": [
+        "-k from/to"
+      ],
+      "tip": [
+        "Exclude functions between the from and to addresses."
+      ],
+      "next": []
+    }
+  ]
+}

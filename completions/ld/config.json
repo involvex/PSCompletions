@@ -1,0 +1,12 @@
+{
+  "id": "90f1c68f-1481-57fa-a366-5b837f1ab471",
+  "version": "GNU Binutils 2.47.20260726",
+  "alias": [
+    "ld",
+    "ld.bfd"
+  ],
+  "language": [
+    "en-US",
+    "zh-CN"
+  ]
+}

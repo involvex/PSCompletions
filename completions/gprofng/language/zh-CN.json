@@ -1,0 +1,713 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "gprofng 性能分析工具的驱动程序。"
+    ]
+  },
+  "next": [
+    {
+      "name": "archive",
+      "tip": [
+        "将二进制文件和源代码包含到实验目录中。"
+      ],
+      "option": [
+        {
+          "name": "--help",
+          "tip": [
+            "打印用法信息并退出。"
+          ]
+        },
+        {
+          "name": "--verbose",
+          "usage": [
+            "--verbose {on|off}"
+          ],
+          "tip": [
+            "启用或禁用详细模式（默认关闭）。"
+          ],
+          "next": [
+            {
+              "name": "off"
+            },
+            {
+              "name": "on"
+            }
+          ]
+        },
+        {
+          "name": "--version",
+          "tip": [
+            "打印版本号并退出。"
+          ]
+        },
+        {
+          "name": "-a",
+          "usage": [
+            "-a {off|on|ldobjects|src|usedldobjects|usedsrc}"
+          ],
+          "tip": [
+            "选择要归档的二进制文件和源文件。"
+          ],
+          "next": [
+            {
+              "name": "ldobjects"
+            },
+            {
+              "name": "off"
+            },
+            {
+              "name": "on"
+            },
+            {
+              "name": "src"
+            },
+            {
+              "name": "usedldobjects"
+            },
+            {
+              "name": "usedsrc"
+            }
+          ]
+        },
+        {
+          "name": "-d",
+          "usage": [
+            "-d <path>"
+          ],
+          "tip": [
+            "设置公共归档目录的位置。"
+          ],
+          "next": []
+        },
+        {
+          "name": "-F",
+          "tip": [
+            "强制写入或重写归档。"
+          ]
+        },
+        {
+          "name": "-m",
+          "usage": [
+            "-m <regex>"
+          ],
+          "tip": [
+            "仅归档完整路径匹配 POSIX 正则的文件。"
+          ],
+          "next": []
+        },
+        {
+          "name": "-n",
+          "tip": [
+            "仅归档指定实验，不包括其后代。"
+          ]
+        },
+        {
+          "name": "-q",
+          "tip": [
+            "不向标准错误写入警告。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "collect",
+      "tip": [
+        "收集性能数据。"
+      ],
+      "next": [
+        {
+          "name": "app",
+          "tip": [
+            "收集应用程序性能数据。"
+          ],
+          "option": [
+            {
+              "name": "--help",
+              "tip": [
+                "打印用法信息并退出。"
+              ]
+            },
+            {
+              "name": "--verbose",
+              "usage": [
+                "--verbose {on|off}"
+              ],
+              "tip": [
+                "启用或禁用详细模式（默认关闭）。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "--version",
+              "tip": [
+                "打印版本号并退出。"
+              ]
+            },
+            {
+              "name": "-a",
+              "usage": [
+                "-a {off|on|ldobjects|src|usedldobjects|usedsrc}"
+              ],
+              "tip": [
+                "控制二进制文件和源文件的归档。"
+              ],
+              "next": [
+                {
+                  "name": "ldobjects"
+                },
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                },
+                {
+                  "name": "src"
+                },
+                {
+                  "name": "usedldobjects"
+                },
+                {
+                  "name": "usedsrc"
+                }
+              ]
+            },
+            {
+              "name": "-C",
+              "usage": [
+                "-C <label>"
+              ],
+              "tip": [
+                "向实验添加注释标签（最多 10 个）。"
+              ],
+              "next": []
+            },
+            {
+              "name": "-F",
+              "usage": [
+                "-F {off|on|=<regex>}"
+              ],
+              "tip": [
+                "控制是否跟随后代进程。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "-h",
+              "usage": [
+                "-h {<ctr_def>...,<ctr_n_def>}"
+              ],
+              "tip": [
+                "启用硬件事件计数器性能分析并选择计数器。",
+                "不带其他参数使用 -h 可列出支持的计数器。"
+              ],
+              "next": []
+            },
+            {
+              "name": "-H",
+              "usage": [
+                "-H {off|on|N1[-N2]}"
+              ],
+              "tip": [
+                "控制堆跟踪或设置堆数据收集范围。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "-i",
+              "usage": [
+                "-i {off|on}"
+              ],
+              "tip": [
+                "启用或禁用 I/O 跟踪。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "-j",
+              "usage": [
+                "-j {on|off|<path>}"
+              ],
+              "tip": [
+                "启用或禁用 Java 性能分析，可指定 JVM 路径。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "-J",
+              "usage": [
+                "-J <java-args>"
+              ],
+              "tip": [
+                "指定传递给 JVM 的参数。"
+              ],
+              "next": []
+            },
+            {
+              "name": "-l",
+              "usage": [
+                "-l <signal>"
+              ],
+              "tip": [
+                "指定触发资源利用率采样的信号。"
+              ],
+              "next": []
+            },
+            {
+              "name": "-n",
+              "tip": [
+                "试运行：显示运行时设置但不运行目标。"
+              ]
+            },
+            {
+              "name": "-o",
+              "usage": [
+                "-o <exp_name>"
+              ],
+              "tip": [
+                "设置实验目录的名称和路径。"
+              ],
+              "next": []
+            },
+            {
+              "name": "-O",
+              "usage": [
+                "-O <exp_name>"
+              ],
+              "tip": [
+                "类似 -o，但静默覆盖现有实验目录。"
+              ],
+              "next": []
+            },
+            {
+              "name": "-p",
+              "usage": [
+                "-p {off|on|lo|hi|<value>}"
+              ],
+              "tip": [
+                "控制时钟性能分析，或以毫秒设置采样粒度。"
+              ],
+              "next": [
+                {
+                  "name": "hi"
+                },
+                {
+                  "name": "lo"
+                },
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "-s",
+              "usage": [
+                "-s <option>[,<API>]"
+              ],
+              "tip": [
+                "启用同步等待跟踪；API 为 n、j 或 nj。"
+              ],
+              "next": []
+            },
+            {
+              "name": "-S",
+              "usage": [
+                "-S {off|on|<seconds>}"
+              ],
+              "tip": [
+                "控制进程范围资源利用率的周期性采样。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "-t",
+              "usage": [
+                "-t <duration>[m|s]"
+              ],
+              "tip": [
+                "以秒或分钟设置记录持续时间。"
+              ],
+              "next": []
+            },
+            {
+              "name": "-y",
+              "usage": [
+                "-y <signal>[,r]"
+              ],
+              "tip": [
+                "设置延迟初始化和暂停/恢复信号。"
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "display",
+      "tip": [
+        "显示性能结果。"
+      ],
+      "next": [
+        {
+          "name": "gmon",
+          "tip": [
+            "将 gmon 文件转换为 gprofng 实验。"
+          ],
+          "option": [
+            {
+              "name": "--help",
+              "alias": [
+                "-h"
+              ],
+              "usage": [
+                "-h, --help"
+              ],
+              "tip": [
+                "打印用法信息并退出。"
+              ]
+            },
+            {
+              "name": "--version",
+              "tip": [
+                "打印版本号并退出。"
+              ]
+            },
+            {
+              "name": "-o",
+              "usage": [
+                "-o <exp_name>"
+              ],
+              "tip": [
+                "设置实验目录的名称和路径。"
+              ],
+              "next": []
+            },
+            {
+              "name": "-O",
+              "usage": [
+                "-O <exp_name>"
+              ],
+              "tip": [
+                "类似 -o，但静默覆盖现有实验目录。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "html",
+          "tip": [
+            "从一个或多个实验生成 HTML 文件。"
+          ],
+          "option": [
+            {
+              "name": "--debug",
+              "alias": [
+                "-d"
+              ],
+              "usage": [
+                "-d [<db-vol-size>], --debug[=<db-vol-size>]"
+              ],
+              "tip": [
+                "控制运行时调试输出。",
+                "输出量值: s、S、m、M、l、L、xl、XL。"
+              ],
+              "next": []
+            },
+            {
+              "name": "--help",
+              "tip": [
+                "打印用法信息并退出。"
+              ]
+            },
+            {
+              "name": "--highlight-percentage",
+              "usage": [
+                "--highlight-percentage=<value>"
+              ],
+              "tip": [
+                "选择与最大指标相差在此百分比内的源代码行。",
+                "值为零时禁用该功能。"
+              ],
+              "next": [
+                {
+                  "name": "0"
+                },
+                {
+                  "name": "100"
+                },
+                {
+                  "name": "50"
+                },
+                {
+                  "name": "90"
+                }
+              ]
+            },
+            {
+              "name": "--nowarnings",
+              "tip": [
+                "不在标准输出打印警告消息。"
+              ]
+            },
+            {
+              "name": "--output",
+              "alias": [
+                "-o"
+              ],
+              "usage": [
+                "-o <dirname>, --output=<dirname>"
+              ],
+              "tip": [
+                "将结果存储在指定目录。"
+              ],
+              "next": []
+            },
+            {
+              "name": "--overwrite",
+              "alias": [
+                "-O"
+              ],
+              "usage": [
+                "-O <dirname>, --overwrite=<dirname>"
+              ],
+              "tip": [
+                "将结果存储在指定目录，并覆盖现有目录。"
+              ],
+              "next": []
+            },
+            {
+              "name": "--quiet",
+              "alias": [
+                "-q"
+              ],
+              "usage": [
+                "-q, --quiet"
+              ],
+              "tip": [
+                "禁用警告、调试和详细消息。"
+              ]
+            },
+            {
+              "name": "--verbose",
+              "tip": [
+                "启用详细诊断消息。"
+              ]
+            },
+            {
+              "name": "--version",
+              "tip": [
+                "打印版本号并退出。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "src",
+          "tip": [
+            "显示带编译器注释的源代码或反汇编。"
+          ],
+          "option": [
+            {
+              "name": "--help",
+              "tip": [
+                "打印用法信息并退出。"
+              ]
+            },
+            {
+              "name": "--verbose",
+              "usage": [
+                "--verbose {on|off}"
+              ],
+              "tip": [
+                "启用或禁用详细模式（默认关闭）。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "--version",
+              "tip": [
+                "打印版本号并退出。"
+              ]
+            },
+            {
+              "name": "-disasm",
+              "usage": [
+                "-disasm item tag"
+              ],
+              "tip": [
+                "显示与反汇编指令交错排列的源代码。"
+              ],
+              "next": []
+            },
+            {
+              "name": "-func",
+              "tip": [
+                "列出给定对象中的所有函数。"
+              ]
+            },
+            {
+              "name": "-outfile",
+              "usage": [
+                "-outfile <filename>"
+              ],
+              "tip": [
+                "将结果写入文件；短横线表示写入标准输出（默认）。"
+              ],
+              "next": []
+            },
+            {
+              "name": "-source",
+              "usage": [
+                "-source item tag"
+              ],
+              "tip": [
+                "显示 item 的源代码；tag 用于区分同名项。",
+                "使用 \"all -1\" 表示所有函数。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "text",
+          "tip": [
+            "以 ASCII 格式显示性能数据。"
+          ],
+          "option": [
+            {
+              "name": "--help",
+              "tip": [
+                "打印用法信息并退出。"
+              ]
+            },
+            {
+              "name": "--verbose",
+              "usage": [
+                "--verbose {on|off}"
+              ],
+              "tip": [
+                "启用或禁用详细模式（默认关闭）。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "--version",
+              "tip": [
+                "打印版本号并退出。"
+              ]
+            },
+            {
+              "name": "-script",
+              "usage": [
+                "-script <script-file>"
+              ],
+              "tip": [
+                "执行脚本文件中存储的命令。"
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--check",
+      "tip": [
+        "验证硬件和软件环境是否受支持。"
+      ]
+    },
+    {
+      "name": "--help",
+      "tip": [
+        "打印用法信息并退出。"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "usage": [
+        "--verbose {on|off}"
+      ],
+      "tip": [
+        "启用或禁用详细模式（默认关闭）。"
+      ],
+      "next": [
+        {
+          "name": "off"
+        },
+        {
+          "name": "on"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "打印版本号并退出。"
+      ]
+    }
+  ]
+}

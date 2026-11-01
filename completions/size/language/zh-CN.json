@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "显示二进制文件中各节的大小。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--common",
+      "tip": [
+        "显示 *COM* 符号的总大小。"
+      ]
+    },
+    {
+      "name": "--format",
+      "alias": [
+        "-A",
+        "-B",
+        "-G"
+      ],
+      "usage": [
+        "-A, -B, -G, --format={sysv|berkeley|gnu}"
+      ],
+      "tip": [
+        "选择输出样式。",
+        "可能值: sysv, berkeley, gnu"
+      ],
+      "next": [
+        {
+          "name": "berkeley"
+        },
+        {
+          "name": "gnu"
+        },
+        {
+          "name": "sysv"
+        }
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h",
+        "-H",
+        "-?"
+      ],
+      "usage": [
+        "-h, -H, -?, --help"
+      ],
+      "tip": [
+        "显示此信息。"
+      ]
+    },
+    {
+      "name": "--radix",
+      "alias": [
+        "-o",
+        "-d",
+        "-x"
+      ],
+      "usage": [
+        "-o, -d, -x, --radix={8|10|16}"
+      ],
+      "tip": [
+        "以八进制、十进制或十六进制显示数字。",
+        "可能值: 8, 10, 16"
+      ],
+      "next": [
+        {
+          "name": "10"
+        },
+        {
+          "name": "16"
+        },
+        {
+          "name": "8"
+        }
+      ]
+    },
+    {
+      "name": "--target",
+      "usage": [
+        "--target=<bfdname>"
+      ],
+      "tip": [
+        "设置二进制文件格式。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--totals",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --totals"
+      ],
+      "tip": [
+        "显示总大小（仅 Berkeley）。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v",
+        "-V"
+      ],
+      "usage": [
+        "-v, -V, --version"
+      ],
+      "tip": [
+        "显示程序版本。"
+      ]
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "已忽略。"
+      ]
+    }
+  ]
+}

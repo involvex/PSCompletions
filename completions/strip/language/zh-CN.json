@@ -1,0 +1,322 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "从文件中移除符号和节。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--disable-deterministic-archives",
+      "alias": [
+        "-U"
+      ],
+      "usage": [
+        "-U, --disable-deterministic-archives"
+      ],
+      "tip": [
+        "禁用 -D 行为。"
+      ]
+    },
+    {
+      "name": "--discard-all",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --discard-all"
+      ],
+      "tip": [
+        "移除非全局符号。"
+      ]
+    },
+    {
+      "name": "--discard-locals",
+      "alias": [
+        "-X"
+      ],
+      "usage": [
+        "-X, --discard-locals"
+      ],
+      "tip": [
+        "移除编译器生成的符号。"
+      ]
+    },
+    {
+      "name": "--enable-deterministic-archives",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --enable-deterministic-archives"
+      ],
+      "tip": [
+        "剥离归档时生成确定性输出（默认）。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--info",
+      "tip": [
+        "列出支持的对象格式和架构。"
+      ]
+    },
+    {
+      "name": "--input-target",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --input-target=<bfdname>"
+      ],
+      "tip": [
+        "假定输入文件使用指定格式。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--keep-file-symbols",
+      "tip": [
+        "不剥离文件符号。"
+      ]
+    },
+    {
+      "name": "--keep-section",
+      "usage": [
+        "--keep-section=<name>"
+      ],
+      "tip": [
+        "不剥离指定节。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--keep-section-symbols",
+      "tip": [
+        "不剥离节符号。"
+      ]
+    },
+    {
+      "name": "--keep-symbol",
+      "alias": [
+        "-K"
+      ],
+      "usage": [
+        "-K, --keep-symbol=<name>"
+      ],
+      "tip": [
+        "不剥离指定符号。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--merge-notes",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --merge-notes"
+      ],
+      "tip": [
+        "移除 note 节中的冗余条目（默认）。"
+      ]
+    },
+    {
+      "name": "--no-merge-notes",
+      "tip": [
+        "不移除冗余 note。"
+      ]
+    },
+    {
+      "name": "--only-keep-debug",
+      "tip": [
+        "除调试信息外全部剥离。"
+      ]
+    },
+    {
+      "name": "--output-target",
+      "alias": [
+        "-O"
+      ],
+      "usage": [
+        "-O, --output-target=<bfdname>"
+      ],
+      "tip": [
+        "以指定格式创建输出文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--plugin",
+      "usage": [
+        "--plugin NAME"
+      ],
+      "tip": [
+        "加载指定的插件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--preserve-dates",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --preserve-dates"
+      ],
+      "tip": [
+        "将修改和访问时间复制到输出。"
+      ]
+    },
+    {
+      "name": "--remove-relocations",
+      "usage": [
+        "--remove-relocations <name>"
+      ],
+      "tip": [
+        "从指定节移除重定位。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--remove-section",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --remove-section=<name>"
+      ],
+      "tip": [
+        "同时从输出中移除指定节。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--strip-all",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --strip-all"
+      ],
+      "tip": [
+        "移除所有符号和重定位信息。"
+      ]
+    },
+    {
+      "name": "--strip-debug",
+      "alias": [
+        "-g",
+        "-S",
+        "-d"
+      ],
+      "usage": [
+        "-g, -S, -d, --strip-debug"
+      ],
+      "tip": [
+        "移除所有调试符号和节。"
+      ]
+    },
+    {
+      "name": "--strip-dwo",
+      "tip": [
+        "移除所有 DWO 节。"
+      ]
+    },
+    {
+      "name": "--strip-section-headers",
+      "tip": [
+        "从输出中剥离节头。"
+      ]
+    },
+    {
+      "name": "--strip-symbol",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --strip-symbol=<name>"
+      ],
+      "tip": [
+        "不复制指定符号。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--strip-unneeded",
+      "tip": [
+        "移除重定位不需要的所有符号。"
+      ]
+    },
+    {
+      "name": "--target",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --target=<bfdname>"
+      ],
+      "tip": [
+        "同时设置输入和输出格式。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "列出所有被修改的目标文件。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示程序版本。"
+      ]
+    },
+    {
+      "name": "--wildcard",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --wildcard"
+      ],
+      "tip": [
+        "允许在符号比较中使用通配符。"
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o <file>"
+      ],
+      "tip": [
+        "将剥离后的输出写入文件。"
+      ],
+      "next": []
+    }
+  ]
+}

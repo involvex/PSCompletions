@@ -1,0 +1,713 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "Driver for the gprofng profiling tools."
+    ]
+  },
+  "next": [
+    {
+      "name": "archive",
+      "tip": [
+        "Include binaries and source code in an experiment directory."
+      ],
+      "option": [
+        {
+          "name": "--help",
+          "tip": [
+            "Print usage information and exit."
+          ]
+        },
+        {
+          "name": "--verbose",
+          "usage": [
+            "--verbose {on|off}"
+          ],
+          "tip": [
+            "Enable or disable verbose mode (default off)."
+          ],
+          "next": [
+            {
+              "name": "off"
+            },
+            {
+              "name": "on"
+            }
+          ]
+        },
+        {
+          "name": "--version",
+          "tip": [
+            "Print the version number and exit."
+          ]
+        },
+        {
+          "name": "-a",
+          "usage": [
+            "-a {off|on|ldobjects|src|usedldobjects|usedsrc}"
+          ],
+          "tip": [
+            "Select which binaries and source files to archive."
+          ],
+          "next": [
+            {
+              "name": "ldobjects"
+            },
+            {
+              "name": "off"
+            },
+            {
+              "name": "on"
+            },
+            {
+              "name": "src"
+            },
+            {
+              "name": "usedldobjects"
+            },
+            {
+              "name": "usedsrc"
+            }
+          ]
+        },
+        {
+          "name": "-d",
+          "usage": [
+            "-d <path>"
+          ],
+          "tip": [
+            "Set the location of a common archive directory."
+          ],
+          "next": []
+        },
+        {
+          "name": "-F",
+          "tip": [
+            "Force writing or rewriting of the archive."
+          ]
+        },
+        {
+          "name": "-m",
+          "usage": [
+            "-m <regex>"
+          ],
+          "tip": [
+            "Archive only files whose full path matches the POSIX regex."
+          ],
+          "next": []
+        },
+        {
+          "name": "-n",
+          "tip": [
+            "Archive the named experiment only, not its descendants."
+          ]
+        },
+        {
+          "name": "-q",
+          "tip": [
+            "Do not write warnings to stderr."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "collect",
+      "tip": [
+        "Collect performance data."
+      ],
+      "next": [
+        {
+          "name": "app",
+          "tip": [
+            "Collect application performance data."
+          ],
+          "option": [
+            {
+              "name": "--help",
+              "tip": [
+                "Print usage information and exit."
+              ]
+            },
+            {
+              "name": "--verbose",
+              "usage": [
+                "--verbose {on|off}"
+              ],
+              "tip": [
+                "Enable or disable verbose mode (default off)."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "--version",
+              "tip": [
+                "Print the version number and exit."
+              ]
+            },
+            {
+              "name": "-a",
+              "usage": [
+                "-a {off|on|ldobjects|src|usedldobjects|usedsrc}"
+              ],
+              "tip": [
+                "Control archiving of binaries and source files."
+              ],
+              "next": [
+                {
+                  "name": "ldobjects"
+                },
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                },
+                {
+                  "name": "src"
+                },
+                {
+                  "name": "usedldobjects"
+                },
+                {
+                  "name": "usedsrc"
+                }
+              ]
+            },
+            {
+              "name": "-C",
+              "usage": [
+                "-C <label>"
+              ],
+              "tip": [
+                "Add a comment label to the experiment (up to 10)."
+              ],
+              "next": []
+            },
+            {
+              "name": "-F",
+              "usage": [
+                "-F {off|on|=<regex>}"
+              ],
+              "tip": [
+                "Control following descendant processes."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "-h",
+              "usage": [
+                "-h {<ctr_def>...,<ctr_n_def>}"
+              ],
+              "tip": [
+                "Enable hardware event counter profiling and select counters.",
+                "Use -h without other arguments to list supported counters."
+              ],
+              "next": []
+            },
+            {
+              "name": "-H",
+              "usage": [
+                "-H {off|on|N1[-N2]}"
+              ],
+              "tip": [
+                "Control heap tracing or set the heap data collection range."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "-i",
+              "usage": [
+                "-i {off|on}"
+              ],
+              "tip": [
+                "Enable or disable I/O tracing."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "-j",
+              "usage": [
+                "-j {on|off|<path>}"
+              ],
+              "tip": [
+                "Enable or disable Java profiling, optionally with a JVM path."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "-J",
+              "usage": [
+                "-J <java-args>"
+              ],
+              "tip": [
+                "Specify arguments to the JVM."
+              ],
+              "next": []
+            },
+            {
+              "name": "-l",
+              "usage": [
+                "-l <signal>"
+              ],
+              "tip": [
+                "Specify a signal that triggers a resource-utilization sample."
+              ],
+              "next": []
+            },
+            {
+              "name": "-n",
+              "tip": [
+                "Dry run: show run-time settings without running the target."
+              ]
+            },
+            {
+              "name": "-o",
+              "usage": [
+                "-o <exp_name>"
+              ],
+              "tip": [
+                "Set the name and path of the experiment directory."
+              ],
+              "next": []
+            },
+            {
+              "name": "-O",
+              "usage": [
+                "-O <exp_name>"
+              ],
+              "tip": [
+                "Like -o, but silently overwrite an existing experiment directory."
+              ],
+              "next": []
+            },
+            {
+              "name": "-p",
+              "usage": [
+                "-p {off|on|lo|hi|<value>}"
+              ],
+              "tip": [
+                "Control clock profiling or set the sampling granularity in ms."
+              ],
+              "next": [
+                {
+                  "name": "hi"
+                },
+                {
+                  "name": "lo"
+                },
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "-s",
+              "usage": [
+                "-s <option>[,<API>]"
+              ],
+              "tip": [
+                "Enable synchronization wait tracing; API is n, j or nj."
+              ],
+              "next": []
+            },
+            {
+              "name": "-S",
+              "usage": [
+                "-S {off|on|<seconds>}"
+              ],
+              "tip": [
+                "Control periodic sampling of process-wide resource utilization."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "-t",
+              "usage": [
+                "-t <duration>[m|s]"
+              ],
+              "tip": [
+                "Set the recording duration in seconds or minutes."
+              ],
+              "next": []
+            },
+            {
+              "name": "-y",
+              "usage": [
+                "-y <signal>[,r]"
+              ],
+              "tip": [
+                "Set delayed initialization and a pause/resume signal."
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "display",
+      "tip": [
+        "Display the performance results."
+      ],
+      "next": [
+        {
+          "name": "gmon",
+          "tip": [
+            "Convert a gmon file into a gprofng experiment."
+          ],
+          "option": [
+            {
+              "name": "--help",
+              "alias": [
+                "-h"
+              ],
+              "usage": [
+                "-h, --help"
+              ],
+              "tip": [
+                "Print usage information and exit."
+              ]
+            },
+            {
+              "name": "--version",
+              "tip": [
+                "Print the version number and exit."
+              ]
+            },
+            {
+              "name": "-o",
+              "usage": [
+                "-o <exp_name>"
+              ],
+              "tip": [
+                "Set the name and path of the experiment directory."
+              ],
+              "next": []
+            },
+            {
+              "name": "-O",
+              "usage": [
+                "-O <exp_name>"
+              ],
+              "tip": [
+                "Like -o, but silently overwrite an existing experiment directory."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "html",
+          "tip": [
+            "Generate an HTML file from one or more experiments."
+          ],
+          "option": [
+            {
+              "name": "--debug",
+              "alias": [
+                "-d"
+              ],
+              "usage": [
+                "-d [<db-vol-size>], --debug[=<db-vol-size>]"
+              ],
+              "tip": [
+                "Control run-time debug output.",
+                "Volume values: s, S, m, M, l, L, xl, XL."
+              ],
+              "next": []
+            },
+            {
+              "name": "--help",
+              "tip": [
+                "Print usage information and exit."
+              ]
+            },
+            {
+              "name": "--highlight-percentage",
+              "usage": [
+                "--highlight-percentage=<value>"
+              ],
+              "tip": [
+                "Select source lines within this percentage of the maximum metric.",
+                "A value of zero disables the feature."
+              ],
+              "next": [
+                {
+                  "name": "0"
+                },
+                {
+                  "name": "100"
+                },
+                {
+                  "name": "50"
+                },
+                {
+                  "name": "90"
+                }
+              ]
+            },
+            {
+              "name": "--nowarnings",
+              "tip": [
+                "Do not print warning messages on stdout."
+              ]
+            },
+            {
+              "name": "--output",
+              "alias": [
+                "-o"
+              ],
+              "usage": [
+                "-o <dirname>, --output=<dirname>"
+              ],
+              "tip": [
+                "Store the results in the directory."
+              ],
+              "next": []
+            },
+            {
+              "name": "--overwrite",
+              "alias": [
+                "-O"
+              ],
+              "usage": [
+                "-O <dirname>, --overwrite=<dirname>"
+              ],
+              "tip": [
+                "Store the results in the directory, overwriting an existing one."
+              ],
+              "next": []
+            },
+            {
+              "name": "--quiet",
+              "alias": [
+                "-q"
+              ],
+              "usage": [
+                "-q, --quiet"
+              ],
+              "tip": [
+                "Disable warning, debug and verbose messages."
+              ]
+            },
+            {
+              "name": "--verbose",
+              "tip": [
+                "Enable verbose diagnostic messages."
+              ]
+            },
+            {
+              "name": "--version",
+              "tip": [
+                "Print the version number and exit."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "src",
+          "tip": [
+            "Display source or disassembly with compiler annotations."
+          ],
+          "option": [
+            {
+              "name": "--help",
+              "tip": [
+                "Print usage information and exit."
+              ]
+            },
+            {
+              "name": "--verbose",
+              "usage": [
+                "--verbose {on|off}"
+              ],
+              "tip": [
+                "Enable or disable verbose mode (default off)."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "--version",
+              "tip": [
+                "Print the version number and exit."
+              ]
+            },
+            {
+              "name": "-disasm",
+              "usage": [
+                "-disasm item tag"
+              ],
+              "tip": [
+                "Show source interleaved with disassembled instructions."
+              ],
+              "next": []
+            },
+            {
+              "name": "-func",
+              "tip": [
+                "List all functions from the given object."
+              ]
+            },
+            {
+              "name": "-outfile",
+              "usage": [
+                "-outfile <filename>"
+              ],
+              "tip": [
+                "Write results to the file; a dash writes to stdout (default)."
+              ],
+              "next": []
+            },
+            {
+              "name": "-source",
+              "usage": [
+                "-source item tag"
+              ],
+              "tip": [
+                "Show the source code for item; tag disambiguates duplicate names.",
+                "Use \"all -1\" for all functions."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "text",
+          "tip": [
+            "Display the performance data in ASCII format."
+          ],
+          "option": [
+            {
+              "name": "--help",
+              "tip": [
+                "Print usage information and exit."
+              ]
+            },
+            {
+              "name": "--verbose",
+              "usage": [
+                "--verbose {on|off}"
+              ],
+              "tip": [
+                "Enable or disable verbose mode (default off)."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "--version",
+              "tip": [
+                "Print the version number and exit."
+              ]
+            },
+            {
+              "name": "-script",
+              "usage": [
+                "-script <script-file>"
+              ],
+              "tip": [
+                "Execute the commands stored in the script file."
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--check",
+      "tip": [
+        "Verify whether the hardware and software environment is supported."
+      ]
+    },
+    {
+      "name": "--help",
+      "tip": [
+        "Print usage information and exit."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "usage": [
+        "--verbose {on|off}"
+      ],
+      "tip": [
+        "Enable or disable verbose mode (default off)."
+      ],
+      "next": [
+        {
+          "name": "off"
+        },
+        {
+          "name": "on"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Print the version number and exit."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,969 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "复制并转换目标文件。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--add-gnu-debuglink=",
+      "usage": [
+        "--add-gnu-debuglink=<file>"
+      ],
+      "tip": [
+        "添加链接到文件的 .gnu_debuglink 节。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--add-section",
+      "usage": [
+        "--add-section <name>=<file>"
+      ],
+      "tip": [
+        "从文件向输出添加指定节。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--add-symbol",
+      "usage": [
+        "--add-symbol <name>=[<section>:]<value>[,<flags>]"
+      ],
+      "tip": [
+        "向输出添加符号。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--adjust-warnings",
+      "tip": [
+        "指定节不存在时发出警告。"
+      ]
+    },
+    {
+      "name": "--alt-machine-code",
+      "usage": [
+        "--alt-machine-code <index>"
+      ],
+      "tip": [
+        "使用目标的替代机器码。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--binary-architecture",
+      "alias": [
+        "-B"
+      ],
+      "usage": [
+        "-B, --binary-architecture <arch>"
+      ],
+      "tip": [
+        "为无架构的输入设置输出架构。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--binary-symbol-prefix",
+      "usage": [
+        "--binary-symbol-prefix <prefix>"
+      ],
+      "tip": [
+        "将前缀用作输入文件的基础符号名。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--byte",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --byte <num>"
+      ],
+      "tip": [
+        "选择每个交错块中的字节。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--change-addresses",
+      "alias": [
+        "--adjust-vma"
+      ],
+      "usage": [
+        "--change-addresses <incr>, --adjust-vma <incr>"
+      ],
+      "tip": [
+        "将增量加到 LMA、VMA 和起始地址。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--change-leading-char",
+      "tip": [
+        "强制使用输出格式的前导字符风格。"
+      ]
+    },
+    {
+      "name": "--change-section-address",
+      "alias": [
+        "--adjust-section-vma"
+      ],
+      "usage": [
+        "--change-section-address <name>{=|+|-}<val>"
+      ],
+      "tip": [
+        "更改指定节的 LMA 和 VMA。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--change-section-lma",
+      "usage": [
+        "--change-section-lma <name>{=|+|-}<val>"
+      ],
+      "tip": [
+        "更改指定节的 LMA。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--change-section-vma",
+      "usage": [
+        "--change-section-vma <name>{=|+|-}<val>"
+      ],
+      "tip": [
+        "更改指定节的 VMA。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--change-start",
+      "alias": [
+        "--adjust-start"
+      ],
+      "usage": [
+        "--change-start <incr>, --adjust-start <incr>"
+      ],
+      "tip": [
+        "将增量加到起始地址。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--change-warnings",
+      "tip": [
+        "指定节不存在时发出警告。"
+      ]
+    },
+    {
+      "name": "--compress-debug-sections",
+      "usage": [
+        "--compress-debug-sections[={none|zlib|zlib-gnu|zlib-gabi|zstd}]"
+      ],
+      "tip": [
+        "压缩 DWARF 调试节。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--debugging",
+      "tip": [
+        "尽可能转换调试信息。"
+      ]
+    },
+    {
+      "name": "--decompress-debug-sections",
+      "tip": [
+        "使用 zlib 解压 DWARF 调试节。"
+      ]
+    },
+    {
+      "name": "--disable-deterministic-archives",
+      "alias": [
+        "-U"
+      ],
+      "usage": [
+        "-U, --disable-deterministic-archives"
+      ],
+      "tip": [
+        "禁用 -D 行为。"
+      ]
+    },
+    {
+      "name": "--discard-all",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --discard-all"
+      ],
+      "tip": [
+        "移除非全局符号。"
+      ]
+    },
+    {
+      "name": "--discard-locals",
+      "alias": [
+        "-X"
+      ],
+      "usage": [
+        "-X, --discard-locals"
+      ],
+      "tip": [
+        "移除编译器生成的符号。"
+      ]
+    },
+    {
+      "name": "--dump-section",
+      "usage": [
+        "--dump-section <name>=<file>"
+      ],
+      "tip": [
+        "将节内容转储到文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--elf-stt-common=",
+      "usage": [
+        "--elf-stt-common=[yes|no]"
+      ],
+      "tip": [
+        "使用 STT_COMMON 类型生成 ELF 公共符号。"
+      ],
+      "next": [
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "--enable-deterministic-archives",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --enable-deterministic-archives"
+      ],
+      "tip": [
+        "剥离归档时生成确定性输出（默认）。"
+      ]
+    },
+    {
+      "name": "--extract-dwo",
+      "tip": [
+        "仅复制 DWO 节。"
+      ]
+    },
+    {
+      "name": "--extract-symbol",
+      "tip": [
+        "移除节内容但保留符号。"
+      ]
+    },
+    {
+      "name": "--file-alignment",
+      "usage": [
+        "--file-alignment <num>"
+      ],
+      "tip": [
+        "设置 PE 文件对齐。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--gap-fill",
+      "usage": [
+        "--gap-fill <val>"
+      ],
+      "tip": [
+        "用指定值填充节之间的间隙。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--globalize-symbol",
+      "usage": [
+        "--globalize-symbol <name>"
+      ],
+      "tip": [
+        "将指定符号标记为全局。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--globalize-symbols",
+      "usage": [
+        "--globalize-symbols <file>"
+      ],
+      "tip": [
+        "对文件中所有符号应用 --globalize-symbol。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--heap",
+      "usage": [
+        "--heap <reserve>[,<commit>]"
+      ],
+      "tip": [
+        "设置 PE 堆的保留和提交大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--image-base",
+      "usage": [
+        "--image-base <address>"
+      ],
+      "tip": [
+        "设置 PE 映像基址。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--impure",
+      "tip": [
+        "将输出文件标记为非纯。"
+      ]
+    },
+    {
+      "name": "--info",
+      "tip": [
+        "列出支持的对象格式和架构。"
+      ]
+    },
+    {
+      "name": "--input-target",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --input-target <bfdname>"
+      ],
+      "tip": [
+        "假定输入文件使用指定格式。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--interleave",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --interleave[=<number>]"
+      ],
+      "tip": [
+        "每隔指定字节仅复制 N 个。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--interleave-width",
+      "usage": [
+        "--interleave-width <number>"
+      ],
+      "tip": [
+        "设置 --interleave 的 N。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--keep-file-symbols",
+      "tip": [
+        "不剥离文件符号。"
+      ]
+    },
+    {
+      "name": "--keep-global-symbol",
+      "alias": [
+        "-G"
+      ],
+      "usage": [
+        "-G, --keep-global-symbol <name>"
+      ],
+      "tip": [
+        "除指定符号外全部本地化。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--keep-global-symbols",
+      "usage": [
+        "--keep-global-symbols <file>"
+      ],
+      "tip": [
+        "对文件中列出的所有符号应用 -G。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--keep-section",
+      "usage": [
+        "--keep-section <name>"
+      ],
+      "tip": [
+        "不剥离指定节。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--keep-section-symbols",
+      "tip": [
+        "不剥离节符号。"
+      ]
+    },
+    {
+      "name": "--keep-symbol",
+      "alias": [
+        "-K"
+      ],
+      "usage": [
+        "-K, --keep-symbol <name>"
+      ],
+      "tip": [
+        "不剥离指定符号。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--keep-symbols",
+      "usage": [
+        "--keep-symbols <file>"
+      ],
+      "tip": [
+        "对文件中列出的所有符号应用 -K。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--localize-hidden",
+      "tip": [
+        "将所有 ELF 隐藏符号转为本地符号。"
+      ]
+    },
+    {
+      "name": "--localize-symbol",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --localize-symbol <name>"
+      ],
+      "tip": [
+        "将指定符号标记为本地。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--localize-symbols",
+      "usage": [
+        "--localize-symbols <file>"
+      ],
+      "tip": [
+        "对文件中列出的所有符号应用 -L。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--long-section-names",
+      "usage": [
+        "--long-section-names {enable|disable|keep}"
+      ],
+      "tip": [
+        "处理 COFF 对象中的长节名。"
+      ],
+      "next": [
+        {
+          "name": "disable"
+        },
+        {
+          "name": "enable"
+        },
+        {
+          "name": "keep"
+        }
+      ]
+    },
+    {
+      "name": "--merge-notes",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --merge-notes"
+      ],
+      "tip": [
+        "移除 note 节中的冗余条目。"
+      ]
+    },
+    {
+      "name": "--no-adjust-warnings",
+      "tip": [
+        "指定节不存在时不发出警告。"
+      ]
+    },
+    {
+      "name": "--no-change-warnings",
+      "tip": [
+        "指定节不存在时不发出警告。"
+      ]
+    },
+    {
+      "name": "--no-merge-notes",
+      "tip": [
+        "不移除冗余 note（默认）。"
+      ]
+    },
+    {
+      "name": "--only-keep-debug",
+      "tip": [
+        "除调试信息外全部剥离。"
+      ]
+    },
+    {
+      "name": "--only-section",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --only-section <name>"
+      ],
+      "tip": [
+        "仅将指定节复制到输出。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--output-target",
+      "alias": [
+        "-O"
+      ],
+      "usage": [
+        "-O, --output-target <bfdname>"
+      ],
+      "tip": [
+        "以指定格式创建输出文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--pad-to",
+      "usage": [
+        "--pad-to <addr>"
+      ],
+      "tip": [
+        "将最后一个节填充到指定地址。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--prefix-alloc-sections",
+      "usage": [
+        "--prefix-alloc-sections <prefix>"
+      ],
+      "tip": [
+        "为每个可分配节名添加前缀。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--prefix-sections",
+      "usage": [
+        "--prefix-sections <prefix>"
+      ],
+      "tip": [
+        "为每个节名添加前缀。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--prefix-symbols",
+      "usage": [
+        "--prefix-symbols <prefix>"
+      ],
+      "tip": [
+        "为每个符号名添加前缀。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--preserve-dates",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --preserve-dates"
+      ],
+      "tip": [
+        "将修改和访问时间复制到输出。"
+      ]
+    },
+    {
+      "name": "--pure",
+      "tip": [
+        "将输出文件标记为按需分页。"
+      ]
+    },
+    {
+      "name": "--readonly-text",
+      "tip": [
+        "使输出文本写保护。"
+      ]
+    },
+    {
+      "name": "--redefine-sym",
+      "usage": [
+        "--redefine-sym <old>=<new>"
+      ],
+      "tip": [
+        "重定义符号名。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--redefine-syms",
+      "usage": [
+        "--redefine-syms <file>"
+      ],
+      "tip": [
+        "对文件中的每一对应用 --redefine-sym。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--remove-leading-char",
+      "tip": [
+        "移除全局符号的前导字符。"
+      ]
+    },
+    {
+      "name": "--remove-relocations",
+      "usage": [
+        "--remove-relocations <name>"
+      ],
+      "tip": [
+        "从指定节移除重定位。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--remove-section",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --remove-section <name>"
+      ],
+      "tip": [
+        "从输出中移除指定节。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--rename-section",
+      "usage": [
+        "--rename-section <old>=<new>[,<flags>]"
+      ],
+      "tip": [
+        "重命名节并可选设置标志。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--reverse-bytes",
+      "usage": [
+        "--reverse-bytes=<num>"
+      ],
+      "tip": [
+        "每次反转指定数量的字节。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--section-alignment",
+      "usage": [
+        "--section-alignment <num>"
+      ],
+      "tip": [
+        "设置 PE 节对齐。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--set-section-alignment",
+      "usage": [
+        "--set-section-alignment <name>=<align>"
+      ],
+      "tip": [
+        "设置节的对齐字节数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--set-section-flags",
+      "usage": [
+        "--set-section-flags <name>=<flags>"
+      ],
+      "tip": [
+        "将节属性设置为指定标志。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--set-start",
+      "usage": [
+        "--set-start <addr>"
+      ],
+      "tip": [
+        "设置起始地址。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--srec-forceS3",
+      "tip": [
+        "将生成的 S-record 限制为 S3。"
+      ]
+    },
+    {
+      "name": "--srec-len",
+      "usage": [
+        "--srec-len <number>"
+      ],
+      "tip": [
+        "限制生成的 S-record 长度。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--stack",
+      "usage": [
+        "--stack <reserve>[,<commit>]"
+      ],
+      "tip": [
+        "设置 PE 栈的保留和提交大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--strip-all",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --strip-all"
+      ],
+      "tip": [
+        "移除所有符号和重定位信息。"
+      ]
+    },
+    {
+      "name": "--strip-debug",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --strip-debug"
+      ],
+      "tip": [
+        "移除所有调试符号和节。"
+      ]
+    },
+    {
+      "name": "--strip-dwo",
+      "tip": [
+        "移除所有 DWO 节。"
+      ]
+    },
+    {
+      "name": "--strip-section-headers",
+      "tip": [
+        "从输出中剥离节头。"
+      ]
+    },
+    {
+      "name": "--strip-symbol",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --strip-symbol <name>"
+      ],
+      "tip": [
+        "不复制指定符号。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--strip-symbols",
+      "usage": [
+        "--strip-symbols <file>"
+      ],
+      "tip": [
+        "对文件中列出的所有符号应用 -N。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--strip-unneeded",
+      "tip": [
+        "移除重定位不需要的所有符号。"
+      ]
+    },
+    {
+      "name": "--strip-unneeded-symbol",
+      "usage": [
+        "--strip-unneeded-symbol <name>"
+      ],
+      "tip": [
+        "除非重定位需要，否则不复制该符号。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--strip-unneeded-symbols",
+      "usage": [
+        "--strip-unneeded-symbols <file>"
+      ],
+      "tip": [
+        "对文件中所有符号应用 --strip-unneeded-symbol。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--subsystem",
+      "usage": [
+        "--subsystem <name>[:<version>]"
+      ],
+      "tip": [
+        "设置 PE 子系统及可选版本。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--target",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --target <bfdname>"
+      ],
+      "tip": [
+        "同时设置输入和输出格式。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--update-section",
+      "usage": [
+        "--update-section <name>=<file>"
+      ],
+      "tip": [
+        "从文件更新节内容。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "列出所有被修改的目标文件。"
+      ]
+    },
+    {
+      "name": "--verilog-data-width",
+      "usage": [
+        "--verilog-data-width <number>"
+      ],
+      "tip": [
+        "设置 Verilog 输出的数据宽度（字节）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示程序版本。"
+      ]
+    },
+    {
+      "name": "--weaken",
+      "tip": [
+        "将所有全局符号标记为弱符号。"
+      ]
+    },
+    {
+      "name": "--weaken-symbol",
+      "alias": [
+        "-W"
+      ],
+      "usage": [
+        "-W, --weaken-symbol <name>"
+      ],
+      "tip": [
+        "将指定符号标记为弱符号。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--weaken-symbols",
+      "usage": [
+        "--weaken-symbols <file>"
+      ],
+      "tip": [
+        "对文件中列出的所有符号应用 -W。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--wildcard",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --wildcard"
+      ],
+      "tip": [
+        "允许在符号比较中使用通配符。"
+      ]
+    },
+    {
+      "name": "--writable-text",
+      "tip": [
+        "将输出文本标记为可写。"
+      ]
+    }
+  ]
+}

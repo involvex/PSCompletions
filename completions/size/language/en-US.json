@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "Display the sizes of sections inside binary files."
+    ]
+  },
+  "option": [
+    {
+      "name": "--common",
+      "tip": [
+        "Display the total size for *COM* symbols."
+      ]
+    },
+    {
+      "name": "--format",
+      "alias": [
+        "-A",
+        "-B",
+        "-G"
+      ],
+      "usage": [
+        "-A, -B, -G, --format={sysv|berkeley|gnu}"
+      ],
+      "tip": [
+        "Select the output style.",
+        "Possible values: sysv, berkeley, gnu"
+      ],
+      "next": [
+        {
+          "name": "berkeley"
+        },
+        {
+          "name": "gnu"
+        },
+        {
+          "name": "sysv"
+        }
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h",
+        "-H",
+        "-?"
+      ],
+      "usage": [
+        "-h, -H, -?, --help"
+      ],
+      "tip": [
+        "Display this information."
+      ]
+    },
+    {
+      "name": "--radix",
+      "alias": [
+        "-o",
+        "-d",
+        "-x"
+      ],
+      "usage": [
+        "-o, -d, -x, --radix={8|10|16}"
+      ],
+      "tip": [
+        "Display numbers in octal, decimal or hexadecimal.",
+        "Possible values: 8, 10, 16"
+      ],
+      "next": [
+        {
+          "name": "10"
+        },
+        {
+          "name": "16"
+        },
+        {
+          "name": "8"
+        }
+      ]
+    },
+    {
+      "name": "--target",
+      "usage": [
+        "--target=<bfdname>"
+      ],
+      "tip": [
+        "Set the binary file format."
+      ],
+      "next": []
+    },
+    {
+      "name": "--totals",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --totals"
+      ],
+      "tip": [
+        "Display the total sizes (Berkeley only)."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v",
+        "-V"
+      ],
+      "usage": [
+        "-v, -V, --version"
+      ],
+      "tip": [
+        "Display the program version."
+      ]
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "Ignored."
+      ]
+    }
+  ]
+}

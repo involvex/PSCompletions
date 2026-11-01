@@ -1,0 +1,635 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "显示 ELF 格式文件内容的信息。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--all",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --all"
+      ],
+      "tip": [
+        "等同于 -h -l -S -s -r -d -V -A -I --got-contents。"
+      ]
+    },
+    {
+      "name": "--arch-specific",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --arch-specific"
+      ],
+      "tip": [
+        "显示架构特定信息。"
+      ]
+    },
+    {
+      "name": "--archive-index",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --archive-index"
+      ],
+      "tip": [
+        "显示归档中的符号/文件索引。"
+      ]
+    },
+    {
+      "name": "--ctf",
+      "usage": [
+        "--ctf=<number|name>"
+      ],
+      "tip": [
+        "显示指定节的 CTF 信息。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--ctf-parent",
+      "usage": [
+        "--ctf-parent=<name>"
+      ],
+      "tip": [
+        "将 CTF 归档成员用作 CTF 父级。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--ctf-strings",
+      "usage": [
+        "--ctf-strings=<number|name>"
+      ],
+      "tip": [
+        "将指定节用作 CTF 外部字符串表。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--ctf-symbols",
+      "usage": [
+        "--ctf-symbols=<number|name>"
+      ],
+      "tip": [
+        "将指定节用作 CTF 外部符号表。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug-dir",
+      "usage": [
+        "--debug-dir=<DIR>"
+      ],
+      "tip": [
+        "在目录中搜索调试信息文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug-dump",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --debug-dump[=SECTION]"
+      ],
+      "tip": [
+        "显示 DWARF 调试节的内容。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--decompress",
+      "alias": [
+        "-z"
+      ],
+      "usage": [
+        "-z, --decompress"
+      ],
+      "tip": [
+        "转储前解压节。"
+      ]
+    },
+    {
+      "name": "--demangle",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --demangle[=STYLE]"
+      ],
+      "tip": [
+        "解码经过修饰或处理的符号名。",
+        "STYLE 可为 none、auto、gnu-v3、java、gnat、dlang 或 rust。"
+      ],
+      "next": [
+        {
+          "name": "auto"
+        },
+        {
+          "name": "dlang"
+        },
+        {
+          "name": "gnat"
+        },
+        {
+          "name": "gnu-v3"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "rust"
+        }
+      ]
+    },
+    {
+      "name": "--display-section",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --display-section=<name|number>"
+      ],
+      "tip": [
+        "显示指定节的内容；可重复使用。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--dwarf-depth",
+      "usage": [
+        "--dwarf-depth=N"
+      ],
+      "tip": [
+        "不显示深度为 N 或更深的 DIE。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--dwarf-start",
+      "usage": [
+        "--dwarf-start=N"
+      ],
+      "tip": [
+        "从偏移 N 开始显示 DIE。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--dyn-syms",
+      "tip": [
+        "显示动态符号表。"
+      ]
+    },
+    {
+      "name": "--dynamic",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --dynamic"
+      ],
+      "tip": [
+        "显示动态节。"
+      ]
+    },
+    {
+      "name": "--extra-sym-info",
+      "alias": [
+        "-X"
+      ],
+      "usage": [
+        "-X, --extra-sym-info"
+      ],
+      "tip": [
+        "显示符号时输出额外信息。"
+      ]
+    },
+    {
+      "name": "--file-header",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --file-header"
+      ],
+      "tip": [
+        "显示 ELF 文件头。"
+      ]
+    },
+    {
+      "name": "--got-contents",
+      "tip": [
+        "显示 GOT 节内容。"
+      ]
+    },
+    {
+      "name": "--headers",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --headers"
+      ],
+      "tip": [
+        "等同于 -h -l -S。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-H"
+      ],
+      "usage": [
+        "-H, --help"
+      ],
+      "tip": [
+        "显示此信息。"
+      ]
+    },
+    {
+      "name": "--hex-dump",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --hex-dump=<number|name>"
+      ],
+      "tip": [
+        "以字节形式转储节内容。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--histogram",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --histogram"
+      ],
+      "tip": [
+        "显示桶列表长度直方图。"
+      ]
+    },
+    {
+      "name": "--lint",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --lint, --enable-checks"
+      ],
+      "tip": [
+        "对可能的问题显示警告。"
+      ]
+    },
+    {
+      "name": "--lto-syms",
+      "tip": [
+        "显示 LTO 符号表。"
+      ]
+    },
+    {
+      "name": "--no-demangle",
+      "tip": [
+        "不解码底层符号名（默认）。"
+      ]
+    },
+    {
+      "name": "--no-extra-sym-info",
+      "tip": [
+        "不输出额外符号信息（默认）。"
+      ]
+    },
+    {
+      "name": "--no-recurse-limit",
+      "tip": [
+        "禁用解码递归限制。"
+      ]
+    },
+    {
+      "name": "--notes",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --notes"
+      ],
+      "tip": [
+        "显示 note 节的内容。"
+      ]
+    },
+    {
+      "name": "--process-links",
+      "alias": [
+        "-P"
+      ],
+      "usage": [
+        "-P, --process-links"
+      ],
+      "tip": [
+        "显示独立调试信息文件中的非调试节。"
+      ]
+    },
+    {
+      "name": "--program-headers",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --program-headers"
+      ],
+      "tip": [
+        "显示程序头。"
+      ]
+    },
+    {
+      "name": "--recurse-limit",
+      "tip": [
+        "启用解码递归限制（默认）。"
+      ]
+    },
+    {
+      "name": "--relocated-dump",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --relocated-dump=<number|name>"
+      ],
+      "tip": [
+        "转储节的重定位后内容。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--relocs",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --relocs"
+      ],
+      "tip": [
+        "显示重定位。"
+      ]
+    },
+    {
+      "name": "--section-details",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --section-details"
+      ],
+      "tip": [
+        "显示节详细信息。"
+      ]
+    },
+    {
+      "name": "--section-groups",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --section-groups"
+      ],
+      "tip": [
+        "显示节组。"
+      ]
+    },
+    {
+      "name": "--section-headers",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --section-headers"
+      ],
+      "tip": [
+        "显示节头。"
+      ]
+    },
+    {
+      "name": "--sections",
+      "tip": [
+        "--section-headers 的别名。"
+      ]
+    },
+    {
+      "name": "--segments",
+      "tip": [
+        "--program-headers 的别名。"
+      ]
+    },
+    {
+      "name": "--sframe",
+      "usage": [
+        "--sframe[=NAME]"
+      ],
+      "tip": [
+        "显示指定节中的 SFrame 信息（默认 .sframe）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--silent-truncation",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --silent-truncation"
+      ],
+      "tip": [
+        "符号名被截断时不添加 [...] 后缀。"
+      ]
+    },
+    {
+      "name": "--string-dump",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --string-dump=<number|name>"
+      ],
+      "tip": [
+        "以字符串形式转储节内容。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--sym-base",
+      "usage": [
+        "--sym-base=[0|8|10|16]"
+      ],
+      "tip": [
+        "强制使用指定进制显示符号大小。",
+        "可能值: 0, 8, 10, 16"
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "10"
+        },
+        {
+          "name": "16"
+        },
+        {
+          "name": "8"
+        }
+      ]
+    },
+    {
+      "name": "--symbols",
+      "tip": [
+        "--syms 的别名。"
+      ]
+    },
+    {
+      "name": "--syms",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --syms"
+      ],
+      "tip": [
+        "显示符号表。"
+      ]
+    },
+    {
+      "name": "--unicode",
+      "alias": [
+        "-U"
+      ],
+      "usage": [
+        "-U, --unicode={default|locale|escape|hex|highlight|invalid}"
+      ],
+      "tip": [
+        "以选定形式显示 Unicode 字符。",
+        "可能值: default, locale, escape, hex, highlight, invalid"
+      ],
+      "next": [
+        {
+          "name": "default"
+        },
+        {
+          "name": "escape"
+        },
+        {
+          "name": "hex"
+        },
+        {
+          "name": "highlight"
+        },
+        {
+          "name": "invalid"
+        },
+        {
+          "name": "locale"
+        }
+      ]
+    },
+    {
+      "name": "--unwind",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --unwind"
+      ],
+      "tip": [
+        "显示展开信息。"
+      ]
+    },
+    {
+      "name": "--use-dynamic",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --use-dynamic"
+      ],
+      "tip": [
+        "显示符号时使用动态节信息。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --version"
+      ],
+      "tip": [
+        "显示 readelf 的版本号。"
+      ]
+    },
+    {
+      "name": "--version-info",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version-info"
+      ],
+      "tip": [
+        "显示版本节。"
+      ]
+    },
+    {
+      "name": "--wide",
+      "alias": [
+        "-W"
+      ],
+      "usage": [
+        "-W, --wide"
+      ],
+      "tip": [
+        "允许输出宽度超过 80 个字符。"
+      ]
+    },
+    {
+      "name": "-wk",
+      "usage": [
+        "-wk, --debug-dump=links"
+      ],
+      "tip": [
+        "显示链接到独立调试信息文件的节。"
+      ]
+    },
+    {
+      "name": "-wK",
+      "usage": [
+        "-wK, --debug-dump=follow-links"
+      ],
+      "tip": [
+        "跟随指向独立调试信息文件的链接（默认）。"
+      ]
+    },
+    {
+      "name": "-wN",
+      "usage": [
+        "-wN, --debug-dump=no-follow-links"
+      ],
+      "tip": [
+        "不跟随指向独立调试信息文件的链接。"
+      ]
+    }
+  ]
+}

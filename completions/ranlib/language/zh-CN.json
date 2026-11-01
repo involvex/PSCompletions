@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "生成索引以加快归档访问。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "打印此帮助信息。"
+      ]
+    },
+    {
+      "name": "--plugin",
+      "usage": [
+        "--plugin <name>"
+      ],
+      "tip": [
+        "加载指定的插件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --version"
+      ],
+      "tip": [
+        "打印版本信息。"
+      ]
+    },
+    {
+      "name": "-D",
+      "tip": [
+        "符号映射时间戳使用零（默认）。"
+      ]
+    },
+    {
+      "name": "-t",
+      "tip": [
+        "更新归档的符号映射时间戳。"
+      ]
+    },
+    {
+      "name": "-U",
+      "tip": [
+        "使用实际符号映射时间戳。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,322 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "Update the ELF header of ELF files."
+    ]
+  },
+  "option": [
+    {
+      "name": "--disable-x86-feature",
+      "usage": [
+        "--disable-x86-feature [ibt|shstk|lam_u48|lam_u57]"
+      ],
+      "tip": [
+        "Disable an x86 feature."
+      ],
+      "next": [
+        {
+          "name": "ibt"
+        },
+        {
+          "name": "lam_u48"
+        },
+        {
+          "name": "lam_u57"
+        },
+        {
+          "name": "shstk"
+        }
+      ]
+    },
+    {
+      "name": "--enable-x86-feature",
+      "usage": [
+        "--enable-x86-feature [ibt|shstk|lam_u48|lam_u57]"
+      ],
+      "tip": [
+        "Enable an x86 feature."
+      ],
+      "next": [
+        {
+          "name": "ibt"
+        },
+        {
+          "name": "lam_u48"
+        },
+        {
+          "name": "lam_u57"
+        },
+        {
+          "name": "shstk"
+        }
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this information."
+      ]
+    },
+    {
+      "name": "--input-abiversion",
+      "usage": [
+        "--input-abiversion [0-255]"
+      ],
+      "tip": [
+        "Set the input ABIVERSION."
+      ],
+      "next": []
+    },
+    {
+      "name": "--input-mach",
+      "usage": [
+        "--input-mach [none|i386|iamcu|l1om|k1om|x86_64]"
+      ],
+      "tip": [
+        "Set the input machine type."
+      ],
+      "next": [
+        {
+          "name": "i386"
+        },
+        {
+          "name": "iamcu"
+        },
+        {
+          "name": "k1om"
+        },
+        {
+          "name": "l1om"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "x86_64"
+        }
+      ]
+    },
+    {
+      "name": "--input-osabi",
+      "usage": [
+        "--input-osabi [none|HPUX|NetBSD|GNU|Linux|Solaris|AIX|Irix|FreeBSD|TRU64|Modesto|OpenBSD|OpenVMS|NSK|AROS|FenixOS]"
+      ],
+      "tip": [
+        "Set the input OSABI."
+      ],
+      "next": [
+        {
+          "name": "AIX"
+        },
+        {
+          "name": "AROS"
+        },
+        {
+          "name": "FenixOS"
+        },
+        {
+          "name": "FreeBSD"
+        },
+        {
+          "name": "GNU"
+        },
+        {
+          "name": "HPUX"
+        },
+        {
+          "name": "Irix"
+        },
+        {
+          "name": "Linux"
+        },
+        {
+          "name": "Modesto"
+        },
+        {
+          "name": "NetBSD"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "NSK"
+        },
+        {
+          "name": "OpenBSD"
+        },
+        {
+          "name": "OpenVMS"
+        },
+        {
+          "name": "Solaris"
+        },
+        {
+          "name": "TRU64"
+        }
+      ]
+    },
+    {
+      "name": "--input-type",
+      "usage": [
+        "--input-type [none|rel|exec|dyn]"
+      ],
+      "tip": [
+        "Set the input file type."
+      ],
+      "next": [
+        {
+          "name": "dyn"
+        },
+        {
+          "name": "exec"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "rel"
+        }
+      ]
+    },
+    {
+      "name": "--output-abiversion",
+      "usage": [
+        "--output-abiversion [0-255]"
+      ],
+      "tip": [
+        "Set the output ABIVERSION."
+      ],
+      "next": []
+    },
+    {
+      "name": "--output-mach",
+      "usage": [
+        "--output-mach [none|i386|iamcu|l1om|k1om|x86_64]"
+      ],
+      "tip": [
+        "Set the output machine type."
+      ],
+      "next": [
+        {
+          "name": "i386"
+        },
+        {
+          "name": "iamcu"
+        },
+        {
+          "name": "k1om"
+        },
+        {
+          "name": "l1om"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "x86_64"
+        }
+      ]
+    },
+    {
+      "name": "--output-osabi",
+      "usage": [
+        "--output-osabi [none|HPUX|NetBSD|GNU|Linux|Solaris|AIX|Irix|FreeBSD|TRU64|Modesto|OpenBSD|OpenVMS|NSK|AROS|FenixOS]"
+      ],
+      "tip": [
+        "Set the output OSABI."
+      ],
+      "next": [
+        {
+          "name": "AIX"
+        },
+        {
+          "name": "AROS"
+        },
+        {
+          "name": "FenixOS"
+        },
+        {
+          "name": "FreeBSD"
+        },
+        {
+          "name": "GNU"
+        },
+        {
+          "name": "HPUX"
+        },
+        {
+          "name": "Irix"
+        },
+        {
+          "name": "Linux"
+        },
+        {
+          "name": "Modesto"
+        },
+        {
+          "name": "NetBSD"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "NSK"
+        },
+        {
+          "name": "OpenBSD"
+        },
+        {
+          "name": "OpenVMS"
+        },
+        {
+          "name": "Solaris"
+        },
+        {
+          "name": "TRU64"
+        }
+      ]
+    },
+    {
+      "name": "--output-type",
+      "usage": [
+        "--output-type [none|rel|exec|dyn]"
+      ],
+      "tip": [
+        "Set the output file type."
+      ],
+      "next": [
+        {
+          "name": "dyn"
+        },
+        {
+          "name": "exec"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "rel"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --version"
+      ],
+      "tip": [
+        "Display the version number of elfedit."
+      ]
+    }
+  ]
+}

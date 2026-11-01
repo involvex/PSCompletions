@@ -1,0 +1,1249 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "The GNU assembler."
+    ]
+  },
+  "option": [
+    {
+      "name": "--32",
+      "tip": [
+        "Generate a 32-bit object."
+      ]
+    },
+    {
+      "name": "--64",
+      "tip": [
+        "Generate a 64-bit object."
+      ]
+    },
+    {
+      "name": "--alternate",
+      "tip": [
+        "Initially turn on the alternate macro syntax."
+      ]
+    },
+    {
+      "name": "--compress-debug-sections",
+      "usage": [
+        "--compress-debug-sections[={none|zlib|zlib-gnu|zlib-gabi|zstd}]"
+      ],
+      "tip": [
+        "Compress DWARF debug sections (default zlib)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug-prefix-map",
+      "usage": [
+        "--debug-prefix-map OLD=NEW"
+      ],
+      "tip": [
+        "Map OLD to NEW in debug information."
+      ],
+      "next": []
+    },
+    {
+      "name": "--defsym",
+      "usage": [
+        "--defsym SYM=VAL"
+      ],
+      "tip": [
+        "Define symbol SYM to the given value."
+      ],
+      "next": []
+    },
+    {
+      "name": "--divide",
+      "tip": [
+        "Ignored."
+      ]
+    },
+    {
+      "name": "--dump-config",
+      "tip": [
+        "Display how the assembler is configured and exit."
+      ]
+    },
+    {
+      "name": "--elf-stt-common=",
+      "usage": [
+        "--elf-stt-common=[no|yes]"
+      ],
+      "tip": [
+        "Generate ELF common symbols with the STT_COMMON type (default no)."
+      ],
+      "next": [
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "--execstack",
+      "tip": [
+        "Require an executable stack for this object."
+      ]
+    },
+    {
+      "name": "--fatal-warnings",
+      "tip": [
+        "Treat warnings as errors."
+      ]
+    },
+    {
+      "name": "--gdwarf-2",
+      "tip": [
+        "Generate DWARF 2 debugging information."
+      ]
+    },
+    {
+      "name": "--gdwarf-3",
+      "tip": [
+        "Generate DWARF 3 debugging information."
+      ]
+    },
+    {
+      "name": "--gdwarf-4",
+      "tip": [
+        "Generate DWARF 4 debugging information."
+      ]
+    },
+    {
+      "name": "--gdwarf-5",
+      "tip": [
+        "Generate DWARF 5 debugging information."
+      ]
+    },
+    {
+      "name": "--gdwarf-cie-version=",
+      "usage": [
+        "--gdwarf-cie-version=<N>"
+      ],
+      "tip": [
+        "Generate DWARF CIEs of version 1, 3 or 4."
+      ],
+      "next": [
+        {
+          "name": "1"
+        },
+        {
+          "name": "3"
+        },
+        {
+          "name": "4"
+        }
+      ]
+    },
+    {
+      "name": "--gdwarf-sections",
+      "tip": [
+        "Generate per-function section names for DWARF line information."
+      ]
+    },
+    {
+      "name": "--gen-debug",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --gen-debug"
+      ],
+      "tip": [
+        "Generate debugging information."
+      ]
+    },
+    {
+      "name": "--generate-missing-build-notes=",
+      "usage": [
+        "--generate-missing-build-notes=[no|yes]"
+      ],
+      "tip": [
+        "Generate GNU Build notes when none are present (default no)."
+      ],
+      "next": [
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "--gsframe",
+      "usage": [
+        "--gsframe[={no|yes}]"
+      ],
+      "tip": [
+        "Control generation of SFrame stack trace information (default no)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--gstabs",
+      "tip": [
+        "Generate STABS debugging information."
+      ]
+    },
+    {
+      "name": "--gstabs+",
+      "tip": [
+        "Generate STABS debug info with GNU extensions."
+      ]
+    },
+    {
+      "name": "--hash-size=",
+      "usage": [
+        "--hash-size=<N>"
+      ],
+      "tip": [
+        "Ignored."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "tip": [
+        "Show all assembler options."
+      ]
+    },
+    {
+      "name": "--info",
+      "tip": [
+        "Do not suppress information messages."
+      ]
+    },
+    {
+      "name": "--keep-locals",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --keep-locals"
+      ],
+      "tip": [
+        "Keep local symbols such as those starting with L."
+      ]
+    },
+    {
+      "name": "--listing-cont-lines=",
+      "usage": [
+        "--listing-cont-lines=N"
+      ],
+      "tip": [
+        "Set the maximum continuation lines for the listing data column."
+      ],
+      "next": []
+    },
+    {
+      "name": "--listing-lhs-width=",
+      "usage": [
+        "--listing-lhs-width=N"
+      ],
+      "tip": [
+        "Set the width of the listing output data column."
+      ],
+      "next": []
+    },
+    {
+      "name": "--listing-lhs-width2=",
+      "usage": [
+        "--listing-lhs-width2=N"
+      ],
+      "tip": [
+        "Set the width of continuation lines in the listing data column."
+      ],
+      "next": []
+    },
+    {
+      "name": "--listing-rhs-width=",
+      "usage": [
+        "--listing-rhs-width=N"
+      ],
+      "tip": [
+        "Set the maximum source line width in the listing."
+      ],
+      "next": []
+    },
+    {
+      "name": "--MD",
+      "usage": [
+        "--MD FILE"
+      ],
+      "tip": [
+        "Write dependency information to FILE."
+      ],
+      "next": []
+    },
+    {
+      "name": "--mri",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --mri"
+      ],
+      "tip": [
+        "Assemble in MRI compatibility mode."
+      ]
+    },
+    {
+      "name": "--multibyte-handling=",
+      "usage": [
+        "--multibyte-handling=<method>"
+      ],
+      "tip": [
+        "Set how multibyte characters in the input are handled."
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-info",
+      "tip": [
+        "Suppress information messages."
+      ]
+    },
+    {
+      "name": "--no-warn",
+      "alias": [
+        "-W"
+      ],
+      "usage": [
+        "-W, --no-warn"
+      ],
+      "tip": [
+        "Suppress warnings."
+      ]
+    },
+    {
+      "name": "--nocompress-debug-sections",
+      "tip": [
+        "Do not compress DWARF debug sections."
+      ]
+    },
+    {
+      "name": "--noexecstack",
+      "tip": [
+        "Do not require an executable stack for this object."
+      ]
+    },
+    {
+      "name": "--reduce-memory-overheads",
+      "tip": [
+        "Ignored."
+      ]
+    },
+    {
+      "name": "--reloc-section-sym=",
+      "usage": [
+        "--reloc-section-sym=[all|internal|none]"
+      ],
+      "tip": [
+        "Adjust eligible relocations to use section symbols (default all)."
+      ],
+      "next": [
+        {
+          "name": "all"
+        },
+        {
+          "name": "internal"
+        },
+        {
+          "name": "none"
+        }
+      ]
+    },
+    {
+      "name": "--scfi=",
+      "usage": [
+        "--scfi=experimental"
+      ],
+      "tip": [
+        "Synthesize DWARF CFI for hand-written assembly (experimental)."
+      ],
+      "next": [
+        {
+          "name": "experimental"
+        }
+      ]
+    },
+    {
+      "name": "--sectname-subst",
+      "tip": [
+        "Enable section name substitution sequences."
+      ]
+    },
+    {
+      "name": "--size-check=",
+      "usage": [
+        "--size-check=[error|warning]"
+      ],
+      "tip": [
+        "Check ELF .size directives (default error)."
+      ],
+      "next": [
+        {
+          "name": "error"
+        },
+        {
+          "name": "warning"
+        }
+      ]
+    },
+    {
+      "name": "--statistics",
+      "tip": [
+        "Print measured statistics from execution."
+      ]
+    },
+    {
+      "name": "--strip-local-absolute",
+      "tip": [
+        "Strip local absolute symbols."
+      ]
+    },
+    {
+      "name": "--target-help",
+      "tip": [
+        "Show target-specific options."
+      ]
+    },
+    {
+      "name": "--traditional-format",
+      "tip": [
+        "Use the same format as the native assembler when possible."
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Print the assembler version and exit."
+      ]
+    },
+    {
+      "name": "--warn",
+      "tip": [
+        "Do not suppress warnings."
+      ]
+    },
+    {
+      "name": "--x32",
+      "tip": [
+        "Generate an x32 object."
+      ]
+    },
+    {
+      "name": "-a",
+      "usage": [
+        "-a[sub-option...]"
+      ],
+      "tip": [
+        "Turn on listings; sub-options include c, d, g, h, i, l, m, n, s and =FILE."
+      ]
+    },
+    {
+      "name": "-D",
+      "tip": [
+        "Produce assembler debugging messages."
+      ]
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "Skip whitespace and comment preprocessing."
+      ]
+    },
+    {
+      "name": "-I",
+      "usage": [
+        "-I DIR"
+      ],
+      "tip": [
+        "Add DIR to the search list for .include directives."
+      ],
+      "next": []
+    },
+    {
+      "name": "-J",
+      "tip": [
+        "Do not warn about signed overflow."
+      ]
+    },
+    {
+      "name": "-k",
+      "tip": [
+        "Ignored."
+      ]
+    },
+    {
+      "name": "-K",
+      "tip": [
+        "Warn when differences are altered for long displacements."
+      ]
+    },
+    {
+      "name": "-madd-bnd-prefix",
+      "tip": [
+        "Add the BND prefix to all valid branches."
+      ]
+    },
+    {
+      "name": "-malign-branch-boundary=",
+      "usage": [
+        "-malign-branch-boundary=NUM"
+      ],
+      "tip": [
+        "Align branches within the given byte boundary (default 0)."
+      ],
+      "next": []
+    },
+    {
+      "name": "-malign-branch-prefix-size=",
+      "usage": [
+        "-malign-branch-prefix-size=NUM"
+      ],
+      "tip": [
+        "Align branches with NUM prefixes per instruction (default 5)."
+      ],
+      "next": []
+    },
+    {
+      "name": "-malign-branch=",
+      "usage": [
+        "-malign-branch=TYPE[+TYPE...]"
+      ],
+      "tip": [
+        "Specify the branch types to align (default jcc+fused+jmp)."
+      ],
+      "next": []
+    },
+    {
+      "name": "-mamd64",
+      "tip": [
+        "Accept only the AMD64 ISA (default)."
+      ]
+    },
+    {
+      "name": "-march=",
+      "usage": [
+        "-march=CPU[,+EXTENSION...]"
+      ],
+      "tip": [
+        "Generate code for the given CPU and optional extensions."
+      ],
+      "next": [
+        {
+          "name": "amdfam10"
+        },
+        {
+          "name": "athlon"
+        },
+        {
+          "name": "bdver1"
+        },
+        {
+          "name": "bdver2"
+        },
+        {
+          "name": "bdver3"
+        },
+        {
+          "name": "bdver4"
+        },
+        {
+          "name": "btver1"
+        },
+        {
+          "name": "btver2"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "core2"
+        },
+        {
+          "name": "corei7"
+        },
+        {
+          "name": "default"
+        },
+        {
+          "name": "generic32"
+        },
+        {
+          "name": "generic64"
+        },
+        {
+          "name": "i386"
+        },
+        {
+          "name": "i486"
+        },
+        {
+          "name": "i586"
+        },
+        {
+          "name": "i686"
+        },
+        {
+          "name": "iamcu"
+        },
+        {
+          "name": "k6"
+        },
+        {
+          "name": "k6_2"
+        },
+        {
+          "name": "k8"
+        },
+        {
+          "name": "nocona"
+        },
+        {
+          "name": "opteron"
+        },
+        {
+          "name": "pentium"
+        },
+        {
+          "name": "pentium4"
+        },
+        {
+          "name": "pentiumii"
+        },
+        {
+          "name": "pentiumiii"
+        },
+        {
+          "name": "pentiumpro"
+        },
+        {
+          "name": "pop"
+        },
+        {
+          "name": "prescott"
+        },
+        {
+          "name": "push"
+        },
+        {
+          "name": "znver1"
+        },
+        {
+          "name": "znver2"
+        },
+        {
+          "name": "znver3"
+        },
+        {
+          "name": "znver4"
+        },
+        {
+          "name": "znver5"
+        },
+        {
+          "name": "znver6"
+        }
+      ]
+    },
+    {
+      "name": "-mavxscalar=",
+      "usage": [
+        "-mavxscalar=[128|256]"
+      ],
+      "tip": [
+        "Set the vector length for scalar AVX instructions (default 128)."
+      ],
+      "next": [
+        {
+          "name": "128"
+        },
+        {
+          "name": "256"
+        }
+      ]
+    },
+    {
+      "name": "-mbranches-within-32B-boundaries",
+      "tip": [
+        "Align branches within a 32-byte boundary."
+      ]
+    },
+    {
+      "name": "-mevexlig=",
+      "usage": [
+        "-mevexlig=[128|256|512]"
+      ],
+      "tip": [
+        "Set the vector length for scalar EVEX instructions (default 128)."
+      ],
+      "next": [
+        {
+          "name": "128"
+        },
+        {
+          "name": "256"
+        },
+        {
+          "name": "512"
+        }
+      ]
+    },
+    {
+      "name": "-mevexrcig=",
+      "usage": [
+        "-mevexrcig=[rne|rd|ru|rz]"
+      ],
+      "tip": [
+        "Set the EVEX.RC value for SAE-only instructions (default rne)."
+      ],
+      "next": [
+        {
+          "name": "rd"
+        },
+        {
+          "name": "rne"
+        },
+        {
+          "name": "ru"
+        },
+        {
+          "name": "rz"
+        }
+      ]
+    },
+    {
+      "name": "-mevexwig=",
+      "usage": [
+        "-mevexwig=[0|1]"
+      ],
+      "tip": [
+        "Set the EVEX.W value for EVEX.W-ignored instructions (default 0)."
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        }
+      ]
+    },
+    {
+      "name": "-mfence-as-lock-add=",
+      "usage": [
+        "-mfence-as-lock-add=[no|yes]"
+      ],
+      "tip": [
+        "Encode lfence, mfence and sfence as lock addl (default no)."
+      ],
+      "next": [
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "-mindex-reg",
+      "tip": [
+        "Support pseudo index registers."
+      ]
+    },
+    {
+      "name": "-mintel64",
+      "tip": [
+        "Accept only the Intel64 ISA."
+      ]
+    },
+    {
+      "name": "-mlfence-after-load=",
+      "usage": [
+        "-mlfence-after-load=[no|yes]"
+      ],
+      "tip": [
+        "Generate lfence after loads (default no)."
+      ],
+      "next": [
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "-mlfence-before-indirect-branch=",
+      "usage": [
+        "-mlfence-before-indirect-branch=[none|all|register|memory]"
+      ],
+      "tip": [
+        "Generate lfence before indirect near branches (default none)."
+      ],
+      "next": [
+        {
+          "name": "all"
+        },
+        {
+          "name": "memory"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "register"
+        }
+      ]
+    },
+    {
+      "name": "-mlfence-before-ret=",
+      "usage": [
+        "-mlfence-before-ret=[none|or|not|shl|yes]"
+      ],
+      "tip": [
+        "Generate lfence before ret (default none)."
+      ],
+      "next": [
+        {
+          "name": "none"
+        },
+        {
+          "name": "not"
+        },
+        {
+          "name": "or"
+        },
+        {
+          "name": "shl"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "-mmnemonic=",
+      "usage": [
+        "-mmnemonic=[att|intel]"
+      ],
+      "tip": [
+        "Use AT&T or Intel mnemonics (AT&T syntax only, default att)."
+      ],
+      "next": [
+        {
+          "name": "att"
+        },
+        {
+          "name": "intel"
+        }
+      ]
+    },
+    {
+      "name": "-mnaked-reg",
+      "tip": [
+        "Do not require the % prefix for registers."
+      ]
+    },
+    {
+      "name": "-momit-lock-prefix=",
+      "usage": [
+        "-momit-lock-prefix=[no|yes]"
+      ],
+      "tip": [
+        "Strip all lock prefixes (default no)."
+      ],
+      "next": [
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "-moperand-check=",
+      "usage": [
+        "-moperand-check=[none|error|warning]"
+      ],
+      "tip": [
+        "Check operand combinations for validity (default warning)."
+      ],
+      "next": [
+        {
+          "name": "error"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "warning"
+        }
+      ]
+    },
+    {
+      "name": "-mrelax-relocations=",
+      "usage": [
+        "-mrelax-relocations=[no|yes]"
+      ],
+      "tip": [
+        "Generate relax relocations (default yes)."
+      ],
+      "next": [
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "-mshared",
+      "tip": [
+        "Disable branch optimization for shared code."
+      ]
+    },
+    {
+      "name": "-msse-check=",
+      "usage": [
+        "-msse-check=[none|error|warning]"
+      ],
+      "tip": [
+        "Check SSE instructions (default none)."
+      ],
+      "next": [
+        {
+          "name": "error"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "warning"
+        }
+      ]
+    },
+    {
+      "name": "-msse2avx",
+      "tip": [
+        "Encode SSE instructions with the VEX prefix."
+      ]
+    },
+    {
+      "name": "-msyntax=",
+      "usage": [
+        "-msyntax=[att|intel]"
+      ],
+      "tip": [
+        "Use AT&T or Intel syntax (default att)."
+      ],
+      "next": [
+        {
+          "name": "att"
+        },
+        {
+          "name": "intel"
+        }
+      ]
+    },
+    {
+      "name": "-mtls-check=",
+      "usage": [
+        "-mtls-check=[no|yes]"
+      ],
+      "tip": [
+        "Check TLS relocations (default yes)."
+      ],
+      "next": [
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "-mtune=",
+      "usage": [
+        "-mtune=CPU"
+      ],
+      "tip": [
+        "Optimize for the given CPU."
+      ],
+      "next": [
+        {
+          "name": "amdfam10"
+        },
+        {
+          "name": "athlon"
+        },
+        {
+          "name": "bdver1"
+        },
+        {
+          "name": "bdver2"
+        },
+        {
+          "name": "bdver3"
+        },
+        {
+          "name": "bdver4"
+        },
+        {
+          "name": "btver1"
+        },
+        {
+          "name": "btver2"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "core2"
+        },
+        {
+          "name": "corei7"
+        },
+        {
+          "name": "default"
+        },
+        {
+          "name": "generic32"
+        },
+        {
+          "name": "generic64"
+        },
+        {
+          "name": "i386"
+        },
+        {
+          "name": "i486"
+        },
+        {
+          "name": "i586"
+        },
+        {
+          "name": "i686"
+        },
+        {
+          "name": "iamcu"
+        },
+        {
+          "name": "k6"
+        },
+        {
+          "name": "k6_2"
+        },
+        {
+          "name": "k8"
+        },
+        {
+          "name": "nocona"
+        },
+        {
+          "name": "opteron"
+        },
+        {
+          "name": "pentium"
+        },
+        {
+          "name": "pentium4"
+        },
+        {
+          "name": "pentiumii"
+        },
+        {
+          "name": "pentiumiii"
+        },
+        {
+          "name": "pentiumpro"
+        },
+        {
+          "name": "pop"
+        },
+        {
+          "name": "prescott"
+        },
+        {
+          "name": "push"
+        },
+        {
+          "name": "znver1"
+        },
+        {
+          "name": "znver2"
+        },
+        {
+          "name": "znver3"
+        },
+        {
+          "name": "znver4"
+        },
+        {
+          "name": "znver5"
+        },
+        {
+          "name": "znver6"
+        }
+      ]
+    },
+    {
+      "name": "-muse-unaligned-vector-move",
+      "tip": [
+        "Encode aligned vector moves as unaligned vector moves."
+      ]
+    },
+    {
+      "name": "-mvexwig=",
+      "usage": [
+        "-mvexwig=[0|1]"
+      ],
+      "tip": [
+        "Set the VEX.W value for VEX.W-ignored instructions (default 0)."
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        }
+      ]
+    },
+    {
+      "name": "-mx86-used-note=",
+      "usage": [
+        "-mx86-used-note=[no|yes]"
+      ],
+      "tip": [
+        "Generate x86 used ISA and feature properties (default yes)."
+      ],
+      "next": [
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "Do not optimize code alignment."
+      ]
+    },
+    {
+      "name": "-no-pad-sections",
+      "tip": [
+        "Do not pad the end of sections to alignment boundaries."
+      ]
+    },
+    {
+      "name": "-nocpp",
+      "tip": [
+        "Ignored."
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o OBJFILE"
+      ],
+      "tip": [
+        "Name the object-file output OBJFILE (default a.out)."
+      ],
+      "next": []
+    },
+    {
+      "name": "-O0",
+      "tip": [
+        "Disable code optimization."
+      ]
+    },
+    {
+      "name": "-O1",
+      "tip": [
+        "Enable basic code optimization."
+      ]
+    },
+    {
+      "name": "-O2",
+      "tip": [
+        "Enable more code optimization."
+      ]
+    },
+    {
+      "name": "-Os",
+      "tip": [
+        "Optimize for size."
+      ]
+    },
+    {
+      "name": "-q",
+      "tip": [
+        "Quieten some warnings."
+      ]
+    },
+    {
+      "name": "-Qn",
+      "tip": [
+        "Ignored."
+      ]
+    },
+    {
+      "name": "-Qy",
+      "tip": [
+        "Ignored."
+      ]
+    },
+    {
+      "name": "-R",
+      "tip": [
+        "Fold the data section into the text section."
+      ]
+    },
+    {
+      "name": "-s",
+      "tip": [
+        "Ignored."
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "Print the assembler version."
+      ]
+    },
+    {
+      "name": "-w",
+      "tip": [
+        "Ignored."
+      ]
+    },
+    {
+      "name": "-X",
+      "tip": [
+        "Ignored."
+      ]
+    },
+    {
+      "name": "-Z",
+      "tip": [
+        "Generate an object file even after errors."
+      ]
+    }
+  ]
+}

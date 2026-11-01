@@ -1,0 +1,1249 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "GNU 汇编器。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--32",
+      "tip": [
+        "生成 32 位对象。"
+      ]
+    },
+    {
+      "name": "--64",
+      "tip": [
+        "生成 64 位对象。"
+      ]
+    },
+    {
+      "name": "--alternate",
+      "tip": [
+        "初始启用替代宏语法。"
+      ]
+    },
+    {
+      "name": "--compress-debug-sections",
+      "usage": [
+        "--compress-debug-sections[={none|zlib|zlib-gnu|zlib-gabi|zstd}]"
+      ],
+      "tip": [
+        "压缩 DWARF 调试节（默认 zlib）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug-prefix-map",
+      "usage": [
+        "--debug-prefix-map OLD=NEW"
+      ],
+      "tip": [
+        "在调试信息中将 OLD 映射为 NEW。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--defsym",
+      "usage": [
+        "--defsym SYM=VAL"
+      ],
+      "tip": [
+        "将符号 SYM 定义为给定值。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--divide",
+      "tip": [
+        "已忽略。"
+      ]
+    },
+    {
+      "name": "--dump-config",
+      "tip": [
+        "显示汇编器的配置后退出。"
+      ]
+    },
+    {
+      "name": "--elf-stt-common=",
+      "usage": [
+        "--elf-stt-common=[no|yes]"
+      ],
+      "tip": [
+        "使用 STT_COMMON 类型生成 ELF 公共符号（默认 no）。"
+      ],
+      "next": [
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "--execstack",
+      "tip": [
+        "为此对象要求可执行栈。"
+      ]
+    },
+    {
+      "name": "--fatal-warnings",
+      "tip": [
+        "将警告视为错误。"
+      ]
+    },
+    {
+      "name": "--gdwarf-2",
+      "tip": [
+        "生成 DWARF 2 调试信息。"
+      ]
+    },
+    {
+      "name": "--gdwarf-3",
+      "tip": [
+        "生成 DWARF 3 调试信息。"
+      ]
+    },
+    {
+      "name": "--gdwarf-4",
+      "tip": [
+        "生成 DWARF 4 调试信息。"
+      ]
+    },
+    {
+      "name": "--gdwarf-5",
+      "tip": [
+        "生成 DWARF 5 调试信息。"
+      ]
+    },
+    {
+      "name": "--gdwarf-cie-version=",
+      "usage": [
+        "--gdwarf-cie-version=<N>"
+      ],
+      "tip": [
+        "生成版本 1、3 或 4 的 DWARF CIE。"
+      ],
+      "next": [
+        {
+          "name": "1"
+        },
+        {
+          "name": "3"
+        },
+        {
+          "name": "4"
+        }
+      ]
+    },
+    {
+      "name": "--gdwarf-sections",
+      "tip": [
+        "为 DWARF 行信息生成按函数命名的节名。"
+      ]
+    },
+    {
+      "name": "--gen-debug",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --gen-debug"
+      ],
+      "tip": [
+        "生成调试信息。"
+      ]
+    },
+    {
+      "name": "--generate-missing-build-notes=",
+      "usage": [
+        "--generate-missing-build-notes=[no|yes]"
+      ],
+      "tip": [
+        "缺少 GNU Build note 时生成（默认 no）。"
+      ],
+      "next": [
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "--gsframe",
+      "usage": [
+        "--gsframe[={no|yes}]"
+      ],
+      "tip": [
+        "控制 SFrame 堆栈跟踪信息的生成（默认 no）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--gstabs",
+      "tip": [
+        "生成 STABS 调试信息。"
+      ]
+    },
+    {
+      "name": "--gstabs+",
+      "tip": [
+        "生成带 GNU 扩展的 STABS 调试信息。"
+      ]
+    },
+    {
+      "name": "--hash-size=",
+      "usage": [
+        "--hash-size=<N>"
+      ],
+      "tip": [
+        "已忽略。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "tip": [
+        "显示所有汇编器选项。"
+      ]
+    },
+    {
+      "name": "--info",
+      "tip": [
+        "不抑制信息性消息。"
+      ]
+    },
+    {
+      "name": "--keep-locals",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --keep-locals"
+      ],
+      "tip": [
+        "保留以 L 开头的本地符号。"
+      ]
+    },
+    {
+      "name": "--listing-cont-lines=",
+      "usage": [
+        "--listing-cont-lines=N"
+      ],
+      "tip": [
+        "设置列表数据列的最大续行数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--listing-lhs-width=",
+      "usage": [
+        "--listing-lhs-width=N"
+      ],
+      "tip": [
+        "设置列表输出数据列的宽度。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--listing-lhs-width2=",
+      "usage": [
+        "--listing-lhs-width2=N"
+      ],
+      "tip": [
+        "设置列表数据列续行的宽度。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--listing-rhs-width=",
+      "usage": [
+        "--listing-rhs-width=N"
+      ],
+      "tip": [
+        "设置列表中源文件行的最大宽度。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--MD",
+      "usage": [
+        "--MD FILE"
+      ],
+      "tip": [
+        "将依赖信息写入 FILE。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--mri",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --mri"
+      ],
+      "tip": [
+        "以 MRI 兼容模式汇编。"
+      ]
+    },
+    {
+      "name": "--multibyte-handling=",
+      "usage": [
+        "--multibyte-handling=<method>"
+      ],
+      "tip": [
+        "设置如何处理输入中的多字节字符。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-info",
+      "tip": [
+        "抑制信息性消息。"
+      ]
+    },
+    {
+      "name": "--no-warn",
+      "alias": [
+        "-W"
+      ],
+      "usage": [
+        "-W, --no-warn"
+      ],
+      "tip": [
+        "抑制警告。"
+      ]
+    },
+    {
+      "name": "--nocompress-debug-sections",
+      "tip": [
+        "不压缩 DWARF 调试节。"
+      ]
+    },
+    {
+      "name": "--noexecstack",
+      "tip": [
+        "不为此对象要求可执行栈。"
+      ]
+    },
+    {
+      "name": "--reduce-memory-overheads",
+      "tip": [
+        "已忽略。"
+      ]
+    },
+    {
+      "name": "--reloc-section-sym=",
+      "usage": [
+        "--reloc-section-sym=[all|internal|none]"
+      ],
+      "tip": [
+        "调整符合条件的重定位以使用节符号（默认 all）。"
+      ],
+      "next": [
+        {
+          "name": "all"
+        },
+        {
+          "name": "internal"
+        },
+        {
+          "name": "none"
+        }
+      ]
+    },
+    {
+      "name": "--scfi=",
+      "usage": [
+        "--scfi=experimental"
+      ],
+      "tip": [
+        "为手写汇编合成 DWARF CFI（实验性）。"
+      ],
+      "next": [
+        {
+          "name": "experimental"
+        }
+      ]
+    },
+    {
+      "name": "--sectname-subst",
+      "tip": [
+        "启用节名替换序列。"
+      ]
+    },
+    {
+      "name": "--size-check=",
+      "usage": [
+        "--size-check=[error|warning]"
+      ],
+      "tip": [
+        "检查 ELF .size 指令（默认 error）。"
+      ],
+      "next": [
+        {
+          "name": "error"
+        },
+        {
+          "name": "warning"
+        }
+      ]
+    },
+    {
+      "name": "--statistics",
+      "tip": [
+        "打印执行期间的统计信息。"
+      ]
+    },
+    {
+      "name": "--strip-local-absolute",
+      "tip": [
+        "剥离本地绝对符号。"
+      ]
+    },
+    {
+      "name": "--target-help",
+      "tip": [
+        "显示目标特定选项。"
+      ]
+    },
+    {
+      "name": "--traditional-format",
+      "tip": [
+        "尽可能使用与原生汇编器相同的格式。"
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "打印汇编器版本并退出。"
+      ]
+    },
+    {
+      "name": "--warn",
+      "tip": [
+        "不抑制警告。"
+      ]
+    },
+    {
+      "name": "--x32",
+      "tip": [
+        "生成 x32 对象。"
+      ]
+    },
+    {
+      "name": "-a",
+      "usage": [
+        "-a[sub-option...]"
+      ],
+      "tip": [
+        "启用列表；子选项包括 c、d、g、h、i、l、m、n、s 和 =FILE。"
+      ]
+    },
+    {
+      "name": "-D",
+      "tip": [
+        "生成汇编器调试消息。"
+      ]
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "跳过空白和注释预处理。"
+      ]
+    },
+    {
+      "name": "-I",
+      "usage": [
+        "-I DIR"
+      ],
+      "tip": [
+        "将 DIR 添加到 .include 指令的搜索列表。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-J",
+      "tip": [
+        "不对有符号溢出发出警告。"
+      ]
+    },
+    {
+      "name": "-k",
+      "tip": [
+        "已忽略。"
+      ]
+    },
+    {
+      "name": "-K",
+      "tip": [
+        "长位移差异被更改时发出警告。"
+      ]
+    },
+    {
+      "name": "-madd-bnd-prefix",
+      "tip": [
+        "为所有有效分支添加 BND 前缀。"
+      ]
+    },
+    {
+      "name": "-malign-branch-boundary=",
+      "usage": [
+        "-malign-branch-boundary=NUM"
+      ],
+      "tip": [
+        "在指定字节边界内对齐分支（默认 0）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-malign-branch-prefix-size=",
+      "usage": [
+        "-malign-branch-prefix-size=NUM"
+      ],
+      "tip": [
+        "使用每条指令 NUM 个前缀对齐分支（默认 5）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-malign-branch=",
+      "usage": [
+        "-malign-branch=TYPE[+TYPE...]"
+      ],
+      "tip": [
+        "指定要对齐的分支类型（默认 jcc+fused+jmp）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-mamd64",
+      "tip": [
+        "仅接受 AMD64 ISA（默认）。"
+      ]
+    },
+    {
+      "name": "-march=",
+      "usage": [
+        "-march=CPU[,+EXTENSION...]"
+      ],
+      "tip": [
+        "为指定 CPU 和可选扩展生成代码。"
+      ],
+      "next": [
+        {
+          "name": "amdfam10"
+        },
+        {
+          "name": "athlon"
+        },
+        {
+          "name": "bdver1"
+        },
+        {
+          "name": "bdver2"
+        },
+        {
+          "name": "bdver3"
+        },
+        {
+          "name": "bdver4"
+        },
+        {
+          "name": "btver1"
+        },
+        {
+          "name": "btver2"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "core2"
+        },
+        {
+          "name": "corei7"
+        },
+        {
+          "name": "default"
+        },
+        {
+          "name": "generic32"
+        },
+        {
+          "name": "generic64"
+        },
+        {
+          "name": "i386"
+        },
+        {
+          "name": "i486"
+        },
+        {
+          "name": "i586"
+        },
+        {
+          "name": "i686"
+        },
+        {
+          "name": "iamcu"
+        },
+        {
+          "name": "k6"
+        },
+        {
+          "name": "k6_2"
+        },
+        {
+          "name": "k8"
+        },
+        {
+          "name": "nocona"
+        },
+        {
+          "name": "opteron"
+        },
+        {
+          "name": "pentium"
+        },
+        {
+          "name": "pentium4"
+        },
+        {
+          "name": "pentiumii"
+        },
+        {
+          "name": "pentiumiii"
+        },
+        {
+          "name": "pentiumpro"
+        },
+        {
+          "name": "pop"
+        },
+        {
+          "name": "prescott"
+        },
+        {
+          "name": "push"
+        },
+        {
+          "name": "znver1"
+        },
+        {
+          "name": "znver2"
+        },
+        {
+          "name": "znver3"
+        },
+        {
+          "name": "znver4"
+        },
+        {
+          "name": "znver5"
+        },
+        {
+          "name": "znver6"
+        }
+      ]
+    },
+    {
+      "name": "-mavxscalar=",
+      "usage": [
+        "-mavxscalar=[128|256]"
+      ],
+      "tip": [
+        "设置标量 AVX 指令的向量长度（默认 128）。"
+      ],
+      "next": [
+        {
+          "name": "128"
+        },
+        {
+          "name": "256"
+        }
+      ]
+    },
+    {
+      "name": "-mbranches-within-32B-boundaries",
+      "tip": [
+        "在 32 字节边界内对齐分支。"
+      ]
+    },
+    {
+      "name": "-mevexlig=",
+      "usage": [
+        "-mevexlig=[128|256|512]"
+      ],
+      "tip": [
+        "设置标量 EVEX 指令的向量长度（默认 128）。"
+      ],
+      "next": [
+        {
+          "name": "128"
+        },
+        {
+          "name": "256"
+        },
+        {
+          "name": "512"
+        }
+      ]
+    },
+    {
+      "name": "-mevexrcig=",
+      "usage": [
+        "-mevexrcig=[rne|rd|ru|rz]"
+      ],
+      "tip": [
+        "设置仅 SAE 指令的 EVEX.RC 值（默认 rne）。"
+      ],
+      "next": [
+        {
+          "name": "rd"
+        },
+        {
+          "name": "rne"
+        },
+        {
+          "name": "ru"
+        },
+        {
+          "name": "rz"
+        }
+      ]
+    },
+    {
+      "name": "-mevexwig=",
+      "usage": [
+        "-mevexwig=[0|1]"
+      ],
+      "tip": [
+        "设置忽略 EVEX.W 指令的 EVEX.W 值（默认 0）。"
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        }
+      ]
+    },
+    {
+      "name": "-mfence-as-lock-add=",
+      "usage": [
+        "-mfence-as-lock-add=[no|yes]"
+      ],
+      "tip": [
+        "将 lfence、mfence 和 sfence 编码为 lock addl（默认 no）。"
+      ],
+      "next": [
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "-mindex-reg",
+      "tip": [
+        "支持伪索引寄存器。"
+      ]
+    },
+    {
+      "name": "-mintel64",
+      "tip": [
+        "仅接受 Intel64 ISA。"
+      ]
+    },
+    {
+      "name": "-mlfence-after-load=",
+      "usage": [
+        "-mlfence-after-load=[no|yes]"
+      ],
+      "tip": [
+        "在加载后生成 lfence（默认 no）。"
+      ],
+      "next": [
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "-mlfence-before-indirect-branch=",
+      "usage": [
+        "-mlfence-before-indirect-branch=[none|all|register|memory]"
+      ],
+      "tip": [
+        "在间接近分支前生成 lfence（默认 none）。"
+      ],
+      "next": [
+        {
+          "name": "all"
+        },
+        {
+          "name": "memory"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "register"
+        }
+      ]
+    },
+    {
+      "name": "-mlfence-before-ret=",
+      "usage": [
+        "-mlfence-before-ret=[none|or|not|shl|yes]"
+      ],
+      "tip": [
+        "在 ret 前生成 lfence（默认 none）。"
+      ],
+      "next": [
+        {
+          "name": "none"
+        },
+        {
+          "name": "not"
+        },
+        {
+          "name": "or"
+        },
+        {
+          "name": "shl"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "-mmnemonic=",
+      "usage": [
+        "-mmnemonic=[att|intel]"
+      ],
+      "tip": [
+        "使用 AT&T 或 Intel 助记符（仅 AT&T 语法，默认 att）。"
+      ],
+      "next": [
+        {
+          "name": "att"
+        },
+        {
+          "name": "intel"
+        }
+      ]
+    },
+    {
+      "name": "-mnaked-reg",
+      "tip": [
+        "寄存器不要求 % 前缀。"
+      ]
+    },
+    {
+      "name": "-momit-lock-prefix=",
+      "usage": [
+        "-momit-lock-prefix=[no|yes]"
+      ],
+      "tip": [
+        "剥离所有 lock 前缀（默认 no）。"
+      ],
+      "next": [
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "-moperand-check=",
+      "usage": [
+        "-moperand-check=[none|error|warning]"
+      ],
+      "tip": [
+        "检查操作数组合的有效性（默认 warning）。"
+      ],
+      "next": [
+        {
+          "name": "error"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "warning"
+        }
+      ]
+    },
+    {
+      "name": "-mrelax-relocations=",
+      "usage": [
+        "-mrelax-relocations=[no|yes]"
+      ],
+      "tip": [
+        "生成宽松重定位（默认 yes）。"
+      ],
+      "next": [
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "-mshared",
+      "tip": [
+        "禁用共享代码的分支优化。"
+      ]
+    },
+    {
+      "name": "-msse-check=",
+      "usage": [
+        "-msse-check=[none|error|warning]"
+      ],
+      "tip": [
+        "检查 SSE 指令（默认 none）。"
+      ],
+      "next": [
+        {
+          "name": "error"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "warning"
+        }
+      ]
+    },
+    {
+      "name": "-msse2avx",
+      "tip": [
+        "使用 VEX 前缀编码 SSE 指令。"
+      ]
+    },
+    {
+      "name": "-msyntax=",
+      "usage": [
+        "-msyntax=[att|intel]"
+      ],
+      "tip": [
+        "使用 AT&T 或 Intel 语法（默认 att）。"
+      ],
+      "next": [
+        {
+          "name": "att"
+        },
+        {
+          "name": "intel"
+        }
+      ]
+    },
+    {
+      "name": "-mtls-check=",
+      "usage": [
+        "-mtls-check=[no|yes]"
+      ],
+      "tip": [
+        "检查 TLS 重定位（默认 yes）。"
+      ],
+      "next": [
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "-mtune=",
+      "usage": [
+        "-mtune=CPU"
+      ],
+      "tip": [
+        "针对指定 CPU 优化。"
+      ],
+      "next": [
+        {
+          "name": "amdfam10"
+        },
+        {
+          "name": "athlon"
+        },
+        {
+          "name": "bdver1"
+        },
+        {
+          "name": "bdver2"
+        },
+        {
+          "name": "bdver3"
+        },
+        {
+          "name": "bdver4"
+        },
+        {
+          "name": "btver1"
+        },
+        {
+          "name": "btver2"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "core2"
+        },
+        {
+          "name": "corei7"
+        },
+        {
+          "name": "default"
+        },
+        {
+          "name": "generic32"
+        },
+        {
+          "name": "generic64"
+        },
+        {
+          "name": "i386"
+        },
+        {
+          "name": "i486"
+        },
+        {
+          "name": "i586"
+        },
+        {
+          "name": "i686"
+        },
+        {
+          "name": "iamcu"
+        },
+        {
+          "name": "k6"
+        },
+        {
+          "name": "k6_2"
+        },
+        {
+          "name": "k8"
+        },
+        {
+          "name": "nocona"
+        },
+        {
+          "name": "opteron"
+        },
+        {
+          "name": "pentium"
+        },
+        {
+          "name": "pentium4"
+        },
+        {
+          "name": "pentiumii"
+        },
+        {
+          "name": "pentiumiii"
+        },
+        {
+          "name": "pentiumpro"
+        },
+        {
+          "name": "pop"
+        },
+        {
+          "name": "prescott"
+        },
+        {
+          "name": "push"
+        },
+        {
+          "name": "znver1"
+        },
+        {
+          "name": "znver2"
+        },
+        {
+          "name": "znver3"
+        },
+        {
+          "name": "znver4"
+        },
+        {
+          "name": "znver5"
+        },
+        {
+          "name": "znver6"
+        }
+      ]
+    },
+    {
+      "name": "-muse-unaligned-vector-move",
+      "tip": [
+        "将对齐向量移动编码为非对齐向量移动。"
+      ]
+    },
+    {
+      "name": "-mvexwig=",
+      "usage": [
+        "-mvexwig=[0|1]"
+      ],
+      "tip": [
+        "设置忽略 VEX.W 指令的 VEX.W 值（默认 0）。"
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        }
+      ]
+    },
+    {
+      "name": "-mx86-used-note=",
+      "usage": [
+        "-mx86-used-note=[no|yes]"
+      ],
+      "tip": [
+        "生成 x86 使用的 ISA 和特性属性（默认 yes）。"
+      ],
+      "next": [
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "不优化代码对齐。"
+      ]
+    },
+    {
+      "name": "-no-pad-sections",
+      "tip": [
+        "不将节末尾填充到对齐边界。"
+      ]
+    },
+    {
+      "name": "-nocpp",
+      "tip": [
+        "已忽略。"
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o OBJFILE"
+      ],
+      "tip": [
+        "将目标文件输出命名为 OBJFILE（默认 a.out）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-O0",
+      "tip": [
+        "禁用代码优化。"
+      ]
+    },
+    {
+      "name": "-O1",
+      "tip": [
+        "启用基本代码优化。"
+      ]
+    },
+    {
+      "name": "-O2",
+      "tip": [
+        "启用更多代码优化。"
+      ]
+    },
+    {
+      "name": "-Os",
+      "tip": [
+        "针对大小优化。"
+      ]
+    },
+    {
+      "name": "-q",
+      "tip": [
+        "减少部分警告。"
+      ]
+    },
+    {
+      "name": "-Qn",
+      "tip": [
+        "已忽略。"
+      ]
+    },
+    {
+      "name": "-Qy",
+      "tip": [
+        "已忽略。"
+      ]
+    },
+    {
+      "name": "-R",
+      "tip": [
+        "将 data 节合并到 text 节。"
+      ]
+    },
+    {
+      "name": "-s",
+      "tip": [
+        "已忽略。"
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "打印汇编器版本。"
+      ]
+    },
+    {
+      "name": "-w",
+      "tip": [
+        "已忽略。"
+      ]
+    },
+    {
+      "name": "-X",
+      "tip": [
+        "已忽略。"
+      ]
+    },
+    {
+      "name": "-Z",
+      "tip": [
+        "即使出错也生成目标文件。"
+      ]
+    }
+  ]
+}
