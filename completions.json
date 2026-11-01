@@ -1,5 +1,5 @@
 {
-  "count": 740,
+  "count": 750,
   "update": {
     "7z": "cac4d4accba5c11d5b3ae1fde2e491070f69e522c974cc3004950acea1ffa593",
     "act": "3c17f2f2959410d3ac7c443cad5cfcab4d660eba2a6ca7e2b9f636eab63a2b6e",
@@ -9,7 +9,9 @@
     "android": "c7214cc37d88a814b4fd3bd68c2197aa087520ae6c1b374129d7654e0f83fc38",
     "apt": "48553ea278bcc7491c2c4406c7b3889e6d35552b7e4045e5739bff0273246c4c",
     "apt-cache": "beac23c009eda57263703ebf7d5418b8bb092085da4a477ee727bbcd150aa132",
+    "apt-config": "a582f4ece8f04b9424cd13af613ed8b155ab33e6b36bf34201deb688803e6614",
     "apt-get": "19f0bffe72a84200a8084d7d174e73fee4f59d48ca4893c742e6c07821c7b718",
+    "apt-mark": "5a1eb7f3b7aab86933fb719d4aaf89b7871dff53fc8e4857023d52cc26312e13",
     "ar": "8775d3932c737478c349368ac71f9a722a52ba3bec48abade7164ab3988a2530",
     "arch@GNU": "1e4b9a258fc4af163ab3ce70dd1f8c93e97ca3cbc9996ced8f2bda278c6ae66f",
     "arch@uutils": "b1d9505f6ea63d2b9df0184935da1906c48eb8cc8eeb63d8ade4e85eb865ad0c",
@@ -136,6 +138,13 @@
     "docker-compose": "d96608d52f4dc03fd39e5d02cd6b9ea7ee0b0f77768450cb9f79c49b534a6654",
     "doctl": "b2685bc2b84111545fbcee99210b2d8d9f0335310e98a25e173762895ba83f07",
     "dotnet": "d0c3abb1681c95854b970f0885bda8c5c9312903d692cb23de5d5088cdcdf217",
+    "dpkg": "c92e9bcab0d507b5bab418ec400fd4bd6b2bff49dde2ca3129afd27aa6443557",
+    "dpkg-deb": "e68dadb1c543856a5d97958943b952a5f20d91e0fc3ea63e2ecf9e745dbea2fb",
+    "dpkg-divert": "f96e93139d82e7da786b9506e5d0069872f025ae6cbe5d93cb888271c570b7e5",
+    "dpkg-query": "5e73a3da09e6723724e3aab9bd6d641dc1dfca99ca17af37a5c26494c5ddc6a6",
+    "dpkg-split": "ea17b718d947164eb41cb6abd480366f4149756b8e98d60a3789e7374b52e1d0",
+    "dpkg-statoverride": "40add3ab73fbdad6d813c0e70831379a889feb7e0692d124fe9ef8264e73c9ee",
+    "dpkg-trigger": "2bd7b1e768445a991bf4abb0d3cca51093b10f4d2792afeb8b08b3b3abd4bbc5",
     "drill": "0fb3e2fe156e25b64c73b5805f57142e1c30b0678fcb203f14a18ef92ff74cf9",
     "dsc": "a85f460867b440fc3e98e0c8d3263e33903d3d4d2fb08222bb4a714322a85464",
     "dsh": "4c63e30b00440e1bfed7bd43b7301b5fb427de930aeaf93824115c591e01cde8",
@@ -673,6 +682,7 @@
     "unlink@uutils": "fa555ca0375d44bfe78e22aa82d4a64595dd4d97a47b762879d0c56394e772b2",
     "unshare": "23ede1603095551042d3fe900e5d382d6c8e0057b114da8da15f3b2359568a0e",
     "unzip": "fe7b6e510c83adec15f885c1d906e2adb273bd416f6e0f4e19503f6284b9bd44",
+    "update-alternatives": "47009f78f37ea2297b9961a07c0f042a3651fff62f062aa8dd2d4d1887cf4d1d",
     "uptime": "8f855c2ed7e17730175fa75dcb6d8e56e31eb35404b32a9a60ea5eb70b866758",
     "useradd": "e6aa36b29d7f6a9af1f7d739d2403f90e8b42053f318064088d881ec98069f23",
     "userdel": "d788c0fe351e718833b8ebbcb4f04acc2a83f9fadd97f655ff7f861f907ee5cc",
@@ -832,6 +842,17 @@
         "description": "从本地缓存查询并显示软件包信息，不改变系统状态。"
       }
     },
+    "apt-config": {
+      "id": "2f3c9653-c733-5c12-b6e8-6f13b8b3bd85",
+      "en-US": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "Query APT configuration settings."
+      },
+      "zh-CN": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "查询 APT 配置设置。"
+      }
+    },
     "apt-get": {
       "id": "cd1bae7f-e66f-4c2e-b634-dbf671dbbfa8",
       "en-US": {
@@ -841,6 +862,17 @@
       "zh-CN": {
         "url": "https://wiki.debian.org/Apt",
         "description": "APT 软件包处理工具，软件包管理的命令行后端。"
+      }
+    },
+    "apt-mark": {
+      "id": "0a715fb2-8a16-5eee-b016-3c57aa59c6ce",
+      "en-US": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "Mark packages as automatically or manually installed."
+      },
+      "zh-CN": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "将软件包标记为自动或手动安装。"
       }
     },
     "ar": {
@@ -2278,6 +2310,83 @@
       "zh-CN": {
         "url": "https://learn.microsoft.com/en-gb/dotnet/core/tools/dotnet",
         "description": ".NET CLI 的通用驱动程序。"
+      }
+    },
+    "dpkg": {
+      "id": "b9fa1e3e-1dbd-5832-abdc-66a17afb8564",
+      "en-US": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "Debian package manager."
+      },
+      "zh-CN": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "Debian 软件包管理器。"
+      }
+    },
+    "dpkg-deb": {
+      "id": "c9cdccf4-9294-5e89-9224-7e2de02fe2af",
+      "en-US": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "Build, inspect and extract Debian archives."
+      },
+      "zh-CN": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "构建、检查和提取 Debian 归档。"
+      }
+    },
+    "dpkg-divert": {
+      "id": "c88ca4ff-0c8a-5b67-81e3-35c54627b98c",
+      "en-US": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "Override package file locations."
+      },
+      "zh-CN": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "覆盖软件包文件位置。"
+      }
+    },
+    "dpkg-query": {
+      "id": "e59cff45-7f46-5fc4-92b6-e00525417173",
+      "en-US": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "Query the dpkg database."
+      },
+      "zh-CN": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "查询 dpkg 数据库。"
+      }
+    },
+    "dpkg-split": {
+      "id": "24fa59b6-9a93-54b8-891b-c80da2b0bcc5",
+      "en-US": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "Split and join Debian archives."
+      },
+      "zh-CN": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "拆分和合并 Debian 归档。"
+      }
+    },
+    "dpkg-statoverride": {
+      "id": "cf4c6e1e-c46f-53ca-afe7-ff8fb97072ce",
+      "en-US": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "Manage file permission overrides."
+      },
+      "zh-CN": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "管理文件权限覆盖。"
+      }
+    },
+    "dpkg-trigger": {
+      "id": "befeb139-19fd-5032-a4f7-471c80cba3d7",
+      "en-US": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "Trigger a package processing event."
+      },
+      "zh-CN": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "触发软件包处理事件。"
       }
     },
     "drill": {
@@ -8358,6 +8467,17 @@
       "zh-CN": {
         "url": "https://infozip.sourceforge.net/UnZip.html",
         "description": "使用 Info-ZIP UnZip 列出、测试和解压 ZIP 归档中的文件。"
+      }
+    },
+    "update-alternatives": {
+      "id": "f70717e5-522f-5bd2-94d7-6859f343f471",
+      "en-US": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "Maintain symbolic links determining default commands."
+      },
+      "zh-CN": {
+        "url": "https://wiki.debian.org/Teams/Dpkg",
+        "description": "维护决定默认命令的符号链接。"
       }
     },
     "uptime": {

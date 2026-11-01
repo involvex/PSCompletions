@@ -16,7 +16,9 @@
 |[android](https://developer.android.com/tools/agents/android-cli)|供 AI agent 做 Android 应用开发的命令行界面。|
 |[apt](https://wiki.debian.org/Apt)|Debian 及衍生系统的命令行包管理器。|
 |[apt-cache](https://wiki.debian.org/Apt)|从本地缓存查询并显示软件包信息，不改变系统状态。|
+|[apt-config](https://wiki.debian.org/Teams/Dpkg)|查询 APT 配置设置。|
 |[apt-get](https://wiki.debian.org/Apt)|APT 软件包处理工具，软件包管理的命令行后端。|
+|[apt-mark](https://wiki.debian.org/Teams/Dpkg)|将软件包标记为自动或手动安装。|
 |[ar](https://www.gnu.org/software/binutils)|创建、修改和提取归档。|
 |[arch@GNU](https://www.gnu.org/software/coreutils/)|打印机器架构。|
 |[arch@uutils](https://uutils.org)|显示机器架构|
@@ -143,6 +145,13 @@
 |[docker-compose](https://github.com/docker/compose)|使用 Docker 定义并运行多容器应用|
 |[doctl](https://github.com/digitalocean/doctl)|DigitalOcean 官方命令行工具。<br>管理 Droplet、数据库、Kubernetes、应用等资源。|
 |[dotnet](https://learn.microsoft.com/en-gb/dotnet/core/tools/dotnet)|.NET CLI 的通用驱动程序。|
+|[dpkg](https://wiki.debian.org/Teams/Dpkg)|Debian 软件包管理器。|
+|[dpkg-deb](https://wiki.debian.org/Teams/Dpkg)|构建、检查和提取 Debian 归档。|
+|[dpkg-divert](https://wiki.debian.org/Teams/Dpkg)|覆盖软件包文件位置。|
+|[dpkg-query](https://wiki.debian.org/Teams/Dpkg)|查询 dpkg 数据库。|
+|[dpkg-split](https://wiki.debian.org/Teams/Dpkg)|拆分和合并 Debian 归档。|
+|[dpkg-statoverride](https://wiki.debian.org/Teams/Dpkg)|管理文件权限覆盖。|
+|[dpkg-trigger](https://wiki.debian.org/Teams/Dpkg)|触发软件包处理事件。|
 |[drill](https://github.com/fcsonline/drill)|用 Rust 编写的 HTTP 负载测试应用。|
 |[dsc](https://github.com/PowerShell/DSC)|一款开源命令行应用程序，可采用声明式、幂等式方式对软件组件的管理操作进行抽象封装。|
 |[dsh](https://github.com/deepseek-ai/deepseek-harness)|启动 DeepSeek Harness profile，有序叠加插件包补丁层并应用用户覆盖。|
@@ -680,6 +689,7 @@
 |[unlink@uutils](https://uutils.org)|取消链接 FILE 处的文件|
 |[unshare](https://github.com/util-linux/util-linux)|在取消共享部分命名空间的情况下运行程序。|
 |[unzip](https://infozip.sourceforge.net/UnZip.html)|使用 Info-ZIP UnZip 列出、测试和解压 ZIP 归档中的文件。|
+|[update-alternatives](https://wiki.debian.org/Teams/Dpkg)|维护决定默认命令的符号链接。|
 |[uptime](https://gitlab.com/procps-ng/procps)|显示系统已运行多长时间。|
 |[useradd](https://github.com/shadow-maint/shadow)|创建新用户或更新默认的新用户信息。|
 |[userdel](https://github.com/shadow-maint/shadow)|删除用户账户及相关文件。|

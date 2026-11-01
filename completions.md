@@ -16,7 +16,9 @@ English | [简体中文](./completions.zh-CN.md)
 |[android](https://developer.android.com/tools/agents/android-cli)|Command-line interface for Android app development with AI agents.|
 |[apt](https://wiki.debian.org/Apt)|A command-line package manager for Debian and derivatives.|
 |[apt-cache](https://wiki.debian.org/Apt)|Query and display package information from the local cache, without changing the system.|
+|[apt-config](https://wiki.debian.org/Teams/Dpkg)|Query APT configuration settings.|
 |[apt-get](https://wiki.debian.org/Apt)|APT package handling utility, the command-line back-end for package management.|
+|[apt-mark](https://wiki.debian.org/Teams/Dpkg)|Mark packages as automatically or manually installed.|
 |[ar](https://www.gnu.org/software/binutils)|Create, modify and extract from archives.|
 |[arch@GNU](https://www.gnu.org/software/coreutils/)|Print machine architecture.|
 |[arch@uutils](https://uutils.org)|Display machine architecture|
@@ -143,6 +145,13 @@ English | [简体中文](./completions.zh-CN.md)
 |[docker-compose](https://github.com/docker/compose)|Define and run multi-container applications with Docker|
 |[doctl](https://github.com/digitalocean/doctl)|DigitalOcean official CLI.<br>Manage Droplets, databases, Kubernetes, apps, and more.|
 |[dotnet](https://learn.microsoft.com/en-gb/dotnet/core/tools/dotnet)|Generic driver for the .NET CLI.|
+|[dpkg](https://wiki.debian.org/Teams/Dpkg)|Debian package manager.|
+|[dpkg-deb](https://wiki.debian.org/Teams/Dpkg)|Build, inspect and extract Debian archives.|
+|[dpkg-divert](https://wiki.debian.org/Teams/Dpkg)|Override package file locations.|
+|[dpkg-query](https://wiki.debian.org/Teams/Dpkg)|Query the dpkg database.|
+|[dpkg-split](https://wiki.debian.org/Teams/Dpkg)|Split and join Debian archives.|
+|[dpkg-statoverride](https://wiki.debian.org/Teams/Dpkg)|Manage file permission overrides.|
+|[dpkg-trigger](https://wiki.debian.org/Teams/Dpkg)|Trigger a package processing event.|
 |[drill](https://github.com/fcsonline/drill)|HTTP load testing application written in Rust.|
 |[dsc](https://github.com/PowerShell/DSC)|An open source command line application that abstracts the management of software components declaratively and idempotently.|
 |[dsh](https://github.com/deepseek-ai/deepseek-harness)|Boot a DeepSeek Harness profile — an ordered stack of plugin-bundle patch layers under your own overrides.|
@@ -680,6 +689,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[unlink@uutils](https://uutils.org)|Unlink the file at FILE.|
 |[unshare](https://github.com/util-linux/util-linux)|Run a program with some namespaces unshared from the parent.|
 |[unzip](https://infozip.sourceforge.net/UnZip.html)|List, test and extract files from ZIP archives with Info-ZIP UnZip.|
+|[update-alternatives](https://wiki.debian.org/Teams/Dpkg)|Maintain symbolic links determining default commands.|
 |[uptime](https://gitlab.com/procps-ng/procps)|Tell how long the system has been running.|
 |[useradd](https://github.com/shadow-maint/shadow)|Create a new user or update default new user information.|
 |[userdel](https://github.com/shadow-maint/shadow)|Delete a user account and related files.|
