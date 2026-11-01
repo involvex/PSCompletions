@@ -1,0 +1,126 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/lvmteam/lvm2",
+    "description": [
+      "用于调整设备上文件系统大小或检查文件系统的工具。"
+    ]
+  },
+  "next": [
+    {
+      "name": "check",
+      "usage": [
+        "check <DEVICE>"
+      ],
+      "tip": [
+        "使用 fsck 检查设备上的文件系统。"
+      ]
+    },
+    {
+      "name": "resize",
+      "usage": [
+        "resize <DEVICE> [<NEW_SIZE>]"
+      ],
+      "tip": [
+        "将文件系统调整为新大小；省略时调整为整个设备。"
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--cryptresize",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --cryptresize"
+      ],
+      "tip": [
+        "同时调整 dm-crypt 映射和检测到的文件系统。"
+      ]
+    },
+    {
+      "name": "--dry-run",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --dry-run"
+      ],
+      "tip": [
+        "打印命令但不执行。"
+      ]
+    },
+    {
+      "name": "--ext-offline",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --ext-offline"
+      ],
+      "tip": [
+        "调整 ext2/ext3/ext4 大小前卸载文件系统。"
+      ]
+    },
+    {
+      "name": "--force",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --force"
+      ],
+      "tip": [
+        "跳过完整性检查。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助信息。"
+      ]
+    },
+    {
+      "name": "--lvresize",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --lvresize"
+      ],
+      "tip": [
+        "当给定设备是 LVM 设备时调整其大小。"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "输出详细信息。"
+      ]
+    },
+    {
+      "name": "--yes",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --yes"
+      ],
+      "tip": [
+        "在任何提示处回答 yes。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,881 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/lvmteam/lvm2",
+    "description": [
+      "Change the attributes of logical volume(s)"
+    ]
+  },
+  "option": [
+    {
+      "name": "--activate",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --activate y|n|ay"
+      ],
+      "tip": [
+        "Change the active state of LVs."
+      ],
+      "next": [
+        {
+          "name": "ay"
+        },
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--activationmode",
+      "usage": [
+        "--activationmode partial|degraded|complete"
+      ],
+      "tip": [
+        "Determines if LV activation is allowed when PVs are missing, e.g. because of a device failure."
+      ],
+      "next": [
+        {
+          "name": "complete"
+        },
+        {
+          "name": "degraded"
+        },
+        {
+          "name": "partial"
+        }
+      ]
+    },
+    {
+      "name": "--addtag",
+      "usage": [
+        "--addtag Tag"
+      ],
+      "tip": [
+        "Adds a tag to a PV, VG or LV."
+      ],
+      "repeat": 99,
+      "next": []
+    },
+    {
+      "name": "--alloc",
+      "usage": [
+        "--alloc contiguous|cling|cling_by_tags|normal|anywhere|inherit"
+      ],
+      "tip": [
+        "Determines the allocation policy when a command needs to allocate Physical Extents (PEs) from the VG."
+      ],
+      "next": [
+        {
+          "name": "anywhere"
+        },
+        {
+          "name": "cling"
+        },
+        {
+          "name": "cling_by_tags"
+        },
+        {
+          "name": "contiguous"
+        },
+        {
+          "name": "inherit"
+        },
+        {
+          "name": "normal"
+        }
+      ]
+    },
+    {
+      "name": "--autobackup",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --autobackup y|n"
+      ],
+      "tip": [
+        "Specifies if metadata should be backed up automatically after a change."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--cachemode",
+      "usage": [
+        "--cachemode writethrough|writeback|passthrough"
+      ],
+      "tip": [
+        "Specifies when writes to a cache LV should be considered complete."
+      ],
+      "next": [
+        {
+          "name": "passthrough"
+        },
+        {
+          "name": "writeback"
+        },
+        {
+          "name": "writethrough"
+        }
+      ]
+    },
+    {
+      "name": "--cachepolicy",
+      "usage": [
+        "--cachepolicy String"
+      ],
+      "tip": [
+        "Specifies the cache policy for a cache LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--cachesettings",
+      "usage": [
+        "--cachesettings String"
+      ],
+      "tip": [
+        "Specifies tunable kernel options for dm-cache or dm-writecache LVs."
+      ],
+      "next": []
+    },
+    {
+      "name": "--commandprofile",
+      "usage": [
+        "--commandprofile String"
+      ],
+      "tip": [
+        "The command profile to use for command configuration."
+      ],
+      "next": []
+    },
+    {
+      "name": "--compression",
+      "usage": [
+        "--compression y|n"
+      ],
+      "tip": [
+        "Controls whether compression is enabled or disable for VDO volume."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--config",
+      "usage": [
+        "--config String"
+      ],
+      "tip": [
+        "Config settings for the command."
+      ],
+      "next": []
+    },
+    {
+      "name": "--contiguous",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --contiguous y|n"
+      ],
+      "tip": [
+        "Sets or resets the contiguous allocation policy for LVs."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "Set debug level."
+      ],
+      "repeat": 6
+    },
+    {
+      "name": "--deduplication",
+      "usage": [
+        "--deduplication y|n"
+      ],
+      "tip": [
+        "Controls whether deduplication is enabled or disable for VDO volume."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--deltag",
+      "usage": [
+        "--deltag Tag"
+      ],
+      "tip": [
+        "Deletes a tag from a PV, VG or LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--detachprofile",
+      "tip": [
+        "Detaches a metadata profile from a VG or LV."
+      ]
+    },
+    {
+      "name": "--devices",
+      "usage": [
+        "--devices PV"
+      ],
+      "tip": [
+        "Restricts the devices that are visible and accessible to the command."
+      ],
+      "repeat": 99,
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--devicesfile",
+      "usage": [
+        "--devicesfile String"
+      ],
+      "tip": [
+        "A file listing devices that LVM should use."
+      ],
+      "next": []
+    },
+    {
+      "name": "--discards",
+      "usage": [
+        "--discards passdown|nopassdown|ignore"
+      ],
+      "tip": [
+        "Specifies how the device-mapper thin pool layer in the kernel should handle discards."
+      ],
+      "next": [
+        {
+          "name": "ignore"
+        },
+        {
+          "name": "nopassdown"
+        },
+        {
+          "name": "passdown"
+        }
+      ]
+    },
+    {
+      "name": "--driverloaded",
+      "usage": [
+        "--driverloaded y|n"
+      ],
+      "tip": [
+        "If set to no, the command will not attempt to use device-mapper."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--errorwhenfull",
+      "usage": [
+        "--errorwhenfull y|n"
+      ],
+      "tip": [
+        "Specifies thin pool behavior when data space is exhausted."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--force",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --force"
+      ],
+      "tip": [
+        "Override various checks, confirmations and protections."
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display help text."
+      ]
+    },
+    {
+      "name": "--ignoreactivationskip",
+      "alias": [
+        "-K"
+      ],
+      "usage": [
+        "-K, --ignoreactivationskip"
+      ],
+      "tip": [
+        "Ignore the \"activation skip\" LV flag during activation to allow LVs with the flag set to be activated."
+      ]
+    },
+    {
+      "name": "--ignorelockingfailure",
+      "tip": [
+        "Allows a command to continue with read-only metadata operations after locking failures."
+      ]
+    },
+    {
+      "name": "--ignoremonitoring",
+      "tip": [
+        "Do not interact with dmeventd unless --monitor is specified."
+      ]
+    },
+    {
+      "name": "--integritysettings",
+      "usage": [
+        "--integritysettings String"
+      ],
+      "tip": [
+        "Specifies tunable kernel options for dm-integrity."
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal",
+      "usage": [
+        "--journal String"
+      ],
+      "tip": [
+        "Record information in the systemd journal."
+      ],
+      "next": []
+    },
+    {
+      "name": "--lockopt",
+      "usage": [
+        "--lockopt String"
+      ],
+      "tip": [
+        "Used to pass options for special cases to lvmlockd."
+      ],
+      "next": []
+    },
+    {
+      "name": "--longhelp",
+      "tip": [
+        "Display long help text."
+      ]
+    },
+    {
+      "name": "--major",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --major Number"
+      ],
+      "tip": [
+        "Sets the major number of an LV block device."
+      ],
+      "next": []
+    },
+    {
+      "name": "--maxrecoveryrate",
+      "usage": [
+        "--maxrecoveryrate Size[k|UNIT]"
+      ],
+      "tip": [
+        "Sets the maximum recovery rate for a RAID LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--metadataprofile",
+      "usage": [
+        "--metadataprofile String"
+      ],
+      "tip": [
+        "The metadata profile to use for command configuration."
+      ],
+      "next": []
+    },
+    {
+      "name": "--minor",
+      "usage": [
+        "--minor Number"
+      ],
+      "tip": [
+        "Sets the minor number of an LV block device."
+      ],
+      "next": []
+    },
+    {
+      "name": "--minrecoveryrate",
+      "usage": [
+        "--minrecoveryrate Size[k|UNIT]"
+      ],
+      "tip": [
+        "Sets the minimum recovery rate for a RAID LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--monitor",
+      "usage": [
+        "--monitor y|n"
+      ],
+      "tip": [
+        "Start (yes) or stop (no) monitoring an LV with dmeventd."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--nohints",
+      "tip": [
+        "Do not use the hints file to locate devices for PVs."
+      ]
+    },
+    {
+      "name": "--nolocking",
+      "tip": [
+        "Disable locking."
+      ]
+    },
+    {
+      "name": "--noudevsync",
+      "tip": [
+        "Disables udev synchronization."
+      ]
+    },
+    {
+      "name": "--partial",
+      "alias": [
+        "-P"
+      ],
+      "usage": [
+        "-P, --partial"
+      ],
+      "tip": [
+        "Commands will do their best to activate LVs with missing PV extents."
+      ]
+    },
+    {
+      "name": "--permission",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --permission rw|r"
+      ],
+      "tip": [
+        "Set access permission to read only r or read and write rw."
+      ],
+      "next": [
+        {
+          "name": "r"
+        },
+        {
+          "name": "rw"
+        }
+      ]
+    },
+    {
+      "name": "--persistent",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --persistent y|n"
+      ],
+      "tip": [
+        "When yes, makes the specified minor number persistent."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--poll",
+      "usage": [
+        "--poll y|n"
+      ],
+      "tip": [
+        "When yes, start the background transformation of an LV."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--profile",
+      "usage": [
+        "--profile String"
+      ],
+      "tip": [
+        "An alias for --commandprofile or --metadataprofile, depending on the command."
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "Suppress output and log messages."
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--raidmaxrecoveryrate",
+      "usage": [
+        "--raidmaxrecoveryrate Size[k|UNIT]"
+      ],
+      "tip": [
+        "Sets the maximum recovery rate for a RAID LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--raidminrecoveryrate",
+      "usage": [
+        "--raidminrecoveryrate Size[k|UNIT]"
+      ],
+      "tip": [
+        "Sets the minimum recovery rate for a RAID LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--raidsyncaction",
+      "usage": [
+        "--raidsyncaction check|repair"
+      ],
+      "tip": [
+        "Initiate different types of RAID synchronization."
+      ],
+      "next": [
+        {
+          "name": "check"
+        },
+        {
+          "name": "repair"
+        }
+      ]
+    },
+    {
+      "name": "--raidwritebehind",
+      "usage": [
+        "--raidwritebehind Number"
+      ],
+      "tip": [
+        "The maximum number of outstanding writes that are allowed to devices in a RAID1 LV that is marked write-mostly."
+      ],
+      "next": []
+    },
+    {
+      "name": "--raidwritemostly",
+      "usage": [
+        "--raidwritemostly PV[:t|n|y]"
+      ],
+      "tip": [
+        "Mark a device in a RAID1 LV as write-mostly."
+      ],
+      "next": []
+    },
+    {
+      "name": "--readahead",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --readahead auto|none|Number"
+      ],
+      "tip": [
+        "Sets read ahead sector count of an LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--readonly",
+      "tip": [
+        "Prevent the command from making changes, including activation and metadata updates."
+      ]
+    },
+    {
+      "name": "--rebuild",
+      "usage": [
+        "--rebuild PV"
+      ],
+      "tip": [
+        "Selects a PV to rebuild in a raid LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--refresh",
+      "tip": [
+        "If the LV is active, reload its metadata."
+      ]
+    },
+    {
+      "name": "--reportformat",
+      "usage": [
+        "--reportformat basic|json|json_std"
+      ],
+      "tip": [
+        "Overrides current output format for reports which is defined globally by the report/output_format setting in lvm.conf(5)."
+      ],
+      "next": [
+        {
+          "name": "basic"
+        },
+        {
+          "name": "json"
+        },
+        {
+          "name": "json_std"
+        }
+      ]
+    },
+    {
+      "name": "--resync",
+      "tip": [
+        "Initiates mirror synchronization."
+      ]
+    },
+    {
+      "name": "--select",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --select String"
+      ],
+      "tip": [
+        "Select objects for processing and reporting based on specified criteria."
+      ],
+      "next": []
+    },
+    {
+      "name": "--setactivationskip",
+      "alias": [
+        "-k"
+      ],
+      "usage": [
+        "-k, --setactivationskip y|n"
+      ],
+      "tip": [
+        "Persistently sets (yes) or clears (no) the \"activation skip\" flag on an LV."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--setautoactivation",
+      "usage": [
+        "--setautoactivation y|n"
+      ],
+      "tip": [
+        "Set the autoactivation property on a VG or LV."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--syncaction",
+      "usage": [
+        "--syncaction check|repair"
+      ],
+      "tip": [
+        "Initiate different types of RAID synchronization."
+      ],
+      "next": [
+        {
+          "name": "check"
+        },
+        {
+          "name": "repair"
+        }
+      ]
+    },
+    {
+      "name": "--sysinit",
+      "tip": [
+        "Indicates that vgchange/lvchange is being invoked from early system initialisation scripts (e.g. rc.sysinit or an initrd), before writable filesystems are available."
+      ]
+    },
+    {
+      "name": "--test",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --test"
+      ],
+      "tip": [
+        "Run in test mode."
+      ]
+    },
+    {
+      "name": "--vdosettings",
+      "usage": [
+        "--vdosettings String"
+      ],
+      "tip": [
+        "Specifies tunable VDO options for VDO LVs."
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Set verbose level."
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Display version information."
+      ]
+    },
+    {
+      "name": "--writebehind",
+      "usage": [
+        "--writebehind Number"
+      ],
+      "tip": [
+        "The maximum number of outstanding writes that are allowed to devices in a RAID1 LV that is marked write-mostly."
+      ],
+      "next": []
+    },
+    {
+      "name": "--writemostly",
+      "usage": [
+        "--writemostly PV[:t|n|y]"
+      ],
+      "tip": [
+        "Mark a device in a RAID1 LV as write-mostly."
+      ],
+      "next": []
+    },
+    {
+      "name": "--yes",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --yes"
+      ],
+      "tip": [
+        "Do not prompt for confirmation interactively but always assume the answer yes."
+      ]
+    },
+    {
+      "name": "--zero",
+      "alias": [
+        "-Z"
+      ],
+      "usage": [
+        "-Z, --zero y|n"
+      ],
+      "tip": [
+        "Set zeroing mode for thin pool."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    }
+  ]
+}

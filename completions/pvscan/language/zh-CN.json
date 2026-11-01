@@ -1,0 +1,383 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/lvmteam/lvm2",
+    "description": [
+      "列出所有物理卷"
+    ]
+  },
+  "option": [
+    {
+      "name": "--activate",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --activate y|n|ay"
+      ],
+      "tip": [
+        "扫描的 PV 构成完整 VG 时自动激活其中的 LV。"
+      ],
+      "next": [
+        {
+          "name": "ay"
+        },
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--allpvs",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --allpvs"
+      ],
+      "tip": [
+        "显示设备文件之外 PV 的信息。"
+      ]
+    },
+    {
+      "name": "--autoactivation",
+      "usage": [
+        "--autoactivation String"
+      ],
+      "tip": [
+        "指定是否从事件使用自动激活。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--cache",
+      "tip": [
+        "扫描一个或多个设备并记录其在线状态。"
+      ]
+    },
+    {
+      "name": "--checkcomplete",
+      "tip": [
+        "检查 VG 或 LV 使用的所有设备是否存在，并为每个列出的 VG 或 LV 输出 \"complete\" 或 \"incomplete\"。"
+      ]
+    },
+    {
+      "name": "--commandprofile",
+      "usage": [
+        "--commandprofile String"
+      ],
+      "tip": [
+        "用于命令配置的命令配置。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--config",
+      "usage": [
+        "--config String"
+      ],
+      "tip": [
+        "命令的配置设置。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "设置调试级别。"
+      ],
+      "repeat": 6
+    },
+    {
+      "name": "--devices",
+      "usage": [
+        "--devices PV"
+      ],
+      "tip": [
+        "限制命令可见和可访问的设备。"
+      ],
+      "repeat": 99,
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--devicesfile",
+      "usage": [
+        "--devicesfile String"
+      ],
+      "tip": [
+        "LVM 应使用的设备列表文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--driverloaded",
+      "usage": [
+        "--driverloaded y|n"
+      ],
+      "tip": [
+        "设为 no 时，命令不会尝试使用 device-mapper。"
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--exported",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --exported"
+      ],
+      "tip": [
+        "仅显示属于已导出 VG 的 PV。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示帮助文本。"
+      ]
+    },
+    {
+      "name": "--ignorelockingfailure",
+      "tip": [
+        "允许命令在锁定失败后继续进行只读元数据操作。"
+      ]
+    },
+    {
+      "name": "--journal",
+      "usage": [
+        "--journal String"
+      ],
+      "tip": [
+        "将信息记录到 systemd 日志。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--listlvs",
+      "tip": [
+        "打印使用该设备的 LV 列表。"
+      ]
+    },
+    {
+      "name": "--listvg",
+      "tip": [
+        "打印使用该设备的 VG。"
+      ]
+    },
+    {
+      "name": "--lockopt",
+      "usage": [
+        "--lockopt String"
+      ],
+      "tip": [
+        "用于向 lvmlockd 传递特殊情况选项。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--longhelp",
+      "tip": [
+        "显示长帮助文本。"
+      ]
+    },
+    {
+      "name": "--major",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --major Number"
+      ],
+      "tip": [
+        "设备的主设备号。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--minor",
+      "usage": [
+        "--minor Number"
+      ],
+      "tip": [
+        "设备的次设备号。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--nohints",
+      "tip": [
+        "不使用提示文件定位 PV 的设备。"
+      ]
+    },
+    {
+      "name": "--nolocking",
+      "tip": [
+        "禁用锁定。"
+      ]
+    },
+    {
+      "name": "--noudevsync",
+      "tip": [
+        "禁用 udev 同步。"
+      ]
+    },
+    {
+      "name": "--novolumegroup",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --novolumegroup"
+      ],
+      "tip": [
+        "仅显示不属于任何 VG 的 PV。"
+      ]
+    },
+    {
+      "name": "--profile",
+      "usage": [
+        "--profile String"
+      ],
+      "tip": [
+        "根据命令不同，作为 --commandprofile 或 --metadataprofile 的别名。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "抑制输出和日志消息。"
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--reportformat",
+      "usage": [
+        "--reportformat basic|json|json_std"
+      ],
+      "tip": [
+        "覆盖由 lvm.conf(5) 中 report/output_format 全局定义的报告输出格式。"
+      ],
+      "next": [
+        {
+          "name": "basic"
+        },
+        {
+          "name": "json"
+        },
+        {
+          "name": "json_std"
+        }
+      ]
+    },
+    {
+      "name": "--short",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --short"
+      ],
+      "tip": [
+        "简短列表格式。"
+      ]
+    },
+    {
+      "name": "--test",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --test"
+      ],
+      "tip": [
+        "以测试模式运行。"
+      ]
+    },
+    {
+      "name": "--udevoutput",
+      "tip": [
+        "修改命令输出以便从 udev 规则导入。"
+      ]
+    },
+    {
+      "name": "--uuid",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --uuid String"
+      ],
+      "tip": [
+        "除设备名外还显示 UUID。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "设置详细级别。"
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "显示版本信息。"
+      ]
+    },
+    {
+      "name": "--vgonline",
+      "tip": [
+        "第一个看到完整 VG 的命令将唯一报告它。"
+      ]
+    },
+    {
+      "name": "--yes",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --yes"
+      ],
+      "tip": [
+        "不进行交互确认，始终假定回答为 yes。"
+      ]
+    }
+  ]
+}

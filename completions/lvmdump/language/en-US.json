@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/lvmteam/lvm2",
+    "description": [
+      "Create LVM2 information dumps for diagnostic purposes."
+    ]
+  },
+  "option": [
+    {
+      "name": "-a",
+      "tip": [
+        "Advanced collection (may hang if LVM is already hung)."
+      ]
+    },
+    {
+      "name": "-c",
+      "tip": [
+        "Gather cluster data as well."
+      ]
+    },
+    {
+      "name": "-d",
+      "usage": [
+        "-d directory"
+      ],
+      "tip": [
+        "Dump into a directory instead of a tarball."
+      ],
+      "next": []
+    },
+    {
+      "name": "-h",
+      "tip": [
+        "Print this help message."
+      ]
+    },
+    {
+      "name": "-l",
+      "tip": [
+        "Include lvmetad daemon state if running."
+      ]
+    },
+    {
+      "name": "-m",
+      "tip": [
+        "Gather LVM metadata from the PVs."
+      ]
+    },
+    {
+      "name": "-p",
+      "tip": [
+        "Include lvmpolld daemon state if running."
+      ]
+    },
+    {
+      "name": "-s",
+      "tip": [
+        "Gather system info and context."
+      ]
+    },
+    {
+      "name": "-u",
+      "tip": [
+        "Gather udev info and context."
+      ]
+    }
+  ]
+}

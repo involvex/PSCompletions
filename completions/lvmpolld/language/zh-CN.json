@@ -1,0 +1,127 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/lvmteam/lvm2",
+    "description": [
+      "LVM 轮询守护进程。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--binary",
+      "alias": [
+        "-B"
+      ],
+      "usage": [
+        "-B, --binary path"
+      ],
+      "tip": [
+        "设置 lvm2 二进制的路径。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--dump",
+      "tip": [
+        "输出 lvmpolld 的完整状态。"
+      ]
+    },
+    {
+      "name": "--foreground",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --foreground"
+      ],
+      "tip": [
+        "不派生，直接在前台运行。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示帮助文本。"
+      ]
+    },
+    {
+      "name": "--log",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --log all|wire|debug"
+      ],
+      "tip": [
+        "设置日志消息级别。"
+      ],
+      "next": [
+        {
+          "name": "all"
+        },
+        {
+          "name": "debug"
+        },
+        {
+          "name": "wire"
+        }
+      ]
+    },
+    {
+      "name": "--pidfile",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --pidfile path"
+      ],
+      "tip": [
+        "设置 pidfile 的路径。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--socket",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --socket path"
+      ],
+      "tip": [
+        "设置通信套接字的路径。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--timeout",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --timeout secs"
+      ],
+      "tip": [
+        "空闲时关闭前等待的秒数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示版本信息。"
+      ]
+    }
+  ]
+}

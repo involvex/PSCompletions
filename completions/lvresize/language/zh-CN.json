@@ -1,0 +1,445 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/lvmteam/lvm2",
+    "description": [
+      "调整逻辑卷大小"
+    ]
+  },
+  "option": [
+    {
+      "name": "--alloc",
+      "usage": [
+        "--alloc contiguous|cling|cling_by_tags|normal|anywhere|inherit"
+      ],
+      "tip": [
+        "决定命令从 VG 分配物理区段（PE）时使用的分配策略。"
+      ],
+      "next": [
+        {
+          "name": "anywhere"
+        },
+        {
+          "name": "cling"
+        },
+        {
+          "name": "cling_by_tags"
+        },
+        {
+          "name": "contiguous"
+        },
+        {
+          "name": "inherit"
+        },
+        {
+          "name": "normal"
+        }
+      ]
+    },
+    {
+      "name": "--autobackup",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --autobackup y|n"
+      ],
+      "tip": [
+        "指定更改后是否自动备份元数据。"
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--commandprofile",
+      "usage": [
+        "--commandprofile String"
+      ],
+      "tip": [
+        "用于命令配置的命令配置。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--config",
+      "usage": [
+        "--config String"
+      ],
+      "tip": [
+        "命令的配置设置。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "设置调试级别。"
+      ],
+      "repeat": 6
+    },
+    {
+      "name": "--devices",
+      "usage": [
+        "--devices PV"
+      ],
+      "tip": [
+        "限制命令可见和可访问的设备。"
+      ],
+      "repeat": 99,
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--devicesfile",
+      "usage": [
+        "--devicesfile String"
+      ],
+      "tip": [
+        "LVM 应使用的设备列表文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--driverloaded",
+      "usage": [
+        "--driverloaded y|n"
+      ],
+      "tip": [
+        "设为 no 时，命令不会尝试使用 device-mapper。"
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--extents",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --extents [+|-]Number[PERCENT]"
+      ],
+      "tip": [
+        "以逻辑区段指定 LV 的新大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--force",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --force"
+      ],
+      "tip": [
+        "覆盖各种检查、确认和保护。"
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--fs",
+      "usage": [
+        "--fs String"
+      ],
+      "tip": [
+        "控制调整 LV 大小时的文件系统调整行为。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--fsmode",
+      "usage": [
+        "--fsmode String"
+      ],
+      "tip": [
+        "控制文件系统调整大小时的文件系统挂载行为。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示帮助文本。"
+      ]
+    },
+    {
+      "name": "--journal",
+      "usage": [
+        "--journal String"
+      ],
+      "tip": [
+        "将信息记录到 systemd 日志。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--lockopt",
+      "usage": [
+        "--lockopt String"
+      ],
+      "tip": [
+        "用于向 lvmlockd 传递特殊情况选项。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--longhelp",
+      "tip": [
+        "显示长帮助文本。"
+      ]
+    },
+    {
+      "name": "--nofsck",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --nofsck"
+      ],
+      "tip": [
+        "使用 --resizefs 调整文件系统时不执行 fsck。"
+      ]
+    },
+    {
+      "name": "--nohints",
+      "tip": [
+        "不使用提示文件定位 PV 的设备。"
+      ]
+    },
+    {
+      "name": "--nolocking",
+      "tip": [
+        "禁用锁定。"
+      ]
+    },
+    {
+      "name": "--nosync",
+      "tip": [
+        "创建 mirror、raid1、raid4、raid5 和 raid10 时跳过初始同步。"
+      ]
+    },
+    {
+      "name": "--noudevsync",
+      "tip": [
+        "禁用 udev 同步。"
+      ]
+    },
+    {
+      "name": "--poolmetadatasize",
+      "usage": [
+        "--poolmetadatasize [+]Size[m|UNIT]"
+      ],
+      "tip": [
+        "指定池元数据 LV 的新大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--profile",
+      "usage": [
+        "--profile String"
+      ],
+      "tip": [
+        "根据命令不同，作为 --commandprofile 或 --metadataprofile 的别名。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "抑制输出和日志消息。"
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--reportformat",
+      "usage": [
+        "--reportformat basic|json|json_std"
+      ],
+      "tip": [
+        "覆盖由 lvm.conf(5) 中 report/output_format 全局定义的报告输出格式。"
+      ],
+      "next": [
+        {
+          "name": "basic"
+        },
+        {
+          "name": "json"
+        },
+        {
+          "name": "json_std"
+        }
+      ]
+    },
+    {
+      "name": "--resizefs",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --resizefs"
+      ],
+      "tip": [
+        "使用文件系统专用的调整命令调整文件系统。"
+      ]
+    },
+    {
+      "name": "--size",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --size [+|-]Size[m|UNIT]"
+      ],
+      "tip": [
+        "指定 LV 的新大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--stripes",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --stripes Number"
+      ],
+      "tip": [
+        "指定条带 LV 的条带数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--stripesize",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --stripesize Size[k|UNIT]"
+      ],
+      "tip": [
+        "条带 LV 中写入一个设备后再切换到下一个设备的数据量。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--test",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --test"
+      ],
+      "tip": [
+        "以测试模式运行。"
+      ]
+    },
+    {
+      "name": "--type",
+      "usage": [
+        "--type linear|striped|snapshot|raid|mirror|thin|thin-pool|cache|cache-pool|writecache|vdo|vdo-pool"
+      ],
+      "tip": [
+        "LV 类型，也称为 segment type。"
+      ],
+      "next": [
+        {
+          "name": "cache"
+        },
+        {
+          "name": "cache-pool"
+        },
+        {
+          "name": "linear"
+        },
+        {
+          "name": "mirror"
+        },
+        {
+          "name": "raid"
+        },
+        {
+          "name": "snapshot"
+        },
+        {
+          "name": "striped"
+        },
+        {
+          "name": "thin"
+        },
+        {
+          "name": "thin-pool"
+        },
+        {
+          "name": "vdo"
+        },
+        {
+          "name": "vdo-pool"
+        },
+        {
+          "name": "writecache"
+        }
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "设置详细级别。"
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "显示版本信息。"
+      ]
+    },
+    {
+      "name": "--yes",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --yes"
+      ],
+      "tip": [
+        "不进行交互确认，始终假定回答为 yes。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "623e6811-3c53-52f3-8dd9-262d4278faec",
+  "version": "lvm2 2.03.31",
+  "hooks": true,
+  "language": [
+    "en-US",
+    "zh-CN"
+  ]
+}

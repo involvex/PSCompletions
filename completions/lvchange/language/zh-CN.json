@@ -1,0 +1,881 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/lvmteam/lvm2",
+    "description": [
+      "更改逻辑卷属性"
+    ]
+  },
+  "option": [
+    {
+      "name": "--activate",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --activate y|n|ay"
+      ],
+      "tip": [
+        "更改 LV 的活动状态。"
+      ],
+      "next": [
+        {
+          "name": "ay"
+        },
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--activationmode",
+      "usage": [
+        "--activationmode partial|degraded|complete"
+      ],
+      "tip": [
+        "决定 PV 缺失（例如设备故障）时是否允许激活 LV。"
+      ],
+      "next": [
+        {
+          "name": "complete"
+        },
+        {
+          "name": "degraded"
+        },
+        {
+          "name": "partial"
+        }
+      ]
+    },
+    {
+      "name": "--addtag",
+      "usage": [
+        "--addtag Tag"
+      ],
+      "tip": [
+        "为 PV、VG 或 LV 添加标签。"
+      ],
+      "repeat": 99,
+      "next": []
+    },
+    {
+      "name": "--alloc",
+      "usage": [
+        "--alloc contiguous|cling|cling_by_tags|normal|anywhere|inherit"
+      ],
+      "tip": [
+        "决定命令从 VG 分配物理区段（PE）时使用的分配策略。"
+      ],
+      "next": [
+        {
+          "name": "anywhere"
+        },
+        {
+          "name": "cling"
+        },
+        {
+          "name": "cling_by_tags"
+        },
+        {
+          "name": "contiguous"
+        },
+        {
+          "name": "inherit"
+        },
+        {
+          "name": "normal"
+        }
+      ]
+    },
+    {
+      "name": "--autobackup",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --autobackup y|n"
+      ],
+      "tip": [
+        "指定更改后是否自动备份元数据。"
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--cachemode",
+      "usage": [
+        "--cachemode writethrough|writeback|passthrough"
+      ],
+      "tip": [
+        "指定对缓存 LV 的写入何时视为完成。"
+      ],
+      "next": [
+        {
+          "name": "passthrough"
+        },
+        {
+          "name": "writeback"
+        },
+        {
+          "name": "writethrough"
+        }
+      ]
+    },
+    {
+      "name": "--cachepolicy",
+      "usage": [
+        "--cachepolicy String"
+      ],
+      "tip": [
+        "指定缓存 LV 的缓存策略。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--cachesettings",
+      "usage": [
+        "--cachesettings String"
+      ],
+      "tip": [
+        "为 dm-cache 或 dm-writecache LV 指定可调的内核选项。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--commandprofile",
+      "usage": [
+        "--commandprofile String"
+      ],
+      "tip": [
+        "用于命令配置的命令配置。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--compression",
+      "usage": [
+        "--compression y|n"
+      ],
+      "tip": [
+        "控制是否为 VDO 卷启用压缩。"
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--config",
+      "usage": [
+        "--config String"
+      ],
+      "tip": [
+        "命令的配置设置。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--contiguous",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --contiguous y|n"
+      ],
+      "tip": [
+        "设置或重置 LV 的连续分配策略。"
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "设置调试级别。"
+      ],
+      "repeat": 6
+    },
+    {
+      "name": "--deduplication",
+      "usage": [
+        "--deduplication y|n"
+      ],
+      "tip": [
+        "控制是否为 VDO 卷启用去重。"
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--deltag",
+      "usage": [
+        "--deltag Tag"
+      ],
+      "tip": [
+        "从 PV、VG 或 LV 删除标签。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--detachprofile",
+      "tip": [
+        "从 VG 或 LV 分离元数据配置。"
+      ]
+    },
+    {
+      "name": "--devices",
+      "usage": [
+        "--devices PV"
+      ],
+      "tip": [
+        "限制命令可见和可访问的设备。"
+      ],
+      "repeat": 99,
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--devicesfile",
+      "usage": [
+        "--devicesfile String"
+      ],
+      "tip": [
+        "LVM 应使用的设备列表文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--discards",
+      "usage": [
+        "--discards passdown|nopassdown|ignore"
+      ],
+      "tip": [
+        "指定内核中的 device-mapper thin pool 层应如何处理丢弃请求。"
+      ],
+      "next": [
+        {
+          "name": "ignore"
+        },
+        {
+          "name": "nopassdown"
+        },
+        {
+          "name": "passdown"
+        }
+      ]
+    },
+    {
+      "name": "--driverloaded",
+      "usage": [
+        "--driverloaded y|n"
+      ],
+      "tip": [
+        "设为 no 时，命令不会尝试使用 device-mapper。"
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--errorwhenfull",
+      "usage": [
+        "--errorwhenfull y|n"
+      ],
+      "tip": [
+        "指定数据空间耗尽时 thin pool 的行为。"
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--force",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --force"
+      ],
+      "tip": [
+        "覆盖各种检查、确认和保护。"
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示帮助文本。"
+      ]
+    },
+    {
+      "name": "--ignoreactivationskip",
+      "alias": [
+        "-K"
+      ],
+      "usage": [
+        "-K, --ignoreactivationskip"
+      ],
+      "tip": [
+        "激活时忽略 LV 的 \"activation skip\" 标志，使带有该标志的 LV 也能被激活。"
+      ]
+    },
+    {
+      "name": "--ignorelockingfailure",
+      "tip": [
+        "允许命令在锁定失败后继续进行只读元数据操作。"
+      ]
+    },
+    {
+      "name": "--ignoremonitoring",
+      "tip": [
+        "除非指定 --monitor，否则不与 dmeventd 交互。"
+      ]
+    },
+    {
+      "name": "--integritysettings",
+      "usage": [
+        "--integritysettings String"
+      ],
+      "tip": [
+        "为 dm-integrity 指定可调的内核选项。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal",
+      "usage": [
+        "--journal String"
+      ],
+      "tip": [
+        "将信息记录到 systemd 日志。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--lockopt",
+      "usage": [
+        "--lockopt String"
+      ],
+      "tip": [
+        "用于向 lvmlockd 传递特殊情况选项。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--longhelp",
+      "tip": [
+        "显示长帮助文本。"
+      ]
+    },
+    {
+      "name": "--major",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --major Number"
+      ],
+      "tip": [
+        "设置 LV 块设备的主设备号。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--maxrecoveryrate",
+      "usage": [
+        "--maxrecoveryrate Size[k|UNIT]"
+      ],
+      "tip": [
+        "设置 RAID LV 的最大恢复速率。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--metadataprofile",
+      "usage": [
+        "--metadataprofile String"
+      ],
+      "tip": [
+        "用于命令配置的元数据配置。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--minor",
+      "usage": [
+        "--minor Number"
+      ],
+      "tip": [
+        "设置 LV 块设备的次设备号。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--minrecoveryrate",
+      "usage": [
+        "--minrecoveryrate Size[k|UNIT]"
+      ],
+      "tip": [
+        "设置 RAID LV 的最小恢复速率。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--monitor",
+      "usage": [
+        "--monitor y|n"
+      ],
+      "tip": [
+        "开始（yes）或停止（no）使用 dmeventd 监视 LV。"
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--nohints",
+      "tip": [
+        "不使用提示文件定位 PV 的设备。"
+      ]
+    },
+    {
+      "name": "--nolocking",
+      "tip": [
+        "禁用锁定。"
+      ]
+    },
+    {
+      "name": "--noudevsync",
+      "tip": [
+        "禁用 udev 同步。"
+      ]
+    },
+    {
+      "name": "--partial",
+      "alias": [
+        "-P"
+      ],
+      "usage": [
+        "-P, --partial"
+      ],
+      "tip": [
+        "命令会尽力激活存在缺失 PV 区段的 LV。"
+      ]
+    },
+    {
+      "name": "--permission",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --permission rw|r"
+      ],
+      "tip": [
+        "将访问权限设为只读 r 或读写 rw。"
+      ],
+      "next": [
+        {
+          "name": "r"
+        },
+        {
+          "name": "rw"
+        }
+      ]
+    },
+    {
+      "name": "--persistent",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --persistent y|n"
+      ],
+      "tip": [
+        "为 yes 时，使指定的次设备号持久化。"
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--poll",
+      "usage": [
+        "--poll y|n"
+      ],
+      "tip": [
+        "为 yes 时，启动 LV 的后台转换。"
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--profile",
+      "usage": [
+        "--profile String"
+      ],
+      "tip": [
+        "根据命令不同，作为 --commandprofile 或 --metadataprofile 的别名。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "抑制输出和日志消息。"
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--raidmaxrecoveryrate",
+      "usage": [
+        "--raidmaxrecoveryrate Size[k|UNIT]"
+      ],
+      "tip": [
+        "设置 RAID LV 的最大恢复速率。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--raidminrecoveryrate",
+      "usage": [
+        "--raidminrecoveryrate Size[k|UNIT]"
+      ],
+      "tip": [
+        "设置 RAID LV 的最小恢复速率。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--raidsyncaction",
+      "usage": [
+        "--raidsyncaction check|repair"
+      ],
+      "tip": [
+        "启动不同类型的 RAID 同步。"
+      ],
+      "next": [
+        {
+          "name": "check"
+        },
+        {
+          "name": "repair"
+        }
+      ]
+    },
+    {
+      "name": "--raidwritebehind",
+      "usage": [
+        "--raidwritebehind Number"
+      ],
+      "tip": [
+        "标记为写入优先的 RAID1 LV 中允许的未完成写入最大数量。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--raidwritemostly",
+      "usage": [
+        "--raidwritemostly PV[:t|n|y]"
+      ],
+      "tip": [
+        "将 RAID1 LV 中的设备标记为写入优先。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--readahead",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --readahead auto|none|Number"
+      ],
+      "tip": [
+        "设置 LV 的预读扇区数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--readonly",
+      "tip": [
+        "阻止命令进行更改，包括激活和元数据更新。"
+      ]
+    },
+    {
+      "name": "--rebuild",
+      "usage": [
+        "--rebuild PV"
+      ],
+      "tip": [
+        "选择要在 raid LV 中重建的 PV。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--refresh",
+      "tip": [
+        "如果 LV 处于活动状态，则重新加载其元数据。"
+      ]
+    },
+    {
+      "name": "--reportformat",
+      "usage": [
+        "--reportformat basic|json|json_std"
+      ],
+      "tip": [
+        "覆盖由 lvm.conf(5) 中 report/output_format 全局定义的报告输出格式。"
+      ],
+      "next": [
+        {
+          "name": "basic"
+        },
+        {
+          "name": "json"
+        },
+        {
+          "name": "json_std"
+        }
+      ]
+    },
+    {
+      "name": "--resync",
+      "tip": [
+        "启动镜像同步。"
+      ]
+    },
+    {
+      "name": "--select",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --select String"
+      ],
+      "tip": [
+        "根据指定条件选择要处理和报告的对象。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--setactivationskip",
+      "alias": [
+        "-k"
+      ],
+      "usage": [
+        "-k, --setactivationskip y|n"
+      ],
+      "tip": [
+        "持久设置（yes）或清除（no）LV 的 \"activation skip\" 标志。"
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--setautoactivation",
+      "usage": [
+        "--setautoactivation y|n"
+      ],
+      "tip": [
+        "设置 VG 或 LV 的自动激活属性。"
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--syncaction",
+      "usage": [
+        "--syncaction check|repair"
+      ],
+      "tip": [
+        "启动不同类型的 RAID 同步。"
+      ],
+      "next": [
+        {
+          "name": "check"
+        },
+        {
+          "name": "repair"
+        }
+      ]
+    },
+    {
+      "name": "--sysinit",
+      "tip": [
+        "表示 vgchange/lvchange 由早期系统初始化脚本（例如 rc.sysinit 或 initrd）在可写文件系统可用之前调用。"
+      ]
+    },
+    {
+      "name": "--test",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --test"
+      ],
+      "tip": [
+        "以测试模式运行。"
+      ]
+    },
+    {
+      "name": "--vdosettings",
+      "usage": [
+        "--vdosettings String"
+      ],
+      "tip": [
+        "为 VDO LV 指定可调的 VDO 选项。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "设置详细级别。"
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "显示版本信息。"
+      ]
+    },
+    {
+      "name": "--writebehind",
+      "usage": [
+        "--writebehind Number"
+      ],
+      "tip": [
+        "标记为写入优先的 RAID1 LV 中允许的未完成写入最大数量。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--writemostly",
+      "usage": [
+        "--writemostly PV[:t|n|y]"
+      ],
+      "tip": [
+        "将 RAID1 LV 中的设备标记为写入优先。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--yes",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --yes"
+      ],
+      "tip": [
+        "不进行交互确认，始终假定回答为 yes。"
+      ]
+    },
+    {
+      "name": "--zero",
+      "alias": [
+        "-Z"
+      ],
+      "usage": [
+        "-Z, --zero y|n"
+      ],
+      "tip": [
+        "设置 thin pool 的清零模式。"
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    }
+  ]
+}

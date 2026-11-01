@@ -1,0 +1,228 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/lvmteam/lvm2",
+    "description": [
+      "调整物理卷大小"
+    ]
+  },
+  "option": [
+    {
+      "name": "--commandprofile",
+      "usage": [
+        "--commandprofile String"
+      ],
+      "tip": [
+        "用于命令配置的命令配置。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--config",
+      "usage": [
+        "--config String"
+      ],
+      "tip": [
+        "命令的配置设置。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "设置调试级别。"
+      ],
+      "repeat": 6
+    },
+    {
+      "name": "--devices",
+      "usage": [
+        "--devices PV"
+      ],
+      "tip": [
+        "限制命令可见和可访问的设备。"
+      ],
+      "repeat": 99,
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--devicesfile",
+      "usage": [
+        "--devicesfile String"
+      ],
+      "tip": [
+        "LVM 应使用的设备列表文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--driverloaded",
+      "usage": [
+        "--driverloaded y|n"
+      ],
+      "tip": [
+        "设为 no 时，命令不会尝试使用 device-mapper。"
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示帮助文本。"
+      ]
+    },
+    {
+      "name": "--journal",
+      "usage": [
+        "--journal String"
+      ],
+      "tip": [
+        "将信息记录到 systemd 日志。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--lockopt",
+      "usage": [
+        "--lockopt String"
+      ],
+      "tip": [
+        "用于向 lvmlockd 传递特殊情况选项。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--longhelp",
+      "tip": [
+        "显示长帮助文本。"
+      ]
+    },
+    {
+      "name": "--nohints",
+      "tip": [
+        "不使用提示文件定位 PV 的设备。"
+      ]
+    },
+    {
+      "name": "--nolocking",
+      "tip": [
+        "禁用锁定。"
+      ]
+    },
+    {
+      "name": "--profile",
+      "usage": [
+        "--profile String"
+      ],
+      "tip": [
+        "根据命令不同，作为 --commandprofile 或 --metadataprofile 的别名。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "抑制输出和日志消息。"
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--reportformat",
+      "usage": [
+        "--reportformat basic|json|json_std"
+      ],
+      "tip": [
+        "覆盖由 lvm.conf(5) 中 report/output_format 全局定义的报告输出格式。"
+      ],
+      "next": [
+        {
+          "name": "basic"
+        },
+        {
+          "name": "json"
+        },
+        {
+          "name": "json_std"
+        }
+      ]
+    },
+    {
+      "name": "--setphysicalvolumesize",
+      "usage": [
+        "--setphysicalvolumesize Size[m|UNIT]"
+      ],
+      "tip": [
+        "覆盖自动检测的 PV 大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--test",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --test"
+      ],
+      "tip": [
+        "以测试模式运行。"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "设置详细级别。"
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "显示版本信息。"
+      ]
+    },
+    {
+      "name": "--yes",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --yes"
+      ],
+      "tip": [
+        "不进行交互确认，始终假定回答为 yes。"
+      ]
+    }
+  ]
+}

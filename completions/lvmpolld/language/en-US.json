@@ -1,0 +1,127 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/lvmteam/lvm2",
+    "description": [
+      "LVM polling daemon."
+    ]
+  },
+  "option": [
+    {
+      "name": "--binary",
+      "alias": [
+        "-B"
+      ],
+      "usage": [
+        "-B, --binary path"
+      ],
+      "tip": [
+        "Set the path to the lvm2 binary."
+      ],
+      "next": []
+    },
+    {
+      "name": "--dump",
+      "tip": [
+        "Dump full lvmpolld state."
+      ]
+    },
+    {
+      "name": "--foreground",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --foreground"
+      ],
+      "tip": [
+        "Do not fork, run in the foreground."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display the help text."
+      ]
+    },
+    {
+      "name": "--log",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --log all|wire|debug"
+      ],
+      "tip": [
+        "Set the logging message level."
+      ],
+      "next": [
+        {
+          "name": "all"
+        },
+        {
+          "name": "debug"
+        },
+        {
+          "name": "wire"
+        }
+      ]
+    },
+    {
+      "name": "--pidfile",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --pidfile path"
+      ],
+      "tip": [
+        "Set the path to the pidfile."
+      ],
+      "next": []
+    },
+    {
+      "name": "--socket",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --socket path"
+      ],
+      "tip": [
+        "Set the path to the communication socket."
+      ],
+      "next": []
+    },
+    {
+      "name": "--timeout",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --timeout secs"
+      ],
+      "tip": [
+        "Time to wait in seconds before shutdown when idle."
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Display version information."
+      ]
+    }
+  ]
+}
