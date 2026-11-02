@@ -276,8 +276,7 @@ function Get-Report {
         if ($RunUsage.ContainsKey($r.name)) {
             [void]$sb.AppendLine('> [!WARNING]')
             [void]$sb.AppendLine('>')
-            [void]$sb.AppendLine(('> - `{0}` uses {1} in hooks.lua.' -f $r.name, $RunUsage[$r.name]))
-            [void]$sb.AppendLine('> - Please review the hooks code.')
+            [void]$sb.AppendLine(('> `hooks.lua` uses {0}, which needs review.' -f $RunUsage[$r.name]))
             [void]$sb.AppendLine('')
         }
 
