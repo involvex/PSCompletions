@@ -553,7 +553,8 @@ _psc_word_start() {
             if (( q == 0 )); then q=1; elif (( q == 1 )); then q=0; fi
         elif [[ "$c" == '"' ]]; then
             if (( q == 0 )); then q=2; elif (( q == 2 )); then q=0; fi
-        elif (( q == 0 )) && [[ "$c" == ' ' || "$c" == $'\t' ]]; then
+        # A newline is a word boundary too: ZLE can hold a multi-line buffer, and the word under the cursor starts on its own line.
+        elif (( q == 0 )) && [[ "$c" == ' ' || "$c" == $'\t' || "$c" == $'\n' ]]; then
             start=$(( i + 1 ))
         fi
         (( i++ ))

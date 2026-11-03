@@ -8,6 +8,7 @@ English | [简体中文](./CHANGELOG.zh-CN.md)
   - Add `npx vite` as a trigger alias for `vite`: `psc alias add vite "npx vite"`
   - `npx vite <Tab>` then triggers `vite`'s completion instead of `npx`'s `vite` completion
 - bridge: Restored every terminal mode and dropped queued input when the PowerShell menu dies
+- bridge: Fixed zsh replacing the wrong word on a multi-line buffer
 
 ## 8.0.6
 
