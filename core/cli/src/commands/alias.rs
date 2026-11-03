@@ -7,7 +7,10 @@ use serde_json::json;
 use crate::data::{Index, Settings};
 use crate::messages::msg_cli;
 use crate::output::{fail, key_line, ok, Out};
-use crate::validate::{data_dir_of, name_error, name_status, reset_alias, too_few_params};
+use crate::validate::{
+    data_dir_of, name_error, name_status, normalize_alias, normalize_alias_list, reset_alias,
+    too_few_params,
+};
 
 /// The entry every listing and every write answers with (design/json.md): the completion's name and its trigger words — singular inside the item, exactly as `config.json` spells it.
 fn alias_entry(name: &str, settings: &Settings) -> serde_json::Value {
@@ -102,6 +105,10 @@ pub fn cmd_alias(
             if let Some((code, e)) = name_error(lang, &name, status, true) {
                 return fail(out, code, &e, json, false);
             }
+            // Canonicalize what is stored before comparing, so a hand-edited run of spaces is not a second alias.
+            if let Some(words) = settings.alias.get_mut(&name) {
+                *words = normalize_alias_list(words);
+            }
             let mut added: Vec<String> = Vec::new();
             // Every declined alias is recorded with its stable code, so a caller can tell a wildcard from a word another completion already owns.
             let mut rejected: Vec<serde_json::Value> = Vec::new();
@@ -115,11 +122,16 @@ pub fn cmd_alias(
                 }
                 rejected.push(json!({ "alias": a, "error": { "code": code, "message": msg } }));
             };
-            for a in &args[2..] {
+            for raw in &args[2..] {
+                let a = normalize_alias(raw);
+                // A blank alias can never match a typed token, so a typo is ignored rather than reported.
+                if a.is_empty() {
+                    continue;
+                }
                 if a.contains('*') || a.contains('?') {
                     reject(
                         &mut rejected,
-                        a,
+                        &a,
                         "alias_wildcard",
                         msg_cli(lang, "has_wildcard"),
                         json,
@@ -129,7 +141,7 @@ pub fn cmd_alias(
                 if a == "PSCompletions" {
                     reject(
                         &mut rejected,
-                        a,
+                        &a,
                         "alias_reserved",
                         msg_cli(lang, "cmd_exist"),
                         json,
@@ -141,7 +153,7 @@ pub fn cmd_alias(
                 if !settings
                     .alias
                     .get(&name)
-                    .is_some_and(|v| v.iter().any(|x| x == a))
+                    .is_some_and(|v| v.iter().any(|x| x == &a))
                 {
                     settings
                         .alias
@@ -196,9 +208,15 @@ pub fn cmd_alias(
                     false,
                 );
             };
+            // Normalize the same way `add` stores them, so a quoted alias can be removed with any run of spaces.
+            let wanted: Vec<String> = args[2..]
+                .iter()
+                .map(|a| normalize_alias(a))
+                .filter(|a| !a.is_empty())
+                .collect();
             let remove_count = entry
                 .iter()
-                .filter(|a| args[2..].iter().any(|x| x == *a))
+                .filter(|a| wanted.iter().any(|x| normalize_alias(a.as_str()) == *x))
                 .count();
             if remove_count == 0 {
                 return fail(
@@ -209,7 +227,9 @@ pub fn cmd_alias(
                     false,
                 );
             }
-            entry.retain(|a| !args[2..].iter().any(|x| x == a));
+            entry.retain(|a| !wanted.iter().any(|x| normalize_alias(a) == *x));
+            let cleaned = normalize_alias_list(entry);
+            *entry = cleaned;
             if let Err(e) = settings.save(settings_path) {
                 return fail(out, "io", &format!("error: {e}"), json, false);
             }

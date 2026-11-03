@@ -6,7 +6,7 @@ use std::time::Duration;
 use serde_json::Value;
 
 use crate::data::{remove_completion_entry, Settings};
-use crate::validate::is_valid_name;
+use crate::validate::{is_valid_name, normalize_alias_list};
 
 /// Default completion source URLs (order follows the module's language preference).
 /// The raw CDN hosts, not the `/<repo>/raw/` pages: those answer with a redirect to the same content, so every request would pay a hop for nothing.
@@ -571,9 +571,11 @@ pub fn refresh_settings_after_add(
         .get("alias")
         .and_then(|a| a.as_array())
         .map(|a| {
-            a.iter()
+            let words: Vec<String> = a
+                .iter()
                 .filter_map(|x| x.as_str().map(String::from))
-                .collect()
+                .collect();
+            normalize_alias_list(&words)
         })
         .filter(|a: &Vec<String>| !a.is_empty())
         .unwrap_or_else(|| vec![name.to_string()]);

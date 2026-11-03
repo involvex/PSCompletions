@@ -9,6 +9,7 @@ use crate::data::{build_default_data, default_config, load_psc_info, Index, Sett
 use crate::net::resolve_urls;
 use crate::output::Out;
 use crate::postcheck::{psc_completion_present, restore_psc_completion};
+use crate::validate::normalize_alias;
 
 /// Assemble the module's init state in one call
 #[allow(clippy::too_many_arguments)]
@@ -90,7 +91,12 @@ pub fn cmd_init(
     for completion in names {
         if let Some(aliases) = settings.alias.get(completion) {
             for a in aliases {
-                alias_map.insert(a.clone(), serde_json::Value::String(completion.clone()));
+                // The hosts join the typed tokens with single spaces, so a hand-edited run of spaces must collapse to the same key.
+                let key = normalize_alias(a);
+                if key.is_empty() {
+                    continue;
+                }
+                alias_map.insert(key, serde_json::Value::String(completion.clone()));
             }
         }
     }

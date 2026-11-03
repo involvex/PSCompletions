@@ -766,24 +766,51 @@ function _psc_route --argument-names before
             set first (string replace -r '\.[^.]*$' '' -- $first)
             set toks[1] $first
     end
-    # sudo unwrap: `sudo <cmd>` completes for the wrapped command.
-    if test "$first" = sudo; and test (count $toks) -gt 1
-        set -l wrapped $toks[2]
-        switch (string lower -- $wrapped)
-            case '*.exe' '*.cmd' '*.bat'
-                set wrapped (string replace -r '\.[^.]*$' '' -- $wrapped)
-        end
-        if test -n "$(_psc_alias $wrapped)"
-            set -e toks[1]
-            set toks[1] $wrapped
-            set first $wrapped
-        end
-    end
     # A wildcard command name is not a completion trigger.
     if string match -q '*\**' -- $first; or string match -q '*\?*' -- $first
         return 1
     end
-    set -l cmd (_psc_alias $first)
+    # A trigger alias is a token prefix (`npx vite` is one key), and the longest match wins.
+    # `sudo` is skipped when something behind it is a trigger; its own completion stays the fallback.
+    set -l starts 0
+    if test "$first" = sudo; and test (count $toks) -gt 1
+        set starts 1 0
+    end
+    set -l cmd ""
+    set -l hit_key ""
+    set -l hit_end 0
+    set -l hit_k 0
+    for s in $starts
+        set -l max (math (count $toks) - $s)
+        for k in (seq $max -1 1)
+            # The word under the cursor is still being typed: it belongs to the next argument, never to an alias that ends on it.
+            if test (math $s + $k) -eq (count $toks); and not string match -q '* ' -- $before
+                continue
+            end
+            set -l a (math $s + 1)
+            set -l b (math $s + $k)
+            set -l words $toks[$a..$b]
+            switch (string lower -- $words[1])
+                case '*.exe' '*.cmd' '*.bat'
+                    set words[1] (string replace -r '\.[^.]*$' '' -- $words[1])
+            end
+            set -l key (string join ' ' -- $words)
+            set -l hit (_psc_alias $key)
+            if test -n "$hit"
+                # A longer match wins even across the `sudo` boundary; on a tie the wrapped command keeps today's precedence.
+                if test $hit_k -eq 0; or test $k -gt $hit_k
+                    set cmd $hit
+                    set hit_key $key
+                    set hit_end (math $s + $k)
+                    set hit_k $k
+                end
+                break
+            end
+        end
+    end
+    if test -n "$cmd"
+        set toks $hit_key $toks[(math $hit_end + 1)..-1]
+    end
     # A path-shaped pending token goes to the native path (path completion), mirroring the PowerShell bridge, even for an installed command.
     if test -z "$cmd"; or not string match -q '* ' -- $before
         set -l last ""

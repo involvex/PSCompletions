@@ -23,7 +23,7 @@ for c in git psc scoop; do
     ln -s "$ROOT/completions/$c" "$PSCOMPLETIONS_DATA_DIR/completions/$c"
 done
 cat > "$PSCOMPLETIONS_DATA_DIR/settings.json" <<'EOF'
-{"alias":{"git":["git"],"psc":["psc"],"scoop":["scoop"]},"config":{"language":"en-US"}}
+{"alias":{"git":["git"],"psc":["psc"],"scoop":["scoop"],"tool":["tool","wrap tool"],"other":["other","wrap tool deep"],"other2":["other2","sudo wrap tool"]},"config":{"language":"en-US"}}
 EOF
 cat > "$PSCOMPLETIONS_DATA_DIR/temp/completions.json" <<'EOF'
 {"update":{"demo-a":"v1","demo-b":"v1","git":"v9"},"meta":{"demo-a":{"id":"a","en-US":{"url":"https://example.com","description":"A"}},"demo-b":{"id":"b","en-US":{"url":"https://example.com","description":"B"}},"git":{"id":"git-id","en-US":{"url":"https://git-scm.com","description":"VCS"}}}}
@@ -151,6 +151,16 @@ route_case typing      'git che'      BUILD
 route_case cmd-word    'git'          NATIVE
 route_case unknown     'foo bar'      NATIVE
 route_case cmd-path    'cd ~/'        NATIVE
+route_case alias-space 'wrap tool '   BUILD
+route_case alias-arg   'wrap tool --' BUILD
+route_case alias-typing 'wrap tool'   NATIVE
+route_case alias-sudo  'sudo wrap tool ' BUILD
+route_case alias-path  'wrap tool ./' NATIVE
+route_case alias-unknown 'wrap x'     NATIVE
+_psc_build_menu() { echo "BUILD:$1"; }
+route_case alias-longest 'wrap tool deep ' 'BUILD:other'
+route_case alias-sudo-longest 'sudo wrap tool ' 'BUILD:other2'
+_psc_build_menu() { echo BUILD; }
 
 echo "--- config wiring ---"
 CFG_DIR=/tmp/psc-bridge-cfg

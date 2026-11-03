@@ -9,6 +9,7 @@ Numbering is shared with `authoring.md`; do not restart it per file.
 | D40 | [A shell that cannot hand over the trigger gets no bridge](#d40) |
 | D41 | [One presentation: the CLI's text, in every host](#d41) |
 | D42 | [A separator ends a command; a brace does not](#d42) |
+| D57 | [A trigger alias is a token prefix, matched longest-first](#d57) |
 
 <a id="d40"></a>
 
@@ -75,3 +76,21 @@ The same line with an uninstalled first word worked by accident, because PowerSh
 **Rejected alternatives**: (a) split on a `|` *token* instead of scanning the text — rejected: `status|grep` and `ls;git` glue the separator to a word, so the token view misses exactly the cases where the wrong command is most likely; (b) split on `{` / `}` — rejected on the evidence above; (c) resolve the first word of the whole line and let the host's completion cover the rest — rejected: it is the behaviour that made `git status | grep <Tab>` unusable.
 
 **Overturn if**: a host appears whose grammar treats one of these characters differently *and* whose completion API cannot be consulted for the pipeline case — then that host's separator set is narrowed, with the rule above kept as the default.
+
+---
+
+<a id="d57"></a>
+
+## A trigger alias is a token prefix, matched longest-first (D57)
+
+**Decision**: a trigger alias is a whitespace-separated token sequence; the hosts resolve the longest run of leading tokens, strip it, and hand the rest to the target completion as its arguments. Exact duplicate keys keep the last-claim rule, but a longer alias beats a shorter one regardless of claim order.
+
+**Rule lives in**: `design/bridge.md` §2 (resolution) and `design/psc-cli.md` §6.2 (storage, quoting, scope). Not an `R-xx` rule: it is system behaviour, not a completion-authoring constraint.
+
+**Why**: `npx vite` is one launcher plus the command the user actually wants. A `word -> completion` table keyed on the first token cannot express it, so `npx vite <Tab>` stayed on npx's completion even when the user declared the pair. The alias names a completion, not a position in it, so the matched words are stripped and resolution starts at that completion's root.
+
+**Evidence**: `npx` and `vite` are both shipped completions, so the collision is real rather than hypothetical. The counter-case is a subcommand path: `docker compose` is modelled with its own `next`, so declaring it as an alias would strip `compose` and land at docker's root; the same shape appears in `git stash`. History ranking needed no change: `order::strip_alias` already matches a case-folded prefix and requires a word boundary, so `npx vite …` lines credit vite.
+
+**Rejected alternatives**: (a) a per-completion `prefix` config key — rejected: it is a new user-facing key (`R-15`) and still needs the same host resolution, while a spaced alias reuses `settings.alias`, the claim order and `psc alias` as they are; (b) teaching the alias map a start path so `docker compose` could enter the compose context — rejected for this change: the map stores a completion name only, and the host strips the prefix before the engine sees it, so a start path would be a second protocol field; (c) keeping the whitespace ban in the `config.json` schema — rejected: the ban only protected a constraint the hosts no longer have, and an official alias with a space costs nothing to leave possible.
+
+**Overturn if**: the alias map gains a start path, or the engine resolves the raw line itself — then the host-side prefix loop disappears and the scope question (launcher vs subcommand path) reopens on the engine's terms.

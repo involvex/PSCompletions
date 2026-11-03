@@ -2,6 +2,12 @@
 
 English | [简体中文](./CHANGELOG.zh-CN.md)
 
+## Unreleased
+
+- bridge: Trigger aliases can now contain multiple words and are matched by their longest leading token sequence
+  - Add `npx vite` as a trigger alias for `vite`: `psc alias add vite "npx vite"`
+  - `npx vite <Tab>` then triggers `vite`'s completion instead of `npx`'s `vite` completion
+
 ## 8.0.6
 
 - bridge: Fixed `psc update --old` printing nothing when every completion was already current

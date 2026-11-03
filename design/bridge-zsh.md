@@ -9,7 +9,7 @@
 Shipped in the module package (`module/PSCompletions/PSCompletions.zsh`, one `source` line in `~/.zshrc`).
 Requires zsh 5.0+ and python3 (3.8+); the binaries come from the module package.
 Load is loud about missing dependencies.
-Covered: build mode, native capture (compadd interception → items menu) with the enumeration and hand-off fallbacks, `psc` forwarding, history ordering, hooks gate, `sudo` unwrap + exe-suffix strip, wildcard guard, rm/`--reset` confirm, notification tail, template rendering, the full menu config, and the word-level apply rules.
+Covered: build mode, native capture (compadd interception → items menu) with the enumeration and hand-off fallbacks, `psc` forwarding, history ordering, hooks gate, longest trigger-alias prefix (with `sudo` unwrap) + exe-suffix strip, wildcard guard, rm/`--reset` confirm, notification tail, template rendering, the full menu config, and the word-level apply rules.
 Tested headless by `scripts/bridge/test.zsh` (including the compadd parser and the enumeration fallback); the terminal-ownership property needs a real pty and is covered by `scripts/bridge/test-pgrp.py`.
 
 ## zsh mapping (vs bash)

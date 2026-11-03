@@ -255,17 +255,36 @@ _psc_complete() {
     case "${(L)first}" in
         *.exe|*.cmd|*.bat) first="${first%.*}"; toks[1]="$first" ;;
     esac
-    if [[ "$first" == sudo && ${#toks} -gt 1 ]]; then
-        local wrapped="${toks[2]}"
-        case "${(L)wrapped}" in *.exe|*.cmd|*.bat) wrapped="${wrapped%.*}" ;; esac
-        if [[ -n "${_PSC_ALIAS[$wrapped]:-}" ]]; then
-            toks=("${toks[2,-1]}")
-            toks[1]="$wrapped"
-            first="$wrapped"
-        fi
-    fi
     [[ "$first" == *[\*\?]* ]] && return 1
-    local cmd="${_PSC_ALIAS[$first]:-}"
+    # A trigger alias is a token prefix (`npx vite` is one key), and the longest match wins.
+    # `sudo` is skipped when something behind it is a trigger; its own completion stays the fallback.
+    local start=0
+    if [[ "$first" == sudo && ${#toks} -gt 1 ]]; then start=1; fi
+    local cmd="" key hit_end=0 hit_k=0 s k max
+    local -a words
+    local i
+    for (( s=start; s>=0; s-- )); do
+        max=$(( ${#toks} - s ))
+        for (( k=max; k>=1; k-- )); do
+            # The word under the cursor is still being typed: it belongs to the next argument, never to an alias that ends on it.
+            (( s + k == ${#toks} )) && [[ "$before" != *" " ]] && continue
+            words=()
+            for (( i=s+1; i<=s+k; i++ )); do words+=("${toks[i]}"); done
+            case "${(L)words[1]}" in
+                *.exe|*.cmd|*.bat) words[1]="${words[1]%.*}" ;;
+            esac
+            key="${(j: :)words}"
+            if [[ -n "${_PSC_ALIAS[$key]:-}" ]]; then
+                # A longer match wins even across the `sudo` boundary; on a tie the wrapped command keeps today's precedence.
+                if (( hit_k == 0 || k > hit_k )); then
+                    cmd="${_PSC_ALIAS[$key]}"
+                    hit_end=$(( s + k ))
+                    hit_k=$k
+                fi
+                break
+            fi
+        done
+    done
     # A path-shaped pending token goes to the shell's own completion even for an installed command (mirrors the PowerShell/bash bridge).
     local last="" p path_like=0
     if [[ -z "$cmd" || "$before" != *" " ]]; then
@@ -286,8 +305,8 @@ _psc_complete() {
     [[ "$before" == *" " ]] && last_complete=1
     # arg_tokens: every token after the command word — the *pending* one included, with `treat_last_as_complete` saying whether it is finished (see the bash bridge's comment).
     local -a args
-    local n=${#toks} i
-    for (( i = 2; i <= n; i++ )); do args+=("${toks[i]}"); done
+    local n=${#toks}
+    for (( i = hit_end + 1; i <= n; i++ )); do args+=("${toks[i]}"); done
     _psc_build_menu "$cmd" "$last_complete" "${args[@]}"
 }
 

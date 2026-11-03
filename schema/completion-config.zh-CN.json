@@ -9,15 +9,7 @@
   "definitions": {
     "string": {
       "type": "string",
-      "minLength": 1,
-      "allOf": [
-        {
-          "not": {
-            "pattern": "\\s"
-          },
-          "errorMessage": "请移除空格"
-        }
-      ]
+      "minLength": 1
     },
     "array": {
       "type": "array",

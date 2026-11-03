@@ -97,6 +97,10 @@
             {
               "cmd": "add scoop scoop.ps1",
               "desc": "为 scoop 添加 scoop.ps1 这个触发别名"
+            },
+            {
+              "cmd": "add vite \"npx vite\"",
+              "desc": "为 vite 添加一个包含空格的触发别名：npx vite <Tab> 使用 vite 的补全"
             }
           ]
         },
@@ -113,6 +117,10 @@
             {
               "cmd": "rm scoop scoop.ps1",
               "desc": "为 scoop 删除 scoop.ps1 这个触发别名"
+            },
+            {
+              "cmd": "rm vite \"npx vite\"",
+              "desc": "为 vite 删除一个包含空格的触发别名：npx vite"
             }
           ]
         }

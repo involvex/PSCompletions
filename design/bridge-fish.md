@@ -10,7 +10,7 @@ Shipped in the module package (`module/PSCompletions/PSCompletions.fish`), loade
 Because that install makes the *sourced* path a link, the bridge resolves its own path (`path resolve`) before looking for the binaries and the bundled `psc` completion next to it: `status --current-filename` returns the link, not the module.
 Requires fish 4.0+ and python3 (3.8+); the binaries come from the module package.
 Load is loud about missing dependencies.
-Covered: build mode, the native ask (`complete -C` → items menu) with the host hand-off when native completion is off, `psc` forwarding, history ordering (over a normalised copy of fish's own history file), hooks gate, `sudo` unwrap + exe-suffix strip, wildcard guard, `rm --all` / `--reset` confirm, notification tail, template rendering, the full menu config, the word-level apply rules, and candidate escaping.
+Covered: build mode, the native ask (`complete -C` → items menu) with the host hand-off when native completion is off, `psc` forwarding, history ordering (over a normalised copy of fish's own history file), hooks gate, longest trigger-alias prefix (with `sudo` unwrap) + exe-suffix strip, wildcard guard, `rm --all` / `--reset` confirm, notification tail, template rendering, the full menu config, the word-level apply rules, and candidate escaping.
 Tested headless by `scripts/bridge/test.fish` (routing, apply, escaping differential, history normalisation, key mapping, config forwarding, management text); the terminal-ownership property needs a real pty and is covered by `scripts/bridge/test-pgrp.py`.
 
 ## fish mapping (vs bash / zsh)

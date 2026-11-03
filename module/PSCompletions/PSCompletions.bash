@@ -280,21 +280,35 @@ PYEOF
     case "${first,,}" in
         *.exe|*.cmd|*.bat) first="${first%.*}"; toks[0]="$first" ;;
     esac
-    # sudo unwrap: `sudo <cmd>` completes for the wrapped command.
-    if [[ "$first" == sudo && ${#toks[@]} -gt 1 ]]; then
-        local wrapped="${toks[1]}"
-        case "${wrapped,,}" in
-            *.exe|*.cmd|*.bat) wrapped="${wrapped%.*}" ;;
-        esac
-        if [[ -n "${_PSC_ALIAS[$wrapped]:-}" ]]; then
-            toks=("${toks[@]:1}")
-            toks[0]="$wrapped"
-            first="$wrapped"
-        fi
-    fi
     # A wildcard command name is not a completion trigger.
     [[ "$first" == *'*'* || "$first" == *'?'* ]] && return 1
-    local cmd="${_PSC_ALIAS[$first]:-}"
+    # A trigger alias is a token prefix (`npx vite` is one key), and the longest match wins.
+    # `sudo` is skipped when something behind it is a trigger; its own completion stays the fallback.
+    local start=0
+    if [[ "$first" == sudo && ${#toks[@]} -gt 1 ]]; then start=1; fi
+    local cmd="" key hit_end=0 hit_k=0 s k max
+    for (( s=start; s>=0; s-- )); do
+        max=$(( ${#toks[@]} - s ))
+        for (( k=max; k>=1; k-- )); do
+            # The word under the cursor is still being typed: it belongs to the next argument, never to an alias that ends on it.
+            (( s + k == ${#toks[@]} )) && [[ "$before" != *" " ]] && continue
+            local -a words=("${toks[@]:s:k}")
+            case "${words[0],,}" in
+                *.exe|*.cmd|*.bat) words[0]="${words[0]%.*}" ;;
+            esac
+            printf -v key '%s ' "${words[@]}"
+            key="${key% }"
+            if [[ -n "${_PSC_ALIAS[$key]:-}" ]]; then
+                # A longer match wins even across the `sudo` boundary; on a tie the wrapped command keeps today's precedence.
+                if (( hit_k == 0 || k > hit_k )); then
+                    cmd="${_PSC_ALIAS[$key]}"
+                    hit_end=$(( s + k ))
+                    hit_k=$k
+                fi
+                break
+            fi
+        done
+    done
     # A path-shaped pending token goes to the native path (path completion), mirroring the PowerShell bridge, even for an installed command.
     if [[ -z "$cmd" || "$before" != *" " ]]; then
         local last="" p
@@ -317,9 +331,8 @@ PYEOF
     # arg_tokens: every token after the command word — the *pending* one included, with `treat_last_as_complete` saying whether it is finished.
     # The engine uses the last unfinished token as the partial match and pre-fills the menu filter from it (`^text`); dropping it builds the parent context, so `psc al<Tab>` showed the root, unfiltered.
     local -a args=()
-    local n=${#toks[@]}
     local i
-    for (( i=1; i<n; i++ )); do args+=("${toks[i]}"); done
+    for (( i=hit_end; i<${#toks[@]}; i++ )); do args+=("${toks[i]}"); done
     _psc_build_menu "$cmd" "$last_complete" "${args[@]}"
 }
 

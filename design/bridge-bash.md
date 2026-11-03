@@ -20,7 +20,7 @@ Bash renders through the engine (`_psc_tpl` → `psc tpl --version …`): the te
 
 ## Parity with the PowerShell bridge
 
-Covered (verified by `scripts/bridge/test.bash`): build mode, native fallback (unknown command **and** path-shaped pending token), `psc` forwarding, history ordering (`enable_sort_by_history`), hooks gate (`enable_hooks`, psc exempt), manifest language, `sudo` unwrap + exe-suffix strip, wildcard guard, rm confirm, `psc --reset`, notification tail, template rendering, and the full menu config (`filter_mode`, `show_mode`, list loop, apply-when-single/no-match, colors, tip toggles via `raw_config`, filter hint + stale hint, `switch`/`stay`, `trigger_key`), the word-level apply rules, and management output termination (every printed line ends with a newline).
+Covered (verified by `scripts/bridge/test.bash`): build mode, native fallback (unknown command **and** path-shaped pending token), `psc` forwarding, history ordering (`enable_sort_by_history`), hooks gate (`enable_hooks`, psc exempt), manifest language, longest trigger-alias prefix (with `sudo` unwrap) + exe-suffix strip, wildcard guard, rm confirm, `psc --reset`, notification tail, template rendering, and the full menu config (`filter_mode`, `show_mode`, list loop, apply-when-single/no-match, colors, tip toggles via `raw_config`, filter hint + stale hint, `switch`/`stay`, `trigger_key`), the word-level apply rules, and management output termination (every printed line ends with a newline).
 
 **Fresh machine**: with no data dir at all (never imported the PowerShell module), the first `_psc_init` bootstraps the data dir and seeds the bundled `psc` completion from the module package before `psc init`, so a first run works offline.
 
@@ -76,7 +76,7 @@ Reduce forks further only with care: hand-rolling JSON in bash trades ~20 ms for
 - **One builder, two callers**: the input assembler is used by the live bridge and the headless tests. Extract it once; testing a copy tests nothing.
 - **Headless test harness**: the engine rewrites the input file with built items even when the TUI dies — launch, kill, assert the file. Fixture = symlinked repo completions + minimal settings/index + a scratch git repo for live hook output.
 - **The management completion is a special citizen**: `psc` hooks need `data` (settings/index/completions paths + live config), per-completion `config`, and global config — an empty build context yields an empty `add` menu. Pass the full context for every command, not just `psc`.
-- **Mirror the gates host-side**: `enable_hooks` (psc exempt), manifest language (per-completion → module → declared-first), `sudo` unwrap. The engine trusts what the bridge sends.
+- **Mirror the gates host-side**: `enable_hooks` (psc exempt), manifest language (per-completion → module → declared-first), the longest trigger-alias prefix (with `sudo` unwrap). The engine trusts what the bridge sends.
 - **Order is opt-in**: empty order paths silently disable ranking *and* the background recompute. Pass real paths plus top-level `order` (history/cmd/aliases/path); ranking takes effect from the second open (the first open writes the files).
 - **Result shapes differ by mode**: build mode returns text, items mode returns an index the host maps. Thread `nospace` through to apply in both.
 - **`=` values arrive prefixed**: the engine re-attaches the head into `completion_text`; the host replaces the whole word and adds no space.

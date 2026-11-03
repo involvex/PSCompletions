@@ -125,6 +125,24 @@ pub fn ensure_completion_entry<'a>(
     entry.as_object_mut().unwrap()
 }
 
+/// Canonical spelling of a trigger alias: whitespace-separated words joined by one space.
+/// The hosts join the typed tokens the same way, so `"npx  vite"` and `"npx vite"` must not become two keys.
+pub fn normalize_alias(alias: &str) -> String {
+    alias.split_whitespace().collect::<Vec<_>>().join(" ")
+}
+
+/// Canonical, de-duplicated alias list: a hand-edited run of spaces is the same word, not a second one.
+pub fn normalize_alias_list(words: &[String]) -> Vec<String> {
+    let mut out: Vec<String> = Vec::new();
+    for w in words {
+        let n = normalize_alias(w);
+        if !n.is_empty() && !out.contains(&n) {
+            out.push(n);
+        }
+    }
+    out
+}
+
 /// Restore a completion's trigger aliases to its config.json alias (or the name itself).
 ///
 /// The alias map's order **is** the claim order, and the hosts build their `word -> completion` table by inserting in it, so declaring the words here — moving the completion to the end — is what makes a later declaration win.
@@ -138,9 +156,11 @@ pub fn reset_alias(settings: &mut Settings, data_dir: &str, name: &str) {
                 .get("alias")
                 .and_then(|a| a.as_array())
                 .map(|a| {
-                    a.iter()
+                    let words: Vec<String> = a
+                        .iter()
                         .filter_map(|x| x.as_str().map(String::from))
-                        .collect::<Vec<_>>()
+                        .collect();
+                    normalize_alias_list(&words)
                 })
                 .filter(|a: &Vec<String>| !a.is_empty())
                 .unwrap_or_else(|| vec![name.to_string()])
@@ -155,8 +175,25 @@ mod tests {
     use super::*;
 
     #[test]
+    fn normalize_alias_collapses_whitespace() {
+        assert_eq!(normalize_alias("npx  vite"), "npx vite");
+        assert_eq!(normalize_alias("  npx\tvite  "), "npx vite");
+        assert_eq!(normalize_alias("   "), "");
+    }
+
+    #[test]
+    fn normalize_alias_list_dedupes_after_collapsing() {
+        let words = vec![
+            "npx  vite".to_string(),
+            "npx vite".to_string(),
+            "   ".to_string(),
+        ];
+        assert_eq!(normalize_alias_list(&words), vec!["npx vite".to_string()]);
+    }
+
+    #[test]
     fn reset_alias_declares_the_config_words_in_order() {
-        // No filtering: the config's words are declared as-is, and the completion moves to the end of the map — that order is what makes a later declaration win for the hosts.
+        // The config's words are declared in order after canonicalizing whitespace, and the completion moves to the end of the map — that order is what makes a later declaration win for the hosts.
         let base = std::env::temp_dir().join(format!("psc-validate-test-{}", std::process::id()));
         let dir = base.join("completions/new");
         std::fs::create_dir_all(&dir).unwrap();

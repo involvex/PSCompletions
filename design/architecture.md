@@ -73,7 +73,7 @@ user types `git <Tab>`
   ▼
 PowerShell host (PSCompletions.ps1)
   • lazy bootstrap (once): `initialize()` → `psc init --result <tmp>` → loads settings/aliasMap/info/default_config; rebinds the sanitized trigger_key and aliases; sets `initialized=true` (gated by `initialized`/`binary_ok`; abort if binary missing)
-  • splits the buffer into tokens, resolves trigger alias
+  • splits the buffer into tokens, resolves the longest trigger-alias token prefix
   • assembles a menu input carrying a `build` context (cmd, arg_tokens, manifest, hooks,
     config, psc data, order paths) — not items
   • launches psc-menu (menu mode) as a child process
@@ -106,7 +106,7 @@ The PSReadLine trigger key is bound from `settings.json` directly.
 Heavy work (the full bootstrap via `psc init --result`) stays deferred to `$PSCompletions.initialize()` on first Tab or first `psc`, gated by `initialized`/`binary_ok`:
 
 - `initialize()` adds deferred `ScriptMethod`s, runs `psc init --result` to bootstrap `settings/aliasMap/info/default_config`, then rebinds the sanitized `trigger_key`, and sets `initialized=true`. `param([bool]$methodsOnly)` skips the full bootstrap for standalone scripts that only need the helper methods (keeps `initialized` false).
-- Tab handler: captures buffer/cursor, `initialize()` if needed, resolves alias (a leading `sudo` — literal, a trigger word mapped to it, or a shell alias pointing at it — is skipped when the wrapped command is known, so `sudo git <Tab>` completes git), builds `build` context, launches `psc-menu`, applies selection via `PSConsoleReadLine::Replace`.
+- Tab handler: captures buffer/cursor, `initialize()` if needed, resolves the longest trigger-alias token prefix (a leading `sudo` — literal, a trigger word mapped to it, or a shell alias pointing at it — is skipped when something behind it is a trigger, so `sudo git <Tab>` completes git, and a multi-word alias such as `npx vite` consumes both words), builds `build` context, launches `psc-menu`, applies selection via `PSConsoleReadLine::Replace`.
 - `psc` entry (`PSCompletions.psm1`): `initialize()` first, then `_forward_psc` dispatches `add`/`rm`/`update`/`config`/`alias`/`info`/`list`/`completion`/`init`; `render_pending` appends library notifications.
 - Passes the `build` context into the menu process (the engine builds + ranks the candidates itself; installed-command completion is a single process call), saves/restores the covered terminal region (input line is never saved/restored to preserve true-color prompts), and detects completion failure (`[PSCompletions] menu unavailable: ...`).
 - `psc-menu` and `psc` binaries ship inside `module/PSCompletions/bin/`.

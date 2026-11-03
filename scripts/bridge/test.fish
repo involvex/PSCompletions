@@ -140,7 +140,7 @@ json.dump(s,open(p,"w",encoding="utf-8"))
 ' $PSCOMPLETIONS_DATA_DIR/settings.json
 expect gate-git-disabled (_psc_hooks_enabled git) 0
 reset_caches
-printf '%s\n' '{"alias":{"git":["git"],"psc":["psc"],"scoop":["scoop"]},"config":{"language":"en-US"}}' > $PSCOMPLETIONS_DATA_DIR/settings.json
+printf '%s\n' '{"alias":{"git":["git"],"psc":["psc"],"scoop":["scoop"],"tool":["tool","wrap tool"],"other":["other","wrap tool deep"],"other2":["other2","sudo wrap tool"]},"config":{"language":"en-US"}}' > $PSCOMPLETIONS_DATA_DIR/settings.json
 
 # --- routing (pure: no line editor) ------------------------------------------
 # Two conditions, not one: an installed command *and* a non-path-shaped pending token.
@@ -160,6 +160,12 @@ route_case space     'git add '     build
 route_case typing    'git che'      build
 route_case unknown   'foo bar'      native
 route_case cmd-path  'cd ~/'        native
+route_case alias-space 'wrap tool '   build
+route_case alias-arg   'wrap tool --' build
+route_case alias-typing 'wrap tool'   native
+route_case alias-sudo  'sudo wrap tool ' build
+route_case alias-path  'wrap tool ./' native
+route_case alias-unknown 'wrap x'     native
 set -l rcmd (_psc_route 'git')
 # A pending token that is a lone `--` must survive the route's emit: fish's `echo` would swallow it as its own end-of-options marker and the engine would open an unfiltered menu.
 set -l rdash (_psc_route 'psc --')
@@ -184,6 +190,17 @@ expect route-args-context "$(string join ' ' -- $r7[4..-1])" 'add'
 set -l r8 (_psc_route 'psc al')
 expect route-args-pending-token "$(string join ' ' -- $r8[4..-1])" 'al'
 expect route-args-pending-flag "$r8[3]" 0
+set -l rw (_psc_route 'wrap tool ')
+expect route-alias-cmd "$rw[2]" tool
+expect route-alias-last "$rw[3]" 1
+expect route-alias-args "$(string join ' ' -- $rw[4..-1])" ''
+set -l rw2 (_psc_route 'wrap tool --')
+expect route-alias-dash-arg "$rw2[4]" --
+set -l rl (_psc_route 'wrap tool deep ')
+expect route-alias-longest-cmd "$rl[2]" other
+set -l rws (_psc_route 'sudo wrap tool ')
+expect route-alias-sudo-cmd "$rws[2]" other2
+expect route-alias-sudo-args "$(string join ' ' -- $rws[4..-1])" ''
 
 # The engine turns that last unfinished token into the menu's initial filter (`^text`), which is what makes `psc al<Tab>` open narrowed instead of listing the whole root.
 set -l rinp "$PSCOMPLETIONS_DATA_DIR/temp/menu/route-filter.json"

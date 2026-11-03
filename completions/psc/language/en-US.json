@@ -97,6 +97,10 @@
             {
               "cmd": "add scoop scoop.ps1",
               "desc": "Add scoop.ps1 trigger alias for scoop"
+            },
+            {
+              "cmd": "add vite \"npx vite\"",
+              "desc": "Add a trigger alias that contains a space: npx vite <Tab> uses vite's completion"
             }
           ]
         },
@@ -113,6 +117,10 @@
             {
               "cmd": "rm scoop scoop.ps1",
               "desc": "Remove scoop.ps1 trigger alias for scoop"
+            },
+            {
+              "cmd": "rm vite \"npx vite\"",
+              "desc": "Remove a trigger alias that contains a space: npx vite"
             }
           ]
         }

@@ -78,17 +78,32 @@ New-Variable -Name PSCompletions -Option Constant -Value @{
                 $shellTarget = (Get-Alias -Name ([System.Management.Automation.WildcardPattern]::Escape($first)) -ErrorAction SilentlyContinue).Definition -replace '\.(exe|cmd|bat)$', ''
                 if ($shellTarget) { $isSudo = $shellTarget -eq 'sudo' -or $PSCompletions.data.aliasMap[$shellTarget] -eq 'sudo' }
             }
-            if ($inputs.Count -gt 1 -and $isSudo) {
-                $wrapped = $inputs[1] -replace '\.(exe|cmd|bat)$', ''
-                if ($null -ne $PSCompletions.data.aliasMap[$wrapped]) { $inputs = @($inputs[1..($inputs.Count - 1)]) }
+            # A trigger alias is a token prefix (`npx vite` is one key), and the longest match wins, so a user-declared wrapper beats the wrapper's own completion.
+            # The word under the cursor is still being typed: it belongs to the next argument, never to an alias that ends on it.
+            $pending = $inputs[-1]
+            $hit = $null
+            $starts = if ($isSudo -and $inputs.Count -gt 1) { @(1, 0) } else { @(0) }
+            foreach ($s in $starts) {
+                for ($k = $inputs.Count - $s; $k -ge 1; $k--) {
+                    if ($s + $k -eq $inputs.Count -and -not $isSpaceTab) { continue }
+                    $words = @($inputs[$s..($s + $k - 1)])
+                    $words[0] = $words[0] -replace '\.(exe|cmd|bat)$', ''
+                    $key = $words -join ' '
+                    $cmdName = $PSCompletions.data.aliasMap[$key]
+                    if ($null -ne $cmdName) {
+                        # A longer match wins even across the `sudo` boundary; on a tie the wrapped command keeps today's precedence.
+                        if ($null -eq $hit -or $k -gt $hit.k) {
+                            $rest = if ($s + $k -lt $inputs.Count) { @($inputs[($s + $k)..($inputs.Count - 1)]) } else { @() }
+                            $hit = @{ cmd = $cmdName; tokens = @($key) + $rest; k = $k }
+                        }
+                        break
+                    }
+                }
             }
 
-            $alias = $inputs[0]
-            if ($null -eq $PSCompletions.data.aliasMap[$alias]) { $alias = $inputs[0] -replace '\.(exe|cmd|bat)$', '' }
-
-            if ($null -ne $PSCompletions.data.aliasMap[$alias] -and ($isSpaceTab -or ($inputs.Count -gt 1 -and $inputs[-1] -notmatch '^[''"]?(?:[A-Za-z]:[/\\]|(?:\.\.?|~)?[/\\]).*'))) {
-                $PSCompletions.cmd = $cmd = $PSCompletions.data.aliasMap[$alias]
-                $filter_list = $PSCompletions.get_completion($cmd, $inputs)
+            if ($hit -and ($isSpaceTab -or ($pending -notmatch '^[''"]?(?:[A-Za-z]:[/\\]|(?:\.\.?|~)?[/\\]).*'))) {
+                $PSCompletions.cmd = $cmd = $hit.cmd
+                $filter_list = $PSCompletions.get_completion($cmd, $hit.tokens)
                 $result = $PSCompletions.menu.show_module_menu($filter_list)
                 if ($result) {
                     # Only the word being edited is replaced: wordStart/wordEnd derive from the cursor position
@@ -96,7 +111,7 @@ New-Variable -Name PSCompletions -Option Constant -Value @{
                         $wordStart = $buffer.Length
                     }
                     else {
-                        $wordStart = $buffer.Length - [string]$inputs[-1].Length
+                        $wordStart = $buffer.Length - [string]$pending.Length
                     }
                     # Extend the word end only when the char after the cursor continues the word (space/quote/empty = new-word boundary)
                     $afterText = [string]$PSCompletions.buffer_after_cursor
@@ -122,15 +137,17 @@ New-Variable -Name PSCompletions -Option Constant -Value @{
                 $filter_list = $completion.CompletionMatches
                 if (!$filter_list) { return }
 
-                $PSCompletions.cmd = $cmd = $inputs[0]
+                # A matched alias still owns this line, so the native candidates rank against that completion and see its arguments.
+                $PSCompletions.cmd = $cmd = if ($hit) { $hit.cmd } else { $inputs[0] }
+                $nativeTokens = if ($hit) { $hit.tokens } else { @($inputs) }
                 # The native path's candidates are the host's; the pending word still tells the engine what to fill the filter with (it ignores a filter that matches nothing).
                 # The pending word can be the command word itself (`pyt<Tab>`): send the whole token list, the engine reads only its last element.
-                $PSCompletions.menu.arg_tokens = @($inputs)
+                $PSCompletions.menu.arg_tokens = @($nativeTokens)
                 $PSCompletions.menu.treat_last_as_complete = $buffer[-1] -eq ' '
                 if (![System.Management.Automation.WildcardPattern]::ContainsWildcardCharacters($cmd)) {
                     # Hand the raw input tokens to the engine: it decides whether the first token is still being completed (`g<Tab>`, `.\src\<Tab>`) and only then consults the shared global files (_commands.json / _paths.json).
                     # Once the command is complete (`npm <Tab>`) the candidates are its own subcommands.
-                    $filter_list = $PSCompletions.apply_completions_sort($cmd, $filter_list, $inputs, $PSCompletions.buffer_before_cursor[-1] -eq ' ')
+                    $filter_list = $PSCompletions.apply_completions_sort($cmd, $filter_list, $nativeTokens, $PSCompletions.buffer_before_cursor[-1] -eq ' ')
                 }
                 $result = $PSCompletions.menu.show_module_menu($filter_list)
                 if ($result) {
