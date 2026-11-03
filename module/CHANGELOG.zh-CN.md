@@ -7,6 +7,7 @@
 - bridge: 触发别名现在可以包含多个词，并按最长的前导词序列匹配
   - 你可以为 `vite` 添加 `npx vite` 作为触发别名: `psc alias add vite "npx vite"`
   - 则 `npx vite <Tab>` 会触发 `vite` 的补全而非 `npx` 的 `vite` 子命令补全
+- bridge: PowerShell 菜单异常退出时恢复完整的终端模式并清空已排队的输入
 
 ## 8.0.6
 

@@ -494,6 +494,9 @@ Refer to: https://pscompletions.abgox.com/docs/binary-not-found
         $menu = $PSCompletions.menu
         $config = $PSCompletions.config
         $rawUI = $Host.UI.RawUI
+        # The full mode set the engine turns on; a menu that dies cannot turn it off itself (design/bridge.md §13).
+        $esc = [char]27
+        $resetTerm = "$esc[?1006l$esc[?1003l$esc[?1002l$esc[?1000l$esc[?1015l$esc[?1049l$esc[?25h$esc[?2004l"
         $binary = $menu.menu_binary()
         if (!$binary) { return }
         if ($rawUI.BufferSize.Height -lt 5) {
@@ -674,11 +677,6 @@ Refer to: https://pscompletions.abgox.com/docs/binary-not-found
                 }
                 if ($stderrWatch.Elapsed.TotalSeconds -ge 30) {
                     try { $process.Kill() } catch { }
-                    try {
-                        $esc = [char]27
-                        [Console]::Out.Write("$esc[?1049l")
-                    }
-                    catch { }
                     $errorMsg = 'menu timed out'
                     $timedOut = $true
                     break
@@ -699,6 +697,11 @@ Refer to: https://pscompletions.abgox.com/docs/binary-not-found
             $errorMsg = $_.Exception.Message
         }
         finally {
+            # A killed or crashed menu leaves the engine's modes on; drop the input already queued on the tty too, or PSReadLine parses the mouse reports as VT sequences.
+            if ($errorMsg) {
+                try { [Console]::Out.Write($resetTerm) } catch { }
+                try { $rawUI.FlushInputBuffer() } catch { }
+            }
             # Restore the saved buffer region on every non-alternate exit.
             # When the menu reported a covered range, restore exactly that.
             # When it died abnormally (timeout / crash / missing result) it may have drawn content without reporting coverage — restore the whole saved region so no residue is left.
