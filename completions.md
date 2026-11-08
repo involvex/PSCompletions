@@ -158,6 +158,7 @@
 |[groups@GNU](https://www.gnu.org/software/coreutils/)|Print group memberships for each USERNAME or, if no USERNAME is specified, for the current process (which may differ if the groups database has changed).|
 |[groups@uutils](https://uutils.org)|Print group memberships for each USERNAME or, if no USERNAME is specified, for the current process (which may differ if the groups data‐base has changed).|
 |[gum](https://github.com/charmbracelet/gum)|A tool for glamorous shell scripts|
+|[gws](https://github.com/googleworkspace/cli)|Google Workspace CLI (gws).<br>Interact with Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more.|
 |[hashsum](https://github.com/uutils/coreutils)|Compute and check message digests.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
 |[head@GNU](https://www.gnu.org/software/coreutils/)|Print the first 10 lines of each FILE to standard output.|
 |[head@uutils](https://uutils.org)|Print the first 10 lines of each FILE to standard output.|

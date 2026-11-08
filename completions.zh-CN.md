@@ -158,6 +158,7 @@
 |[groups@GNU](https://www.gnu.org/software/coreutils/)|打印每个 USERNAME 所属的组；未指定 USERNAME 时打印当前进程所属的组（如果组数据库已变动，结果可能不同）。|
 |[groups@uutils](https://uutils.org)|打印每个 USERNAME 的组成员关系，未指定 USERNAME 则打印当前进程的|
 |[gum](https://github.com/charmbracelet/gum)|用于编写炫酷 Shell 脚本的工具|
+|[gws](https://github.com/googleworkspace/cli)|Google Workspace CLI (gws)。<br>与 Drive、Gmail、Calendar、Sheets、Docs、Chat、Admin 等交互。|
 |[hashsum](https://github.com/uutils/coreutils)|Compute and check message digests.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
 |[head@GNU](https://www.gnu.org/software/coreutils/)|把每个 FILE 的前 10 行打印到标准输出。|
 |[head@uutils](https://uutils.org)|输出每个文件的前 10 行到标准输出。|
