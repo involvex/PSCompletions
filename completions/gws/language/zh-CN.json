@@ -1,0 +1,560 @@
+{
+  "meta": {
+    "url": "https://github.com/googleworkspace/cli",
+    "description": [
+      "Google Workspace CLI (gws)。",
+      "与 Drive、Gmail、Calendar、Sheets、Docs、Chat、Admin 等交互。"
+    ]
+  },
+  "next": [
+    {
+      "name": "admin-reports",
+      "alias": [
+        "reports"
+      ],
+      "usage": [
+        "reports|admin-reports"
+      ],
+      "tip": [
+        "审计日志和使用情况报告。"
+      ]
+    },
+    {
+      "name": "auth",
+      "tip": [
+        "管理 Google Workspace API 的身份验证。"
+      ],
+      "next": [
+        {
+          "name": "export",
+          "tip": [
+            "将解密后的凭据输出到 stdout。"
+          ],
+          "option": [
+            {
+              "name": "--unmasked",
+              "tip": [
+                "显示未脱敏的密钥。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "usage": [
+            "help [COMMAND]"
+          ],
+          "tip": [
+            "显示 auth 或其子命令的帮助。"
+          ]
+        },
+        {
+          "name": "login",
+          "tip": [
+            "通过 OAuth2 进行身份验证 (打开浏览器)。"
+          ],
+          "option": [
+            {
+              "name": "--full",
+              "tip": [
+                "请求所有范围，包括 pubsub 和 cloud-platform。"
+              ]
+            },
+            {
+              "name": "--readonly",
+              "tip": [
+                "请求只读范围。"
+              ]
+            },
+            {
+              "name": "--scopes",
+              "usage": [
+                "--scopes <SCOPES>"
+              ],
+              "tip": [
+                "以逗号分隔的自定义范围。"
+              ],
+              "next": []
+            },
+            {
+              "name": "--services",
+              "alias": [
+                "-s"
+              ],
+              "usage": [
+                "-s, --services <SERVICES,...>"
+              ],
+              "tip": [
+                "以逗号分隔的服务名称，用于限制范围选择器 (例如 drive,gmail,sheets)。"
+              ],
+              "separator": ",",
+              "next": [
+                {
+                  "name": "admin-reports",
+                  "tip": [
+                    "Admin Reports 服务。"
+                  ]
+                },
+                {
+                  "name": "calendar",
+                  "tip": [
+                    "Calendar 服务。"
+                  ]
+                },
+                {
+                  "name": "chat",
+                  "tip": [
+                    "Chat 服务。"
+                  ]
+                },
+                {
+                  "name": "classroom",
+                  "tip": [
+                    "Classroom 服务。"
+                  ]
+                },
+                {
+                  "name": "docs",
+                  "tip": [
+                    "Docs 服务。"
+                  ]
+                },
+                {
+                  "name": "drive",
+                  "tip": [
+                    "Drive 服务。"
+                  ]
+                },
+                {
+                  "name": "events",
+                  "tip": [
+                    "Events 服务。"
+                  ]
+                },
+                {
+                  "name": "forms",
+                  "tip": [
+                    "Forms 服务。"
+                  ]
+                },
+                {
+                  "name": "gmail",
+                  "tip": [
+                    "Gmail 服务。"
+                  ]
+                },
+                {
+                  "name": "keep",
+                  "tip": [
+                    "Keep 服务。"
+                  ]
+                },
+                {
+                  "name": "meet",
+                  "tip": [
+                    "Meet 服务。"
+                  ]
+                },
+                {
+                  "name": "modelarmor",
+                  "tip": [
+                    "Model Armor 服务。"
+                  ]
+                },
+                {
+                  "name": "people",
+                  "tip": [
+                    "People 服务。"
+                  ]
+                },
+                {
+                  "name": "script",
+                  "tip": [
+                    "Apps Script 服务。"
+                  ]
+                },
+                {
+                  "name": "sheets",
+                  "tip": [
+                    "Sheets 服务。"
+                  ]
+                },
+                {
+                  "name": "slides",
+                  "tip": [
+                    "Slides 服务。"
+                  ]
+                },
+                {
+                  "name": "tasks",
+                  "tip": [
+                    "Tasks 服务。"
+                  ]
+                },
+                {
+                  "name": "workflow",
+                  "tip": [
+                    "Workflow 辅助命令。"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "logout",
+          "tip": [
+            "清除已保存的凭据和令牌缓存。"
+          ]
+        },
+        {
+          "name": "setup",
+          "tip": [
+            "配置 GCP 项目和 OAuth 客户端 (需要 gcloud)。"
+          ],
+          "option": [
+            {
+              "name": "--dry-run",
+              "tip": [
+                "预览更改但不实际执行。"
+              ]
+            },
+            {
+              "name": "--login",
+              "tip": [
+                "设置成功后运行 gws auth login。"
+              ]
+            },
+            {
+              "name": "--project",
+              "usage": [
+                "--project <ID>"
+              ],
+              "tip": [
+                "使用指定的 GCP 项目。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "status",
+          "tip": [
+            "显示当前身份验证状态。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "tip": [
+        "管理日历和活动。"
+      ]
+    },
+    {
+      "name": "chat",
+      "tip": [
+        "管理 Chat 空间和消息。"
+      ]
+    },
+    {
+      "name": "classroom",
+      "tip": [
+        "管理班级、名单和课业。"
+      ]
+    },
+    {
+      "name": "docs",
+      "tip": [
+        "读取和写入 Google 文档。"
+      ]
+    },
+    {
+      "name": "drive",
+      "tip": [
+        "管理文件、文件夹和共享云端硬盘。"
+      ]
+    },
+    {
+      "name": "events",
+      "tip": [
+        "订阅 Google Workspace 事件。"
+      ]
+    },
+    {
+      "name": "forms",
+      "tip": [
+        "读取和写入 Google 表单。"
+      ]
+    },
+    {
+      "name": "gmail",
+      "tip": [
+        "发送、读取和管理电子邮件。"
+      ]
+    },
+    {
+      "name": "keep",
+      "tip": [
+        "管理 Google Keep 笔记。"
+      ]
+    },
+    {
+      "name": "meet",
+      "tip": [
+        "管理 Google Meet 会议。"
+      ]
+    },
+    {
+      "name": "modelarmor",
+      "tip": [
+        "过滤用户生成内容以确保安全。"
+      ]
+    },
+    {
+      "name": "people",
+      "tip": [
+        "管理联系人和个人资料。"
+      ]
+    },
+    {
+      "name": "schema",
+      "usage": [
+        "schema <SERVICE.RESOURCE.METHOD>"
+      ],
+      "tip": [
+        "检查服务、资源或方法的 API 架构。"
+      ],
+      "option": [
+        {
+          "name": "--resolve-refs",
+          "tip": [
+            "解析架构输出中的 $ref 引用。"
+          ]
+        }
+      ],
+      "next": [
+        {
+          "name": "calendar.events.list",
+          "tip": [
+            "列出日历活动。"
+          ]
+        },
+        {
+          "name": "drive.files.get",
+          "tip": [
+            "获取 Drive 文件元数据。"
+          ]
+        },
+        {
+          "name": "drive.files.list",
+          "tip": [
+            "列出 Drive 文件。"
+          ]
+        },
+        {
+          "name": "gmail.users.messages.list",
+          "tip": [
+            "列出 Gmail 消息。"
+          ]
+        },
+        {
+          "name": "sheets.spreadsheets.get",
+          "tip": [
+            "获取电子表格。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "script",
+      "tip": [
+        "管理 Google Apps Script 项目。"
+      ]
+    },
+    {
+      "name": "sheets",
+      "tip": [
+        "读取和写入电子表格。"
+      ]
+    },
+    {
+      "name": "slides",
+      "tip": [
+        "读取和写入演示文稿。"
+      ]
+    },
+    {
+      "name": "tasks",
+      "tip": [
+        "管理任务列表和任务。"
+      ]
+    },
+    {
+      "name": "workflow",
+      "alias": [
+        "wf"
+      ],
+      "usage": [
+        "wf|workflow"
+      ],
+      "tip": [
+        "跨服务生产力工作流。"
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--api-version",
+      "usage": [
+        "--api-version <VER>"
+      ],
+      "tip": [
+        "覆盖 API 版本 (例如 v2、v3)。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--format",
+      "usage": [
+        "--format <FMT>"
+      ],
+      "tip": [
+        "输出格式。",
+        "可能值: csv, json, table, yaml",
+        "默认: json。"
+      ],
+      "next": [
+        {
+          "name": "csv",
+          "tip": [
+            "CSV 输出。"
+          ]
+        },
+        {
+          "name": "json",
+          "tip": [
+            "JSON 输出 (默认)。"
+          ]
+        },
+        {
+          "name": "table",
+          "tip": [
+            "表格输出。"
+          ]
+        },
+        {
+          "name": "yaml",
+          "tip": [
+            "YAML 输出。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--json",
+      "usage": [
+        "--json <JSON>"
+      ],
+      "tip": [
+        "以 JSON 形式提供请求正文 (POST、PATCH、PUT)。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--output",
+      "usage": [
+        "--output <PATH>"
+      ],
+      "tip": [
+        "二进制响应的输出文件路径。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--page-all",
+      "tip": [
+        "自动分页，每页输出一行 JSON (NDJSON)。"
+      ]
+    },
+    {
+      "name": "--page-delay",
+      "usage": [
+        "--page-delay <MS>"
+      ],
+      "tip": [
+        "使用 --page-all 时分页之间的延迟 (毫秒)。",
+        "默认: 100。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--page-limit",
+      "usage": [
+        "--page-limit <N>"
+      ],
+      "tip": [
+        "使用 --page-all 时获取的最大页数。",
+        "默认: 10。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--params",
+      "usage": [
+        "--params <JSON>"
+      ],
+      "tip": [
+        "以 JSON 形式提供 URL 或查询参数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--upload",
+      "usage": [
+        "--upload <PATH>"
+      ],
+      "tip": [
+        "作为媒体内容上传的本地文件 (multipart)。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--upload-content-type",
+      "usage": [
+        "--upload-content-type <MIME>"
+      ],
+      "tip": [
+        "上传文件的 MIME 类型。",
+        "省略时根据扩展名自动检测。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示版本。"
+      ]
+    }
+  ],
+  "global_option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示帮助。"
+      ]
+    }
+  ]
+}

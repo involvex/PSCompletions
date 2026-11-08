@@ -1,0 +1,560 @@
+{
+  "meta": {
+    "url": "https://github.com/googleworkspace/cli",
+    "description": [
+      "Google Workspace CLI (gws).",
+      "Interact with Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more."
+    ]
+  },
+  "next": [
+    {
+      "name": "admin-reports",
+      "alias": [
+        "reports"
+      ],
+      "usage": [
+        "reports|admin-reports"
+      ],
+      "tip": [
+        "Audit logs and usage reports."
+      ]
+    },
+    {
+      "name": "auth",
+      "tip": [
+        "Manage authentication for Google Workspace APIs."
+      ],
+      "next": [
+        {
+          "name": "export",
+          "tip": [
+            "Print decrypted credentials to stdout."
+          ],
+          "option": [
+            {
+              "name": "--unmasked",
+              "tip": [
+                "Show secrets without masking."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "usage": [
+            "help [COMMAND]"
+          ],
+          "tip": [
+            "Print help for auth or an auth subcommand."
+          ]
+        },
+        {
+          "name": "login",
+          "tip": [
+            "Authenticate via OAuth2 (opens browser)."
+          ],
+          "option": [
+            {
+              "name": "--full",
+              "tip": [
+                "Request all scopes including pubsub and cloud-platform."
+              ]
+            },
+            {
+              "name": "--readonly",
+              "tip": [
+                "Request read-only scopes."
+              ]
+            },
+            {
+              "name": "--scopes",
+              "usage": [
+                "--scopes <SCOPES>"
+              ],
+              "tip": [
+                "Comma-separated custom scopes."
+              ],
+              "next": []
+            },
+            {
+              "name": "--services",
+              "alias": [
+                "-s"
+              ],
+              "usage": [
+                "-s, --services <SERVICES,...>"
+              ],
+              "tip": [
+                "Comma-separated service names to limit the scope picker (e.g., drive,gmail,sheets)."
+              ],
+              "separator": ",",
+              "next": [
+                {
+                  "name": "admin-reports",
+                  "tip": [
+                    "Admin Reports service."
+                  ]
+                },
+                {
+                  "name": "calendar",
+                  "tip": [
+                    "Calendar service."
+                  ]
+                },
+                {
+                  "name": "chat",
+                  "tip": [
+                    "Chat service."
+                  ]
+                },
+                {
+                  "name": "classroom",
+                  "tip": [
+                    "Classroom service."
+                  ]
+                },
+                {
+                  "name": "docs",
+                  "tip": [
+                    "Docs service."
+                  ]
+                },
+                {
+                  "name": "drive",
+                  "tip": [
+                    "Drive service."
+                  ]
+                },
+                {
+                  "name": "events",
+                  "tip": [
+                    "Events service."
+                  ]
+                },
+                {
+                  "name": "forms",
+                  "tip": [
+                    "Forms service."
+                  ]
+                },
+                {
+                  "name": "gmail",
+                  "tip": [
+                    "Gmail service."
+                  ]
+                },
+                {
+                  "name": "keep",
+                  "tip": [
+                    "Keep service."
+                  ]
+                },
+                {
+                  "name": "meet",
+                  "tip": [
+                    "Meet service."
+                  ]
+                },
+                {
+                  "name": "modelarmor",
+                  "tip": [
+                    "Model Armor service."
+                  ]
+                },
+                {
+                  "name": "people",
+                  "tip": [
+                    "People service."
+                  ]
+                },
+                {
+                  "name": "script",
+                  "tip": [
+                    "Apps Script service."
+                  ]
+                },
+                {
+                  "name": "sheets",
+                  "tip": [
+                    "Sheets service."
+                  ]
+                },
+                {
+                  "name": "slides",
+                  "tip": [
+                    "Slides service."
+                  ]
+                },
+                {
+                  "name": "tasks",
+                  "tip": [
+                    "Tasks service."
+                  ]
+                },
+                {
+                  "name": "workflow",
+                  "tip": [
+                    "Workflow helpers."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "logout",
+          "tip": [
+            "Clear saved credentials and token cache."
+          ]
+        },
+        {
+          "name": "setup",
+          "tip": [
+            "Configure a GCP project and OAuth client (requires gcloud)."
+          ],
+          "option": [
+            {
+              "name": "--dry-run",
+              "tip": [
+                "Preview changes without making them."
+              ]
+            },
+            {
+              "name": "--login",
+              "tip": [
+                "Run gws auth login after successful setup."
+              ]
+            },
+            {
+              "name": "--project",
+              "usage": [
+                "--project <ID>"
+              ],
+              "tip": [
+                "Use a specific GCP project."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "status",
+          "tip": [
+            "Show current authentication state."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "tip": [
+        "Manage calendars and events."
+      ]
+    },
+    {
+      "name": "chat",
+      "tip": [
+        "Manage Chat spaces and messages."
+      ]
+    },
+    {
+      "name": "classroom",
+      "tip": [
+        "Manage classes, rosters, and coursework."
+      ]
+    },
+    {
+      "name": "docs",
+      "tip": [
+        "Read and write Google Docs."
+      ]
+    },
+    {
+      "name": "drive",
+      "tip": [
+        "Manage files, folders, and shared drives."
+      ]
+    },
+    {
+      "name": "events",
+      "tip": [
+        "Subscribe to Google Workspace events."
+      ]
+    },
+    {
+      "name": "forms",
+      "tip": [
+        "Read and write Google Forms."
+      ]
+    },
+    {
+      "name": "gmail",
+      "tip": [
+        "Send, read, and manage email."
+      ]
+    },
+    {
+      "name": "keep",
+      "tip": [
+        "Manage Google Keep notes."
+      ]
+    },
+    {
+      "name": "meet",
+      "tip": [
+        "Manage Google Meet conferences."
+      ]
+    },
+    {
+      "name": "modelarmor",
+      "tip": [
+        "Filter user-generated content for safety."
+      ]
+    },
+    {
+      "name": "people",
+      "tip": [
+        "Manage contacts and profiles."
+      ]
+    },
+    {
+      "name": "schema",
+      "usage": [
+        "schema <SERVICE.RESOURCE.METHOD>"
+      ],
+      "tip": [
+        "Inspect the API schema for a service, resource, or method."
+      ],
+      "option": [
+        {
+          "name": "--resolve-refs",
+          "tip": [
+            "Resolve $ref references in the schema output."
+          ]
+        }
+      ],
+      "next": [
+        {
+          "name": "calendar.events.list",
+          "tip": [
+            "List calendar events."
+          ]
+        },
+        {
+          "name": "drive.files.get",
+          "tip": [
+            "Get Drive file metadata."
+          ]
+        },
+        {
+          "name": "drive.files.list",
+          "tip": [
+            "List Drive files."
+          ]
+        },
+        {
+          "name": "gmail.users.messages.list",
+          "tip": [
+            "List Gmail messages."
+          ]
+        },
+        {
+          "name": "sheets.spreadsheets.get",
+          "tip": [
+            "Get a spreadsheet."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "script",
+      "tip": [
+        "Manage Google Apps Script projects."
+      ]
+    },
+    {
+      "name": "sheets",
+      "tip": [
+        "Read and write spreadsheets."
+      ]
+    },
+    {
+      "name": "slides",
+      "tip": [
+        "Read and write presentations."
+      ]
+    },
+    {
+      "name": "tasks",
+      "tip": [
+        "Manage task lists and tasks."
+      ]
+    },
+    {
+      "name": "workflow",
+      "alias": [
+        "wf"
+      ],
+      "usage": [
+        "wf|workflow"
+      ],
+      "tip": [
+        "Cross-service productivity workflows."
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--api-version",
+      "usage": [
+        "--api-version <VER>"
+      ],
+      "tip": [
+        "Override the API version (e.g., v2, v3)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--format",
+      "usage": [
+        "--format <FMT>"
+      ],
+      "tip": [
+        "Output format.",
+        "Possible values: csv, json, table, yaml",
+        "Default: json."
+      ],
+      "next": [
+        {
+          "name": "csv",
+          "tip": [
+            "CSV output."
+          ]
+        },
+        {
+          "name": "json",
+          "tip": [
+            "JSON output (default)."
+          ]
+        },
+        {
+          "name": "table",
+          "tip": [
+            "Table output."
+          ]
+        },
+        {
+          "name": "yaml",
+          "tip": [
+            "YAML output."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--json",
+      "usage": [
+        "--json <JSON>"
+      ],
+      "tip": [
+        "Request body as JSON (POST, PATCH, PUT)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--output",
+      "usage": [
+        "--output <PATH>"
+      ],
+      "tip": [
+        "Output file path for binary responses."
+      ],
+      "next": []
+    },
+    {
+      "name": "--page-all",
+      "tip": [
+        "Auto-paginate, one JSON line per page (NDJSON)."
+      ]
+    },
+    {
+      "name": "--page-delay",
+      "usage": [
+        "--page-delay <MS>"
+      ],
+      "tip": [
+        "Delay between pages in milliseconds with --page-all.",
+        "Default: 100."
+      ],
+      "next": []
+    },
+    {
+      "name": "--page-limit",
+      "usage": [
+        "--page-limit <N>"
+      ],
+      "tip": [
+        "Maximum pages to fetch with --page-all.",
+        "Default: 10."
+      ],
+      "next": []
+    },
+    {
+      "name": "--params",
+      "usage": [
+        "--params <JSON>"
+      ],
+      "tip": [
+        "URL or query parameters as JSON."
+      ],
+      "next": []
+    },
+    {
+      "name": "--upload",
+      "usage": [
+        "--upload <PATH>"
+      ],
+      "tip": [
+        "Local file to upload as media content (multipart)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--upload-content-type",
+      "usage": [
+        "--upload-content-type <MIME>"
+      ],
+      "tip": [
+        "MIME type of the uploaded file.",
+        "Auto-detected from extension if omitted."
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Show the version."
+      ]
+    }
+  ],
+  "global_option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show help."
+      ]
+    }
+  ]
+}
