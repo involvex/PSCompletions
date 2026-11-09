@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "url": "https://github.com/sysstat/sysstat",
+    "description": [
+      "Report CIFS statistics."
+    ]
+  },
+  "option": [
+    {
+      "name": "--dec",
+      "usage": [
+        "--dec={0|1|2}"
+      ],
+      "tip": [
+        "Set the decimal precision."
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        },
+        {
+          "name": "2"
+        }
+      ]
+    },
+    {
+      "name": "--human",
+      "tip": [
+        "Print sizes in human-readable format."
+      ]
+    },
+    {
+      "name": "--pretty",
+      "tip": [
+        "Pretty-print JSON output."
+      ]
+    },
+    {
+      "name": "-h",
+      "tip": [
+        "Print sizes in human-readable format."
+      ]
+    },
+    {
+      "name": "-H",
+      "tip": [
+        "Display the timestamp in ISO format."
+      ]
+    },
+    {
+      "name": "-k",
+      "tip": [
+        "Display sizes in kilobytes."
+      ]
+    },
+    {
+      "name": "-m",
+      "tip": [
+        "Display sizes in megabytes."
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o JSON"
+      ],
+      "tip": [
+        "Output in JSON format."
+      ],
+      "next": [
+        {
+          "name": "JSON"
+        }
+      ]
+    },
+    {
+      "name": "-t",
+      "tip": [
+        "Display timestamps."
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "Print version information."
+      ]
+    }
+  ]
+}

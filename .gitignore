@@ -1,20 +1,39 @@
-/test
+# The operator's plans and scratch notes.
 /todo
-/*.ps1
-/.prettierignore
-$null
-/.cline/
-/.kilo/
-INTEGRATION_PLAN.md
-aliases.html
-firebase-debug.log
-node_modules/
 
+# Ad-hoc PowerShell typed at the repo root; the real scripts live in scripts/.
+/*.ps1
+
+# WIP/ is deliberately absent: R-20 keeps per-task working files visible in the tree.
+
+# Cargo build output.
 /core/target
 
-/completions/*@local/
-
+# The engine binaries.
 /module/PSCompletions/bin
+
+# Local draft completions, marked aaa@local (see authoring/manifest.md).
+/completions/*@local
+
+# Editor, OS and local environment.
+.DS_Store
+.idea/
+
+# Local environment.
+.env
+.envrc
+
+# scripts/bridge/test-pgrp.py runs under python3.
+__pycache__/
+*.py[codz]
+*$py.class
+
+# Local IDE state and scratch.
+/.cline/
+/.kilo/
+node_modules/
+
+# Local module data (built index, runtime state, linked completions).
 /module/PSCompletions/data
 /module/PSCompletions/data.json
 /module/PSCompletions/temp

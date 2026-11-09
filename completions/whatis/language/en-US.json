@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/man-db/man-db",
+    "description": [
+      "Display one-line manual page descriptions."
+    ]
+  },
+  "option": [
+    {
+      "name": "--config-file",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --config-file=FILE"
+      ],
+      "tip": [
+        "Use this user configuration file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "Emit debugging messages."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "Give this help list."
+      ]
+    },
+    {
+      "name": "--locale",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --locale=LOCALE"
+      ],
+      "tip": [
+        "Define the locale for this search."
+      ],
+      "next": []
+    },
+    {
+      "name": "--long",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --long"
+      ],
+      "tip": [
+        "Do not trim output to terminal width."
+      ]
+    },
+    {
+      "name": "--manpath",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --manpath=PATH"
+      ],
+      "tip": [
+        "Set the manual page search path."
+      ],
+      "next": []
+    },
+    {
+      "name": "--regex",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --regex"
+      ],
+      "tip": [
+        "Interpret each keyword as a regex."
+      ]
+    },
+    {
+      "name": "--sections",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --sections=LIST"
+      ],
+      "tip": [
+        "Search only these sections (colon-separated)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--systems",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --systems=SYSTEM"
+      ],
+      "tip": [
+        "Use manual pages from other systems."
+      ],
+      "next": []
+    },
+    {
+      "name": "--usage",
+      "tip": [
+        "Give a short usage message."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Print verbose warning messages."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Print program version."
+      ]
+    },
+    {
+      "name": "--wildcard",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --wildcard"
+      ],
+      "tip": [
+        "The keywords contain wildcards."
+      ]
+    }
+  ]
+}

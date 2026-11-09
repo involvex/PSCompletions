@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "报告 ext2/ext3/ext4 文件系统的可用空间碎片情况。"
+    ]
+  },
+  "option": [
+    {
+      "name": "-c",
+      "usage": [
+        "-c chunk_kb"
+      ],
+      "tip": [
+        "以千字节为单位报告此大小的空闲块。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-h",
+      "tip": [
+        "打印程序用法。"
+      ]
+    }
+  ]
+}

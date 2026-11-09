@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "对 ext4 文件系统进行碎片整理。"
+    ]
+  },
+  "option": [
+    {
+      "name": "-c",
+      "tip": [
+        "获取当前和理想碎片数以及由此计算的分数。"
+      ]
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "打印错误以及每个文件整理前后的碎片数。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "url": "https://git.kernel.org/pub/scm/utils/mdadm/mdadm.git",
+    "description": [
+      "监视 MD 外部元数据阵列。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--all",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --all"
+      ],
+      "tip": [
+        "监视所有活动容器。"
+      ]
+    },
+    {
+      "name": "--foreground",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --foreground"
+      ],
+      "tip": [
+        "在前台运行而不派生。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--takeover",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --takeover"
+      ],
+      "tip": [
+        "替换正在监视阵列的活动 mdmon。"
+      ]
+    }
+  ]
+}

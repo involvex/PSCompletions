@@ -1,0 +1,383 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/lvmteam/lvm2",
+    "description": [
+      "List all physical volumes"
+    ]
+  },
+  "option": [
+    {
+      "name": "--activate",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --activate y|n|ay"
+      ],
+      "tip": [
+        "Auto-activate LVs in a VG when the PVs scanned have completed the VG."
+      ],
+      "next": [
+        {
+          "name": "ay"
+        },
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--allpvs",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --allpvs"
+      ],
+      "tip": [
+        "Show information about PVs outside the devices file."
+      ]
+    },
+    {
+      "name": "--autoactivation",
+      "usage": [
+        "--autoactivation String"
+      ],
+      "tip": [
+        "Specify if autoactivation is being used from an event."
+      ],
+      "next": []
+    },
+    {
+      "name": "--cache",
+      "tip": [
+        "Scan one or more devices and record that they are online."
+      ]
+    },
+    {
+      "name": "--checkcomplete",
+      "tip": [
+        "Check if all the devices used by a VG or LV are present, and print \"complete\" or \"incomplete\" for each listed VG or LV."
+      ]
+    },
+    {
+      "name": "--commandprofile",
+      "usage": [
+        "--commandprofile String"
+      ],
+      "tip": [
+        "The command profile to use for command configuration."
+      ],
+      "next": []
+    },
+    {
+      "name": "--config",
+      "usage": [
+        "--config String"
+      ],
+      "tip": [
+        "Config settings for the command."
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "Set debug level."
+      ],
+      "repeat": 6
+    },
+    {
+      "name": "--devices",
+      "usage": [
+        "--devices PV"
+      ],
+      "tip": [
+        "Restricts the devices that are visible and accessible to the command."
+      ],
+      "repeat": 99,
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--devicesfile",
+      "usage": [
+        "--devicesfile String"
+      ],
+      "tip": [
+        "A file listing devices that LVM should use."
+      ],
+      "next": []
+    },
+    {
+      "name": "--driverloaded",
+      "usage": [
+        "--driverloaded y|n"
+      ],
+      "tip": [
+        "If set to no, the command will not attempt to use device-mapper."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--exported",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --exported"
+      ],
+      "tip": [
+        "Only show PVs belonging to exported VGs."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display help text."
+      ]
+    },
+    {
+      "name": "--ignorelockingfailure",
+      "tip": [
+        "Allows a command to continue with read-only metadata operations after locking failures."
+      ]
+    },
+    {
+      "name": "--journal",
+      "usage": [
+        "--journal String"
+      ],
+      "tip": [
+        "Record information in the systemd journal."
+      ],
+      "next": []
+    },
+    {
+      "name": "--listlvs",
+      "tip": [
+        "Print a list of LVs that use the device."
+      ]
+    },
+    {
+      "name": "--listvg",
+      "tip": [
+        "Print the VG that uses the device."
+      ]
+    },
+    {
+      "name": "--lockopt",
+      "usage": [
+        "--lockopt String"
+      ],
+      "tip": [
+        "Used to pass options for special cases to lvmlockd."
+      ],
+      "next": []
+    },
+    {
+      "name": "--longhelp",
+      "tip": [
+        "Display long help text."
+      ]
+    },
+    {
+      "name": "--major",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --major Number"
+      ],
+      "tip": [
+        "The major number of a device."
+      ],
+      "next": []
+    },
+    {
+      "name": "--minor",
+      "usage": [
+        "--minor Number"
+      ],
+      "tip": [
+        "The minor number of a device."
+      ],
+      "next": []
+    },
+    {
+      "name": "--nohints",
+      "tip": [
+        "Do not use the hints file to locate devices for PVs."
+      ]
+    },
+    {
+      "name": "--nolocking",
+      "tip": [
+        "Disable locking."
+      ]
+    },
+    {
+      "name": "--noudevsync",
+      "tip": [
+        "Disables udev synchronization."
+      ]
+    },
+    {
+      "name": "--novolumegroup",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --novolumegroup"
+      ],
+      "tip": [
+        "Only show PVs not belonging to any VG."
+      ]
+    },
+    {
+      "name": "--profile",
+      "usage": [
+        "--profile String"
+      ],
+      "tip": [
+        "An alias for --commandprofile or --metadataprofile, depending on the command."
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "Suppress output and log messages."
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--reportformat",
+      "usage": [
+        "--reportformat basic|json|json_std"
+      ],
+      "tip": [
+        "Overrides current output format for reports which is defined globally by the report/output_format setting in lvm.conf(5)."
+      ],
+      "next": [
+        {
+          "name": "basic"
+        },
+        {
+          "name": "json"
+        },
+        {
+          "name": "json_std"
+        }
+      ]
+    },
+    {
+      "name": "--short",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --short"
+      ],
+      "tip": [
+        "Short listing format."
+      ]
+    },
+    {
+      "name": "--test",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --test"
+      ],
+      "tip": [
+        "Run in test mode."
+      ]
+    },
+    {
+      "name": "--udevoutput",
+      "tip": [
+        "Command output is modified to be imported from a udev rule."
+      ]
+    },
+    {
+      "name": "--uuid",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --uuid String"
+      ],
+      "tip": [
+        "Show UUIDs in addition to device names."
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Set verbose level."
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Display version information."
+      ]
+    },
+    {
+      "name": "--vgonline",
+      "tip": [
+        "The first command to see a complete VG will report it uniquely."
+      ]
+    },
+    {
+      "name": "--yes",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --yes"
+      ],
+      "tip": [
+        "Do not prompt for confirmation interactively but always assume the answer yes."
+      ]
+    }
+  ]
+}

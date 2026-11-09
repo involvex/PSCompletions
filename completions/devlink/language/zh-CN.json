@@ -1,0 +1,2160 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "Devlink 工具。"
+    ]
+  },
+  "next": [
+    {
+      "name": "dev",
+      "tip": [
+        "Devlink 设备管理。"
+      ],
+      "next": [
+        {
+          "name": "eswitch",
+          "tip": [
+            "管理 eswitch 模式。"
+          ],
+          "next": [
+            {
+              "name": "set",
+              "usage": [
+                "set DEV [ mode { legacy | switchdev } ] [ inline-mode { none | link | network | transport } ] [ encap-mode { none | basic } ]"
+              ],
+              "tip": [
+                "设置 eswitch 模式。"
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "设备名。"
+                  ]
+                },
+                {
+                  "name": "encap-mode",
+                  "usage": [
+                    "encap-mode {none|basic}"
+                  ],
+                  "tip": [
+                    "封装模式。"
+                  ],
+                  "next": [
+                    {
+                      "name": "basic"
+                    },
+                    {
+                      "name": "none"
+                    }
+                  ]
+                },
+                {
+                  "name": "inline-mode",
+                  "usage": [
+                    "inline-mode {none|link|network|transport}"
+                  ],
+                  "tip": [
+                    "内联模式。"
+                  ],
+                  "next": [
+                    {
+                      "name": "link"
+                    },
+                    {
+                      "name": "network"
+                    },
+                    {
+                      "name": "none"
+                    },
+                    {
+                      "name": "transport"
+                    }
+                  ]
+                },
+                {
+                  "name": "mode",
+                  "usage": [
+                    "mode {legacy|switchdev}"
+                  ],
+                  "tip": [
+                    "eswitch 模式。"
+                  ],
+                  "next": [
+                    {
+                      "name": "legacy"
+                    },
+                    {
+                      "name": "switchdev"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "usage": [
+                "show DEV"
+              ],
+              "tip": [
+                "显示 eswitch 模式。"
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "设备名。"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 dev 帮助。"
+          ]
+        },
+        {
+          "name": "info",
+          "usage": [
+            "info [ DEV ]"
+          ],
+          "tip": [
+            "显示设备信息。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "param",
+          "tip": [
+            "管理设备参数。"
+          ],
+          "next": [
+            {
+              "name": "set",
+              "usage": [
+                "set DEV name PARAMETER value VALUE cmode { runtime | driverinit | permanent }"
+              ],
+              "tip": [
+                "设置设备参数。"
+              ],
+              "option": [
+                {
+                  "name": "cmode",
+                  "usage": [
+                    "cmode {runtime|driverinit|permanent}"
+                  ],
+                  "tip": [
+                    "配置模式。"
+                  ],
+                  "next": [
+                    {
+                      "name": "driverinit"
+                    },
+                    {
+                      "name": "permanent"
+                    },
+                    {
+                      "name": "runtime"
+                    }
+                  ]
+                },
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "设备名。"
+                  ]
+                },
+                {
+                  "name": "name",
+                  "usage": [
+                    "name PARAMETER"
+                  ],
+                  "tip": [
+                    "参数名。"
+                  ]
+                },
+                {
+                  "name": "value",
+                  "usage": [
+                    "value VALUE"
+                  ],
+                  "tip": [
+                    "参数值。"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "usage": [
+                "show [ DEV name PARAMETER ]"
+              ],
+              "tip": [
+                "显示设备参数。"
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "设备名。"
+                  ]
+                },
+                {
+                  "name": "name",
+                  "usage": [
+                    "name PARAMETER"
+                  ],
+                  "tip": [
+                    "参数名。"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "reload",
+          "usage": [
+            "reload DEV [ netns { PID | NAME | ID } ] [ action { driver_reinit | fw_activate } ] [ limit no_reset ]"
+          ],
+          "tip": [
+            "重新加载设备。"
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action {driver_reinit|fw_activate}"
+              ],
+              "tip": [
+                "重载动作。"
+              ],
+              "next": [
+                {
+                  "name": "driver_reinit"
+                },
+                {
+                  "name": "fw_activate"
+                }
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "limit",
+              "usage": [
+                "limit no_reset"
+              ],
+              "tip": [
+                "重载限制。"
+              ],
+              "next": [
+                {
+                  "name": "no_reset"
+                }
+              ]
+            },
+            {
+              "name": "netns",
+              "usage": [
+                "netns {PID|NAME|ID}"
+              ],
+              "tip": [
+                "网络命名空间。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ DEV ]"
+          ],
+          "tip": [
+            "显示 devlink 设备。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "health",
+      "tip": [
+        "Devlink 报告与恢复。"
+      ],
+      "next": [
+        {
+          "name": "diagnose",
+          "usage": [
+            "diagnose { DEV | DEV/PORT_INDEX } reporter REPORTER"
+          ],
+          "tip": [
+            "诊断报告器。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "设备或端口索引。"
+              ]
+            },
+            {
+              "name": "reporter",
+              "usage": [
+                "reporter REPORTER"
+              ],
+              "tip": [
+                "健康报告器名称。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "dump",
+          "tip": [
+            "转储健康数据。"
+          ],
+          "next": [
+            {
+              "name": "clear",
+              "usage": [
+                "clear { DEV | DEV/PORT_INDEX } reporter REPORTER"
+              ],
+              "tip": [
+                "清除健康转储。"
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV/PORT_INDEX"
+                  ],
+                  "tip": [
+                    "设备或端口索引。"
+                  ]
+                },
+                {
+                  "name": "reporter",
+                  "usage": [
+                    "reporter REPORTER"
+                  ],
+                  "tip": [
+                    "健康报告器名称。"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "usage": [
+                "show { DEV | DEV/PORT_INDEX } reporter REPORTER"
+              ],
+              "tip": [
+                "显示健康转储。"
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV/PORT_INDEX"
+                  ],
+                  "tip": [
+                    "设备或端口索引。"
+                  ]
+                },
+                {
+                  "name": "reporter",
+                  "usage": [
+                    "reporter REPORTER"
+                  ],
+                  "tip": [
+                    "健康报告器名称。"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 health 帮助。"
+          ]
+        },
+        {
+          "name": "recover",
+          "usage": [
+            "recover { DEV | DEV/PORT_INDEX } reporter REPORTER"
+          ],
+          "tip": [
+            "恢复报告器。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "设备或端口索引。"
+              ]
+            },
+            {
+              "name": "reporter",
+              "usage": [
+                "reporter REPORTER"
+              ],
+              "tip": [
+                "健康报告器名称。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set { DEV | DEV/PORT_INDEX } reporter REPORTER [ grace_period MSEC ] [ auto_recover { true | false } ] [ auto_dump { true | false } ]"
+          ],
+          "tip": [
+            "配置报告器。"
+          ],
+          "option": [
+            {
+              "name": "auto_dump",
+              "usage": [
+                "auto_dump {true|false}"
+              ],
+              "tip": [
+                "自动转储。"
+              ],
+              "next": [
+                {
+                  "name": "false"
+                },
+                {
+                  "name": "true"
+                }
+              ]
+            },
+            {
+              "name": "auto_recover",
+              "usage": [
+                "auto_recover {true|false}"
+              ],
+              "tip": [
+                "自动恢复。"
+              ],
+              "next": [
+                {
+                  "name": "false"
+                },
+                {
+                  "name": "true"
+                }
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "设备或端口索引。"
+              ]
+            },
+            {
+              "name": "grace_period",
+              "usage": [
+                "grace_period MSEC"
+              ],
+              "tip": [
+                "宽限期。"
+              ]
+            },
+            {
+              "name": "reporter",
+              "usage": [
+                "reporter REPORTER"
+              ],
+              "tip": [
+                "健康报告器名称。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ { DEV | DEV/PORT_INDEX } reporter REPORTER ]"
+          ],
+          "tip": [
+            "显示健康报告器。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "设备或端口索引。"
+              ]
+            },
+            {
+              "name": "reporter",
+              "usage": [
+                "reporter REPORTER"
+              ],
+              "tip": [
+                "健康报告器名称。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "test",
+          "usage": [
+            "test { DEV | DEV/PORT_INDEX } reporter REPORTER"
+          ],
+          "tip": [
+            "测试报告器。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "设备或端口索引。"
+              ]
+            },
+            {
+              "name": "reporter",
+              "usage": [
+                "reporter REPORTER"
+              ],
+              "tip": [
+                "健康报告器名称。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "monitor",
+      "tip": [
+        "监视 netlink 消息。"
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 monitor 帮助。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "port",
+      "tip": [
+        "Devlink 端口管理。"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add { DEV | DEV/PORT_INDEX } [ flavour FLAVOUR ] [ pfnum PFNUMBER ] [ sfnum SFNUMBER ] [ controller CNUM ]"
+          ],
+          "tip": [
+            "添加端口。"
+          ],
+          "option": [
+            {
+              "name": "controller",
+              "usage": [
+                "controller CNUM"
+              ],
+              "tip": [
+                "控制器编号。"
+              ]
+            },
+            {
+              "name": "flavour",
+              "usage": [
+                "flavour FLAVOUR"
+              ],
+              "tip": [
+                "端口类型。"
+              ]
+            },
+            {
+              "name": "pfnum",
+              "usage": [
+                "pfnum PFNUMBER"
+              ],
+              "tip": [
+                "PF 编号。"
+              ]
+            },
+            {
+              "name": "sfnum",
+              "usage": [
+                "sfnum SFNUMBER"
+              ],
+              "tip": [
+                "SF 编号。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del DEV/PORT_INDEX"
+          ],
+          "tip": [
+            "删除端口。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "设备或端口索引。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "function",
+          "tip": [
+            "管理端口功能。"
+          ],
+          "next": [
+            {
+              "name": "set",
+              "usage": [
+                "set DEV/PORT_INDEX [ hw_addr ADDR ] [ state { active | inactive } ] [ roce { enable | disable } ] [ migratable { enable | disable } ] [ ipsec_crypto { enable | disable } ] [ ipsec_packet { enable | disable } ] [ max_io_eqs EQS ]"
+              ],
+              "tip": [
+                "设置端口功能属性。"
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV/PORT_INDEX"
+                  ],
+                  "tip": [
+                    "设备或端口索引。"
+                  ]
+                },
+                {
+                  "name": "hw_addr",
+                  "usage": [
+                    "hw_addr ADDR"
+                  ],
+                  "tip": [
+                    "硬件地址。"
+                  ]
+                },
+                {
+                  "name": "ipsec_crypto",
+                  "usage": [
+                    "ipsec_crypto {enable|disable}"
+                  ],
+                  "tip": [
+                    "IPsec 加密。"
+                  ],
+                  "next": [
+                    {
+                      "name": "disable"
+                    },
+                    {
+                      "name": "enable"
+                    }
+                  ]
+                },
+                {
+                  "name": "ipsec_packet",
+                  "usage": [
+                    "ipsec_packet {enable|disable}"
+                  ],
+                  "tip": [
+                    "IPsec 数据包。"
+                  ],
+                  "next": [
+                    {
+                      "name": "disable"
+                    },
+                    {
+                      "name": "enable"
+                    }
+                  ]
+                },
+                {
+                  "name": "max_io_eqs",
+                  "usage": [
+                    "max_io_eqs EQS"
+                  ],
+                  "tip": [
+                    "最大 I/O EQ 数。"
+                  ]
+                },
+                {
+                  "name": "migratable",
+                  "usage": [
+                    "migratable {enable|disable}"
+                  ],
+                  "tip": [
+                    "可迁移。"
+                  ],
+                  "next": [
+                    {
+                      "name": "disable"
+                    },
+                    {
+                      "name": "enable"
+                    }
+                  ]
+                },
+                {
+                  "name": "roce",
+                  "usage": [
+                    "roce {enable|disable}"
+                  ],
+                  "tip": [
+                    "RoCE。"
+                  ],
+                  "next": [
+                    {
+                      "name": "disable"
+                    },
+                    {
+                      "name": "enable"
+                    }
+                  ]
+                },
+                {
+                  "name": "state",
+                  "usage": [
+                    "state {active|inactive}"
+                  ],
+                  "tip": [
+                    "功能状态。"
+                  ],
+                  "next": [
+                    {
+                      "name": "active"
+                    },
+                    {
+                      "name": "inactive"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "health",
+          "tip": [
+            "管理端口健康。"
+          ],
+          "next": [
+            {
+              "name": "diagnose",
+              "usage": [
+                "diagnose { DEV | DEV/PORT_INDEX } reporter REPORTER"
+              ],
+              "tip": [
+                "诊断端口。"
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV/PORT_INDEX"
+                  ],
+                  "tip": [
+                    "设备或端口索引。"
+                  ]
+                },
+                {
+                  "name": "reporter",
+                  "usage": [
+                    "reporter REPORTER"
+                  ],
+                  "tip": [
+                    "健康报告器名称。"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "dump",
+              "usage": [
+                "dump { show | clear } { DEV | DEV/PORT_INDEX } reporter REPORTER"
+              ],
+              "tip": [
+                "转储或清除端口健康。"
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV/PORT_INDEX"
+                  ],
+                  "tip": [
+                    "设备或端口索引。"
+                  ]
+                },
+                {
+                  "name": "reporter",
+                  "usage": [
+                    "reporter REPORTER"
+                  ],
+                  "tip": [
+                    "健康报告器名称。"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "recover",
+              "usage": [
+                "recover { DEV | DEV/PORT_INDEX } reporter REPORTER"
+              ],
+              "tip": [
+                "恢复端口。"
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV/PORT_INDEX"
+                  ],
+                  "tip": [
+                    "设备或端口索引。"
+                  ]
+                },
+                {
+                  "name": "reporter",
+                  "usage": [
+                    "reporter REPORTER"
+                  ],
+                  "tip": [
+                    "健康报告器名称。"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "set",
+              "usage": [
+                "set { DEV | DEV/PORT_INDEX } reporter REPORTER [ grace_period MSEC ] [ auto_recover { true | false } ] [ auto_dump { true | false } ]"
+              ],
+              "tip": [
+                "配置端口健康。"
+              ],
+              "option": [
+                {
+                  "name": "auto_dump",
+                  "usage": [
+                    "auto_dump {true|false}"
+                  ],
+                  "tip": [
+                    "自动转储。"
+                  ],
+                  "next": [
+                    {
+                      "name": "false"
+                    },
+                    {
+                      "name": "true"
+                    }
+                  ]
+                },
+                {
+                  "name": "auto_recover",
+                  "usage": [
+                    "auto_recover {true|false}"
+                  ],
+                  "tip": [
+                    "自动恢复。"
+                  ],
+                  "next": [
+                    {
+                      "name": "false"
+                    },
+                    {
+                      "name": "true"
+                    }
+                  ]
+                },
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV/PORT_INDEX"
+                  ],
+                  "tip": [
+                    "设备或端口索引。"
+                  ]
+                },
+                {
+                  "name": "grace_period",
+                  "usage": [
+                    "grace_period MSEC"
+                  ],
+                  "tip": [
+                    "宽限期。"
+                  ]
+                },
+                {
+                  "name": "reporter",
+                  "usage": [
+                    "reporter REPORTER"
+                  ],
+                  "tip": [
+                    "健康报告器名称。"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "usage": [
+                "show [ DEV/PORT_INDEX reporter REPORTER ]"
+              ],
+              "tip": [
+                "显示端口健康。"
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV/PORT_INDEX"
+                  ],
+                  "tip": [
+                    "设备或端口索引。"
+                  ]
+                },
+                {
+                  "name": "reporter",
+                  "usage": [
+                    "reporter REPORTER"
+                  ],
+                  "tip": [
+                    "健康报告器名称。"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 port 帮助。"
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set DEV/PORT_INDEX [ type { eth | ib | auto } ]"
+          ],
+          "tip": [
+            "设置端口类型。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "设备或端口索引。"
+              ]
+            },
+            {
+              "name": "type",
+              "usage": [
+                "type {eth|ib|auto}"
+              ],
+              "tip": [
+                "端口类型。"
+              ],
+              "next": [
+                {
+                  "name": "auto"
+                },
+                {
+                  "name": "eth"
+                },
+                {
+                  "name": "ib"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ DEV/PORT_INDEX ]"
+          ],
+          "tip": [
+            "显示端口。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "设备或端口索引。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "split",
+          "usage": [
+            "split DEV/PORT_INDEX count COUNT"
+          ],
+          "tip": [
+            "拆分端口。"
+          ],
+          "option": [
+            {
+              "name": "count",
+              "usage": [
+                "count COUNT"
+              ],
+              "tip": [
+                "端口数量。"
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "设备或端口索引。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "unsplit",
+          "usage": [
+            "unsplit DEV/PORT_INDEX"
+          ],
+          "tip": [
+            "合并端口。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "设备或端口索引。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "region",
+      "tip": [
+        "Devlink 地址区域访问。"
+      ],
+      "next": [
+        {
+          "name": "del",
+          "usage": [
+            "del DEV/REGION snapshot SNAPSHOT_ID"
+          ],
+          "tip": [
+            "删除快照。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "设备或端口索引。"
+              ]
+            },
+            {
+              "name": "snapshot",
+              "usage": [
+                "snapshot SNAPSHOT_ID"
+              ],
+              "tip": [
+                "快照 ID。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "dump",
+          "usage": [
+            "dump DEV/REGION snapshot SNAPSHOT_ID"
+          ],
+          "tip": [
+            "转储快照。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "设备或端口索引。"
+              ]
+            },
+            {
+              "name": "snapshot",
+              "usage": [
+                "snapshot SNAPSHOT_ID"
+              ],
+              "tip": [
+                "快照 ID。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 region 帮助。"
+          ]
+        },
+        {
+          "name": "new",
+          "usage": [
+            "new DEV/REGION [ snapshot SNAPSHOT_ID ]"
+          ],
+          "tip": [
+            "创建快照。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "设备或端口索引。"
+              ]
+            },
+            {
+              "name": "snapshot",
+              "usage": [
+                "snapshot SNAPSHOT_ID"
+              ],
+              "tip": [
+                "快照 ID。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "read",
+          "usage": [
+            "read DEV/REGION [ snapshot SNAPSHOT_ID ] address ADDRESS length LENGTH"
+          ],
+          "tip": [
+            "读取区域。"
+          ],
+          "option": [
+            {
+              "name": "address",
+              "usage": [
+                "address ADDRESS"
+              ],
+              "tip": [
+                "地址。"
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "设备或端口索引。"
+              ]
+            },
+            {
+              "name": "length",
+              "usage": [
+                "length LENGTH"
+              ],
+              "tip": [
+                "长度。"
+              ]
+            },
+            {
+              "name": "snapshot",
+              "usage": [
+                "snapshot SNAPSHOT_ID"
+              ],
+              "tip": [
+                "快照 ID。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ DEV/REGION ]"
+          ],
+          "tip": [
+            "显示区域。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "设备或端口索引。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "resource",
+      "tip": [
+        "Devlink 设备资源配置。"
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 resource 帮助。"
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set DEV path RESOURCE_PATH size RESOURCE_SIZE"
+          ],
+          "tip": [
+            "设置资源大小。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "path",
+              "usage": [
+                "path RESOURCE_PATH"
+              ],
+              "tip": [
+                "资源路径。"
+              ]
+            },
+            {
+              "name": "size",
+              "usage": [
+                "size RESOURCE_SIZE"
+              ],
+              "tip": [
+                "资源大小。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show DEV"
+          ],
+          "tip": [
+            "显示资源。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sb",
+      "tip": [
+        "Devlink 共享缓冲区配置。"
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 sb 帮助。"
+          ]
+        },
+        {
+          "name": "pool",
+          "tip": [
+            "管理共享缓冲区池。"
+          ],
+          "next": [
+            {
+              "name": "set",
+              "usage": [
+                "set DEV [ sb SB_INDEX ] pool POOL_INDEX size POOL_SIZE thtype { static | dynamic }"
+              ],
+              "tip": [
+                "设置池。"
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "设备名。"
+                  ]
+                },
+                {
+                  "name": "pool",
+                  "usage": [
+                    "pool POOL_INDEX"
+                  ],
+                  "tip": [
+                    "池索引。"
+                  ]
+                },
+                {
+                  "name": "sb",
+                  "usage": [
+                    "sb SB_INDEX"
+                  ],
+                  "tip": [
+                    "共享缓冲区索引。"
+                  ]
+                },
+                {
+                  "name": "size",
+                  "usage": [
+                    "size POOL_SIZE"
+                  ],
+                  "tip": [
+                    "池大小。"
+                  ]
+                },
+                {
+                  "name": "thtype",
+                  "usage": [
+                    "thtype {static|dynamic}"
+                  ],
+                  "tip": [
+                    "阈值类型。"
+                  ],
+                  "next": [
+                    {
+                      "name": "dynamic"
+                    },
+                    {
+                      "name": "static"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "usage": [
+                "show [ DEV [ sb SB_INDEX ] pool POOL_INDEX ]"
+              ],
+              "tip": [
+                "显示池。"
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "设备名。"
+                  ]
+                },
+                {
+                  "name": "pool",
+                  "usage": [
+                    "pool POOL_INDEX"
+                  ],
+                  "tip": [
+                    "池索引。"
+                  ]
+                },
+                {
+                  "name": "sb",
+                  "usage": [
+                    "sb SB_INDEX"
+                  ],
+                  "tip": [
+                    "共享缓冲区索引。"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "port",
+          "tip": [
+            "管理共享缓冲区端口。"
+          ],
+          "next": [
+            {
+              "name": "pool",
+              "tip": [
+                "管理端口池。"
+              ],
+              "next": [
+                {
+                  "name": "set",
+                  "usage": [
+                    "set DEV/PORT_INDEX [ sb SB_INDEX ] pool POOL_INDEX th THRESHOLD"
+                  ],
+                  "tip": [
+                    "设置端口池阈值。"
+                  ],
+                  "option": [
+                    {
+                      "name": "dev",
+                      "usage": [
+                        "dev DEV/PORT_INDEX"
+                      ],
+                      "tip": [
+                        "设备或端口索引。"
+                      ]
+                    },
+                    {
+                      "name": "pool",
+                      "usage": [
+                        "pool POOL_INDEX"
+                      ],
+                      "tip": [
+                        "池索引。"
+                      ]
+                    },
+                    {
+                      "name": "sb",
+                      "usage": [
+                        "sb SB_INDEX"
+                      ],
+                      "tip": [
+                        "共享缓冲区索引。"
+                      ]
+                    },
+                    {
+                      "name": "th",
+                      "usage": [
+                        "th THRESHOLD"
+                      ],
+                      "tip": [
+                        "阈值。"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "show",
+                  "usage": [
+                    "show [ DEV/PORT_INDEX [ sb SB_INDEX ] pool POOL_INDEX ]"
+                  ],
+                  "tip": [
+                    "显示端口池。"
+                  ],
+                  "option": [
+                    {
+                      "name": "dev",
+                      "usage": [
+                        "dev DEV/PORT_INDEX"
+                      ],
+                      "tip": [
+                        "设备或端口索引。"
+                      ]
+                    },
+                    {
+                      "name": "pool",
+                      "usage": [
+                        "pool POOL_INDEX"
+                      ],
+                      "tip": [
+                        "池索引。"
+                      ]
+                    },
+                    {
+                      "name": "sb",
+                      "usage": [
+                        "sb SB_INDEX"
+                      ],
+                      "tip": [
+                        "共享缓冲区索引。"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "tc",
+              "tip": [
+                "管理端口流量类。"
+              ],
+              "next": [
+                {
+                  "name": "set",
+                  "usage": [
+                    "set DEV/PORT_INDEX [ sb SB_INDEX ] tc TC_INDEX type { ingress | egress } pool POOL_INDEX th THRESHOLD"
+                  ],
+                  "tip": [
+                    "绑定端口流量类。"
+                  ],
+                  "option": [
+                    {
+                      "name": "dev",
+                      "usage": [
+                        "dev DEV/PORT_INDEX"
+                      ],
+                      "tip": [
+                        "设备或端口索引。"
+                      ]
+                    },
+                    {
+                      "name": "pool",
+                      "usage": [
+                        "pool POOL_INDEX"
+                      ],
+                      "tip": [
+                        "池索引。"
+                      ]
+                    },
+                    {
+                      "name": "sb",
+                      "usage": [
+                        "sb SB_INDEX"
+                      ],
+                      "tip": [
+                        "共享缓冲区索引。"
+                      ]
+                    },
+                    {
+                      "name": "tc",
+                      "usage": [
+                        "tc TC_INDEX"
+                      ],
+                      "tip": [
+                        "流量类。"
+                      ]
+                    },
+                    {
+                      "name": "th",
+                      "usage": [
+                        "th THRESHOLD"
+                      ],
+                      "tip": [
+                        "阈值。"
+                      ]
+                    },
+                    {
+                      "name": "type",
+                      "usage": [
+                        "type {ingress|egress}"
+                      ],
+                      "tip": [
+                        "方向。"
+                      ],
+                      "next": [
+                        {
+                          "name": "egress"
+                        },
+                        {
+                          "name": "ingress"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "show",
+                  "usage": [
+                    "show [ DEV/PORT_INDEX [ sb SB_INDEX ] tc TC_INDEX type { ingress | egress } ]"
+                  ],
+                  "tip": [
+                    "显示端口流量类绑定。"
+                  ],
+                  "option": [
+                    {
+                      "name": "dev",
+                      "usage": [
+                        "dev DEV/PORT_INDEX"
+                      ],
+                      "tip": [
+                        "设备或端口索引。"
+                      ]
+                    },
+                    {
+                      "name": "sb",
+                      "usage": [
+                        "sb SB_INDEX"
+                      ],
+                      "tip": [
+                        "共享缓冲区索引。"
+                      ]
+                    },
+                    {
+                      "name": "tc",
+                      "usage": [
+                        "tc TC_INDEX"
+                      ],
+                      "tip": [
+                        "流量类。"
+                      ]
+                    },
+                    {
+                      "name": "type",
+                      "usage": [
+                        "type {ingress|egress}"
+                      ],
+                      "tip": [
+                        "方向。"
+                      ],
+                      "next": [
+                        {
+                          "name": "egress"
+                        },
+                        {
+                          "name": "ingress"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ DEV [ sb SB_INDEX ] ]"
+          ],
+          "tip": [
+            "显示共享缓冲区。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "sb",
+              "usage": [
+                "sb SB_INDEX"
+              ],
+              "tip": [
+                "共享缓冲区索引。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trap",
+      "tip": [
+        "Devlink trap 配置。"
+      ],
+      "next": [
+        {
+          "name": "group",
+          "tip": [
+            "管理 trap 组。"
+          ],
+          "next": [
+            {
+              "name": "set",
+              "usage": [
+                "set DEV group GROUP [ action { trap | drop | mirror } ] [ policer POLICER ] [ nopolicer ]"
+              ],
+              "tip": [
+                "设置 trap 组。"
+              ],
+              "option": [
+                {
+                  "name": "action",
+                  "usage": [
+                    "action {trap|drop|mirror}"
+                  ],
+                  "tip": [
+                    "trap 动作。"
+                  ],
+                  "next": [
+                    {
+                      "name": "drop"
+                    },
+                    {
+                      "name": "mirror"
+                    },
+                    {
+                      "name": "trap"
+                    }
+                  ]
+                },
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "设备名。"
+                  ]
+                },
+                {
+                  "name": "group",
+                  "usage": [
+                    "group GROUP"
+                  ],
+                  "tip": [
+                    "trap 组。"
+                  ]
+                },
+                {
+                  "name": "nopolicer",
+                  "tip": [
+                    "移除限速器。"
+                  ]
+                },
+                {
+                  "name": "policer",
+                  "usage": [
+                    "policer POLICER"
+                  ],
+                  "tip": [
+                    "限速器。"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "usage": [
+                "show [ DEV group GROUP ]"
+              ],
+              "tip": [
+                "显示 trap 组。"
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "设备名。"
+                  ]
+                },
+                {
+                  "name": "group",
+                  "usage": [
+                    "group GROUP"
+                  ],
+                  "tip": [
+                    "trap 组。"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 trap 帮助。"
+          ]
+        },
+        {
+          "name": "policer",
+          "tip": [
+            "管理 trap 限速器。"
+          ],
+          "next": [
+            {
+              "name": "set",
+              "usage": [
+                "set DEV policer POLICER [ rate RATE ] [ burst BURST ]"
+              ],
+              "tip": [
+                "设置限速器。"
+              ],
+              "option": [
+                {
+                  "name": "burst",
+                  "usage": [
+                    "burst BURST"
+                  ],
+                  "tip": [
+                    "突发。"
+                  ]
+                },
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "设备名。"
+                  ]
+                },
+                {
+                  "name": "policer",
+                  "usage": [
+                    "policer POLICER"
+                  ],
+                  "tip": [
+                    "限速器。"
+                  ]
+                },
+                {
+                  "name": "rate",
+                  "usage": [
+                    "rate RATE"
+                  ],
+                  "tip": [
+                    "速率。"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "usage": [
+                "show [ DEV policer POLICER ]"
+              ],
+              "tip": [
+                "显示限速器。"
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "设备名。"
+                  ]
+                },
+                {
+                  "name": "policer",
+                  "usage": [
+                    "policer POLICER"
+                  ],
+                  "tip": [
+                    "限速器。"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set DEV trap TRAP [ action { trap | drop | mirror } ]"
+          ],
+          "tip": [
+            "设置 trap 动作。"
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action {trap|drop|mirror}"
+              ],
+              "tip": [
+                "trap 动作。"
+              ],
+              "next": [
+                {
+                  "name": "drop"
+                },
+                {
+                  "name": "mirror"
+                },
+                {
+                  "name": "trap"
+                }
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "trap",
+              "usage": [
+                "trap TRAP"
+              ],
+              "tip": [
+                "trap 名称。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ DEV trap TRAP ]"
+          ],
+          "tip": [
+            "显示 trap。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ]
+            },
+            {
+              "name": "trap",
+              "usage": [
+                "trap TRAP"
+              ],
+              "tip": [
+                "trap 名称。"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--hex",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --hex"
+      ],
+      "tip": [
+        "以十六进制打印转储数字。"
+      ]
+    },
+    {
+      "name": "--iec",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --iec"
+      ],
+      "tip": [
+        "以 IEC 单位打印人类可读速率。"
+      ]
+    },
+    {
+      "name": "--json",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --json"
+      ],
+      "tip": [
+        "生成 JSON 输出。"
+      ]
+    },
+    {
+      "name": "--no-nice-names",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --no-nice-names"
+      ],
+      "tip": [
+        "关闭友好名称输出。"
+      ]
+    },
+    {
+      "name": "--pretty",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --pretty"
+      ],
+      "tip": [
+        "美化 JSON 输出。"
+      ]
+    },
+    {
+      "name": "--statistics",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --statistics"
+      ],
+      "tip": [
+        "输出统计信息。"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "启用详细输出。"
+      ]
+    },
+    {
+      "name": "--Version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --Version"
+      ],
+      "tip": [
+        "打印 devlink 版本并退出。"
+      ]
+    },
+    {
+      "name": "-batch",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, -batch <FILENAME>"
+      ],
+      "tip": [
+        "从文件或标准输入读取命令。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-force",
+      "tip": [
+        "批处理模式下出错不终止。"
+      ]
+    },
+    {
+      "name": "-Netns",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, -Netns <NETNSNAME>"
+      ],
+      "tip": [
+        "切换到指定的网络命名空间。"
+      ],
+      "next": []
+    }
+  ]
+}

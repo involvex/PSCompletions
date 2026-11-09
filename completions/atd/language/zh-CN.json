@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "url": "https://salsa.debian.org/debian/at",
+    "description": [
+      "运行排队等待稍后执行的作业。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--batch-interval",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b batch_interval"
+      ],
+      "tip": [
+        "以秒设置最小批处理间隔。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d"
+      ],
+      "tip": [
+        "将错误打印到标准错误而不是 syslog。"
+      ]
+    },
+    {
+      "name": "--foreground",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f"
+      ],
+      "tip": [
+        "在前台运行 atd。"
+      ]
+    },
+    {
+      "name": "--load",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l load_avg"
+      ],
+      "tip": [
+        "设置限制负载因子。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--single",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s"
+      ],
+      "tip": [
+        "仅处理一次队列。"
+      ]
+    }
+  ]
+}

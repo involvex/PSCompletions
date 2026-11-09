@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "url": "https://github.com/systemd/systemd",
+    "description": [
+      "Listen on sockets and launch a child on connection."
+    ]
+  },
+  "option": [
+    {
+      "name": "--accept",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --accept"
+      ],
+      "tip": [
+        "Spawn a child for each connection."
+      ]
+    },
+    {
+      "name": "--datagram",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --datagram"
+      ],
+      "tip": [
+        "Listen on a datagram socket."
+      ]
+    },
+    {
+      "name": "--fdname",
+      "usage": [
+        "--fdname=NAME[:NAME...]"
+      ],
+      "tip": [
+        "Specify names for file descriptors."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this help and exit."
+      ]
+    },
+    {
+      "name": "--inetd",
+      "tip": [
+        "Enable the inetd descriptor passing protocol."
+      ]
+    },
+    {
+      "name": "--listen",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --listen=ADDR"
+      ],
+      "tip": [
+        "Listen for raw connections at ADDR."
+      ],
+      "next": []
+    },
+    {
+      "name": "--seqpacket",
+      "tip": [
+        "Listen on SOCK_SEQPACKET."
+      ]
+    },
+    {
+      "name": "--setenv",
+      "alias": [
+        "-E"
+      ],
+      "usage": [
+        "-E, --setenv=NAME[=VALUE]"
+      ],
+      "tip": [
+        "Pass an environment variable to children."
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Print the version string and exit."
+      ]
+    }
+  ]
+}

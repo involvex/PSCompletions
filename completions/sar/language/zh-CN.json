@@ -1,0 +1,410 @@
+{
+  "meta": {
+    "url": "https://github.com/sysstat/sysstat",
+    "description": [
+      "收集、报告或保存系统活动信息。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--dec",
+      "usage": [
+        "--dec={0|1|2}"
+      ],
+      "tip": [
+        "设置小数精度。"
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        },
+        {
+          "name": "2"
+        }
+      ]
+    },
+    {
+      "name": "--human",
+      "tip": [
+        "以人类可读格式打印大小。"
+      ]
+    },
+    {
+      "name": "--pretty",
+      "tip": [
+        "美化 JSON 输出。"
+      ]
+    },
+    {
+      "name": "-A",
+      "tip": [
+        "报告所有统计。"
+      ]
+    },
+    {
+      "name": "-b",
+      "tip": [
+        "报告 I/O 和传输速率统计。"
+      ]
+    },
+    {
+      "name": "-B",
+      "tip": [
+        "报告分页统计。"
+      ]
+    },
+    {
+      "name": "-d",
+      "tip": [
+        "报告块设备统计。"
+      ]
+    },
+    {
+      "name": "-f",
+      "usage": [
+        "-f <filename>"
+      ],
+      "tip": [
+        "从文件读取数据。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-F",
+      "usage": [
+        "-F [ MOUNT ]"
+      ],
+      "tip": [
+        "报告文件系统统计。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-h",
+      "tip": [
+        "以人类可读格式打印大小。"
+      ]
+    },
+    {
+      "name": "-H",
+      "tip": [
+        "报告大页统计。"
+      ]
+    },
+    {
+      "name": "-i",
+      "usage": [
+        "-i <interval>"
+      ],
+      "tip": [
+        "选择记录间隔。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-I",
+      "usage": [
+        "-I [ SUM | ALL ]"
+      ],
+      "tip": [
+        "报告中断统计。"
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        },
+        {
+          "name": "SUM"
+        }
+      ]
+    },
+    {
+      "name": "-j",
+      "usage": [
+        "-j {ID|LABEL|PATH|UUID|...}"
+      ],
+      "tip": [
+        "显示持久设备名。"
+      ],
+      "next": [
+        {
+          "name": "ID"
+        },
+        {
+          "name": "LABEL"
+        },
+        {
+          "name": "PATH"
+        },
+        {
+          "name": "UUID"
+        }
+      ]
+    },
+    {
+      "name": "-k",
+      "tip": [
+        "以千字节显示大小。"
+      ]
+    },
+    {
+      "name": "-m",
+      "usage": [
+        "-m {<keyword> [...]|ALL}"
+      ],
+      "tip": [
+        "报告电源管理统计。"
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        },
+        {
+          "name": "BAT"
+        },
+        {
+          "name": "CPU"
+        },
+        {
+          "name": "FAN"
+        },
+        {
+          "name": "FREQ"
+        },
+        {
+          "name": "IN"
+        },
+        {
+          "name": "TEMP"
+        },
+        {
+          "name": "USB"
+        }
+      ]
+    },
+    {
+      "name": "-n",
+      "usage": [
+        "-n {<keyword> [...]|ALL}"
+      ],
+      "tip": [
+        "报告网络统计。"
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        },
+        {
+          "name": "DEV"
+        },
+        {
+          "name": "EDEV"
+        },
+        {
+          "name": "EICMP"
+        },
+        {
+          "name": "EICMP6"
+        },
+        {
+          "name": "EIP"
+        },
+        {
+          "name": "EIP6"
+        },
+        {
+          "name": "ETCP"
+        },
+        {
+          "name": "FC"
+        },
+        {
+          "name": "ICMP"
+        },
+        {
+          "name": "ICMP6"
+        },
+        {
+          "name": "IP"
+        },
+        {
+          "name": "IP6"
+        },
+        {
+          "name": "NFS"
+        },
+        {
+          "name": "NFSD"
+        },
+        {
+          "name": "SOCK"
+        },
+        {
+          "name": "SOCK6"
+        },
+        {
+          "name": "SOFT"
+        },
+        {
+          "name": "TCP"
+        },
+        {
+          "name": "UDP"
+        },
+        {
+          "name": "UDP6"
+        }
+      ]
+    },
+    {
+      "name": "-N",
+      "usage": [
+        "-N {<node_list>|ALL}"
+      ],
+      "tip": [
+        "选择节点。"
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        }
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o JSON"
+      ],
+      "tip": [
+        "以 JSON 格式输出。"
+      ],
+      "next": [
+        {
+          "name": "JSON"
+        }
+      ]
+    },
+    {
+      "name": "-P",
+      "usage": [
+        "-P {<cpu> [...]|ALL}"
+      ],
+      "tip": [
+        "选择 CPU。"
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        }
+      ]
+    },
+    {
+      "name": "-q",
+      "usage": [
+        "-q [ <keyword> [...]|PSI|ALL ]"
+      ],
+      "tip": [
+        "报告系统负载和压力统计。"
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        },
+        {
+          "name": "CPU"
+        },
+        {
+          "name": "IO"
+        },
+        {
+          "name": "LOAD"
+        },
+        {
+          "name": "MEM"
+        },
+        {
+          "name": "PSI"
+        }
+      ]
+    },
+    {
+      "name": "-r",
+      "usage": [
+        "-r [ ALL ]"
+      ],
+      "tip": [
+        "报告内存利用率统计。"
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        }
+      ]
+    },
+    {
+      "name": "-S",
+      "tip": [
+        "报告交换空间利用率。"
+      ]
+    },
+    {
+      "name": "-t",
+      "tip": [
+        "显示时间戳。"
+      ]
+    },
+    {
+      "name": "-u",
+      "usage": [
+        "-u [ ALL ]"
+      ],
+      "tip": [
+        "报告 CPU 利用率。"
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        }
+      ]
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "报告内核表统计。"
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "打印版本信息。"
+      ]
+    },
+    {
+      "name": "-w",
+      "tip": [
+        "报告任务创建和切换统计。"
+      ]
+    },
+    {
+      "name": "-W",
+      "tip": [
+        "报告交换统计。"
+      ]
+    },
+    {
+      "name": "-y",
+      "tip": [
+        "报告 TTY 设备统计。"
+      ]
+    },
+    {
+      "name": "-z",
+      "tip": [
+        "省略零统计。"
+      ]
+    }
+  ]
+}

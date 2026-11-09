@@ -1,0 +1,441 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "列出目标文件中的符号。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--debug-syms",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --debug-syms"
+      ],
+      "tip": [
+        "显示仅调试器使用的符号。"
+      ]
+    },
+    {
+      "name": "--defined-only",
+      "alias": [
+        "-U"
+      ],
+      "usage": [
+        "-U, --defined-only"
+      ],
+      "tip": [
+        "仅显示已定义符号。"
+      ]
+    },
+    {
+      "name": "--demangle",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --demangle[=STYLE]"
+      ],
+      "tip": [
+        "解码经过修饰或处理的符号名。",
+        "STYLE 可为 none、auto、gnu-v3、java、gnat、dlang 或 rust。"
+      ],
+      "next": [
+        {
+          "name": "auto"
+        },
+        {
+          "name": "dlang"
+        },
+        {
+          "name": "gnat"
+        },
+        {
+          "name": "gnu-v3"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "rust"
+        }
+      ]
+    },
+    {
+      "name": "--dynamic",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --dynamic"
+      ],
+      "tip": [
+        "显示动态符号而不是普通符号。"
+      ]
+    },
+    {
+      "name": "--extern-only",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --extern-only"
+      ],
+      "tip": [
+        "仅显示外部符号。"
+      ]
+    },
+    {
+      "name": "--format",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --format=FORMAT"
+      ],
+      "tip": [
+        "使用指定的输出格式。",
+        "FORMAT 可为 bsd、sysv、posix 或 just-symbols。"
+      ],
+      "next": [
+        {
+          "name": "bsd"
+        },
+        {
+          "name": "just-symbols"
+        },
+        {
+          "name": "posix"
+        },
+        {
+          "name": "sysv"
+        }
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此信息。"
+      ]
+    },
+    {
+      "name": "--ifunc-chars",
+      "usage": [
+        "--ifunc-chars=CHARS"
+      ],
+      "tip": [
+        "显示 ifunc 符号时使用的字符。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--just-symbols",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --just-symbols"
+      ],
+      "tip": [
+        "等同于 --format=just-symbols。"
+      ]
+    },
+    {
+      "name": "--line-numbers",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --line-numbers"
+      ],
+      "tip": [
+        "使用调试信息查找文件名和行号。"
+      ]
+    },
+    {
+      "name": "--no-demangle",
+      "tip": [
+        "不解码底层符号名。"
+      ]
+    },
+    {
+      "name": "--no-recurse-limit",
+      "tip": [
+        "禁用解码递归限制。"
+      ]
+    },
+    {
+      "name": "--no-sort",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --no-sort"
+      ],
+      "tip": [
+        "不对符号排序。"
+      ]
+    },
+    {
+      "name": "--no-weak",
+      "alias": [
+        "-W"
+      ],
+      "usage": [
+        "-W, --no-weak"
+      ],
+      "tip": [
+        "忽略弱符号。"
+      ]
+    },
+    {
+      "name": "--numeric-sort",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --numeric-sort"
+      ],
+      "tip": [
+        "按地址对符号进行数值排序。"
+      ]
+    },
+    {
+      "name": "--plugin",
+      "usage": [
+        "--plugin NAME"
+      ],
+      "tip": [
+        "加载指定的插件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--portability",
+      "alias": [
+        "-P"
+      ],
+      "usage": [
+        "-P, --portability"
+      ],
+      "tip": [
+        "等同于 --format=posix。"
+      ]
+    },
+    {
+      "name": "--print-armap",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --print-armap"
+      ],
+      "tip": [
+        "包含来自归档成员的符号索引。"
+      ]
+    },
+    {
+      "name": "--print-file-name",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --print-file-name"
+      ],
+      "tip": [
+        "在每个符号前打印输入文件名。"
+      ]
+    },
+    {
+      "name": "--print-size",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --print-size"
+      ],
+      "tip": [
+        "打印已定义符号的大小。"
+      ]
+    },
+    {
+      "name": "--quiet",
+      "tip": [
+        "抑制无符号诊断信息。"
+      ]
+    },
+    {
+      "name": "--radix",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --radix=RADIX"
+      ],
+      "tip": [
+        "使用指定进制打印符号值。",
+        "可能值: d, o, x"
+      ],
+      "next": [
+        {
+          "name": "d"
+        },
+        {
+          "name": "o"
+        },
+        {
+          "name": "x"
+        }
+      ]
+    },
+    {
+      "name": "--recurse-limit",
+      "tip": [
+        "启用解码递归限制（默认）。"
+      ]
+    },
+    {
+      "name": "--reverse-sort",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --reverse-sort"
+      ],
+      "tip": [
+        "反转排序方向。"
+      ]
+    },
+    {
+      "name": "--size-sort",
+      "tip": [
+        "按大小排序符号。"
+      ]
+    },
+    {
+      "name": "--special-syms",
+      "tip": [
+        "在输出中包含特殊符号。"
+      ]
+    },
+    {
+      "name": "--synthetic",
+      "tip": [
+        "同时显示合成符号。"
+      ]
+    },
+    {
+      "name": "--target",
+      "usage": [
+        "--target=BFDNAME"
+      ],
+      "tip": [
+        "指定目标对象格式。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--undefined-only",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --undefined-only"
+      ],
+      "tip": [
+        "仅显示未定义符号。"
+      ]
+    },
+    {
+      "name": "--unicode",
+      "usage": [
+        "--unicode={default|show|invalid|hex|escape|highlight}"
+      ],
+      "tip": [
+        "指定如何处理 UTF-8 编码的 Unicode 字符。",
+        "可能值: default, show, invalid, hex, escape, highlight"
+      ],
+      "next": [
+        {
+          "name": "default"
+        },
+        {
+          "name": "escape"
+        },
+        {
+          "name": "hex"
+        },
+        {
+          "name": "highlight"
+        },
+        {
+          "name": "invalid"
+        },
+        {
+          "name": "show"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示程序版本。"
+      ]
+    },
+    {
+      "name": "--without-symbol-versions",
+      "tip": [
+        "不在符号名后显示版本字符串。"
+      ]
+    },
+    {
+      "name": "-B",
+      "tip": [
+        "等同于 --format=bsd。"
+      ]
+    },
+    {
+      "name": "-e",
+      "tip": [
+        "已忽略。"
+      ]
+    },
+    {
+      "name": "-o",
+      "tip": [
+        "等同于 -A。"
+      ]
+    },
+    {
+      "name": "-X",
+      "usage": [
+        "-X 32_64"
+      ],
+      "tip": [
+        "已忽略。"
+      ],
+      "next": [
+        {
+          "name": "32_64"
+        }
+      ]
+    }
+  ]
+}

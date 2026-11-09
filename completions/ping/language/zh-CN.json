@@ -1,0 +1,331 @@
+{
+  "meta": {
+    "url": "https://github.com/iputils/iputils",
+    "description": [
+      "向网络主机发送 ICMP ECHO_REQUEST。"
+    ]
+  },
+  "option": [
+    {
+      "name": "-3",
+      "tip": [
+        "使用不向上取整的 RTT 精度。"
+      ]
+    },
+    {
+      "name": "-4",
+      "tip": [
+        "使用 IPv4。"
+      ]
+    },
+    {
+      "name": "-6",
+      "tip": [
+        "使用 IPv6。"
+      ]
+    },
+    {
+      "name": "-a",
+      "tip": [
+        "使用可听 ping。"
+      ]
+    },
+    {
+      "name": "-A",
+      "tip": [
+        "使用自适应 ping。"
+      ]
+    },
+    {
+      "name": "-b",
+      "tip": [
+        "允许 ping 广播地址。"
+      ]
+    },
+    {
+      "name": "-B",
+      "tip": [
+        "使用粘性源地址。"
+      ]
+    },
+    {
+      "name": "-c",
+      "usage": [
+        "-c <count>"
+      ],
+      "tip": [
+        "收到指定数量的回复后停止。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-C",
+      "tip": [
+        "创建套接字时调用 connect()。"
+      ]
+    },
+    {
+      "name": "-d",
+      "tip": [
+        "使用 SO_DEBUG 套接字选项。"
+      ]
+    },
+    {
+      "name": "-D",
+      "tip": [
+        "打印时间戳。"
+      ]
+    },
+    {
+      "name": "-e",
+      "usage": [
+        "-e <identifier>"
+      ],
+      "tip": [
+        "设置 ping 会话标识符。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "洪泛 ping。"
+      ]
+    },
+    {
+      "name": "-F",
+      "usage": [
+        "-F <flowlabel>"
+      ],
+      "tip": [
+        "设置 IPv6 流标签。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-h",
+      "tip": [
+        "打印帮助并退出。"
+      ]
+    },
+    {
+      "name": "-H",
+      "tip": [
+        "强制反向 DNS 名称解析。"
+      ]
+    },
+    {
+      "name": "-i",
+      "usage": [
+        "-i <interval>"
+      ],
+      "tip": [
+        "数据包之间的秒数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-I",
+      "usage": [
+        "-I <interface>"
+      ],
+      "tip": [
+        "使用接口名或地址。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-l",
+      "usage": [
+        "-l <preload>"
+      ],
+      "tip": [
+        "等待回复时发送指定数量的数据包。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-L",
+      "tip": [
+        "抑制多播数据包回环。"
+      ]
+    },
+    {
+      "name": "-m",
+      "usage": [
+        "-m <mark>"
+      ],
+      "tip": [
+        "使用标记标记发出的数据包。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-M",
+      "usage": [
+        "-M <pmtud opt>"
+      ],
+      "tip": [
+        "设置路径 MTU 发现。",
+        "可能值: do, dont, want, probe"
+      ],
+      "next": [
+        {
+          "name": "do"
+        },
+        {
+          "name": "dont"
+        },
+        {
+          "name": "probe"
+        },
+        {
+          "name": "want"
+        }
+      ]
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "禁用反向 DNS 名称解析。"
+      ]
+    },
+    {
+      "name": "-N",
+      "usage": [
+        "-N <nodeinfo opt>"
+      ],
+      "tip": [
+        "使用 IPv6 节点信息查询。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-O",
+      "tip": [
+        "报告未完成的回复。"
+      ]
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p <pattern>"
+      ],
+      "tip": [
+        "设置填充字节内容。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-q",
+      "tip": [
+        "静默输出。"
+      ]
+    },
+    {
+      "name": "-Q",
+      "usage": [
+        "-Q <tclass>"
+      ],
+      "tip": [
+        "设置 QoS tclass 位。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-R",
+      "tip": [
+        "记录路由。"
+      ]
+    },
+    {
+      "name": "-s",
+      "usage": [
+        "-s <size>"
+      ],
+      "tip": [
+        "设置要发送的数据字节数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-S",
+      "usage": [
+        "-S <size>"
+      ],
+      "tip": [
+        "设置 SO_SNDBUF 套接字选项值。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-t",
+      "usage": [
+        "-t <ttl>"
+      ],
+      "tip": [
+        "设置生存时间。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-T",
+      "usage": [
+        "-T <timestamp>"
+      ],
+      "tip": [
+        "设置时间戳选项。",
+        "可能值: tsonly, tsandaddr, tsprespec"
+      ],
+      "next": [
+        {
+          "name": "tsandaddr"
+        },
+        {
+          "name": "tsonly"
+        },
+        {
+          "name": "tsprespec"
+        }
+      ]
+    },
+    {
+      "name": "-U",
+      "tip": [
+        "打印用户到用户延迟。"
+      ]
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "详细输出。"
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "打印版本并退出。"
+      ]
+    },
+    {
+      "name": "-w",
+      "usage": [
+        "-w <deadline>"
+      ],
+      "tip": [
+        "以秒设置回复等待截止时间。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-W",
+      "usage": [
+        "-W <timeout>"
+      ],
+      "tip": [
+        "设置响应超时。"
+      ],
+      "next": []
+    }
+  ]
+}

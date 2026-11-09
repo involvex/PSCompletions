@@ -1,0 +1,1756 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "显示/操作网桥设置。"
+    ]
+  },
+  "next": [
+    {
+      "name": "fdb",
+      "tip": [
+        "转发表管理。"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add ADDR dev DEV [ self ] [ master ] [ use ] [ router ] [ extern_learn ] [ sticky ] [ local | static | dynamic ] [ vlan VID ] { [ dst IPADDR ] [ port PORT ] [ vni VNI ] | [ nhid NHID ] } [ via DEV ] [ src_vni VNI ]"
+          ],
+          "tip": [
+            "添加 FDB 条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dst",
+              "usage": [
+                "dst IPADDR"
+              ],
+              "tip": [
+                "目标 IP。"
+              ],
+              "next": []
+            },
+            {
+              "name": "nhid",
+              "usage": [
+                "nhid NHID"
+              ],
+              "tip": [
+                "下一跳 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "port",
+              "usage": [
+                "port PORT"
+              ],
+              "tip": [
+                "端口。"
+              ],
+              "next": []
+            },
+            {
+              "name": "src_vni",
+              "usage": [
+                "src_vni VNI"
+              ],
+              "tip": [
+                "源 VNI。"
+              ],
+              "next": []
+            },
+            {
+              "name": "via",
+              "usage": [
+                "via DEV"
+              ],
+              "tip": [
+                "经由设备。"
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "vni",
+              "usage": [
+                "vni VNI"
+              ],
+              "tip": [
+                "VNI。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "append",
+          "usage": [
+            "append append ADDR dev DEV"
+          ],
+          "tip": [
+            "追加 FDB 条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del del ADDR dev DEV"
+          ],
+          "tip": [
+            "删除 FDB 条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "flush",
+          "usage": [
+            "flush flush dev DEV [ brport DEV ] [ vlan VID ] [ src_vni VNI ] [ nhid NHID ] [ vni VNI ] [ port PORT ] [ dst IPADDR ] [ self ] [ master ]"
+          ],
+          "tip": [
+            "清空 FDB 条目。"
+          ],
+          "option": [
+            {
+              "name": "brport",
+              "usage": [
+                "brport DEV"
+              ],
+              "tip": [
+                "网桥端口。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dst",
+              "usage": [
+                "dst IPADDR"
+              ],
+              "tip": [
+                "目标 IP。"
+              ],
+              "next": []
+            },
+            {
+              "name": "nhid",
+              "usage": [
+                "nhid NHID"
+              ],
+              "tip": [
+                "下一跳 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "port",
+              "usage": [
+                "port PORT"
+              ],
+              "tip": [
+                "端口。"
+              ],
+              "next": []
+            },
+            {
+              "name": "src_vni",
+              "usage": [
+                "src_vni VNI"
+              ],
+              "tip": [
+                "源 VNI。"
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "vni",
+              "usage": [
+                "vni VNI"
+              ],
+              "tip": [
+                "VNI。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "get",
+          "usage": [
+            "get get [ to ] LLADDR [ br BRDEV ] { brport | dev } DEV [ vlan VID ] [ vni VNI ] [ self ] [ master ] [ dynamic ]"
+          ],
+          "tip": [
+            "获取 FDB 条目。"
+          ],
+          "option": [
+            {
+              "name": "br",
+              "usage": [
+                "br BRDEV"
+              ],
+              "tip": [
+                "网桥设备。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "vni",
+              "usage": [
+                "vni VNI"
+              ],
+              "tip": [
+                "VNI。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 fdb 帮助。"
+          ]
+        },
+        {
+          "name": "replace",
+          "usage": [
+            "replace replace ADDR dev DEV"
+          ],
+          "tip": [
+            "替换 FDB 条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [ br BRDEV ] [ brport DEV ] [ vlan VID ] [ state STATE ] [ dynamic ]"
+          ],
+          "tip": [
+            "显示 FDB 条目。"
+          ],
+          "option": [
+            {
+              "name": "br",
+              "usage": [
+                "br BRDEV"
+              ],
+              "tip": [
+                "网桥设备。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "state",
+              "usage": [
+                "state STATE"
+              ],
+              "tip": [
+                "条目状态。"
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID。"
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "link",
+      "tip": [
+        "网桥链路管理。"
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 link 帮助。"
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set set dev DEV [ cost COST ] [ priority PRIO ] [ state STATE ] [ guard {on|off} ] [ hairpin {on|off} ] [ fastleave {on|off} ] [ root_block {on|off} ] [ learning {on|off} ] [ learning_sync {on|off} ] [ flood {on|off} ] [ mcast_router MULTICAST_ROUTER ] [ mcast_flood {on|off} ] [ bcast_flood {on|off} ] [ mcast_to_unicast {on|off} ] [ mcast_max_groups MAX_GROUPS ] [ neigh_suppress {on|off} ] [ neigh_vlan_suppress {on|off} ] [ vlan_tunnel {on|off} ] [ isolated {on|off} ] [ locked {on|off} ] [ mab {on|off} ] [ hwmode {vepa|veb} ] [ backup_port DEVICE ] [ nobackup_port ] [ backup_nhid NHID ] [ self ] [ master ]"
+          ],
+          "tip": [
+            "设置网桥链路参数。"
+          ],
+          "option": [
+            {
+              "name": "backup_nhid",
+              "usage": [
+                "backup_nhid NHID"
+              ],
+              "tip": [
+                "备用下一跳 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "backup_port",
+              "usage": [
+                "backup_port DEVICE"
+              ],
+              "tip": [
+                "备用端口。"
+              ],
+              "next": []
+            },
+            {
+              "name": "bcast_flood",
+              "usage": [
+                "bcast_flood {on|off}"
+              ],
+              "tip": [
+                "广播泛洪。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "cost",
+              "usage": [
+                "cost COST"
+              ],
+              "tip": [
+                "路径开销。"
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "fastleave",
+              "usage": [
+                "fastleave {on|off}"
+              ],
+              "tip": [
+                "快速离开。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "flood",
+              "usage": [
+                "flood {on|off}"
+              ],
+              "tip": [
+                "泛洪。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "guard",
+              "usage": [
+                "guard {on|off}"
+              ],
+              "tip": [
+                "保护模式。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "hairpin",
+              "usage": [
+                "hairpin {on|off}"
+              ],
+              "tip": [
+                "发夹模式。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "hwmode",
+              "usage": [
+                "hwmode {vepa|veb}"
+              ],
+              "tip": [
+                "硬件模式。"
+              ],
+              "next": [
+                {
+                  "name": "veb"
+                },
+                {
+                  "name": "vepa"
+                }
+              ]
+            },
+            {
+              "name": "isolated",
+              "usage": [
+                "isolated {on|off}"
+              ],
+              "tip": [
+                "隔离模式。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "learning",
+              "usage": [
+                "learning {on|off}"
+              ],
+              "tip": [
+                "学习。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "learning_sync",
+              "usage": [
+                "learning_sync {on|off}"
+              ],
+              "tip": [
+                "学习同步。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "locked",
+              "usage": [
+                "locked {on|off}"
+              ],
+              "tip": [
+                "锁定模式。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "mab",
+              "usage": [
+                "mab {on|off}"
+              ],
+              "tip": [
+                "MAC 认证绕过。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "master",
+              "tip": [
+                "对主设备操作。"
+              ]
+            },
+            {
+              "name": "mcast_flood",
+              "usage": [
+                "mcast_flood {on|off}"
+              ],
+              "tip": [
+                "多播泛洪。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "mcast_max_groups",
+              "usage": [
+                "mcast_max_groups MAX_GROUPS"
+              ],
+              "tip": [
+                "最大多播组数。"
+              ],
+              "next": []
+            },
+            {
+              "name": "mcast_router",
+              "usage": [
+                "mcast_router MULTICAST_ROUTER"
+              ],
+              "tip": [
+                "多播路由器。"
+              ],
+              "next": []
+            },
+            {
+              "name": "mcast_to_unicast",
+              "usage": [
+                "mcast_to_unicast {on|off}"
+              ],
+              "tip": [
+                "多播转单播。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "neigh_suppress",
+              "usage": [
+                "neigh_suppress {on|off}"
+              ],
+              "tip": [
+                "邻居抑制。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "neigh_vlan_suppress",
+              "usage": [
+                "neigh_vlan_suppress {on|off}"
+              ],
+              "tip": [
+                "VLAN 邻居抑制。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "nobackup_port",
+              "tip": [
+                "禁用备用端口。"
+              ]
+            },
+            {
+              "name": "priority",
+              "usage": [
+                "priority PRIO"
+              ],
+              "tip": [
+                "优先级。"
+              ]
+            },
+            {
+              "name": "root_block",
+              "usage": [
+                "root_block {on|off}"
+              ],
+              "tip": [
+                "根阻塞。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "self",
+              "tip": [
+                "对设备操作。"
+              ]
+            },
+            {
+              "name": "state",
+              "usage": [
+                "state STATE"
+              ],
+              "tip": [
+                "STP 状态。"
+              ]
+            },
+            {
+              "name": "vlan_tunnel",
+              "usage": [
+                "vlan_tunnel {on|off}"
+              ],
+              "tip": [
+                "VLAN 隧道。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [dev DEV] [master DEVICE]"
+          ],
+          "tip": [
+            "显示网桥链路。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "master",
+              "usage": [
+                "master DEVICE"
+              ],
+              "tip": [
+                "主设备。"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mdb",
+      "tip": [
+        "多播数据库管理。"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add dev DEV port PORT grp GROUP [src SOURCE] [permanent | temp] [vid VID] [ filter_mode { include | exclude } ] [ source_list SOURCE_LIST ] [ proto PROTO ] [ dst IPADDR ] [ dst_port DST_PORT ] [ vni VNI ] [ src_vni SRC_VNI ] [ via DEV ]"
+          ],
+          "tip": [
+            "添加 MDB 条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dst",
+              "usage": [
+                "dst IPADDR"
+              ],
+              "tip": [
+                "目标 IP。"
+              ],
+              "next": []
+            },
+            {
+              "name": "grp",
+              "usage": [
+                "grp GROUP"
+              ],
+              "tip": [
+                "多播组。"
+              ],
+              "next": []
+            },
+            {
+              "name": "port",
+              "usage": [
+                "port PORT"
+              ],
+              "tip": [
+                "端口。"
+              ],
+              "next": []
+            },
+            {
+              "name": "proto",
+              "usage": [
+                "proto PROTO"
+              ],
+              "tip": [
+                "协议。"
+              ],
+              "next": []
+            },
+            {
+              "name": "src",
+              "usage": [
+                "src SOURCE"
+              ],
+              "tip": [
+                "源。"
+              ],
+              "next": []
+            },
+            {
+              "name": "src_vni",
+              "usage": [
+                "src_vni SRC_VNI"
+              ],
+              "tip": [
+                "源 VNI。"
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "vni",
+              "usage": [
+                "vni VNI"
+              ],
+              "tip": [
+                "VNI。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del del dev DEV port PORT grp GROUP"
+          ],
+          "tip": [
+            "删除 MDB 条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "grp",
+              "usage": [
+                "grp GROUP"
+              ],
+              "tip": [
+                "多播组。"
+              ],
+              "next": []
+            },
+            {
+              "name": "port",
+              "usage": [
+                "port PORT"
+              ],
+              "tip": [
+                "端口。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "flush",
+          "usage": [
+            "flush flush dev DEV [ port PORT ] [ vid VID ] [ src_vni SRC_VNI ] [ proto PROTO ] [ dst IPADDR ] [ dst_port DST_PORT ] [ vni VNI ]"
+          ],
+          "tip": [
+            "清空 MDB 条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "dst",
+              "usage": [
+                "dst IPADDR"
+              ],
+              "tip": [
+                "目标 IP。"
+              ],
+              "next": []
+            },
+            {
+              "name": "port",
+              "usage": [
+                "port PORT"
+              ],
+              "tip": [
+                "端口。"
+              ],
+              "next": []
+            },
+            {
+              "name": "proto",
+              "usage": [
+                "proto PROTO"
+              ],
+              "tip": [
+                "协议。"
+              ],
+              "next": []
+            },
+            {
+              "name": "src_vni",
+              "usage": [
+                "src_vni SRC_VNI"
+              ],
+              "tip": [
+                "源 VNI。"
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "vni",
+              "usage": [
+                "vni VNI"
+              ],
+              "tip": [
+                "VNI。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "get",
+          "usage": [
+            "get get dev DEV grp GROUP [ src SOURCE ] [ vid VID ] [ src_vni SRC_VNI ]"
+          ],
+          "tip": [
+            "获取 MDB 条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "grp",
+              "usage": [
+                "grp GROUP"
+              ],
+              "tip": [
+                "多播组。"
+              ],
+              "next": []
+            },
+            {
+              "name": "src",
+              "usage": [
+                "src SOURCE"
+              ],
+              "tip": [
+                "源。"
+              ],
+              "next": []
+            },
+            {
+              "name": "src_vni",
+              "usage": [
+                "src_vni SRC_VNI"
+              ],
+              "tip": [
+                "源 VNI。"
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 mdb 帮助。"
+          ]
+        },
+        {
+          "name": "replace",
+          "usage": [
+            "replace replace dev DEV port PORT grp GROUP"
+          ],
+          "tip": [
+            "替换 MDB 条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "grp",
+              "usage": [
+                "grp GROUP"
+              ],
+              "tip": [
+                "多播组。"
+              ],
+              "next": []
+            },
+            {
+              "name": "port",
+              "usage": [
+                "port PORT"
+              ],
+              "tip": [
+                "端口。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [ dev DEV ] [ vid VID ]"
+          ],
+          "tip": [
+            "显示 MDB 条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID。"
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "monitor",
+      "tip": [
+        "监视网桥事件。"
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 monitor 帮助。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mst",
+      "tip": [
+        "多生成树管理。"
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 mst 帮助。"
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set set dev DEV msti MSTI state STATE"
+          ],
+          "tip": [
+            "设置 MSTI 状态。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "msti",
+              "usage": [
+                "msti MSTI"
+              ],
+              "tip": [
+                "MST 实例。"
+              ],
+              "next": []
+            },
+            {
+              "name": "state",
+              "usage": [
+                "state STATE"
+              ],
+              "tip": [
+                "状态。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [ dev DEV ]"
+          ],
+          "tip": [
+            "显示 MST 配置。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vlan",
+      "tip": [
+        "VLAN 管理。"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add vid VLAN_ID dev DEV [ tunnel_info id TUNNEL_ID ] [ pvid ] [ untagged ] [ self ] [ master ]"
+          ],
+          "tip": [
+            "添加 VLAN 条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "tunnel_info",
+              "usage": [
+                "tunnel_info id TUNNEL_ID"
+              ],
+              "tip": [
+                "隧道信息。"
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del del vid VLAN_ID dev DEV"
+          ],
+          "tip": [
+            "删除 VLAN 条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "global",
+          "tip": [
+            "全局 VLAN 设置。"
+          ],
+          "next": [
+            {
+              "name": "set",
+              "usage": [
+                "set set vid VLAN_ID dev DEV [ mcast_snooping MULTICAST_SNOOPING ] [ mcast_querier MULTICAST_QUERIER ] [ mcast_igmp_version IGMP_VERSION ] [ mcast_mld_version MLD_VERSION ] [ mcast_last_member_count LAST_MEMBER_COUNT ] [ mcast_last_member_interval LAST_MEMBER_INTERVAL ] [ mcast_startup_query_count STARTUP_QUERY_COUNT ] [ mcast_startup_query_interval STARTUP_QUERY_INTERVAL ] [ mcast_membership_interval MEMBERSHIP_INTERVAL ] [ mcast_querier_interval QUERIER_INTERVAL ] [ mcast_query_interval QUERY_INTERVAL ] [ mcast_query_response_interval QUERY_RESPONSE_INTERVAL ] [ msti MSTI ]"
+              ],
+              "tip": [
+                "设置全局 VLAN 参数。"
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "设备名。"
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "vlan",
+                  "usage": [
+                    "vlan VID"
+                  ],
+                  "tip": [
+                    "VLAN ID。"
+                  ],
+                  "next": []
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "usage": [
+                "show show [ dev DEV ] [ vid VLAN_ID ]"
+              ],
+              "tip": [
+                "显示全局 VLAN 参数。"
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "设备名。"
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "vlan",
+                  "usage": [
+                    "vlan VID"
+                  ],
+                  "tip": [
+                    "VLAN ID。"
+                  ],
+                  "next": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 vlan 帮助。"
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set set vid VLAN_ID dev DEV [ state STP_STATE ] [ mcast_router MULTICAST_ROUTER ] [ mcast_max_groups MAX_GROUPS ] [ neigh_suppress {on|off} ]"
+          ],
+          "tip": [
+            "设置 VLAN 参数。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "mcast_router",
+              "usage": [
+                "mcast_router MULTICAST_ROUTER"
+              ],
+              "tip": [
+                "多播路由器。"
+              ],
+              "next": []
+            },
+            {
+              "name": "neigh_suppress",
+              "usage": [
+                "neigh_suppress {on|off}"
+              ],
+              "tip": [
+                "邻居抑制。"
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "state",
+              "usage": [
+                "state STP_STATE"
+              ],
+              "tip": [
+                "STP 状态。"
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [ dev DEV ] [ vid VLAN_ID ]"
+          ],
+          "tip": [
+            "显示 VLAN 条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "tunnelshow",
+          "usage": [
+            "tunnelshow tunnelshow [ dev DEV ] [ vid VLAN_ID ]"
+          ],
+          "tip": [
+            "显示 VLAN 隧道条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID。"
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vni",
+      "tip": [
+        "VXLAN VNI 管理。"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add vni VNI [ { group | remote } IP_ADDRESS ] dev DEV"
+          ],
+          "tip": [
+            "添加 VNI 条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "group",
+              "usage": [
+                "group IP_ADDRESS"
+              ],
+              "tip": [
+                "组地址。"
+              ],
+              "next": []
+            },
+            {
+              "name": "remote",
+              "usage": [
+                "remote IP_ADDRESS"
+              ],
+              "tip": [
+                "远程地址。"
+              ],
+              "next": []
+            },
+            {
+              "name": "vni",
+              "usage": [
+                "vni VNI"
+              ],
+              "tip": [
+                "VNI。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del del vni VNI"
+          ],
+          "tip": [
+            "删除 VNI 条目。"
+          ],
+          "option": [
+            {
+              "name": "vni",
+              "usage": [
+                "vni VNI"
+              ],
+              "tip": [
+                "VNI。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 vni 帮助。"
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [ dev DEV ]"
+          ],
+          "tip": [
+            "显示 VNI 条目。"
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--color",
+      "usage": [
+        "-c, --color"
+      ],
+      "tip": [
+        "使用彩色输出。"
+      ]
+    },
+    {
+      "name": "--details",
+      "usage": [
+        "-d, --details"
+      ],
+      "tip": [
+        "显示详细信息。"
+      ]
+    },
+    {
+      "name": "--json",
+      "usage": [
+        "-j, --json"
+      ],
+      "tip": [
+        "生成 JSON 输出。"
+      ]
+    },
+    {
+      "name": "--netns",
+      "usage": [
+        "-n, --netns <name>"
+      ],
+      "tip": [
+        "切换到指定网络命名空间。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--oneline",
+      "usage": [
+        "-o, --oneline"
+      ],
+      "tip": [
+        "每条记录打印为一行。"
+      ]
+    },
+    {
+      "name": "--pretty",
+      "usage": [
+        "-p, --pretty"
+      ],
+      "tip": [
+        "美化 JSON 输出。"
+      ]
+    },
+    {
+      "name": "--statistics",
+      "usage": [
+        "-s, --statistics"
+      ],
+      "tip": [
+        "显示统计信息。"
+      ]
+    },
+    {
+      "name": "--timestamp",
+      "usage": [
+        "-t, --timestamp"
+      ],
+      "tip": [
+        "打印时间戳。"
+      ]
+    },
+    {
+      "name": "--Version",
+      "usage": [
+        "-V, --Version"
+      ],
+      "tip": [
+        "打印 bridge 工具版本。"
+      ]
+    },
+    {
+      "name": "-compressvlans",
+      "usage": [
+        "-com, -compressvlans"
+      ],
+      "tip": [
+        "压缩 VLAN 范围。"
+      ]
+    }
+  ]
+}

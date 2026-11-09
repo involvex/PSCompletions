@@ -1,0 +1,338 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "Show or manipulate the IP routing table."
+    ]
+  },
+  "next": [
+    {
+      "name": "add",
+      "usage": [
+        "add [-net|-host] <TARGET> [netmask <NM>] [gw <GW>] [metric <N>] [dev <INTERFACE>]"
+      ],
+      "tip": [
+        "Add a new route."
+      ],
+      "option": [
+        {
+          "name": "-host",
+          "tip": [
+            "Treat the target as a host."
+          ]
+        },
+        {
+          "name": "-net",
+          "tip": [
+            "Treat the target as a network."
+          ]
+        },
+        {
+          "name": "dev",
+          "usage": [
+            "dev <INTERFACE>"
+          ],
+          "tip": [
+            "Associate the route with this interface."
+          ],
+          "next": []
+        },
+        {
+          "name": "dyn",
+          "tip": [
+            "Install a dynamic route."
+          ]
+        },
+        {
+          "name": "gw",
+          "usage": [
+            "gw <GW>"
+          ],
+          "tip": [
+            "Route packets via this gateway."
+          ],
+          "next": []
+        },
+        {
+          "name": "irtt",
+          "usage": [
+            "irtt <I>"
+          ],
+          "tip": [
+            "Set the initial round trip time in milliseconds (1-12000)."
+          ],
+          "next": []
+        },
+        {
+          "name": "metric",
+          "usage": [
+            "metric <M>"
+          ],
+          "tip": [
+            "Set the metric field of the route."
+          ],
+          "next": []
+        },
+        {
+          "name": "mod",
+          "tip": [
+            "Install a modified route."
+          ]
+        },
+        {
+          "name": "mss",
+          "usage": [
+            "mss <M>"
+          ],
+          "tip": [
+            "Set the MTU of the route in bytes."
+          ],
+          "next": []
+        },
+        {
+          "name": "netmask",
+          "usage": [
+            "netmask <NM>"
+          ],
+          "tip": [
+            "Set the netmask for a network route."
+          ],
+          "next": []
+        },
+        {
+          "name": "reinstate",
+          "tip": [
+            "Reinstate a dynamic route."
+          ]
+        },
+        {
+          "name": "reject",
+          "tip": [
+            "Install a blocking route."
+          ]
+        },
+        {
+          "name": "window",
+          "usage": [
+            "window <W>"
+          ],
+          "tip": [
+            "Set the TCP window size for connections over this route."
+          ],
+          "next": []
+        }
+      ]
+    },
+    {
+      "name": "del",
+      "usage": [
+        "del [-net|-host] <TARGET> [gw <GW>] [netmask <NM>] [metric <M>] [dev <INTERFACE>]"
+      ],
+      "tip": [
+        "Delete a route."
+      ],
+      "option": [
+        {
+          "name": "-host",
+          "tip": [
+            "Treat the target as a host."
+          ]
+        },
+        {
+          "name": "-net",
+          "tip": [
+            "Treat the target as a network."
+          ]
+        },
+        {
+          "name": "dev",
+          "usage": [
+            "dev <INTERFACE>"
+          ],
+          "tip": [
+            "Match the route on this interface."
+          ],
+          "next": []
+        },
+        {
+          "name": "gw",
+          "usage": [
+            "gw <GW>"
+          ],
+          "tip": [
+            "Route packets via this gateway."
+          ],
+          "next": []
+        },
+        {
+          "name": "metric",
+          "usage": [
+            "metric <M>"
+          ],
+          "tip": [
+            "Set the metric field of the route."
+          ],
+          "next": []
+        },
+        {
+          "name": "netmask",
+          "usage": [
+            "netmask <NM>"
+          ],
+          "tip": [
+            "Set the netmask for a network route."
+          ],
+          "next": []
+        }
+      ]
+    },
+    {
+      "name": "flush",
+      "tip": [
+        "Flush the routing table."
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--extend",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --extend"
+      ],
+      "tip": [
+        "Display more information; use twice for a very long line."
+      ],
+      "repeat": 2
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display detailed usage for the address family."
+      ]
+    },
+    {
+      "name": "--numeric",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --numeric"
+      ],
+      "tip": [
+        "Show numerical addresses instead of resolving host names."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Display version information."
+      ]
+    },
+    {
+      "name": "-N",
+      "tip": [
+        "Resolve hardware addresses to names."
+      ]
+    }
+  ],
+  "global_option": [
+    {
+      "name": "--cache",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --cache"
+      ],
+      "tip": [
+        "Operate on the routing cache."
+      ]
+    },
+    {
+      "name": "--fib",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --fib"
+      ],
+      "tip": [
+        "Operate on the FIB routing table (default)."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Be verbose."
+      ]
+    },
+    {
+      "name": "-4",
+      "tip": [
+        "Use the inet (IPv4) address family."
+      ]
+    },
+    {
+      "name": "-6",
+      "tip": [
+        "Use the inet6 (IPv6) address family."
+      ]
+    },
+    {
+      "name": "-A",
+      "usage": [
+        "-A <FAMILY>"
+      ],
+      "tip": [
+        "Use the specified address family."
+      ],
+      "next": [
+        {
+          "name": "ax25"
+        },
+        {
+          "name": "ddp"
+        },
+        {
+          "name": "inet"
+        },
+        {
+          "name": "inet6"
+        },
+        {
+          "name": "ipx"
+        },
+        {
+          "name": "netrom"
+        },
+        {
+          "name": "rose"
+        },
+        {
+          "name": "x25"
+        }
+      ]
+    }
+  ]
+}

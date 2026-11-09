@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "url": "https://github.com/systemd/systemd",
+    "description": [
+      "Initialize /etc/machine-id from a random source."
+    ]
+  },
+  "option": [
+    {
+      "name": "--commit",
+      "tip": [
+        "Commit the transient ID."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this help."
+      ]
+    },
+    {
+      "name": "--image",
+      "usage": [
+        "--image=PATH"
+      ],
+      "tip": [
+        "Operate on a disk image as the filesystem root."
+      ],
+      "next": []
+    },
+    {
+      "name": "--image-policy",
+      "usage": [
+        "--image-policy=POLICY"
+      ],
+      "tip": [
+        "Specify the disk image dissection policy."
+      ],
+      "next": []
+    },
+    {
+      "name": "--print",
+      "tip": [
+        "Print the machine ID used."
+      ]
+    },
+    {
+      "name": "--root",
+      "usage": [
+        "--root=PATH"
+      ],
+      "tip": [
+        "Operate on an alternate filesystem root."
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Show package version."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "url": "https://github.com/systemd/systemd",
+    "description": [
+      "监听套接字并在连接时启动子进程。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--accept",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --accept"
+      ],
+      "tip": [
+        "为每个连接启动子进程。"
+      ]
+    },
+    {
+      "name": "--datagram",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --datagram"
+      ],
+      "tip": [
+        "在数据报套接字上监听。"
+      ]
+    },
+    {
+      "name": "--fdname",
+      "usage": [
+        "--fdname=NAME[:NAME...]"
+      ],
+      "tip": [
+        "为文件描述符指定名称。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助并退出。"
+      ]
+    },
+    {
+      "name": "--inetd",
+      "tip": [
+        "启用 inetd 描述符传递协议。"
+      ]
+    },
+    {
+      "name": "--listen",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --listen=ADDR"
+      ],
+      "tip": [
+        "在 ADDR 监听原始连接。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--seqpacket",
+      "tip": [
+        "在 SOCK_SEQPACKET 上监听。"
+      ]
+    },
+    {
+      "name": "--setenv",
+      "alias": [
+        "-E"
+      ],
+      "usage": [
+        "-E, --setenv=NAME[=VALUE]"
+      ],
+      "tip": [
+        "向子进程传递环境变量。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "打印版本字符串并退出。"
+      ]
+    }
+  ]
+}

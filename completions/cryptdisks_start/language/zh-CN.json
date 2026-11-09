@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/cryptsetup/cryptsetup",
+    "description": [
+      "启动 /etc/crypttab 中列出的加密磁盘。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h",
+        "-?"
+      ],
+      "usage": [
+        "-h, -?, --help"
+      ],
+      "tip": [
+        "显示此帮助信息。"
+      ]
+    },
+    {
+      "name": "--readonly",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --readonly"
+      ],
+      "tip": [
+        "以只读模式启动映射。"
+      ]
+    }
+  ]
+}

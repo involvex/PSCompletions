@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "Resize an ext2/ext3/ext4 file system."
+    ]
+  },
+  "option": [
+    {
+      "name": "-b",
+      "tip": [
+        "Enable the 64bit feature and move metadata as needed."
+      ]
+    },
+    {
+      "name": "-d",
+      "usage": [
+        "-d debug-flags"
+      ],
+      "tip": [
+        "Enable resize2fs debugging features."
+      ],
+      "next": []
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "Force the resize, overriding safety checks."
+      ]
+    },
+    {
+      "name": "-F",
+      "tip": [
+        "Flush the device buffer caches before starting."
+      ]
+    },
+    {
+      "name": "-M",
+      "tip": [
+        "Shrink the file system to its minimum size."
+      ]
+    },
+    {
+      "name": "-p",
+      "tip": [
+        "Print percentage completion bars for each phase."
+      ]
+    },
+    {
+      "name": "-P",
+      "tip": [
+        "Print the minimum size the file system would shrink to."
+      ]
+    },
+    {
+      "name": "-s",
+      "tip": [
+        "Disable the 64bit feature and free unused blocks."
+      ]
+    },
+    {
+      "name": "-S",
+      "usage": [
+        "-S RAID-stride"
+      ],
+      "tip": [
+        "Set the RAID stride instead of detecting it heuristically."
+      ],
+      "next": []
+    },
+    {
+      "name": "-z",
+      "usage": [
+        "-z undo_file"
+      ],
+      "tip": [
+        "Write the old contents of each block to an undo file."
+      ],
+      "next": []
+    }
+  ]
+}

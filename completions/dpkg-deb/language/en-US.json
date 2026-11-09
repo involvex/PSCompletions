@@ -1,0 +1,308 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "Build, inspect and extract Debian archives."
+    ]
+  },
+  "option": [
+    {
+      "name": "--build",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --build <directory> [<deb>]"
+      ],
+      "tip": [
+        "Build an archive."
+      ],
+      "next": []
+    },
+    {
+      "name": "--compression",
+      "alias": [
+        "-Z"
+      ],
+      "usage": [
+        "-Z, --compression=<compressor>"
+      ],
+      "tip": [
+        "Set the build compression type."
+      ],
+      "next": [
+        {
+          "name": "gzip"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "xz"
+        },
+        {
+          "name": "zstd"
+        }
+      ]
+    },
+    {
+      "name": "--compression-level",
+      "alias": [
+        "-z"
+      ],
+      "usage": [
+        "-z, --compression-level=<level>"
+      ],
+      "tip": [
+        "Set the build compression level."
+      ],
+      "next": []
+    },
+    {
+      "name": "--compression-strategy",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --compression-strategy=<name>"
+      ],
+      "tip": [
+        "Set the build compression strategy."
+      ],
+      "next": []
+    },
+    {
+      "name": "--contents",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --contents <deb>"
+      ],
+      "tip": [
+        "List archive contents."
+      ],
+      "next": []
+    },
+    {
+      "name": "--control",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --control <deb> [<directory>]"
+      ],
+      "tip": [
+        "Extract control information."
+      ],
+      "next": []
+    },
+    {
+      "name": "--ctrl-tarfile",
+      "usage": [
+        "--ctrl-tarfile <deb>"
+      ],
+      "tip": [
+        "Output the control tarfile."
+      ],
+      "next": []
+    },
+    {
+      "name": "--deb-format",
+      "usage": [
+        "--deb-format=<format>"
+      ],
+      "tip": [
+        "Select the archive format."
+      ],
+      "next": [
+        {
+          "name": "0.939000"
+        },
+        {
+          "name": "2.0"
+        }
+      ]
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --debug"
+      ],
+      "tip": [
+        "Enable debugging output."
+      ]
+    },
+    {
+      "name": "--extract",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --extract <deb> <directory>"
+      ],
+      "tip": [
+        "Extract files."
+      ],
+      "next": []
+    },
+    {
+      "name": "--field",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --field <deb> [<cfield>...]"
+      ],
+      "tip": [
+        "Show control fields."
+      ],
+      "next": []
+    },
+    {
+      "name": "--fsys-tarfile",
+      "usage": [
+        "--fsys-tarfile <deb>"
+      ],
+      "tip": [
+        "Output the filesystem tarfile."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "Show this help message."
+      ]
+    },
+    {
+      "name": "--info",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --info <deb> [<cfile>...]"
+      ],
+      "tip": [
+        "Show archive info."
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-check",
+      "tip": [
+        "Suppress all checks (build bad packages)."
+      ]
+    },
+    {
+      "name": "--no-uniform-compression",
+      "tip": [
+        "Do not use compression params on all members."
+      ]
+    },
+    {
+      "name": "--nocheck",
+      "tip": [
+        "Alias for --no-check."
+      ]
+    },
+    {
+      "name": "--raw-extract",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --raw-extract <deb> <directory>"
+      ],
+      "tip": [
+        "Extract control info and files."
+      ],
+      "next": []
+    },
+    {
+      "name": "--root-owner-group",
+      "tip": [
+        "Force owner and group to root."
+      ]
+    },
+    {
+      "name": "--show",
+      "alias": [
+        "-W"
+      ],
+      "usage": [
+        "-W, --show <deb>"
+      ],
+      "tip": [
+        "Show package information."
+      ],
+      "next": []
+    },
+    {
+      "name": "--showformat",
+      "usage": [
+        "--showformat=<format>"
+      ],
+      "tip": [
+        "Use an alternative format for --show."
+      ],
+      "next": []
+    },
+    {
+      "name": "--threads-max",
+      "usage": [
+        "--threads-max=<threads>"
+      ],
+      "tip": [
+        "Use at most this many compressor threads."
+      ],
+      "next": []
+    },
+    {
+      "name": "--uniform-compression",
+      "tip": [
+        "Use compression params on all members."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Enable verbose output."
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Show the version."
+      ]
+    },
+    {
+      "name": "--vextract",
+      "alias": [
+        "-X"
+      ],
+      "usage": [
+        "-X, --vextract <deb> <directory>"
+      ],
+      "tip": [
+        "Extract and list files."
+      ],
+      "next": []
+    }
+  ]
+}

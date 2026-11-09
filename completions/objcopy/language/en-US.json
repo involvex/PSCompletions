@@ -1,0 +1,969 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "Copy and transform object files."
+    ]
+  },
+  "option": [
+    {
+      "name": "--add-gnu-debuglink=",
+      "usage": [
+        "--add-gnu-debuglink=<file>"
+      ],
+      "tip": [
+        "Add a .gnu_debuglink section linking to the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--add-section",
+      "usage": [
+        "--add-section <name>=<file>"
+      ],
+      "tip": [
+        "Add the named section from the file to the output."
+      ],
+      "next": []
+    },
+    {
+      "name": "--add-symbol",
+      "usage": [
+        "--add-symbol <name>=[<section>:]<value>[,<flags>]"
+      ],
+      "tip": [
+        "Add a symbol to the output."
+      ],
+      "next": []
+    },
+    {
+      "name": "--adjust-warnings",
+      "tip": [
+        "Warn if a named section does not exist."
+      ]
+    },
+    {
+      "name": "--alt-machine-code",
+      "usage": [
+        "--alt-machine-code <index>"
+      ],
+      "tip": [
+        "Use the target's alternative machine code."
+      ],
+      "next": []
+    },
+    {
+      "name": "--binary-architecture",
+      "alias": [
+        "-B"
+      ],
+      "usage": [
+        "-B, --binary-architecture <arch>"
+      ],
+      "tip": [
+        "Set the output architecture for an architecture-less input."
+      ],
+      "next": []
+    },
+    {
+      "name": "--binary-symbol-prefix",
+      "usage": [
+        "--binary-symbol-prefix <prefix>"
+      ],
+      "tip": [
+        "Use the prefix as the base symbol name for the input file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--byte",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --byte <num>"
+      ],
+      "tip": [
+        "Select the byte in every interleaved block."
+      ],
+      "next": []
+    },
+    {
+      "name": "--change-addresses",
+      "alias": [
+        "--adjust-vma"
+      ],
+      "usage": [
+        "--change-addresses <incr>, --adjust-vma <incr>"
+      ],
+      "tip": [
+        "Add the increment to LMA, VMA and start addresses."
+      ],
+      "next": []
+    },
+    {
+      "name": "--change-leading-char",
+      "tip": [
+        "Force the output format's leading character style."
+      ]
+    },
+    {
+      "name": "--change-section-address",
+      "alias": [
+        "--adjust-section-vma"
+      ],
+      "usage": [
+        "--change-section-address <name>{=|+|-}<val>"
+      ],
+      "tip": [
+        "Change the LMA and VMA of the section."
+      ],
+      "next": []
+    },
+    {
+      "name": "--change-section-lma",
+      "usage": [
+        "--change-section-lma <name>{=|+|-}<val>"
+      ],
+      "tip": [
+        "Change the LMA of the section."
+      ],
+      "next": []
+    },
+    {
+      "name": "--change-section-vma",
+      "usage": [
+        "--change-section-vma <name>{=|+|-}<val>"
+      ],
+      "tip": [
+        "Change the VMA of the section."
+      ],
+      "next": []
+    },
+    {
+      "name": "--change-start",
+      "alias": [
+        "--adjust-start"
+      ],
+      "usage": [
+        "--change-start <incr>, --adjust-start <incr>"
+      ],
+      "tip": [
+        "Add the increment to the start address."
+      ],
+      "next": []
+    },
+    {
+      "name": "--change-warnings",
+      "tip": [
+        "Warn if a named section does not exist."
+      ]
+    },
+    {
+      "name": "--compress-debug-sections",
+      "usage": [
+        "--compress-debug-sections[={none|zlib|zlib-gnu|zlib-gabi|zstd}]"
+      ],
+      "tip": [
+        "Compress DWARF debug sections."
+      ],
+      "next": []
+    },
+    {
+      "name": "--debugging",
+      "tip": [
+        "Convert debugging information when possible."
+      ]
+    },
+    {
+      "name": "--decompress-debug-sections",
+      "tip": [
+        "Decompress DWARF debug sections using zlib."
+      ]
+    },
+    {
+      "name": "--disable-deterministic-archives",
+      "alias": [
+        "-U"
+      ],
+      "usage": [
+        "-U, --disable-deterministic-archives"
+      ],
+      "tip": [
+        "Disable -D behavior."
+      ]
+    },
+    {
+      "name": "--discard-all",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --discard-all"
+      ],
+      "tip": [
+        "Remove all non-global symbols."
+      ]
+    },
+    {
+      "name": "--discard-locals",
+      "alias": [
+        "-X"
+      ],
+      "usage": [
+        "-X, --discard-locals"
+      ],
+      "tip": [
+        "Remove compiler-generated symbols."
+      ]
+    },
+    {
+      "name": "--dump-section",
+      "usage": [
+        "--dump-section <name>=<file>"
+      ],
+      "tip": [
+        "Dump the section contents into the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--elf-stt-common=",
+      "usage": [
+        "--elf-stt-common=[yes|no]"
+      ],
+      "tip": [
+        "Generate ELF common symbols with the STT_COMMON type."
+      ],
+      "next": [
+        {
+          "name": "no"
+        },
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "--enable-deterministic-archives",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --enable-deterministic-archives"
+      ],
+      "tip": [
+        "Produce deterministic output when stripping archives (default)."
+      ]
+    },
+    {
+      "name": "--extract-dwo",
+      "tip": [
+        "Copy only DWO sections."
+      ]
+    },
+    {
+      "name": "--extract-symbol",
+      "tip": [
+        "Remove section contents but keep symbols."
+      ]
+    },
+    {
+      "name": "--file-alignment",
+      "usage": [
+        "--file-alignment <num>"
+      ],
+      "tip": [
+        "Set the PE file alignment."
+      ],
+      "next": []
+    },
+    {
+      "name": "--gap-fill",
+      "usage": [
+        "--gap-fill <val>"
+      ],
+      "tip": [
+        "Fill gaps between sections with the value."
+      ],
+      "next": []
+    },
+    {
+      "name": "--globalize-symbol",
+      "usage": [
+        "--globalize-symbol <name>"
+      ],
+      "tip": [
+        "Mark the named symbol as global."
+      ],
+      "next": []
+    },
+    {
+      "name": "--globalize-symbols",
+      "usage": [
+        "--globalize-symbols <file>"
+      ],
+      "tip": [
+        "Apply --globalize-symbol to all symbols in the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--heap",
+      "usage": [
+        "--heap <reserve>[,<commit>]"
+      ],
+      "tip": [
+        "Set the PE heap reserve and commit sizes."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this output."
+      ]
+    },
+    {
+      "name": "--image-base",
+      "usage": [
+        "--image-base <address>"
+      ],
+      "tip": [
+        "Set the PE image base address."
+      ],
+      "next": []
+    },
+    {
+      "name": "--impure",
+      "tip": [
+        "Mark the output file as impure."
+      ]
+    },
+    {
+      "name": "--info",
+      "tip": [
+        "List supported object formats and architectures."
+      ]
+    },
+    {
+      "name": "--input-target",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --input-target <bfdname>"
+      ],
+      "tip": [
+        "Assume the input file is in the given format."
+      ],
+      "next": []
+    },
+    {
+      "name": "--interleave",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --interleave[=<number>]"
+      ],
+      "tip": [
+        "Only copy N out of every number of bytes."
+      ],
+      "next": []
+    },
+    {
+      "name": "--interleave-width",
+      "usage": [
+        "--interleave-width <number>"
+      ],
+      "tip": [
+        "Set N for --interleave."
+      ],
+      "next": []
+    },
+    {
+      "name": "--keep-file-symbols",
+      "tip": [
+        "Do not strip file symbols."
+      ]
+    },
+    {
+      "name": "--keep-global-symbol",
+      "alias": [
+        "-G"
+      ],
+      "usage": [
+        "-G, --keep-global-symbol <name>"
+      ],
+      "tip": [
+        "Localize all symbols except the named one."
+      ],
+      "next": []
+    },
+    {
+      "name": "--keep-global-symbols",
+      "usage": [
+        "--keep-global-symbols <file>"
+      ],
+      "tip": [
+        "Apply -G to all symbols listed in the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--keep-section",
+      "usage": [
+        "--keep-section <name>"
+      ],
+      "tip": [
+        "Do not strip the named section."
+      ],
+      "next": []
+    },
+    {
+      "name": "--keep-section-symbols",
+      "tip": [
+        "Do not strip section symbols."
+      ]
+    },
+    {
+      "name": "--keep-symbol",
+      "alias": [
+        "-K"
+      ],
+      "usage": [
+        "-K, --keep-symbol <name>"
+      ],
+      "tip": [
+        "Do not strip the named symbol."
+      ],
+      "next": []
+    },
+    {
+      "name": "--keep-symbols",
+      "usage": [
+        "--keep-symbols <file>"
+      ],
+      "tip": [
+        "Apply -K to all symbols listed in the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--localize-hidden",
+      "tip": [
+        "Turn all ELF hidden symbols into locals."
+      ]
+    },
+    {
+      "name": "--localize-symbol",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --localize-symbol <name>"
+      ],
+      "tip": [
+        "Mark the named symbol as local."
+      ],
+      "next": []
+    },
+    {
+      "name": "--localize-symbols",
+      "usage": [
+        "--localize-symbols <file>"
+      ],
+      "tip": [
+        "Apply -L to all symbols listed in the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--long-section-names",
+      "usage": [
+        "--long-section-names {enable|disable|keep}"
+      ],
+      "tip": [
+        "Handle long section names in COFF objects."
+      ],
+      "next": [
+        {
+          "name": "disable"
+        },
+        {
+          "name": "enable"
+        },
+        {
+          "name": "keep"
+        }
+      ]
+    },
+    {
+      "name": "--merge-notes",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --merge-notes"
+      ],
+      "tip": [
+        "Remove redundant entries in note sections."
+      ]
+    },
+    {
+      "name": "--no-adjust-warnings",
+      "tip": [
+        "Do not warn if a named section does not exist."
+      ]
+    },
+    {
+      "name": "--no-change-warnings",
+      "tip": [
+        "Do not warn if a named section does not exist."
+      ]
+    },
+    {
+      "name": "--no-merge-notes",
+      "tip": [
+        "Do not remove redundant notes (default)."
+      ]
+    },
+    {
+      "name": "--only-keep-debug",
+      "tip": [
+        "Strip everything but the debug information."
+      ]
+    },
+    {
+      "name": "--only-section",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --only-section <name>"
+      ],
+      "tip": [
+        "Only copy the named section into the output."
+      ],
+      "next": []
+    },
+    {
+      "name": "--output-target",
+      "alias": [
+        "-O"
+      ],
+      "usage": [
+        "-O, --output-target <bfdname>"
+      ],
+      "tip": [
+        "Create the output file in the given format."
+      ],
+      "next": []
+    },
+    {
+      "name": "--pad-to",
+      "usage": [
+        "--pad-to <addr>"
+      ],
+      "tip": [
+        "Pad the last section up to the address."
+      ],
+      "next": []
+    },
+    {
+      "name": "--prefix-alloc-sections",
+      "usage": [
+        "--prefix-alloc-sections <prefix>"
+      ],
+      "tip": [
+        "Add the prefix to every allocatable section name."
+      ],
+      "next": []
+    },
+    {
+      "name": "--prefix-sections",
+      "usage": [
+        "--prefix-sections <prefix>"
+      ],
+      "tip": [
+        "Add the prefix to every section name."
+      ],
+      "next": []
+    },
+    {
+      "name": "--prefix-symbols",
+      "usage": [
+        "--prefix-symbols <prefix>"
+      ],
+      "tip": [
+        "Add the prefix to every symbol name."
+      ],
+      "next": []
+    },
+    {
+      "name": "--preserve-dates",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --preserve-dates"
+      ],
+      "tip": [
+        "Copy modified and access timestamps to the output."
+      ]
+    },
+    {
+      "name": "--pure",
+      "tip": [
+        "Mark the output file as demand paged."
+      ]
+    },
+    {
+      "name": "--readonly-text",
+      "tip": [
+        "Make the output text write-protected."
+      ]
+    },
+    {
+      "name": "--redefine-sym",
+      "usage": [
+        "--redefine-sym <old>=<new>"
+      ],
+      "tip": [
+        "Redefine the symbol name."
+      ],
+      "next": []
+    },
+    {
+      "name": "--redefine-syms",
+      "usage": [
+        "--redefine-syms <file>"
+      ],
+      "tip": [
+        "Apply --redefine-sym for every pair in the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--remove-leading-char",
+      "tip": [
+        "Remove the leading character from global symbols."
+      ]
+    },
+    {
+      "name": "--remove-relocations",
+      "usage": [
+        "--remove-relocations <name>"
+      ],
+      "tip": [
+        "Remove relocations from the named section."
+      ],
+      "next": []
+    },
+    {
+      "name": "--remove-section",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --remove-section <name>"
+      ],
+      "tip": [
+        "Remove the named section from the output."
+      ],
+      "next": []
+    },
+    {
+      "name": "--rename-section",
+      "usage": [
+        "--rename-section <old>=<new>[,<flags>]"
+      ],
+      "tip": [
+        "Rename the section and optionally set flags."
+      ],
+      "next": []
+    },
+    {
+      "name": "--reverse-bytes",
+      "usage": [
+        "--reverse-bytes=<num>"
+      ],
+      "tip": [
+        "Reverse the given number of bytes at a time."
+      ],
+      "next": []
+    },
+    {
+      "name": "--section-alignment",
+      "usage": [
+        "--section-alignment <num>"
+      ],
+      "tip": [
+        "Set the PE section alignment."
+      ],
+      "next": []
+    },
+    {
+      "name": "--set-section-alignment",
+      "usage": [
+        "--set-section-alignment <name>=<align>"
+      ],
+      "tip": [
+        "Set the section alignment in bytes."
+      ],
+      "next": []
+    },
+    {
+      "name": "--set-section-flags",
+      "usage": [
+        "--set-section-flags <name>=<flags>"
+      ],
+      "tip": [
+        "Set the section properties to the flags."
+      ],
+      "next": []
+    },
+    {
+      "name": "--set-start",
+      "usage": [
+        "--set-start <addr>"
+      ],
+      "tip": [
+        "Set the start address."
+      ],
+      "next": []
+    },
+    {
+      "name": "--srec-forceS3",
+      "tip": [
+        "Restrict generated S-records to S3."
+      ]
+    },
+    {
+      "name": "--srec-len",
+      "usage": [
+        "--srec-len <number>"
+      ],
+      "tip": [
+        "Restrict the length of generated S-records."
+      ],
+      "next": []
+    },
+    {
+      "name": "--stack",
+      "usage": [
+        "--stack <reserve>[,<commit>]"
+      ],
+      "tip": [
+        "Set the PE stack reserve and commit sizes."
+      ],
+      "next": []
+    },
+    {
+      "name": "--strip-all",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --strip-all"
+      ],
+      "tip": [
+        "Remove all symbol and relocation information."
+      ]
+    },
+    {
+      "name": "--strip-debug",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --strip-debug"
+      ],
+      "tip": [
+        "Remove all debugging symbols and sections."
+      ]
+    },
+    {
+      "name": "--strip-dwo",
+      "tip": [
+        "Remove all DWO sections."
+      ]
+    },
+    {
+      "name": "--strip-section-headers",
+      "tip": [
+        "Strip section headers from the output."
+      ]
+    },
+    {
+      "name": "--strip-symbol",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --strip-symbol <name>"
+      ],
+      "tip": [
+        "Do not copy the named symbol."
+      ],
+      "next": []
+    },
+    {
+      "name": "--strip-symbols",
+      "usage": [
+        "--strip-symbols <file>"
+      ],
+      "tip": [
+        "Apply -N to all symbols listed in the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--strip-unneeded",
+      "tip": [
+        "Remove all symbols not needed by relocations."
+      ]
+    },
+    {
+      "name": "--strip-unneeded-symbol",
+      "usage": [
+        "--strip-unneeded-symbol <name>"
+      ],
+      "tip": [
+        "Do not copy the symbol unless relocations need it."
+      ],
+      "next": []
+    },
+    {
+      "name": "--strip-unneeded-symbols",
+      "usage": [
+        "--strip-unneeded-symbols <file>"
+      ],
+      "tip": [
+        "Apply --strip-unneeded-symbol to all symbols in the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--subsystem",
+      "usage": [
+        "--subsystem <name>[:<version>]"
+      ],
+      "tip": [
+        "Set the PE subsystem and optional version."
+      ],
+      "next": []
+    },
+    {
+      "name": "--target",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --target <bfdname>"
+      ],
+      "tip": [
+        "Set both the input and output format."
+      ],
+      "next": []
+    },
+    {
+      "name": "--update-section",
+      "usage": [
+        "--update-section <name>=<file>"
+      ],
+      "tip": [
+        "Update the section contents from the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "List all object files modified."
+      ]
+    },
+    {
+      "name": "--verilog-data-width",
+      "usage": [
+        "--verilog-data-width <number>"
+      ],
+      "tip": [
+        "Set the data width in bytes for Verilog output."
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Display the program version."
+      ]
+    },
+    {
+      "name": "--weaken",
+      "tip": [
+        "Mark all global symbols as weak."
+      ]
+    },
+    {
+      "name": "--weaken-symbol",
+      "alias": [
+        "-W"
+      ],
+      "usage": [
+        "-W, --weaken-symbol <name>"
+      ],
+      "tip": [
+        "Mark the named symbol as weak."
+      ],
+      "next": []
+    },
+    {
+      "name": "--weaken-symbols",
+      "usage": [
+        "--weaken-symbols <file>"
+      ],
+      "tip": [
+        "Apply -W to all symbols listed in the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--wildcard",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --wildcard"
+      ],
+      "tip": [
+        "Permit wildcards in symbol comparison."
+      ]
+    },
+    {
+      "name": "--writable-text",
+      "tip": [
+        "Mark the output text as writable."
+      ]
+    }
+  ]
+}

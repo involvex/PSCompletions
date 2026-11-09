@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "Change file attributes on an ext2/ext3/ext4 file system."
+    ]
+  },
+  "option": [
+    {
+      "name": "-f",
+      "tip": [
+        "Suppress most error messages."
+      ]
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p project"
+      ],
+      "tip": [
+        "Set the file's project number."
+      ],
+      "next": []
+    },
+    {
+      "name": "-R",
+      "tip": [
+        "Recursively change attributes of directories and their contents."
+      ]
+    },
+    {
+      "name": "-v",
+      "usage": [
+        "-v version"
+      ],
+      "tip": [
+        "Set the file's version/generation number."
+      ],
+      "next": []
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "Be verbose and print the program version."
+      ]
+    }
+  ]
+}

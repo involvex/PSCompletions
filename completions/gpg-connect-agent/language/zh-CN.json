@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "url": "https://gnupg.org",
+    "description": [
+      "连接到运行中的代理并发送命令。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--decode",
+      "tip": [
+        "解码接收的数据行。"
+      ]
+    },
+    {
+      "name": "--dirmngr",
+      "tip": [
+        "连接到 dirmngr。"
+      ]
+    },
+    {
+      "name": "--exec",
+      "alias": [
+        "-E"
+      ],
+      "usage": [
+        "-E, --exec"
+      ],
+      "tip": [
+        "运行命令行中的 Assuan 服务器。"
+      ]
+    },
+    {
+      "name": "--hex",
+      "tip": [
+        "以十六进制编码打印数据。"
+      ]
+    },
+    {
+      "name": "--keyboxd",
+      "tip": [
+        "连接到 keyboxd。"
+      ]
+    },
+    {
+      "name": "--no-ext-connect",
+      "tip": [
+        "不使用扩展连接模式。"
+      ]
+    },
+    {
+      "name": "--no-history",
+      "tip": [
+        "不使用命令历史文件。"
+      ]
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "静默模式。"
+      ]
+    },
+    {
+      "name": "--raw-socket",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --raw-socket NAME"
+      ],
+      "tip": [
+        "连接到 Assuan 套接字 NAME。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--run",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --run FILE"
+      ],
+      "tip": [
+        "启动时运行 FILE 中的命令。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--subst",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --subst"
+      ],
+      "tip": [
+        "启动时运行 /subst。"
+      ]
+    },
+    {
+      "name": "--tcp-socket",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --tcp-socket ADDR"
+      ],
+      "tip": [
+        "连接到 ADDR 的 Assuan 服务器。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "详细模式。"
+      ]
+    }
+  ]
+}

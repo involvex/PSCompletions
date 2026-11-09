@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "创建、修改和提取归档。"
+    ]
+  },
+  "next": [
+    {
+      "name": "d",
+      "usage": [
+        "d|-d <archive> <file...>"
+      ],
+      "tip": [
+        "从归档中删除文件。"
+      ]
+    },
+    {
+      "name": "m",
+      "usage": [
+        "m|-m <archive> <file...>"
+      ],
+      "tip": [
+        "在归档中移动文件；a/b 将其放在成员之后/之前。"
+      ]
+    },
+    {
+      "name": "p",
+      "usage": [
+        "p|-p <archive> <file...>"
+      ],
+      "tip": [
+        "打印归档中的文件。"
+      ]
+    },
+    {
+      "name": "q",
+      "usage": [
+        "q|-q <archive> <file...>"
+      ],
+      "tip": [
+        "快速将文件追加到归档。"
+      ]
+    },
+    {
+      "name": "r",
+      "usage": [
+        "r|-r <archive> <file...>"
+      ],
+      "tip": [
+        "替换归档中的现有文件或插入新文件。"
+      ]
+    },
+    {
+      "name": "s",
+      "usage": [
+        "s|-s <archive>"
+      ],
+      "tip": [
+        "作为 ranlib 写入归档索引。"
+      ]
+    },
+    {
+      "name": "t",
+      "usage": [
+        "t|-t <archive>"
+      ],
+      "tip": [
+        "显示归档内容；O 显示偏移，v 表示详细。"
+      ]
+    },
+    {
+      "name": "x",
+      "usage": [
+        "x|-x <archive> <file...>"
+      ],
+      "tip": [
+        "从归档中提取文件；o 保留原始日期。"
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--output",
+      "usage": [
+        "--output=DIRNAME"
+      ],
+      "tip": [
+        "指定提取操作的输出目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--plugin",
+      "usage": [
+        "--plugin <p>"
+      ],
+      "tip": [
+        "加载指定的插件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--record-libdeps",
+      "usage": [
+        "--record-libdeps=<text>"
+      ],
+      "tip": [
+        "指定此库的依赖。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--target",
+      "usage": [
+        "--target=BFDNAME"
+      ],
+      "tip": [
+        "指定目标对象格式。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--thin",
+      "tip": [
+        "创建瘦归档。"
+      ]
+    },
+    {
+      "name": "-M",
+      "tip": [
+        "从标准输入读取 MRI 脚本。"
+      ]
+    }
+  ]
+}

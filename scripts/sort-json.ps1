@@ -1,4 +1,5 @@
-#Requires -Version 7.0
+#!/usr/bin/env pwsh
+#Requires -Version 7.6.5
 
 param(
     [string[]]$CompletionList,
@@ -8,9 +9,9 @@ param(
 
 Set-StrictMode -Off
 
-. $PSScriptRoot\utils.ps1
+. $PSScriptRoot/utils.ps1
 
-$completionsDir = "$PSScriptRoot\..\completions"
+$completionsDir = "$PSScriptRoot/../completions"
 
 $textPath = "$PSScriptRoot/language/$PSCulture.json"
 if (!(Test-Path -LiteralPath $textPath)) {
@@ -18,15 +19,15 @@ if (!(Test-Path -LiteralPath $textPath)) {
 }
 $text = Get-Content -Path $textPath -Encoding utf8 | ConvertFrom-Json
 
-if (!$PSCompletions) { . $PSScriptRoot\..\module\PSCompletions\PSCompletions.ps1 -SkipMigration }
+if (!$PSCompletions) { . $PSScriptRoot/../module/PSCompletions/PSCompletions.ps1 -SkipMigration }
 $PSCompletions.initialize($true)
 
 $text = $text.'sort-json'
 
 function outText {
-    param($text)
+    param($text, $ctx = @{})
     if ($text -is [array]) { $text = $text -join "`n" }
-    $PSCompletions.write_with_color($PSCompletions.replace_content($text))
+    $PSCompletions.write_with_color((Format-PscText $text $ctx))
 }
 
 if (-not $CompletionList) {
@@ -44,21 +45,20 @@ if (-not $CompletionList) {
     }
 }
 
-# Compiled helpers (scripts/psc-tools.cs): read-only canonicality check so that
-# already-normalized files skip the expensive PS rebuild entirely.
+# Compiled helpers (scripts/psc-tools.cs): read-only canonicality check so that already-normalized files skip the expensive PS rebuild entirely.
 # When the type is unavailable, everything falls back to the rebuild path below.
 if (-not ('PscTools.SortCheck' -as [type])) {
-    try { Add-Type -Path "$PSScriptRoot\psc-tools.cs" } catch { Write-Verbose "SortCheck unavailable: $_" }
+    try { Add-Type -Path "$PSScriptRoot/psc-tools.cs" } catch { Write-Verbose "SortCheck unavailable: $_" }
 }
 $script:sortCheckType = 'PscTools.SortCheck' -as [type]
 
-# Reorder a completion's config.json fields: id, hooks, alias, language (others appended at end).
+# Reorder a completion's config.json fields: id, version, hooks, alias, language (others appended at end).
 function Sort-ConfigJson {
     param(
         [string]$Path
     )
     $json = Get-Content -Path $Path -Raw | ConvertFrom-Json
-    $order = @('id', 'hooks', 'alias', 'language')
+    $order = @('id', 'version', 'hooks', 'alias', 'language')
     $sorted = [ordered]@{}
     foreach ($prop in $order) {
         if ($json.PSObject.Properties.Name -contains $prop) {
@@ -70,11 +70,18 @@ function Sort-ConfigJson {
             $sorted[$prop] = $json.$prop
         }
     }
+    if ($sorted.Contains('alias') -and @($sorted['alias']).Count -gt 1) {
+        $sorted['alias'] = [System.Linq.Enumerable]::ToArray(
+            [System.Linq.Enumerable]::OrderBy(
+                [System.Linq.Enumerable]::Cast[object](@($sorted['alias'])),
+                [Func[object, int]] { param($x) ([string]$x).Length }))
+    }
     $sorted | ConvertTo-Json | Out-File -FilePath $Path -Encoding utf8
 }
 
 # Normalize alias (longest form becomes name) and usage forms (short -> long).
-# Mutates the parsed tree in place. Runs before sorting so sibling order uses final names.
+# Mutates the parsed tree in place.
+# Runs before sorting so sibling order uses final names.
 function Optimize-Entry {
     param($entry)
 
@@ -195,8 +202,8 @@ function Sort-ObjectRecursively {
     }
 }
 
-# Parse once; when the tree is already canonical (common case), only re-serialize for
-# the byte comparison. Otherwise run the full optimize + sort rebuild.
+# Parse once; when the tree is already canonical (common case), only re-serialize for the byte comparison.
+# Otherwise run the full optimize + sort rebuild.
 # Returns the JSON string to write, or $null when content is unchanged (skip write).
 function Get-SortedJsonString {
     param(
@@ -264,12 +271,12 @@ function Get-SortedJsonString {
 $allResults = @()
 
 foreach ($completion in $CompletionList) {
-    $langDir = "$completionsDir\$completion\language"
+    $langDir = "$completionsDir/$completion/language"
     if (!(Test-Path -LiteralPath $langDir)) {
         continue
     }
     # Keep config.json fields in a stable order (id, hooks, alias, language).
-    $configFile = "$completionsDir\$completion\config.json"
+    $configFile = "$completionsDir/$completion/config.json"
     if (Test-Path -LiteralPath $configFile) {
         Sort-ConfigJson -Path $configFile
     }
@@ -296,11 +303,11 @@ foreach ($completion in $CompletionList) {
 $processedCount = $allResults.Count
 $sortedFilesTotal = if ($allResults.Count -gt 0) { ($allResults | Measure-Object -Property sortedFiles -Sum).Sum } else { 0 }
 if (-not $Quiet) {
-    outText $text.summary
+    outText $text.summary @{ ProcessedCount = $processedCount; SortedFilesTotal = $sortedFilesTotal }
     foreach ($r in $allResults) {
         $completion = $r.completion
         $sortedFiles = $r.sortedFiles
         $totalFiles = $r.totalFiles
-        outText $text.sortedHeader
+        outText $text.sortedHeader @{ Completion = $completion; SortedFiles = $sortedFiles; TotalFiles = $totalFiles }
     }
 }

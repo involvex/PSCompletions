@@ -1,0 +1,254 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/lvmteam/lvm2",
+    "description": [
+      "List all logical volumes in all volume groups"
+    ]
+  },
+  "option": [
+    {
+      "name": "--all",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --all"
+      ],
+      "tip": [
+        "Show information about internal LVs."
+      ]
+    },
+    {
+      "name": "--blockdevice",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --blockdevice"
+      ],
+      "tip": [
+        "No longer used."
+      ]
+    },
+    {
+      "name": "--commandprofile",
+      "usage": [
+        "--commandprofile String"
+      ],
+      "tip": [
+        "The command profile to use for command configuration."
+      ],
+      "next": []
+    },
+    {
+      "name": "--config",
+      "usage": [
+        "--config String"
+      ],
+      "tip": [
+        "Config settings for the command."
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "Set debug level."
+      ],
+      "repeat": 6
+    },
+    {
+      "name": "--devices",
+      "usage": [
+        "--devices PV"
+      ],
+      "tip": [
+        "Restricts the devices that are visible and accessible to the command."
+      ],
+      "repeat": 99,
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--devicesfile",
+      "usage": [
+        "--devicesfile String"
+      ],
+      "tip": [
+        "A file listing devices that LVM should use."
+      ],
+      "next": []
+    },
+    {
+      "name": "--driverloaded",
+      "usage": [
+        "--driverloaded y|n"
+      ],
+      "tip": [
+        "If set to no, the command will not attempt to use device-mapper."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display help text."
+      ]
+    },
+    {
+      "name": "--ignorelockingfailure",
+      "tip": [
+        "Allows a command to continue with read-only metadata operations after locking failures."
+      ]
+    },
+    {
+      "name": "--journal",
+      "usage": [
+        "--journal String"
+      ],
+      "tip": [
+        "Record information in the systemd journal."
+      ],
+      "next": []
+    },
+    {
+      "name": "--lockopt",
+      "usage": [
+        "--lockopt String"
+      ],
+      "tip": [
+        "Used to pass options for special cases to lvmlockd."
+      ],
+      "next": []
+    },
+    {
+      "name": "--longhelp",
+      "tip": [
+        "Display long help text."
+      ]
+    },
+    {
+      "name": "--nohints",
+      "tip": [
+        "Do not use the hints file to locate devices for PVs."
+      ]
+    },
+    {
+      "name": "--nolocking",
+      "tip": [
+        "Disable locking."
+      ]
+    },
+    {
+      "name": "--profile",
+      "usage": [
+        "--profile String"
+      ],
+      "tip": [
+        "An alias for --commandprofile or --metadataprofile, depending on the command."
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "Suppress output and log messages."
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--readonly",
+      "tip": [
+        "Prevent the command from making changes, including activation and metadata updates."
+      ]
+    },
+    {
+      "name": "--reportformat",
+      "usage": [
+        "--reportformat basic|json|json_std"
+      ],
+      "tip": [
+        "Overrides current output format for reports which is defined globally by the report/output_format setting in lvm.conf(5)."
+      ],
+      "next": [
+        {
+          "name": "basic"
+        },
+        {
+          "name": "json"
+        },
+        {
+          "name": "json_std"
+        }
+      ]
+    },
+    {
+      "name": "--test",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --test"
+      ],
+      "tip": [
+        "Run in test mode."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Set verbose level."
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Display version information."
+      ]
+    },
+    {
+      "name": "--yes",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --yes"
+      ],
+      "tip": [
+        "Do not prompt for confirmation interactively but always assume the answer yes."
+      ]
+    }
+  ]
+}

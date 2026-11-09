@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "url": "https://gnupg.org",
+    "description": [
+      "Connect to a running agent and send commands."
+    ]
+  },
+  "option": [
+    {
+      "name": "--decode",
+      "tip": [
+        "Decode received data lines."
+      ]
+    },
+    {
+      "name": "--dirmngr",
+      "tip": [
+        "Connect to the dirmngr."
+      ]
+    },
+    {
+      "name": "--exec",
+      "alias": [
+        "-E"
+      ],
+      "usage": [
+        "-E, --exec"
+      ],
+      "tip": [
+        "Run the Assuan server on the command line."
+      ]
+    },
+    {
+      "name": "--hex",
+      "tip": [
+        "Print data hex encoded."
+      ]
+    },
+    {
+      "name": "--keyboxd",
+      "tip": [
+        "Connect to the keyboxd."
+      ]
+    },
+    {
+      "name": "--no-ext-connect",
+      "tip": [
+        "Do not use extended connect mode."
+      ]
+    },
+    {
+      "name": "--no-history",
+      "tip": [
+        "Do not use the command history file."
+      ]
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "Quiet mode."
+      ]
+    },
+    {
+      "name": "--raw-socket",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --raw-socket NAME"
+      ],
+      "tip": [
+        "Connect to the Assuan socket NAME."
+      ],
+      "next": []
+    },
+    {
+      "name": "--run",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --run FILE"
+      ],
+      "tip": [
+        "Run commands from FILE on startup."
+      ],
+      "next": []
+    },
+    {
+      "name": "--subst",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --subst"
+      ],
+      "tip": [
+        "Run /subst on startup."
+      ]
+    },
+    {
+      "name": "--tcp-socket",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --tcp-socket ADDR"
+      ],
+      "tip": [
+        "Connect to the Assuan server at ADDR."
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Verbose mode."
+      ]
+    }
+  ]
+}

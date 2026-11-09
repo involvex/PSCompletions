@@ -1,5 +1,5 @@
-//! Module data layer: reads/writes the module's data files (settings.json, temp/completions.json)
-//! and loads localized psc manifest info. Platform-agnostic.
+//! Module data layer: reads/writes the module's data files (settings.json, temp/completions.json) and loads localized psc manifest info.
+//! Platform-agnostic.
 
 use std::collections::HashMap;
 
@@ -7,13 +7,11 @@ use serde_json::{json, Value};
 
 pub mod config;
 
-// Shared text helpers (BOM-tolerant reads) live in `psc-common`; re-exported so the
-// crate-internal `crate::data::read_text` paths keep working.
+// Shared text helpers (BOM-tolerant reads) live in `psc-common`; re-exported so the crate-internal `crate::data::read_text` paths keep working.
 pub use psc_common::{read_text, strip_bom};
 
-/// Whether a completion entry exists on disk (`<data>/completions/<name>`), as a real directory
-/// or as a link (symlink/junction from `scripts/link-completion.ps1`). Uses `symlink_metadata`,
-/// so a dangling link still counts as present.
+/// Whether a completion entry exists on disk (`<data>/completions/<name>`), as a real directory or as a link (symlink/junction from `scripts/link-completion.ps1`).
+/// Uses `symlink_metadata`, so a dangling link still counts as present.
 pub fn completion_dir_exists(data_dir: &str, name: &str) -> bool {
     if !crate::validate::is_valid_name(name) {
         return false;
@@ -21,10 +19,8 @@ pub fn completion_dir_exists(data_dir: &str, name: &str) -> bool {
     std::fs::symlink_metadata(format!("{data_dir}/completions/{name}")).is_ok()
 }
 
-/// Remove a completion entry: a symlink/junction is removed **as a link only** (the linked
-/// local source stays intact), a real directory recursively, a missing path is a no-op.
-/// An invalid name is a no-op: callers report it, and this keeps the destructive
-/// path from ever resolving outside `<data>/completions`.
+/// Remove a completion entry: a symlink/junction is removed **as a link only** (the linked local source stays intact), a real directory recursively, a missing path is a no-op.
+/// An invalid name is a no-op: callers report it, and this keeps the destructive path from ever resolving outside `<data>/completions`.
 pub fn remove_completion_entry(data_dir: &str, name: &str) {
     if !crate::validate::is_valid_name(name) {
         return;
@@ -36,8 +32,13 @@ pub fn remove_completion_entry(data_dir: &str, name: &str) {
             let _ = std::fs::remove_dir(&dir);
             #[cfg(not(windows))]
             let _ = std::fs::remove_file(&dir);
-        } else {
+        } else if md.file_type().is_dir() {
             let _ = std::fs::remove_dir_all(&dir);
+        } else {
+            // A stray plain file in the library directory.
+            // The user named it, so remove it — the directory holds completions and nothing else.
+            // (`remove_dir_all` fails on a file, and the error used to be swallowed, so `rm` reported success and left it there.)
+            let _ = std::fs::remove_file(&dir);
         }
     }
 }
@@ -46,60 +47,75 @@ pub fn remove_completion_entry(data_dir: &str, name: &str) {
 #[derive(Debug, Clone, Default)]
 pub struct Settings {
     /// completion name -> trigger aliases.
-    pub alias: HashMap<String, Vec<String>>,
-    /// module config (default_config merged with user overrides), incl. `completion` per-completion map.
+    /// **Ordered on purpose**: the key order is the claim order, and the hosts build their `word -> completion` table by inserting in it, so the last claim of a word wins.
+    /// Never re-sort it.
+    pub alias: AliasMap,
+    /// module config (default_config merged with user overrides), incl.
+    /// `completion` per-completion map.
     pub config: Value,
 }
 
+/// `alias` is order-preserving on purpose (see `Settings::alias`).
+/// A plain map would lose the claim order twice: `serde_json::Value` sorts its keys, and so would any round-trip through it.
+pub type AliasMap = indexmap::IndexMap<String, Vec<String>>;
+
+/// The on-disk shape.
+/// Serialized directly — never through `Value`, which would re-sort `alias`.
+#[derive(serde::Serialize, serde::Deserialize)]
+struct SettingsFile {
+    #[serde(default = "empty_object")]
+    config: Value,
+    #[serde(default)]
+    alias: AliasMap,
+}
+
+fn empty_object() -> Value {
+    json!({})
+}
+
 impl Settings {
-    pub fn load(path: &str) -> Option<Settings> {
-        let text = read_text(path)?;
-        let v: Value = match serde_json::from_str(&text) {
-            Ok(v) => v,
-            Err(_) => {
-                // Corrupt settings.json: back it up (never silently drop the damaged content)
-                // and fall back to defaults; the next save won't overwrite it without a trace.
-                // Write the backup from the already-read text first, then discard the original —
-                // if the backup write fails, the corrupt original stays put.
-                let corrupt = format!("{path}.corrupt");
-                let _ = std::fs::remove_file(&corrupt);
-                if std::fs::write(&corrupt, &text).is_ok() {
-                    let _ = std::fs::remove_file(path);
-                }
-                return None;
-            }
+    /// Move a completion to the end of the claim order.
+    /// That order is what the hosts insert in, so re-claiming is how a completion takes a word back from a later claim.
+    pub fn reclaim_alias(&mut self, name: &str) {
+        if let Some(words) = self.alias.shift_remove(name) {
+            self.alias.insert(name.to_string(), words);
+        }
+    }
+
+    /// Read and parse `settings.json`.
+    ///
+    /// A file that cannot be decoded (a foreign encoding) or parsed is **corruption, not absence**, so the run stops with an error naming the file.
+    /// Nothing is written: no backup, no rewrite — the file itself is the evidence, and it stays exactly as it is.
+    /// `Ok(None)` means the file simply is not there yet (a fresh install).
+    pub fn load(path: &str) -> Result<Option<Settings>, String> {
+        let Some(bytes) = std::fs::read(path).ok() else {
+            return Ok(None);
         };
-        let alias = v
-            .get("alias")
-            .and_then(|a| a.as_object())
-            .map(|o| {
-                o.iter()
-                    .map(|(k, val)| {
-                        let arr = val
-                            .as_array()
-                            .map(|a| {
-                                a.iter()
-                                    .filter_map(|x| x.as_str().map(String::from))
-                                    .collect()
-                            })
-                            .unwrap_or_default();
-                        (k.clone(), arr)
-                    })
-                    .collect()
-            })
-            .unwrap_or_default();
-        Some(Settings {
-            alias,
-            config: v.get("config").cloned().unwrap_or_else(|| json!({})),
-        })
+        let Some(text) = std::str::from_utf8(&bytes).ok().map(strip_bom) else {
+            return Err(format!(
+                "{path} is not valid UTF-8 — fix it or delete it (the file was not modified)"
+            ));
+        };
+        let file: SettingsFile = serde_json::from_str(text).map_err(|e| {
+            format!(
+                "{path} is not valid JSON ({e}) — fix it or delete it (the file was not modified)"
+            )
+        })?;
+        Ok(Some(Settings {
+            alias: file.alias,
+            config: file.config,
+        }))
     }
 
     pub fn save(&self, path: &str) -> Result<(), String> {
-        let data = json!({ "config": self.config, "alias": self.alias });
-        let text = serde_json::to_string_pretty(&data).map_err(|e| e.to_string())?;
+        let text = serde_json::to_string_pretty(&SettingsFile {
+            config: self.config.clone(),
+            alias: self.alias.clone(),
+        })
+        .map_err(|e| e.to_string())?;
         // Atomic + durable: pid-suffixed tmp, sync file, then rename over target.
-        // A crash mid-write can never leave a half-written settings.json, and a power loss
-        // after rename is durable. Concurrent psc processes use distinct tmp names.
+        // A crash mid-write can never leave a half-written settings.json, and a power loss after rename is durable.
+        // Concurrent psc processes use distinct tmp names.
         let tmp = format!("{path}.{}.tmp", std::process::id());
         {
             let mut f = std::fs::File::create(&tmp).map_err(|e| e.to_string())?;
@@ -120,11 +136,9 @@ impl Settings {
         Ok(())
     }
 
-    /// Sorted completion names (alias map keys).
+    /// Completion names in **claim order** (the alias map's key order) — the same order every listing uses, so the map stays the single source of the ordering.
     pub fn list(&self) -> Vec<String> {
-        let mut v: Vec<String> = self.alias.keys().cloned().collect();
-        v.sort();
-        v
+        self.alias.keys().cloned().collect()
     }
 
     /// Module language from config, defaulting to "en-US".
@@ -147,19 +161,11 @@ pub struct Index {
 }
 
 impl Index {
+    /// `None` for a missing **or unreadable** file: this is a rebuildable cache, so a corrupt one is simply fetched again — never reported, never rewritten.
     pub fn load(path: &str) -> Option<Index> {
-        let text = read_text(path)?;
-        let v: Value = match serde_json::from_str(&text) {
-            Ok(v) => v,
-            Err(_) => {
-                let corrupt = format!("{path}.corrupt");
-                let _ = std::fs::remove_file(&corrupt);
-                if std::fs::write(&corrupt, &text).is_ok() {
-                    let _ = std::fs::remove_file(path);
-                }
-                return None;
-            }
-        };
+        let bytes = std::fs::read(path).ok()?;
+        let text = std::str::from_utf8(&bytes).ok()?;
+        let v: Value = serde_json::from_str(strip_bom(text)).ok()?;
         Some(Index::from_value(v))
     }
 
@@ -200,7 +206,7 @@ impl Index {
 
 /// `temp/change.json` — a single JSON recording the pending notifications surfaced to the module:
 /// which completions need an update, which were added or removed in the library, which were
-/// renamed (`[old, new]` pairs), and the newest remote module version (written whenever it was
+/// renamed (`[old, new]` pairs), and the latest remote module version (written whenever it was
 /// fetched; the module compares it against its own installed version).
 #[derive(Debug, Clone, Default, serde::Serialize, serde::Deserialize)]
 pub struct LibraryChanges {
@@ -219,31 +225,73 @@ pub struct LibraryChanges {
 }
 
 impl LibraryChanges {
-    /// Load from `<data>/temp/change.json`; a missing or corrupt file yields empty defaults.
+    /// Load from `<data>/temp/change.json`; a missing file yields empty defaults.
+    /// Each field parses independently: one malformed field falls back to its own default while intact fields still load.
+    /// Unparseable content is backed up to `change.json.corrupt` like `Settings::load` / `Index::load`.
     pub fn load(data_dir: &str) -> LibraryChanges {
+        fn str_list(v: Option<&Value>) -> Vec<String> {
+            v.and_then(|x| x.as_array())
+                .map(|a| {
+                    a.iter()
+                        .filter_map(|e| e.as_str().map(String::from))
+                        .collect()
+                })
+                .unwrap_or_default()
+        }
         let path = format!("{data_dir}/temp/change.json");
-        read_text(&path)
-            .and_then(|t| serde_json::from_str(&t).ok())
-            .unwrap_or_default()
+        // A notification file: missing or unreadable simply means "nothing to report".
+        let Some(bytes) = std::fs::read(&path).ok() else {
+            return LibraryChanges::default();
+        };
+        let Some(text) = std::str::from_utf8(&bytes).ok() else {
+            return LibraryChanges::default();
+        };
+        let Ok(v) = serde_json::from_str::<Value>(strip_bom(text)) else {
+            return LibraryChanges::default();
+        };
+        LibraryChanges {
+            update: str_list(v.get("update")),
+            added: str_list(v.get("added")),
+            removed: str_list(v.get("removed")),
+            renamed: v
+                .get("renamed")
+                .and_then(|x| x.as_array())
+                .map(|a| {
+                    a.iter()
+                        .filter_map(|e| {
+                            e.as_array().and_then(|p| {
+                                match (p.first()?.as_str(), p.get(1)?.as_str()) {
+                                    (Some(o), Some(n)) => Some((o.to_string(), n.to_string())),
+                                    _ => None,
+                                }
+                            })
+                        })
+                        .collect()
+                })
+                .unwrap_or_default(),
+            module: v.get("module").and_then(|m| m.as_str()).map(String::from),
+            last_check: v.get("last_check").and_then(|l| l.as_u64()),
+        }
     }
 
     /// Atomically save to `<data>/temp/change.json`.
-    pub fn save(&self, data_dir: &str) {
-        if let Ok(text) = serde_json::to_string(self) {
-            let tmp_dir = format!("{data_dir}/temp");
-            let _ = std::fs::create_dir_all(&tmp_dir);
-            let tmp = format!("{tmp_dir}/change.json.{}.tmp", std::process::id());
-            let path = format!("{tmp_dir}/change.json");
-            if std::fs::write(&tmp, text).is_ok() {
-                let _ = std::fs::rename(&tmp, path);
-                let _ = std::fs::remove_file(&tmp);
-            }
+    /// The module reads this file to surface what changed, so a silent failure would leave stale notifications — the caller reports it, the same way it reports a failed `settings.json` save.
+    pub fn save(&self, data_dir: &str) -> Result<(), String> {
+        let text = serde_json::to_string(self).map_err(|e| e.to_string())?;
+        let tmp_dir = format!("{data_dir}/temp");
+        std::fs::create_dir_all(&tmp_dir).map_err(|e| e.to_string())?;
+        let tmp = format!("{tmp_dir}/change.json.{}.tmp", std::process::id());
+        let path = format!("{tmp_dir}/change.json");
+        std::fs::write(&tmp, text).map_err(|e| e.to_string())?;
+        if let Err(e) = std::fs::rename(&tmp, &path) {
+            let _ = std::fs::remove_file(&tmp);
+            return Err(e.to_string());
         }
+        Ok(())
     }
 }
 
-/// Default module config (mirrors the module's `default_config`), used when bootstrapping
-/// a fresh `settings.json`.
+/// Default module config (mirrors the module's `default_config`), used when bootstrapping a fresh `settings.json`.
 pub fn default_config(language: &str) -> Value {
     json!({
         "url": "",
@@ -271,7 +319,8 @@ pub fn default_config(language: &str) -> Value {
 
 /// Bootstrap `settings.json` from the installed completions (mirrors the module's `new_data`):
 /// alias per completion (from config.json) + per-completion config defaults (from the manifest
-/// `config` array). Returns `{ alias, config }`.
+/// `config` array).
+/// Returns `{ alias, config }`.
 pub fn build_default_data(completions_dir: &str, language: &str) -> Value {
     let mut alias = serde_json::Map::new();
     let mut config = default_config(language);
@@ -287,11 +336,16 @@ pub fn build_default_data(completions_dir: &str, language: &str) -> Value {
         for entry in entries.flatten() {
             let name = entry.file_name().to_string_lossy().to_string();
             let dir = entry.path();
-            if !dir.is_dir() {
+            // Dirs and links count as present (a dangling link's config reads as defaults); plain files are not completion entries.
+            // A real dir without config.json is stray and stays skipped.
+            let ft = std::fs::symlink_metadata(&dir).map(|m| m.file_type());
+            let is_link = ft.as_ref().is_ok_and(|t| t.is_symlink());
+            let is_dir = ft.as_ref().is_ok_and(|t| t.is_dir());
+            if !is_link && !is_dir {
                 continue;
             }
             let config_path = dir.join("config.json");
-            if !config_path.exists() {
+            if !is_link && !config_path.exists() {
                 continue;
             }
             let c: Value = read_text(&config_path.to_string_lossy())
@@ -365,7 +419,7 @@ mod tests {
         let (_p, path) = tmp_file(
             r#"{"config":{"language":"en-US","completion":{"git":{"max_commit":30}}},"alias":{"git":["git","g"],"scoop":["scoop"]}}"#,
         );
-        let s = Settings::load(&path).unwrap();
+        let s = Settings::load(&path).unwrap().unwrap();
         assert_eq!(s.list(), vec!["git", "scoop"]);
         assert_eq!(
             s.alias.get("git").unwrap(),
@@ -379,11 +433,22 @@ mod tests {
     #[test]
     fn settings_save_roundtrip() {
         let (_p, path) = tmp_file(r#"{"config":{},"alias":{}}"#);
-        let mut s = Settings::load(&path).unwrap();
+        let mut s = Settings::load(&path).unwrap().unwrap();
         s.alias.insert("git".into(), vec!["git".into()]);
         s.config["language"] = json!("zh-CN");
         s.save(&path).unwrap();
-        let reloaded = Settings::load(&path).unwrap();
+        // The bytes on disk are UTF-8 without a BOM: every write path passes a `String`, so no other encoding can reach the file (a foreign one can only come from outside — PowerShell 5.1, an editor).
+        let bytes = std::fs::read(&path).unwrap();
+        assert!(
+            std::str::from_utf8(&bytes).is_ok(),
+            "settings.json must be valid UTF-8"
+        );
+        assert_ne!(
+            &bytes[..3],
+            b"\xef\xbb\xbf",
+            "settings.json must not carry a BOM"
+        );
+        let reloaded = Settings::load(&path).unwrap().unwrap();
         assert!(reloaded.alias.contains_key("git"));
         assert_eq!(reloaded.language(), "zh-CN");
         std::fs::remove_file(_p).ok();
@@ -418,30 +483,37 @@ mod tests {
     }
 
     #[test]
-    fn settings_load_backs_up_corrupt_file() {
+    fn settings_load_reports_corrupt_file_and_leaves_it_alone() {
+        // Corruption is reported, never papered over with defaults: the file stays exactly as it is — no `.corrupt` copy, no rewrite — so nothing the user wrote is lost.
         let (_p, path) = tmp_file("not-json{{{");
+        let err = Settings::load(&path).unwrap_err();
+        assert!(err.contains(&path), "the error must name the file: {err}");
+        assert_eq!(std::fs::read_to_string(&path).unwrap(), "not-json{{{");
         assert!(
-            Settings::load(&path).is_none(),
-            "corrupt settings must load as None"
+            !std::path::Path::new(&format!("{path}.corrupt")).exists(),
+            "nothing is backed up any more — the file itself is the evidence"
         );
-        assert!(
-            std::path::Path::new(&format!("{path}.corrupt")).exists(),
-            "corrupt file must be backed up, not silently dropped"
-        );
-        assert!(
-            !std::path::Path::new(&path).exists(),
-            "original must be moved away before defaults take over"
-        );
-        std::fs::remove_file(format!("{path}.corrupt")).ok();
+        std::fs::remove_file(&path).ok();
     }
 
     #[test]
     fn settings_save_is_atomic_and_leaves_no_tmp() {
         let (_p, path) = tmp_file(r#"{"config":{},"alias":{}}"#);
-        let mut s = Settings::load(&path).unwrap();
+        let mut s = Settings::load(&path).unwrap().unwrap();
         s.alias.insert("git".into(), vec!["git".into()]);
         s.save(&path).unwrap();
-        let reloaded = Settings::load(&path).unwrap();
+        // The bytes on disk are UTF-8 without a BOM: every write path passes a `String`, so no other encoding can reach the file (a foreign one can only come from outside — PowerShell 5.1, an editor).
+        let bytes = std::fs::read(&path).unwrap();
+        assert!(
+            std::str::from_utf8(&bytes).is_ok(),
+            "settings.json must be valid UTF-8"
+        );
+        assert_ne!(
+            &bytes[..3],
+            b"\xef\xbb\xbf",
+            "settings.json must not carry a BOM"
+        );
+        let reloaded = Settings::load(&path).unwrap().unwrap();
         assert!(reloaded.alias.contains_key("git"));
         let tmp = format!("{path}.{}.tmp", std::process::id());
         assert!(
@@ -451,7 +523,8 @@ mod tests {
         std::fs::remove_file(_p).ok();
     }
 
-    /// Build a temp data dir with `completions/<name>` laid out. Returns (root, path string).
+    /// Build a temp data dir with `completions/<name>` laid out.
+    /// Returns (root, path string).
     fn tmp_data_dir(name: &str) -> (std::path::PathBuf, String) {
         let n = TMP_COUNTER.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
         let mut root = std::env::temp_dir();
@@ -488,8 +561,7 @@ mod tests {
 
     #[test]
     fn traversal_names_never_escape_the_completions_dir() {
-        // `psc rm ../../victim` used to resolve outside the library: `assert_valid_name` was a
-        // debug_assert (compiled out in release) and the existence probe followed the path.
+        // `psc rm ../../victim` used to resolve outside the library: `assert_valid_name` was a debug_assert (compiled out in release) and the existence probe followed the path.
         let (root, data) = tmp_data_dir("scoop");
         let victim = root.join("victim");
         std::fs::create_dir_all(&victim).unwrap();
@@ -580,7 +652,7 @@ mod tests {
             module: Some("7.2.0".into()),
             last_check: None,
         };
-        c.save(&d);
+        c.save(&d).unwrap();
 
         let loaded = LibraryChanges::load(&d);
         assert_eq!(loaded.update, vec!["7z", "docker"]);
@@ -593,6 +665,40 @@ mod tests {
         std::fs::remove_file(data_dir.join("temp/change.json")).ok();
         let empty = LibraryChanges::load(&d);
         assert!(empty.update.is_empty() && empty.renamed.is_empty() && empty.module.is_none());
+        std::fs::remove_dir_all(&data_dir).ok();
+    }
+
+    #[test]
+    fn library_changes_save_reports_a_write_failure() {
+        // The module reads `change.json` to surface what changed, so a failed write must reach the caller: it used to be swallowed whole (`let _ =` / `if … .is_ok()`), leaving the notifications silently stale.
+        let n = TMP_COUNTER.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+        let mut data_dir = std::env::temp_dir();
+        data_dir.push(format!("psc-data-lc-fail-{}-{n}", std::process::id()));
+        std::fs::create_dir_all(&data_dir).unwrap();
+        // A *file* named `temp` makes `create_dir_all` fail, so the write cannot land.
+        std::fs::write(data_dir.join("temp"), b"not a directory").unwrap();
+        let d = data_dir.to_string_lossy().to_string();
+        assert!(LibraryChanges::default().save(&d).is_err());
+        std::fs::remove_dir_all(&data_dir).ok();
+    }
+
+    #[test]
+    fn library_changes_load_keeps_intact_fields() {
+        let n = TMP_COUNTER.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+        let mut data_dir = std::env::temp_dir();
+        data_dir.push(format!("psc-data-lc-partial-{}-{n}", std::process::id()));
+        std::fs::create_dir_all(data_dir.join("temp")).unwrap();
+        let d = data_dir.to_string_lossy().to_string();
+        std::fs::write(
+            data_dir.join("temp/change.json"),
+            r#"{"update":["git"],"renamed":{"git":"git1"},"module":7,"added":[1,"x"]}"#,
+        )
+        .unwrap();
+        let loaded = LibraryChanges::load(&d);
+        assert_eq!(loaded.update, vec!["git"]);
+        assert!(loaded.renamed.is_empty());
+        assert!(loaded.module.is_none());
+        assert_eq!(loaded.added, vec!["x"]);
         std::fs::remove_dir_all(&data_dir).ok();
     }
 }

@@ -1,0 +1,317 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/cryptsetup/cryptsetup",
+    "description": [
+      "管理 dm-verity 设备。"
+    ]
+  },
+  "next": [
+    {
+      "name": "close",
+      "usage": [
+        "close <NAME>"
+      ],
+      "tip": [
+        "关闭映射。"
+      ]
+    },
+    {
+      "name": "dump",
+      "usage": [
+        "dump <HASH_DEVICE>"
+      ],
+      "tip": [
+        "显示磁盘上的信息。"
+      ]
+    },
+    {
+      "name": "format",
+      "usage": [
+        "format <DATA_DEVICE> <HASH_DEVICE>"
+      ],
+      "tip": [
+        "格式化 verity 设备。"
+      ]
+    },
+    {
+      "name": "open",
+      "usage": [
+        "open <DATA_DEVICE> <NAME> <HASH_DEVICE> [<ROOT_HASH>]"
+      ],
+      "tip": [
+        "打开设备并创建映射。"
+      ]
+    },
+    {
+      "name": "status",
+      "usage": [
+        "status <NAME>"
+      ],
+      "tip": [
+        "显示活动设备的状态。"
+      ]
+    },
+    {
+      "name": "verify",
+      "usage": [
+        "verify <DATA_DEVICE> <HASH_DEVICE> [<ROOT_HASH>]"
+      ],
+      "tip": [
+        "验证设备。"
+      ]
+    }
+  ],
+  "global_option": [
+    {
+      "name": "--cancel-deferred",
+      "tip": [
+        "取消之前设置的延迟设备移除。"
+      ]
+    },
+    {
+      "name": "--check-at-most-once",
+      "tip": [
+        "仅在首次读取时验证数据块。"
+      ]
+    },
+    {
+      "name": "--data-block-size",
+      "usage": [
+        "--data-block-size=<BYTES>"
+      ],
+      "tip": [
+        "数据设备上的块大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--data-blocks",
+      "usage": [
+        "--data-blocks=<BLOCKS>"
+      ],
+      "tip": [
+        "数据文件中的块数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "tip": [
+        "显示调试消息。"
+      ]
+    },
+    {
+      "name": "--deferred",
+      "tip": [
+        "延迟设备移除直到最后一个使用者关闭。"
+      ]
+    },
+    {
+      "name": "--fec-device",
+      "usage": [
+        "--fec-device=<PATH>"
+      ],
+      "tip": [
+        "包含纠错数据的设备路径。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--fec-offset",
+      "usage": [
+        "--fec-offset=<BYTES>"
+      ],
+      "tip": [
+        "FEC 设备上的起始偏移。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--fec-roots",
+      "usage": [
+        "--fec-roots=<BYTES>"
+      ],
+      "tip": [
+        "FEC 校验字节数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--format",
+      "usage": [
+        "--format=<NUMBER>"
+      ],
+      "tip": [
+        "格式类型：1 为普通，0 为原始 Chrome OS。"
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        }
+      ]
+    },
+    {
+      "name": "--hash",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --hash=<STRING>"
+      ],
+      "tip": [
+        "哈希算法。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--hash-block-size",
+      "usage": [
+        "--hash-block-size=<BYTES>"
+      ],
+      "tip": [
+        "哈希设备上的块大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--hash-offset",
+      "usage": [
+        "--hash-offset=<BYTES>"
+      ],
+      "tip": [
+        "哈希设备上的起始偏移。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "显示此帮助信息。"
+      ]
+    },
+    {
+      "name": "--ignore-corruption",
+      "tip": [
+        "忽略损坏并仅记录日志。"
+      ]
+    },
+    {
+      "name": "--ignore-zero-blocks",
+      "tip": [
+        "不验证全零块。"
+      ]
+    },
+    {
+      "name": "--no-superblock",
+      "tip": [
+        "不使用 verity 超级块。"
+      ]
+    },
+    {
+      "name": "--panic-on-corruption",
+      "tip": [
+        "检测到损坏时使内核恐慌。"
+      ]
+    },
+    {
+      "name": "--restart-on-corruption",
+      "tip": [
+        "检测到损坏时重启内核。"
+      ]
+    },
+    {
+      "name": "--root-hash-file",
+      "usage": [
+        "--root-hash-file=<STRING>"
+      ],
+      "tip": [
+        "根哈希文件的路径。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--root-hash-signature",
+      "usage": [
+        "--root-hash-signature=<STRING>"
+      ],
+      "tip": [
+        "根哈希签名文件的路径。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--salt",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --salt=<HEX>"
+      ],
+      "tip": [
+        "十六进制字符串形式的盐。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--shared",
+      "tip": [
+        "与另一个 verity 段共享数据设备。"
+      ]
+    },
+    {
+      "name": "--usage",
+      "tip": [
+        "显示简短用法。"
+      ]
+    },
+    {
+      "name": "--use-tasklets",
+      "tip": [
+        "使用内核 tasklet 提升性能。"
+      ]
+    },
+    {
+      "name": "--uuid",
+      "usage": [
+        "--uuid=<STRING>"
+      ],
+      "tip": [
+        "要使用的设备 UUID。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "显示更详细的错误消息。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "打印软件包版本。"
+      ]
+    }
+  ]
+}

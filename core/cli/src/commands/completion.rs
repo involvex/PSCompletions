@@ -2,14 +2,16 @@
 
 use std::process::ExitCode;
 
-use serde_json::Value;
+use serde_json::{json, Value};
 
-use crate::commands::config::value_str;
 use crate::data::{read_text, Index, Settings};
 use crate::messages::msg_cli;
 use crate::net::completion_defaults;
-use crate::output::{fail, Out};
-use crate::validate::{data_dir_of, ensure_completion_map, name_error, name_status};
+use crate::output::{fail, ok, Out};
+use crate::output::{key_line, value_quoted};
+use crate::validate::{
+    data_dir_of, ensure_completion_entry, ensure_completion_map, name_error, name_status,
+};
 
 const COMPLETION_KEYS: &[&str] = &[
     "language",
@@ -27,6 +29,40 @@ pub fn hooks_declared_disabled(data_dir: &str, name: &str) -> bool {
         .unwrap_or(false)
 }
 
+/// The `enable_hooks` guard, shared by every path that names that key — read, set and **key reset**: the key is meaningless unless the completion's `config.json` declares `hooks`.
+/// A whole-completion or whole-scope reset is deliberately not guarded, because it also resets the keys that do apply.
+fn hooks_guard(
+    data_dir: &str,
+    name: &str,
+    key: &str,
+    lang: &str,
+) -> Option<(&'static str, String)> {
+    if key != "enable_hooks" {
+        return None;
+    }
+    let path = format!("{data_dir}/completions/{name}/config.json");
+    let has_hooks = read_text(&path)
+        .and_then(|t| serde_json::from_str::<Value>(&t).ok())
+        .map(|v| v.get("hooks").is_some())
+        .unwrap_or(false);
+    (!has_hooks).then(|| ("no_hooks", msg_cli(lang, "no_hooks")))
+}
+
+/// Every completion whose stored special config is not empty — the set the listing reports and a reset answers with (an emptied entry is dropped, so "default" means absent).
+fn completion_configs(settings: &Settings) -> Vec<(String, serde_json::Map<String, Value>)> {
+    settings
+        .config
+        .get("completion")
+        .and_then(|c| c.as_object())
+        .map(|o| {
+            o.iter()
+                .filter(|(_, cfg)| cfg.as_object().map(|c| !c.is_empty()).unwrap_or(false))
+                .filter_map(|(n, cfg)| cfg.as_object().map(|c| (n.clone(), c.clone())))
+                .collect()
+        })
+        .unwrap_or_default()
+}
+
 #[allow(clippy::too_many_arguments)]
 pub fn cmd_completion(
     args: &[String],
@@ -37,19 +73,25 @@ pub fn cmd_completion(
     out: &Out,
     json: bool,
 ) -> ExitCode {
-    let check_installed = |name: &String| -> Option<String> {
+    let check_installed = |name: &String| -> Option<(&'static str, String)> {
         let data_dir = data_dir_of(settings_path);
         let status = name_status(settings, index, &format!("{data_dir}/completions"), name);
+        // The code rides into the JSON envelope; the text mode only shows the message.
         name_error(lang, name, status, true)
     };
     if args.iter().any(|a| a == "--reset") {
         let data_dir = data_dir_of(settings_path);
         let params: Vec<&String> = args.iter().filter(|a| *a != "--reset").collect();
         let names: Vec<String> = if params.is_empty() {
-            settings.list()
+            // The reset set must be the set the answer reports (design/json.md §8): the completions that have stored config.
+            // A completion with a trigger word but no config was a no-op reset anyway — empty defaults drop the entry.
+            completion_configs(settings)
+                .into_iter()
+                .map(|(n, _)| n)
+                .collect()
         } else {
-            if let Some(e) = check_installed(params[0]) {
-                return fail(out, e, json);
+            if let Some((code, e)) = check_installed(params[0]) {
+                return fail(out, code, &e, json, false);
             }
             vec![params[0].clone()]
         };
@@ -57,20 +99,19 @@ pub fn cmd_completion(
             let mut comp = std::mem::take(ensure_completion_map(settings));
             for n in &names {
                 // Reset back to the manifest's config defaults; empty defaults are not persisted.
-                let defaults = completion_defaults(&data_dir, n);
+                let defaults = completion_defaults(&data_dir, n, &settings.language());
                 if defaults.as_object().map(|o| o.is_empty()).unwrap_or(true) {
                     comp.remove(n.as_str());
                 } else {
                     comp.insert(n.clone(), defaults);
                 }
-                // Re-apply the manifest's `hooks` declaration: a `hooks: false` completion
-                // stays disabled after a reset (its author-declared default).
+                // Re-apply the manifest's `hooks` declaration: a `hooks: false` completion stays disabled after a reset (its author-declared default).
                 if hooks_declared_disabled(&data_dir, n) {
                     let entry = comp
                         .entry(n.clone())
                         .or_insert_with(|| serde_json::json!({}));
                     if let Some(o) = entry.as_object_mut() {
-                        o.insert("enable_hooks".to_string(), serde_json::json!(false));
+                        o.insert("enable_hooks".to_string(), serde_json::json!(0));
                     }
                 }
             }
@@ -82,35 +123,45 @@ pub fn cmd_completion(
                 *obj = comp;
             }
         } else {
+            // Exactly one key per reset; surplus args are a parameter-count error, not a subcommand one.
+            if params.len() > 2 {
+                return crate::validate::too_many_params(out, lang, json);
+            }
             let name = params[0].clone();
             let key = params[1].clone();
+            // The same guard the read / set path applies: resetting `enable_hooks` is no more meaningful than reading it when the completion declares no hooks.
+            if let Some((code, e)) = hooks_guard(&data_dir, &name, &key, lang) {
+                return fail(out, code, &e, json, true);
+            }
             // Validate the key like the set path: a known key, or one already stored.
             let valid = COMPLETION_KEYS.contains(&key.as_str())
                 || settings
                     .config
                     .get("completion")
-                    .and_then(|c| c.get(&name))
+                    .and_then(|c| c.get(name.as_str()))
                     .and_then(|c| c.get(&key))
                     .is_some();
             if !valid {
-                return fail(out, msg_cli(lang, "sub_cmd"), json);
+                return fail(
+                    out,
+                    "invalid_subcommand",
+                    &msg_cli(lang, "invalid_subcommand"),
+                    json,
+                    true,
+                );
             }
-            let defaults = completion_defaults(&data_dir, &name);
-            if let Some(n) = settings
-                .config
-                .get_mut("completion")
-                .and_then(|c| c.get_mut(&name))
-                .and_then(|n| n.as_object_mut())
+            let defaults = completion_defaults(&data_dir, &name, &settings.language());
             {
+                // Ensure the entry like the whole-scope reset above does: without it, a completion with no stored config skipped this block entirely and still answered `ok: true`.
+                let n = ensure_completion_entry(settings, &name);
                 match defaults.get(&key) {
                     Some(v) => {
                         n.insert(key.clone(), v.clone());
                     }
                     None => {
-                        // `enable_hooks` has no manifest default; resetting it re-applies
-                        // the config.json declaration (a `hooks: false` completion stays off).
+                        // `enable_hooks` has no manifest default; resetting it re-applies the config.json declaration (a `hooks: false` completion stays off).
                         if key == "enable_hooks" && hooks_declared_disabled(&data_dir, &name) {
-                            n.insert("enable_hooks".to_string(), serde_json::json!(false));
+                            n.insert("enable_hooks".to_string(), serde_json::json!(0));
                         } else {
                             n.remove(&key);
                         }
@@ -133,37 +184,62 @@ pub fn cmd_completion(
             }
         }
         if let Err(e) = settings.save(settings_path) {
-            return fail(out, format!("error: {e}"), json);
+            return fail(out, "io", &format!("error: {e}"), json, false);
+        }
+        if json {
+            // A reset answers the same shape the read of that scope answers with (design/json.md §8).
+            if params.is_empty() {
+                let items: Vec<serde_json::Value> = completion_configs(settings)
+                    .iter()
+                    .map(|(n, cfg)| json!({ "name": n, "config": cfg }))
+                    .collect();
+                let data = json!({ "completions": items });
+                return ok(&data);
+            }
+            if params.len() == 1 {
+                let n = params[0].clone();
+                let cfg = settings
+                    .config
+                    .get("completion")
+                    .and_then(|c| c.get(n.as_str()))
+                    .and_then(|c| c.as_object())
+                    .cloned()
+                    .unwrap_or_default();
+                let data = json!({ "name": n, "config": cfg });
+                return ok(&data);
+            }
+            let (n, k) = (params[0].clone(), params[1].clone());
+            let value = settings
+                .config
+                .get("completion")
+                .and_then(|c| c.get(n.as_str()))
+                .and_then(|c| c.get(k.as_str()))
+                .cloned()
+                .unwrap_or(serde_json::Value::Null);
+            let data = json!({ "name": n, "key": k, "value": value });
+            return ok(&data);
         }
         out.line(&msg_cli(lang, "completion_done"));
         return ExitCode::SUCCESS;
     }
     // No args: list every completion with non-default special config (with its config)
     if args.is_empty() {
-        let entries: Vec<(String, serde_json::Map<String, Value>)> = settings
-            .config
-            .get("completion")
-            .and_then(|c| c.as_object())
-            .map(|o| {
-                o.iter()
-                    .filter(|(_, cfg)| cfg.as_object().map(|c| !c.is_empty()).unwrap_or(false))
-                    .filter_map(|(n, cfg)| cfg.as_object().map(|c| (n.clone(), c.clone())))
-                    .collect()
-            })
-            .unwrap_or_default();
+        let entries = completion_configs(settings);
         if json {
-            let arr: Vec<serde_json::Value> = entries
+            let items: Vec<serde_json::Value> = entries
                 .iter()
-                .map(|(n, cfg)| serde_json::json!({ "completion": n, "config": cfg }))
+                .map(|(n, cfg)| serde_json::json!({ "name": n, "config": cfg }))
                 .collect();
-            println!("{}", serde_json::to_string(&arr).unwrap_or_default());
+            let data = json!({ "completions": items });
+            return ok(&data);
         } else {
+            // Each completion is a group, exactly like `config`: `[name]` then `  key: value`.
+            // The named forms below drop the header (`completion <name>`) or the key (`completion <name> <key>`) — the caller already said which one it wants.
             for (n, cfg) in entries {
-                let pairs: Vec<String> = cfg
-                    .iter()
-                    .map(|(k, v)| format!("{k}={}", value_str(v)))
-                    .collect();
-                out.line(&format!("{n}: {}", pairs.join(" ")));
+                out.line(&format!("[{n}]"));
+                for (k, v) in cfg {
+                    out.line(&key_line(&k, &value_quoted(&v)));
+                }
             }
         }
         return ExitCode::SUCCESS;
@@ -171,62 +247,56 @@ pub fn cmd_completion(
     // Single arg <name>: list all special config for that completion
     if args.len() == 1 {
         let name = &args[0];
-        if let Some(e) = check_installed(name) {
-            return fail(out, e, json);
+        if let Some((code, e)) = check_installed(name) {
+            return fail(out, code, &e, json, false);
         }
         let cfg: serde_json::Map<String, Value> = settings
             .config
             .get("completion")
-            .and_then(|c| c.get(name))
+            .and_then(|c| c.get(name.as_str()))
             .and_then(|c| c.as_object())
             .cloned()
             .unwrap_or_default();
         if json {
-            println!(
-                "{}",
-                serde_json::json!({ "completion": name, "config": cfg })
-            );
+            let data = json!({ "name": name, "config": cfg });
+            return ok(&data);
         } else {
             for (k, v) in cfg {
-                out.line(&format!("{k}: {}", value_str(&v)));
+                out.line(&key_line(&k, &value_quoted(&v)));
             }
         }
         return ExitCode::SUCCESS;
     }
     let name = args[0].clone();
-    if let Some(e) = check_installed(&name) {
-        return fail(out, e, json);
+    if let Some((code, e)) = check_installed(&name) {
+        return fail(out, code, &e, json, false);
     }
     let key = args[1].clone();
     // enable_hooks is only valid when the completion's config.json declares hooks.
-    if key == "enable_hooks" {
-        let config_path = format!(
-            "{}/completions/{name}/config.json",
-            data_dir_of(settings_path)
-        );
-        let has_hooks = read_text(&config_path)
-            .and_then(|t| serde_json::from_str::<serde_json::Value>(&t).ok())
-            .map(|c| c.get("hooks").is_some())
-            .unwrap_or(false);
-        if !has_hooks {
-            return fail(out, msg_cli(lang, "no_hooks"), json);
-        }
+    if let Some((code, e)) = hooks_guard(&data_dir_of(settings_path), &name, &key, lang) {
+        return fail(out, code, &e, json, true);
     }
     let valid = COMPLETION_KEYS.contains(&key.as_str())
         || settings
             .config
             .get("completion")
-            .and_then(|c| c.get(&name))
+            .and_then(|c| c.get(name.as_str()))
             .and_then(|c| c.get(&key))
             .is_some();
     if !valid {
-        return fail(out, msg_cli(lang, "sub_cmd"), json);
+        return fail(
+            out,
+            "invalid_subcommand",
+            &msg_cli(lang, "invalid_subcommand"),
+            json,
+            true,
+        );
     }
     let get = |key: &str| -> String {
         settings
             .config
             .get("completion")
-            .and_then(|c| c.get(&name))
+            .and_then(|c| c.get(name.as_str()))
             .and_then(|c| c.get(key))
             .map(|v| match v {
                 serde_json::Value::String(s) => s.clone(),
@@ -238,14 +308,24 @@ pub fn cmd_completion(
     };
     if args.len() == 2 {
         if json {
-            println!(
-                "{}",
-                serde_json::json!({ "completion": name, "key": key, "value": get(&key) })
-            );
+            let raw = settings
+                .config
+                .get("completion")
+                .and_then(|c| c.get(name.as_str()))
+                .and_then(|c| c.get(&key))
+                .cloned()
+                .unwrap_or(serde_json::Value::Null);
+            let data = json!({ "name": name.clone(), "key": key, "value": raw });
+            return ok(&data);
         } else {
-            out.line(&format!("{key}: {}", get(&key)));
+            // Same rule as `config <group> <key>`: the key was just typed, answer with the value.
+            out.line(&get(&key));
         }
         return ExitCode::SUCCESS;
+    }
+    // `completion <name> <key> <value>` takes exactly three arguments: anything after the value is a usage error, exactly as the reset form rejects it.
+    if args.len() > 3 {
+        return crate::validate::too_many_params(out, lang, json);
     }
     let value: serde_json::Value = match args[2].parse::<i64>() {
         Ok(n) => serde_json::Value::Number(n.into()),
@@ -257,12 +337,35 @@ pub fn cmd_completion(
             _ => false,
         };
         if !v {
-            return fail(out, msg_cli(lang, "one_or_zero"), json);
+            return fail(
+                out,
+                "one_or_zero",
+                &msg_cli(lang, "one_or_zero"),
+                json,
+                true,
+            );
         }
     }
+    // The module's management completions run on psc's own hooks.
+    if name == "psc" && key == "enable_hooks" && value.as_i64() == Some(0) {
+        return fail(
+            out,
+            "psc_hooks_locked",
+            &msg_cli(lang, "psc_hooks_locked"),
+            json,
+            true,
+        );
+    }
+    // What this write answers with: the item a read of that key returns, plus what the value was before — `null` when the key had none (design/json.md §8).
+    let old = settings
+        .config
+        .get("completion")
+        .and_then(|c| c.get(name.as_str()))
+        .and_then(|c| c.get(key.as_str()))
+        .cloned()
+        .unwrap_or(serde_json::Value::Null);
     {
-        // Recover a corrupt settings.json (reset config/completion/name entries that aren't objects)
-        // to avoid an unwrap panic
+        // Recover a corrupt settings.json (reset config/completion/name entries that aren't objects) to avoid an unwrap panic
         let comp = ensure_completion_map(settings);
         let n = comp
             .entry(name.clone())
@@ -270,10 +373,17 @@ pub fn cmd_completion(
         if !n.is_object() {
             *n = serde_json::json!({});
         }
-        n.as_object_mut().unwrap().insert(key.clone(), value);
+        n.as_object_mut()
+            .unwrap()
+            .insert(key.clone(), value.clone());
     }
     if let Err(e) = settings.save(settings_path) {
-        return fail(out, format!("error: {e}"), json);
+        return fail(out, "io", &format!("error: {e}"), json, false);
+    }
+    if json {
+        // The item a read of that key answers with, plus what it was before.
+        let data = json!({ "name": name, "key": key, "value": value, "old": old });
+        return ok(&data);
     }
     out.line(&msg_cli(lang, "completion_done"));
     ExitCode::SUCCESS
@@ -283,8 +393,7 @@ pub fn cmd_completion(
 mod tests {
     use super::*;
 
-    // Each test gets a unique dir: Rust runs tests in parallel, so sharing one path
-    // would let one test's cleanup clobber another's fixtures.
+    // Each test gets a unique dir: Rust runs tests in parallel, so sharing one path would let one test's cleanup clobber another's fixtures.
     fn test_base() -> std::path::PathBuf {
         use std::sync::atomic::{AtomicU64, Ordering};
         static COUNTER: AtomicU64 = AtomicU64::new(0);

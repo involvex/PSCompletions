@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "Defragment an ext4 file system."
+    ]
+  },
+  "option": [
+    {
+      "name": "-c",
+      "tip": [
+        "Get the current and ideal fragmentation counts and the resulting score."
+      ]
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "Print errors and the fragmentation count before and after each file."
+      ]
+    }
+  ]
+}

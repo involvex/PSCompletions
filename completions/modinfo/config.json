@@ -1,0 +1,9 @@
+{
+  "id": "8d3d52f7-2282-5042-8967-c002cfb63b35",
+  "version": "kmod 34.2",
+  "hooks": true,
+  "language": [
+    "en-US",
+    "zh-CN"
+  ]
+}

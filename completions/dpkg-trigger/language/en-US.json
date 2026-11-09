@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "Trigger a package processing event."
+    ]
+  },
+  "option": [
+    {
+      "name": "--admindir",
+      "usage": [
+        "--admindir=<directory>"
+      ],
+      "tip": [
+        "Use the directory instead of /var/lib/dpkg."
+      ],
+      "next": []
+    },
+    {
+      "name": "--await",
+      "tip": [
+        "The package needs to await processing."
+      ]
+    },
+    {
+      "name": "--by-package",
+      "usage": [
+        "--by-package=<package>"
+      ],
+      "tip": [
+        "Override the trigger awaiter."
+      ],
+      "next": []
+    },
+    {
+      "name": "--check-supported",
+      "tip": [
+        "Check whether the running dpkg supports triggers."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "Show this help message."
+      ]
+    },
+    {
+      "name": "--no-act",
+      "tip": [
+        "Test only; do not change anything."
+      ]
+    },
+    {
+      "name": "--no-await",
+      "tip": [
+        "No package needs to await processing."
+      ]
+    },
+    {
+      "name": "--root",
+      "usage": [
+        "--root=<directory>"
+      ],
+      "tip": [
+        "Use the directory instead of the root."
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Show the version."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "Create, modify and extract from archives."
+    ]
+  },
+  "next": [
+    {
+      "name": "d",
+      "usage": [
+        "d|-d <archive> <file...>"
+      ],
+      "tip": [
+        "Delete files from the archive."
+      ]
+    },
+    {
+      "name": "m",
+      "usage": [
+        "m|-m <archive> <file...>"
+      ],
+      "tip": [
+        "Move files in the archive; a/b place them after/before a member."
+      ]
+    },
+    {
+      "name": "p",
+      "usage": [
+        "p|-p <archive> <file...>"
+      ],
+      "tip": [
+        "Print files found in the archive."
+      ]
+    },
+    {
+      "name": "q",
+      "usage": [
+        "q|-q <archive> <file...>"
+      ],
+      "tip": [
+        "Quickly append files to the archive."
+      ]
+    },
+    {
+      "name": "r",
+      "usage": [
+        "r|-r <archive> <file...>"
+      ],
+      "tip": [
+        "Replace existing files or insert new ones into the archive."
+      ]
+    },
+    {
+      "name": "s",
+      "usage": [
+        "s|-s <archive>"
+      ],
+      "tip": [
+        "Act as ranlib and write an archive index."
+      ]
+    },
+    {
+      "name": "t",
+      "usage": [
+        "t|-t <archive>"
+      ],
+      "tip": [
+        "Display the contents of the archive; O shows offsets, v is verbose."
+      ]
+    },
+    {
+      "name": "x",
+      "usage": [
+        "x|-x <archive> <file...>"
+      ],
+      "tip": [
+        "Extract files from the archive; o preserves original dates."
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--output",
+      "usage": [
+        "--output=DIRNAME"
+      ],
+      "tip": [
+        "Specify the output directory for extraction."
+      ],
+      "next": []
+    },
+    {
+      "name": "--plugin",
+      "usage": [
+        "--plugin <p>"
+      ],
+      "tip": [
+        "Load the specified plugin."
+      ],
+      "next": []
+    },
+    {
+      "name": "--record-libdeps",
+      "usage": [
+        "--record-libdeps=<text>"
+      ],
+      "tip": [
+        "Specify the dependencies of this library."
+      ],
+      "next": []
+    },
+    {
+      "name": "--target",
+      "usage": [
+        "--target=BFDNAME"
+      ],
+      "tip": [
+        "Specify the target object format."
+      ],
+      "next": []
+    },
+    {
+      "name": "--thin",
+      "tip": [
+        "Make a thin archive."
+      ]
+    },
+    {
+      "name": "-M",
+      "tip": [
+        "Read an MRI script from standard input."
+      ]
+    }
+  ]
+}

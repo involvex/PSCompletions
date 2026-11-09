@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/man-db/man-db",
+    "description": [
+      "Determine the search path for manual pages."
+    ]
+  },
+  "option": [
+    {
+      "name": "--catpath",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --catpath"
+      ],
+      "tip": [
+        "Show relative catpaths."
+      ]
+    },
+    {
+      "name": "--config-file",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --config-file=FILE"
+      ],
+      "tip": [
+        "Use this user configuration file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "Emit debugging messages."
+      ]
+    },
+    {
+      "name": "--global",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --global"
+      ],
+      "tip": [
+        "Show the entire global manpath."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "Give this help list."
+      ]
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "Produce fewer warnings."
+      ]
+    },
+    {
+      "name": "--systems",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --systems=SYSTEM"
+      ],
+      "tip": [
+        "Use manual pages from other systems."
+      ],
+      "next": []
+    },
+    {
+      "name": "--usage",
+      "tip": [
+        "Give a short usage message."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Print program version."
+      ]
+    }
+  ]
+}

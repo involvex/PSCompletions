@@ -1,0 +1,194 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "Report virtual memory statistics."
+    ]
+  },
+  "option": [
+    {
+      "name": "--active",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --active"
+      ],
+      "tip": [
+        "Show active/inactive memory."
+      ]
+    },
+    {
+      "name": "--disk",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --disk"
+      ],
+      "tip": [
+        "Show disk statistics."
+      ]
+    },
+    {
+      "name": "--disk-sum",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --disk-sum"
+      ],
+      "tip": [
+        "Summarize disk statistics."
+      ]
+    },
+    {
+      "name": "--forks",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --forks"
+      ],
+      "tip": [
+        "Show the number of forks since boot."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this help and exit."
+      ]
+    },
+    {
+      "name": "--no-first",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --no-first"
+      ],
+      "tip": [
+        "Skip the first line of output."
+      ]
+    },
+    {
+      "name": "--one-header",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --one-header"
+      ],
+      "tip": [
+        "Do not redisplay the header."
+      ]
+    },
+    {
+      "name": "--partition",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --partition <dev>"
+      ],
+      "tip": [
+        "Show partition-specific statistics."
+      ],
+      "next": []
+    },
+    {
+      "name": "--slabs",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --slabs"
+      ],
+      "tip": [
+        "Show slabinfo."
+      ]
+    },
+    {
+      "name": "--stats",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --stats"
+      ],
+      "tip": [
+        "Show event counter statistics."
+      ]
+    },
+    {
+      "name": "--timestamp",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --timestamp"
+      ],
+      "tip": [
+        "Show a timestamp."
+      ]
+    },
+    {
+      "name": "--unit",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --unit <char>"
+      ],
+      "tip": [
+        "Define the display unit.",
+        "Possible values: k, K, m, M"
+      ],
+      "next": [
+        {
+          "name": "k"
+        },
+        {
+          "name": "K"
+        },
+        {
+          "name": "m"
+        },
+        {
+          "name": "M"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Output version information and exit."
+      ]
+    },
+    {
+      "name": "--wide",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --wide"
+      ],
+      "tip": [
+        "Use wide output."
+      ]
+    }
+  ]
+}

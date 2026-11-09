@@ -1,0 +1,517 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "显示 Linux 进程。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--accum-time-toggle",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --accum-time-toggle"
+      ],
+      "tip": [
+        "反转上次记住的累计时间状态。"
+      ]
+    },
+    {
+      "name": "--batch-mode",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --batch-mode"
+      ],
+      "tip": [
+        "以非交互批处理模式运行。"
+      ]
+    },
+    {
+      "name": "--cmdline-toggle",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --cmdline-toggle"
+      ],
+      "tip": [
+        "反转上次记住的命令行显示状态。"
+      ]
+    },
+    {
+      "name": "--delay",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --delay =SECS [.TENTHS]"
+      ],
+      "tip": [
+        "设置迭代延迟（秒和十分之一秒）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--filter-any-user",
+      "alias": [
+        "-U"
+      ],
+      "usage": [
+        "-U, --filter-any-user =USER"
+      ],
+      "tip": [
+        "仅显示属于 USER 的进程。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--filter-only-euser",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --filter-only-euser =USER"
+      ],
+      "tip": [
+        "仅显示有效用户为 USER 的进程。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助并退出。"
+      ]
+    },
+    {
+      "name": "--idle-toggle",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --idle-toggle"
+      ],
+      "tip": [
+        "反转上次记住的空闲显示状态。"
+      ]
+    },
+    {
+      "name": "--iterations",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --iterations =NUMBER"
+      ],
+      "tip": [
+        "达到指定迭代次数后退出。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--list-fields",
+      "alias": [
+        "-O"
+      ],
+      "usage": [
+        "-O, --list-fields"
+      ],
+      "tip": [
+        "输出所有字段名后退出。"
+      ]
+    },
+    {
+      "name": "--pid",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --pid =PIDLIST"
+      ],
+      "tip": [
+        "仅监视 PIDLIST 中的任务。"
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--scale-summary-mem",
+      "alias": [
+        "-E"
+      ],
+      "usage": [
+        "-E, --scale-summary-mem =SCALE"
+      ],
+      "tip": [
+        "设置内存缩放单位：k、m、g、t、p 或 e。"
+      ],
+      "next": [
+        {
+          "name": "e"
+        },
+        {
+          "name": "g"
+        },
+        {
+          "name": "k"
+        },
+        {
+          "name": "m"
+        },
+        {
+          "name": "p"
+        },
+        {
+          "name": "t"
+        }
+      ]
+    },
+    {
+      "name": "--scale-task-mem",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --scale-task-mem =SCALE"
+      ],
+      "tip": [
+        "设置任务内存缩放单位：k、m、g、t 或 p。"
+      ],
+      "next": [
+        {
+          "name": "g"
+        },
+        {
+          "name": "k"
+        },
+        {
+          "name": "m"
+        },
+        {
+          "name": "p"
+        },
+        {
+          "name": "t"
+        }
+      ]
+    },
+    {
+      "name": "--secure-mode",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --secure-mode"
+      ],
+      "tip": [
+        "以安全模式限制运行。"
+      ]
+    },
+    {
+      "name": "--single-cpu-toggle",
+      "alias": [
+        "-1"
+      ],
+      "usage": [
+        "-1, --single-cpu-toggle"
+      ],
+      "tip": [
+        "反转上次记住的单 CPU 状态。"
+      ]
+    },
+    {
+      "name": "--sort-override",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --sort-override =FIELD"
+      ],
+      "tip": [
+        "强制按指定字段排序。"
+      ],
+      "next": [
+        {
+          "name": "%CPU"
+        },
+        {
+          "name": "%CUC"
+        },
+        {
+          "name": "%CUU"
+        },
+        {
+          "name": "%MEM"
+        },
+        {
+          "name": "AGID"
+        },
+        {
+          "name": "AGNI"
+        },
+        {
+          "name": "CGNAME"
+        },
+        {
+          "name": "CGROUPS"
+        },
+        {
+          "name": "CODE"
+        },
+        {
+          "name": "COMMAND"
+        },
+        {
+          "name": "DATA"
+        },
+        {
+          "name": "ELAPSED"
+        },
+        {
+          "name": "ENVIRON"
+        },
+        {
+          "name": "EXE"
+        },
+        {
+          "name": "Flags"
+        },
+        {
+          "name": "GID"
+        },
+        {
+          "name": "GROUP"
+        },
+        {
+          "name": "ioR"
+        },
+        {
+          "name": "ioRop"
+        },
+        {
+          "name": "ioW"
+        },
+        {
+          "name": "ioWop"
+        },
+        {
+          "name": "LOGID"
+        },
+        {
+          "name": "LXC"
+        },
+        {
+          "name": "nDRT"
+        },
+        {
+          "name": "NI"
+        },
+        {
+          "name": "nMaj"
+        },
+        {
+          "name": "nMin"
+        },
+        {
+          "name": "nsCGROUP"
+        },
+        {
+          "name": "nsIPC"
+        },
+        {
+          "name": "nsMNT"
+        },
+        {
+          "name": "nsNET"
+        },
+        {
+          "name": "nsPID"
+        },
+        {
+          "name": "nsTIME"
+        },
+        {
+          "name": "nsUSER"
+        },
+        {
+          "name": "nsUTS"
+        },
+        {
+          "name": "nTH"
+        },
+        {
+          "name": "NU"
+        },
+        {
+          "name": "OOMa"
+        },
+        {
+          "name": "OOMs"
+        },
+        {
+          "name": "P"
+        },
+        {
+          "name": "PGRP"
+        },
+        {
+          "name": "PID"
+        },
+        {
+          "name": "PPID"
+        },
+        {
+          "name": "PR"
+        },
+        {
+          "name": "PSan"
+        },
+        {
+          "name": "PSfd"
+        },
+        {
+          "name": "PSS"
+        },
+        {
+          "name": "PSsh"
+        },
+        {
+          "name": "RES"
+        },
+        {
+          "name": "RSan"
+        },
+        {
+          "name": "RSfd"
+        },
+        {
+          "name": "RSlk"
+        },
+        {
+          "name": "RSS"
+        },
+        {
+          "name": "RSsh"
+        },
+        {
+          "name": "RUID"
+        },
+        {
+          "name": "RUSER"
+        },
+        {
+          "name": "S"
+        },
+        {
+          "name": "SHR"
+        },
+        {
+          "name": "SID"
+        },
+        {
+          "name": "STARTED"
+        },
+        {
+          "name": "SUID"
+        },
+        {
+          "name": "SUPGIDS"
+        },
+        {
+          "name": "SUPGRPS"
+        },
+        {
+          "name": "SUSER"
+        },
+        {
+          "name": "SWAP"
+        },
+        {
+          "name": "TGID"
+        },
+        {
+          "name": "TIME"
+        },
+        {
+          "name": "TIME+"
+        },
+        {
+          "name": "TPGID"
+        },
+        {
+          "name": "TTY"
+        },
+        {
+          "name": "UID"
+        },
+        {
+          "name": "USED"
+        },
+        {
+          "name": "USER"
+        },
+        {
+          "name": "USS"
+        },
+        {
+          "name": "VIRT"
+        },
+        {
+          "name": "vMj"
+        },
+        {
+          "name": "vMn"
+        },
+        {
+          "name": "WCHAN"
+        }
+      ]
+    },
+    {
+      "name": "--threads-show",
+      "alias": [
+        "-H"
+      ],
+      "usage": [
+        "-H, --threads-show"
+      ],
+      "tip": [
+        "显示任务及其所有线程。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "输出版本信息并退出。"
+      ]
+    },
+    {
+      "name": "--width",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --width [=COLUMNS]"
+      ],
+      "tip": [
+        "更改打印宽度，可选使用 COLUMNS。"
+      ]
+    }
+  ]
+}

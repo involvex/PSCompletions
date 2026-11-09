@@ -1,15 +1,32 @@
 //! Embedded bilingual CLI messages (`key -> (zh-CN, en-US)`).
 
-/// CLI messages: `key -> (zh-CN, en-US)`. Plain text only (the manifest `info` templates are
-/// PowerShell-bound). Adding a message = add a row.
+/// CLI messages: `key -> (zh-CN, en-US)`.
+/// Plain text only (the manifest `info` templates are PowerShell-bound).
+/// Adding a message = add a row.
 const MESSAGES: &[(&str, &str, &str)] = &[
-    ("param_min", "参数不足。", "Too few parameters."),
-    ("sub_cmd", "子命令错误。", "Invalid subcommand."),
-    ("no_completion", "尚未添加该补全。", "Completion not added."),
+    ("too_few_params", "参数不足。", "Too few parameters."),
+    ("too_many_params", "参数过多。", "Too many parameters."),
+    ("invalid_subcommand", "子命令错误。", "Invalid subcommand."),
+    (
+        "invalid_subcommand_named",
+        "无效的子命令: {{Token}}。可用: {{Valid}}",
+        "Invalid subcommand: {{Token}}. Valid: {{Valid}}",
+    ),
+    (
+        "needs_confirmation",
+        "该操作具有破坏性，需要确认：请加 --yes 以授权。",
+        "This operation is destructive and needs confirmation: pass --yes to authorise it.",
+    ),
+    ("not_installed", "尚未添加该补全。", "Completion not added."),
     (
         "not_available",
         "不是一个可用的补全。",
         "is not an available completion.",
+    ),
+    (
+        "not_in_library",
+        "不在补全库中。",
+        "is not in the completion library.",
     ),
     ("config_done", "配置修改成功。", "Config updated."),
     (
@@ -27,7 +44,7 @@ const MESSAGES: &[(&str, &str, &str)] = &[
         "该配置只接受 0 或 1。",
         "This option only accepts 0 or 1.",
     ),
-    ("config_val", "配置值无效。", "Invalid config value."),
+    ("config_value", "配置值无效。", "Invalid config value."),
     (
         "language_no_reset",
         "language 不是一个恒定的配置值，无法重置。",
@@ -38,9 +55,24 @@ const MESSAGES: &[(&str, &str, &str)] = &[
         "该补全没有动态 hooks。",
         "This completion has no dynamic hooks.",
     ),
+    (
+        "url_untrusted",
+        "警告：正在使用非官方补全源，其 hooks.lua 将以你的权限执行，请确认你信任该来源。",
+        "Warning: using a non-official completion source; its hooks.lua will run with your privileges. Proceed only if you trust it.",
+    ),
+    (
+        "psc_hooks_locked",
+        "psc 自身的 hooks 不能禁用。",
+        "psc hooks cannot be disabled.",
+    ),
     ("add_done", "已添加。", "Added."),
     ("update_done", "已更新。", "Updated."),
     ("rm_done", "已移除。", "Removed."),
+    (
+        "rm_psc",
+        "它是内置补全，不能被移除，只能更新 (psc update psc) 或重新添加 (psc add psc)",
+        "it is the built-in completion and cannot be removed; only update (psc update psc) or re-add (psc add psc)",
+    ),
     ("updatable", "可更新的补全：", "Updatable completions:"),
     (
         "lib_add",
@@ -71,20 +103,29 @@ const MESSAGES: &[(&str, &str, &str)] = &[
         "Reserved name, unavailable.",
     ),
     (
-        "alias_owned",
-        "触发别名已被 {owner} 占用，已跳过。",
-        "Trigger alias is already owned by {owner}, skipped.",
-    ),
-    ("alias_exist", "该别名已存在。", "The alias already exists."),
-    (
-        "alias_unique",
-        "不能移除最后一个触发器别名。",
-        "Cannot remove the last trigger alias.",
-    ),
-    (
         "alias_not_found",
         "指定的触发器别名不存在。",
         "The specified trigger alias does not exist.",
+    ),
+    (
+        "installer_failed",
+        "安装脚本执行失败（退出码 {Code}）。",
+        "The install script failed (exit code {Code}).",
+    ),
+    (
+        "installer_fetch",
+        "无法下载安装脚本（{Cause}）。",
+        "Could not download the install script ({Cause}).",
+    ),
+    (
+        "installer_downloading",
+        "正在获取安装脚本……",
+        "Fetching the installer...",
+    ),
+    (
+        "checking_updates",
+        "正在检查最新版本……",
+        "Checking for the latest version...",
     ),
 ];
 
@@ -94,13 +135,14 @@ pub fn msg_cli(lang: &str, key: &str) -> String {
 }
 
 /// Look up a message and substitute `{name}` placeholders with the given values.
+/// An unknown key yields the key itself, never an empty error string.
 pub fn msg_fmt(lang: &str, key: &str, vars: &[(&str, &str)]) -> String {
     let zh = lang.starts_with("zh");
     let mut text = MESSAGES
         .iter()
         .find(|(k, _, _)| *k == key)
         .map(|(_, z, e)| if zh { z.to_string() } else { e.to_string() })
-        .unwrap_or_default();
+        .unwrap_or_else(|| key.to_string());
     for (k, v) in vars {
         text = text.replace(&format!("{{{k}}}"), v);
     }
@@ -113,28 +155,16 @@ mod tests {
 
     #[test]
     fn msg_cli_selects_language_by_prefix() {
-        assert_eq!(msg_cli("zh-CN", "param_min"), "参数不足。");
-        assert_eq!(msg_cli("zh-TW", "param_min"), "参数不足。");
-        assert_eq!(msg_cli("en-US", "param_min"), "Too few parameters.");
+        assert_eq!(msg_cli("zh-CN", "too_few_params"), "参数不足。");
+        assert_eq!(msg_cli("zh-TW", "too_few_params"), "参数不足。");
+        assert_eq!(msg_cli("en-US", "too_few_params"), "Too few parameters.");
         // Any non-zh language falls back to the English column.
-        assert_eq!(msg_cli("de-DE", "param_min"), "Too few parameters.");
+        assert_eq!(msg_cli("de-DE", "too_few_params"), "Too few parameters.");
     }
 
     #[test]
-    fn msg_cli_unknown_key_yields_empty_string() {
-        assert_eq!(msg_cli("en-US", "no_such_key"), "");
-        assert_eq!(msg_cli("zh-CN", "no_such_key"), "");
-    }
-
-    #[test]
-    fn msg_fmt_substitutes_placeholders_per_language() {
-        assert_eq!(
-            msg_fmt("zh-CN", "alias_owned", &[("owner", "helix")]),
-            "触发别名已被 helix 占用，已跳过。"
-        );
-        assert_eq!(
-            msg_fmt("en-US", "alias_owned", &[("owner", "helix")]),
-            "Trigger alias is already owned by helix, skipped."
-        );
+    fn msg_cli_unknown_key_yields_key() {
+        assert_eq!(msg_cli("en-US", "no_such_key"), "no_such_key");
+        assert_eq!(msg_cli("zh-CN", "no_such_key"), "no_such_key");
     }
 }

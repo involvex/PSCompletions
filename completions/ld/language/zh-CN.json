@@ -1,0 +1,1934 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "GNU 链接器。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--abi-call0"
+    },
+    {
+      "name": "--abi-windowed"
+    },
+    {
+      "name": "--accept-unknown-input-arch",
+      "usage": [
+        "--accept-unknown-input-arch Accept input files whose architecture cannot be determined"
+      ],
+      "next": []
+    },
+    {
+      "name": "--add-stdcall-alias"
+    },
+    {
+      "name": "--allow-multiple-definition",
+      "usage": [
+        "--allow-multiple-definition Allow multiple definitions"
+      ],
+      "next": []
+    },
+    {
+      "name": "--allow-shlib-undefined"
+    },
+    {
+      "name": "--architecture",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --architecture ARCH"
+      ],
+      "next": []
+    },
+    {
+      "name": "--as-needed"
+    },
+    {
+      "name": "--audit",
+      "usage": [
+        "--audit=AUDITLIB"
+      ],
+      "next": []
+    },
+    {
+      "name": "--auto-overlay",
+      "usage": [
+        "--auto-overlay [=filename]"
+      ],
+      "next": []
+    },
+    {
+      "name": "--auto-relink"
+    },
+    {
+      "name": "--auxiliary",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --auxiliary SHLIB"
+      ],
+      "next": []
+    },
+    {
+      "name": "--bank-window",
+      "usage": [
+        "--bank-window NAME"
+      ],
+      "next": []
+    },
+    {
+      "name": "--base_file",
+      "usage": [
+        "--base_file <basefile>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--be8"
+    },
+    {
+      "name": "--bss-plt"
+    },
+    {
+      "name": "--build-id",
+      "usage": [
+        "--build-id [=STYLE]"
+      ],
+      "next": []
+    },
+    {
+      "name": "--check-sections"
+    },
+    {
+      "name": "--check-uleb128"
+    },
+    {
+      "name": "--cmse-implib"
+    },
+    {
+      "name": "--code-in-l1"
+    },
+    {
+      "name": "--code-region",
+      "usage": [
+        "--code-region={either"
+      ],
+      "next": []
+    },
+    {
+      "name": "--compact-branches"
+    },
+    {
+      "name": "--compact-stubs"
+    },
+    {
+      "name": "--compat-implib"
+    },
+    {
+      "name": "--compress-debug-sections",
+      "usage": [
+        "--compress-debug-sections [none|zlib|zlib-gnu|zlib-gabi|zstd]"
+      ],
+      "next": []
+    },
+    {
+      "name": "--copy-dt-needed-entries"
+    },
+    {
+      "name": "--cref"
+    },
+    {
+      "name": "--ctf-share-types",
+      "usage": [
+        "--ctf-share-types=<method>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--ctf-variables"
+    },
+    {
+      "name": "--data-in-l1"
+    },
+    {
+      "name": "--data-region",
+      "usage": [
+        "--data-region={either"
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug-relax"
+    },
+    {
+      "name": "--debug-stubs"
+    },
+    {
+      "name": "--default-imported-symver"
+    },
+    {
+      "name": "--default-script",
+      "alias": [
+        "-dT"
+      ],
+      "usage": [
+        "-dT, --default-script FILE"
+      ],
+      "next": []
+    },
+    {
+      "name": "--default-symver"
+    },
+    {
+      "name": "--defsym",
+      "usage": [
+        "--defsym SYMBOL=EXPRESSION"
+      ],
+      "next": []
+    },
+    {
+      "name": "--demangle",
+      "usage": [
+        "--demangle [=STYLE]"
+      ],
+      "next": []
+    },
+    {
+      "name": "--depaudit",
+      "alias": [
+        "-P"
+      ],
+      "usage": [
+        "-P, --depaudit AUDITLIB"
+      ],
+      "next": []
+    },
+    {
+      "name": "--dependency-file",
+      "usage": [
+        "--dependency-file FILE"
+      ],
+      "next": []
+    },
+    {
+      "name": "--disable-auto-image-base"
+    },
+    {
+      "name": "--disable-auto-import"
+    },
+    {
+      "name": "--disable-dynamicbase",
+      "alias": [
+        "--dynamicbase"
+      ],
+      "usage": [
+        "--dynamicbase, --disable-dynamicbase"
+      ]
+    },
+    {
+      "name": "--disable-forceinteg",
+      "alias": [
+        "--forceinteg"
+      ],
+      "usage": [
+        "--forceinteg, --disable-forceinteg"
+      ]
+    },
+    {
+      "name": "--disable-high-entropy-va",
+      "alias": [
+        "--high-entropy-va"
+      ],
+      "usage": [
+        "--high-entropy-va, --disable-high-entropy-va"
+      ]
+    },
+    {
+      "name": "--disable-large-address-aware"
+    },
+    {
+      "name": "--disable-linker-version"
+    },
+    {
+      "name": "--disable-long-section-names"
+    },
+    {
+      "name": "--disable-multiple-abs-defs",
+      "usage": [
+        "--disable-multiple-abs-defs Do not allow multiple definitions with symbols included"
+      ],
+      "next": []
+    },
+    {
+      "name": "--disable-new-dtags"
+    },
+    {
+      "name": "--disable-no-bind",
+      "alias": [
+        "--no-bind"
+      ],
+      "usage": [
+        "--no-bind, --disable-no-bind"
+      ]
+    },
+    {
+      "name": "--disable-no-isolation",
+      "alias": [
+        "--no-isolation"
+      ],
+      "usage": [
+        "--no-isolation, --disable-no-isolation"
+      ]
+    },
+    {
+      "name": "--disable-no-seh",
+      "alias": [
+        "--no-seh"
+      ],
+      "usage": [
+        "--no-seh, --disable-no-seh"
+      ]
+    },
+    {
+      "name": "--disable-nxcompat",
+      "alias": [
+        "--nxcompat"
+      ],
+      "usage": [
+        "--nxcompat, --disable-nxcompat"
+      ]
+    },
+    {
+      "name": "--disable-reloc-section"
+    },
+    {
+      "name": "--disable-runtime-pseudo-reloc"
+    },
+    {
+      "name": "--disable-sec-transformation"
+    },
+    {
+      "name": "--disable-stdcall-fixup"
+    },
+    {
+      "name": "--disable-tsaware",
+      "alias": [
+        "--tsaware"
+      ],
+      "usage": [
+        "--tsaware, --disable-tsaware"
+      ]
+    },
+    {
+      "name": "--disable-wdmdriver",
+      "alias": [
+        "--wdmdriver"
+      ],
+      "usage": [
+        "--wdmdriver, --disable-wdmdriver"
+      ]
+    },
+    {
+      "name": "--discard-all",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --discard-all"
+      ]
+    },
+    {
+      "name": "--discard-locals",
+      "alias": [
+        "-X"
+      ],
+      "usage": [
+        "-X, --discard-locals"
+      ]
+    },
+    {
+      "name": "--discard-none"
+    },
+    {
+      "name": "--discard-sframe"
+    },
+    {
+      "name": "--dll"
+    },
+    {
+      "name": "--dll-search-prefix",
+      "usage": [
+        "--dll-search-prefix=<string>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--dotsyms"
+    },
+    {
+      "name": "--dsbt-index",
+      "usage": [
+        "--dsbt-index <index>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--dsbt-size",
+      "usage": [
+        "--dsbt-size <index>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--dynamic-linker",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --dynamic-linker PROGRAM"
+      ],
+      "next": []
+    },
+    {
+      "name": "--dynamic-list",
+      "usage": [
+        "--dynamic-list FILE"
+      ],
+      "next": []
+    },
+    {
+      "name": "--dynamic-list-cpp-new"
+    },
+    {
+      "name": "--dynamic-list-cpp-typeinfo",
+      "usage": [
+        "--dynamic-list-cpp-typeinfo Use C++ typeinfo dynamic list"
+      ],
+      "next": []
+    },
+    {
+      "name": "--dynamic-list-data"
+    },
+    {
+      "name": "--eh-frame-hdr"
+    },
+    {
+      "name": "--embedded-relocs"
+    },
+    {
+      "name": "--emit-relocs",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --emit-relocs"
+      ]
+    },
+    {
+      "name": "--emit-stack-syms"
+    },
+    {
+      "name": "--emit-stub-syms"
+    },
+    {
+      "name": "--enable-auto-image-base",
+      "usage": [
+        "--enable-auto-image-base [=<address>]"
+      ],
+      "next": []
+    },
+    {
+      "name": "--enable-auto-import"
+    },
+    {
+      "name": "--enable-extra-pe-debug"
+    },
+    {
+      "name": "--enable-extra-pep-debug"
+    },
+    {
+      "name": "--enable-linker-version"
+    },
+    {
+      "name": "--enable-long-section-names"
+    },
+    {
+      "name": "--enable-new-dtags"
+    },
+    {
+      "name": "--enable-non-contiguous-regions"
+    },
+    {
+      "name": "--enable-non-contiguous-regions-warnings"
+    },
+    {
+      "name": "--enable-reloc-section"
+    },
+    {
+      "name": "--enable-runtime-pseudo-reloc"
+    },
+    {
+      "name": "--enable-stdcall-fixup"
+    },
+    {
+      "name": "--end-group"
+    },
+    {
+      "name": "--end-lib"
+    },
+    {
+      "name": "--entry",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --entry ADDRESS"
+      ],
+      "next": []
+    },
+    {
+      "name": "--error-handling-script",
+      "usage": [
+        "--error-handling-script SCRIPT"
+      ],
+      "next": []
+    },
+    {
+      "name": "--error-unresolved-symbols"
+    },
+    {
+      "name": "--exclude-all-symbols"
+    },
+    {
+      "name": "--exclude-libs",
+      "usage": [
+        "--exclude-libs=LIBS"
+      ],
+      "next": []
+    },
+    {
+      "name": "--exclude-modules-for-implib",
+      "usage": [
+        "--exclude-modules-for-implib mod"
+      ],
+      "next": []
+    },
+    {
+      "name": "--exclude-symbols",
+      "usage": [
+        "--exclude-symbols sym"
+      ],
+      "next": []
+    },
+    {
+      "name": "--export-all-symbols"
+    },
+    {
+      "name": "--export-dynamic",
+      "alias": [
+        "-E"
+      ],
+      "usage": [
+        "-E, --export-dynamic"
+      ]
+    },
+    {
+      "name": "--export-dynamic-symbol",
+      "usage": [
+        "--export-dynamic-symbol SYMBOL"
+      ],
+      "next": []
+    },
+    {
+      "name": "--export-dynamic-symbol-list",
+      "usage": [
+        "--export-dynamic-symbol-list FILE"
+      ],
+      "next": []
+    },
+    {
+      "name": "--extra-overlay-stubs"
+    },
+    {
+      "name": "--extra-stack-space",
+      "usage": [
+        "--extra-stack-space=bytes"
+      ],
+      "next": []
+    },
+    {
+      "name": "--fatal-warnings"
+    },
+    {
+      "name": "--file-alignment",
+      "usage": [
+        "--file-alignment <size>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--filter",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --filter SHLIB"
+      ],
+      "next": []
+    },
+    {
+      "name": "--fix-cortex-a53-835769"
+    },
+    {
+      "name": "--fix-cortex-a53-843419",
+      "usage": [
+        "--fix-cortex-a53-843419 [=full|adr|adrp]"
+      ],
+      "next": []
+    },
+    {
+      "name": "--fix-stm32l4xx-629360"
+    },
+    {
+      "name": "--fix-v4bx"
+    },
+    {
+      "name": "--fix-v4bx-interworking"
+    },
+    {
+      "name": "--fixed-space",
+      "usage": [
+        "--fixed-space=bytes"
+      ],
+      "next": []
+    },
+    {
+      "name": "--flag-mismatch-warnings"
+    },
+    {
+      "name": "--force-dynamic"
+    },
+    {
+      "name": "--force-exe-suffix"
+    },
+    {
+      "name": "--force-group-allocation"
+    },
+    {
+      "name": "--format",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --format TARGET"
+      ],
+      "next": []
+    },
+    {
+      "name": "--gc-keep-exported"
+    },
+    {
+      "name": "--gc-sections"
+    },
+    {
+      "name": "--gnu-tls-tag"
+    },
+    {
+      "name": "--gnu2-tls-tag"
+    },
+    {
+      "name": "--got",
+      "usage": [
+        "--got=<type>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--gpsize",
+      "alias": [
+        "-G"
+      ],
+      "usage": [
+        "-G, --gpsize SIZE"
+      ],
+      "next": []
+    },
+    {
+      "name": "--hash-size",
+      "usage": [
+        "--hash-size=<NUMBER>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--hash-style",
+      "usage": [
+        "--hash-style=STYLE"
+      ],
+      "next": []
+    },
+    {
+      "name": "--heap",
+      "usage": [
+        "--heap <size>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help"
+    },
+    {
+      "name": "--identification",
+      "usage": [
+        "--identification <string>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--ignore-branch-isa"
+    },
+    {
+      "name": "--ignore-lma"
+    },
+    {
+      "name": "--ignore-unresolved-symbol",
+      "usage": [
+        "--ignore-unresolved-symbol SYMBOL"
+      ],
+      "next": []
+    },
+    {
+      "name": "--image-base",
+      "usage": [
+        "--image-base ADDRESS"
+      ],
+      "next": []
+    },
+    {
+      "name": "--imagic"
+    },
+    {
+      "name": "--in-implib"
+    },
+    {
+      "name": "--insn32"
+    },
+    {
+      "name": "--itanium"
+    },
+    {
+      "name": "--just-symbols",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --just-symbols FILE"
+      ],
+      "next": []
+    },
+    {
+      "name": "--kill-at"
+    },
+    {
+      "name": "--large-address-aware"
+    },
+    {
+      "name": "--lazy-stack"
+    },
+    {
+      "name": "--ld-generated-unwind-info"
+    },
+    {
+      "name": "--library",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --library LIBNAME"
+      ],
+      "next": []
+    },
+    {
+      "name": "--library-path",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --library-path DIRECTORY"
+      ],
+      "next": []
+    },
+    {
+      "name": "--line-size"
+    },
+    {
+      "name": "--link-mapless"
+    },
+    {
+      "name": "--local-store",
+      "usage": [
+        "--local-store=lo:hi"
+      ],
+      "next": []
+    },
+    {
+      "name": "--long-plt"
+    },
+    {
+      "name": "--lrlive-analysis"
+    },
+    {
+      "name": "--major-image-version",
+      "usage": [
+        "--major-image-version <number>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--major-os-version",
+      "usage": [
+        "--major-os-version <number>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--major-subsystem-version",
+      "usage": [
+        "--major-subsystem-version <number> Set minimum required OS subsystem version"
+      ],
+      "next": []
+    },
+    {
+      "name": "--map-whole-files"
+    },
+    {
+      "name": "--max-cache-size",
+      "usage": [
+        "--max-cache-size=SIZE"
+      ],
+      "next": []
+    },
+    {
+      "name": "--mexport-symbols",
+      "usage": [
+        "--mexport-symbols=FILE"
+      ],
+      "next": []
+    },
+    {
+      "name": "--mhyper-relax",
+      "usage": [
+        "--mhyper-relax=level"
+      ],
+      "next": []
+    },
+    {
+      "name": "--minor-image-version",
+      "usage": [
+        "--minor-image-version <number>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--minor-os-version",
+      "usage": [
+        "--minor-os-version <number>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--minor-subsystem-version",
+      "usage": [
+        "--minor-subsystem-version <number> Set minimum required OS subsystem revision"
+      ],
+      "next": []
+    },
+    {
+      "name": "--mno-fp-as-gp",
+      "alias": [
+        "--mfp-as-gp"
+      ],
+      "usage": [
+        "--mfp-as-gp, --mno-fp-as-gp"
+      ]
+    },
+    {
+      "name": "--mno-tlsdesc-trampoline",
+      "alias": [
+        "--mtlsdesc-trampoline"
+      ],
+      "usage": [
+        "--mtlsdesc-trampoline, --mno-tlsdesc-trampoline"
+      ]
+    },
+    {
+      "name": "--mri-script",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --mri-script FILE"
+      ],
+      "next": []
+    },
+    {
+      "name": "--multi-subspace"
+    },
+    {
+      "name": "--nmagic",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --nmagic"
+      ]
+    },
+    {
+      "name": "--no-accept-unknown-input-arch"
+    },
+    {
+      "name": "--no-allow-shlib-undefined"
+    },
+    {
+      "name": "--no-apply-dynamic-relocs"
+    },
+    {
+      "name": "--no-as-needed"
+    },
+    {
+      "name": "--no-branch-stub",
+      "alias": [
+        "--branch-stub"
+      ],
+      "usage": [
+        "--branch-stub, --no-branch-stub"
+      ]
+    },
+    {
+      "name": "--no-call-ret-replacement"
+    },
+    {
+      "name": "--no-check-sections"
+    },
+    {
+      "name": "--no-check-uleb128"
+    },
+    {
+      "name": "--no-compact-branches"
+    },
+    {
+      "name": "--no-copy-dt-needed-entries",
+      "usage": [
+        "--no-copy-dt-needed-entries Do not copy DT_NEEDED links mentioned inside DSOs that follow"
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-ctf-variables"
+    },
+    {
+      "name": "--no-define-common"
+    },
+    {
+      "name": "--no-demangle"
+    },
+    {
+      "name": "--no-dotsyms"
+    },
+    {
+      "name": "--no-dynamic-linker"
+    },
+    {
+      "name": "--no-eh-frame-hdr"
+    },
+    {
+      "name": "--no-emit-stub-syms"
+    },
+    {
+      "name": "--no-enum-size-warning"
+    },
+    {
+      "name": "--no-export-dynamic"
+    },
+    {
+      "name": "--no-fatal-warnings"
+    },
+    {
+      "name": "--no-fix-arm1176",
+      "alias": [
+        "--fix-arm1176"
+      ],
+      "usage": [
+        "--fix-arm1176, --no-fix-arm1176"
+      ]
+    },
+    {
+      "name": "--no-fix-cortex-a8",
+      "alias": [
+        "--fix-cortex-a8"
+      ],
+      "usage": [
+        "--fix-cortex-a8, --no-fix-cortex-a8"
+      ]
+    },
+    {
+      "name": "--no-flag-mismatch-warnings",
+      "usage": [
+        "--no-flag-mismatch-warnings Don't warn about objects with incompatible"
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-gc-sections"
+    },
+    {
+      "name": "--no-gnu-tls-tag"
+    },
+    {
+      "name": "--no-gnu2-tls-tag"
+    },
+    {
+      "name": "--no-ignore-branch-isa"
+    },
+    {
+      "name": "--no-ignore-lma"
+    },
+    {
+      "name": "--no-inline-optimize"
+    },
+    {
+      "name": "--no-insert-timestamp",
+      "alias": [
+        "--insert-timestamp"
+      ],
+      "usage": [
+        "--insert-timestamp, --no-insert-timestamp"
+      ]
+    },
+    {
+      "name": "--no-insn32"
+    },
+    {
+      "name": "--no-keep-memory"
+    },
+    {
+      "name": "--no-ld-generated-unwind-info"
+    },
+    {
+      "name": "--no-leading-underscore",
+      "alias": [
+        "--leading-underscore"
+      ],
+      "usage": [
+        "--leading-underscore, --no-leading-underscore"
+      ]
+    },
+    {
+      "name": "--no-link-mapless"
+    },
+    {
+      "name": "--no-map-whole-files"
+    },
+    {
+      "name": "--no-merge-exidx-entries"
+    },
+    {
+      "name": "--no-multi-toc"
+    },
+    {
+      "name": "--no-omagic"
+    },
+    {
+      "name": "--no-opd-optimize"
+    },
+    {
+      "name": "--no-overlays"
+    },
+    {
+      "name": "--no-pcrel-optimize"
+    },
+    {
+      "name": "--no-pic-fixup"
+    },
+    {
+      "name": "--no-plt-align"
+    },
+    {
+      "name": "--no-plt-localentry"
+    },
+    {
+      "name": "--no-plt-static-chain"
+    },
+    {
+      "name": "--no-plt-thread-safe"
+    },
+    {
+      "name": "--no-power10-stubs"
+    },
+    {
+      "name": "--no-ppc476-workaround"
+    },
+    {
+      "name": "--no-print-gc-sections"
+    },
+    {
+      "name": "--no-print-map-discarded"
+    },
+    {
+      "name": "--no-print-map-locals"
+    },
+    {
+      "name": "--no-relax"
+    },
+    {
+      "name": "--no-relax-gp"
+    },
+    {
+      "name": "--no-rosegment"
+    },
+    {
+      "name": "--no-save-restore-funcs"
+    },
+    {
+      "name": "--no-secureplt"
+    },
+    {
+      "name": "--no-stats"
+    },
+    {
+      "name": "--no-strip-discarded"
+    },
+    {
+      "name": "--no-stubs"
+    },
+    {
+      "name": "--no-tls-get-addr-optimize"
+    },
+    {
+      "name": "--no-tls-get-addr-regsave"
+    },
+    {
+      "name": "--no-tls-optimize"
+    },
+    {
+      "name": "--no-toc-optimize"
+    },
+    {
+      "name": "--no-toc-sort"
+    },
+    {
+      "name": "--no-trampoline"
+    },
+    {
+      "name": "--no-undefined"
+    },
+    {
+      "name": "--no-undefined-version"
+    },
+    {
+      "name": "--no-warn-mismatch"
+    },
+    {
+      "name": "--no-warn-search-mismatch"
+    },
+    {
+      "name": "--no-warnings",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --no-warnings"
+      ]
+    },
+    {
+      "name": "--no-wchar-size-warning"
+    },
+    {
+      "name": "--no-whole-archive"
+    },
+    {
+      "name": "--noinhibit-exec"
+    },
+    {
+      "name": "--non-ia-text"
+    },
+    {
+      "name": "--non-overlapping-opd"
+    },
+    {
+      "name": "--num-lines"
+    },
+    {
+      "name": "--num-regions"
+    },
+    {
+      "name": "--oformat",
+      "usage": [
+        "--oformat TARGET"
+      ],
+      "next": []
+    },
+    {
+      "name": "--omagic",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --omagic"
+      ]
+    },
+    {
+      "name": "--orphan-handling",
+      "usage": [
+        "--orphan-handling=MODE"
+      ],
+      "next": []
+    },
+    {
+      "name": "--out-implib",
+      "usage": [
+        "--out-implib FILE"
+      ],
+      "next": []
+    },
+    {
+      "name": "--output",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --output FILE"
+      ],
+      "next": []
+    },
+    {
+      "name": "--output-def",
+      "usage": [
+        "--output-def <file>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--overlay-rodata"
+    },
+    {
+      "name": "--package-metadata",
+      "usage": [
+        "--package-metadata [=JSON]"
+      ],
+      "next": []
+    },
+    {
+      "name": "--pic-executable",
+      "alias": [
+        "-pie"
+      ],
+      "usage": [
+        "-pie, --pic-executable"
+      ]
+    },
+    {
+      "name": "--pic-veneer"
+    },
+    {
+      "name": "--plt-align"
+    },
+    {
+      "name": "--plt-localentry"
+    },
+    {
+      "name": "--plt-static-chain"
+    },
+    {
+      "name": "--plt-thread-safe"
+    },
+    {
+      "name": "--plugin"
+    },
+    {
+      "name": "--pmem-wrap-around",
+      "usage": [
+        "--pmem-wrap-around=<val>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--pop-state"
+    },
+    {
+      "name": "--power10-stubs",
+      "usage": [
+        "--power10-stubs [=auto]"
+      ],
+      "next": []
+    },
+    {
+      "name": "--ppc476-workaround",
+      "usage": [
+        "--ppc476-workaround [=pagesize]"
+      ],
+      "next": []
+    },
+    {
+      "name": "--print-gc-sections"
+    },
+    {
+      "name": "--print-map",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --print-map"
+      ]
+    },
+    {
+      "name": "--print-map-discarded"
+    },
+    {
+      "name": "--print-map-locals"
+    },
+    {
+      "name": "--print-memory-usage"
+    },
+    {
+      "name": "--print-output-format"
+    },
+    {
+      "name": "--print-sysroot"
+    },
+    {
+      "name": "--push-state"
+    },
+    {
+      "name": "--reduce-memory-overheads"
+    },
+    {
+      "name": "--region-size"
+    },
+    {
+      "name": "--relax"
+    },
+    {
+      "name": "--relax-gp"
+    },
+    {
+      "name": "--relocatable",
+      "alias": [
+        "-r",
+        "-i"
+      ],
+      "usage": [
+        "-r, -i, --relocatable"
+      ]
+    },
+    {
+      "name": "--remap-inputs",
+      "usage": [
+        "--remap-inputs PATTERN=FILE Remap input files matching PATTERN to FILE"
+      ],
+      "next": []
+    },
+    {
+      "name": "--remap-inputs-file",
+      "usage": [
+        "--remap-inputs-file FILE"
+      ],
+      "next": []
+    },
+    {
+      "name": "--require-defined",
+      "usage": [
+        "--require-defined SYMBOL"
+      ],
+      "next": []
+    },
+    {
+      "name": "--reserved-space",
+      "usage": [
+        "--reserved-space=bytes"
+      ],
+      "next": []
+    },
+    {
+      "name": "--retain-symbols-file",
+      "usage": [
+        "--retain-symbols-file FILE"
+      ],
+      "next": []
+    },
+    {
+      "name": "--rosegment"
+    },
+    {
+      "name": "--s390-pgste"
+    },
+    {
+      "name": "--save-restore-funcs"
+    },
+    {
+      "name": "--script",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --script FILE"
+      ],
+      "next": []
+    },
+    {
+      "name": "--sdata-got"
+    },
+    {
+      "name": "--section-alignment",
+      "usage": [
+        "--section-alignment <size>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--section-ordering-file",
+      "usage": [
+        "--section-ordering-file FILE"
+      ],
+      "next": []
+    },
+    {
+      "name": "--section-start",
+      "usage": [
+        "--section-start SECTION=ADDRESS"
+      ],
+      "next": []
+    },
+    {
+      "name": "--secure-plt"
+    },
+    {
+      "name": "--secureplt"
+    },
+    {
+      "name": "--size-opt"
+    },
+    {
+      "name": "--soft-icache"
+    },
+    {
+      "name": "--sort-common",
+      "usage": [
+        "--sort-common [=ascending|descending]"
+      ],
+      "next": []
+    },
+    {
+      "name": "--sort-section",
+      "usage": [
+        "--sort-section name|alignment"
+      ],
+      "next": []
+    },
+    {
+      "name": "--spare-dynamic-tags",
+      "usage": [
+        "--spare-dynamic-tags COUNT"
+      ],
+      "next": []
+    },
+    {
+      "name": "--split-by-file",
+      "usage": [
+        "--split-by-file [=SIZE]"
+      ],
+      "next": []
+    },
+    {
+      "name": "--split-by-reloc",
+      "usage": [
+        "--split-by-reloc [=COUNT]"
+      ],
+      "next": []
+    },
+    {
+      "name": "--stack",
+      "usage": [
+        "--stack <size>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--stack-analysis"
+    },
+    {
+      "name": "--start-group"
+    },
+    {
+      "name": "--start-lib"
+    },
+    {
+      "name": "--stats"
+    },
+    {
+      "name": "--strip-all",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --strip-all"
+      ]
+    },
+    {
+      "name": "--strip-debug",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --strip-debug"
+      ]
+    },
+    {
+      "name": "--strip-discarded"
+    },
+    {
+      "name": "--stub-group-size",
+      "usage": [
+        "--stub-group-size=N"
+      ],
+      "next": []
+    },
+    {
+      "name": "--subsystem",
+      "usage": [
+        "--subsystem <name>[:<version>]"
+      ],
+      "next": []
+    },
+    {
+      "name": "--support-old-code"
+    },
+    {
+      "name": "--sysroot",
+      "usage": [
+        "--sysroot=<DIRECTORY>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--target-help"
+    },
+    {
+      "name": "--target1-abs"
+    },
+    {
+      "name": "--target1-rel"
+    },
+    {
+      "name": "--target2",
+      "usage": [
+        "--target2=<type>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--task-link",
+      "usage": [
+        "--task-link SYMBOL"
+      ],
+      "next": []
+    },
+    {
+      "name": "--thumb-entry",
+      "usage": [
+        "--thumb-entry=<symbol>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--tls-get-addr-optimize"
+    },
+    {
+      "name": "--tls-get-addr-regsave"
+    },
+    {
+      "name": "--trace",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --trace"
+      ]
+    },
+    {
+      "name": "--trace-symbol",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --trace-symbol SYMBOL"
+      ],
+      "next": []
+    },
+    {
+      "name": "--traditional-format"
+    },
+    {
+      "name": "--undefined",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --undefined SYMBOL"
+      ],
+      "next": []
+    },
+    {
+      "name": "--undefined-version"
+    },
+    {
+      "name": "--unique",
+      "usage": [
+        "--unique [=SECTION]"
+      ],
+      "next": []
+    },
+    {
+      "name": "--unresolved-symbols",
+      "usage": [
+        "--unresolved-symbols=<method>"
+      ],
+      "next": []
+    },
+    {
+      "name": "--use-blx"
+    },
+    {
+      "name": "--verbose",
+      "usage": [
+        "--verbose [=NUMBER]"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --version"
+      ]
+    },
+    {
+      "name": "--version-exports-section",
+      "usage": [
+        "--version-exports-section SYMBOL"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version-script",
+      "usage": [
+        "--version-script FILE"
+      ],
+      "next": []
+    },
+    {
+      "name": "--vfp11-denorm-fix"
+    },
+    {
+      "name": "--vle-reloc-fixup"
+    },
+    {
+      "name": "--warn-alternate-em"
+    },
+    {
+      "name": "--warn-common"
+    },
+    {
+      "name": "--warn-duplicate-exports"
+    },
+    {
+      "name": "--warn-execstack-objects",
+      "alias": [
+        "--no-error-rwx-segments",
+        "--no-warn-rwx-segments",
+        "--no-error-execstack",
+        "--error-rwx-segments",
+        "--warn-constructors",
+        "--no-warn-execstack",
+        "--warn-rwx-segments",
+        "--error-execstack",
+        "--warn-execstack"
+      ],
+      "usage": [
+        "--warn-execstack, --error-execstack, --warn-constructors, --no-warn-execstack, --warn-rwx-segments, --no-error-execstack, --error-rwx-segments, --no-warn-rwx-segments, --no-error-rwx-segments, --warn-execstack-objects"
+      ]
+    },
+    {
+      "name": "--warn-multiple-gp"
+    },
+    {
+      "name": "--warn-once"
+    },
+    {
+      "name": "--warn-section-align"
+    },
+    {
+      "name": "--warn-textrel"
+    },
+    {
+      "name": "--warn-unresolved-symbols"
+    },
+    {
+      "name": "--whole-archive"
+    },
+    {
+      "name": "--wrap",
+      "usage": [
+        "--wrap SYMBOL"
+      ],
+      "next": []
+    },
+    {
+      "name": "-a",
+      "usage": [
+        "-a KEYWORD"
+      ],
+      "next": []
+    },
+    {
+      "name": "-assert",
+      "usage": [
+        "-assert KEYWORD"
+      ],
+      "next": []
+    },
+    {
+      "name": "-Bgroup"
+    },
+    {
+      "name": "-Bno-symbolic"
+    },
+    {
+      "name": "-Bshareable",
+      "alias": [
+        "-shared"
+      ],
+      "usage": [
+        "-shared, -Bshareable"
+      ]
+    },
+    {
+      "name": "-Bsymbolic"
+    },
+    {
+      "name": "-Bsymbolic-functions"
+    },
+    {
+      "name": "-call_shared",
+      "alias": [
+        "-Bdynamic",
+        "-dy"
+      ],
+      "usage": [
+        "-dy, -Bdynamic, -call_shared"
+      ]
+    },
+    {
+      "name": "-dp",
+      "alias": [
+        "-dc",
+        "-d"
+      ],
+      "usage": [
+        "-d, -dc, -dp"
+      ]
+    },
+    {
+      "name": "-EB"
+    },
+    {
+      "name": "-EL"
+    },
+    {
+      "name": "-fini",
+      "usage": [
+        "-fini SYMBOL"
+      ],
+      "next": []
+    },
+    {
+      "name": "-flto"
+    },
+    {
+      "name": "-flto-partition",
+      "usage": [
+        "-flto-partition="
+      ],
+      "next": []
+    },
+    {
+      "name": "-fuse-ld",
+      "usage": [
+        "-fuse-ld="
+      ],
+      "next": []
+    },
+    {
+      "name": "-g"
+    },
+    {
+      "name": "-init",
+      "usage": [
+        "-init SYMBOL"
+      ],
+      "next": []
+    },
+    {
+      "name": "-m",
+      "usage": [
+        "-m EMULATION"
+      ],
+      "next": []
+    },
+    {
+      "name": "-Map",
+      "usage": [
+        "-Map FILE/DIR"
+      ],
+      "next": []
+    },
+    {
+      "name": "-no-pie"
+    },
+    {
+      "name": "-non_shared",
+      "alias": [
+        "-Bstatic",
+        "-static",
+        "-dn"
+      ],
+      "usage": [
+        "-dn, -static, -Bstatic, -non_shared"
+      ]
+    },
+    {
+      "name": "-nostdlib"
+    },
+    {
+      "name": "-O",
+      "usage": [
+        "-O LEVEL"
+      ],
+      "next": []
+    },
+    {
+      "name": "-plugin",
+      "usage": [
+        "-plugin PLUGIN"
+      ],
+      "next": []
+    },
+    {
+      "name": "-plugin-opt",
+      "usage": [
+        "-plugin-opt ARG"
+      ],
+      "next": []
+    },
+    {
+      "name": "-plugin-save-temps"
+    },
+    {
+      "name": "-qmagic"
+    },
+    {
+      "name": "-Qy"
+    },
+    {
+      "name": "-rpath",
+      "usage": [
+        "-rpath PATH"
+      ],
+      "next": []
+    },
+    {
+      "name": "-rpath-link",
+      "usage": [
+        "-rpath-link PATH"
+      ],
+      "next": []
+    },
+    {
+      "name": "-soname",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, -soname FILENAME"
+      ],
+      "next": []
+    },
+    {
+      "name": "-Tbss",
+      "usage": [
+        "-Tbss ADDRESS"
+      ],
+      "next": []
+    },
+    {
+      "name": "-Tdata",
+      "usage": [
+        "-Tdata ADDRESS"
+      ],
+      "next": []
+    },
+    {
+      "name": "-Tldata-segment",
+      "usage": [
+        "-Tldata-segment ADDRESS"
+      ],
+      "next": []
+    },
+    {
+      "name": "-Trodata-segment",
+      "usage": [
+        "-Trodata-segment ADDRESS"
+      ],
+      "next": []
+    },
+    {
+      "name": "-Ttext",
+      "usage": [
+        "-Ttext ADDRESS"
+      ],
+      "next": []
+    },
+    {
+      "name": "-Ttext-segment",
+      "usage": [
+        "-Ttext-segment ADDRESS"
+      ],
+      "next": []
+    },
+    {
+      "name": "-Ur"
+    },
+    {
+      "name": "-V"
+    },
+    {
+      "name": "-Y",
+      "usage": [
+        "-Y PATH"
+      ],
+      "next": []
+    },
+    {
+      "name": "-z",
+      "usage": [
+        "-z common-page-size=SIZE"
+      ],
+      "next": []
+    }
+  ]
+}

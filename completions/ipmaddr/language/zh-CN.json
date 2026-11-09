@@ -1,0 +1,117 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "管理多播地址。"
+    ]
+  },
+  "next": [
+    {
+      "name": "add",
+      "usage": [
+        "add <MULTIADDR> dev <INTERFACE>"
+      ],
+      "tip": [
+        "添加多播地址。"
+      ],
+      "option": [
+        {
+          "name": "dev",
+          "usage": [
+            "dev <INTERFACE>"
+          ],
+          "tip": [
+            "网络接口名。"
+          ],
+          "next": []
+        }
+      ]
+    },
+    {
+      "name": "del",
+      "usage": [
+        "del <MULTIADDR> dev <INTERFACE>"
+      ],
+      "tip": [
+        "删除多播地址。"
+      ],
+      "option": [
+        {
+          "name": "dev",
+          "usage": [
+            "dev <INTERFACE>"
+          ],
+          "tip": [
+            "网络接口名。"
+          ],
+          "next": []
+        }
+      ]
+    },
+    {
+      "name": "show",
+      "usage": [
+        "show [dev <INTERFACE>] [ipv4 | ipv6 | link | all]"
+      ],
+      "tip": [
+        "显示多播地址。"
+      ],
+      "option": [
+        {
+          "name": "all",
+          "tip": [
+            "显示所有多播地址。"
+          ]
+        },
+        {
+          "name": "dev",
+          "usage": [
+            "dev <INTERFACE>"
+          ],
+          "tip": [
+            "网络接口名。"
+          ],
+          "next": []
+        },
+        {
+          "name": "ipv4",
+          "tip": [
+            "显示 IPv4 多播地址。"
+          ]
+        },
+        {
+          "name": "ipv6",
+          "tip": [
+            "显示 IPv6 多播地址。"
+          ]
+        },
+        {
+          "name": "link",
+          "tip": [
+            "显示链路层多播地址。"
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--help",
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "-version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, -version"
+      ],
+      "tip": [
+        "显示版本信息。"
+      ]
+    }
+  ]
+}

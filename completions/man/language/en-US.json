@@ -1,0 +1,472 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/man-db/man-db",
+    "description": [
+      "Display the manual pages."
+    ]
+  },
+  "option": [
+    {
+      "name": "--all",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --all"
+      ],
+      "tip": [
+        "Find all matching manual pages."
+      ]
+    },
+    {
+      "name": "--apropos",
+      "alias": [
+        "-k"
+      ],
+      "usage": [
+        "-k, --apropos"
+      ],
+      "tip": [
+        "Equivalent to apropos."
+      ]
+    },
+    {
+      "name": "--ascii",
+      "alias": [
+        "-7"
+      ],
+      "usage": [
+        "-7, --ascii"
+      ],
+      "tip": [
+        "Display ASCII translations."
+      ]
+    },
+    {
+      "name": "--catman",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --catman"
+      ],
+      "tip": [
+        "Reformat out-of-date cat pages."
+      ]
+    },
+    {
+      "name": "--config-file",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --config-file=FILE"
+      ],
+      "tip": [
+        "Use this user configuration file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "Emit debugging messages."
+      ]
+    },
+    {
+      "name": "--default",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --default"
+      ],
+      "tip": [
+        "Reset all options to their defaults."
+      ]
+    },
+    {
+      "name": "--ditroff",
+      "alias": [
+        "-Z"
+      ],
+      "usage": [
+        "-Z, --ditroff"
+      ],
+      "tip": [
+        "Use groff to produce ditroff."
+      ]
+    },
+    {
+      "name": "--encoding",
+      "alias": [
+        "-E"
+      ],
+      "usage": [
+        "-E, --encoding=ENCODING"
+      ],
+      "tip": [
+        "Use the selected output encoding."
+      ],
+      "next": []
+    },
+    {
+      "name": "--extension",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --extension=EXTENSION"
+      ],
+      "tip": [
+        "Limit the search to this extension."
+      ],
+      "next": []
+    },
+    {
+      "name": "--global-apropos",
+      "alias": [
+        "-K"
+      ],
+      "usage": [
+        "-K, --global-apropos"
+      ],
+      "tip": [
+        "Search for text in all pages."
+      ]
+    },
+    {
+      "name": "--gxditview",
+      "alias": [
+        "-X"
+      ],
+      "usage": [
+        "-X, --gxditview[=RESOLUTION]"
+      ],
+      "tip": [
+        "Display through gxditview."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "Give this help list."
+      ]
+    },
+    {
+      "name": "--html",
+      "alias": [
+        "-H"
+      ],
+      "usage": [
+        "-H, --html[=BROWSER]"
+      ],
+      "tip": [
+        "Display HTML output with a browser."
+      ],
+      "next": []
+    },
+    {
+      "name": "--ignore-case",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --ignore-case"
+      ],
+      "tip": [
+        "Look for pages case-insensitively."
+      ]
+    },
+    {
+      "name": "--local-file",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --local-file"
+      ],
+      "tip": [
+        "Interpret PAGE arguments as local files."
+      ]
+    },
+    {
+      "name": "--locale",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --locale=LOCALE"
+      ],
+      "tip": [
+        "Define the locale for this search."
+      ],
+      "next": []
+    },
+    {
+      "name": "--manpath",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --manpath=PATH"
+      ],
+      "tip": [
+        "Set the manual page search path."
+      ],
+      "next": []
+    },
+    {
+      "name": "--match-case",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --match-case"
+      ],
+      "tip": [
+        "Look for pages case-sensitively."
+      ]
+    },
+    {
+      "name": "--names-only",
+      "tip": [
+        "Match page names only, not descriptions."
+      ]
+    },
+    {
+      "name": "--no-hyphenation",
+      "alias": [
+        "--nh"
+      ],
+      "usage": [
+        "--nh, --no-hyphenation"
+      ],
+      "tip": [
+        "Turn off hyphenation."
+      ]
+    },
+    {
+      "name": "--no-justification",
+      "alias": [
+        "--nj"
+      ],
+      "usage": [
+        "--nj, --no-justification"
+      ],
+      "tip": [
+        "Turn off justification."
+      ]
+    },
+    {
+      "name": "--no-subpages",
+      "tip": [
+        "Do not try subpages."
+      ]
+    },
+    {
+      "name": "--pager",
+      "alias": [
+        "-P"
+      ],
+      "usage": [
+        "-P, --pager=PAGER"
+      ],
+      "tip": [
+        "Use PAGER to display output."
+      ],
+      "next": []
+    },
+    {
+      "name": "--preprocessor",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --preprocessor=STRING"
+      ],
+      "tip": [
+        "Select preprocessors to run (e, p, t, g, r, v)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--prompt",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --prompt=STRING"
+      ],
+      "tip": [
+        "Provide the less pager with a prompt."
+      ],
+      "next": []
+    },
+    {
+      "name": "--recode",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --recode=ENCODING"
+      ],
+      "tip": [
+        "Output the source page in the encoding."
+      ],
+      "next": []
+    },
+    {
+      "name": "--regex",
+      "tip": [
+        "Show all pages matching the regex."
+      ]
+    },
+    {
+      "name": "--sections",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --sections=LIST"
+      ],
+      "tip": [
+        "Search only these sections (colon-separated)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--systems",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --systems=SYSTEM"
+      ],
+      "tip": [
+        "Use manual pages from other systems."
+      ],
+      "next": []
+    },
+    {
+      "name": "--troff",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --troff"
+      ],
+      "tip": [
+        "Use groff to format pages."
+      ]
+    },
+    {
+      "name": "--troff-device",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --troff-device[=DEVICE]"
+      ],
+      "tip": [
+        "Use groff with the selected device."
+      ],
+      "next": []
+    },
+    {
+      "name": "--update",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --update"
+      ],
+      "tip": [
+        "Force a cache consistency check."
+      ]
+    },
+    {
+      "name": "--usage",
+      "tip": [
+        "Give a short usage message."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Print program version."
+      ]
+    },
+    {
+      "name": "--warnings",
+      "usage": [
+        "--warnings[=WARNINGS]"
+      ],
+      "tip": [
+        "Enable warnings from groff."
+      ],
+      "next": []
+    },
+    {
+      "name": "--whatis",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --whatis"
+      ],
+      "tip": [
+        "Equivalent to whatis."
+      ]
+    },
+    {
+      "name": "--where",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --path, --where, --location"
+      ],
+      "tip": [
+        "Print the physical location of pages."
+      ]
+    },
+    {
+      "name": "--where-cat",
+      "alias": [
+        "-W"
+      ],
+      "usage": [
+        "-W, --where-cat, --location-cat"
+      ],
+      "tip": [
+        "Print the physical location of cat files."
+      ]
+    },
+    {
+      "name": "--wildcard",
+      "tip": [
+        "Show all pages matching the wildcard."
+      ]
+    }
+  ]
+}

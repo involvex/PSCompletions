@@ -1,18 +1,13 @@
 # Design: Project Architecture
 
 > How the whole PSCompletions repository is laid out and how the pieces talk to each other.
-> Companion docs: `completion.md` (context/resolve/manifest), `hooks.md` (Lua hooks),
-> `menu.md` (TUI menu), `protocol.md` (engine JSON contract), `psc-cli.md` (management CLI),
-> `filter-matching.md` (menu filter).
+> Companion docs: `completion.md` (context/resolve/manifest), `hooks.md` (Lua hooks), `menu.md` (TUI menu), `protocol.md` (engine JSON contract), `psc-cli.md` (management CLI), `filter-matching.md` (menu filter).
 
 ## 1. Overview
 
-PSCompletions is a **tab-completion manager for PowerShell**. It keeps **completion
-definitions** (JSON manifests describing each CLI tool's subcommands, options, aliases and
-tooltips) plus optional **Lua hooks** for dynamic values, and renders them through a
-**cross-platform Rust engine + TUI menu**. The whole completion pipeline (parse manifest →
-resolve context → run hooks → produce candidates) runs in Rust, so behavior is identical on
-Windows PowerShell 5.1 and PowerShell 7+.
+PSCompletions is a **tab-completion manager for PowerShell**.
+It keeps **completion definitions** (JSON manifests describing each CLI tool's subcommands, options, aliases and tooltips) plus optional **Lua hooks** for dynamic values, and renders them through a **cross-platform Rust engine + TUI menu**.
+The whole completion pipeline (parse manifest → resolve context → run hooks → produce candidates) runs in Rust, so behavior is identical on Windows PowerShell 5.1 and PowerShell 7+.
 
 ## 2. Repository layout
 
@@ -25,7 +20,6 @@ PSCompletions/
 │       └── language/
 │           ├── en-US.json  # English completion data (single source of truth)
 │           └── zh-CN.json  # Chinese translation (same structure)
-├── completions.json        # Completion index — auto-generated, DO NOT edit
 ├── schema/                 # JSON Schemas (completion-manifest, completion-config)
 ├── scripts/                # Authoring / validation / CI tooling (PowerShell)
 │   ├── create-completion.ps1       # scaffold a new completion from the template
@@ -33,10 +27,13 @@ PSCompletions/
 │   ├── sort-json.ps1               # normalize field order (called by compare-json)
 │   ├── validate-completion.ps1     # full validation: schema + config.json + hooks.lua + compare rules
 │   ├── check-completion.ps1        # CI/PR check: scan changed completions, post a report
+│   ├── check-doc-links.ps1         # verify doc links and cited repo paths resolve
+│   ├── check-hook-targets.ps1      # verify psc.on targets (mandatory when hooks exist)
 │   ├── link-completion.ps1         # symlink a completion into the local module for live testing
-│   ├── update-content.ps1          # CI: regenerate completions.json index + completions.md tables
-│   ├── push-change.ps1             # CI: commit/push generated content back to main
+│   ├── update-content.ps1          # CI: regenerate the index-branch files from completions/
+│   ├── push-change.ps1             # CI: commit/push generated content to the index branch
 │   ├── build-release.ps1           # local release build: cargo fmt + build (+zigbuild cross) → bin/
+│   ├── psc-tools.cs                # C# helpers compiled at runtime via Add-Type (sort-canonicality + diff for sort/compare-json)
 │   └── utils.ps1                   # shared helpers for the scripts
 ├── design/                 # This knowledge base (authoritative "how the system works")
 ├── types/                  # EmmyLua type stub for the psc.* API (editor LSP in hooks.lua)
@@ -49,36 +46,24 @@ PSCompletions/
 
 ## 3. The two Rust binaries
 
-**`core/engine` → `psc-menu`** — the runtime heart. Two modes driven by flags:
+**`core/engine` → `psc-menu`** — the runtime heart, driven by modes (default menu mode takes `<input.json> --result <out.json>` positionally):
 
-- (menu mode) `psc-menu <input.json> --result <out.json>`: renders the
-  interactive TUI menu, handles keyboard/mouse, and writes back the selection / cancel /
-  filter-text outcome. When the input carries a `build` context instead of `items`, the engine
-  builds the candidates itself first (manifest → tree → resolve → run hooks → order-sort) — so
-  installed-command completion runs in a **single process call**.
-- `--sort <input.json> --result <out.json>`: ranks host-provided items (native fallback)
-  against the history-order files.
+- (menu mode) `psc-menu <input.json> --result <out.json>`: renders the interactive TUI menu, handles keyboard/mouse, and writes back the selection / cancel / filter-text outcome. When the input carries a `build` context instead of `items`, the engine builds the candidates itself first (manifest → tree → resolve → run hooks → order-sort) — so installed-command completion runs in a **single process call**.
+- `--sort <input.json> --result <out.json>`: ranks host-provided items (native fallback) against the history-order files.
+- `--self-test`: CI smoke test — parses a bundled sample, builds state, exercises filters and layout without touching a terminal.
 
-**`core/cli` → `psc`** — the management CLI (installed as `psc`): `add`/`rm`/`update`/
-`info`/`list`/`alias`/`completion`/`config`/`init`. It owns the **config registry** and
-**key migration** (see `psc-cli.md`), reads/writes `settings.json`, and handles network
-operations (fetching completions). Resets are handled by the host's `--reset` flag.
+**`core/cli` → `psc`** — the management CLI (installed as `psc`): `add`/`rm`/`update`/ `info`/`list`/`alias`/`completion`/`config`/`init`.
+It owns the **config registry** and **key migration** (see `psc-cli.md`), reads/writes `settings.json`, and handles network operations (fetching completions).
+Resets are handled by the host's `--reset` flag.
 
 ## 3.1 Building & shipping binaries
 
-`scripts/build-release.ps1` is the local release path: it runs `cargo fmt --all`, then
-`cargo build --release` (host) or `cargo zigbuild --release --target <triple>` (cross), and
-copies `psc-menu` + `psc` into `module/PSCompletions/bin/<platform>-<arch>/`. The module resolves
-the right binary lazily on first use (`initialize()` → `menu_binary()`/`psc_binary()`), detecting
-platform/arch via `$IsWindows`/`$IsMacOS` + `[RuntimeInformation]::ProcessArchitecture` and caching thereafter. A host build is detected from
-`$IsWindows`/`$IsMacOS` plus the process architecture; cross builds need `rustup target add
-<triple>` (and zig for zigbuild).
+`scripts/build-release.ps1` is the local release path: it runs `cargo fmt --all`, then `cargo build --release` (host) or `cargo zigbuild --release --target <triple>` (cross), and copies `psc-menu` + `psc` into `module/PSCompletions/bin/<platform>-<arch>/`.
+The module resolves the right binary lazily on first use (`initialize()` → `menu_binary()`/`psc_binary()`), detecting platform/arch via `$IsWindows`/`$IsMacOS` + `[RuntimeInformation]::ProcessArchitecture` and caching thereafter.
+A host build is detected from `$IsWindows`/`$IsMacOS` plus the process architecture; cross builds need `rustup target add <triple>` (and zig for zigbuild).
 
-The CI build job (`.github/workflows/ci.yml`) produces the same binaries on its own hosted
-runners, picking one of three commands per matrix entry (`ci.yml:103-108`): `cargo zigbuild
---release` for the glibc-floor targets, `cargo build --release --target <triple>` for other cross
-targets, and plain `cargo build --release` for native ones. It then uploads them as build
-artifacts — the build job does not run `cargo fmt` (lint/test run as separate jobs).
+The CI build job (`.github/workflows/ci.yml`) produces the same binaries on its own hosted runners, picking one of three commands per matrix entry (`ci.yml:103-108`): `cargo zigbuild --release` for the glibc-floor targets, `cargo build --release --target <triple>` for other cross targets, and plain `cargo build --release` for native ones.
+It then uploads them as build artifacts — the build job does not run `cargo fmt`, and no workflow runs Rust lint/tests (verify locally with `cargo test` / `clippy`; only `build-release.ps1` runs `cargo fmt`).
 
 ## 4. End-to-end flow
 
@@ -88,7 +73,7 @@ user types `git <Tab>`
   ▼
 PowerShell host (PSCompletions.ps1)
   • lazy bootstrap (once): `initialize()` → `psc init --result <tmp>` → loads settings/aliasMap/info/default_config; rebinds the sanitized trigger_key and aliases; sets `initialized=true` (gated by `initialized`/`binary_ok`; abort if binary missing)
-  • splits the buffer into tokens, resolves trigger alias
+  • splits the buffer into tokens, resolves the longest trigger-alias token prefix
   • assembles a menu input carrying a `build` context (cmd, arg_tokens, manifest, hooks,
     config, psc data, order paths) — not items
   • launches psc-menu (menu mode) as a child process
@@ -112,33 +97,18 @@ PowerShell host applies the selection (PSConsoleReadLine::Replace); the
 ## 5. Module responsibilities
 
 The PowerShell host (`module/PSCompletions/PSCompletions.ps1` + `PSCompletions.psm1`) is the **bridge**.
-Import is cheap: it defines the `$PSCompletions` hashtable plus its ScriptMethods, then
-ensures the module entry alias (`psc` → `PSCompletions`) so a fresh session can execute it
-immediately. Trigger aliases only open the completion menu — they never create execution
-aliases. The host resolves the runtime data root once at import: `PSCOMPLETIONS_DATA_DIR` when
-set, otherwise the platform default under the user data directory. `path.root` remains the
-read-only module directory for binaries and the bundled `completions/psc` seed; all writable
-runtime paths derive from `path.data`. On a versioned PowerShellGet install, a missing psc
-completion in the target triggers a one-time copy from the current/older module data, with the
-package seed as the final fallback; `psc init` rebuilds `settings.json`.
-The PSReadLine trigger key is bound from `settings.json` directly. Heavy work
-(the full bootstrap via `psc init --result`) stays deferred to `$PSCompletions.initialize()` on
-first Tab or first `psc`, gated by `initialized`/`binary_ok`:
+Import is cheap: it defines the `$PSCompletions` hashtable plus its ScriptMethods, then exports the module entry `psc` so a fresh session can execute it immediately.
+Trigger aliases only open the completion menu — they never create execution aliases.
+The host resolves the runtime data root once at import: `PSCOMPLETIONS_DATA_DIR` when set, otherwise the platform default under the user data directory.
+`path.root` remains the read-only module directory for binaries and the bundled `completions/psc` seed; all writable runtime paths derive from `path.data`.
+On a versioned PowerShellGet install, a missing psc completion in the target triggers a one-time copy from the current/older module data, with the package seed as the final fallback; `psc init` rebuilds `settings.json`.
+The PSReadLine trigger key is bound from `settings.json` directly.
+Heavy work (the full bootstrap via `psc init --result`) stays deferred to `$PSCompletions.initialize()` on first Tab or first `psc`, gated by `initialized`/`binary_ok`:
 
-- `initialize()` adds deferred `ScriptMethod`s, runs `psc init --result` to bootstrap
-  `settings/aliasMap/info/default_config`, then ensures the `psc` entry alias and rebinds the
-  sanitized `trigger_key`, and sets `initialized=true`. `param([bool]$methodsOnly)`
-  skips the full bootstrap for standalone scripts that only need the helper methods (keeps
-  `initialized` false).
-- Tab handler: captures buffer/cursor, `initialize()` if needed, resolves alias, builds `build`
-  context, launches `psc-menu`, applies selection via `PSConsoleReadLine::Replace`.
-- `psc` entry (`PSCompletions.psm1`): `initialize()` first, then `_forward_psc` dispatches
-  `add`/`rm`/`update`/`config`/`alias`/`info`/`list`/`completion`/`init`; `render_pending`
-  appends library notifications.
-- Passes the `build` context into the menu process (the engine builds + ranks the candidates
-  itself; installed-command completion is a single process call), saves/restores the covered
-  terminal region (input line is never saved/restored to preserve true-color prompts), and
-  detects completion failure (`[PSCompletions] menu unavailable: ...`).
+- `initialize()` adds deferred `ScriptMethod`s, runs `psc init --result` to bootstrap `settings/aliasMap/info/default_config`, then rebinds the sanitized `trigger_key`, and sets `initialized=true`. `param([bool]$methodsOnly)` skips the full bootstrap for standalone scripts that only need the helper methods (keeps `initialized` false).
+- Tab handler: captures buffer/cursor, `initialize()` if needed, resolves the longest trigger-alias token prefix (a leading `sudo` — literal, a trigger word mapped to it, or a shell alias pointing at it — is skipped when something behind it is a trigger, so `sudo git <Tab>` completes git, and a multi-word alias such as `npx vite` consumes both words), builds `build` context, launches `psc-menu`, applies selection via `PSConsoleReadLine::Replace`.
+- `psc` entry (`PSCompletions.psm1`): `initialize()` first, then `_forward_psc` dispatches `add`/`rm`/`update`/`config`/`alias`/`info`/`list`/`completion`/`init`; `render_pending` appends library notifications.
+- Passes the `build` context into the menu process (the engine builds + ranks the candidates itself; installed-command completion is a single process call), saves/restores the covered terminal region (input line is never saved/restored to preserve true-color prompts), and detects completion failure (`[PSCompletions] menu unavailable: ...`).
 - `psc-menu` and `psc` binaries ship inside `module/PSCompletions/bin/`.
 
 ## 6. Where each concern is documented

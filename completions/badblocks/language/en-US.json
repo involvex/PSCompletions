@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "Search a device for bad blocks."
+    ]
+  },
+  "option": [
+    {
+      "name": "-b",
+      "usage": [
+        "-b block_size"
+      ],
+      "tip": [
+        "Specify the block size in bytes (default 1024)."
+      ],
+      "next": [
+        {
+          "name": "1024"
+        },
+        {
+          "name": "2048"
+        },
+        {
+          "name": "4096"
+        }
+      ]
+    },
+    {
+      "name": "-B",
+      "tip": [
+        "Use buffered I/O instead of direct I/O."
+      ]
+    },
+    {
+      "name": "-c",
+      "usage": [
+        "-c blocks_at_once"
+      ],
+      "tip": [
+        "Specify the number of blocks tested at a time (default 64)."
+      ],
+      "next": []
+    },
+    {
+      "name": "-d",
+      "usage": [
+        "-d read_delay_factor"
+      ],
+      "tip": [
+        "Sleep between reads when no errors were found."
+      ],
+      "next": []
+    },
+    {
+      "name": "-e",
+      "usage": [
+        "-e max_bad_blocks"
+      ],
+      "tip": [
+        "Abort after this many bad blocks (0 means never abort)."
+      ],
+      "next": []
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "Force a read-write or non-destructive test on a mounted device."
+      ]
+    },
+    {
+      "name": "-i",
+      "usage": [
+        "-i input_file"
+      ],
+      "tip": [
+        "Read a list of known bad blocks from the file and skip testing them."
+      ],
+      "next": []
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "Use non-destructive read-write mode."
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o output_file"
+      ],
+      "tip": [
+        "Write the bad block list to the file instead of standard output."
+      ],
+      "next": []
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p num_passes"
+      ],
+      "tip": [
+        "Repeat scanning until no new blocks are found for this many passes."
+      ],
+      "next": []
+    },
+    {
+      "name": "-s",
+      "tip": [
+        "Show rough percentage completion while scanning."
+      ]
+    },
+    {
+      "name": "-t",
+      "usage": [
+        "-t test_pattern"
+      ],
+      "tip": [
+        "Specify a numeric test pattern or random."
+      ],
+      "next": [
+        {
+          "name": "random"
+        }
+      ]
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "Verbose mode."
+      ]
+    },
+    {
+      "name": "-w",
+      "tip": [
+        "Use write-mode testing."
+      ]
+    },
+    {
+      "name": "-X",
+      "tip": [
+        "Internal flag used by e2fsck and mke2fs to bypass the in-use device check."
+      ]
+    }
+  ]
+}

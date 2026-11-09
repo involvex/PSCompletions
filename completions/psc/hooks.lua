@@ -17,6 +17,13 @@ local function get_completion_tip(name)
     if c.url then
         table.insert(lines, "url: " .. c.url)
     end
+    local alias = data.alias[name] or meta.alias
+    if alias then
+        alias = psc.join(alias, " ")
+        if alias ~= name then
+            table.insert(lines, "alias: " .. alias)
+        end
+    end
     if c.description then
         table.insert(lines, "-----")
         table.insert(lines, psc.join(c.description, "\n"))
@@ -25,27 +32,20 @@ local function get_completion_tip(name)
 end
 
 local function render_tip(lines, vars)
-    -- lines may be string or array; normalize via psc.join
+    -- Placeholders follow the info-template syntax (design/templates.md): {{Key}}, case-sensitive.
     if type(lines) == "string" then
         lines = { lines }
     end
     local out = {}
     for _, line in ipairs(lines or {}) do
         for k, v in pairs(vars) do
-            line = line:gsub("{{ %$" .. k .. " }}", tostring(v))
+            line = line:gsub("{{" .. k .. "}}", function()
+                return tostring(v)
+            end)
         end
         table.insert(out, line)
     end
     return psc.join(out, "\n")
-end
-
-local function rm_reset()
-    for i = #completions, 1, -1 do
-        if completions[i].name == "--reset" then
-            table.remove(completions, i)
-            break
-        end
-    end
 end
 
 local function clear_completions()
@@ -54,10 +54,37 @@ local function clear_completions()
     end
 end
 
+local function add_all_completions()
+    for _, name in ipairs(data.remote or {}) do
+        psc.add({ name = name, tip = get_completion_tip(name) })
+    end
+end
+
 local function add_installed_completions()
     for _, e in ipairs(psc.ls(data.completions) or {}) do
         if e.is_dir then
             psc.add({ name = e.name, tip = get_completion_tip(e.name) })
+        end
+    end
+end
+
+local function add_updatable_completions()
+    if #(data.remote or {}) == 0 then
+        add_installed_completions()
+        return
+    end
+    for _, e in ipairs(psc.ls(data.completions) or {}) do
+        if e.is_dir and psc.contains(data.remote, e.name) then
+            psc.add({ name = e.name, tip = get_completion_tip(e.name) })
+        end
+    end
+end
+
+local function drop_options(names)
+    for i = #completions, 1, -1 do
+        if psc.contains(names, completions[i].name) then
+            table.remove(completions, i)
+            break
         end
     end
 end
@@ -75,12 +102,14 @@ if psc.token({ name = "--reset", type = "option" }) or psc.token({ name = "--all
     return
 end
 
+psc.on({ command = "info", multiple = true }, add_all_completions)
+
 psc.on({ command = "add", multiple = true }, add_uninstalled_completions)
 
 psc.on({ command = { "alias", "add" }, multiple = true }, function()
     local tokens_length = #psc.tokens
     if tokens_length > 3 then
-        rm_reset()
+        drop_options("--reset")
         return
     end
     if tokens_length == 2 then
@@ -96,6 +125,7 @@ psc.on({ command = { "alias", "rm" }, multiple = true }, function()
         return
     end
     if tokens_length >= 3 then
+        drop_options("--reset")
         local target = psc.tokens[3].name
         local tip = render_tip(info.alias.rm.tip_v, {})
         for _, a in ipairs(data.alias[target] or {}) do
@@ -108,7 +138,7 @@ end)
 psc.on({ command = "completion", multiple = true }, function()
     local tokens_length = #psc.tokens
     if tokens_length >= 4 then
-        rm_reset()
+        drop_options("--reset")
         return
     end
     if tokens_length == 1 then
@@ -127,22 +157,22 @@ psc.on({ command = "completion", multiple = true }, function()
     if tokens_length == 2 then
         psc.add({
             name = "language",
-            tip = render_tip(info.completion.language.tip, { completion = target })
+            tip = render_tip(info.completion.language.tip, { Completion = target })
         })
         psc.add({
             name = "enable_tip",
-            tip = render_tip(info.completion.enable_tip.tip, { completion = target })
+            tip = render_tip(info.completion.enable_tip.tip, { Completion = target })
         })
         psc.add({
             name = "enable_tip_usage",
-            tip = render_tip(info.completion.enable_tip_usage.tip, { completion = target })
+            tip = render_tip(info.completion.enable_tip_usage.tip, { Completion = target })
         })
         psc.add({
             name = "enable_tip_example",
-            tip = render_tip(info.completion.enable_tip_example.tip, { completion = target })
+            tip = render_tip(info.completion.enable_tip_example.tip, { Completion = target })
         })
         if target ~= "psc" and psc.exist(psc.path(data.completions, target, "hooks.lua")) then
-            local tip = render_tip(info.completion.enable_hooks.tip, { completion = target })
+            local tip = render_tip(info.completion.enable_hooks.tip, { Completion = target })
             psc.add({ name = "enable_hooks", tip = (tip:gsub("<@%w+>", "")) })
         end
         for _, c in ipairs((json and json.config) or {}) do
@@ -159,12 +189,12 @@ psc.on({ command = "completion", multiple = true }, function()
                     {
                         name = lang,
                         tip = render_tip(info.completion.language.tip_v,
-                            { language = lang })
+                            { Language = lang })
                     })
             end
         elseif config_name:find("^enable") or config_name:find("^disable") then
-            psc.add({ name = "0", tip = render_tip(info.set_value, { value = "0" }) })
-            psc.add({ name = "1", tip = render_tip(info.set_value, { value = "1" }) })
+            psc.add({ name = "0", tip = render_tip(info.set_value, { Value = "0" }) })
+            psc.add({ name = "1", tip = render_tip(info.set_value, { Value = "1" }) })
         else
             local c = nil
             for _, x in ipairs((json and json.config) or {}) do
@@ -175,7 +205,7 @@ psc.on({ command = "completion", multiple = true }, function()
             end
             if c and c.values then
                 for _, v in ipairs(c.values) do
-                    psc.add({ name = v, tip = render_tip(info.set_value, { value = v }) })
+                    psc.add({ name = v, tip = render_tip(info.set_value, { Value = v }) })
                 end
             end
         end
@@ -183,13 +213,30 @@ psc.on({ command = "completion", multiple = true }, function()
 end)
 
 psc.on({
-    { command = "list" },
+    { command = "add",                               multiple = true },
+    { command = "list",                              multiple = true },
+    { command = "info",                              multiple = true },
+    { command = "rm",                                multiple = true },
+    { command = "update",                            multiple = true },
     { command = { "config", "core", "language" } },
     { command = { "config", "core", "language", "" } }
-}, rm_reset)
+}, function()
+    drop_options("--reset")
+end)
 
-psc.on({
-    { command = "update", multiple = true },
-    { command = "info",   multiple = true },
-    { command = "rm",     multiple = true }
-}, add_installed_completions)
+psc.on({ command = "rm", multiple = true }, add_installed_completions)
+
+psc.on({ command = "update", multiple = true }, function()
+    add_updatable_completions()
+    if #psc.tokens > 1 then
+        drop_options({ "--all", "--old" })
+    end
+end)
+
+psc.on({ command = "list", multiple = true }, function()
+    if #psc.tokens > 1 then
+        drop_options({ "--json" })
+    end
+end)
+
+psc.on({ command = "--self-update" }, clear_completions)

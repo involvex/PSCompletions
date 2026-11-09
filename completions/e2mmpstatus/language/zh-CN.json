@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "检查 ext4 文件系统的 MMP 状态。"
+    ]
+  },
+  "option": [
+    {
+      "name": "-i",
+      "tip": [
+        "打印 MMP 信息而不是检查。"
+      ]
+    }
+  ]
+}

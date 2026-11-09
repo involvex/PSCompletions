@@ -1,0 +1,1086 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/lvmteam/lvm2",
+    "description": [
+      "Create a logical volume"
+    ]
+  },
+  "option": [
+    {
+      "name": "--activate",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --activate y|n|ay"
+      ],
+      "tip": [
+        "Controls the active state of the new LV."
+      ],
+      "next": [
+        {
+          "name": "ay"
+        },
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--addtag",
+      "usage": [
+        "--addtag Tag"
+      ],
+      "tip": [
+        "Adds a tag to a PV, VG or LV."
+      ],
+      "repeat": 99,
+      "next": []
+    },
+    {
+      "name": "--alloc",
+      "usage": [
+        "--alloc contiguous|cling|cling_by_tags|normal|anywhere|inherit"
+      ],
+      "tip": [
+        "Determines the allocation policy when a command needs to allocate Physical Extents (PEs) from the VG."
+      ],
+      "next": [
+        {
+          "name": "anywhere"
+        },
+        {
+          "name": "cling"
+        },
+        {
+          "name": "cling_by_tags"
+        },
+        {
+          "name": "contiguous"
+        },
+        {
+          "name": "inherit"
+        },
+        {
+          "name": "normal"
+        }
+      ]
+    },
+    {
+      "name": "--autobackup",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --autobackup y|n"
+      ],
+      "tip": [
+        "Specifies if metadata should be backed up automatically after a change."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--cache",
+      "alias": [
+        "-H"
+      ],
+      "usage": [
+        "-H, --cache"
+      ],
+      "tip": [
+        "Specifies the command is handling a cache LV or cache pool."
+      ]
+    },
+    {
+      "name": "--cachedevice",
+      "usage": [
+        "--cachedevice PV"
+      ],
+      "tip": [
+        "The name of a device to use for a cache."
+      ],
+      "next": []
+    },
+    {
+      "name": "--cachemetadataformat",
+      "usage": [
+        "--cachemetadataformat auto|1|2"
+      ],
+      "tip": [
+        "Specifies the cache metadata format used by cache target."
+      ],
+      "next": [
+        {
+          "name": "1"
+        },
+        {
+          "name": "2"
+        },
+        {
+          "name": "auto"
+        }
+      ]
+    },
+    {
+      "name": "--cachemode",
+      "usage": [
+        "--cachemode writethrough|writeback|passthrough"
+      ],
+      "tip": [
+        "Specifies when writes to a cache LV should be considered complete."
+      ],
+      "next": [
+        {
+          "name": "passthrough"
+        },
+        {
+          "name": "writeback"
+        },
+        {
+          "name": "writethrough"
+        }
+      ]
+    },
+    {
+      "name": "--cachepolicy",
+      "usage": [
+        "--cachepolicy String"
+      ],
+      "tip": [
+        "Specifies the cache policy for a cache LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--cachepool",
+      "usage": [
+        "--cachepool LV"
+      ],
+      "tip": [
+        "The name of a cache pool."
+      ],
+      "next": []
+    },
+    {
+      "name": "--cachesettings",
+      "usage": [
+        "--cachesettings String"
+      ],
+      "tip": [
+        "Specifies tunable kernel options for dm-cache or dm-writecache LVs."
+      ],
+      "next": []
+    },
+    {
+      "name": "--cachesize",
+      "usage": [
+        "--cachesize Size[m|UNIT]"
+      ],
+      "tip": [
+        "The size of cache to use."
+      ],
+      "next": []
+    },
+    {
+      "name": "--cachevol",
+      "usage": [
+        "--cachevol LV"
+      ],
+      "tip": [
+        "The name of a cache volume."
+      ],
+      "next": []
+    },
+    {
+      "name": "--chunksize",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --chunksize Size[k|UNIT]"
+      ],
+      "tip": [
+        "The size of chunks in a snapshot, cache pool or thin pool."
+      ],
+      "next": []
+    },
+    {
+      "name": "--commandprofile",
+      "usage": [
+        "--commandprofile String"
+      ],
+      "tip": [
+        "The command profile to use for command configuration."
+      ],
+      "next": []
+    },
+    {
+      "name": "--compression",
+      "usage": [
+        "--compression y|n"
+      ],
+      "tip": [
+        "Controls whether compression is enabled or disable for VDO volume."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--config",
+      "usage": [
+        "--config String"
+      ],
+      "tip": [
+        "Config settings for the command."
+      ],
+      "next": []
+    },
+    {
+      "name": "--contiguous",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --contiguous y|n"
+      ],
+      "tip": [
+        "Sets or resets the contiguous allocation policy for LVs."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "Set debug level."
+      ],
+      "repeat": 6
+    },
+    {
+      "name": "--deduplication",
+      "usage": [
+        "--deduplication y|n"
+      ],
+      "tip": [
+        "Controls whether deduplication is enabled or disable for VDO volume."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--devices",
+      "usage": [
+        "--devices PV"
+      ],
+      "tip": [
+        "Restricts the devices that are visible and accessible to the command."
+      ],
+      "repeat": 99,
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--devicesfile",
+      "usage": [
+        "--devicesfile String"
+      ],
+      "tip": [
+        "A file listing devices that LVM should use."
+      ],
+      "next": []
+    },
+    {
+      "name": "--discards",
+      "usage": [
+        "--discards passdown|nopassdown|ignore"
+      ],
+      "tip": [
+        "Specifies how the device-mapper thin pool layer in the kernel should handle discards."
+      ],
+      "next": [
+        {
+          "name": "ignore"
+        },
+        {
+          "name": "nopassdown"
+        },
+        {
+          "name": "passdown"
+        }
+      ]
+    },
+    {
+      "name": "--driverloaded",
+      "usage": [
+        "--driverloaded y|n"
+      ],
+      "tip": [
+        "If set to no, the command will not attempt to use device-mapper."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--errorwhenfull",
+      "usage": [
+        "--errorwhenfull y|n"
+      ],
+      "tip": [
+        "Specifies thin pool behavior when data space is exhausted."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--extents",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --extents Number[PERCENT]"
+      ],
+      "tip": [
+        "Specifies the size of the new LV in logical extents."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display help text."
+      ]
+    },
+    {
+      "name": "--ignoreactivationskip",
+      "alias": [
+        "-K"
+      ],
+      "usage": [
+        "-K, --ignoreactivationskip"
+      ],
+      "tip": [
+        "Ignore the \"activation skip\" LV flag during activation to allow LVs with the flag set to be activated."
+      ]
+    },
+    {
+      "name": "--ignoremonitoring",
+      "tip": [
+        "Do not interact with dmeventd unless --monitor is specified."
+      ]
+    },
+    {
+      "name": "--integritysettings",
+      "usage": [
+        "--integritysettings String"
+      ],
+      "tip": [
+        "Specifies tunable kernel options for dm-integrity."
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal",
+      "usage": [
+        "--journal String"
+      ],
+      "tip": [
+        "Record information in the systemd journal."
+      ],
+      "next": []
+    },
+    {
+      "name": "--lockopt",
+      "usage": [
+        "--lockopt String"
+      ],
+      "tip": [
+        "Used to pass options for special cases to lvmlockd."
+      ],
+      "next": []
+    },
+    {
+      "name": "--longhelp",
+      "tip": [
+        "Display long help text."
+      ]
+    },
+    {
+      "name": "--major",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --major Number"
+      ],
+      "tip": [
+        "Sets the major number of an LV block device."
+      ],
+      "next": []
+    },
+    {
+      "name": "--maxrecoveryrate",
+      "usage": [
+        "--maxrecoveryrate Size[k|UNIT]"
+      ],
+      "tip": [
+        "Sets the maximum recovery rate for a RAID LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--metadataprofile",
+      "usage": [
+        "--metadataprofile String"
+      ],
+      "tip": [
+        "The metadata profile to use for command configuration."
+      ],
+      "next": []
+    },
+    {
+      "name": "--minor",
+      "usage": [
+        "--minor Number"
+      ],
+      "tip": [
+        "Sets the minor number of an LV block device."
+      ],
+      "next": []
+    },
+    {
+      "name": "--minrecoveryrate",
+      "usage": [
+        "--minrecoveryrate Size[k|UNIT]"
+      ],
+      "tip": [
+        "Sets the minimum recovery rate for a RAID LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--mirrorlog",
+      "usage": [
+        "--mirrorlog core|disk"
+      ],
+      "tip": [
+        "Specifies the type of mirror log for LVs with the \"mirror\" type (does not apply to the \"raid1\" type.) disk is a persistent log and requires a small amount of storage space, usually on a separate device from the data being mirrored."
+      ],
+      "next": [
+        {
+          "name": "core"
+        },
+        {
+          "name": "disk"
+        }
+      ]
+    },
+    {
+      "name": "--mirrors",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --mirrors Number"
+      ],
+      "tip": [
+        "Specifies the number of mirror images in addition to the original LV image, e.g. --mirrors 1 means there are two images of the data, the original and one mirror image."
+      ],
+      "next": []
+    },
+    {
+      "name": "--monitor",
+      "usage": [
+        "--monitor y|n"
+      ],
+      "tip": [
+        "Start (yes) or stop (no) monitoring an LV with dmeventd."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--name",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --name String"
+      ],
+      "tip": [
+        "Specifies the name of a new LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--nohints",
+      "tip": [
+        "Do not use the hints file to locate devices for PVs."
+      ]
+    },
+    {
+      "name": "--nolocking",
+      "tip": [
+        "Disable locking."
+      ]
+    },
+    {
+      "name": "--nosync",
+      "tip": [
+        "Causes the creation of mirror, raid1, raid4, raid5 and raid10 to skip the initial synchronization."
+      ]
+    },
+    {
+      "name": "--noudevsync",
+      "tip": [
+        "Disables udev synchronization."
+      ]
+    },
+    {
+      "name": "--permission",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --permission rw|r"
+      ],
+      "tip": [
+        "Set access permission to read only r or read and write rw."
+      ],
+      "next": [
+        {
+          "name": "r"
+        },
+        {
+          "name": "rw"
+        }
+      ]
+    },
+    {
+      "name": "--persistent",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --persistent y|n"
+      ],
+      "tip": [
+        "When yes, makes the specified minor number persistent."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--pooldatavdo",
+      "usage": [
+        "--pooldatavdo y|n"
+      ],
+      "tip": [
+        "Use VDO type volume for pool data volume."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--poolmetadatasize",
+      "usage": [
+        "--poolmetadatasize Size[m|UNIT]"
+      ],
+      "tip": [
+        "Specifies the size of the new pool metadata LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--poolmetadataspare",
+      "usage": [
+        "--poolmetadataspare y|n"
+      ],
+      "tip": [
+        "Enable or disable the automatic creation and management of a spare pool metadata LV in the VG."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--profile",
+      "usage": [
+        "--profile String"
+      ],
+      "tip": [
+        "An alias for --commandprofile or --metadataprofile, depending on the command."
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "Suppress output and log messages."
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--raidintegrity",
+      "usage": [
+        "--raidintegrity y|n"
+      ],
+      "tip": [
+        "Enable or disable data integrity checksums for raid images."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--raidintegrityblocksize",
+      "usage": [
+        "--raidintegrityblocksize Number"
+      ],
+      "tip": [
+        "The block size to use for dm-integrity on raid images."
+      ],
+      "next": []
+    },
+    {
+      "name": "--raidintegritymode",
+      "usage": [
+        "--raidintegritymode String"
+      ],
+      "tip": [
+        "Use a journal (default) or bitmap for keeping integrity checksums consistent in case of a crash."
+      ],
+      "next": []
+    },
+    {
+      "name": "--raidmaxrecoveryrate",
+      "usage": [
+        "--raidmaxrecoveryrate Size[k|UNIT]"
+      ],
+      "tip": [
+        "Sets the maximum recovery rate for a RAID LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--raidminrecoveryrate",
+      "usage": [
+        "--raidminrecoveryrate Size[k|UNIT]"
+      ],
+      "tip": [
+        "Sets the minimum recovery rate for a RAID LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--readahead",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --readahead auto|none|Number"
+      ],
+      "tip": [
+        "Sets read ahead sector count of an LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--regionsize",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --regionsize Size[m|UNIT]"
+      ],
+      "tip": [
+        "Size of each raid or mirror synchronization region."
+      ],
+      "next": []
+    },
+    {
+      "name": "--reportformat",
+      "usage": [
+        "--reportformat basic|json|json_std"
+      ],
+      "tip": [
+        "Overrides current output format for reports which is defined globally by the report/output_format setting in lvm.conf(5)."
+      ],
+      "next": [
+        {
+          "name": "basic"
+        },
+        {
+          "name": "json"
+        },
+        {
+          "name": "json_std"
+        }
+      ]
+    },
+    {
+      "name": "--setactivationskip",
+      "alias": [
+        "-k"
+      ],
+      "usage": [
+        "-k, --setactivationskip y|n"
+      ],
+      "tip": [
+        "Persistently sets (yes) or clears (no) the \"activation skip\" flag on an LV."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--setautoactivation",
+      "usage": [
+        "--setautoactivation y|n"
+      ],
+      "tip": [
+        "Set the autoactivation property on a VG or LV."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--size",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --size Size[m|UNIT]"
+      ],
+      "tip": [
+        "Specifies the size of the new LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--snapshot",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --snapshot"
+      ],
+      "tip": [
+        "Create a snapshot."
+      ]
+    },
+    {
+      "name": "--stripes",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --stripes Number"
+      ],
+      "tip": [
+        "Specifies the number of stripes in a striped LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--stripesize",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --stripesize Size[k|UNIT]"
+      ],
+      "tip": [
+        "The amount of data that is written to one device before moving to the next in a striped LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--test",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --test"
+      ],
+      "tip": [
+        "Run in test mode."
+      ]
+    },
+    {
+      "name": "--thin",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --thin"
+      ],
+      "tip": [
+        "Specifies the command is handling a thin LV or thin pool."
+      ]
+    },
+    {
+      "name": "--thinpool",
+      "usage": [
+        "--thinpool LV"
+      ],
+      "tip": [
+        "The name of a thin pool LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--type",
+      "usage": [
+        "--type linear|striped|snapshot|raid|mirror|thin|thin-pool|cache|cache-pool|writecache|vdo|vdo-pool"
+      ],
+      "tip": [
+        "The LV type, also known as segment type."
+      ],
+      "next": [
+        {
+          "name": "cache"
+        },
+        {
+          "name": "cache-pool"
+        },
+        {
+          "name": "linear"
+        },
+        {
+          "name": "mirror"
+        },
+        {
+          "name": "raid"
+        },
+        {
+          "name": "snapshot"
+        },
+        {
+          "name": "striped"
+        },
+        {
+          "name": "thin"
+        },
+        {
+          "name": "thin-pool"
+        },
+        {
+          "name": "vdo"
+        },
+        {
+          "name": "vdo-pool"
+        },
+        {
+          "name": "writecache"
+        }
+      ]
+    },
+    {
+      "name": "--vdo",
+      "tip": [
+        "Specifies the command is handling VDO LV."
+      ]
+    },
+    {
+      "name": "--vdopool",
+      "usage": [
+        "--vdopool LV"
+      ],
+      "tip": [
+        "The name of a VDO pool LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--vdosettings",
+      "usage": [
+        "--vdosettings String"
+      ],
+      "tip": [
+        "Specifies tunable VDO options for VDO LVs."
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Set verbose level."
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Display version information."
+      ]
+    },
+    {
+      "name": "--virtualsize",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --virtualsize Size[m|UNIT]"
+      ],
+      "tip": [
+        "The virtual size of a new thin LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--wipesignatures",
+      "alias": [
+        "-W"
+      ],
+      "usage": [
+        "-W, --wipesignatures y|n"
+      ],
+      "tip": [
+        "Controls detection and subsequent wiping of signatures on new LVs."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--yes",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --yes"
+      ],
+      "tip": [
+        "Do not prompt for confirmation interactively but always assume the answer yes."
+      ]
+    },
+    {
+      "name": "--zero",
+      "alias": [
+        "-Z"
+      ],
+      "usage": [
+        "-Z, --zero y|n"
+      ],
+      "tip": [
+        "Controls zeroing of the first 4 KiB of data in the new LV."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    }
+  ]
+}

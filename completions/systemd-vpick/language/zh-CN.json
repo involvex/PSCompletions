@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "url": "https://github.com/systemd/systemd",
+    "description": [
+      "从版本化目录中选择条目。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--basename",
+      "alias": [
+        "-B"
+      ],
+      "usage": [
+        "-B, --basename=BASENAME"
+      ],
+      "tip": [
+        "查找指定基名。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--print",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --print=filename|version|type|arch|tries|all"
+      ],
+      "tip": [
+        "打印所选字段而不是路径。"
+      ],
+      "next": [
+        {
+          "name": "all"
+        },
+        {
+          "name": "arch"
+        },
+        {
+          "name": "filename"
+        },
+        {
+          "name": "tries"
+        },
+        {
+          "name": "type"
+        },
+        {
+          "name": "version"
+        }
+      ]
+    },
+    {
+      "name": "--resolve",
+      "usage": [
+        "--resolve=yes"
+      ],
+      "tip": [
+        "规范化结果路径。"
+      ],
+      "next": [
+        {
+          "name": "yes"
+        }
+      ]
+    },
+    {
+      "name": "--suffix",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --suffix=SUFFIX"
+      ],
+      "tip": [
+        "查找指定后缀。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--type",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --type=TYPE"
+      ],
+      "tip": [
+        "查找指定 inode 类型。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "显示软件包版本。"
+      ]
+    },
+    {
+      "name": "-A",
+      "usage": [
+        "-A ARCH"
+      ],
+      "tip": [
+        "查找指定架构。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-V",
+      "usage": [
+        "-V VERSION"
+      ],
+      "tip": [
+        "查找指定版本。"
+      ],
+      "next": []
+    }
+  ]
+}

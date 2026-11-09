@@ -1,0 +1,429 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/lvmteam/lvm2",
+    "description": [
+      "显示卷组信息"
+    ]
+  },
+  "option": [
+    {
+      "name": "--aligned",
+      "tip": [
+        "与 --separator 一起用于对齐输出列"
+      ]
+    },
+    {
+      "name": "--all",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --all"
+      ],
+      "tip": [
+        "列出所有 VG。"
+      ]
+    },
+    {
+      "name": "--binary",
+      "usage": [
+        "--binary lvm_binary_path"
+      ],
+      "tip": [
+        "对恰好有两个有效值的列使用二进制值 \"0\" 或 \"1\"，而不是描述性字面值（不计表示无法确定值的 \"unknown\"）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--commandprofile",
+      "usage": [
+        "--commandprofile String"
+      ],
+      "tip": [
+        "用于命令配置的命令配置。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--config",
+      "usage": [
+        "--config String"
+      ],
+      "tip": [
+        "命令的配置设置。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--configreport",
+      "usage": [
+        "--configreport log|vg|lv|pv|pvseg|seg"
+      ],
+      "tip": [
+        "参见 lvmreport(7)。"
+      ],
+      "next": [
+        {
+          "name": "log"
+        },
+        {
+          "name": "lv"
+        },
+        {
+          "name": "pv"
+        },
+        {
+          "name": "pvseg"
+        },
+        {
+          "name": "seg"
+        },
+        {
+          "name": "vg"
+        }
+      ]
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "设置调试级别。"
+      ],
+      "repeat": 6
+    },
+    {
+      "name": "--devices",
+      "usage": [
+        "--devices PV"
+      ],
+      "tip": [
+        "限制命令可见和可访问的设备。"
+      ],
+      "repeat": 99,
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--devicesfile",
+      "usage": [
+        "--devicesfile String"
+      ],
+      "tip": [
+        "LVM 应使用的设备列表文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--driverloaded",
+      "usage": [
+        "--driverloaded y|n"
+      ],
+      "tip": [
+        "设为 no 时，命令不会尝试使用 device-mapper。"
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--foreign",
+      "tip": [
+        "报告或显示原本会被跳过的外部 VG。"
+      ]
+    },
+    {
+      "name": "--headings",
+      "usage": [
+        "--headings none|abbrev|full|0|1|2"
+      ],
+      "tip": [
+        "报告输出中使用的标题类型。"
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        },
+        {
+          "name": "2"
+        },
+        {
+          "name": "abbrev"
+        },
+        {
+          "name": "full"
+        },
+        {
+          "name": "none"
+        }
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示帮助文本。"
+      ]
+    },
+    {
+      "name": "--ignorelockingfailure",
+      "tip": [
+        "允许命令在锁定失败后继续进行只读元数据操作。"
+      ]
+    },
+    {
+      "name": "--journal",
+      "usage": [
+        "--journal String"
+      ],
+      "tip": [
+        "将信息记录到 systemd 日志。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--lockopt",
+      "usage": [
+        "--lockopt String"
+      ],
+      "tip": [
+        "用于向 lvmlockd 传递特殊情况选项。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--logonly",
+      "tip": [
+        "抑制命令报告，仅显示日志报告。"
+      ]
+    },
+    {
+      "name": "--longhelp",
+      "tip": [
+        "显示长帮助文本。"
+      ]
+    },
+    {
+      "name": "--nameprefixes",
+      "tip": [
+        "在输出中添加 \"LVM2_\" 前缀和字段名。"
+      ]
+    },
+    {
+      "name": "--noheadings",
+      "tip": [
+        "抑制通常作为输出首行的标题行。"
+      ]
+    },
+    {
+      "name": "--nohints",
+      "tip": [
+        "不使用提示文件定位 PV 的设备。"
+      ]
+    },
+    {
+      "name": "--nolocking",
+      "tip": [
+        "禁用锁定。"
+      ]
+    },
+    {
+      "name": "--nosuffix",
+      "tip": [
+        "抑制输出大小的单位后缀。"
+      ]
+    },
+    {
+      "name": "--options",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --options String"
+      ],
+      "tip": [
+        "用于按列显示的逗号分隔字段列表。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--profile",
+      "usage": [
+        "--profile String"
+      ],
+      "tip": [
+        "根据命令不同，作为 --commandprofile 或 --metadataprofile 的别名。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "抑制输出和日志消息。"
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--readonly",
+      "tip": [
+        "阻止命令进行更改，包括激活和元数据更新。"
+      ]
+    },
+    {
+      "name": "--reportformat",
+      "usage": [
+        "--reportformat basic|json|json_std"
+      ],
+      "tip": [
+        "覆盖由 lvm.conf(5) 中 report/output_format 全局定义的报告输出格式。"
+      ],
+      "next": [
+        {
+          "name": "basic"
+        },
+        {
+          "name": "json"
+        },
+        {
+          "name": "json_std"
+        }
+      ]
+    },
+    {
+      "name": "--rows",
+      "tip": [
+        "将列输出为行。"
+      ]
+    },
+    {
+      "name": "--select",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --select String"
+      ],
+      "tip": [
+        "根据指定条件选择要处理和报告的对象。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--separator",
+      "usage": [
+        "--separator String"
+      ],
+      "tip": [
+        "用于分隔各列的字符串。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--shared",
+      "tip": [
+        "当主机未使用 lvmlockd 时，报告或显示原本会被跳过的共享 VG。"
+      ]
+    },
+    {
+      "name": "--sort",
+      "alias": [
+        "-O"
+      ],
+      "usage": [
+        "-O, --sort String"
+      ],
+      "tip": [
+        "用于排序的逗号分隔列列表。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--test",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --test"
+      ],
+      "tip": [
+        "以测试模式运行。"
+      ]
+    },
+    {
+      "name": "--unbuffered",
+      "tip": [
+        "立即输出，不进行正确排序或列对齐。"
+      ]
+    },
+    {
+      "name": "--units",
+      "usage": [
+        "--units [Number]r|R|h|H|b|B|s|S|k|K|m|M|g|G|t|T|p|P|e|E"
+      ],
+      "tip": [
+        "所有大小以这些单位输出：human-(r)eadable 带 '<' 舍入指示、(h)uman-readable、(b)ytes、(s)ectors、(k)ilobytes、(m)egabytes、(g)igabytes、(t)erabytes、(p)etabytes、(e)xabytes。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--unquoted",
+      "tip": [
+        "与 --nameprefixes 一起使用时，field=value 对中的输出值不加引号。"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "设置详细级别。"
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "显示版本信息。"
+      ]
+    },
+    {
+      "name": "--yes",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --yes"
+      ],
+      "tip": [
+        "不进行交互确认，始终假定回答为 yes。"
+      ]
+    }
+  ]
+}

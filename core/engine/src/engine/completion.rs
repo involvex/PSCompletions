@@ -16,8 +16,7 @@ pub struct Node {
     pub is_option: bool,
     pub next_is_array: bool,
     pub option_is_array: bool,
-    /// List separator (`","` / `";"`) declared on a value-taking option: its
-    /// value is a separator-joined list completed segment by segment.
+    /// List separator (`","` / `";"`) declared on a value-taking option: its value is a separator-joined list completed segment by segment.
     pub separator: Option<String>,
     pub next: Vec<Node>,
     pub option: Vec<Node>,
@@ -27,30 +26,32 @@ impl Node {
     pub fn all_names(&self) -> impl Iterator<Item = &str> {
         std::iter::once(self.name.as_str()).chain(self.aliases.iter().map(|s| s.as_str()))
     }
-    /// Canonical identity of a declared spelling: one trailing `=` (the
-    /// attached-value marker, `--format=` / `-f=`) is not part of the identity.
+    /// Canonical identity of a declared spelling: one trailing `=` (the attached-value marker, `--format=` / `-f=`) is not part of the identity.
     pub(crate) fn canonical_spelling(s: &str) -> &str {
         s.strip_suffix('=').unwrap_or(s)
     }
     pub(crate) fn canonical_name(&self) -> &str {
         Self::canonical_spelling(&self.name)
     }
+    /// Whether a declared spelling equals `text` under this node's kind rules (options exact, commands case-insensitive).
+    fn spelling_eq(&self, spelling: &str, text: &str) -> bool {
+        if self.is_option {
+            spelling == text
+        } else {
+            spelling.eq_ignore_ascii_case(text)
+        }
+    }
     pub(crate) fn matches(&self, text: &str) -> bool {
-        // Only the declared side is normalized: a typed word matches verbatim,
-        // so `--format=json` never matches here (it is split into option +
-        // value first) and a value like `abc=` never collides with a command.
-        // Options compare case-sensitively: short flags are case-significant in
-        // real CLIs (`git commit -c` reuses-and-edits, `-C` reuses), so folding
-        // case let whichever option came first in the array swallow both
-        // spellings. Commands and option values stay case-insensitive.
-        self.all_names().any(|n| {
-            let n = Self::canonical_spelling(n);
-            if self.is_option {
-                n == text
-            } else {
-                n.eq_ignore_ascii_case(text)
-            }
-        })
+        // Only the declared side is normalized: a typed word matches verbatim, so `--format=json` never matches here (it is split into option + value first) and a value like `abc=` never collides with a command.
+        // Options compare case-sensitively: short flags are case-significant in real CLIs (`git commit -c` reuses-and-edits, `-C` reuses), so folding case let whichever option came first in the array swallow both spellings.
+        // Commands and option values stay case-insensitive.
+        self.all_names()
+            .any(|n| self.spelling_eq(Self::canonical_spelling(n), text))
+    }
+    /// Whether the spelling that matches `text` is declared with the attached-value marker (`--format=`), as opposed to the bare spelling (`--format`).
+    fn declares_attached(&self, text: &str) -> bool {
+        self.all_names()
+            .any(|n| n.ends_with('=') && self.spelling_eq(Self::canonical_spelling(n), text))
     }
 }
 
@@ -66,8 +67,7 @@ pub struct Tree {
 #[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct ResolvedContext {
     pub path: Vec<String>,
-    /// Typed layer chain: every context switch as `(kind, canonical)` — commands always;
-    /// options when they have a `next` array (even empty) or a non-empty `option` array.
+    /// Typed layer chain: every context switch as `(kind, canonical)` — commands always; options when they have a `next` array (even empty) or a non-empty `option` array.
     /// This is what declarative location matching (`psc.on`) compares against.
     pub layers: Vec<(String, String)>,
     pub pending: Option<PendingInfo>,
@@ -93,17 +93,14 @@ pub struct PendingInfo {
     pub kind: Option<String>,
     /// Canonical name (best-effort; an unfinished word usually has none).
     pub canonical: Option<String>,
-    /// For an `=`-attached value (`--format=j<TAB>`): the option head including
-    /// the `=` (`--format=`). The menu pre-filters on `text` (the value segment
-    /// only) and prefixes this back onto the inserted word on apply.
+    /// For an `=`-attached value (`--format=j<TAB>`): the option head including the `=` (`--format=`).
+    /// The menu pre-filters on `text` (the value segment only) and prefixes this back onto the inserted word on apply.
     pub value_prefix: Option<String>,
-    /// For a separator-list value (`--exclude a,b<TAB>`): the declared
-    /// separator. Set even for the first segment (no separator typed yet) —
-    /// the slot is a list either way.
+    /// For a separator-list value (`--exclude a,b<TAB>`): the declared separator.
+    /// Set even for the first segment (no separator typed yet) — the slot is a list either way.
     pub list_sep: Option<String>,
-    /// The list's completed segments (empties skipped), for candidate
-    /// filtering and word rebuild. Hooks never see these (one value = one
-    /// token there); they live here only.
+    /// The list's completed segments (empties skipped), for candidate filtering and word rebuild.
+    /// Hooks never see these (one value = one token there); they live here only.
     pub list_used: Vec<String>,
 }
 
@@ -116,9 +113,10 @@ pub struct CompletionItem {
     pub example: Option<String>,
     pub symbol: Option<String>,
     pub repeat: i32,
-    /// Offered as a separator-list value: the host must not append its auto
-    /// space (the user types the separator to continue, Space to finish).
+    /// Offered as a separator-list value: the host must not append its auto space (the user types the separator to continue, Space to finish).
     pub nospace: bool,
+    /// The node's declared type, carried so a consumer never has to guess it from the leading `-`: options compare case-sensitively, commands case-insensitively.
+    pub is_option: bool,
 }
 
 /// Resolve result: candidates + context.
@@ -206,7 +204,12 @@ fn build_node(json: &Value, is_option: bool) -> Node {
         .and_then(|v| v.as_array())
         .map(|t| t.iter().filter_map(text_or_object).collect())
         .unwrap_or_default();
-    let repeat = json.get("repeat").and_then(|v| v.as_i64()).unwrap_or(0) as i32;
+    // `repeat` is an i32 everywhere downstream, so a value outside its range must **clamp**, not wrap: `4294967297 as i32` is 1, which would hide a typo'd "unlimited" after a single use.
+    let repeat = json
+        .get("repeat")
+        .and_then(|v| v.as_i64())
+        .unwrap_or(0)
+        .clamp(i32::MIN as i64, i32::MAX as i64) as i32;
     let separator = json
         .get("separator")
         .and_then(|v| v.as_str())
@@ -243,20 +246,16 @@ fn build_node(json: &Value, is_option: bool) -> Node {
 }
 
 /// Whether the node carries static candidates (a non-empty `next`/`option` array).
-/// An empty array means "no static candidates" (hooks supply them), so there is nothing to
-/// switch into.
-/// Whether a node declares that it needs a value argument (has a `next` array,
-/// empty or not). An option with `next: [...]` or `next: []` consumes the next
-/// token as its value, unless that token matches a known command or option
-/// ("command/option wins").
+/// An empty array means "no static candidates" (hooks supply them), so there is nothing to switch into.
+/// Whether a node declares that it needs a value argument (has a `next` array, empty or not).
+/// An option with `next: [...]` or `next: []` consumes the next token as its value, unless that token matches a known command or option ("command/option wins").
 fn needs_value_arg(n: &Node) -> bool {
     n.next_is_array
 }
 
-/// Split an `=`-attached option token (`--format=json`, `-f=x`) at the first
-/// `=`. Only option-shaped words (`-` prefix) qualify; anything else —
-/// including a value that merely contains `=` — is left alone. The command
-/// word itself never reaches `resolve` (arg tokens exclude it).
+/// Split an `=`-attached option token (`--format=json`, `-f=x`) at the first `=`.
+/// Only option-shaped words (`-` prefix) qualify; anything else — including a value that merely contains `=` — is left alone.
+/// The command word itself never reaches `resolve` (arg tokens exclude it).
 pub(crate) fn split_eq_token(text: &str) -> Option<(&str, &str)> {
     if !text.starts_with('-') {
         return None;
@@ -265,9 +264,8 @@ pub(crate) fn split_eq_token(text: &str) -> Option<(&str, &str)> {
     Some((&text[..idx], &text[idx + 1..]))
 }
 
-/// Split a separator-list value (`a,b`) into its completed segments plus the
-/// unfinished tail segment. Empty segments are skipped (a dangling or doubled
-/// separator contributes no used value).
+/// Split a separator-list value (`a,b`) into its completed segments plus the unfinished tail segment.
+/// Empty segments are skipped (a dangling or doubled separator contributes no used value).
 fn split_list_value<'a>(sep: &str, text: &'a str) -> (Vec<String>, &'a str) {
     if sep.is_empty() {
         return (Vec::new(), text);
@@ -282,9 +280,8 @@ fn split_list_value<'a>(sep: &str, text: &'a str) -> (Vec<String>, &'a str) {
     (used, tail)
 }
 
-/// Whether a node changes the context when selected. Options with a `next` array
-/// (needs a value) or a non-empty `option` array (has sub-options) push to the
-/// context stack so their candidates remain reachable.
+/// Whether a node changes the context when selected.
+/// Options with a `next` array (needs a value) or a non-empty `option` array (has sub-options) push to the context stack so their candidates remain reachable.
 fn changes_context(n: &Node) -> bool {
     n.next_is_array || (n.option_is_array && !n.option.is_empty())
 }
@@ -295,11 +292,9 @@ fn has_static_candidates(n: &Node) -> bool {
 
 fn node_symbols(n: &Node) -> Vec<String> {
     let mut s = Vec::new();
-    // Static optimistic default: a non-empty candidate array opens a new
-    // layer (`switch`); anything else is presumed alive (`stay`). The async
-    // `peek` refines this: upgrades to `switch` when the landing is richer,
-    // drops to no symbol when the landing is dead. (Legend: `~` new fruit
-    // ahead, `?` lands alive, no symbol lands dead — see design/completion.md.)
+    // Static optimistic default: a non-empty candidate array opens a new layer (`switch`); anything else is presumed alive (`stay`).
+    // The async `peek` refines this: upgrades to `switch` when the landing is richer, drops to no symbol when the landing is dead.
+    // (Legend: `~` new fruit ahead, `?` lands alive, no symbol lands dead — see design/completion.md.)
     if has_static_candidates(n) {
         s.push("switch".into());
     } else {
@@ -318,12 +313,33 @@ fn option_source<'a>(stack: &[&'a Node], tree: &'a Tree) -> &'a [Node] {
     &tree.options
 }
 
+/// Which form a typed word uses: the bare spelling (`--rebase`) or the attached-value form (`--rebase=merges`).
+#[derive(Clone, Copy, PartialEq, Eq)]
+enum SpellingForm {
+    Bare,
+    Attached,
+}
+
 /// Look up an option node in the bubbled options + global options.
-fn find_option_node<'a>(stack: &[&'a Node], tree: &'a Tree, text: &str) -> Option<&'a Node> {
-    if let Some(n) = option_source(stack, tree).iter().find(|n| n.matches(text)) {
-        return Some(n);
+/// One canonical spelling may be declared twice — a bare flag (`--rebase`) and an attached-value form (`--rebase=`) — so the form the user typed decides: an attached use prefers the `=` spelling, a bare use prefers the bare one, and a manifest that declares only one of the two still matches both.
+fn find_option_node<'a>(
+    stack: &[&'a Node],
+    tree: &'a Tree,
+    text: &str,
+    form: SpellingForm,
+) -> Option<&'a Node> {
+    fn pick<'a>(nodes: &'a [Node], text: &str, form: SpellingForm) -> Option<&'a Node> {
+        let want_attached = form == SpellingForm::Attached;
+        let mut fallback = None;
+        for n in nodes.iter().filter(|n| n.matches(text)) {
+            if n.declares_attached(text) == want_attached {
+                return Some(n);
+            }
+            fallback.get_or_insert(n);
+        }
+        fallback
     }
-    tree.global_options.iter().find(|n| n.matches(text))
+    pick(option_source(stack, tree), text, form).or_else(|| pick(&tree.global_options, text, form))
 }
 
 /// Resolve: given the arg tokens (excluding the command name), return candidates + context.
@@ -344,12 +360,10 @@ pub fn resolve(tree: &Tree, arg_tokens: &[String], treat_last_as_complete: bool)
         let text = arg_tokens[i].clone();
         let is_last_unfinished = i == last_index && !treat_last_as_complete;
         if is_last_unfinished {
-            // `=`-attached value (`--format=j<TAB>`, `--format=<TAB>`): the
-            // option head is done, only the value segment is pending. The
-            // option counts as completed so hooks see the same shape as the
-            // space-separated form.
+            // `=`-attached value (`--format=j<TAB>`, `--format=<TAB>`): the option head is done, only the value segment is pending.
+            // The option counts as completed so hooks see the same shape as the space-separated form.
             if let Some((left, right)) = split_eq_token(&text) {
-                if let Some(on) = find_option_node(&stack, tree, left) {
+                if let Some(on) = find_option_node(&stack, tree, left, SpellingForm::Attached) {
                     if needs_value_arg(on) {
                         let canon = on.canonical_name().to_string();
                         opts.push(canon.clone());
@@ -364,9 +378,7 @@ pub fn resolve(tree: &Tree, arg_tokens: &[String], treat_last_as_complete: bool)
                             stack.push(on);
                             layers.push(("option".into(), canon));
                         }
-                        // A separator-declared option splits the value further
-                        // (`--exclude=a,b<TAB>`); otherwise the whole tail is
-                        // the pending segment.
+                        // A separator-declared option splits the value further (`--exclude=a,b<TAB>`); otherwise the whole tail is the pending segment.
                         let (list_sep, list_used, tail) = match &on.separator {
                             Some(sep) => {
                                 let (used, tail) = split_list_value(sep, right);
@@ -377,8 +389,7 @@ pub fn resolve(tree: &Tree, arg_tokens: &[String], treat_last_as_complete: bool)
                         pending = Some(PendingInfo {
                             text: Some(tail.to_string()),
                             kind: Some("value".into()),
-                            // An unfinished word usually has no canonical name (it does not fully match
-                            // a command/option yet); `current.name` is best-effort and often nil.
+                            // An unfinished word usually has no canonical name (it does not fully match a command/option yet); `current.name` is best-effort and often nil.
                             canonical: None,
                             value_prefix: Some(format!("{left}=")),
                             list_sep,
@@ -388,17 +399,15 @@ pub fn resolve(tree: &Tree, arg_tokens: &[String], treat_last_as_complete: bool)
                     }
                 }
             }
-            // Separator-list value in space form (`--exclude a,b<TAB>`): the
-            // option is already a completed token; only the tail segment is
-            // pending. Plain options (no separator) keep the old path below.
-            // "Command/option wins" still holds: a word matching a known
-            // option/command is never treated as a list segment.
+            // Separator-list value in space form (`--exclude a,b<TAB>`): the option is already a completed token; only the tail segment is pending.
+            // Plain options (no separator) keep the old path below.
+            // "Command/option wins" still holds: a word matching a known option/command is never treated as a list segment.
             let list_ctx_sep = ctx
                 .filter(|c| c.is_option)
                 .and_then(|c| c.separator.clone());
             if let Some(sep) = list_ctx_sep {
                 let parent_ctx = stack.iter().rev().find(|n| !n.is_option).copied();
-                if find_option_node(&stack, tree, &text).is_none()
+                if find_option_node(&stack, tree, &text, SpellingForm::Bare).is_none()
                     && find_command(parent_ctx, tree, &text).is_none()
                 {
                     let (list_used, tail) = split_list_value(&sep, &text);
@@ -417,8 +426,7 @@ pub fn resolve(tree: &Tree, arg_tokens: &[String], treat_last_as_complete: bool)
             pending = Some(PendingInfo {
                 text: Some(text.clone()),
                 kind: Some(kind.to_string()),
-                // An unfinished word usually has no canonical name (it does not fully match
-                // a command/option yet); `current.name` is best-effort and often nil.
+                // An unfinished word usually has no canonical name (it does not fully match a command/option yet); `current.name` is best-effort and often nil.
                 canonical: None,
                 value_prefix: None,
                 list_sep: None,
@@ -426,11 +434,10 @@ pub fn resolve(tree: &Tree, arg_tokens: &[String], treat_last_as_complete: bool)
             });
             break;
         }
-        // `=`-attached value (`--format=json`): counts as the option plus its
-        // value, mirroring the space-separated form. Unknown left side, or a
-        // valueless flag with `=`, falls through to the normal path.
+        // `=`-attached value (`--format=json`): counts as the option plus its value, mirroring the space-separated form.
+        // Unknown left side, or a valueless flag with `=`, falls through to the normal path.
         if let Some((left, right)) = split_eq_token(&text) {
-            if let Some(on) = find_option_node(&stack, tree, left) {
+            if let Some(on) = find_option_node(&stack, tree, left, SpellingForm::Attached) {
                 if needs_value_arg(on) {
                     let canon = on.canonical_name().to_string();
                     opts.push(canon.clone());
@@ -445,8 +452,7 @@ pub fn resolve(tree: &Tree, arg_tokens: &[String], treat_last_as_complete: bool)
                         kind: "value".into(),
                         canonical: None,
                     });
-                    // Same reset as a consumed space-separated value: back to
-                    // the nearest command context.
+                    // Same reset as a consumed space-separated value: back to the nearest command context.
                     let cmd_idx = layers.iter().rposition(|(kind, _)| kind == "command");
                     if let Some(idx) = cmd_idx {
                         ctx = stack.get(idx).copied();
@@ -463,7 +469,7 @@ pub fn resolve(tree: &Tree, arg_tokens: &[String], treat_last_as_complete: bool)
             }
         }
         // Option
-        let opt_node = find_option_node(&stack, tree, &text);
+        let opt_node = find_option_node(&stack, tree, &text, SpellingForm::Bare);
         if let Some(on) = opt_node {
             let canon = on.canonical_name().to_string();
             opts.push(canon.clone());
@@ -479,14 +485,11 @@ pub fn resolve(tree: &Tree, arg_tokens: &[String], treat_last_as_complete: bool)
                 layers.push(("option".into(), canon));
             }
         } else {
-            // "Command/option wins": an option with `next` (empty or not) needs a
-            // value, but a known command or option takes priority — the option
-            // acts as a flag and does NOT consume the next token.
+            // "Command/option wins": an option with `next` (empty or not) needs a value, but a known command or option takes priority — the option acts as a flag and does NOT consume the next token.
             let in_option_context = ctx
                 .map(|c| c.is_option && needs_value_arg(c))
                 .unwrap_or(false);
-            // When in an option context, search the parent command context for
-            // commands, not the option's value candidates.
+            // When in an option context, search the parent command context for commands, not the option's value candidates.
             let search_ctx = if in_option_context {
                 layers
                     .iter()
@@ -499,8 +502,7 @@ pub fn resolve(tree: &Tree, arg_tokens: &[String], treat_last_as_complete: bool)
             if let Some(cn) = child {
                 bump(&mut used, &cn.name);
                 if in_option_context {
-                    // Command/option wins: pop the option (it acts as a flag)
-                    // and all intermediate option nodes from the stack/layers.
+                    // Command/option wins: pop the option (it acts as a flag) and all intermediate option nodes from the stack/layers.
                     let cmd_idx = layers.iter().rposition(|(kind, _)| kind == "command");
                     if let Some(idx) = cmd_idx {
                         stack.truncate(idx + 1);
@@ -551,10 +553,8 @@ pub fn resolve(tree: &Tree, arg_tokens: &[String], treat_last_as_complete: bool)
     }
 
     // Command tokens typed so far (only commands consume a static subcommand's candidate slot).
-    // `seen` (raw typed texts, matched against name+alias below) and `used` (canonical
-    // lowercased) are two parallel bookkeepings of the same repeat concept: `seen` filters
-    // the context's own candidate list, `used` re-checks at assembly time — which also covers
-    // pending-pushed candidates that bypassed `add_next_if_not_seen`. Keep both in sync.
+    // `seen` (raw typed texts, matched against name+alias below) and `used` (canonical lowercased) are two parallel bookkeepings of the same repeat concept: `seen` filters the context's own candidate list, `used` re-checks at assembly time — which also covers pending-pushed candidates that bypassed `add_next_if_not_seen`.
+    // Keep both in sync.
     let mut seen: Vec<String> = tokens
         .iter()
         .filter(|t| t.kind == "command")
@@ -570,15 +570,10 @@ pub fn resolve(tree: &Tree, arg_tokens: &[String], treat_last_as_complete: bool)
         }
     }
     let mut candidates: Vec<&Node> = Vec::new();
-    // An option's value pending in `=`/separator form (`--format=j<TAB>`,
-    // `--exclude a,b<TAB>`): only the owning option's value candidates can
-    // fill the slot — never sibling commands, options, or globals (the `=`
-    // head is glued on, so bailing out to a sibling is impossible).
-    // `layers` keeps the option so hooks fire at it. Plain space-separated
-    // partials (`--tag a<TAB>`) instead take the generic path below, yielding
-    // the same set as the empty pending (`--tag <TAB>`): the option's values
-    // plus sibling options and globals. The in-menu filter is a pure view, so
-    // clearing it must restore exactly that set.
+    // An option's value pending in `=`/separator form (`--format=j<TAB>`, `--exclude a,b<TAB>`): only the owning option's value candidates can fill the slot — never sibling commands, options, or globals (the `=` head is glued on, so bailing out to a sibling is impossible).
+    // `layers` keeps the option so hooks fire at it.
+    // Plain space-separated partials (`--tag a<TAB>`) instead take the generic path below, yielding the same set as the empty pending (`--tag <TAB>`): the option's values plus sibling options and globals.
+    // The in-menu filter is a pure view, so clearing it must restore exactly that set.
     let pending_value_of_option = matches!(
         pending.as_ref().and_then(|p| p.kind.as_deref()),
         Some("value")
@@ -586,11 +581,9 @@ pub fn resolve(tree: &Tree, arg_tokens: &[String], treat_last_as_complete: bool)
         && pending
             .as_ref()
             .is_some_and(|p| p.value_prefix.is_some() || p.list_sep.is_some());
-    // Items offered as separator-list values never take the auto space (the
-    // user types the separator to continue, Space to finish).
+    // Items offered as separator-list values never take the auto space (the user types the separator to continue, Space to finish).
     let mut values_nospace = false;
-    // Range of `candidates` holding empty-pending separator values (mixed with
-    // sibling options/globals below); same no-space rule.
+    // Range of `candidates` holding empty-pending separator values (mixed with sibling options/globals below); same no-space rule.
     let mut values_nospace_range: Option<(usize, usize)> = None;
     if pending_value_of_option {
         if let Some(c) = ctx {
@@ -616,15 +609,10 @@ pub fn resolve(tree: &Tree, arg_tokens: &[String], treat_last_as_complete: bool)
                 candidates.push(n);
             }
         } else if let Some(c) = ctx {
-            // A completed option value (e.g. `--depth 1`) fills the slot, so
-            // the context resets to the nearest command context. An option
-            // that yields to a pending command word (the word matches a known
-            // command, so the option acts as a flag) resets the same way.
-            // A still-pending plain value (`--tag a<TAB>`) is NOT a reset: it
-            // falls into the generic branch, offering the option's own values
-            // plus siblings and globals — the same set as the empty pending.
-            // `layers` is truncated only on reset, so hooks fire at the
-            // correct position.
+            // A completed option value (e.g. `--depth 1`) fills the slot, so the context resets to the nearest command context.
+            // An option that yields to a pending command word (the word matches a known command, so the option acts as a flag) resets the same way.
+            // A still-pending plain value (`--tag a<TAB>`) is NOT a reset: it falls into the generic branch, offering the option's own values plus siblings and globals — the same set as the empty pending.
+            // `layers` is truncated only on reset, so hooks fire at the correct position.
             let ctx_is_option = c.is_option;
             let pending_kind = pending.as_ref().and_then(|p| p.kind.as_deref());
             let value_consumed = tokens.last().is_some_and(|t| t.kind == "value");
@@ -632,19 +620,24 @@ pub fn resolve(tree: &Tree, arg_tokens: &[String], treat_last_as_complete: bool)
             if value_consumed || pending_new_command {
                 let cmd_idx = layers.iter().rposition(|(kind, _)| kind == "command");
                 if let Some(idx) = cmd_idx {
-                    if let Some(cmd_node) = stack.get(idx) {
+                    // Copy the node out before truncating: the three views of the walk — `layers` (hook position), `stack` (option resolution), `ctx` (command lookup) — must all reset together, or the option context stays current.
+                    let cmd_node = stack.get(idx).copied();
+                    if let Some(cmd_node) = cmd_node {
                         add_next_if_not_seen(&mut candidates, &cmd_node.next, &seen);
+                        ctx = Some(cmd_node);
                     }
+                    stack.truncate(idx + 1);
                     layers.truncate(idx + 1);
                 } else {
                     add_next_if_not_seen(&mut candidates, &tree.next, &seen);
+                    ctx = None;
+                    stack.clear();
                     layers.clear();
                 }
             } else {
                 let range_start = candidates.len();
                 add_next_if_not_seen(&mut candidates, &c.next, &seen);
-                // Empty-pending separator values (`--exclude <TAB>`): static items
-                // from this range take no auto space (siblings below are unaffected).
+                // Empty-pending separator values (`--exclude <TAB>`): static items from this range take no auto space (siblings below are unaffected).
                 if c.is_option && c.separator.is_some() {
                     values_nospace_range = Some((range_start, candidates.len()));
                 }
@@ -657,8 +650,7 @@ pub fn resolve(tree: &Tree, arg_tokens: &[String], treat_last_as_complete: bool)
             candidates.push(n);
         }
 
-        // A pending word that matches a known subcommand is itself offered as a candidate
-        // (skipped for `=`/list values: the segment can only be the option's value).
+        // A pending word that matches a known subcommand is itself offered as a candidate (skipped for `=`/list values: the segment can only be the option's value).
         if pending
             .as_ref()
             .is_some_and(|p| p.value_prefix.is_none() && p.list_sep.is_none())
@@ -667,8 +659,7 @@ pub fn resolve(tree: &Tree, arg_tokens: &[String], treat_last_as_complete: bool)
                 if let Some(t) = &p.text {
                     let matched = find_command(ctx, tree, t);
                     if let Some(mn) = matched {
-                        // Skip when already offered from the context's own list (e.g. an option
-                        // candidate-value layer), so the item never appears twice.
+                        // Skip when already offered from the context's own list (e.g. an option candidate-value layer), so the item never appears twice.
                         if used.get(&mn.name).copied().unwrap_or(0) == 0
                             && !candidates.iter().any(|c| std::ptr::eq(*c, mn))
                         {
@@ -683,8 +674,7 @@ pub fn resolve(tree: &Tree, arg_tokens: &[String], treat_last_as_complete: bool)
     // Assemble items (repeat limits + name/alias expansion)
     let mut items: Vec<CompletionItem> = Vec::new();
     for (idx, n) in candidates.iter().enumerate() {
-        // Repeat counts are keyed by the declared canonical identity (trailing `=` stripped,
-        // original casing kept): `-b` and `-B` are independent options with separate budgets.
+        // Repeat counts are keyed by the declared canonical identity (trailing `=` stripped, original casing kept): `-b` and `-B` are independent options with separate budgets.
         let used_count = used
             .get(Node::canonical_spelling(&n.name))
             .copied()
@@ -718,6 +708,7 @@ pub fn resolve(tree: &Tree, arg_tokens: &[String], treat_last_as_complete: bool)
                 symbol: node_symbols(n).first().cloned(),
                 repeat: n.repeat,
                 nospace,
+                is_option: n.is_option,
             });
         }
     }
@@ -740,15 +731,14 @@ fn classify<'a>(
     tree: &'a Tree,
     text: &str,
 ) -> &'static str {
-    if find_option_node(stack, tree, text).is_some() {
+    if find_option_node(stack, tree, text, SpellingForm::Bare).is_some() {
         "option"
     } else if ctx
         .map(|c| c.is_option && needs_value_arg(c))
         .unwrap_or(false)
     {
         // "Command/option wins": the option does NOT consume a known command.
-        // Search the parent command context (the last non-option node in the
-        // stack) for a matching command before treating the text as a value.
+        // Search the parent command context (the last non-option node in the stack) for a matching command before treating the text as a value.
         let parent_ctx = stack.iter().rev().find(|n| !n.is_option).copied();
         if find_command(parent_ctx, tree, text).is_some() {
             "command"
@@ -782,9 +772,8 @@ fn add_next_if_not_seen<'a>(out: &mut Vec<&'a Node>, items: &'a [Node], seen: &[
         *seen_counts.entry(s.to_lowercase()).or_insert(0) += 1;
     }
     for n in items {
-        // Uses of this node: the canonical name plus every alias, all counting as the main
-        // name. `repeat` (not just presence in `seen`) decides whether it is still offered:
-        // a `repeat: 2` command survives its first use, matching the assembly-phase rule.
+        // Uses of this node: the canonical name plus every alias, all counting as the main name.
+        // `repeat` (not just presence in `seen`) decides whether it is still offered: a `repeat: 2` command survives its first use, matching the assembly-phase rule.
         let mut used = seen_counts
             .get(&n.name.to_lowercase())
             .copied()
@@ -848,10 +837,49 @@ mod tests {
     }
 
     #[test]
+    fn a_repeat_beyond_i32_clamps_instead_of_wrapping() {
+        // `repeat` is an i32 downstream; `4294967297 as i32` is 1, so a typo'd "unlimited" would hide the item after a single use.
+        // A flag stays in its context after being used, so the repeat rule is what decides whether it is still offered.
+        let json = serde_json::json!({
+            "option": [ { "name": "--foo", "repeat": 4294967297i64 } ]
+        });
+        let tree = build_tree(&json);
+        let r = resolve(&tree, &["--foo".into()], true);
+        assert!(
+            r.items.iter().any(|i| i.text == "--foo"),
+            "a clamped repeat must still offer the item: {:?}",
+            r.items.iter().map(|i| i.text.clone()).collect::<Vec<_>>()
+        );
+    }
+
+    #[test]
     fn builds_tree_from_manifest() {
         let tree = git_tree();
         assert!(tree.next.len() > 20, "git has many subcommands");
         assert!(tree.global_options.iter().any(|n| n.name == "--help"));
+    }
+
+    #[test]
+    fn option_shaped_next_entry_resolves_as_a_command_layer() {
+        // A `next` entry is a command by position, never an option by shape — `--self-update` included.
+        // The layer kind is what `psc.on({ command = ...
+        // })` compares against, and the resolve walk tries options first, so this pins the end-to-end path: an option-shaped command name must still surface as a `command` layer.
+        let json = serde_json::json!({
+            "next": [ { "name": "--self-update" } ],
+            "option": [ { "name": "--json", "next": [] } ]
+        });
+        let tree = build_tree(&json);
+        let command = resolve(&tree, &["--self-update".into()], true);
+        assert_eq!(
+            command.context.layers,
+            vec![("command".to_string(), "--self-update".to_string())]
+        );
+        // Its sibling declared under `option` stays an option layer, for contrast.
+        let option = resolve(&tree, &["--json".into()], true);
+        assert_eq!(
+            option.context.layers,
+            vec![("option".to_string(), "--json".to_string())]
+        );
     }
 
     #[test]
@@ -889,10 +917,8 @@ mod tests {
     #[test]
     fn tokens_keep_original_case_opts_are_canonical() {
         let tree = git_tree();
-        // Command words stay case-insensitive; token input keeps the user's original casing,
-        // while `path`/`opts` store canonical names (hooks compare with psc.eq / psc.contains).
-        // checkout declares both `-b` and `-B`; case-sensitive option matching keeps them
-        // distinct, so `-B` resolves to its own node.
+        // Command words stay case-insensitive; token input keeps the user's original casing, while `path`/`opts` store canonical names (hooks compare with psc.eq / psc.contains).
+        // checkout declares both `-b` and `-B`; case-sensitive option matching keeps them distinct, so `-B` resolves to its own node.
         let r = resolve(&tree, &["CHECKOUT".to_string(), "-B".to_string()], true);
         assert_eq!(r.context.path, vec!["checkout"]);
         assert_eq!(r.context.opts, vec!["-B"]);
@@ -1068,10 +1094,8 @@ mod tests {
 
     #[test]
     fn plain_partial_option_value_offers_full_context_set() {
-        // `vp upgrade --tag a<TAB>`: the unfinished plain value yields the
-        // same set as the empty pending (`--tag <TAB>`) — the option's own
-        // values plus sibling options and globals. The in-menu filter is a
-        // pure view, so clearing it restores exactly this set.
+        // `vp upgrade --tag a<TAB>`: the unfinished plain value yields the same set as the empty pending (`--tag <TAB>`) — the option's own values plus sibling options and globals.
+        // The in-menu filter is a pure view, so clearing it restores exactly this set.
         use serde_json::json;
         let tree = build_tree(&json!({
             "next": [ { "name": "upgrade", "option": [
@@ -1112,9 +1136,35 @@ mod tests {
     }
 
     #[test]
+    fn pending_command_after_an_option_resets_to_the_command_context() {
+        // `cmd --fmt stage<TAB>`: the pending word is a known subcommand of the parent command, so the context must reset to `cmd` — its subcommands come back (including the pending one, re-offered), and the option's own sub-options do not leak.
+        use serde_json::json;
+        let tree = build_tree(&json!({
+            "next": [ { "name": "cmd", "next": [ { "name": "stage" }, { "name": "commit" } ],
+                        "option": [ { "name": "--fmt",
+                                      "next": [ { "name": "json" } ],
+                                      "option": [ { "name": "--sub" } ] } ] } ]
+        }));
+        let r = resolve(
+            &tree,
+            &["cmd".into(), "--fmt".into(), "stage".into()],
+            false,
+        );
+        let texts: Vec<&str> = r.items.iter().map(|i| i.text.as_str()).collect();
+        assert!(texts.contains(&"commit"), "subcommands missing: {texts:?}");
+        assert!(
+            texts.contains(&"stage"),
+            "pending command not re-offered: {texts:?}"
+        );
+        assert!(
+            !texts.contains(&"--sub"),
+            "option sub-options leaked: {texts:?}"
+        );
+    }
+
+    #[test]
     fn plain_partial_option_value_matches_empty_pending_set() {
-        // `--tag a<TAB>` resolves to the same candidate set as `--tag <TAB>`
-        // (trailing space): the pending word only pre-fills the menu filter.
+        // `--tag a<TAB>` resolves to the same candidate set as `--tag <TAB>` (trailing space): the pending word only pre-fills the menu filter.
         use serde_json::json;
         let tree = build_tree(&json!({
             "next": [ { "name": "upgrade", "option": [
@@ -1139,9 +1189,7 @@ mod tests {
 
     #[test]
     fn completed_option_value_still_resets_to_command() {
-        // `vp upgrade --tag alpha <TAB>` (trailing space): the value is
-        // consumed, so the context resets to the command — its options stay
-        // reachable while the option's own candidates are gone.
+        // `vp upgrade --tag alpha <TAB>` (trailing space): the value is consumed, so the context resets to the command — its options stay reachable while the option's own candidates are gone.
         use serde_json::json;
         let tree = build_tree(&json!({
             "next": [ { "name": "upgrade", "option": [
@@ -1168,12 +1216,10 @@ mod tests {
 
     #[test]
     fn subcommand_unknown_value_keeps_options_available() {
-        // `git add xxx <TAB>`: xxx is an unrecognized word (unknown). The context stays on
-        // `add`, so add's options (--all, --dry-run, ...) remain completable — an unknown
-        // value does NOT break access to the command's options.
+        // `git add xxx <TAB>`: xxx is an unrecognized word (unknown).
+        // The context stays on `add`, so add's options (--all, --dry-run, ...) remain completable — an unknown value does NOT break access to the command's options.
         let tree = git_tree();
-        // git's manifest names this node `stage` and keeps `add` as an alias, and `path`
-        // stores the canonical name — so compare against the matched node, not the typed word.
+        // git's manifest names this node `stage` and keeps `add` as an alias, and `path` stores the canonical name — so compare against the matched node, not the typed word.
         let node = find_command(None, &tree, "add").expect("`add` is a git subcommand alias");
         let r = resolve(&tree, &["add".into(), "xxx".into()], true);
         assert_eq!(r.context.path, vec![node.name.clone()]);
@@ -1191,8 +1237,8 @@ mod tests {
 
     #[test]
     fn option_unknown_value_keeps_owner_context() {
-        // If an option's value is classified as unknown (not value), can a subcommand or
-        // another option still follow it? Verify the context stays on the option's owner.
+        // If an option's value is classified as unknown (not value), can a subcommand or another option still follow it?
+        // Verify the context stays on the option's owner.
         use serde_json::json;
         let tree = build_tree(&json!({
             "next": [ { "name": "commit", "option": [
@@ -1201,8 +1247,8 @@ mod tests {
             ] } ],
             "option": [ { "name": "--verbose" } ]
         }));
-        // commit --format custom <TAB>: custom is out-of-list (unknown). The context stays
-        // on commit, so commit's own options remain reachable.
+        // commit --format custom <TAB>: custom is out-of-list (unknown).
+        // The context stays on commit, so commit's own options remain reachable.
         let r = resolve(
             &tree,
             &["commit".into(), "--format".into(), "custom".into()],
@@ -1218,8 +1264,7 @@ mod tests {
 
     #[test]
     fn option_empty_next_keeps_followup_completion() {
-        // An option with `next: []` (no static candidates) takes a free value: after
-        // `-x aaa`, the value is consumed and root-level subcommands remain reachable.
+        // An option with `next: []` (no static candidates) takes a free value: after `-x aaa`, the value is consumed and root-level subcommands remain reachable.
         use serde_json::json;
         let tree = build_tree(&json!({
             "next": [ { "name": "commit" }, { "name": "branch" } ],
@@ -1237,8 +1282,9 @@ mod tests {
 
     #[test]
     fn option_nested_option_behavior() {
-        // An option with its own `option` array (sub-options). After selecting --a, do the
-        // sub-options --x/--y become reachable? Does the nesting work end-to-end?
+        // An option with its own `option` array (sub-options).
+        // After selecting --a, do the sub-options --x/--y become reachable?
+        // Does the nesting work end-to-end?
         use serde_json::json;
         let tree = build_tree(&json!({
             "next": [ { "name": "sub" } ],
@@ -1262,9 +1308,7 @@ mod tests {
 
     #[test]
     fn option_array_consumes_out_of_list_value() {
-        // `next: [...]` also carries "a value is consumed" semantics: typing a value that
-        // is NOT one of the candidates is still consumed as the option's value (not left
-        // as an unrelated unknown that could confuse later completion).
+        // `next: [...]` also carries "a value is consumed" semantics: typing a value that is NOT one of the candidates is still consumed as the option's value (not left as an unrelated unknown that could confuse later completion).
         use serde_json::json;
         let tree = build_tree(&json!({
             "next": [ { "name": "commit", "option": [
@@ -1375,6 +1419,48 @@ mod tests {
             Some("--format=")
         );
         assert!(r2.items.iter().any(|i| i.text == "json"));
+    }
+
+    #[test]
+    fn explicit_bare_and_attached_entries_win_over_fallback() {
+        use serde_json::json;
+        // A CLI that accepts `--rebase` as a flag and its value only attached (`--rebase=merges`) may declare both spellings; the form the user typed picks the entry, whatever the array order.
+        let manifest = json!({
+            "next": [ { "name": "pull", "option": [
+                { "name": "--rebase", "next": [] },
+                { "name": "--rebase=", "next": [ { "name": "merges" } ] }
+            ] } ]
+        });
+        let reversed = json!({
+            "next": [ { "name": "pull", "option": [
+                { "name": "--rebase=", "next": [ { "name": "merges" } ] },
+                { "name": "--rebase", "next": [] }
+            ] } ]
+        });
+        for tree in [build_tree(&manifest), build_tree(&reversed)] {
+            // Bare use resolves to the bare entry: its value slot has no candidates of its own.
+            let r = resolve(&tree, &["pull".into(), "--rebase".into(), "".into()], false);
+            assert!(
+                !r.items.iter().any(|i| i.text == "merges"),
+                "bare use must not borrow the attached entry's values: {:?}",
+                r.items.iter().map(|i| i.text.as_str()).collect::<Vec<_>>()
+            );
+            // Attached use resolves to the `=` entry and completes its values.
+            let r2 = resolve(&tree, &["pull".into(), "--rebase=me".into()], false);
+            assert_eq!(r2.context.opts, vec!["--rebase"]);
+            assert_eq!(
+                r2.context
+                    .pending
+                    .as_ref()
+                    .and_then(|p| p.value_prefix.as_deref()),
+                Some("--rebase=")
+            );
+            assert!(
+                r2.items.iter().any(|i| i.text == "merges"),
+                "attached use must complete the `=` entry's values: {:?}",
+                r2.items.iter().map(|i| i.text.as_str()).collect::<Vec<_>>()
+            );
+        }
     }
 
     #[test]
@@ -1548,10 +1634,8 @@ mod tests {
 
     #[test]
     fn option_free_value_matching_subcommand_switches_context() {
-        // Collision rule: after a free-form-value option (`next: []`), a token that matches
-        // a subcommand name is classified as a command — the engine has no arity info, and
-        // "command wins" keeps `option … command` sequences working. So `--a add` switches
-        // into add's context (path records it) instead of treating `add` as the option's value.
+        // Collision rule: after a free-form-value option (`next: []`), a token that matches a subcommand name is classified as a command — the engine has no arity info, and "command wins" keeps `option … command` sequences working.
+        // So `--a add` switches into add's context (path records it) instead of treating `add` as the option's value.
         use serde_json::json;
         let tree = build_tree(&json!({
             "next": [ { "name": "add", "next": [ { "name": "sub1" } ] }, { "name": "list" } ],
@@ -1572,8 +1656,7 @@ mod tests {
 
     #[test]
     fn option_empty_next_value_keeps_subcommands_completable() {
-        // `psc --a bbb <Tab>`: bbb is --a's free value, consumed as "value",
-        // and the subcommands (add/list) remain completable at the root level.
+        // `psc --a bbb <Tab>`: bbb is --a's free value, consumed as "value", and the subcommands (add/list) remain completable at the root level.
         use serde_json::json;
         let tree = build_tree(&json!({
             "next": [ { "name": "add" }, { "name": "list" } ],
@@ -1613,9 +1696,8 @@ mod tests {
 
     #[test]
     fn option_empty_next_position_with_option_like_token() {
-        // `psc --a --b`: an empty-next option never consumes a following option. A
-        // recognized option after it becomes its own option, so its own candidates
-        // (its next) remain reachable.
+        // `psc --a --b`: an empty-next option never consumes a following option.
+        // A recognized option after it becomes its own option, so its own candidates (its next) remain reachable.
         use serde_json::json;
         let tree = build_tree(&json!({
             "next": [ { "name": "add" } ],
@@ -1640,8 +1722,7 @@ mod tests {
     #[test]
     fn symbols_and_aliases_expanded() {
         let tree = git_tree();
-        // Root candidates include alias expansion (`annotate`/`blame`) and a
-        // `switch` symbol (`stash` has a non-empty `next`).
+        // Root candidates include alias expansion (`annotate`/`blame`) and a `switch` symbol (`stash` has a non-empty `next`).
         let r = resolve(&tree, &[], true);
         assert!(r.items.iter().any(|i| i.text == "annotate"));
         assert!(r.items.iter().any(|i| i.text == "blame"));
@@ -1649,9 +1730,7 @@ mod tests {
             .items
             .iter()
             .any(|i| i.symbol.as_deref() == Some("switch")));
-        // Boolean flags default to `stay` statically (applying never leaves
-        // the layer); the async `peek` only upgrades to `switch` or drops
-        // empties.
+        // Boolean flags default to `stay` statically (applying never leaves the layer); the async `peek` only upgrades to `switch` or drops empties.
         let flag = r.items.iter().find(|i| i.text == "--help").unwrap();
         assert_eq!(flag.symbol.as_deref(), Some("stay"));
     }

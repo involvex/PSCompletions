@@ -1,145 +1,86 @@
-# Module Changelog
+# Changelog
 
-[English](./CHANGELOG.md)
+[English](./CHANGELOG.md) | 简体中文
 
-## 7.6.1
+## 未发布
 
-- `psc.add` 使用 `name` 作为 `tip` 的默认值
-- 修复了 hook 在超大或层级很深的目录树中执行 glob 时菜单卡死的问题
-- 其他的优化和修复
+- bridge: 触发别名现在可以包含多个词，并按最长的前导词序列匹配
+  - 你可以为 `vite` 添加 `npx vite` 作为触发别名: `psc alias add vite "npx vite"`
+  - 则 `npx vite <Tab>` 会触发 `vite` 的补全而非 `npx` 的 `vite` 子命令补全
+- bridge: PowerShell 菜单异常退出时恢复完整的终端模式并清空已排队的输入
+- bridge: 修复了 zsh 在多行缓冲区中替换错误单词的问题
 
-## 7.6.0
+## 8.0.6
 
-- 数据目录默认移出模块文件夹，可通过 `PSCOMPLETIONS_DATA_DIR` 覆盖
-  - Windows: `%APPDATA%\com.abgox\PSCompletions`
-  - macOS: `~/Library/Application Support/com.abgox/PSCompletions`
-  - Linux: `${XDG_DATA_HOME:-$HOME/.local/share}/com.abgox/PSCompletions`
-- 过滤提示符不再使用 `focus` 语义颜色
-- 修复了动态 hooks 导致菜单候选项应用延迟的问题
-- 其他的优化和修复
+- bridge: 修复了所有补全都已是最新时 `psc update --old` 没有任何输出的问题
+- bridge: `psc` 改为导出的函数而非别名，因此导入时不再调用 `Set-Alias`
+- menu: 同时显式声明裸选项与带等号形式时，各自使用已定义的条目，不做隐式转换
 
-## 7.5.2
+## 8.0.5
 
-- 修复了历史记录含多字节字符时的崩溃
-- 修复了菜单列表收缩时选中行滚出视野的问题
-- 其他的优化和修复
+- bridge: 二进制文件已可执行时，PowerShell 会话不再每次都运行 `chmod`
+- bridge: 将控制台编码探测推迟到首次打开菜单时，PowerShell 导入不再支付这笔开销
+- bridge: 不再为了创建目录和删除菜单临时文件而加载 Microsoft.PowerShell.Management
+- bridge: 通过 `--version` 检查 Python 版本，bash、zsh 和 fish 每次启动约省 18 毫秒
+- bridge: 使用 Shell 自带的 OS/CPU 变量和内置路径工具，bash、zsh 和 fish 启动再省 2-6 毫秒
+- bridge: bash、zsh 和 fish 不再为读取 init 数据启动 Python，首次 Tab 约省 20-40 毫秒
 
-## 7.5.1
+## 8.0.4
 
-- 改进了 [补全预测符号](https://pscompletions.abgox.com/docs/completion-predict-symbol) 的语义
-- 其他的优化和修复
+- cli: 限制 `--self-update` 更新检查的时长，并打印出当前正在等待的事项
+- cli: 默认改用 raw CDN 地址，下载不再多付一次重定向
+- cli: 信息页与自更新报告末尾加入赞助商区块，指向赞助页面
+- cli: 修复了模块在 CLI 之外升级后 `--self-update` 报出虚假降级的问题，并改为不再只信陈旧缓存、会重新向源确认
 
-## 7.5.0
+## 8.0.3
 
-- Hooks API：为 `psc.json` 添加 JSON5 支持
-- 移除了执行别名的自动导入与新增别名时与真实命令的冲突检查
-  - `psc alias` 现在只决定哪些触发别名能打开补全菜单
-  - 如需执行别名请自行使用 `Set-Alias`
-- 同时支持 `--opt=value`/`--opt value` 两种选项值用法
-- 支持分隔符连接的选项值（`--exclude a,b,c`）：由 `separator` 定义
-- 其他的优化和修复
+- hooks: hook 运行时不再克隆已解析的清单并改从字节解析，大型补全打开更快
+- hooks: 不再为每个 `psc.on` 目标做全清单遍历，大型补全打开时不再有之前的卡顿
+- cli: `rm psc` 会被拒绝，它只能用 `add`/`update` 刷新/更新
+- cli: 修复了未受管理的副本上 `psc --self-update` 已安装版本为空的问题
+- bridge: 修复了所有补全都已最新时 `psc update` 没有任何输出的问题
+- cli: 修复了 `psc --self-update` 对 scoop 安装的识别，无论走 `modules\PSCompletions` 链接还是 `apps\<name>` 目录
+- bridge: `psc --self-update` 之后不再重复提示模块更新
 
-## 7.4.0
+## 8.0.2
 
-- Hooks API：添加 `psc.on`/`psc.path`、移除 `psc.set_symbol`/`psc.set_tip` 和其他变更
-- [补全预测符号](https://pscompletions.abgox.com/docs/completion-predict-symbol) 迁移至菜单异步统一计算
-- 其他的优化和修复
+- bridge: 修复了 git bash 下因 python 输出 CRLF 换行导致选择失败的问题
+- bridge: 读取单个补全配置值不再显示为绿色
+- bridge: 已是最新版本时不再错误提示有模块更新
+- bridge: `psc update` 不再重复列出可更新补全
+- cli: `psc --json` 现在报告已安装版本，不再是补全库基线
+- cli: 修复了 Windows 上 `psc --json` 与 `psc info` 输出路径混用分隔符的问题
 
-## 7.3.2
+## 8.0.1
 
-- 改进了补全项的排序问题
-- 降低了 psc-menu 对 glibc 的依赖版本
-- 其他的优化和修复
+- cli: `psc --self-update` 不再重复显示安装脚本已经打印的内容
+- cli: 自更新失败的消息现在按模块语言显示
+- bridge: 修复了因发布包带 Windows 换行符而无法加载的问题
 
-## 7.3.1
+## 8.0.0
 
-- 修复了 `$PSUICulture` 为空时（如 Linux）初始化失败的问题
+> PSCompletions(psc) 正式转变为通用的补全管理器 —— 单个引擎，多个 Shell
 
-## 7.3.0
+### 单个引擎，多个 Shell
 
-- 模块初始化延迟到首次补全触发时，大幅降低了模块导入时间
-- 更新检查改为命令执行后内联运行，不再依赖后台作业
-- 菜单过滤区域在上次 `psc update` 超过 7 天时显示更新提示
-- 模块和补全库状态通知改为命令执行后显示
-- 移除 `enable_auto_alias_setup`：触发别名始终通过 `temp/alias.csv` 设置
-- Hooks API：`psc.run`/`psc.run_batch` 新增 `env` 与 `capture_fd` 选项
-- CLI：`psc info` 无参时列出全部已安装补全
-- 其他的优化和修复
+- **支持 bash、zsh、fish**：相同的引擎和交互式菜单，同时服务 bash、zsh、fish 以及 Windows PowerShell 5.1 与 PowerShell 7
+- **不装 PowerShell 也能安装**：`install.sh`
+- **各平台体验一致**：触发键、菜单、过滤、历史排序、提示信息等
+- **原生补全步调一致**：当宿主提供自己的候选项时，引擎负责推导过滤条件并以索引作答
+- **各平台输出一致**：`psc list` / `info` / `alias` / `config` / `completion` 在所有 Shell 中都输出引擎的文本
 
-## 7.2.0
+### 其他变化
 
-- 新增了 `color_focus` 和 `color_match` 配置项，支持自定义 TUI 菜单颜色（命名色 + RGB）
-- `psc.items` 支持字符串简写，传 `"stay"` 或 `"switch"` 即可为所有项设置 symbol
-- 修复了 `psc.platform` 在非 Windows 平台返回 `"unix"` 而非 `"macos"` / `"linux"` 的问题
-- 修复了 `psc.contains` pattern 模式忽略 `case_sensitive` 选项的问题
-
-## 7.1.0
-
-- 改进了补全状态变更的输出和更新逻辑
-- 为每个补全的 `config.json` 添加了稳定 `id`，支持重命名检测与自动迁移
-
-## 7.0.3
-
-- 修复了 `psc.run` 在终端启动目录而非当前工作目录执行的问题
-
-## 7.0.2
-
-- 修复了更新补全时的重复输出
-- 统一了布尔配置的值为 1/0
-
-## 7.0.1
-
-- 修复了命令参数校验错误
-- 修复了命令输出的颜色
-
-## 7.0.0
-
-### 跨平台的全新交互菜单
-
-- **极简视觉**：红色聚焦、青色高亮，界面干净简约
-- **Rust 原生渲染**：取代旧版 PowerShell 渲染，渲染能力与流畅度大大提高
-- **全平台可用**：Windows PowerShell 5.1 / PowerShell 7 / Windows / Linux / macOS 一致的交互式补全体验
-
-### 独立的补全引擎
-
-- 补全的解析、上下文构建、动态脚本执行、候选生成全流程由 Rust 二进制独立完成
-- 不再与特定 Shell 耦合，为未来接入其他 Shell 奠定基础
-
-### 更强大的补全过滤
-
-- **通配符模糊匹配**：无需记住完整名称，`g*t` 即可同时命中 `git`、`gist`；输入时匹配字符实时高亮
-- **快速切换子序列**：在通配模式下以 `*` 前缀临时切换子序列匹配，`*vscode` 即可快速定位 `Visual Studio Code`
-- **前缀锚定**：`^git` 精确限定以 `git` 开头的项，筛选更精准
-
-### 更合理的补全排序
-
-- 排序算法全面升级：**时间衰减** + **位置加权**，近期与深度使用的命令获得更高权重
-- 路径补全按段排序，目录与文件均按历史频率排列，常用目录优先呈现
-
-### 动态补全（Lua）
-
-- 动态补全由 PowerShell 脚本迁移至 **Lua**：在 Rust 引擎内嵌执行，启动更快、解析更稳
-- 脚本运行于隔离沙箱：受限标准库、命令超时、只读文件
-
-### 补全信息提示
-
-- 提示信息升级为结构化容器：`[Usage]`、`[Description]`、`[Example]`
-- 宽高随内容自适应，支持滚轮滚动多行内容
-
-### 补全预测符号
-
-- 语义更简单：只要有符号，就说明选用后仍有补全可选
-  - `switch`: 选用后切换到新的上下文，默认为 `~`
-  - `stay`: 选用后停留在当前的上下文，默认为 `?`
-- 符号跟随当前选中项显示在计数旁，列表保持干净
-
-### 前缀预过滤
-
-- 输入部分内容后再打开菜单，将基于输入内容自动预过滤，直达目标项
-- 清空预过滤内容则回退为完整的补全列表
-
-### 鼠标支持
-
-- 点击选中、双击选用、滚轮浏览，鼠标操作覆盖整个补全菜单
+- cli: 新增 `--json` 选项 —— 每条命令都能输出一个机器可读的对象
+- cli: 新增 `--self-update`，用于自更新
+- cli: 首次使用非官方补全源会给出警告
+- cli: `psc add` 移除 `--all` 选项 —— 请按需安装，避免补全变体相互覆盖
+- cli: 触发别名的归属改由声明顺序决定 —— 被多个补全声明的别名归后声明的那个
+- menu: 前置的 `sudo` 在补全与历史排序中都会被跳过，历史排序现在区分大小写
+- menu: 分隔符（`|`、`;`、`&`、`&&`、`||`）之后视为一条新命令 —— `git status | grep <Tab>` 补全的是 `grep`；引号内的分隔符仍是普通文本
+- hooks: `psc.mount_items` 的路径链条与清单结构精确对应并包含别名
+- hooks: `tip` / `usage` / `example` 支持延迟求值的函数与 `{ cmd, desc }` 形式
+- completion: `config.json` 新增 `version` 字段 —— 该补全撰写与校验时对标的命令版本
+- chore: 其他的优化和修复
 
 ## [历史版本](./archive/CHANGELOG.zh-CN.md)

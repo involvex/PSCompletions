@@ -1,0 +1,362 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "vdpa 管理工具。"
+    ]
+  },
+  "next": [
+    {
+      "name": "dev",
+      "tip": [
+        "vdpa 设备管理。"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add name NAME mgmtdev MGMTDEV [ device_features DEVICE_FEATURES ] [ mac MACADDR ] [ mtu MTU ] [ max_vqp MAX_VQ_PAIRS ]"
+          ],
+          "tip": [
+            "添加新的 vdpa 设备。"
+          ],
+          "option": [
+            {
+              "name": "device_features",
+              "usage": [
+                "device_features DEVICE_FEATURES"
+              ],
+              "tip": [
+                "Virtio 设备特性位掩码。"
+              ],
+              "next": []
+            },
+            {
+              "name": "mac",
+              "usage": [
+                "mac MACADDR"
+              ],
+              "tip": [
+                "网络 vdpa 设备的 MAC 地址。"
+              ],
+              "next": []
+            },
+            {
+              "name": "max_vqp",
+              "usage": [
+                "max_vqp MAX_VQ_PAIRS"
+              ],
+              "tip": [
+                "最大 virtqueue 对数量。"
+              ],
+              "next": []
+            },
+            {
+              "name": "mgmtdev",
+              "usage": [
+                "mgmtdev MGMTDEV"
+              ],
+              "tip": [
+                "要使用的管理设备。"
+              ],
+              "next": []
+            },
+            {
+              "name": "mtu",
+              "usage": [
+                "mtu MTU"
+              ],
+              "tip": [
+                "网络 vdpa 设备的 MTU。"
+              ],
+              "next": []
+            },
+            {
+              "name": "name",
+              "usage": [
+                "name NAME"
+              ],
+              "tip": [
+                "vdpa 设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "qidx",
+              "usage": [
+                "qidx QUEUE_INDEX"
+              ],
+              "tip": [
+                "vstats 的队列索引。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "config",
+          "tip": [
+            "显示 vdpa 设备配置。"
+          ],
+          "next": [
+            {
+              "name": "show",
+              "usage": [
+                "show [ DEV ]"
+              ],
+              "tip": [
+                "显示设备配置。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del DEV"
+          ],
+          "tip": [
+            "删除 vdpa 设备。"
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 dev 帮助。"
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set name NAME mac [ MACADDR ]"
+          ],
+          "tip": [
+            "设置 vdpa 设备属性。"
+          ],
+          "option": [
+            {
+              "name": "device_features",
+              "usage": [
+                "device_features DEVICE_FEATURES"
+              ],
+              "tip": [
+                "Virtio 设备特性位掩码。"
+              ],
+              "next": []
+            },
+            {
+              "name": "mac",
+              "usage": [
+                "mac MACADDR"
+              ],
+              "tip": [
+                "网络 vdpa 设备的 MAC 地址。"
+              ],
+              "next": []
+            },
+            {
+              "name": "max_vqp",
+              "usage": [
+                "max_vqp MAX_VQ_PAIRS"
+              ],
+              "tip": [
+                "最大 virtqueue 对数量。"
+              ],
+              "next": []
+            },
+            {
+              "name": "mgmtdev",
+              "usage": [
+                "mgmtdev MGMTDEV"
+              ],
+              "tip": [
+                "要使用的管理设备。"
+              ],
+              "next": []
+            },
+            {
+              "name": "mtu",
+              "usage": [
+                "mtu MTU"
+              ],
+              "tip": [
+                "网络 vdpa 设备的 MTU。"
+              ],
+              "next": []
+            },
+            {
+              "name": "name",
+              "usage": [
+                "name NAME"
+              ],
+              "tip": [
+                "vdpa 设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "qidx",
+              "usage": [
+                "qidx QUEUE_INDEX"
+              ],
+              "tip": [
+                "vstats 的队列索引。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ DEV ]"
+          ],
+          "tip": [
+            "显示 vdpa 设备属性。"
+          ]
+        },
+        {
+          "name": "vstats",
+          "tip": [
+            "显示 vdpa 设备统计信息。"
+          ],
+          "next": [
+            {
+              "name": "show",
+              "usage": [
+                "show DEV qidx QUEUE_INDEX"
+              ],
+              "tip": [
+                "显示队列统计信息。"
+              ],
+              "option": [
+                {
+                  "name": "device_features",
+                  "usage": [
+                    "device_features DEVICE_FEATURES"
+                  ],
+                  "tip": [
+                    "Virtio 设备特性位掩码。"
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "mac",
+                  "usage": [
+                    "mac MACADDR"
+                  ],
+                  "tip": [
+                    "网络 vdpa 设备的 MAC 地址。"
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "max_vqp",
+                  "usage": [
+                    "max_vqp MAX_VQ_PAIRS"
+                  ],
+                  "tip": [
+                    "最大 virtqueue 对数量。"
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "mgmtdev",
+                  "usage": [
+                    "mgmtdev MGMTDEV"
+                  ],
+                  "tip": [
+                    "要使用的管理设备。"
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "mtu",
+                  "usage": [
+                    "mtu MTU"
+                  ],
+                  "tip": [
+                    "网络 vdpa 设备的 MTU。"
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "name",
+                  "usage": [
+                    "name NAME"
+                  ],
+                  "tip": [
+                    "vdpa 设备名。"
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "qidx",
+                  "usage": [
+                    "qidx QUEUE_INDEX"
+                  ],
+                  "tip": [
+                    "vstats 的队列索引。"
+                  ],
+                  "next": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mgmtdev",
+      "tip": [
+        "vdpa 管理设备视图。"
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 mgmtdev 帮助。"
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ MGMTDEV ]"
+          ],
+          "tip": [
+            "显示管理设备属性。"
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "-j",
+      "usage": [
+        "-j, --json"
+      ],
+      "tip": [
+        "生成 JSON 输出。"
+      ]
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p, --pretty"
+      ],
+      "tip": [
+        "美化 JSON 输出。"
+      ]
+    },
+    {
+      "name": "-V",
+      "usage": [
+        "-V, --Version"
+      ],
+      "tip": [
+        "打印 vdpa 工具版本并退出。"
+      ]
+    }
+  ]
+}

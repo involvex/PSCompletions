@@ -1,0 +1,245 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "Display printable strings in files."
+    ]
+  },
+  "option": [
+    {
+      "name": "--all",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --all"
+      ],
+      "tip": [
+        "Scan the entire file, not just the data section (default)."
+      ]
+    },
+    {
+      "name": "--bytes",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --bytes=<number>"
+      ],
+      "tip": [
+        "Locate sequences of at least this many printable characters (default 4)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--data",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --data"
+      ],
+      "tip": [
+        "Only scan the data sections."
+      ]
+    },
+    {
+      "name": "--encoding",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --encoding={s,S,b,l,B,L}"
+      ],
+      "tip": [
+        "Select character size and endianness.",
+        "Possible values: s, S, b, l, B, L"
+      ],
+      "next": [
+        {
+          "name": "b"
+        },
+        {
+          "name": "B"
+        },
+        {
+          "name": "l"
+        },
+        {
+          "name": "L"
+        },
+        {
+          "name": "s"
+        },
+        {
+          "name": "S"
+        }
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this information."
+      ]
+    },
+    {
+      "name": "--include-all-whitespace",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --include-all-whitespace"
+      ],
+      "tip": [
+        "Include all whitespace as valid string characters."
+      ]
+    },
+    {
+      "name": "--output-separator",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --output-separator=<string>"
+      ],
+      "tip": [
+        "String used to separate strings in the output."
+      ],
+      "next": []
+    },
+    {
+      "name": "--print-file-name",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --print-file-name"
+      ],
+      "tip": [
+        "Print the file name before each string."
+      ]
+    },
+    {
+      "name": "--radix",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --radix={o,d,x}"
+      ],
+      "tip": [
+        "Print the string location in base 8, 10 or 16.",
+        "Possible values: o, d, x"
+      ],
+      "next": [
+        {
+          "name": "d"
+        },
+        {
+          "name": "o"
+        },
+        {
+          "name": "x"
+        }
+      ]
+    },
+    {
+      "name": "--target",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --target=<BFDNAME>"
+      ],
+      "tip": [
+        "Specify the binary file format."
+      ],
+      "next": []
+    },
+    {
+      "name": "--unicode",
+      "usage": [
+        "--unicode={default|locale|invalid|hex|escape|highlight}"
+      ],
+      "tip": [
+        "Specify how to treat UTF-8 encoded Unicode characters.",
+        "Possible values: default, locale, invalid, hex, escape, highlight"
+      ],
+      "next": [
+        {
+          "name": "default"
+        },
+        {
+          "name": "escape"
+        },
+        {
+          "name": "hex"
+        },
+        {
+          "name": "highlight"
+        },
+        {
+          "name": "invalid"
+        },
+        {
+          "name": "locale"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v",
+        "-V"
+      ],
+      "usage": [
+        "-v, -V, --version"
+      ],
+      "tip": [
+        "Print the program version."
+      ]
+    },
+    {
+      "name": "-o",
+      "tip": [
+        "Alias for --radix=o."
+      ]
+    },
+    {
+      "name": "-U",
+      "usage": [
+        "-U {d|l|i|x|e|h}"
+      ],
+      "tip": [
+        "Specify how to treat UTF-8 encoded Unicode characters.",
+        "Possible values: d, l, i, x, e, h"
+      ],
+      "next": [
+        {
+          "name": "d"
+        },
+        {
+          "name": "e"
+        },
+        {
+          "name": "h"
+        },
+        {
+          "name": "i"
+        },
+        {
+          "name": "l"
+        },
+        {
+          "name": "x"
+        }
+      ]
+    }
+  ]
+}

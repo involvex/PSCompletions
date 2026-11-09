@@ -1,10 +1,9 @@
-//! Post-operation library diff + psc self-heal: after add/update/init, diff the pre-operation
-//! index snapshot against the fresh one and persist `temp/change.json`.
+//! Post-operation library diff + psc self-heal: after add/update/init, diff the pre-operation index snapshot against the fresh one and persist `temp/change.json`.
 
 use crate::data::{Index, LibraryChanges, Settings};
 use crate::net::{
-    add_completion, download_list, fetch_text, local_completion_id, refresh_settings_after_add,
-    resolve_urls,
+    add_completion, download_list, fetch_metadata, local_completion_id, refresh_settings_after_add,
+    resolve_index_urls, resolve_urls,
 };
 
 /// Whether the psc completion's key files exist on disk (its own manifest + config).
@@ -20,12 +19,12 @@ pub fn psc_completion_present(completions_dir: &str) -> bool {
             .exists()
 }
 
-/// Re-fetch the psc completion (remote index + files) when its files are missing, restoring
-/// the module's `info` templates and management completions. Best-effort: an offline failure
-/// is tolerated because every later `psc init` (each session / menu start) retries it.
+/// Re-fetch the psc completion (remote index + files) when its files are missing, restoring the module's `info` templates and management completions.
+/// Best-effort: an offline failure is tolerated because every later `psc init` (each session / menu start) retries it.
 pub fn restore_psc_completion(settings_path: &str, settings: &mut Settings, data_dir: &str) {
     let urls = resolve_urls(settings);
-    let Ok(v) = download_list(data_dir, &urls) else {
+    // The index is fetched from the index branch first; content files stay on main.
+    let Ok(v) = download_list(data_dir, &resolve_index_urls(settings)) else {
         return;
     };
     let version = v
@@ -35,20 +34,19 @@ pub fn restore_psc_completion(settings_path: &str, settings: &mut Settings, data
         .and_then(|x| x.as_str())
         .unwrap_or("")
         .to_string();
-    if add_completion(data_dir, "psc", &urls, &version).unwrap_or(false)
+    if add_completion(data_dir, "psc", &urls, &version, false).unwrap_or(false)
         && refresh_settings_after_add(settings, data_dir, "psc", true).is_ok()
     {
         let _ = settings.save(settings_path);
     }
 }
 
-/// Fetch the newest remote module version (first URL that returns a parseable `module/version.json`).
-/// The CLI does not compare versions — it records whatever it fetched; the module compares the
-/// value against its installed version at render time (replaces the background job / env var).
+/// Fetch the latest remote module version (first URL that returns a parseable `module/version.json`).
+/// The CLI records whatever it fetched; both readers then apply the same newer-only rule at render time (the module's notice and `--self-update`), so a stale value reads as "nothing to install" rather than as an upgrade or a downgrade.
 pub fn fetch_module_version(settings: &Settings) -> Option<String> {
     let urls = resolve_urls(settings);
     for u in urls {
-        if let Ok(text) = fetch_text(&[u], "module/version.json") {
+        if let Ok(text) = fetch_metadata(&[u], "module/version.json") {
             if let Ok(v) = serde_json::from_str::<serde_json::Value>(&text) {
                 let newv = v
                     .get("version")
@@ -67,16 +65,14 @@ pub fn fetch_module_version(settings: &Settings) -> Option<String> {
     None
 }
 
-/// Pure post-operation diff: compute `added`/`removed`/`renamed`/`update` from the fresh index
-/// and the installed settings, folding in the renames already executed during this command
-/// (they no longer appear in the post-state diff — the old name is gone from settings — so
-/// without them a rename would be misreported as added+removed).
+/// Pure post-operation diff: compute `added`/`removed`/`renamed`/`update` from the fresh index and the installed settings, folding in the renames already executed during this command (they no longer appear in the post-state diff — the old name is gone from settings — so without them a rename would be misreported as added+removed).
 pub fn compute_post_changes(
     data_dir: &str,
     settings: &Settings,
     old_list: &[String],
     index: &Index,
     executed_renames: &[(String, String)],
+    operated: &[String],
 ) -> LibraryChanges {
     let mut rename_map: std::collections::HashMap<String, String> =
         std::collections::HashMap::new();
@@ -101,6 +97,8 @@ pub fn compute_post_changes(
         .iter()
         .filter(|n| !old_list.contains(n))
         .filter(|n| !rename_vals.contains(*n))
+        // Names this command just operated on got their own per-item result lines; reporting them again as "new to the library" is pure noise.
+        .filter(|n| !operated.contains(n))
         .cloned()
         .collect();
     added.sort();
@@ -137,20 +135,25 @@ pub fn compute_post_changes(
     changes
 }
 
-/// After an add/update completes, refresh temp/change.json (update/added/removed/renamed/module)
-/// by diffing the pre-operation index snapshot against the fresh one, and record the remote module
-/// version. Runs synchronously AFTER the operation so a completion this command just touched is
-/// not reported as needing an update; `old_list` is captured before `download_list` overwrites the
-/// cache. On a fetch failure the existing `module` value is preserved (don't drop a pending notice
-/// just because one check hit the network and another didn't).
+/// After an add/update completes, refresh temp/change.json (update/added/removed/renamed/module) by diffing the pre-operation index snapshot against the fresh one, and record the remote module version.
+/// Runs synchronously AFTER the operation so a completion this command just touched is not reported as needing an update; `old_list` is captured before `download_list` overwrites the cache.
+/// On a fetch failure the existing `module` value is preserved (don't drop a pending notice just because one check hit the network and another didn't).
 pub fn record_post_check(
     data_dir: &str,
     settings: &Settings,
     old_list: &[String],
     index: &Index,
     executed_renames: &[(String, String)],
-) {
-    let mut changes = compute_post_changes(data_dir, settings, old_list, index, executed_renames);
+    operated: &[String],
+) -> Result<(), String> {
+    let mut changes = compute_post_changes(
+        data_dir,
+        settings,
+        old_list,
+        index,
+        executed_renames,
+        operated,
+    );
     if let Some(v) = fetch_module_version(settings) {
         changes.module = Some(v);
     }
@@ -160,7 +163,7 @@ pub fn record_post_check(
             .unwrap_or_default()
             .as_secs(),
     );
-    changes.save(data_dir);
+    changes.save(data_dir)
 }
 
 #[cfg(test)]
@@ -168,8 +171,7 @@ mod tests {
     use super::*;
     use crate::data::Settings;
 
-    // Each test gets a unique dir: Rust runs tests in parallel, so sharing one path
-    // would let one test's cleanup clobber another's fixtures.
+    // Each test gets a unique dir: Rust runs tests in parallel, so sharing one path would let one test's cleanup clobber another's fixtures.
     fn test_base() -> std::path::PathBuf {
         use std::sync::atomic::{AtomicU64, Ordering};
         static COUNTER: AtomicU64 = AtomicU64::new(0);
@@ -214,14 +216,14 @@ mod tests {
         index.update.insert("bar".to_string(), "v1".to_string());
         let old_list = vec!["foo".to_string()];
 
-        // Without the executed_renames parameter the post-state diff would report
-        // added=["bar"] + removed=["foo"]; the merge must turn it into a single rename.
+        // Without the executed_renames parameter the post-state diff would report added=["bar"] + removed=["foo"]; the merge must turn it into a single rename.
         let changes = compute_post_changes(
             data_dir,
             &settings,
             &old_list,
             &index,
             &[("foo".into(), "bar".into())],
+            &[],
         );
         assert_eq!(
             changes.renamed,
@@ -262,7 +264,7 @@ mod tests {
         index.update.insert("foo".to_string(), "v1".to_string());
         let old_list = Vec::<String>::new();
 
-        let changes = compute_post_changes(data_dir, &settings, &old_list, &index, &[]);
+        let changes = compute_post_changes(data_dir, &settings, &old_list, &index, &[], &[]);
         assert_eq!(changes.added, vec!["foo".to_string()]);
         assert!(changes.removed.is_empty());
         assert!(changes.renamed.is_empty());
@@ -272,8 +274,7 @@ mod tests {
 
     #[test]
     fn record_post_check_writes_last_check_even_offline() {
-        // last_check drives the menu's stale-update hint: it must land in change.json on
-        // every post-check, including when the module-version fetch fails (offline).
+        // last_check drives the menu's stale-update hint: it must land in change.json on every post-check, including when the module-version fetch fails (offline).
         let base = test_base();
         let data_dir = base.to_str().unwrap();
         std::fs::create_dir_all(format!("{data_dir}/completions/foo")).unwrap();
@@ -291,7 +292,7 @@ mod tests {
         index.ids.insert("foo".to_string(), "abc".to_string());
         index.update.insert("foo".to_string(), "v1".to_string());
 
-        record_post_check(data_dir, &settings, &[], &index, &[]);
+        record_post_check(data_dir, &settings, &[], &index, &[], &[]).unwrap();
 
         let loaded = LibraryChanges::load(data_dir);
         let now = std::time::SystemTime::now()
@@ -305,6 +306,25 @@ mod tests {
             ),
             None => panic!("last_check must be written"),
         }
+        std::fs::remove_dir_all(&base).ok();
+    }
+
+    #[test]
+    fn operated_names_are_not_reported_as_added() {
+        // `add xxx` right when xxx lands in the fresh index: the per-item result line already told the user, so the library diff must not report it again.
+        let base = test_base();
+        let data_dir = base.to_str().unwrap();
+        let settings = Settings {
+            alias: Default::default(),
+            config: serde_json::json!({}),
+        };
+        let mut index = Index::default();
+        index.update.insert("xxx".to_string(), "v1".to_string());
+        index.update.insert("yyy".to_string(), "v1".to_string());
+
+        let changes =
+            compute_post_changes(data_dir, &settings, &[], &index, &[], &["xxx".to_string()]);
+        assert_eq!(changes.added, vec!["yyy".to_string()]);
         std::fs::remove_dir_all(&base).ok();
     }
 }

@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "管理文件权限覆盖。"
+    ]
+  },
+  "next": [
+    {
+      "name": "--add",
+      "tip": [
+        "添加覆盖条目（owner group mode path）。"
+      ]
+    },
+    {
+      "name": "--list",
+      "tip": [
+        "列出当前覆盖，可选按通配符匹配。"
+      ]
+    },
+    {
+      "name": "--remove",
+      "tip": [
+        "从覆盖数据库移除路径。"
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--admindir",
+      "usage": [
+        "--admindir <directory>"
+      ],
+      "tip": [
+        "设置 statoverride 数据库目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--force",
+      "tip": [
+        "--force-all 的已弃用别名。"
+      ]
+    },
+    {
+      "name": "--force-help",
+      "usage": [
+        "--force-<thing>[,...]"
+      ],
+      "tip": [
+        "覆盖问题；见 --force-help。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "tip": [
+        "显示此帮助信息。"
+      ]
+    },
+    {
+      "name": "--instdir",
+      "usage": [
+        "--instdir <directory>"
+      ],
+      "tip": [
+        "设置根目录但不改变管理目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-force-help",
+      "usage": [
+        "--no-force-<thing>[,...]"
+      ],
+      "tip": [
+        "遇到问题时停止。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "tip": [
+        "静默操作，输出最少。"
+      ]
+    },
+    {
+      "name": "--refuse-help",
+      "usage": [
+        "--refuse-<thing>[,...]"
+      ],
+      "tip": [
+        "遇到问题时停止。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--root",
+      "usage": [
+        "--root <directory>"
+      ],
+      "tip": [
+        "设置根文件系统目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--update",
+      "tip": [
+        "立即更新路径权限。"
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "显示版本。"
+      ]
+    }
+  ]
+}

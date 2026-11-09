@@ -1,0 +1,1572 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/cryptsetup/cryptsetup",
+    "description": [
+      "管理普通 dm-crypt、LUKS 和其他加密卷。"
+    ]
+  },
+  "next": [
+    {
+      "name": "benchmark",
+      "tip": [
+        "对密码算法进行基准测试。"
+      ]
+    },
+    {
+      "name": "bitlkDump",
+      "usage": [
+        "bitlkDump <DEVICE>"
+      ],
+      "tip": [
+        "输出 BITLK 设备信息。"
+      ]
+    },
+    {
+      "name": "config",
+      "usage": [
+        "config <DEVICE>"
+      ],
+      "tip": [
+        "为 LUKS2 设置永久配置选项。"
+      ]
+    },
+    {
+      "name": "convert",
+      "usage": [
+        "convert <DEVICE>"
+      ],
+      "tip": [
+        "在 LUKS1 和 LUKS2 格式之间转换。"
+      ]
+    },
+    {
+      "name": "fvault2Dump",
+      "usage": [
+        "fvault2Dump <DEVICE>"
+      ],
+      "tip": [
+        "输出 FVAULT2 设备信息。"
+      ]
+    },
+    {
+      "name": "isLuks",
+      "usage": [
+        "isLuks <DEVICE>"
+      ],
+      "tip": [
+        "测试设备是否具有 LUKS 头。"
+      ]
+    },
+    {
+      "name": "loopaesClose",
+      "alias": [
+        "fvault2Close",
+        "tcryptClose",
+        "plainClose",
+        "bitlkClose",
+        "luksClose",
+        "remove",
+        "close"
+      ],
+      "usage": [
+        "close|remove|luksClose|plainClose|bitlkClose|tcryptClose|loopaesClose|fvault2Close <NAME>"
+      ],
+      "tip": [
+        "关闭映射并从内核内存中清除密钥。"
+      ]
+    },
+    {
+      "name": "loopaesOpen",
+      "alias": [
+        "tcryptOpen_",
+        "fvault2Open",
+        "tcryptOpen",
+        "plainOpen",
+        "bitlkOpen",
+        "luksOpen",
+        "create",
+        "open"
+      ],
+      "usage": [
+        "open|create|luksOpen|plainOpen|bitlkOpen|tcryptOpen|loopaesOpen|tcryptOpen_|fvault2Open <DEVICE> [<NAME>]",
+        "create <NAME> <DEVICE>"
+      ],
+      "tip": [
+        "打开设备并创建映射。"
+      ]
+    },
+    {
+      "name": "luksAddKey",
+      "usage": [
+        "luksAddKey <DEVICE> [<NEW_KEY_FILE>]"
+      ],
+      "tip": [
+        "向 LUKS 设备添加新口令。"
+      ]
+    },
+    {
+      "name": "luksChangeKey",
+      "usage": [
+        "luksChangeKey <DEVICE> [<KEY_FILE>]"
+      ],
+      "tip": [
+        "更改 LUKS 设备的口令。"
+      ]
+    },
+    {
+      "name": "luksConvertKey",
+      "usage": [
+        "luksConvertKey <DEVICE> [<KEY_FILE>]"
+      ],
+      "tip": [
+        "将密钥槽转换为新的 PBKDF 参数。"
+      ]
+    },
+    {
+      "name": "luksDump",
+      "usage": [
+        "luksDump <DEVICE>"
+      ],
+      "tip": [
+        "输出 LUKS 头信息。"
+      ]
+    },
+    {
+      "name": "luksErase",
+      "alias": [
+        "erase"
+      ],
+      "usage": [
+        "erase|luksErase <DEVICE>"
+      ],
+      "tip": [
+        "擦除所有密钥槽并移除加密密钥。"
+      ]
+    },
+    {
+      "name": "luksFormat",
+      "usage": [
+        "luksFormat <DEVICE> [<NEW_KEY_FILE>]"
+      ],
+      "tip": [
+        "格式化 LUKS 设备。"
+      ]
+    },
+    {
+      "name": "luksHeaderBackup",
+      "usage": [
+        "luksHeaderBackup <DEVICE>"
+      ],
+      "tip": [
+        "备份 LUKS 头和密钥槽。"
+      ]
+    },
+    {
+      "name": "luksHeaderRestore",
+      "usage": [
+        "luksHeaderRestore <DEVICE>"
+      ],
+      "tip": [
+        "恢复 LUKS 头和密钥槽。"
+      ]
+    },
+    {
+      "name": "luksKillSlot",
+      "usage": [
+        "luksKillSlot <DEVICE> <KEY_SLOT>"
+      ],
+      "tip": [
+        "从 LUKS 设备擦除密钥槽。"
+      ]
+    },
+    {
+      "name": "luksRemoveKey",
+      "usage": [
+        "luksRemoveKey <DEVICE> [<KEY_FILE>]"
+      ],
+      "tip": [
+        "从 LUKS 设备移除口令。"
+      ]
+    },
+    {
+      "name": "luksResume",
+      "usage": [
+        "luksResume <NAME>"
+      ],
+      "tip": [
+        "恢复挂起的 LUKS 设备。"
+      ]
+    },
+    {
+      "name": "luksSuspend",
+      "usage": [
+        "luksSuspend <NAME>"
+      ],
+      "tip": [
+        "挂起 LUKS 设备并清除密钥。"
+      ]
+    },
+    {
+      "name": "luksUUID",
+      "usage": [
+        "luksUUID <DEVICE>"
+      ],
+      "tip": [
+        "打印或设置 LUKS 设备的 UUID。"
+      ]
+    },
+    {
+      "name": "reencrypt",
+      "usage": [
+        "reencrypt <DEVICE>",
+        "reencrypt --active-name <NAME> [<NEW_NAME>]"
+      ],
+      "tip": [
+        "重加密 LUKS2 设备。"
+      ]
+    },
+    {
+      "name": "refresh",
+      "usage": [
+        "refresh <NAME>"
+      ],
+      "tip": [
+        "刷新活动映射的参数。"
+      ]
+    },
+    {
+      "name": "repair",
+      "usage": [
+        "repair <DEVICE>"
+      ],
+      "tip": [
+        "尝试修复磁盘上的元数据。"
+      ]
+    },
+    {
+      "name": "resize",
+      "usage": [
+        "resize <NAME>"
+      ],
+      "tip": [
+        "调整活动映射的大小。"
+      ]
+    },
+    {
+      "name": "status",
+      "usage": [
+        "status <NAME>"
+      ],
+      "tip": [
+        "报告映射的状态。"
+      ]
+    },
+    {
+      "name": "tcryptDump",
+      "usage": [
+        "tcryptDump <DEVICE>"
+      ],
+      "tip": [
+        "输出 TCRYPT 设备信息。"
+      ]
+    },
+    {
+      "name": "token",
+      "usage": [
+        "token <add|remove|import|export|unassign> <DEVICE>"
+      ],
+      "tip": [
+        "管理 LUKS2 令牌。"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add <DEVICE>"
+          ],
+          "tip": [
+            "创建新的密钥环令牌。"
+          ]
+        },
+        {
+          "name": "export",
+          "usage": [
+            "export <DEVICE>"
+          ],
+          "tip": [
+            "将请求的令牌 JSON 写入文件或标准输出。"
+          ]
+        },
+        {
+          "name": "import",
+          "usage": [
+            "import <DEVICE>"
+          ],
+          "tip": [
+            "将有效的令牌 JSON 导入 LUKS2 头。"
+          ]
+        },
+        {
+          "name": "remove",
+          "usage": [
+            "remove <DEVICE>"
+          ],
+          "tip": [
+            "移除由 --token-id 指定的令牌。"
+          ]
+        },
+        {
+          "name": "unassign",
+          "usage": [
+            "unassign <DEVICE>"
+          ],
+          "tip": [
+            "移除令牌与指定密钥槽的绑定。"
+          ]
+        }
+      ]
+    }
+  ],
+  "global_option": [
+    {
+      "name": "--active-name",
+      "usage": [
+        "--active-name=<STRING>"
+      ],
+      "tip": [
+        "覆盖要重加密的 dm 设备的自动检测。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--align-payload",
+      "usage": [
+        "--align-payload=<SECTORS>"
+      ],
+      "tip": [
+        "将数据负载按此扇区边界对齐。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--allow-discards",
+      "tip": [
+        "允许对设备发送丢弃（TRIM）请求。"
+      ]
+    },
+    {
+      "name": "--batch-mode",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --batch-mode"
+      ],
+      "tip": [
+        "不请求确认。"
+      ]
+    },
+    {
+      "name": "--block-size",
+      "alias": [
+        "-B"
+      ],
+      "usage": [
+        "-B, --block-size=<MIB>"
+      ],
+      "tip": [
+        "重加密块大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--cancel-deferred",
+      "tip": [
+        "取消之前设置的延迟设备移除。"
+      ]
+    },
+    {
+      "name": "--cipher",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --cipher=<STRING>"
+      ],
+      "tip": [
+        "用于磁盘加密的密码算法（参见 /proc/crypto）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "tip": [
+        "显示调试消息。"
+      ]
+    },
+    {
+      "name": "--debug-json",
+      "tip": [
+        "显示包含 JSON 元数据的调试消息。"
+      ]
+    },
+    {
+      "name": "--decrypt",
+      "tip": [
+        "移除加密以解密 LUKS2 设备。"
+      ]
+    },
+    {
+      "name": "--deferred",
+      "tip": [
+        "延迟设备移除直到最后一个使用者关闭。"
+      ]
+    },
+    {
+      "name": "--device-size",
+      "usage": [
+        "--device-size=<BYTES>"
+      ],
+      "tip": [
+        "仅使用指定的设备大小（危险）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--disable-blkid",
+      "tip": [
+        "禁用 blkid 的磁盘签名检测和擦除。"
+      ]
+    },
+    {
+      "name": "--disable-external-tokens",
+      "tip": [
+        "禁用加载外部 LUKS2 令牌插件。"
+      ]
+    },
+    {
+      "name": "--disable-keyring",
+      "tip": [
+        "禁用通过内核密钥环加载卷密钥。"
+      ]
+    },
+    {
+      "name": "--disable-locks",
+      "tip": [
+        "禁用磁盘元数据锁定。"
+      ]
+    },
+    {
+      "name": "--disable-veracrypt",
+      "tip": [
+        "不扫描 VeraCrypt 兼容设备。"
+      ]
+    },
+    {
+      "name": "--dump-json-metadata",
+      "tip": [
+        "以 JSON 格式输出信息（仅 LUKS2）。"
+      ]
+    },
+    {
+      "name": "--dump-volume-key",
+      "alias": [
+        "--dump-master-key"
+      ],
+      "usage": [
+        "--dump-volume-key, --dump-master-key"
+      ],
+      "tip": [
+        "输出卷密钥而不是密钥槽信息。"
+      ]
+    },
+    {
+      "name": "--dump-volume-key-file",
+      "alias": [
+        "--master-key-file"
+      ],
+      "usage": [
+        "--dump-volume-key-file=<FILE>, --master-key-file=<FILE>"
+      ],
+      "tip": [
+        "将卷密钥写入此文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--encrypt",
+      "tip": [
+        "就地加密 LUKS2 设备。"
+      ]
+    },
+    {
+      "name": "--external-tokens-path",
+      "usage": [
+        "--external-tokens-path=<STRING>"
+      ],
+      "tip": [
+        "包含外部令牌处理程序的目录路径。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--force-offline-reencrypt",
+      "tip": [
+        "强制离线 LUKS2 重加密并绕过活动设备检测。"
+      ]
+    },
+    {
+      "name": "--force-password",
+      "tip": [
+        "禁用密码质量检查。"
+      ]
+    },
+    {
+      "name": "--hash",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --hash=<STRING>"
+      ],
+      "tip": [
+        "用于从口令生成加密密钥的哈希算法。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--header",
+      "usage": [
+        "--header=<STRING>"
+      ],
+      "tip": [
+        "包含分离 LUKS 头的设备或文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--header-backup-file",
+      "usage": [
+        "--header-backup-file=<STRING>"
+      ],
+      "tip": [
+        "包含 LUKS 头和密钥槽备份的文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "显示此帮助信息。"
+      ]
+    },
+    {
+      "name": "--hotzone-size",
+      "usage": [
+        "--hotzone-size=<BYTES>"
+      ],
+      "tip": [
+        "重加密热区的最大大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--hw-opal",
+      "tip": [
+        "在软件加密的同时使用硬件 OPAL 加密。"
+      ]
+    },
+    {
+      "name": "--hw-opal-factory-reset",
+      "tip": [
+        "在 luksErase 时擦除整个 OPAL 磁盘。"
+      ]
+    },
+    {
+      "name": "--hw-opal-only",
+      "tip": [
+        "仅使用硬件 OPAL 加密。"
+      ]
+    },
+    {
+      "name": "--init-only",
+      "tip": [
+        "仅在元数据中初始化 LUKS2 重加密。"
+      ]
+    },
+    {
+      "name": "--integrity",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --integrity=<STRING>"
+      ],
+      "tip": [
+        "数据完整性算法（仅 LUKS2）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--integrity-legacy-padding",
+      "tip": [
+        "为旧内核使用低效的传统填充。"
+      ]
+    },
+    {
+      "name": "--integrity-no-journal",
+      "tip": [
+        "禁用完整性设备的日志。"
+      ]
+    },
+    {
+      "name": "--integrity-no-wipe",
+      "tip": [
+        "格式化后不擦除设备。"
+      ]
+    },
+    {
+      "name": "--iter-time",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --iter-time=<MSECS>"
+      ],
+      "tip": [
+        "LUKS 的 PBKDF 迭代时间（毫秒）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--iv-large-sectors",
+      "tip": [
+        "按扇区大小而不是 512 字节单位计算 IV。"
+      ]
+    },
+    {
+      "name": "--json-file",
+      "usage": [
+        "--json-file=<STRING>"
+      ],
+      "tip": [
+        "从文件读取或向文件写入 JSON。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--keep-key",
+      "tip": [
+        "不更改卷密钥。"
+      ]
+    },
+    {
+      "name": "--key-description",
+      "usage": [
+        "--key-description=<STRING>"
+      ],
+      "tip": [
+        "密钥环中的密钥描述。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--key-file",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --key-file=<STRING>"
+      ],
+      "tip": [
+        "从此文件读取密钥。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--key-size",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --key-size=<BITS>"
+      ],
+      "tip": [
+        "加密密钥的大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--key-slot",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --key-slot=<INT>"
+      ],
+      "tip": [
+        "新密钥的槽号（默认第一个空闲槽）。"
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        },
+        {
+          "name": "10"
+        },
+        {
+          "name": "11"
+        },
+        {
+          "name": "12"
+        },
+        {
+          "name": "13"
+        },
+        {
+          "name": "14"
+        },
+        {
+          "name": "15"
+        },
+        {
+          "name": "16"
+        },
+        {
+          "name": "17"
+        },
+        {
+          "name": "18"
+        },
+        {
+          "name": "19"
+        },
+        {
+          "name": "2"
+        },
+        {
+          "name": "20"
+        },
+        {
+          "name": "21"
+        },
+        {
+          "name": "22"
+        },
+        {
+          "name": "23"
+        },
+        {
+          "name": "24"
+        },
+        {
+          "name": "25"
+        },
+        {
+          "name": "26"
+        },
+        {
+          "name": "27"
+        },
+        {
+          "name": "28"
+        },
+        {
+          "name": "29"
+        },
+        {
+          "name": "3"
+        },
+        {
+          "name": "30"
+        },
+        {
+          "name": "31"
+        },
+        {
+          "name": "4"
+        },
+        {
+          "name": "5"
+        },
+        {
+          "name": "6"
+        },
+        {
+          "name": "7"
+        },
+        {
+          "name": "8"
+        },
+        {
+          "name": "9"
+        }
+      ]
+    },
+    {
+      "name": "--keyfile-offset",
+      "usage": [
+        "--keyfile-offset=<BYTES>"
+      ],
+      "tip": [
+        "在密钥文件中跳过的字节数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--keyfile-size",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --keyfile-size=<BYTES>"
+      ],
+      "tip": [
+        "限制从密钥文件读取的字节数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--keyslot-cipher",
+      "usage": [
+        "--keyslot-cipher=<STRING>"
+      ],
+      "tip": [
+        "LUKS2 密钥槽密码算法。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--keyslot-key-size",
+      "usage": [
+        "--keyslot-key-size=<BITS>"
+      ],
+      "tip": [
+        "LUKS2 密钥槽密钥大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--label",
+      "usage": [
+        "--label=<STRING>"
+      ],
+      "tip": [
+        "为 LUKS2 设备设置标签。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--link-vk-to-keyring",
+      "usage": [
+        "--link-vk-to-keyring=<STRING>"
+      ],
+      "tip": [
+        "设置链接卷密钥的密钥环。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--luks2-keyslots-size",
+      "usage": [
+        "--luks2-keyslots-size=<BYTES>"
+      ],
+      "tip": [
+        "LUKS2 头密钥槽区域大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--luks2-metadata-size",
+      "usage": [
+        "--luks2-metadata-size=<BYTES>"
+      ],
+      "tip": [
+        "LUKS2 头元数据区域大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--new",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --new"
+      ],
+      "tip": [
+        "在尚未加密的设备上创建新头。"
+      ]
+    },
+    {
+      "name": "--new-key-slot",
+      "usage": [
+        "--new-key-slot=<INT>"
+      ],
+      "tip": [
+        "新密钥的槽号（默认第一个空闲槽）。"
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        },
+        {
+          "name": "10"
+        },
+        {
+          "name": "11"
+        },
+        {
+          "name": "12"
+        },
+        {
+          "name": "13"
+        },
+        {
+          "name": "14"
+        },
+        {
+          "name": "15"
+        },
+        {
+          "name": "16"
+        },
+        {
+          "name": "17"
+        },
+        {
+          "name": "18"
+        },
+        {
+          "name": "19"
+        },
+        {
+          "name": "2"
+        },
+        {
+          "name": "20"
+        },
+        {
+          "name": "21"
+        },
+        {
+          "name": "22"
+        },
+        {
+          "name": "23"
+        },
+        {
+          "name": "24"
+        },
+        {
+          "name": "25"
+        },
+        {
+          "name": "26"
+        },
+        {
+          "name": "27"
+        },
+        {
+          "name": "28"
+        },
+        {
+          "name": "29"
+        },
+        {
+          "name": "3"
+        },
+        {
+          "name": "30"
+        },
+        {
+          "name": "31"
+        },
+        {
+          "name": "4"
+        },
+        {
+          "name": "5"
+        },
+        {
+          "name": "6"
+        },
+        {
+          "name": "7"
+        },
+        {
+          "name": "8"
+        },
+        {
+          "name": "9"
+        }
+      ]
+    },
+    {
+      "name": "--new-keyfile",
+      "usage": [
+        "--new-keyfile=<STRING>"
+      ],
+      "tip": [
+        "从此文件读取新槽的密钥。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--new-keyfile-offset",
+      "usage": [
+        "--new-keyfile-offset=<BYTES>"
+      ],
+      "tip": [
+        "在新增密钥文件中跳过的字节数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--new-keyfile-size",
+      "usage": [
+        "--new-keyfile-size=<BYTES>"
+      ],
+      "tip": [
+        "限制从新增密钥文件读取的字节数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--new-token-id",
+      "usage": [
+        "--new-token-id=<INT>"
+      ],
+      "tip": [
+        "令牌编号（默认任意）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--offset",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --offset=<SECTORS>"
+      ],
+      "tip": [
+        "后端设备中的起始偏移。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--pbkdf",
+      "usage": [
+        "--pbkdf=<STRING>"
+      ],
+      "tip": [
+        "LUKS2 的 PBKDF 算法。"
+      ],
+      "next": [
+        {
+          "name": "argon2i"
+        },
+        {
+          "name": "argon2id"
+        },
+        {
+          "name": "pbkdf2"
+        }
+      ]
+    },
+    {
+      "name": "--pbkdf-force-iterations",
+      "usage": [
+        "--pbkdf-force-iterations=<LONG>"
+      ],
+      "tip": [
+        "强制的 PBKDF 迭代成本，禁用基准测试。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--pbkdf-memory",
+      "usage": [
+        "--pbkdf-memory=<KILOBYTES>"
+      ],
+      "tip": [
+        "PBKDF 内存成本上限。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--pbkdf-parallel",
+      "usage": [
+        "--pbkdf-parallel=<THREADS>"
+      ],
+      "tip": [
+        "PBKDF 并行成本。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--perf-no_read_workqueue",
+      "tip": [
+        "绕过 dm-crypt 读取工作队列。"
+      ]
+    },
+    {
+      "name": "--perf-no_write_workqueue",
+      "tip": [
+        "绕过 dm-crypt 写入工作队列。"
+      ]
+    },
+    {
+      "name": "--perf-same_cpu_crypt",
+      "tip": [
+        "使用 dm-crypt 的 same_cpu_crypt 选项。"
+      ]
+    },
+    {
+      "name": "--perf-submit_from_crypt_cpus",
+      "tip": [
+        "使用 dm-crypt 的 submit_from_crypt_cpus 选项。"
+      ]
+    },
+    {
+      "name": "--persistent",
+      "tip": [
+        "为设备持久设置激活标志。"
+      ]
+    },
+    {
+      "name": "--priority",
+      "usage": [
+        "--priority=<STRING>"
+      ],
+      "tip": [
+        "密钥槽优先级。"
+      ],
+      "next": [
+        {
+          "name": "ignore"
+        },
+        {
+          "name": "normal"
+        },
+        {
+          "name": "prefer"
+        }
+      ]
+    },
+    {
+      "name": "--progress-frequency",
+      "usage": [
+        "--progress-frequency=<SECS>"
+      ],
+      "tip": [
+        "进度行更新间隔（秒）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--progress-json",
+      "tip": [
+        "以 JSON 格式输出进度数据。"
+      ]
+    },
+    {
+      "name": "--readonly",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --readonly"
+      ],
+      "tip": [
+        "创建只读映射。"
+      ]
+    },
+    {
+      "name": "--reduce-device-size",
+      "usage": [
+        "--reduce-device-size=<BYTES>"
+      ],
+      "tip": [
+        "通过移动数据偏移来减小数据设备大小（危险）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--refresh",
+      "tip": [
+        "使用新参数刷新（重新激活）设备。"
+      ]
+    },
+    {
+      "name": "--resilience",
+      "usage": [
+        "--resilience=<STRING>"
+      ],
+      "tip": [
+        "重加密热区的恢复类型。"
+      ],
+      "next": [
+        {
+          "name": "checksum"
+        },
+        {
+          "name": "journal"
+        },
+        {
+          "name": "none"
+        }
+      ]
+    },
+    {
+      "name": "--resilience-hash",
+      "usage": [
+        "--resilience-hash=<STRING>"
+      ],
+      "tip": [
+        "重加密热区校验和哈希。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--resume-only",
+      "tip": [
+        "仅恢复已初始化的 LUKS2 重加密。"
+      ]
+    },
+    {
+      "name": "--sector-size",
+      "usage": [
+        "--sector-size=<INT>"
+      ],
+      "tip": [
+        "加密扇区大小（默认 512 字节）。"
+      ],
+      "next": [
+        {
+          "name": "4096"
+        },
+        {
+          "name": "512"
+        }
+      ]
+    },
+    {
+      "name": "--serialize-memory-hard-pbkdf",
+      "tip": [
+        "使用全局锁串行化内存密集型 PBKDF。"
+      ]
+    },
+    {
+      "name": "--shared",
+      "tip": [
+        "与另一个不重叠的 crypt 段共享设备。"
+      ]
+    },
+    {
+      "name": "--size",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --size=<SECTORS>"
+      ],
+      "tip": [
+        "设备大小（扇区）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--skip",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --skip=<SECTORS>"
+      ],
+      "tip": [
+        "开头要跳过的加密数据扇区数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--subsystem",
+      "usage": [
+        "--subsystem=<STRING>"
+      ],
+      "tip": [
+        "为 LUKS2 设备设置子系统标签。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--tcrypt-backup",
+      "tip": [
+        "使用备份（次要）TCRYPT 头。"
+      ]
+    },
+    {
+      "name": "--tcrypt-hidden",
+      "tip": [
+        "使用隐藏的 TCRYPT 头。"
+      ]
+    },
+    {
+      "name": "--tcrypt-system",
+      "tip": [
+        "将设备视为系统 TCRYPT 驱动器。"
+      ]
+    },
+    {
+      "name": "--test-args",
+      "tip": [
+        "仅验证命令行参数。"
+      ]
+    },
+    {
+      "name": "--test-passphrase",
+      "tip": [
+        "仅检查口令，不激活设备。"
+      ]
+    },
+    {
+      "name": "--timeout",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --timeout=<SECS>"
+      ],
+      "tip": [
+        "交互式口令提示的超时时间（秒）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--token-id",
+      "usage": [
+        "--token-id=<INT>"
+      ],
+      "tip": [
+        "令牌编号（默认任意）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--token-only",
+      "tip": [
+        "如果令牌激活失败则不请求口令。"
+      ]
+    },
+    {
+      "name": "--token-replace",
+      "tip": [
+        "替换当前令牌。"
+      ]
+    },
+    {
+      "name": "--token-type",
+      "usage": [
+        "--token-type=<STRING>"
+      ],
+      "tip": [
+        "限制用于获取 LUKS2 密钥的令牌类型。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--tries",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --tries=<INT>"
+      ],
+      "tip": [
+        "口令输入可重试的次数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--type",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --type=<STRING>"
+      ],
+      "tip": [
+        "设备元数据类型。"
+      ],
+      "next": [
+        {
+          "name": "bitlk"
+        },
+        {
+          "name": "fvault2"
+        },
+        {
+          "name": "loopaes"
+        },
+        {
+          "name": "luks"
+        },
+        {
+          "name": "luks1"
+        },
+        {
+          "name": "luks2"
+        },
+        {
+          "name": "plain"
+        },
+        {
+          "name": "tcrypt"
+        }
+      ]
+    },
+    {
+      "name": "--unbound",
+      "tip": [
+        "创建或输出未绑定的 LUKS2 密钥槽或令牌。"
+      ]
+    },
+    {
+      "name": "--usage",
+      "tip": [
+        "显示简短用法。"
+      ]
+    },
+    {
+      "name": "--use-directio",
+      "tip": [
+        "访问设备时使用直接 I/O。"
+      ]
+    },
+    {
+      "name": "--use-fsync",
+      "tip": [
+        "每块之后使用 fsync。"
+      ]
+    },
+    {
+      "name": "--use-random",
+      "tip": [
+        "使用 /dev/random 生成卷密钥。"
+      ]
+    },
+    {
+      "name": "--use-urandom",
+      "tip": [
+        "使用 /dev/urandom 生成卷密钥。"
+      ]
+    },
+    {
+      "name": "--uuid",
+      "usage": [
+        "--uuid=<STRING>"
+      ],
+      "tip": [
+        "要使用的设备 UUID。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--veracrypt",
+      "tip": [
+        "同时扫描 VeraCrypt 兼容设备。"
+      ]
+    },
+    {
+      "name": "--veracrypt-pim",
+      "usage": [
+        "--veracrypt-pim=<INT>"
+      ],
+      "tip": [
+        "VeraCrypt 设备的个人迭代乘数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--veracrypt-query-pim",
+      "tip": [
+        "查询个人迭代乘数。"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "显示更详细的错误消息。"
+      ]
+    },
+    {
+      "name": "--verify-passphrase",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --verify-passphrase"
+      ],
+      "tip": [
+        "通过要求输入两次来验证口令。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "打印软件包版本。"
+      ]
+    },
+    {
+      "name": "--volume-key-file",
+      "usage": [
+        "--volume-key-file=<STRING>"
+      ],
+      "tip": [
+        "从此文件使用卷密钥。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--volume-key-keyring",
+      "usage": [
+        "--volume-key-keyring=<STRING>"
+      ],
+      "tip": [
+        "使用指定的密钥环密钥作为卷密钥。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--write-log",
+      "tip": [
+        "每块之后更新日志文件。"
+      ]
+    }
+  ]
+}

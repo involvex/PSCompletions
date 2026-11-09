@@ -1,0 +1,289 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "Adjust tunable file system parameters on an ext2/ext3/ext4 file system."
+    ]
+  },
+  "option": [
+    {
+      "name": "-c",
+      "usage": [
+        "-c max-mount-counts"
+      ],
+      "tip": [
+        "Set the number of mounts after which e2fsck checks the file system.",
+        "Use random, 0 or -1 for the documented special cases."
+      ],
+      "next": [
+        {
+          "name": "-1"
+        },
+        {
+          "name": "0"
+        },
+        {
+          "name": "random"
+        }
+      ]
+    },
+    {
+      "name": "-C",
+      "usage": [
+        "-C mount-count"
+      ],
+      "tip": [
+        "Set the number of times the file system has been mounted."
+      ],
+      "next": []
+    },
+    {
+      "name": "-e",
+      "usage": [
+        "-e error-behavior"
+      ],
+      "tip": [
+        "Set the kernel behavior when errors are detected.",
+        "Possible values: continue, remount-ro, panic"
+      ],
+      "next": [
+        {
+          "name": "continue"
+        },
+        {
+          "name": "panic"
+        },
+        {
+          "name": "remount-ro"
+        }
+      ]
+    },
+    {
+      "name": "-E",
+      "usage": [
+        "-E extended-options"
+      ],
+      "tip": [
+        "Set comma-separated extended options.",
+        "See tune2fs(8) for the supported options."
+      ],
+      "next": []
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "Force the operation even when errors are encountered."
+      ]
+    },
+    {
+      "name": "-g",
+      "usage": [
+        "-g group"
+      ],
+      "tip": [
+        "Set the group that may use the reserved blocks.",
+        "Accepts a group name or numeric gid."
+      ],
+      "next": []
+    },
+    {
+      "name": "-i",
+      "usage": [
+        "-i interval-between-checks[d|m|w]"
+      ],
+      "tip": [
+        "Set the maximum time between two file system checks.",
+        "Use a d, m or w suffix; 0 disables the check."
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1d"
+        },
+        {
+          "name": "1m"
+        },
+        {
+          "name": "1w"
+        }
+      ]
+    },
+    {
+      "name": "-I",
+      "usage": [
+        "-I new_inode_size"
+      ],
+      "tip": [
+        "Change the inode size used by the file system."
+      ],
+      "next": []
+    },
+    {
+      "name": "-j",
+      "tip": [
+        "Add an ext3 journal to the file system."
+      ]
+    },
+    {
+      "name": "-J",
+      "usage": [
+        "-J journal-options"
+      ],
+      "tip": [
+        "Set comma-separated journal options.",
+        "See tune2fs(8) for the supported options."
+      ],
+      "next": []
+    },
+    {
+      "name": "-l",
+      "tip": [
+        "List the contents of the file system superblock."
+      ]
+    },
+    {
+      "name": "-L",
+      "usage": [
+        "-L volume-label"
+      ],
+      "tip": [
+        "Set the volume label, up to 16 characters."
+      ],
+      "next": []
+    },
+    {
+      "name": "-m",
+      "usage": [
+        "-m reserved-blocks-percentage"
+      ],
+      "tip": [
+        "Set the percentage of blocks reserved for privileged processes."
+      ],
+      "next": []
+    },
+    {
+      "name": "-M",
+      "usage": [
+        "-M last-mounted-directory"
+      ],
+      "tip": [
+        "Set the last-mounted directory."
+      ],
+      "next": []
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o [^]mount-option[,...]"
+      ],
+      "tip": [
+        "Set or clear default mount options.",
+        "Prefix an option with ^ to clear it."
+      ],
+      "next": []
+    },
+    {
+      "name": "-O",
+      "usage": [
+        "-O [^]feature[,...]"
+      ],
+      "tip": [
+        "Set or clear file system features.",
+        "Prefix a feature with ^ to clear it."
+      ],
+      "next": []
+    },
+    {
+      "name": "-Q",
+      "usage": [
+        "-Q quota-options"
+      ],
+      "tip": [
+        "Set quota options and the quota feature.",
+        "Possible values: usrquota, grpquota, prjquota",
+        "Prefix an option with ^ to clear it."
+      ],
+      "next": [
+        {
+          "name": "grpquota"
+        },
+        {
+          "name": "prjquota"
+        },
+        {
+          "name": "usrquota"
+        }
+      ]
+    },
+    {
+      "name": "-r",
+      "usage": [
+        "-r reserved-blocks-count"
+      ],
+      "tip": [
+        "Set the number of reserved file system blocks."
+      ],
+      "next": []
+    },
+    {
+      "name": "-T",
+      "usage": [
+        "-T time-last-checked"
+      ],
+      "tip": [
+        "Set the time the file system was last checked.",
+        "Use now or a date understood by the system."
+      ],
+      "next": [
+        {
+          "name": "now"
+        }
+      ]
+    },
+    {
+      "name": "-u",
+      "usage": [
+        "-u user"
+      ],
+      "tip": [
+        "Set the user who may use the reserved blocks.",
+        "Accepts a user name or numeric uid."
+      ],
+      "next": []
+    },
+    {
+      "name": "-U",
+      "usage": [
+        "-U UUID"
+      ],
+      "tip": [
+        "Set the file system UUID.",
+        "Possible values: clear, random, time",
+        "Any explicit UUID is also accepted."
+      ],
+      "next": [
+        {
+          "name": "clear"
+        },
+        {
+          "name": "random"
+        },
+        {
+          "name": "time"
+        }
+      ]
+    },
+    {
+      "name": "-z",
+      "usage": [
+        "-z undo_file"
+      ],
+      "tip": [
+        "Write the old contents of each block to an undo file."
+      ],
+      "next": []
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "Manipulate the system ARP cache."
+    ]
+  },
+  "option": [
+    {
+      "name": "--delete",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --delete <HOST>"
+      ],
+      "tip": [
+        "Delete the specified ARP entry."
+      ],
+      "next": []
+    },
+    {
+      "name": "--device",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --device <INTERFACE>"
+      ],
+      "tip": [
+        "Restrict to or associate with the given interface."
+      ],
+      "next": []
+    },
+    {
+      "name": "--file",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --file [<FILENAME>]"
+      ],
+      "tip": [
+        "Read new entries from the file, or from /etc/ethers when omitted."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "tip": [
+        "Display this help."
+      ]
+    },
+    {
+      "name": "--hw-type",
+      "alias": [
+        "-H",
+        "-t"
+      ],
+      "usage": [
+        "-t, -H, --hw-type <TYPE>"
+      ],
+      "tip": [
+        "Check only entries of this hardware type (default ether)."
+      ],
+      "next": [
+        {
+          "name": "arcnet"
+        },
+        {
+          "name": "ash"
+        },
+        {
+          "name": "ax25"
+        },
+        {
+          "name": "dlci"
+        },
+        {
+          "name": "ether"
+        },
+        {
+          "name": "eui64"
+        },
+        {
+          "name": "fddi"
+        },
+        {
+          "name": "hippi"
+        },
+        {
+          "name": "irda"
+        },
+        {
+          "name": "netrom"
+        },
+        {
+          "name": "rose"
+        },
+        {
+          "name": "x25"
+        }
+      ]
+    },
+    {
+      "name": "--numeric",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --numeric"
+      ],
+      "tip": [
+        "Show numerical addresses instead of resolving symbolic host, port or user names."
+      ]
+    },
+    {
+      "name": "--protocol",
+      "alias": [
+        "-A",
+        "-p"
+      ],
+      "usage": [
+        "-p, -A, --protocol <FAMILY>"
+      ],
+      "tip": [
+        "Specify the protocol family."
+      ],
+      "next": [
+        {
+          "name": "ax25"
+        },
+        {
+          "name": "ddp"
+        },
+        {
+          "name": "econet"
+        },
+        {
+          "name": "inet"
+        },
+        {
+          "name": "inet6"
+        },
+        {
+          "name": "ipx"
+        },
+        {
+          "name": "netrom"
+        },
+        {
+          "name": "rose"
+        },
+        {
+          "name": "unix"
+        },
+        {
+          "name": "x25"
+        }
+      ]
+    },
+    {
+      "name": "--set",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --set <HOST> <HW_ADDR>"
+      ],
+      "tip": [
+        "Set a new ARP entry."
+      ],
+      "next": []
+    },
+    {
+      "name": "--use-device",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --use-device"
+      ],
+      "tip": [
+        "Read the hardware address from the given interface."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Tell the user what is going on by being verbose."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Display version information."
+      ]
+    },
+    {
+      "name": "-a",
+      "tip": [
+        "Use the alternate BSD-style output format with no fixed columns."
+      ]
+    },
+    {
+      "name": "-e",
+      "tip": [
+        "Use the default Linux-style output format with fixed columns."
+      ]
+    },
+    {
+      "name": "dontpub",
+      "tip": [
+        "Do not publish this entry (not supported by kernels 2.4 and newer)."
+      ]
+    },
+    {
+      "name": "netmask",
+      "usage": [
+        "netmask <NETMASK>"
+      ],
+      "tip": [
+        "Set the netmask for proxy ARP entries."
+      ],
+      "next": []
+    },
+    {
+      "name": "pub",
+      "tip": [
+        "Publish this entry for proxy ARP."
+      ]
+    },
+    {
+      "name": "temp",
+      "tip": [
+        "Make the entry temporary instead of permanent."
+      ]
+    }
+  ]
+}

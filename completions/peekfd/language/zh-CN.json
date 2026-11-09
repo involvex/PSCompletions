@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/psmisc/psmisc",
+    "description": [
+      "查看运行中进程的文件描述符。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--duplicates-removed",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --duplicates-removed"
+      ],
+      "tip": [
+        "移除重复的读/写。"
+      ]
+    },
+    {
+      "name": "--eight-bit-clean",
+      "alias": [
+        "-8"
+      ],
+      "usage": [
+        "-8, --eight-bit-clean"
+      ],
+      "tip": [
+        "输出 8 位干净流。"
+      ]
+    },
+    {
+      "name": "--follow",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --follow"
+      ],
+      "tip": [
+        "同时查看新的子进程。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "打印此帮助。"
+      ]
+    },
+    {
+      "name": "--no-headers",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --no-headers"
+      ],
+      "tip": [
+        "不显示读/写头。"
+      ]
+    },
+    {
+      "name": "--tgid",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --tgid"
+      ],
+      "tip": [
+        "查看具有此 tgid 的所有线程。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "打印版本信息。"
+      ]
+    }
+  ]
+}

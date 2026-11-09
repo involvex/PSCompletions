@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/man-db/man-db",
+    "description": [
+      "确定手册页搜索路径。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--catpath",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --catpath"
+      ],
+      "tip": [
+        "显示相对 cat 路径。"
+      ]
+    },
+    {
+      "name": "--config-file",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --config-file=FILE"
+      ],
+      "tip": [
+        "使用此用户配置文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "输出调试消息。"
+      ]
+    },
+    {
+      "name": "--global",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --global"
+      ],
+      "tip": [
+        "显示完整全局 manpath。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "给出此帮助列表。"
+      ]
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "产生更少警告。"
+      ]
+    },
+    {
+      "name": "--systems",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --systems=SYSTEM"
+      ],
+      "tip": [
+        "使用其他系统的手册页。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--usage",
+      "tip": [
+        "给出简短用法消息。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "打印程序版本。"
+      ]
+    }
+  ]
+}

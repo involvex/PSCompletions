@@ -1,6 +1,5 @@
-//! Config registry, migration and sanitization. Every config key is defined here (one row
-//! per key, so new keys/groups are added by appending a row); migration and sanitization
-//! live alongside.
+//! Config registry, migration and sanitization.
+//! Every config key is defined here (one row per key, so new keys/groups are added by appending a row); migration and sanitization live alongside.
 
 use serde_json::{Map, Value};
 
@@ -12,9 +11,6 @@ pub enum CfgType {
     Str,
     Url,
     NonEmptyStr,
-    IntRange(i64, i64),
-    /// Positive integer kept as-is (no upper bound; the consumer caps it when using it).
-    PositiveInt,
     Enum(&'static [&'static str]),
 }
 
@@ -157,15 +153,6 @@ pub fn validate_value(def: &CfgDef, value: &str) -> Option<Value> {
                 None
             }
         }
-        CfgType::IntRange(min, max) => match value.parse::<i64>() {
-            Ok(n) if n >= min && n <= max => Some(Value::Number(n.into())),
-            _ => None,
-        },
-        CfgType::PositiveInt => match value.parse::<i64>() {
-            // Positive integer, stored verbatim (bounded by i32 since the engine consumes it).
-            Ok(n) if n >= 1 && n <= i32::MAX as i64 => Some(Value::Number(n.into())),
-            _ => None,
-        },
         CfgType::Enum(vals) => {
             if vals.contains(&value) {
                 Some(Value::String(value.to_string()))
@@ -216,9 +203,7 @@ pub fn migrate_config(config: &mut Map<String, Value>) -> bool {
         }
     }
     // Symbol migration: old symbol keys -> current symbol keys.
-    // - First-generation keys like SpaceTab map directly to the current names (switch/stay)
-    // - continue (the symbol was once called continue, now switch) -> switch
-    // - WriteSpaceTab / input have been removed (input is expressed via the usage placeholder) -> drop
+    // - First-generation keys like SpaceTab map directly to the current names (switch/stay) - continue (the symbol was once called continue, now switch) -> switch - WriteSpaceTab / input have been removed (input is expressed via the usage placeholder) -> drop
     if config.remove("WriteSpaceTab").is_some() {
         changed = true;
     }
@@ -315,9 +300,8 @@ pub fn migrate_config(config: &mut Map<String, Value>) -> bool {
     changed
 }
 
-/// Revert invalid config values to defaults so corrupt/manually edited config cannot silently
-/// change behavior. Returns whether anything changed (migration, whitelist cleanup, default
-/// backfill, value correction) — the caller persists the corrected config based on this.
+/// Revert invalid config values to defaults so corrupt/manually edited config cannot silently change behavior.
+/// Returns whether anything changed (migration, whitelist cleanup, default backfill, value correction) — the caller persists the corrected config based on this.
 pub fn sanitize_config(config: &mut Map<String, Value>, defaults: &Value) -> bool {
     let mut changed = migrate_config(config);
     // Whitelist: drop obsolete keys, keeping only the current CONFIG_KEYS plus `completion`.
@@ -351,10 +335,6 @@ pub fn sanitize_config(config: &mut Map<String, Value>, defaults: &Value) -> boo
             CfgType::Url => v
                 .as_str()
                 .map(|s| s.is_empty() || s.starts_with("http://") || s.starts_with("https://"))
-                .unwrap_or(false),
-            CfgType::IntRange(min, max) => as_int(v).map(|n| n >= min && n <= max).unwrap_or(false),
-            CfgType::PositiveInt => as_int(v)
-                .map(|n| n >= 1 && n <= i32::MAX as i64)
                 .unwrap_or(false),
             CfgType::Enum(vals) => v.as_str().map(|s| vals.contains(&s)).unwrap_or(false),
         };

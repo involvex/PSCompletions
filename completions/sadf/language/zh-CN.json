@@ -1,0 +1,242 @@
+{
+  "meta": {
+    "url": "https://github.com/sysstat/sysstat",
+    "description": [
+      "以多种格式显示 sar 收集的数据。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--dec",
+      "usage": [
+        "--dec={0|1|2}"
+      ],
+      "tip": [
+        "设置小数精度。"
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        },
+        {
+          "name": "2"
+        }
+      ]
+    },
+    {
+      "name": "--dev",
+      "usage": [
+        "--dev=<dev_list>"
+      ],
+      "tip": [
+        "选择设备。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--fs",
+      "usage": [
+        "--fs=<fs_list>"
+      ],
+      "tip": [
+        "选择文件系统。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--human",
+      "tip": [
+        "以人类可读格式打印大小。"
+      ]
+    },
+    {
+      "name": "--iface",
+      "usage": [
+        "--iface=<iface_list>"
+      ],
+      "tip": [
+        "选择接口。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--int",
+      "usage": [
+        "--int=<int_list>"
+      ],
+      "tip": [
+        "选择中断。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--pretty",
+      "tip": [
+        "美化 JSON 输出。"
+      ]
+    },
+    {
+      "name": "-c",
+      "tip": [
+        "转换为 CSV。"
+      ]
+    },
+    {
+      "name": "-C",
+      "tip": [
+        "显示注释。"
+      ]
+    },
+    {
+      "name": "-d",
+      "tip": [
+        "转换为 XML。"
+      ]
+    },
+    {
+      "name": "-e",
+      "usage": [
+        "-e [<end_time>]"
+      ],
+      "tip": [
+        "设置结束时间。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-g",
+      "tip": [
+        "转换为 SVG。"
+      ]
+    },
+    {
+      "name": "-h",
+      "tip": [
+        "以人类可读格式打印大小。"
+      ]
+    },
+    {
+      "name": "-H",
+      "tip": [
+        "以 ISO 格式显示时间戳。"
+      ]
+    },
+    {
+      "name": "-j",
+      "tip": [
+        "转换为 JSON。"
+      ]
+    },
+    {
+      "name": "-k",
+      "tip": [
+        "以千字节显示大小。"
+      ]
+    },
+    {
+      "name": "-l",
+      "tip": [
+        "显示平均统计。"
+      ]
+    },
+    {
+      "name": "-m",
+      "tip": [
+        "以兆字节显示大小。"
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o JSON"
+      ],
+      "tip": [
+        "以 JSON 格式输出。"
+      ],
+      "next": [
+        {
+          "name": "JSON"
+        }
+      ]
+    },
+    {
+      "name": "-O",
+      "usage": [
+        "-O <opts> [,...]"
+      ],
+      "tip": [
+        "设置输出选项。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-p",
+      "tip": [
+        "转换为 SQL。"
+      ]
+    },
+    {
+      "name": "-P",
+      "usage": [
+        "-P {<cpu> [...]|ALL}"
+      ],
+      "tip": [
+        "选择 CPU。"
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        }
+      ]
+    },
+    {
+      "name": "-r",
+      "tip": [
+        "转换为原始格式。"
+      ]
+    },
+    {
+      "name": "-s",
+      "usage": [
+        "-s [<start_time>]"
+      ],
+      "tip": [
+        "设置开始时间。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-t",
+      "tip": [
+        "以本地时间显示时间戳。"
+      ]
+    },
+    {
+      "name": "-T",
+      "tip": [
+        "以秒显示时间戳。"
+      ]
+    },
+    {
+      "name": "-U",
+      "tip": [
+        "以 UTC 显示时间戳。"
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "打印版本信息。"
+      ]
+    },
+    {
+      "name": "-x",
+      "tip": [
+        "转换为 XML（替代）。"
+      ]
+    }
+  ]
+}

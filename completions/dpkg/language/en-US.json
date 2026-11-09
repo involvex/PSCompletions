@@ -1,0 +1,559 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "Debian package manager."
+    ]
+  },
+  "option": [
+    {
+      "name": "--abort-after",
+      "usage": [
+        "--abort-after <n>"
+      ],
+      "tip": [
+        "Abort after n errors."
+      ],
+      "next": []
+    },
+    {
+      "name": "--add-architecture",
+      "usage": [
+        "--add-architecture <arch>"
+      ],
+      "tip": [
+        "Add an architecture."
+      ],
+      "next": []
+    },
+    {
+      "name": "--admindir",
+      "usage": [
+        "--admindir=<directory>"
+      ],
+      "tip": [
+        "Use the directory instead of /var/lib/dpkg."
+      ],
+      "next": []
+    },
+    {
+      "name": "--assert-help",
+      "tip": [
+        "Show help on assertions."
+      ]
+    },
+    {
+      "name": "--audit",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --audit [<package>...]"
+      ],
+      "tip": [
+        "Check for broken packages."
+      ],
+      "next": []
+    },
+    {
+      "name": "--auto-deconfigure",
+      "alias": [
+        "-B"
+      ],
+      "usage": [
+        "-B, --auto-deconfigure"
+      ],
+      "tip": [
+        "Install even if it breaks another package."
+      ]
+    },
+    {
+      "name": "--clear-avail",
+      "tip": [
+        "Erase available package info."
+      ]
+    },
+    {
+      "name": "--clear-selections",
+      "tip": [
+        "Deselect every non-essential package."
+      ]
+    },
+    {
+      "name": "--compare-versions",
+      "usage": [
+        "--compare-versions <a> <op> <b>"
+      ],
+      "tip": [
+        "Compare version numbers."
+      ],
+      "next": []
+    },
+    {
+      "name": "--configure",
+      "usage": [
+        "--configure <package>..."
+      ],
+      "tip": [
+        "Configure unpacked packages."
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --debug=<octal>"
+      ],
+      "tip": [
+        "Enable debugging (see --debug=help)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--force-help",
+      "tip": [
+        "Show help on forcing."
+      ]
+    },
+    {
+      "name": "--forget-old-unavail",
+      "tip": [
+        "Forget uninstalled unavailable packages."
+      ]
+    },
+    {
+      "name": "--get-selections",
+      "usage": [
+        "--get-selections [<pattern>...]"
+      ],
+      "tip": [
+        "Print package selections."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "Show this help message."
+      ]
+    },
+    {
+      "name": "--ignore-depends",
+      "usage": [
+        "--ignore-depends=<package>[,...]"
+      ],
+      "tip": [
+        "Ignore dependencies involving the package."
+      ],
+      "next": []
+    },
+    {
+      "name": "--install",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --install <.deb file>..."
+      ],
+      "tip": [
+        "Install packages."
+      ],
+      "next": []
+    },
+    {
+      "name": "--instdir",
+      "usage": [
+        "--instdir=<directory>"
+      ],
+      "tip": [
+        "Change the installation directory."
+      ],
+      "next": []
+    },
+    {
+      "name": "--list",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --list [<pattern>...]"
+      ],
+      "tip": [
+        "List packages concisely."
+      ],
+      "next": []
+    },
+    {
+      "name": "--listfiles",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --listfiles <package>..."
+      ],
+      "tip": [
+        "List files owned by packages."
+      ],
+      "next": []
+    },
+    {
+      "name": "--log",
+      "usage": [
+        "--log=<filename>"
+      ],
+      "tip": [
+        "Log status changes to the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--merge-avail",
+      "usage": [
+        "--merge-avail [<Packages-file>]"
+      ],
+      "tip": [
+        "Merge available package info."
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-debsig",
+      "tip": [
+        "Do not verify package signatures."
+      ]
+    },
+    {
+      "name": "--no-pager",
+      "tip": [
+        "Disable the pager."
+      ]
+    },
+    {
+      "name": "--no-triggers",
+      "tip": [
+        "Skip consequential trigger processing."
+      ]
+    },
+    {
+      "name": "--path-exclude",
+      "usage": [
+        "--path-exclude=<pattern>"
+      ],
+      "tip": [
+        "Do not install matching paths."
+      ],
+      "next": []
+    },
+    {
+      "name": "--path-include",
+      "usage": [
+        "--path-include=<pattern>"
+      ],
+      "tip": [
+        "Re-include a previously excluded pattern."
+      ],
+      "next": []
+    },
+    {
+      "name": "--post-invoke",
+      "usage": [
+        "--post-invoke=<command>"
+      ],
+      "tip": [
+        "Set a post-invoke hook."
+      ],
+      "next": []
+    },
+    {
+      "name": "--pre-invoke",
+      "usage": [
+        "--pre-invoke=<command>"
+      ],
+      "tip": [
+        "Set a pre-invoke hook."
+      ],
+      "next": []
+    },
+    {
+      "name": "--predep-package",
+      "tip": [
+        "Print pre-dependencies to unpack."
+      ]
+    },
+    {
+      "name": "--print-architecture",
+      "tip": [
+        "Print the dpkg architecture."
+      ]
+    },
+    {
+      "name": "--print-avail",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --print-avail [<package>...]"
+      ],
+      "tip": [
+        "Display available version details."
+      ],
+      "next": []
+    },
+    {
+      "name": "--print-foreign-architectures",
+      "tip": [
+        "Print allowed foreign architectures."
+      ]
+    },
+    {
+      "name": "--purge",
+      "alias": [
+        "-P"
+      ],
+      "usage": [
+        "-P, --purge <package>..."
+      ],
+      "tip": [
+        "Purge packages and configuration."
+      ],
+      "next": []
+    },
+    {
+      "name": "--record-avail",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --record-avail <.deb file>..."
+      ],
+      "tip": [
+        "Record available package information."
+      ],
+      "next": []
+    },
+    {
+      "name": "--refuse-downgrade",
+      "alias": [
+        "-G"
+      ],
+      "usage": [
+        "-G, --refuse-downgrade"
+      ],
+      "tip": [
+        "Skip packages with earlier versions."
+      ]
+    },
+    {
+      "name": "--remove",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --remove <package>..."
+      ],
+      "tip": [
+        "Remove packages."
+      ],
+      "next": []
+    },
+    {
+      "name": "--remove-architecture",
+      "usage": [
+        "--remove-architecture <arch>"
+      ],
+      "tip": [
+        "Remove an architecture."
+      ],
+      "next": []
+    },
+    {
+      "name": "--robot",
+      "tip": [
+        "Use machine-readable output."
+      ]
+    },
+    {
+      "name": "--root",
+      "usage": [
+        "--root=<directory>"
+      ],
+      "tip": [
+        "Install on a different root directory."
+      ],
+      "next": []
+    },
+    {
+      "name": "--search",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --search <pattern>..."
+      ],
+      "tip": [
+        "Find packages owning files."
+      ],
+      "next": []
+    },
+    {
+      "name": "--selected-only",
+      "alias": [
+        "-O"
+      ],
+      "usage": [
+        "-O, --selected-only"
+      ],
+      "tip": [
+        "Skip packages not selected for install."
+      ]
+    },
+    {
+      "name": "--set-selections",
+      "tip": [
+        "Set package selections from stdin."
+      ]
+    },
+    {
+      "name": "--simulate",
+      "alias": [
+        "--dry-run",
+        "--no-act"
+      ],
+      "usage": [
+        "--no-act, --dry-run, --simulate"
+      ],
+      "tip": [
+        "Only show what would be done."
+      ]
+    },
+    {
+      "name": "--skip-same-version",
+      "alias": [
+        "-E"
+      ],
+      "usage": [
+        "-E, --skip-same-version"
+      ],
+      "tip": [
+        "Skip packages with the same version."
+      ]
+    },
+    {
+      "name": "--status",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --status [<package>...]"
+      ],
+      "tip": [
+        "Display package status details."
+      ],
+      "next": []
+    },
+    {
+      "name": "--status-fd",
+      "usage": [
+        "--status-fd <n>"
+      ],
+      "tip": [
+        "Send status updates to the file descriptor."
+      ],
+      "next": []
+    },
+    {
+      "name": "--status-logger",
+      "usage": [
+        "--status-logger=<command>"
+      ],
+      "tip": [
+        "Send status updates to the command's stdin."
+      ],
+      "next": []
+    },
+    {
+      "name": "--triggers",
+      "tip": [
+        "Process consequential triggers."
+      ]
+    },
+    {
+      "name": "--triggers-only",
+      "usage": [
+        "--triggers-only <package>..."
+      ],
+      "tip": [
+        "Process triggers only."
+      ],
+      "next": []
+    },
+    {
+      "name": "--unpack",
+      "usage": [
+        "--unpack <.deb file>..."
+      ],
+      "tip": [
+        "Unpack packages without configuring."
+      ],
+      "next": []
+    },
+    {
+      "name": "--update-avail",
+      "usage": [
+        "--update-avail [<Packages-file>]"
+      ],
+      "tip": [
+        "Replace available package info."
+      ],
+      "next": []
+    },
+    {
+      "name": "--verify",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --verify [<package>...]"
+      ],
+      "tip": [
+        "Verify package integrity."
+      ],
+      "next": []
+    },
+    {
+      "name": "--verify-format",
+      "usage": [
+        "--verify-format=<format>"
+      ],
+      "tip": [
+        "Set the verify output format (rpm)."
+      ],
+      "next": [
+        {
+          "name": "rpm"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Show the version."
+      ]
+    },
+    {
+      "name": "--yet-to-unpack",
+      "tip": [
+        "Print packages selected for installation."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "显示 Linux 网络统计信息。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--count",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --count <count>"
+      ],
+      "tip": [
+        "打印指定数量的间隔。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--dump",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --dump"
+      ],
+      "tip": [
+        "转储可用的文件和键列表。"
+      ]
+    },
+    {
+      "name": "--file",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --file <file>"
+      ],
+      "tip": [
+        "使用指定统计文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助信息。"
+      ]
+    },
+    {
+      "name": "--interval",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --interval <intv>"
+      ],
+      "tip": [
+        "以秒设置间隔。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--json",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --json"
+      ],
+      "tip": [
+        "以 JSON 格式显示。"
+      ]
+    },
+    {
+      "name": "--keys",
+      "alias": [
+        "-k"
+      ],
+      "usage": [
+        "-k, --keys k,k,k,..."
+      ],
+      "tip": [
+        "仅显示列出的键。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--subject",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --subject [0-2]"
+      ],
+      "tip": [
+        "控制表头打印。",
+        "可能值: 0, 1, 2"
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        },
+        {
+          "name": "2"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "打印程序版本。"
+      ]
+    },
+    {
+      "name": "--width",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --width n,n,n,..."
+      ],
+      "tip": [
+        "设置每个字段的宽度。"
+      ],
+      "next": []
+    }
+  ]
+}

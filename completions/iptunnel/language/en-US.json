@@ -1,0 +1,366 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "Create and manage IP tunnels."
+    ]
+  },
+  "next": [
+    {
+      "name": "add",
+      "usage": [
+        "add [<NAME>] [mode <PROTOCOL>] [remote <ADDRESS>] [local <ADDRESS>] [dev <PHYS_DEV>]"
+      ],
+      "tip": [
+        "Add an IP tunnel."
+      ],
+      "option": [
+        {
+          "name": "dev",
+          "usage": [
+            "dev <INTERFACE>"
+          ],
+          "tip": [
+            "Network interface name."
+          ],
+          "next": []
+        },
+        {
+          "name": "icsum",
+          "tip": [
+            "Require correct checksums on all incoming packets (GRE only)."
+          ]
+        },
+        {
+          "name": "ikey",
+          "usage": [
+            "ikey <KEY>"
+          ],
+          "tip": [
+            "Set the input key for the GRE tunnel."
+          ],
+          "next": []
+        },
+        {
+          "name": "iseq",
+          "tip": [
+            "Require that all incoming packets are serialized (GRE only)."
+          ]
+        },
+        {
+          "name": "local",
+          "usage": [
+            "local <ADDRESS>"
+          ],
+          "tip": [
+            "Set the local address of the tunnel."
+          ],
+          "next": [
+            {
+              "name": "any"
+            }
+          ]
+        },
+        {
+          "name": "mode",
+          "usage": [
+            "mode <PROTOCOL>"
+          ],
+          "tip": [
+            "Set the tunnel protocol."
+          ],
+          "next": [
+            {
+              "name": "gre"
+            },
+            {
+              "name": "ipip"
+            },
+            {
+              "name": "sit"
+            }
+          ]
+        },
+        {
+          "name": "nopmtudisc",
+          "tip": [
+            "Disable Path MTU Discovery on this tunnel."
+          ]
+        },
+        {
+          "name": "ocsum",
+          "tip": [
+            "Calculate checksums for all outgoing packets (GRE only)."
+          ]
+        },
+        {
+          "name": "okey",
+          "usage": [
+            "okey <KEY>"
+          ],
+          "tip": [
+            "Set the output key for the GRE tunnel."
+          ],
+          "next": []
+        },
+        {
+          "name": "oseq",
+          "tip": [
+            "Enable serialization for all outgoing packets (GRE only)."
+          ]
+        },
+        {
+          "name": "remote",
+          "usage": [
+            "remote <ADDRESS>"
+          ],
+          "tip": [
+            "Set the remote address of the tunnel."
+          ],
+          "next": [
+            {
+              "name": "any"
+            }
+          ]
+        },
+        {
+          "name": "tos",
+          "usage": [
+            "tos <TOS>"
+          ],
+          "tip": [
+            "Set the Type-Of-Service value of the tunnel."
+          ],
+          "next": [
+            {
+              "name": "inherit"
+            }
+          ]
+        },
+        {
+          "name": "ttl",
+          "usage": [
+            "ttl <TTL>"
+          ],
+          "tip": [
+            "Set the Time-To-Live value of the tunnel."
+          ],
+          "next": [
+            {
+              "name": "128"
+            },
+            {
+              "name": "255"
+            },
+            {
+              "name": "64"
+            },
+            {
+              "name": "inherit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "change",
+      "usage": [
+        "change [<NAME>] [mode <PROTOCOL>] [remote <ADDRESS>] [local <ADDRESS>] [dev <PHYS_DEV>]"
+      ],
+      "tip": [
+        "Change an IP tunnel."
+      ],
+      "option": [
+        {
+          "name": "dev",
+          "usage": [
+            "dev <INTERFACE>"
+          ],
+          "tip": [
+            "Network interface name."
+          ],
+          "next": []
+        },
+        {
+          "name": "icsum",
+          "tip": [
+            "Require correct checksums on all incoming packets (GRE only)."
+          ]
+        },
+        {
+          "name": "ikey",
+          "usage": [
+            "ikey <KEY>"
+          ],
+          "tip": [
+            "Set the input key for the GRE tunnel."
+          ],
+          "next": []
+        },
+        {
+          "name": "iseq",
+          "tip": [
+            "Require that all incoming packets are serialized (GRE only)."
+          ]
+        },
+        {
+          "name": "local",
+          "usage": [
+            "local <ADDRESS>"
+          ],
+          "tip": [
+            "Set the local address of the tunnel."
+          ],
+          "next": [
+            {
+              "name": "any"
+            }
+          ]
+        },
+        {
+          "name": "mode",
+          "usage": [
+            "mode <PROTOCOL>"
+          ],
+          "tip": [
+            "Set the tunnel protocol."
+          ],
+          "next": [
+            {
+              "name": "gre"
+            },
+            {
+              "name": "ipip"
+            },
+            {
+              "name": "sit"
+            }
+          ]
+        },
+        {
+          "name": "nopmtudisc",
+          "tip": [
+            "Disable Path MTU Discovery on this tunnel."
+          ]
+        },
+        {
+          "name": "ocsum",
+          "tip": [
+            "Calculate checksums for all outgoing packets (GRE only)."
+          ]
+        },
+        {
+          "name": "okey",
+          "usage": [
+            "okey <KEY>"
+          ],
+          "tip": [
+            "Set the output key for the GRE tunnel."
+          ],
+          "next": []
+        },
+        {
+          "name": "oseq",
+          "tip": [
+            "Enable serialization for all outgoing packets (GRE only)."
+          ]
+        },
+        {
+          "name": "remote",
+          "usage": [
+            "remote <ADDRESS>"
+          ],
+          "tip": [
+            "Set the remote address of the tunnel."
+          ],
+          "next": [
+            {
+              "name": "any"
+            }
+          ]
+        },
+        {
+          "name": "tos",
+          "usage": [
+            "tos <TOS>"
+          ],
+          "tip": [
+            "Set the Type-Of-Service value of the tunnel."
+          ],
+          "next": [
+            {
+              "name": "inherit"
+            }
+          ]
+        },
+        {
+          "name": "ttl",
+          "usage": [
+            "ttl <TTL>"
+          ],
+          "tip": [
+            "Set the Time-To-Live value of the tunnel."
+          ],
+          "next": [
+            {
+              "name": "128"
+            },
+            {
+              "name": "255"
+            },
+            {
+              "name": "64"
+            },
+            {
+              "name": "inherit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "del",
+      "usage": [
+        "del [<NAME>]"
+      ],
+      "tip": [
+        "Delete an IP tunnel."
+      ]
+    },
+    {
+      "name": "help",
+      "tip": [
+        "Show the help text."
+      ]
+    },
+    {
+      "name": "show",
+      "usage": [
+        "show [<NAME>]"
+      ],
+      "tip": [
+        "List existing IP tunnels."
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--help",
+      "tip": [
+        "Display this help."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Display version information."
+      ]
+    }
+  ]
+}

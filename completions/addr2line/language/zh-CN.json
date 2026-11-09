@@ -1,0 +1,192 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "将地址转换为行号和文件名。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--addresses",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --addresses"
+      ],
+      "tip": [
+        "显示地址。"
+      ]
+    },
+    {
+      "name": "--basenames",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --basenames"
+      ],
+      "tip": [
+        "去除目录名。"
+      ]
+    },
+    {
+      "name": "--demangle",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --demangle[=style]"
+      ],
+      "tip": [
+        "解码函数名。"
+      ],
+      "next": [
+        {
+          "name": "auto"
+        },
+        {
+          "name": "dlang"
+        },
+        {
+          "name": "gnat"
+        },
+        {
+          "name": "gnu-v3"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "rust"
+        }
+      ]
+    },
+    {
+      "name": "--exe",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --exe=<executable>"
+      ],
+      "tip": [
+        "设置输入文件名（默认 a.out）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--functions",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --functions"
+      ],
+      "tip": [
+        "显示函数名。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此信息。"
+      ]
+    },
+    {
+      "name": "--inlines",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --inlines"
+      ],
+      "tip": [
+        "展开内联函数。"
+      ]
+    },
+    {
+      "name": "--no-recurse-limit",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --no-recurse-limit"
+      ],
+      "tip": [
+        "解码时禁用递归限制。"
+      ]
+    },
+    {
+      "name": "--pretty-print",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --pretty-print"
+      ],
+      "tip": [
+        "使输出更易于人类阅读。"
+      ]
+    },
+    {
+      "name": "--recurse-limit",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --recurse-limit"
+      ],
+      "tip": [
+        "解码时启用递归限制（默认）。"
+      ]
+    },
+    {
+      "name": "--section",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --section=<name>"
+      ],
+      "tip": [
+        "读取相对于节的偏移而不是地址。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--target",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --target=<bfdname>"
+      ],
+      "tip": [
+        "设置二进制文件格式。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --version"
+      ],
+      "tip": [
+        "显示程序版本。"
+      ]
+    }
+  ]
+}

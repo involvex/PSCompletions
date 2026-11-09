@@ -1,4 +1,16 @@
-#Requires -Version 7.0
+#!/usr/bin/env pwsh
+#Requires -Version 7.6.5
+
+param(
+    # Directory holding the generated index files (completions.json + tables).
+    # CI passes the `index` branch checkout so main stays free of bot commits.
+    [Parameter(Mandatory)]
+    [string]$IndexDir
+)
+
+if (-not $env:GITHUB_ACTIONS) {
+    throw 'It runs in CI only.'
+}
 
 Set-StrictMode -Off
 
@@ -16,19 +28,30 @@ function Get-StringHash {
 
     if (-not (Test-Path -LiteralPath $Directory)) { return }
 
-    $files = Get-ChildItem -Path $Directory -File -Recurse | Sort-Object -Property FullName
+    $root = (Resolve-Path -LiteralPath $Directory).Path
+    $files = Get-ChildItem -Path $root -File -Recurse | ForEach-Object { $_.FullName } | Sort-Object -CaseSensitive
+
     if (-not $files) { return }
 
-    $sb = [System.Text.StringBuilder]::new()
-    foreach ($file in $files) {
-        [void]$sb.Append((Get-Content -Path $file.FullName -Raw -Encoding utf8))
+    try {
+        $sha256 = [System.Security.Cryptography.SHA256]::Create()
+        $sb = [System.Text.StringBuilder]::new()
+
+        foreach ($file in $files) { 
+            $fileHash = ($sha256.ComputeHash([System.IO.File]::ReadAllBytes($file)) | ForEach-Object -Process { $_.ToString('x2') }) -join ''
+            [void]$sb.Append([System.IO.Path]::GetRelativePath($root, $file).Replace('\', '/'))
+            [void]$sb.Append("`0")
+            [void]$sb.Append($fileHash)
+            [void]$sb.Append("`n")
+        }
+
+        $finalBytes = [System.Text.Encoding]::UTF8.GetBytes($sb.ToString())
+        $finalHashBytes = $sha256.ComputeHash($finalBytes)
     }
-
-    $bytes = [System.Text.Encoding]::UTF8.GetBytes($sb.ToString())
-    $sha256 = [System.Security.Cryptography.SHA256]::Create()
-    $hashBytes = $sha256.ComputeHash($bytes)
-
-    ($hashBytes | ForEach-Object -Process { $_.ToString('x2') }) -join ''
+    finally {
+        if ($null -ne $sha256) { $sha256.Dispose() }
+    }
+    ($finalHashBytes | ForEach-Object -Process { $_.ToString('x2') }) -join ''
 }
 
 function Format-LanguageInfo {
@@ -62,7 +85,7 @@ function New-MarkdownList {
         $completionData = @{}
 
         $jsonConfig = Get-Content -Path "$($_.FullName)/config.json" -Raw -Encoding utf8 | ConvertFrom-Json -AsHashtable
-        $langList = @(Get-ChildItem -Path "$($_.FullName)/language" -File | ForEach-Object -Process { $_.BaseName })
+        $langList = @('en-US') + @(Get-ChildItem -Path "$($_.FullName)/language" -File | Where-Object { $_.BaseName -ne 'en-US' } | ForEach-Object { $_.BaseName } | Sort-Object)
 
         foreach ($lang in $langList) {
             $completionData.$lang = Get-Content -Path "$($_.FullName)/language/$lang.json" -Raw -Encoding utf8 | ConvertFrom-Json -AsHashtable
@@ -99,11 +122,11 @@ function Update-ReadmeFile {
 
     $markdownLists = New-MarkdownList
     if ($Language -eq 'en-US') {
-        $path = "$PSScriptRoot/../completions.md"
+        $path = Join-Path $IndexDir 'completions.md'
         $content = $markdownLists.'en-US'
     }
     else {
-        $path = "$PSScriptRoot/../completions.zh-CN.md"
+        $path = Join-Path $IndexDir 'completions.zh-CN.md'
         $content = $markdownLists.'zh-CN'
     }
 
@@ -123,17 +146,13 @@ function Update-ReadmeFile {
 Update-ReadmeFile -Language 'en-US'
 Update-ReadmeFile -Language 'zh-CN'
 
-& $PSScriptRoot\sort-json.ps1
-
 if ($env:GITHUB_ACTIONS) {
-    $path = "$PSScriptRoot\..\completions.json"
-    $old_info = Get-Content $path -Raw | ConvertFrom-Json -AsHashtable
     $info = [ordered]@{
         count  = 0
         update = [ordered]@{}
         meta   = [ordered]@{}
     }
-    Get-ChildItem "$PSScriptRoot\..\completions" -Directory | ForEach-Object {
+    Get-ChildItem "$PSScriptRoot/../completions" -Directory | ForEach-Object {
         $completion = $_.Name
         $info.update[$completion] = Get-StringHash $_.FullName
         $info.meta[$completion] = [ordered]@{}
@@ -143,13 +162,16 @@ if ($env:GITHUB_ACTIONS) {
             if ($cfg.id) {
                 $info.meta.$completion['id'] = $cfg.id
             }
+            if ($cfg.alias) {
+                $info.meta.$completion['alias'] = $cfg.alias -join ' '
+            }
         }
         Get-ChildItem "$($_.FullName)/language" -File | ForEach-Object {
-            $info.meta.$completion[$_.BaseName] = Get-Content $_.FullName -Raw -Encoding utf8 | ConvertFrom-Json | Select-Object -ExpandProperty meta
+            $meta = Get-Content $_.FullName -Raw -Encoding utf8 | ConvertFrom-Json | Select-Object -ExpandProperty meta
+            $meta.description = $meta.description -join "`n"
+            $info.meta.$completion[$_.BaseName] = $meta 
         }
     }
     $info.count = $info.update.Keys.Count
-    $info | ConvertTo-Json -Depth 10 | Out-File $path
-
-    & $PSScriptRoot\push-change.ps1 -message 'chore: automatically update some content [skip ci]'
+    $info | ConvertTo-Json -Depth 10 | Out-File (Join-Path $IndexDir 'completions.json')
 }

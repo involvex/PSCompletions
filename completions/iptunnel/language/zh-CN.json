@@ -1,0 +1,366 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "创建和管理 IP 隧道。"
+    ]
+  },
+  "next": [
+    {
+      "name": "add",
+      "usage": [
+        "add [<NAME>] [mode <PROTOCOL>] [remote <ADDRESS>] [local <ADDRESS>] [dev <PHYS_DEV>]"
+      ],
+      "tip": [
+        "添加 IP 隧道。"
+      ],
+      "option": [
+        {
+          "name": "dev",
+          "usage": [
+            "dev <INTERFACE>"
+          ],
+          "tip": [
+            "网络接口名。"
+          ],
+          "next": []
+        },
+        {
+          "name": "icsum",
+          "tip": [
+            "要求所有传入数据包的校验和正确（仅 GRE）。"
+          ]
+        },
+        {
+          "name": "ikey",
+          "usage": [
+            "ikey <KEY>"
+          ],
+          "tip": [
+            "设置 GRE 隧道的输入密钥。"
+          ],
+          "next": []
+        },
+        {
+          "name": "iseq",
+          "tip": [
+            "要求所有传入数据包串行化（仅 GRE）。"
+          ]
+        },
+        {
+          "name": "local",
+          "usage": [
+            "local <ADDRESS>"
+          ],
+          "tip": [
+            "设置隧道的本地地址。"
+          ],
+          "next": [
+            {
+              "name": "any"
+            }
+          ]
+        },
+        {
+          "name": "mode",
+          "usage": [
+            "mode <PROTOCOL>"
+          ],
+          "tip": [
+            "设置隧道协议。"
+          ],
+          "next": [
+            {
+              "name": "gre"
+            },
+            {
+              "name": "ipip"
+            },
+            {
+              "name": "sit"
+            }
+          ]
+        },
+        {
+          "name": "nopmtudisc",
+          "tip": [
+            "在此隧道上禁用路径 MTU 发现。"
+          ]
+        },
+        {
+          "name": "ocsum",
+          "tip": [
+            "为所有传出数据包计算校验和（仅 GRE）。"
+          ]
+        },
+        {
+          "name": "okey",
+          "usage": [
+            "okey <KEY>"
+          ],
+          "tip": [
+            "设置 GRE 隧道的输出密钥。"
+          ],
+          "next": []
+        },
+        {
+          "name": "oseq",
+          "tip": [
+            "为所有传出数据包启用串行化（仅 GRE）。"
+          ]
+        },
+        {
+          "name": "remote",
+          "usage": [
+            "remote <ADDRESS>"
+          ],
+          "tip": [
+            "设置隧道的远端地址。"
+          ],
+          "next": [
+            {
+              "name": "any"
+            }
+          ]
+        },
+        {
+          "name": "tos",
+          "usage": [
+            "tos <TOS>"
+          ],
+          "tip": [
+            "设置隧道的服务类型值。"
+          ],
+          "next": [
+            {
+              "name": "inherit"
+            }
+          ]
+        },
+        {
+          "name": "ttl",
+          "usage": [
+            "ttl <TTL>"
+          ],
+          "tip": [
+            "设置隧道的生存时间值。"
+          ],
+          "next": [
+            {
+              "name": "128"
+            },
+            {
+              "name": "255"
+            },
+            {
+              "name": "64"
+            },
+            {
+              "name": "inherit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "change",
+      "usage": [
+        "change [<NAME>] [mode <PROTOCOL>] [remote <ADDRESS>] [local <ADDRESS>] [dev <PHYS_DEV>]"
+      ],
+      "tip": [
+        "更改 IP 隧道。"
+      ],
+      "option": [
+        {
+          "name": "dev",
+          "usage": [
+            "dev <INTERFACE>"
+          ],
+          "tip": [
+            "网络接口名。"
+          ],
+          "next": []
+        },
+        {
+          "name": "icsum",
+          "tip": [
+            "要求所有传入数据包的校验和正确（仅 GRE）。"
+          ]
+        },
+        {
+          "name": "ikey",
+          "usage": [
+            "ikey <KEY>"
+          ],
+          "tip": [
+            "设置 GRE 隧道的输入密钥。"
+          ],
+          "next": []
+        },
+        {
+          "name": "iseq",
+          "tip": [
+            "要求所有传入数据包串行化（仅 GRE）。"
+          ]
+        },
+        {
+          "name": "local",
+          "usage": [
+            "local <ADDRESS>"
+          ],
+          "tip": [
+            "设置隧道的本地地址。"
+          ],
+          "next": [
+            {
+              "name": "any"
+            }
+          ]
+        },
+        {
+          "name": "mode",
+          "usage": [
+            "mode <PROTOCOL>"
+          ],
+          "tip": [
+            "设置隧道协议。"
+          ],
+          "next": [
+            {
+              "name": "gre"
+            },
+            {
+              "name": "ipip"
+            },
+            {
+              "name": "sit"
+            }
+          ]
+        },
+        {
+          "name": "nopmtudisc",
+          "tip": [
+            "在此隧道上禁用路径 MTU 发现。"
+          ]
+        },
+        {
+          "name": "ocsum",
+          "tip": [
+            "为所有传出数据包计算校验和（仅 GRE）。"
+          ]
+        },
+        {
+          "name": "okey",
+          "usage": [
+            "okey <KEY>"
+          ],
+          "tip": [
+            "设置 GRE 隧道的输出密钥。"
+          ],
+          "next": []
+        },
+        {
+          "name": "oseq",
+          "tip": [
+            "为所有传出数据包启用串行化（仅 GRE）。"
+          ]
+        },
+        {
+          "name": "remote",
+          "usage": [
+            "remote <ADDRESS>"
+          ],
+          "tip": [
+            "设置隧道的远端地址。"
+          ],
+          "next": [
+            {
+              "name": "any"
+            }
+          ]
+        },
+        {
+          "name": "tos",
+          "usage": [
+            "tos <TOS>"
+          ],
+          "tip": [
+            "设置隧道的服务类型值。"
+          ],
+          "next": [
+            {
+              "name": "inherit"
+            }
+          ]
+        },
+        {
+          "name": "ttl",
+          "usage": [
+            "ttl <TTL>"
+          ],
+          "tip": [
+            "设置隧道的生存时间值。"
+          ],
+          "next": [
+            {
+              "name": "128"
+            },
+            {
+              "name": "255"
+            },
+            {
+              "name": "64"
+            },
+            {
+              "name": "inherit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "del",
+      "usage": [
+        "del [<NAME>]"
+      ],
+      "tip": [
+        "删除 IP 隧道。"
+      ]
+    },
+    {
+      "name": "help",
+      "tip": [
+        "显示帮助文本。"
+      ]
+    },
+    {
+      "name": "show",
+      "usage": [
+        "show [<NAME>]"
+      ],
+      "tip": [
+        "列出已有的 IP 隧道。"
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--help",
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示版本信息。"
+      ]
+    }
+  ]
+}

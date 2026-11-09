@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "Dump ext2/ext3/ext4 file system information."
+    ]
+  },
+  "option": [
+    {
+      "name": "-b",
+      "tip": [
+        "Print the blocks reserved as bad in the file system."
+      ]
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "Force display even when feature flags are not understood."
+      ]
+    },
+    {
+      "name": "-g",
+      "tip": [
+        "Display group descriptor information in machine-readable form."
+      ]
+    },
+    {
+      "name": "-h",
+      "tip": [
+        "Only display superblock information."
+      ]
+    },
+    {
+      "name": "-i",
+      "tip": [
+        "Display file system data from an e2image image file."
+      ]
+    },
+    {
+      "name": "-m",
+      "tip": [
+        "Check whether the file system is in use by another node."
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o superblock=<num>|blocksize=<num>"
+      ],
+      "tip": [
+        "Use the given superblock or block size when examining the file system."
+      ],
+      "next": []
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "Print the version number and exit."
+      ]
+    },
+    {
+      "name": "-x",
+      "tip": [
+        "Print detailed group block numbers in hexadecimal."
+      ]
+    }
+  ]
+}

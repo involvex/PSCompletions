@@ -1,0 +1,547 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "转储套接字统计信息。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--all",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --all"
+      ],
+      "tip": [
+        "显示所有套接字。"
+      ]
+    },
+    {
+      "name": "--bound-inactive",
+      "alias": [
+        "-B"
+      ],
+      "usage": [
+        "-B, --bound-inactive"
+      ],
+      "tip": [
+        "显示已绑定但未活动的 TCP 套接字。"
+      ]
+    },
+    {
+      "name": "--bpf",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --bpf"
+      ],
+      "tip": [
+        "显示 BPF 过滤器套接字信息。"
+      ]
+    },
+    {
+      "name": "--bpf-map-id",
+      "usage": [
+        "--bpf-map-id=MAP-ID"
+      ],
+      "tip": [
+        "显示指定的 BPF 套接字本地存储映射。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--bpf-maps",
+      "tip": [
+        "显示所有 BPF 套接字本地存储映射。"
+      ]
+    },
+    {
+      "name": "--cgroup",
+      "tip": [
+        "显示 cgroup 信息。"
+      ]
+    },
+    {
+      "name": "--context",
+      "alias": [
+        "-Z"
+      ],
+      "usage": [
+        "-Z, --context"
+      ],
+      "tip": [
+        "显示任务 SELinux 安全上下文。"
+      ]
+    },
+    {
+      "name": "--contexts",
+      "alias": [
+        "-z"
+      ],
+      "usage": [
+        "-z, --contexts"
+      ],
+      "tip": [
+        "显示任务和套接字 SELinux 安全上下文。"
+      ]
+    },
+    {
+      "name": "--dccp",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --dccp"
+      ],
+      "tip": [
+        "仅显示 DCCP 套接字。"
+      ]
+    },
+    {
+      "name": "--diag",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --diag=FILE"
+      ],
+      "tip": [
+        "将原始 TCP 套接字信息转储到文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--events",
+      "alias": [
+        "-E"
+      ],
+      "usage": [
+        "-E, --events"
+      ],
+      "tip": [
+        "持续显示被销毁的套接字。"
+      ]
+    },
+    {
+      "name": "--extended",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --extended"
+      ],
+      "tip": [
+        "显示详细套接字信息。"
+      ]
+    },
+    {
+      "name": "--family",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --family=FAMILY"
+      ],
+      "tip": [
+        "显示指定地址族的套接字。",
+        "可能值: inet, inet6, link, unix, netlink, vsock, tipc, xdp, help"
+      ],
+      "next": [
+        {
+          "name": "help"
+        },
+        {
+          "name": "inet"
+        },
+        {
+          "name": "inet6"
+        },
+        {
+          "name": "link"
+        },
+        {
+          "name": "netlink"
+        },
+        {
+          "name": "tipc"
+        },
+        {
+          "name": "unix"
+        },
+        {
+          "name": "vsock"
+        },
+        {
+          "name": "xdp"
+        }
+      ]
+    },
+    {
+      "name": "--filter",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --filter=FILE"
+      ],
+      "tip": [
+        "从文件读取过滤信息。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此消息。"
+      ]
+    },
+    {
+      "name": "--inet-sockopt",
+      "tip": [
+        "显示各种 inet 套接字选项。"
+      ]
+    },
+    {
+      "name": "--info",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --info"
+      ],
+      "tip": [
+        "显示内部 TCP 信息。"
+      ]
+    },
+    {
+      "name": "--ipv4",
+      "alias": [
+        "-4"
+      ],
+      "usage": [
+        "-4, --ipv4"
+      ],
+      "tip": [
+        "仅显示 IPv4 套接字。"
+      ]
+    },
+    {
+      "name": "--ipv6",
+      "alias": [
+        "-6"
+      ],
+      "usage": [
+        "-6, --ipv6"
+      ],
+      "tip": [
+        "仅显示 IPv6 套接字。"
+      ]
+    },
+    {
+      "name": "--kill",
+      "alias": [
+        "-K"
+      ],
+      "usage": [
+        "-K, --kill"
+      ],
+      "tip": [
+        "强制关闭套接字并显示关闭内容。"
+      ]
+    },
+    {
+      "name": "--listening",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --listening"
+      ],
+      "tip": [
+        "显示监听套接字。"
+      ]
+    },
+    {
+      "name": "--memory",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --memory"
+      ],
+      "tip": [
+        "显示套接字内存使用。"
+      ]
+    },
+    {
+      "name": "--mptcp",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --mptcp"
+      ],
+      "tip": [
+        "仅显示 MPTCP 套接字。"
+      ]
+    },
+    {
+      "name": "--net",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --net"
+      ],
+      "tip": [
+        "切换到指定的网络命名空间。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-header",
+      "alias": [
+        "-H"
+      ],
+      "usage": [
+        "-H, --no-header"
+      ],
+      "tip": [
+        "抑制表头行。"
+      ]
+    },
+    {
+      "name": "--no-queues",
+      "alias": [
+        "-Q"
+      ],
+      "usage": [
+        "-Q, --no-queues"
+      ],
+      "tip": [
+        "抑制发送和接收队列列。"
+      ]
+    },
+    {
+      "name": "--numeric",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --numeric"
+      ],
+      "tip": [
+        "不解析服务名。"
+      ]
+    },
+    {
+      "name": "--oneline",
+      "alias": [
+        "-O"
+      ],
+      "usage": [
+        "-O, --oneline"
+      ],
+      "tip": [
+        "将每个套接字的数据打印在一行。"
+      ]
+    },
+    {
+      "name": "--options",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --options"
+      ],
+      "tip": [
+        "显示定时器信息。"
+      ]
+    },
+    {
+      "name": "--packet",
+      "alias": [
+        "-0"
+      ],
+      "usage": [
+        "-0, --packet"
+      ],
+      "tip": [
+        "显示 PACKET 套接字。"
+      ]
+    },
+    {
+      "name": "--processes",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --processes"
+      ],
+      "tip": [
+        "显示使用每个套接字的进程。"
+      ]
+    },
+    {
+      "name": "--raw",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --raw"
+      ],
+      "tip": [
+        "仅显示 RAW 套接字。"
+      ]
+    },
+    {
+      "name": "--resolve",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --resolve"
+      ],
+      "tip": [
+        "解析主机名。"
+      ]
+    },
+    {
+      "name": "--sctp",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --sctp"
+      ],
+      "tip": [
+        "仅显示 SCTP 套接字。"
+      ]
+    },
+    {
+      "name": "--socket",
+      "alias": [
+        "--query",
+        "-A"
+      ],
+      "usage": [
+        "-A, --query=QUERY, --socket=QUERY"
+      ],
+      "tip": [
+        "选择要查询的套接字类型，以逗号分隔。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--summary",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --summary"
+      ],
+      "tip": [
+        "显示套接字使用摘要。"
+      ]
+    },
+    {
+      "name": "--tcp",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --tcp"
+      ],
+      "tip": [
+        "仅显示 TCP 套接字。"
+      ]
+    },
+    {
+      "name": "--threads",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --threads"
+      ],
+      "tip": [
+        "显示使用每个套接字的线程。"
+      ]
+    },
+    {
+      "name": "--tipc",
+      "tip": [
+        "仅显示 TIPC 套接字。"
+      ]
+    },
+    {
+      "name": "--tipcinfo",
+      "tip": [
+        "显示内部 TIPC 套接字信息。"
+      ]
+    },
+    {
+      "name": "--tos",
+      "tip": [
+        "显示 TOS 和优先级信息。"
+      ]
+    },
+    {
+      "name": "--udp",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --udp"
+      ],
+      "tip": [
+        "仅显示 UDP 套接字。"
+      ]
+    },
+    {
+      "name": "--unix",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --unix"
+      ],
+      "tip": [
+        "仅显示 Unix 域套接字。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "输出版本信息。"
+      ]
+    },
+    {
+      "name": "--vsock",
+      "tip": [
+        "仅显示 vsock 套接字。"
+      ]
+    },
+    {
+      "name": "--xdp",
+      "tip": [
+        "仅显示 XDP 套接字。"
+      ]
+    }
+  ]
+}

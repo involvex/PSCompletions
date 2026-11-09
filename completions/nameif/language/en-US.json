@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "Name network interfaces based on MAC addresses."
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "tip": [
+        "Display this help."
+      ]
+    },
+    {
+      "name": "-c",
+      "usage": [
+        "-c <CONFIGURATIONFILE>"
+      ],
+      "tip": [
+        "Read the mapping from this file instead of /etc/mactab."
+      ],
+      "next": []
+    },
+    {
+      "name": "-s",
+      "tip": [
+        "Send all error messages to syslog."
+      ]
+    }
+  ]
+}

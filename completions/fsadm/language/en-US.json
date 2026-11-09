@@ -1,0 +1,126 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/lvmteam/lvm2",
+    "description": [
+      "Utility to resize or check the filesystem on a device."
+    ]
+  },
+  "next": [
+    {
+      "name": "check",
+      "usage": [
+        "check <DEVICE>"
+      ],
+      "tip": [
+        "Check the filesystem on the device using fsck."
+      ]
+    },
+    {
+      "name": "resize",
+      "usage": [
+        "resize <DEVICE> [<NEW_SIZE>]"
+      ],
+      "tip": [
+        "Resize the filesystem to the new size, or to the whole device when omitted."
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--cryptresize",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --cryptresize"
+      ],
+      "tip": [
+        "Resize the dm-crypt mapping together with the detected filesystem."
+      ]
+    },
+    {
+      "name": "--dry-run",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --dry-run"
+      ],
+      "tip": [
+        "Print commands without running them."
+      ]
+    },
+    {
+      "name": "--ext-offline",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --ext-offline"
+      ],
+      "tip": [
+        "Unmount the filesystem before resizing ext2/ext3/ext4."
+      ]
+    },
+    {
+      "name": "--force",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --force"
+      ],
+      "tip": [
+        "Bypass sanity checks."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this help message."
+      ]
+    },
+    {
+      "name": "--lvresize",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --lvresize"
+      ],
+      "tip": [
+        "Resize the given device when it is an LVM device."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Be verbose."
+      ]
+    },
+    {
+      "name": "--yes",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --yes"
+      ],
+      "tip": [
+        "Answer yes at any prompt."
+      ]
+    }
+  ]
+}

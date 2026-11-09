@@ -1,0 +1,496 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "显示调用图性能数据。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--all-lines",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --all-lines"
+      ],
+      "tip": [
+        "在带注释输出中打印所有源代码行。"
+      ]
+    },
+    {
+      "name": "--annotated-source",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A[symspec], --annotated-source[=symspec]"
+      ],
+      "tip": [
+        "打印带注释的源代码；可选 symspec 过滤符号。"
+      ]
+    },
+    {
+      "name": "--brief",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --brief"
+      ],
+      "tip": [
+        "不打印冗长的解释性说明。"
+      ]
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d[num], --debug[=num]"
+      ],
+      "tip": [
+        "启用调试输出；可选 num 设置级别。"
+      ]
+    },
+    {
+      "name": "--demangle",
+      "usage": [
+        "--demangle[=style]"
+      ],
+      "tip": [
+        "解码 C++ 符号名。"
+      ]
+    },
+    {
+      "name": "--directory-path",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I dirs, --directory-path=dirs"
+      ],
+      "tip": [
+        "为源文件添加搜索目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--display-unused-functions",
+      "alias": [
+        "-z"
+      ],
+      "usage": [
+        "-z, --display-unused-functions"
+      ],
+      "tip": [
+        "显示从未被调用的函数。"
+      ]
+    },
+    {
+      "name": "--exec-counts",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C[symspec], --exec-counts[=symspec]"
+      ],
+      "tip": [
+        "打印函数及其调用次数的统计。"
+      ]
+    },
+    {
+      "name": "--external-symbol-table",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S filename, --external-symbol-table=filename"
+      ],
+      "tip": [
+        "从文件读取外部符号表。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--file-format",
+      "alias": [
+        "-O"
+      ],
+      "usage": [
+        "-O name, --file-format=name"
+      ],
+      "tip": [
+        "使用指定的文件格式。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--file-info",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --file-info"
+      ],
+      "tip": [
+        "显示性能数据文件的摘要信息后退出。"
+      ]
+    },
+    {
+      "name": "--file-ordering",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R map_file, --file-ordering map_file"
+      ],
+      "tip": [
+        "根据调用图打印建议的文件顺序。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--flat-profile",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p[symspec], --flat-profile[=symspec]"
+      ],
+      "tip": [
+        "打印平坦性能分析；可选 symspec 过滤符号。"
+      ]
+    },
+    {
+      "name": "--function-ordering",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --function-ordering"
+      ],
+      "tip": [
+        "根据性能数据打印建议的函数顺序。"
+      ]
+    },
+    {
+      "name": "--graph",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q[symspec], --graph[=symspec]"
+      ],
+      "tip": [
+        "打印调用图；可选 symspec 过滤符号。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此信息。"
+      ]
+    },
+    {
+      "name": "--ignore-non-functions",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --ignore-non-functions"
+      ],
+      "tip": [
+        "忽略不是函数的符号。"
+      ]
+    },
+    {
+      "name": "--inline-file-names",
+      "tip": [
+        "打印内联文件名。"
+      ]
+    },
+    {
+      "name": "--line",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --line"
+      ],
+      "tip": [
+        "使用逐行性能分析。"
+      ]
+    },
+    {
+      "name": "--min-count",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m num, --min-count=num"
+      ],
+      "tip": [
+        "仅打印调用次数至少为 num 的条目。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-annotated-source",
+      "alias": [
+        "-J"
+      ],
+      "usage": [
+        "-J[symspec], --no-annotated-source[=symspec]"
+      ],
+      "tip": [
+        "不打印带注释的源代码；可选 symspec 排除符号。"
+      ]
+    },
+    {
+      "name": "--no-demangle",
+      "tip": [
+        "不解码 C++ 符号名。"
+      ]
+    },
+    {
+      "name": "--no-exec-counts",
+      "alias": [
+        "-Z"
+      ],
+      "usage": [
+        "-Z[symspec], --no-exec-counts[=symspec]"
+      ],
+      "tip": [
+        "不打印函数调用统计；可选 symspec 排除符号。"
+      ]
+    },
+    {
+      "name": "--no-flat-profile",
+      "alias": [
+        "-P"
+      ],
+      "usage": [
+        "-P[symspec], --no-flat-profile[=symspec]"
+      ],
+      "tip": [
+        "抑制平坦性能分析；可选 symspec 排除符号。"
+      ]
+    },
+    {
+      "name": "--no-graph",
+      "alias": [
+        "-Q"
+      ],
+      "usage": [
+        "-Q[symspec], --no-graph[=symspec]"
+      ],
+      "tip": [
+        "抑制调用图；可选 symspec 排除符号。"
+      ]
+    },
+    {
+      "name": "--no-static",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --no-static"
+      ],
+      "tip": [
+        "不在调用图中打印静态函数条目。"
+      ]
+    },
+    {
+      "name": "--no-time",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N symspec, --no-time=symspec"
+      ],
+      "tip": [
+        "从时间计算中排除匹配符号。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--print-path",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --print-path"
+      ],
+      "tip": [
+        "打印源文件的完整路径名。"
+      ]
+    },
+    {
+      "name": "--separate-files",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --separate-files"
+      ],
+      "tip": [
+        "将每个文件的带注释源代码写入 filename-ann。"
+      ]
+    },
+    {
+      "name": "--static-call-graph",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --static-call-graph"
+      ],
+      "tip": [
+        "打印静态调用图。"
+      ]
+    },
+    {
+      "name": "--sum",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --sum"
+      ],
+      "tip": [
+        "将性能数据合并到 gmon.sum。"
+      ]
+    },
+    {
+      "name": "--table-length",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t num, --table-length=num"
+      ],
+      "tip": [
+        "为每个文件列出最活跃的 num 行源代码（默认 10）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--time",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n symspec, --time=symspec"
+      ],
+      "tip": [
+        "仅打印匹配符号的时间。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--traditional",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --traditional"
+      ],
+      "tip": [
+        "使用传统 BSD 输出格式。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --version"
+      ],
+      "tip": [
+        "显示版本号。"
+      ]
+    },
+    {
+      "name": "--width",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w width, --width=width"
+      ],
+      "tip": [
+        "设置输出宽度。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-B",
+      "tip": [
+        "打印调用图分析。"
+      ]
+    },
+    {
+      "name": "-e",
+      "usage": [
+        "-e function_name"
+      ],
+      "tip": [
+        "不在调用图中打印指定函数及其子函数。"
+      ],
+      "repeat": 99,
+      "next": []
+    },
+    {
+      "name": "-E",
+      "usage": [
+        "-E function_name"
+      ],
+      "tip": [
+        "类似于 -e，并从调用图百分比中排除该时间。"
+      ],
+      "repeat": 99,
+      "next": []
+    },
+    {
+      "name": "-f",
+      "usage": [
+        "-f function_name"
+      ],
+      "tip": [
+        "将调用图限制为指定函数及其子函数。"
+      ],
+      "repeat": 99,
+      "next": []
+    },
+    {
+      "name": "-F",
+      "usage": [
+        "-F function_name"
+      ],
+      "tip": [
+        "类似于 -f，并仅使用该函数的时间计算百分比。"
+      ],
+      "repeat": 99,
+      "next": []
+    },
+    {
+      "name": "-k",
+      "usage": [
+        "-k from/to"
+      ],
+      "tip": [
+        "排除 from 和 to 地址之间的函数。"
+      ],
+      "next": []
+    }
+  ]
+}

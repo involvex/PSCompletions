@@ -1,5 +1,5 @@
-//! Lua dynamic-completion runtime: runs `hooks.lua` in the Rust core process, implementing
-//! the `psc.*` API. Contract: `design/hooks.md`.
+//! Lua dynamic-completion runtime: runs `hooks.lua` in the Rust core process, implementing the `psc.*` API.
+//! Contract: `design/hooks.md`.
 
 mod api;
 mod bindings;
@@ -8,7 +8,8 @@ mod runner;
 #[cfg(test)]
 mod tests;
 
-pub use runner::run_hook;
+pub(crate) use runner::run_hook_keepalive;
+pub use runner::{run_hook, HookSession};
 
 /// Append a timestamped hook error to `<log_dir>/error.log` (best-effort, never fails).
 ///
@@ -72,39 +73,31 @@ pub struct Typing {
 }
 
 /// Pre-parsed context passed to the Lua hook.
-#[derive(Debug, Clone, serde::Deserialize)]
-#[serde(default)]
+#[derive(Debug, Clone)]
 pub struct HookContext {
     /// Root command name.
     pub cmd: String,
     /// Subcommand path (without options/values): `git stash pop` → `["stash","pop"]`.
     pub path: Vec<String>,
-    /// Typed layer chain: `(kind, canonical)` per context switch — commands always, options
-    /// when they have a `next` array (even empty) or a non-empty `option` array. Drives
-    /// `psc.on` location matching.
+    /// Typed layer chain: `(kind, canonical)` per context switch — commands always, options when they have a `next` array (even empty) or a non-empty `option` array.
+    /// Drives `psc.on` location matching.
     pub layers: Vec<(String, String)>,
     pub typing: Typing,
-    /// All completed options' **canonical** names, in order.
-    pub opts: Vec<String>,
     /// Raw token list (kept for unusual cases).
     pub tokens: Vec<Token>,
-    /// The current command's fully-resolved config: per-completion overrides, global config
-    /// values, built-in defaults, and manifest `config` array defaults, merged in
-    /// `build_candidate_items`.  Hooks receive the final value directly.
+    /// The current command's fully-resolved config: per-completion overrides, global config values, built-in defaults, and manifest `config` array defaults, merged in `build_candidate_items`.
+    /// Hooks receive the final value directly.
     pub config: serde_json::Value,
     /// Raw manifest text (parsed as JSON), so hooks can read static data (e.g. git config keys).
-    #[serde(default)]
-    pub manifest: serde_json::Value,
+    /// Shared ownership: the same parsed tree feeds the resolver, the validator and the hook — no per-consumer deep clone of a large manifest.
+    pub manifest: std::sync::Arc<serde_json::Value>,
     /// Module-level data (psc completion only): local lists/aliases, remote list/meta, live config, colors.
-    #[serde(default)]
     pub data: serde_json::Value,
     /// The module's current language (`en-US`/`zh-CN`); selects the entry of a localized tip table.
-    #[serde(default)]
     pub language: String,
     /// Current working directory.
     pub cwd: String,
     /// Directory for `psc.log` debug output (module-managed temp dir); empty = disabled.
-    #[serde(default)]
     pub log_dir: String,
 }
 
@@ -115,10 +108,9 @@ impl Default for HookContext {
             path: Vec::new(),
             layers: Vec::new(),
             typing: Typing::default(),
-            opts: Vec::new(),
             tokens: Vec::new(),
             config: serde_json::Value::Null,
-            manifest: serde_json::Value::Null,
+            manifest: std::sync::Arc::new(serde_json::Value::Null),
             data: serde_json::Value::Null,
             language: String::new(),
             cwd: String::new(),
@@ -141,6 +133,9 @@ pub struct LuaItem {
     /// Engine-internal: offered as a separator-list value (no auto space).
     /// Round-trips through Lua tables so hook-preserved static items keep it.
     pub nospace: bool,
+    /// The declared type of the static node this row came from (`Some`), or `None` for a hook-injected row that no manifest declares.
+    /// Round-trips so a consumer can compare rows by the manifest's own rule instead of guessing from a leading `-`.
+    pub is_option: Option<bool>,
 }
 
 impl From<&crate::engine::completion::CompletionItem> for LuaItem {
@@ -153,6 +148,24 @@ impl From<&crate::engine::completion::CompletionItem> for LuaItem {
             symbol: it.symbol.clone(),
             repeat: it.repeat,
             nospace: it.nospace,
+            is_option: Some(it.is_option),
         }
     }
+}
+
+/// Which description field a lazy callback computes.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum LazyField {
+    Tip,
+    Usage,
+    Example,
+}
+
+/// One unevaluated `tip`/`usage`/`example` callback, collected at hook read-back time.
+/// Keyed by item text (not index): history-order ranking re-sorts the item list after the hook returns, so positions are stale by menu time while names are stable.
+/// The function handle is tied to its session VM (same thread only — `mlua` values are `!Send`, so a session never crosses threads).
+pub struct LazyEntry {
+    pub key: String,
+    pub field: LazyField,
+    pub func: mlua::Function,
 }

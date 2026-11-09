@@ -1,15 +1,12 @@
-//! Background ordering computation: read PSReadLine history → score command/subcommand
-//! usage → write the order JSON (algorithm: `design/menu.md`).
+//! Background ordering computation: read PSReadLine history → score command/subcommand usage → write the order JSON (algorithm: `design/menu.md`).
 
 use crate::menu::model::OrderInfo;
 use std::collections::HashMap;
 
-/// Maximum number of history lines scanned (the most recent N; older usage is less
-/// relevant to the current ordering).
+/// Maximum number of history lines scanned (the most recent N; older usage is less relevant to the current ordering).
 const ORDER_WINDOW: usize = 1000;
 
-/// Usage stats for a single subcommand: weighted score (primary sort key) + the line of
-/// its most recent use (tie-breaker).
+/// Usage stats for a single subcommand: weighted score (primary sort key) + the line of its most recent use (tie-breaker).
 struct TokenStats {
     score: f64,
     last_line: usize,
@@ -27,8 +24,7 @@ fn position_factor(i: usize, n: usize) -> f64 {
     f * f
 }
 
-/// Read the tail of a file — enough to cover `max_lines` lines (or the whole file when
-/// smaller) — so ordering never slurps a huge history into memory just to discard it.
+/// Read the tail of a file — enough to cover `max_lines` lines (or the whole file when smaller) — so ordering never slurps a huge history into memory just to discard it.
 fn read_tail(path: &str, max_lines: usize) -> Option<String> {
     use std::io::{Read, Seek, SeekFrom};
     let mut f = std::fs::File::open(path).ok()?;
@@ -39,8 +35,12 @@ fn read_tail(path: &str, max_lines: usize) -> Option<String> {
     const CHUNK: u64 = 64 * 1024;
     let mut collected: Vec<u8> = Vec::new();
     let mut pos = len;
+    let mut reached_start = false;
     loop {
         let start = pos.saturating_sub(CHUNK);
+        if start == 0 {
+            reached_start = true;
+        }
         f.seek(SeekFrom::Start(start)).ok()?;
         let mut buf = vec![0u8; (pos - start) as usize];
         f.read_exact(&mut buf).ok()?;
@@ -53,12 +53,20 @@ fn read_tail(path: &str, max_lines: usize) -> Option<String> {
         }
         pos = start;
     }
-    Some(String::from_utf8_lossy(&collected).into_owned())
+    let text = String::from_utf8_lossy(&collected).into_owned();
+    if reached_start {
+        return Some(text);
+    }
+    // The oldest line in the buffer is a fragment the chunk boundary cut in half.
+    // Crediting it would score a command the user never typed, so drop everything before the first newline.
+    Some(match text.split_once('\n') {
+        Some((_, rest)) => rest.to_string(),
+        None => String::new(),
+    })
 }
 
-/// Prune stale order caches in `dir`: per-command order files are rebuilt on next use, so
-/// drop any older than the retention window (recursing into `_shared/`) to stop `temp/order`
-/// from accumulating. Runs in a background thread on menu open, so it never delays the TUI.
+/// Prune stale order caches in `dir`: per-command order files are rebuilt on next use, so drop any older than the retention window (recursing into `_shared/`) to stop `temp/order` from accumulating.
+/// Runs in a background thread on menu open, so it never delays the TUI.
 pub fn cleanup_stale_order_files(dir: &str) {
     const RETENTION_DAYS: u64 = 90;
     let cutoff = std::time::SystemTime::now()
@@ -94,8 +102,7 @@ pub fn cleanup_stale_order_files(dir: &str) {
     }
 }
 
-/// Entry point for the background thread: read history, tally scores, rank, atomically
-/// write the file.
+/// Entry point for the background thread: read history, tally scores, rank, atomically write the file.
 pub fn compute_and_write_order(info: &OrderInfo) {
     // Only the most recent history matters (ORDER_WINDOW lines); read just the tail.
     let Some(history) = read_tail(&info.history, ORDER_WINDOW) else {
@@ -107,13 +114,10 @@ pub fn compute_and_write_order(info: &OrderInfo) {
     } else {
         write_order(&info.path, &stats);
     }
-    // Global path-leaf history (shared across commands): path completion (`.\scripts\<Tab>`)
-    // ranks files/scripts by how often their leaf name was used, regardless of the command.
-    // Lives in its own subdir so it can never collide with a per-command order file
-    // (`_paths` is a valid command name and EscapeDataString keeps those files flat).
+    // Global path-leaf history (shared across commands): path completion (`.\scripts\<Tab>`) ranks files/scripts by how often their leaf name was used, regardless of the command.
+    // Lives in its own subdir so it can never collide with a per-command order file (`_paths` is a valid command name and EscapeDataString keeps those files flat).
     let path_stats = compute_path_scores(&history);
-    // Global command-use frequency: root-command completion (`g<Tab>`) ranks candidates by
-    // how often each command was invoked.
+    // Global command-use frequency: root-command completion (`g<Tab>`) ranks candidates by how often each command was invoked.
     let cmd_stats = compute_command_scores(&history);
     let dir = std::path::Path::new(&info.path)
         .parent()
@@ -125,8 +129,7 @@ pub fn compute_and_write_order(info: &OrderInfo) {
     }
 }
 
-/// Tally each token's weighted score (graded time decay × position weight) and its most
-/// recent use line.
+/// Tally each token's weighted score (graded time decay × position weight) and its most recent use line.
 fn compute_scores(history: &str, aliases: &[String]) -> HashMap<String, TokenStats> {
     let mut scores: HashMap<String, TokenStats> = HashMap::new();
     let lines: Vec<&str> = history.lines().collect();
@@ -136,39 +139,48 @@ fn compute_scores(history: &str, aliases: &[String]) -> HashMap<String, TokenSta
         let rel_idx = rel + 1; // 1-based
         let recency = recency_weight(rel_idx, total);
         let line = line.trim_start_matches([' ', '\t']);
-        for alias in aliases {
-            if alias.is_empty() {
-                continue;
-            }
-            if let Some(rest) = strip_alias(line, alias) {
-                if rest.is_empty() {
+        // A `sudo`-wrapped line counts as two records: the original (so `sudo` itself keeps its history — e.g. Windows sudo's `run`/`config` subcommands) and the fully unwrapped remainder for the wrapped command.
+        // Options are never unwrapped through: `sudo -u <user> <cmd>` keeps the `sudo` record but credits nothing behind the options.
+        let mut variants = vec![line];
+        let mut cur = line;
+        while let Some(rest) = strip_sudo_prefix(cur) {
+            cur = rest;
+        }
+        if cur != line {
+            variants.push(cur);
+        }
+        for variant in &variants {
+            for alias in aliases {
+                if alias.is_empty() {
                     continue;
                 }
-                let toks = tokenize(rest);
-                let n = toks.len();
-                for (i, tok) in toks.iter().enumerate() {
-                    let key = normalize_key(tok);
-                    if !key.is_empty() {
-                        let s = scores.entry(key).or_insert(TokenStats {
-                            score: 0.0,
-                            last_line: 0,
-                        });
-                        s.score += recency * position_factor(i, n);
-                        s.last_line = rel_idx;
+                if let Some(rest) = strip_alias(variant, alias) {
+                    if rest.is_empty() {
+                        continue;
                     }
+                    let toks = tokenize(rest);
+                    let n = toks.len();
+                    for (i, tok) in toks.iter().enumerate() {
+                        let key = normalize_key(tok);
+                        if !key.is_empty() {
+                            let s = scores.entry(key).or_insert(TokenStats {
+                                score: 0.0,
+                                last_line: 0,
+                            });
+                            s.score += recency * position_factor(i, n);
+                            s.last_line = rel_idx;
+                        }
+                    }
+                    break;
                 }
-                break;
             }
         }
     }
     scores
 }
 
-/// Tally path-like tokens (contain `\` or `/`) by every path segment across all history
-/// lines; the result feeds `_paths.json`, the shared source for path-completion ordering.
-/// Scoring every segment (not just the leaf) lets a directory candidate rank by how often it
-/// was entered: `.\scripts\build.ps1` scores both `scripts` and `build.ps1`, so completing
-/// `.\` surfaces the frequently used `scripts` directory first.
+/// Tally path-like tokens (contain `\` or `/`) by every path segment across all history lines; the result feeds `_paths.json`, the shared source for path-completion ordering.
+/// Scoring every segment (not just the leaf) lets a directory candidate rank by how often it was entered: `.\scripts\build.ps1` scores both `scripts` and `build.ps1`, so completing `.\` surfaces the frequently used `scripts` directory first.
 fn compute_path_scores(history: &str) -> HashMap<String, TokenStats> {
     let mut scores: HashMap<String, TokenStats> = HashMap::new();
     let lines: Vec<&str> = history.lines().collect();
@@ -202,8 +214,8 @@ fn compute_path_scores(history: &str) -> HashMap<String, TokenStats> {
 }
 
 /// Every segment of a path-like token (contains a path separator, not a bare `-option`).
-/// A trailing separator (a directory like `.\scripts\`) is ignored so the directory's own
-/// name is the last segment. Returns `None` for tokens that are not paths.
+/// A trailing separator (a directory like `.\scripts\`) is ignored so the directory's own name is the last segment.
+/// Returns `None` for tokens that are not paths.
 fn path_segments(tok: &str) -> Option<Vec<String>> {
     let t = tok.trim_matches('"').trim_matches('\'');
     if t.is_empty() || !(t.contains('\\') || t.contains('/')) {
@@ -222,8 +234,8 @@ fn path_segments(tok: &str) -> Option<Vec<String>> {
     }
 }
 
-/// Command-use frequency: the first token of each history line, across all commands. Feeds
-/// `_commands.json`, the shared source for root-command completion ordering (`g<Tab>`).
+/// Command-use frequency: the first token of each history line, across all commands.
+/// Feeds `_commands.json`, the shared source for root-command completion ordering (`g<Tab>`).
 fn compute_command_scores(history: &str) -> HashMap<String, TokenStats> {
     let mut scores: HashMap<String, TokenStats> = HashMap::new();
     let lines: Vec<&str> = history.lines().collect();
@@ -234,35 +246,47 @@ fn compute_command_scores(history: &str) -> HashMap<String, TokenStats> {
         let recency = recency_weight(rel_idx, total);
         let line = line.trim_start_matches([' ', '\t']);
         let toks = tokenize(line);
-        if let Some(first) = toks.first() {
-            let key = normalize_key(first);
-            if !key.is_empty() {
-                let s = scores.entry(key).or_insert(TokenStats {
-                    score: 0.0,
-                    last_line: 0,
-                });
-                s.score += recency;
-                s.last_line = rel_idx;
+        // Two records, mirroring `compute_scores`: the literal first token (so `sudo` itself keeps its history) plus the wrapped command.
+        // Bare `sudo` (no following token) still credits `sudo`, as before.
+        let mut first_idx = 0;
+        while toks
+            .get(first_idx)
+            .is_some_and(|t| t.eq_ignore_ascii_case("sudo"))
+            && toks.get(first_idx + 1).is_some()
+        {
+            first_idx += 1;
+        }
+        let mut slots = vec![0];
+        // The wrapped slot must look like a command, not an option: `sudo -u ...` keeps only the `sudo` record (same as before), never a `-u` key.
+        if first_idx > 0 && !toks[first_idx].starts_with('-') {
+            slots.push(first_idx);
+        }
+        for i in slots {
+            if let Some(first) = toks.get(i) {
+                let key = normalize_key(first);
+                if !key.is_empty() {
+                    let s = scores.entry(key).or_insert(TokenStats {
+                        score: 0.0,
+                        last_line: 0,
+                    });
+                    s.score += recency;
+                    s.last_line = rel_idx;
+                }
             }
         }
     }
     scores
 }
 
-/// If the line start (ignoring leading spaces) matches `alias` case-insensitively, and the
-/// alias is immediately followed by whitespace + content, return the remainder of the line
-/// after the leading whitespace + alias + trailing whitespace (i.e. the argument segment).
+/// If the line start (ignoring leading spaces) matches `alias` case-insensitively, and the alias is immediately followed by whitespace + content, return the remainder of the line after the leading whitespace + alias + trailing whitespace (i.e. the argument segment).
 fn strip_alias<'a>(line: &'a str, alias: &str) -> Option<&'a str> {
     let line = line.trim_start_matches([' ', '\t']);
     let a = alias.to_lowercase();
     if a.is_empty() {
         return None;
     }
-    // Walk the line character by character, folding case as we go, and keep the
-    // boundary index of the original string. A character's lowercase can be a
-    // different byte length than the character itself (`İ` is 2 bytes but folds
-    // to `i` + U+0307, 3 bytes), so the folded alias length is not a valid slice
-    // index into `line` — using it panics on a non-boundary offset.
+    // Walk the line character by character, folding case as we go, and keep the boundary index of the original string.
+    // A character's lowercase can be a different byte length than the character itself (`İ` is 2 bytes but folds to `i` + U+0307, 3 bytes), so the folded alias length is not a valid slice index into `line` — using it panics on a non-boundary offset.
     let mut folded = String::new();
     let mut end = 0;
     for (i, ch) in line.char_indices() {
@@ -284,6 +308,12 @@ fn strip_alias<'a>(line: &'a str, alias: &str) -> Option<&'a str> {
         return None;
     }
     Some(after_trim)
+}
+
+/// Strip one leading `sudo` wrapper (`sudo <cmd> ...` → `<cmd> ...`) so history typed with privilege elevation attributes to the real command.
+/// This is just `strip_alias` with a fixed alias — same boundary rules (case-insensitive, `sudo` must be followed by whitespace + content), so bare `sudo` is left alone.
+fn strip_sudo_prefix(line: &str) -> Option<&str> {
+    strip_alias(line, "sudo")
 }
 
 /// Mimics the PowerShell `input_pattern` (`(?:"[^"]*"|'[^']*'|\S)+`):
@@ -323,14 +353,16 @@ fn tokenize(s: &str) -> Vec<String> {
     out
 }
 
-/// Normalize a sort key: trim surrounding quotes + lowercase (the reader-side hash map is
-/// case-insensitive).
+/// Normalize a sort key: trim surrounding quotes, keep the original case.
+/// `-d` and `-D` are different options, so they accumulate separate history scores and using one promotes exactly that spelling.
+/// The reader (`protocol.rs item_score`) looks up the exact spelling first and falls back to the lowercased key — the same case-folding the filter uses, so a key stored in one case still matches a candidate spelled in another (`"#FFA500"` matches history `'#ffa500'`).
 fn normalize_key(tok: &str) -> String {
-    tok.trim_matches('"').trim_matches('\'').to_lowercase()
+    tok.trim_matches('"').trim_matches('\'').to_string()
 }
 
-/// Sort by (score desc → most-recent-use desc → key) and write to `path`. Higher rank sorts
-/// first (-Descending on the module side). Skips unchanged content; writes atomically.
+/// Sort by (score desc → most-recent-use desc → key) and write to `path`.
+/// Higher rank sorts first (-Descending on the module side).
+/// Skips unchanged content; writes atomically.
 fn write_order(path: &str, scores: &HashMap<String, TokenStats>) {
     use std::cmp::Ordering;
     let mut entries: Vec<(&String, &TokenStats)> = scores.iter().collect();
@@ -430,8 +462,7 @@ mod tests {
 
     #[test]
     fn strip_alias_survives_multibyte_case_folding() {
-        // "İ" is 2 UTF-8 bytes but lowercases to "i" + U+0307 (3 bytes), so the
-        // lowercased alias length is not a valid slice index into the original line.
+        // "İ" is 2 UTF-8 bytes but lowercases to "i" + U+0307 (3 bytes), so the lowercased alias length is not a valid slice index into the original line.
         assert_eq!(strip_alias("İstanbul", "i"), None);
         // A non-ASCII alias whose lowercase is shorter must not slice mid-character.
         assert_eq!(strip_alias("ẞ value", "ẞ"), Some("value"));
@@ -479,14 +510,38 @@ mod tests {
         let s = compute_path_scores(history);
         // The leaf is still scored (used twice → beats the once-used script).
         assert!(s["build-release.ps1"].score > s["compare-json.ps1"].score);
-        // Every segment is scored: `scripts` appears in all 3 lines (each path passes through it)
-        // and therefore outranks the leaf used only twice.
+        // Every segment is scored: `scripts` appears in all 3 lines (each path passes through it) and therefore outranks the leaf used only twice.
         assert!(s["scripts"].score > s["build-release.ps1"].score);
         // A drive/`.` segment counts as a segment too.
         assert!(s.contains_key("."));
         // Plain args are not path tokens.
         assert!(!s.contains_key("-platform"));
         assert!(!s.contains_key("windows"));
+    }
+
+    #[test]
+    fn sudo_prefix_attributes_to_wrapped_command() {
+        // A `sudo`-wrapped line counts as two records: the wrapper itself (so `sudo` keeps its history) and the wrapped command.
+        let stats = compute_scores("sudo git commit -m x\n", &["git".to_string()]);
+        assert!(stats["commit"].score > 0.0);
+        let sudo_stats = compute_scores("sudo git commit -m x\n", &["sudo".to_string()]);
+        assert!(sudo_stats["git"].score > 0.0);
+        let cmd = compute_command_scores("sudo git status\nsudo scoop update\n");
+        assert!(cmd.contains_key("git"));
+        assert!(cmd.contains_key("scoop"));
+        assert!(cmd.contains_key("sudo"));
+        assert!(!cmd.contains_key("status"));
+        // Newest line wins regardless of the wrapper: sudo git (newer) outranks scoop.
+        let ranked = compute_command_scores("scoop update\nsudo git status\n");
+        assert!(ranked["git"].score > ranked["scoop"].score);
+        // Bare `sudo` still credits `sudo`, as before.
+        let bare = compute_command_scores("sudo\n");
+        assert!(bare.contains_key("sudo"));
+        // Options after `sudo` are not unwrapped: only `sudo` is credited, no `-u` key.
+        let flagged = compute_command_scores("sudo -u root git status\n");
+        assert!(flagged.contains_key("sudo"));
+        assert!(!flagged.contains_key("-u"));
+        assert!(!flagged.contains_key("git"));
     }
 
     #[test]
@@ -502,6 +557,16 @@ mod tests {
         assert!(s["git"].score > s["scoop"].score);
         assert!(!s.contains_key("commit"));
         assert!(!s.contains_key("status"));
+    }
+
+    #[test]
+    fn compute_scores_keeps_option_case() {
+        // `-d` and `-D` are different options: history for one must not credit the other, so that using `-D` promotes exactly that spelling.
+        let history = "tool -d\ntool -D\ntool -D\n";
+        let s = compute_scores(history, &["tool".to_string()]);
+        assert!(s.contains_key("-D"));
+        assert!(s.contains_key("-d"));
+        assert!(s["-D"].score > s["-d"].score);
     }
 
     #[test]
@@ -553,7 +618,6 @@ mod tests {
         std::fs::write(&history, "git commit -m x\nscoop update\n").unwrap();
         let info = OrderInfo {
             history: history.to_string_lossy().into_owned(),
-            cmd: "get-".into(),
             aliases: vec!["get-".into()],
             path: dir.join("get-.json").to_string_lossy().into_owned(),
         };
@@ -577,9 +641,7 @@ mod tests {
 
     #[test]
     fn recency_grading_recent_many_beats_old_many() {
-        // An old command deposited 500 times (oldest band, weight ≈1) vs a new command used
-        // 15 times recently (newest band, weight ≈121) → the new one should win (a pure
-        // frequency algorithm could never do this; the tie-break is covered by write_order's test).
+        // An old command deposited 500 times (oldest band, weight ≈1) vs a new command used 15 times recently (newest band, weight ≈121) → the new one should win (a pure frequency algorithm could never do this; the tie-break is covered by write_order's test).
         let mut history = "psc oldsub\n".repeat(500);
         history.push_str(&"x\n".repeat(485));
         history.push_str(&"psc newsub\n".repeat(15));
@@ -589,30 +651,25 @@ mod tests {
 
     #[test]
     fn position_weight_prefix_counts_less() {
-        // `psc config menu`: menu is the last token (weight 1.0), config is a prefix
-        // (weight 0.5); in the same line the last token outscores the prefix.
+        // `psc config menu`: menu is the last token (weight 1.0), config is a prefix (weight 0.5); in the same line the last token outscores the prefix.
         let stats = compute_scores("psc config menu\n", &["psc".to_string()]);
         assert!(stats["menu"].score > stats["config"].score);
-        // A prefix repeated several times (e.g. `psc config menu` ×3) must not outscore a
-        // single last-token `psc list` line.
+        // A prefix repeated several times (e.g. `psc config menu` ×3) must not outscore a single last-token `psc list` line.
         let mut h = "psc config menu\n".repeat(3);
         h.push_str("psc list\n");
         let stats2 = compute_scores(&h, &["psc".to_string()]);
-        // Compare within the newest band to stay fair: 3 prefixes + 1 last token all land
-        // in the newest band (×60).
+        // Compare within the newest band to stay fair: 3 prefixes + 1 last token all land in the newest band (×60).
         // config = 3×(60×0.5) = 90; list = 1×60 = 60; menu = 3×(60×1.0) = 180
         assert!(stats2["menu"].score > stats2["config"].score);
     }
 
     #[test]
     fn recency_weight_is_smooth_monotonic() {
-        // Smooth with no cliffs: the weight between adjacent lines changes very little (the
-        // old discrete buckets jumped 5× at the 900/901 boundary).
+        // Smooth with no cliffs: the weight between adjacent lines changes very little (the old discrete buckets jumped 5× at the 900/901 boundary).
         let mut prev = 0.0f64;
         for rel in 1..=1000 {
             let w = recency_weight(rel, 1000);
-            // f^8 flattens everything before the recent tail to ≈1 (sub-double steps), so
-            // allow non-decreasing rather than strictly increasing.
+            // f^8 flattens everything before the recent tail to ≈1 (sub-double steps), so allow non-decreasing rather than strictly increasing.
             assert!(
                 w >= prev,
                 "weight must not decrease with recency at rel={rel}"
@@ -658,8 +715,7 @@ mod tests {
         );
         write_order(&path_str, &scores);
         let text = std::fs::read_to_string(&path_str).unwrap();
-        // list/info tie on score: the more recent info gets a larger rank; which has the
-        // lowest score and the smallest rank (sorted first by -Descending).
+        // list/info tie on score: the more recent info gets a larger rank; which has the lowest score and the smallest rank (sorted first by -Descending).
         let parsed: serde_json::Value = serde_json::from_str(&text).unwrap();
         assert_eq!(parsed["info"], 3);
         assert_eq!(parsed["list"], 2);
@@ -697,6 +753,33 @@ mod tests {
         let pid_tmp = format!("{path_str}.{}.tmp", std::process::id());
         assert!(!std::path::Path::new(&pid_tmp).exists());
         assert!(!std::path::Path::new(&format!("{path_str}.tmp")).exists());
+        let _ = std::fs::remove_dir_all(&dir);
+    }
+
+    #[test]
+    fn read_tail_never_credits_a_partial_line() {
+        // The tail is read in 64 KiB chunks, so the oldest line in the buffer is normally a fragment the boundary cut in half.
+        // It used to be scored as if the user had typed it.
+        let dir = std::env::temp_dir().join("psc-order-tail-test");
+        let _ = std::fs::remove_dir_all(&dir);
+        std::fs::create_dir_all(&dir).unwrap();
+        let path = dir.join("history.txt");
+        let mut body = String::new();
+        for i in 0..1200 {
+            body.push_str(&format!("git commit -m {:0>50}\n", i));
+        }
+        std::fs::write(&path, &body).unwrap();
+        let tail = read_tail(&path.to_string_lossy(), 3).unwrap();
+        assert!(
+            !tail.is_empty(),
+            "the tail must still carry the newest lines"
+        );
+        for line in tail.lines() {
+            assert!(
+                line.starts_with("git commit -m ") && line.len() == "git commit -m ".len() + 50,
+                "a partial line was credited: {line:?}"
+            );
+        }
         let _ = std::fs::remove_dir_all(&dir);
     }
 }

@@ -1,11 +1,12 @@
-<h1 align="center">✨<a href="https://pscompletions.abgox.com">PSCompletions(psc)</a>✨</h1>
+<h1 align="center"><a href="https://pscompletions.abgox.com">PSCompletions</a></h1>
 
 <p align="center">
     <a href="README.md">English</a> |
-    <a href="https://www.powershellgallery.com/packages/PSCompletions">Powershell Gallery</a> |
+    <span>简体中文</span> |
+    <a href="https://www.powershellgallery.com/packages/PSCompletions">PowerShell Gallery</a> |
     <a href="https://github.com/abgox/PSCompletions">GitHub</a> |
-    <a href="https://gitee.com/abgox/PSCompletions">Gitee</a> |
-    <a href="https://atomgit.com/abgox/PSCompletions">AtomGit</a>
+    <a href="https://atomgit.com/abgox/PSCompletions">AtomGit</a> |
+    <a href="https://gitee.com/abgox/PSCompletions">Gitee</a>
 </p>
 
 <p align="center">
@@ -15,8 +16,8 @@
     <a href="https://www.powershellgallery.com/packages/PSCompletions">
         <img src="https://img.shields.io/powershellgallery/v/PSCompletions?label=version" alt="module version" />
     </a>
-    <a href="./completions.zh-CN.md">
-        <img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fabgox%2FPSCompletions%2Frefs%2Fheads%2Fmain%2Fcompletions.json&query=%24.count&label=completions" alt="completions" />
+    <a href="../index/completions.zh-CN.md">
+        <img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fabgox%2FPSCompletions%2Frefs%2Fheads%2Findex%2Fcompletions.json&query=%24.count&label=completions" alt="completions" />
     </a>
     <a href="https://www.powershellgallery.com/packages/PSCompletions">
         <img src="https://img.shields.io/powershellgallery/dt/PSCompletions" alt="PowerShell Gallery" />
@@ -26,11 +27,18 @@
     </a>
 </p>
 
+<p align="center">
+    <a href="https://pscompletions.abgox.com">
+        <img src="https://pscompletions.abgox.com/og-image.svg" alt="PSCompletions — Powerful Shell Completions"/>
+    </a>
+</p>
+
 ## 介绍
 
-适用于 [PowerShell](https://microsoft.com/powershell) 的 Tab 补全管理器，基于 [Rust 和 Lua](https://pscompletions.abgox.com/docs/how-it-works) 构建。
+**Powerful Shell Completions** - 适用于 PowerShell 和其他 Shell 的强大的命令补全器，由 Rust 与 Lua 驱动。
 
-- [内置的补全库](./completions.zh-CN.md)
+- [一个引擎，多个 Shell](https://pscompletions.abgox.com/docs/shells)
+- [内置的补全库](../index/completions.zh-CN.md)
 - [更强大的补全菜单](https://pscompletions.abgox.com/docs/completion-menu)
 - [多语言支持: en-US、zh-CN 等](https://pscompletions.abgox.com/docs/language)
 - [基于命令历史的补全项动态排序](https://pscompletions.abgox.com/docs/sort-completion-items)
@@ -41,57 +49,43 @@
 
 ## 获取
 
-1. 安装模块
-
-   - [Install-Module](https://learn.microsoft.com/powershell/module/powershellget/install-module)
+1. 安装它
+   - PowerShell - 安装模块
 
      ```powershell
-     Install-Module PSCompletions
+     Install-Module PSCompletions # Install-PSResource PSCompletions
      ```
 
-   - [Install-PSResource](https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/install-psresource)
+   - bash / zsh / fish - 运行 [安装脚本](install.sh)
 
-     ```powershell
-     Install-PSResource PSCompletions
+     ```shell
+     curl -fsSL https://raw.githubusercontent.com/abgox/PSCompletions/main/install.sh | sh
      ```
 
    - [Scoop](https://scoop.sh)
 
-     - 使用 [main](https://github.com/ScoopInstaller/Main) bucket
+     ```shell
+     scoop install pscompletions # scoop install abyss/abgox.PSCompletions
+     ```
 
-       ```shell
-       scoop install pscompletions
-       ```
+2. 加载它
+   - PowerShell - [直接导入模块](https://pscompletions.abgox.com/docs/direct-import-module)
 
-     - 使用 [abyss](https://abyss.abgox.com) bucket ([GitHub](https://github.com/abgox/abyss) 或 [Gitee](https://gitee.com/abgox/abyss))
+     ```powershell
+     Import-Module PSCompletions
+     ```
 
-       ```shell
-       scoop install abyss/abgox.PSCompletions
-       ```
+   - bash / zsh / fish - [安装脚本](install.sh) 会告诉你如何加载
 
-2. [导入模块](https://pscompletions.abgox.com/docs/direct-import-module)
+3. 使用它
 
-   ```powershell
-   Import-Module PSCompletions
+   ```shell
+   psc
    ```
 
-## 使用
-
-- [内置补全库](./completions.zh-CN.md): 使用 `psc add git` 添加补全
-- [原生补全集成](https://pscompletions.abgox.com/docs/native-completion): 使用 PowerShell 的原生补全
-  - 如果命令存在官方补全，可以使用类似的命令:
-
-    ```powershell
-    xxx completion powershell | Out-String | Invoke-Expression
-    ```
-
-  - 使用 PowerShell 参数补全器:
-
-    ```powershell
-    Register-ArgumentCompleter [-Native] -CommandName <Name> -ScriptBlock { }
-    ```
-
-  - 使用其他的补全库，例如 [Carapace](https://pscompletions.abgox.com/docs/tools/carapace)
+   ```shell
+   psc add git
+   ```
 
 ## 新的变化
 
@@ -103,12 +97,16 @@
 
 ## 支持
 
-如果你喜欢这个项目，欢迎给它 Star ⭐️ 或 [赞赏 💰](https://me.abgox.com/donate)
+<!-- 每位赞助商一行，新加入的放在最后： `- [名称](https://…) — 一句话介绍。` -->
+
+> [!TIP]
+>
+> 如果你喜欢这个项目，欢迎给它 Star ⭐️，也欢迎 [赞助](https://pscompletions.abgox.com/docs/sponsors)
 
 ## 致谢
 
-- [PSReadLine](https://github.com/PowerShell/PSReadLine) — PowerShell 的编辑与补全基础
-- [fzf](https://github.com/junegunn/fzf)/[PSFzf](https://github.com/kelleyma49/PSFzf) — [补全菜单](https://pscompletions.abgox.com/docs/completion-menu) 的 UI 参考
+- [PSReadLine](https://github.com/PowerShell/PSReadLine) - PowerShell 的编辑与补全基础
+- [fzf](https://github.com/junegunn/fzf)/[PSFzf](https://github.com/kelleyma49/PSFzf) - [补全菜单](https://pscompletions.abgox.com/docs/completion-menu) 的 UI 参考
 
 ## License
 

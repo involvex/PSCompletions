@@ -1,0 +1,210 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "Send a signal to processes selected by expression."
+    ]
+  },
+  "option": [
+    {
+      "name": "--command",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --command <command>"
+      ],
+      "tip": [
+        "Treat the expression as a command name."
+      ],
+      "next": []
+    },
+    {
+      "name": "--fast",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --fast"
+      ],
+      "tip": [
+        "Fast mode (not implemented)."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this help and exit."
+      ]
+    },
+    {
+      "name": "--interactive",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --interactive"
+      ],
+      "tip": [
+        "Interactive mode."
+      ]
+    },
+    {
+      "name": "--list",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --list"
+      ],
+      "tip": [
+        "List all signal names."
+      ]
+    },
+    {
+      "name": "--no-action",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --no-action"
+      ],
+      "tip": [
+        "Do not act; print what would happen."
+      ]
+    },
+    {
+      "name": "--ns",
+      "usage": [
+        "--ns <pid>"
+      ],
+      "tip": [
+        "Match processes in the same namespace as the given PID."
+      ],
+      "next": []
+    },
+    {
+      "name": "--nslist",
+      "usage": [
+        "--nslist <ns,...>"
+      ],
+      "tip": [
+        "Limit --ns to the listed namespaces."
+      ],
+      "separator": ",",
+      "next": [
+        {
+          "name": "ipc"
+        },
+        {
+          "name": "mnt"
+        },
+        {
+          "name": "net"
+        },
+        {
+          "name": "pid"
+        },
+        {
+          "name": "user"
+        },
+        {
+          "name": "uts"
+        }
+      ]
+    },
+    {
+      "name": "--pid",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --pid <pid>"
+      ],
+      "tip": [
+        "Treat the expression as a process ID."
+      ],
+      "next": []
+    },
+    {
+      "name": "--table",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --table"
+      ],
+      "tip": [
+        "List all signal names in a table."
+      ]
+    },
+    {
+      "name": "--tty",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --tty <tty>"
+      ],
+      "tip": [
+        "Treat the expression as a terminal."
+      ],
+      "next": []
+    },
+    {
+      "name": "--user",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --user <username>"
+      ],
+      "tip": [
+        "Treat the expression as a username."
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Explain what is being done."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Output version information and exit."
+      ]
+    },
+    {
+      "name": "--warnings",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --warnings"
+      ],
+      "tip": [
+        "Enable warnings (not implemented)."
+      ]
+    }
+  ]
+}

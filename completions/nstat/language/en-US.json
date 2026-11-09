@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "Show kernel SNMP counters and network interface statistics."
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this help message."
+      ]
+    },
+    {
+      "name": "--ignore",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --ignore"
+      ],
+      "tip": [
+        "Ignore history and show absolute values."
+      ]
+    },
+    {
+      "name": "--interval",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --interval=SECS"
+      ],
+      "tip": [
+        "Average over the last SECS seconds."
+      ],
+      "next": []
+    },
+    {
+      "name": "--json",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --json"
+      ],
+      "tip": [
+        "Format output in JSON."
+      ]
+    },
+    {
+      "name": "--nooutput",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --nooutput"
+      ],
+      "tip": [
+        "Only update history; display nothing."
+      ]
+    },
+    {
+      "name": "--noupdate",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --noupdate"
+      ],
+      "tip": [
+        "Do not update history."
+      ]
+    },
+    {
+      "name": "--pretty",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --pretty"
+      ],
+      "tip": [
+        "Pretty-print JSON output."
+      ]
+    },
+    {
+      "name": "--reset",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --reset"
+      ],
+      "tip": [
+        "Reset history."
+      ]
+    },
+    {
+      "name": "--scan",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --scan=SECS"
+      ],
+      "tip": [
+        "Sample statistics every SECS seconds."
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Output version information."
+      ]
+    },
+    {
+      "name": "--zeros",
+      "alias": [
+        "-z"
+      ],
+      "usage": [
+        "-z, --zeros"
+      ],
+      "tip": [
+        "Show entries with zero activity."
+      ]
+    }
+  ]
+}

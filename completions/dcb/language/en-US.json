@@ -1,0 +1,1096 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "Show / manipulate DCB settings."
+    ]
+  },
+  "next": [
+    {
+      "name": "app",
+      "tip": [
+        "Configuration of the application priority table."
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add dev STRING [ default-prio PRIO ] [ ethtype-prio ET:PRIO ] [ stream-port-prio PORT:PRIO ] [ dgram-port-prio PORT:PRIO ] [ port-prio PORT:PRIO ] [ dscp-prio INTEGER:PRIO ] [ pcp-prio PCP:PRIO ]"
+          ],
+          "tip": [
+            "Add application priority entries."
+          ],
+          "option": [
+            {
+              "name": "default-prio",
+              "usage": [
+                "default-prio PRIO"
+              ],
+              "tip": [
+                "Default priority."
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "dgram-port-prio",
+              "usage": [
+                "dgram-port-prio PORT:PRIO"
+              ],
+              "tip": [
+                "Datagram port priority."
+              ],
+              "next": []
+            },
+            {
+              "name": "dscp-prio",
+              "usage": [
+                "dscp-prio INTEGER:PRIO"
+              ],
+              "tip": [
+                "DSCP priority."
+              ],
+              "next": []
+            },
+            {
+              "name": "ethtype-prio",
+              "usage": [
+                "ethtype-prio ET:PRIO"
+              ],
+              "tip": [
+                "EtherType priority."
+              ],
+              "next": []
+            },
+            {
+              "name": "pcp-prio",
+              "usage": [
+                "pcp-prio PCP:PRIO"
+              ],
+              "tip": [
+                "PCP priority."
+              ],
+              "next": []
+            },
+            {
+              "name": "port-prio",
+              "usage": [
+                "port-prio PORT:PRIO"
+              ],
+              "tip": [
+                "Port priority."
+              ],
+              "next": []
+            },
+            {
+              "name": "stream-port-prio",
+              "usage": [
+                "stream-port-prio PORT:PRIO"
+              ],
+              "tip": [
+                "Stream port priority."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del dev STRING"
+          ],
+          "tip": [
+            "Delete application priority entries."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "flush",
+          "usage": [
+            "flush dev STRING"
+          ],
+          "tip": [
+            "Flush the application priority table."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show the app help."
+          ]
+        },
+        {
+          "name": "replace",
+          "usage": [
+            "replace dev STRING"
+          ],
+          "tip": [
+            "Replace application priority entries."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show dev STRING [ default-prio ] [ ethtype-prio ] [ stream-port-prio ] [ dgram-port-prio ] [ port-prio ] [ dscp-prio ] [ pcp-prio ]"
+          ],
+          "tip": [
+            "Show the application priority table."
+          ],
+          "option": [
+            {
+              "name": "default-prio",
+              "tip": [
+                "Show the default priority."
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "dgram-port-prio",
+              "tip": [
+                "Show datagram port priorities."
+              ]
+            },
+            {
+              "name": "dscp-prio",
+              "tip": [
+                "Show DSCP priorities."
+              ]
+            },
+            {
+              "name": "ethtype-prio",
+              "tip": [
+                "Show EtherType priorities."
+              ]
+            },
+            {
+              "name": "pcp-prio",
+              "tip": [
+                "Show PCP priorities."
+              ]
+            },
+            {
+              "name": "port-prio",
+              "tip": [
+                "Show port priorities."
+              ]
+            },
+            {
+              "name": "stream-port-prio",
+              "tip": [
+                "Show stream port priorities."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "apptrust",
+      "tip": [
+        "Configuration of the application trust table."
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show the apptrust help."
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set dev STRING [ order [ ethtype | stream-port | dgram-port | port | dscp | pcp ] ]"
+          ],
+          "tip": [
+            "Set the application trust table."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "dgram-port",
+              "tip": [
+                "Use datagram port trust."
+              ]
+            },
+            {
+              "name": "dscp",
+              "tip": [
+                "Use DSCP trust."
+              ]
+            },
+            {
+              "name": "ethtype",
+              "tip": [
+                "Use EtherType trust."
+              ]
+            },
+            {
+              "name": "order",
+              "tip": [
+                "Set the trust order."
+              ]
+            },
+            {
+              "name": "pcp",
+              "tip": [
+                "Use PCP trust."
+              ]
+            },
+            {
+              "name": "port",
+              "tip": [
+                "Use port trust."
+              ]
+            },
+            {
+              "name": "stream-port",
+              "tip": [
+                "Use stream port trust."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show dev STRING [ order ]"
+          ],
+          "tip": [
+            "Show the application trust table."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "order",
+              "tip": [
+                "Show the trust order."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "buffer",
+      "tip": [
+        "Configuration of port buffers."
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show the buffer help."
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set dev STRING [ prio-buffer PRIO-MAP ] [ buffer-size SIZE-MAP ]"
+          ],
+          "tip": [
+            "Set port buffer configuration."
+          ],
+          "option": [
+            {
+              "name": "buffer-size",
+              "usage": [
+                "buffer-size SIZE-MAP"
+              ],
+              "tip": [
+                "Buffer size map."
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "prio-buffer",
+              "usage": [
+                "prio-buffer PRIO-MAP"
+              ],
+              "tip": [
+                "Priority buffer map."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show dev STRING [ prio-buffer ] [ buffer-size ] [ total-size ]"
+          ],
+          "tip": [
+            "Show port buffer configuration."
+          ],
+          "option": [
+            {
+              "name": "buffer-size",
+              "tip": [
+                "Show buffer sizes."
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "prio-buffer",
+              "tip": [
+                "Show the priority buffer map."
+              ]
+            },
+            {
+              "name": "total-size",
+              "tip": [
+                "Show total size."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dcbx",
+      "tip": [
+        "Configuration of DCB eXchange."
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show the dcbx help."
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set dev STRING [ host | lld-managed ] [ cee | ieee ] [ static ]"
+          ],
+          "tip": [
+            "Set DCBX configuration."
+          ],
+          "option": [
+            {
+              "name": "cee",
+              "tip": [
+                "Use CEE mode."
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "host",
+              "tip": [
+                "Use host configuration."
+              ]
+            },
+            {
+              "name": "ieee",
+              "tip": [
+                "Use IEEE mode."
+              ]
+            },
+            {
+              "name": "lld-managed",
+              "tip": [
+                "Use LLDP-managed configuration."
+              ]
+            },
+            {
+              "name": "static",
+              "tip": [
+                "Use static configuration."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show dev STRING"
+          ],
+          "tip": [
+            "Show DCBX configuration."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ets",
+      "tip": [
+        "Configuration of Enhanced Transmission Selection."
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show the ets help."
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set dev STRING [ willing { on | off } ] [ { tc-tsa | reco-tc-tsa } TSA-MAP ] [ { pg-bw | tc-bw | reco-tc-bw } BW-MAP ] [ { prio-tc | reco-prio-tc } PRIO-MAP ]"
+          ],
+          "tip": [
+            "Set ETS configuration."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "pg-bw",
+              "usage": [
+                "pg-bw BW-MAP"
+              ],
+              "tip": [
+                "Priority group bandwidth map."
+              ],
+              "next": []
+            },
+            {
+              "name": "prio-tc",
+              "usage": [
+                "prio-tc PRIO-MAP"
+              ],
+              "tip": [
+                "Priority to TC map."
+              ],
+              "next": []
+            },
+            {
+              "name": "reco-prio-tc",
+              "usage": [
+                "reco-prio-tc PRIO-MAP"
+              ],
+              "tip": [
+                "Recommended priority to TC map."
+              ],
+              "next": []
+            },
+            {
+              "name": "reco-tc-bw",
+              "usage": [
+                "reco-tc-bw BW-MAP"
+              ],
+              "tip": [
+                "Recommended TC bandwidth map."
+              ],
+              "next": []
+            },
+            {
+              "name": "reco-tc-tsa",
+              "usage": [
+                "reco-tc-tsa TSA-MAP"
+              ],
+              "tip": [
+                "Recommended TC TSA map."
+              ],
+              "next": []
+            },
+            {
+              "name": "tc-bw",
+              "usage": [
+                "tc-bw BW-MAP"
+              ],
+              "tip": [
+                "TC bandwidth map."
+              ],
+              "next": []
+            },
+            {
+              "name": "tc-tsa",
+              "usage": [
+                "tc-tsa TSA-MAP"
+              ],
+              "tip": [
+                "TC TSA map."
+              ],
+              "next": []
+            },
+            {
+              "name": "willing",
+              "usage": [
+                "willing {on|off}"
+              ],
+              "tip": [
+                "Set willing mode."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show dev STRING [ willing ] [ ets-cap ] [ cbs ] [ tc-tsa ] [ reco-tc-tsa ] [ pg-bw ] [ tc-bw ] [ reco-tc-bw ] [ prio-tc ] [ reco-prio-tc ]"
+          ],
+          "tip": [
+            "Show ETS configuration."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "maxrate",
+      "tip": [
+        "Configuration of per-TC maximum transmit rate."
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show the maxrate help."
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set dev STRING [ tc-maxrate RATE-MAP ]"
+          ],
+          "tip": [
+            "Set maximum rate configuration."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "tc-maxrate",
+              "usage": [
+                "tc-maxrate RATE-MAP"
+              ],
+              "tip": [
+                "TC rate map."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show dev STRING [ tc-maxrate ]"
+          ],
+          "tip": [
+            "Show maximum rate configuration."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "tc-maxrate",
+              "tip": [
+                "Show TC maximum rates."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pfc",
+      "tip": [
+        "Configuration of Priority-based Flow Control."
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show the pfc help."
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set dev STRING [ prio-pfc PFC-MAP ] [ macsec-bypass { on | off } ] [ delay INTEGER ]"
+          ],
+          "tip": [
+            "Set PFC configuration."
+          ],
+          "option": [
+            {
+              "name": "delay",
+              "usage": [
+                "delay INTEGER"
+              ],
+              "tip": [
+                "Set delay."
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "macsec-bypass",
+              "usage": [
+                "macsec-bypass {on|off}"
+              ],
+              "tip": [
+                "Set MACsec bypass."
+              ],
+              "next": []
+            },
+            {
+              "name": "prio-pfc",
+              "usage": [
+                "prio-pfc PFC-MAP"
+              ],
+              "tip": [
+                "Priority PFC map."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show dev STRING [ pfc-cap ] [ prio-pfc ] [ macsec-bypass ] [ delay ] [ requests ] [ indications ]"
+          ],
+          "tip": [
+            "Show PFC configuration."
+          ],
+          "option": [
+            {
+              "name": "delay",
+              "tip": [
+                "Show delay."
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "indications",
+              "tip": [
+                "Show indications."
+              ]
+            },
+            {
+              "name": "macsec-bypass",
+              "tip": [
+                "Show MACsec bypass."
+              ]
+            },
+            {
+              "name": "pfc-cap",
+              "tip": [
+                "Show PFC capability."
+              ]
+            },
+            {
+              "name": "prio-pfc",
+              "tip": [
+                "Show priority PFC map."
+              ]
+            },
+            {
+              "name": "requests",
+              "tip": [
+                "Show requests."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rewr",
+      "tip": [
+        "Configuration of priority rewriting."
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add dev STRING [ prio-pcp PRIO:PCP ] [ prio-dscp PRIO:DSCP ]"
+          ],
+          "tip": [
+            "Add rewriting entries."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "prio-dscp",
+              "usage": [
+                "prio-dscp PRIO:DSCP"
+              ],
+              "tip": [
+                "Priority DSCP mapping."
+              ],
+              "next": []
+            },
+            {
+              "name": "prio-pcp",
+              "usage": [
+                "prio-pcp PRIO:PCP"
+              ],
+              "tip": [
+                "Priority PCP mapping."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del dev STRING"
+          ],
+          "tip": [
+            "Delete rewriting entries."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "flush",
+          "usage": [
+            "flush dev STRING"
+          ],
+          "tip": [
+            "Flush rewriting configuration."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show the rewr help."
+          ]
+        },
+        {
+          "name": "replace",
+          "usage": [
+            "replace dev STRING"
+          ],
+          "tip": [
+            "Replace rewriting entries."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show dev STRING [ prio-pcp ] [ prio-dscp ]"
+          ],
+          "tip": [
+            "Show rewriting configuration."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "prio-dscp",
+              "tip": [
+                "Show priority DSCP map."
+              ]
+            },
+            {
+              "name": "prio-pcp",
+              "tip": [
+                "Show priority PCP map."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--batch",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --batch <FILENAME>"
+      ],
+      "tip": [
+        "Read commands from the file or standard input."
+      ],
+      "next": []
+    },
+    {
+      "name": "--force",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --force"
+      ],
+      "tip": [
+        "Do not terminate on errors in batch mode."
+      ]
+    },
+    {
+      "name": "--iec",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --iec"
+      ],
+      "tip": [
+        "Use IEC 1024-based prefixes for rates."
+      ]
+    },
+    {
+      "name": "--json",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --json"
+      ],
+      "tip": [
+        "Generate JSON output."
+      ]
+    },
+    {
+      "name": "--netns",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --netns <NETNS>"
+      ],
+      "tip": [
+        "Switch dcb to the specified network namespace."
+      ],
+      "next": []
+    },
+    {
+      "name": "--Numeric",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --Numeric"
+      ],
+      "tip": [
+        "Suppress symbolic name translation."
+      ]
+    },
+    {
+      "name": "--pretty",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --pretty"
+      ],
+      "tip": [
+        "Pretty-print JSON output."
+      ]
+    },
+    {
+      "name": "--statistics",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --statistics"
+      ],
+      "tip": [
+        "Show statistical counters in show output."
+      ]
+    },
+    {
+      "name": "--Version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --Version"
+      ],
+      "tip": [
+        "Print the version of the dcb utility and exit."
+      ]
+    }
+  ]
+}

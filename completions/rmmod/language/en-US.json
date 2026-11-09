@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "url": "https://github.com/kmod-project/kmod",
+    "description": [
+      "Remove a module from the Linux kernel."
+    ]
+  },
+  "option": [
+    {
+      "name": "--force",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --force"
+      ],
+      "tip": [
+        "DANGEROUS: force a module unload."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this help."
+      ]
+    },
+    {
+      "name": "--syslog",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --syslog"
+      ],
+      "tip": [
+        "Print to syslog instead of stderr."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Enable more messages."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Show the version."
+      ]
+    }
+  ]
+}

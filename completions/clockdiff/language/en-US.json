@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "url": "https://github.com/iputils/iputils",
+    "description": [
+      "Measure clock difference between hosts."
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this help."
+      ]
+    },
+    {
+      "name": "--time-format",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --time-format <ctime|iso>"
+      ],
+      "tip": [
+        "Set the display time format."
+      ],
+      "next": [
+        {
+          "name": "ctime"
+        },
+        {
+          "name": "iso"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Print version and exit."
+      ]
+    },
+    {
+      "name": "-I",
+      "tip": [
+        "Alias of --time-format=iso."
+      ]
+    },
+    {
+      "name": "-o",
+      "tip": [
+        "Use IP timestamp and ICMP echo."
+      ]
+    },
+    {
+      "name": "-o1",
+      "tip": [
+        "Use three-term IP timestamp and ICMP echo."
+      ]
+    }
+  ]
+}

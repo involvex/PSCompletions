@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "url": "https://github.com/iputils/iputils",
+    "description": [
+      "Trace the path to a network host."
+    ]
+  },
+  "option": [
+    {
+      "name": "-4",
+      "tip": [
+        "Use IPv4."
+      ]
+    },
+    {
+      "name": "-6",
+      "tip": [
+        "Use IPv6."
+      ]
+    },
+    {
+      "name": "-b",
+      "tip": [
+        "Print both name and IP."
+      ]
+    },
+    {
+      "name": "-l",
+      "usage": [
+        "-l <length>"
+      ],
+      "tip": [
+        "Use the given packet length."
+      ],
+      "next": []
+    },
+    {
+      "name": "-m",
+      "usage": [
+        "-m <hops>"
+      ],
+      "tip": [
+        "Use the maximum number of hops."
+      ],
+      "next": []
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "Do not resolve reverse DNS names."
+      ]
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p <port>"
+      ],
+      "tip": [
+        "Use the destination port."
+      ],
+      "next": []
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "Print version and exit."
+      ]
+    }
+  ]
+}

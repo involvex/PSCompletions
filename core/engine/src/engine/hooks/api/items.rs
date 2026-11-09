@@ -1,29 +1,36 @@
 //! `psc.*` item-building and manipulation: add / items / contains / concat / split / join.
 //!
-//! The external contract uses `name` on items everywhere hooks can see them (static
-//! `completions`, `cs` after `add`, `items` output). The internal `text` shape is only
-//! applied at the read-back boundary (`table_to_items` in `api/mod.rs`).
+//! The external contract uses `name` on items everywhere hooks can see them (static `completions`, `cs` after `add`, `items` output).
+//! The internal `text` shape is only applied at the read-back boundary (`table_to_items` in `api/mod.rs`).
 
 use mlua::{Lua, Table, Value};
 
-use super::{coerce_string_opt, resolve_localized};
+use super::{coerce_string_opt, resolve_localized, resolve_usage_example};
 
 /// Normalize an item table: keep the external `name` key and resolve localized fields.
-/// The internal `text` shape stays a Rust-side detail, only applied at the read-back
-/// boundary (`table_to_items`).
+/// The internal `text` shape stays a Rust-side detail, only applied at the read-back boundary (`table_to_items`).
+/// A `tip`/`usage`/`example` holding a function is kept as-is: it becomes a lazy callback evaluated on selection (see `table_to_items`), never resolved here.
 fn item_to_internal(lua: &Lua, item: &Table, language: &str) -> mlua::Result<Table> {
     let name: String = item.get("name")?;
     let t = lua.create_table()?;
     t.set("name", name.clone())?;
     // An absent `tip` falls back to the item's own name.
-    let tip = resolve_localized(lua, item.get::<Option<Value>>("tip")?, language)?.or(Some(name));
-    if let Some(tip) = tip {
+    let tip_value: Value = item.get("tip")?;
+    if matches!(tip_value, Value::Function(_)) {
+        t.set("tip", tip_value)?;
+    } else if let Some(tip) = resolve_localized(lua, Some(tip_value), language)?.or(Some(name)) {
         t.set("tip", tip)?;
     }
-    if let Some(u) = item.get::<Option<String>>("usage")? {
+    let usage_value: Value = item.get("usage")?;
+    if matches!(usage_value, Value::Function(_)) {
+        t.set("usage", usage_value)?;
+    } else if let Some(u) = resolve_usage_example(lua, usage_value)? {
         t.set("usage", u)?;
     }
-    if let Some(e) = item.get::<Option<String>>("example")? {
+    let example_value: Value = item.get("example")?;
+    if matches!(example_value, Value::Function(_)) {
+        t.set("example", example_value)?;
+    } else if let Some(e) = resolve_usage_example(lua, example_value)? {
         t.set("example", e)?;
     }
     if let Some(r) = item.get::<Option<i32>>("repeat_count")? {
@@ -34,11 +41,9 @@ fn item_to_internal(lua: &Lua, item: &Table, language: &str) -> mlua::Result<Tab
     Ok(t)
 }
 
-/// `psc.add(x)` — append a completion item (single table) or a batch (array of tables)
-/// to the **current accumulation target** (implicit; routed by the engine).
+/// `psc.add(x)` — append a completion item (single table) or a batch (array of tables) to the **current accumulation target** (implicit; routed by the engine).
 ///
-/// Returns the stored entry (single form) or the stored entries (array form), **by
-/// reference**: mutating them before the build finalizes applies to the menu.
+/// Returns the stored entry (single form) or the stored entries (array form), **by reference**: mutating them before the build finalizes applies to the menu.
 /// Empty names are skipped.
 pub(crate) fn api_add(lua: &Lua, tbl: &Table, x: Value, language: &str) -> mlua::Result<Value> {
     let mut added: Vec<Table> = Vec::new();
@@ -72,11 +77,9 @@ pub(crate) fn api_add(lua: &Lua, tbl: &Table, x: Value, language: &str) -> mlua:
     }
 }
 
-/// Append one item; returns the stored normalized entry table (by reference),
-/// None when skipped (empty name).
+/// Append one item; returns the stored normalized entry table (by reference), None when skipped (empty name).
 fn append_one(lua: &Lua, tbl: &Table, item: &Table, language: &str) -> mlua::Result<Option<Table>> {
-    // Missing or blank `name` → skip (no hard error); a table without `name` (e.g. a stray
-    // `{ text = "x" }`) is treated as not-a-completion and dropped.
+    // Missing or blank `name` → skip (no hard error); a table without `name` (e.g. a stray `{ text = "x" }`) is treated as not-a-completion and dropped.
     let Some(name) = item.get::<Option<String>>("name")? else {
         return Ok(None);
     };
@@ -116,7 +119,11 @@ pub(crate) fn api_items(
             _ => {
                 // Plain — element is the name.
                 let name: String = match &elem {
-                    Value::String(s) => s.to_str()?.to_string(),
+                    Value::String(s) => match s.to_str() {
+                        Ok(t) => t.to_string(),
+                        // Non-UTF-8 is bad input, not a crash (§7 item 0): skip it like a blank.
+                        Err(_) => continue,
+                    },
                     _ => continue,
                 };
                 // An empty string carries no usable name; skip it.
@@ -151,7 +158,8 @@ pub(crate) fn api_concat(lua: &Lua, args: mlua::Variadic<Value>) -> mlua::Result
     Ok(t)
 }
 
-/// `psc.split(s, sep?)` → split a string into an array. A nil `s` yields an empty table.
+/// `psc.split(s, sep?)` → split a string into an array.
+/// A nil `s` yields an empty table.
 pub(crate) fn api_split(lua: &Lua, (s, sep): (Value, Option<String>)) -> mlua::Result<Table> {
     let t = lua.create_table()?;
     let Some(s) = coerce_string_opt(lua, s)? else {
@@ -170,8 +178,8 @@ pub(crate) fn api_split(lua: &Lua, (s, sep): (Value, Option<String>)) -> mlua::R
 
 /// `psc.join(v, sep?)` → join into a string (the complement of `psc.split`); default separator
 /// is a space, matching `split`. Accepts a **string** (returned as-is) or an **array**
-/// (elements joined; non-string elements are coerced via `tostring`). A nil value yields an
-/// empty string.
+/// (elements joined; non-string elements are coerced via `tostring`).
+/// A nil value yields an empty string.
 pub(crate) fn api_join(lua: &Lua, (v, sep): (Value, Option<String>)) -> mlua::Result<String> {
     let Value::Table(t) = v else {
         // A string is returned as-is; nil/other → empty string.
@@ -190,12 +198,10 @@ pub(crate) fn api_join(lua: &Lua, (v, sep): (Value, Option<String>)) -> mlua::Re
 
 /// `psc.contains(v, target, opts?)` → membership / pattern check.
 ///
-/// - Default (exact): `v` is an array, `target` is matched exactly (case-insensitive unless
-///   `opts.case_sensitive`). A `nil`/non-string `target` never matches — a common hook pattern
-///   is `psc.contains(list, cmd0)` where `cmd0` is nil at the root level.
-/// - With `opts.pattern` true: `v` may be a **string or an array** — a string is matched against
-///   `target` as a Lua pattern (`string.find`), an array matches when any element does. This
-///   handles manifest fields that may be a string OR an array.
+/// - Default (exact): `v` is an array, `target` is matched exactly (case-insensitive unless `opts.case_sensitive`).
+///   A `nil`/non-string `target` never matches — a common hook pattern is `psc.contains(list, cmd0)` where `cmd0` is nil at the root level.
+/// - With `opts.pattern` true: `v` may be a **string or an array** — a string is matched against `target` as a Lua pattern (`string.find`), an array matches when any element does.
+///   This handles manifest fields that may be a string OR an array.
 pub(crate) fn api_contains(
     lua: &Lua,
     (v, target, opts): (Value, Option<String>, Option<Table>),
@@ -233,13 +239,21 @@ pub(crate) fn api_contains(
         })?;
         for h in haystacks {
             if let Value::String(s) = h {
-                let text = s.to_str()?.to_string();
+                // A non-UTF-8 Lua string is bad input, not a crash (§7 item 0).
+                let Ok(text) = s.to_str() else {
+                    continue;
+                };
+                let text = text.to_string();
                 let (text_check, needle_check) = if case_sensitive {
                     (text, needle.clone())
                 } else {
                     (text.to_lowercase(), needle.to_lowercase())
                 };
-                let r: Value = find.call((text_check, needle_check))?;
+                // `string.find` raises on a malformed pattern; a predicate degrades to `false` instead of taking the hook down with it.
+                let r: Value = match find.call((text_check, needle_check)) {
+                    Ok(r) => r,
+                    Err(_) => return Ok(false),
+                };
                 if !matches!(r, Value::Nil) {
                     return Ok(true);
                 }
@@ -251,7 +265,11 @@ pub(crate) fn api_contains(
     // Exact mode: string equality or array membership, case-insensitive by default.
     // String haystack is exact equality (not substring); use pattern=true for substring/pattern.
     if let Value::String(s) = &v {
-        let hay = s.to_str()?.to_string();
+        // A non-UTF-8 Lua string is bad input, not a crash (§7 item 0): nothing matches it.
+        let Ok(hay) = s.to_str() else {
+            return Ok(false);
+        };
+        let hay = hay.to_string();
         let (hay_check, needle_check) = if case_sensitive {
             (hay, target)
         } else {
@@ -270,7 +288,11 @@ pub(crate) fn api_contains(
     for i in 1..=list.raw_len() {
         let e: Value = list.raw_get(i)?;
         let s = match e {
-            Value::String(s) => s.to_str()?.to_string(),
+            Value::String(s) => match s.to_str() {
+                Ok(t) => t.to_string(),
+                // Non-UTF-8 is bad input, not a crash (§7 item 0): it simply cannot match.
+                Err(_) => continue,
+            },
             _ => continue,
         };
         let hay = if case_sensitive { s } else { s.to_lowercase() };

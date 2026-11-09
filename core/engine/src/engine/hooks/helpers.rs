@@ -1,84 +1,146 @@
-//! Pure helper functions on the `psc.*` API. Contract and signatures: `design/hooks.md`.
+//! Pure helper functions on the `psc.*` API.
+//! Contract and signatures: `design/hooks.md`.
 
 use mlua::{Lua, Table, Value};
 
 use super::Token;
 
-/// Collect every form (canonical name + aliases) of the manifest nodes whose name or an
-/// alias matches `target` (ASCII case-insensitive). Walks the whole tree — `next`, `option`
-/// and root `global_option` arrays — so scoped option definitions are covered wherever they
-/// live.
-///
-/// Not-found is an **empty vec**, not `None` — `None` only means the manifest root is not a
-/// JSON object. Callers must therefore fail loudly on `is_none_or(|v| v.is_empty())`, which is
-/// what lets a bad `psc.on` target be reported instead of the handler silently never firing.
-pub(crate) fn collect_node_names(json: &serde_json::Value, target: &str) -> Option<Vec<String>> {
-    use std::collections::hash_map::DefaultHasher;
-    use std::hash::{Hash, Hasher};
-    use std::sync::{Mutex, OnceLock};
-    #[allow(clippy::type_complexity)]
-    static CACHE: OnceLock<
-        Mutex<std::collections::HashMap<u64, std::collections::HashMap<String, Vec<String>>>>,
-    > = OnceLock::new();
-    let cache = CACHE.get_or_init(|| Mutex::new(Default::default()));
-    // Hash manifest + target lowercased
-    let mut hasher = DefaultHasher::new();
-    json.to_string().hash(&mut hasher);
-    target.to_lowercase().hash(&mut hasher);
-    let hkey = hasher.finish();
-    let tkey = target.to_lowercase();
-    if let Ok(guard) = cache.lock() {
-        if let Some(inner) = guard.get(&hkey) {
-            if let Some(v) = inner.get(&tkey) {
-                return Some(v.clone());
-            }
+/// Which manifest position a `psc.on` target must be declared in.
+/// The manifest fixes a node's type by the array it sits in — a `next` entry of the root or of a command is a command; an `option` / `global_option` entry is an option — so a spec's key has to agree with that declaration.
+/// A name written into the other position used to register and then never fire.
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub(crate) enum TargetKind {
+    Command,
+    Option,
+}
+
+impl TargetKind {
+    /// The article-bearing form, for messages: "a command" / "an option".
+    pub(crate) fn noun(self) -> &'static str {
+        match self {
+            TargetKind::Command => "a command",
+            TargetKind::Option => "an option",
         }
     }
-    fn walk(node: &serde_json::Value, target: &str, out: &mut Vec<String>) {
-        let Some(obj) = node.as_object() else { return };
-        let name = obj.get("name").and_then(serde_json::Value::as_str);
-        let aliases: Vec<&str> = obj
-            .get("alias")
-            .and_then(serde_json::Value::as_array)
-            .map(|a| a.iter().filter_map(serde_json::Value::as_str).collect())
-            .unwrap_or_default();
-        let matched = name.is_some_and(|n| n.eq_ignore_ascii_case(target))
-            || aliases.iter().any(|a| a.eq_ignore_ascii_case(target));
-        if matched {
-            if let Some(n) = name {
-                if !out.iter().any(|x| x.eq_ignore_ascii_case(n)) {
-                    out.push(n.to_string());
+}
+
+/// The declared position of a manifest node while walking.
+#[derive(Clone, Copy, PartialEq, Eq)]
+enum Pos {
+    /// A `next` entry of the root or of a command: a subcommand.
+    Command,
+    /// An entry of an `option` / `global_option` array.
+    Option,
+    /// A `next` entry of an option: a candidate **value**, never a target.
+    Value,
+}
+
+impl Pos {
+    fn matches(self, kind: TargetKind) -> bool {
+        matches!(
+            (self, kind),
+            (Pos::Command, TargetKind::Command) | (Pos::Option, TargetKind::Option)
+        )
+    }
+}
+
+/// Per-hook-run validation index: one walk collects every declared spelling (canonical name + aliases, lowercased) per kind, so `psc.on` target validation is a set lookup instead of a full-tree walk per spec element.
+pub(crate) struct TargetIndex {
+    commands: std::collections::HashSet<String>,
+    options: std::collections::HashSet<String>,
+}
+
+impl TargetIndex {
+    pub(crate) fn build(json: &serde_json::Value) -> Self {
+        fn walk(
+            node: &serde_json::Value,
+            pos: Pos,
+            commands: &mut std::collections::HashSet<String>,
+            options: &mut std::collections::HashSet<String>,
+        ) {
+            let Some(obj) = node.as_object() else { return };
+            let set = if pos.matches(TargetKind::Command) {
+                Some(&mut *commands)
+            } else if pos.matches(TargetKind::Option) {
+                Some(&mut *options)
+            } else {
+                None
+            };
+            if let Some(set) = set {
+                if let Some(n) = obj.get("name").and_then(serde_json::Value::as_str) {
+                    set.insert(n.to_lowercase());
+                }
+                if let Some(a) = obj.get("alias").and_then(serde_json::Value::as_array) {
+                    for alias in a.iter().filter_map(serde_json::Value::as_str) {
+                        set.insert(alias.to_lowercase());
+                    }
                 }
             }
-            for a in aliases {
-                if !out.iter().any(|x| x.eq_ignore_ascii_case(a)) {
-                    out.push(a.to_string());
+            for key in ["next", "option", "global_option"] {
+                let child = match key {
+                    "next" => match pos {
+                        Pos::Command => Pos::Command,
+                        _ => Pos::Value,
+                    },
+                    _ => Pos::Option,
+                };
+                if let Some(children) = obj.get(key).and_then(serde_json::Value::as_array) {
+                    for c in children {
+                        walk(c, child, commands, options);
+                    }
                 }
             }
         }
-        for key in ["next", "option"] {
-            if let Some(children) = obj.get(key).and_then(serde_json::Value::as_array) {
-                for child in children {
-                    walk(child, target, out);
+
+        let mut index = TargetIndex {
+            commands: std::collections::HashSet::new(),
+            options: std::collections::HashSet::new(),
+        };
+        if let Some(root) = json.as_object() {
+            for key in ["next", "option", "global_option"] {
+                let pos = if key == "next" {
+                    Pos::Command
+                } else {
+                    Pos::Option
+                };
+                if let Some(children) = root.get(key).and_then(serde_json::Value::as_array) {
+                    for child in children {
+                        walk(child, pos, &mut index.commands, &mut index.options);
+                    }
                 }
             }
+        }
+        index
+    }
+
+    fn contains(&self, name: &str, kind: TargetKind) -> bool {
+        let key = name.to_lowercase();
+        match kind {
+            TargetKind::Command => self.commands.contains(&key),
+            TargetKind::Option => self.options.contains(&key),
         }
     }
 
-    let root = json.as_object()?;
-    let mut out = Vec::new();
-    for key in ["next", "option", "global_option"] {
-        if let Some(children) = root.get(key).and_then(serde_json::Value::as_array) {
-            for child in children {
-                walk(child, target, &mut out);
-            }
+    /// Why a `psc.on` target cannot fire, or `None` when it is declared in the position its spec key asks for.
+    /// The manifest already fixes a node's type by the array it sits in, so a name declared as the other kind is a **position** mistake, not a typo.
+    pub(crate) fn reject(&self, name: &str, kind: TargetKind) -> Option<String> {
+        if self.contains(name, kind) {
+            return None;
         }
+        let other = match kind {
+            TargetKind::Command => TargetKind::Option,
+            TargetKind::Option => TargetKind::Command,
+        };
+        Some(if !self.contains(name, other) {
+            format!("unknown target {name:?} in this manifest")
+        } else {
+            format!(
+                "{name:?} is {}, not {} — the manifest fixes a node's type by the array it sits in",
+                other.noun(),
+                kind.noun()
+            )
+        })
     }
-    let result = out.clone();
-    if let Ok(mut guard) = cache.lock() {
-        guard.entry(hkey).or_default().insert(tkey, result.clone());
-    }
-    Some(result)
 }
 
 /// Lua `tostring` semantics to a Rust String (None when the value coerces to nothing).
@@ -86,8 +148,8 @@ fn coerce_string(lua: &Lua, v: Value) -> mlua::Result<Option<String>> {
     Ok(lua.coerce_string(v)?.map(|s| s.to_string_lossy()))
 }
 
-/// `psc.eq(a, b, opts?)` — string equality; case-insensitive by default,
-/// `opts.case_sensitive` true makes it exact. `nil` arguments never match (return false),
+/// `psc.eq(a, b, opts?)` — string equality; case-insensitive by default, `opts.case_sensitive` true makes it exact.
+/// `nil` arguments never match (return false),
 pub(crate) fn api_eq(lua: &Lua, (a, b, opts): (Value, Value, Option<Table>)) -> mlua::Result<bool> {
     let (Some(a), Some(b)) = (coerce_string(lua, a)?, coerce_string(lua, b)?) else {
         return Ok(false);
@@ -103,9 +165,8 @@ pub(crate) fn api_eq(lua: &Lua, (a, b, opts): (Value, Value, Option<Table>)) -> 
     }
 }
 
-/// `psc.trim(s, opts?)` — trim characters; by default whitespace is trimmed, `opts.chars`
-/// (a string whose characters form the trim set) overrides it, and `opts.mode` selects
-/// "start"/"end"/"both" (default "both"). A nil `s` yields an empty string.
+/// `psc.trim(s, opts?)` — trim characters; by default whitespace is trimmed, `opts.chars` (a string whose characters form the trim set) overrides it, and `opts.mode` selects "start"/"end"/"both" (default "both").
+/// A nil `s` yields an empty string.
 pub(crate) fn api_trim(lua: &Lua, (s, opts): (Value, Option<Table>)) -> mlua::Result<String> {
     let s = coerce_string(lua, s)?.unwrap_or_default();
     let mode: String = opts
@@ -136,9 +197,8 @@ pub(crate) fn api_trim(lua: &Lua, (s, opts): (Value, Option<Table>)) -> mlua::Re
     })
 }
 
-/// `psc.token(spec?)` — index of the first completed token matching `spec`, `None` when
-/// absent. `spec` is `{name?, type?, case_sensitive?}`; `type` filters `command`/`option`/
-/// `value`/`unknown`; `case_sensitive` controls `name` matching (default insensitive).
+/// `psc.token(spec?)` — index of the first completed token matching `spec`, `None` when absent.
+/// `spec` is `{name?, type?, case_sensitive?}`; `type` filters `command`/`option`/ `value`/`unknown`; `case_sensitive` controls `name` matching (default insensitive).
 /// Compares the **canonical** name when available, falling back to raw input.
 pub(crate) fn api_token(
     tokens: &[Token],
@@ -166,14 +226,18 @@ pub(crate) fn api_token(
 }
 
 /// Resolve a tip/usage/example field (string or array) to a single string.
+/// Array elements (and the value itself) may be `{ cmd, desc }` objects, rendered like the static manifest's entries (see `super::api::resolve_usage_example`).
 fn text_of(lua: &Lua, v: Value) -> mlua::Result<Option<String>> {
     match v {
         Value::Nil => Ok(None),
         Value::String(s) => Ok(Some(s.to_str()?.to_string())),
         Value::Table(t) => {
+            if t.raw_get::<Option<String>>("cmd")?.is_some() {
+                return super::api::resolve_usage_example(lua, Value::Table(t));
+            }
             let mut parts = Vec::new();
             for i in 1..=t.raw_len() {
-                if let Some(s) = coerce_string(lua, t.raw_get::<Value>(i)?)? {
+                if let Some(s) = super::api::resolve_usage_example(lua, t.raw_get::<Value>(i)?)? {
                     parts.push(s);
                 }
             }
@@ -183,56 +247,44 @@ fn text_of(lua: &Lua, v: Value) -> mlua::Result<Option<String>> {
     }
 }
 
-/// `psc.mount_items(path)` → convert the **direct children** of a manifest `next`/`option`
-/// array into completion items — a pure transform like `psc.items` (returns an array,
-/// does NOT add to `completions`; injection is the caller's job via `psc.add`). No
-/// recursion — deeper levels are reached by the engine's own `next` navigation, or by
-/// calling `mount_items` again with a longer path from the hook.
+/// `psc.mount_items(path)` → resolve `path` from the manifest root and convert the **direct children** of the array it lands on into completion items — a pure transform like `psc.items` (returns an array, does NOT add to `completions`; injection is the caller's job via `psc.add`).
+/// No recursion — deeper levels are reached by the engine's own `next` navigation, or by calling `mount_items` again with a longer path.
+///
+/// The chain mirrors the manifest structure exactly: at an object the segment is a plain key lookup (any existing key), at an array it must be an item's `name` (exact, case-sensitive).
+/// The path must land on an array (mounts its children) or on an item object with a `name` (mounts that single item); anything else mounts nothing.
 pub(crate) fn api_mount_items(lua: &Lua, path: &[String]) -> mlua::Result<Table> {
     let out = lua.create_table()?;
-    let last = path.last().map(|s| s.as_str()).unwrap_or("");
-    if last != "next" && last != "option" {
-        return Ok(out);
-    }
-    let source = last;
     let psc: Table = lua.globals().get("psc")?;
-    let manifest: Option<Table> = psc.get("manifest")?;
-    let Some(manifest) = manifest else {
+    let Some(manifest) = psc.get::<Option<Table>>("manifest")? else {
         return Ok(out);
     };
-    let first = path.first().map(|s| s.as_str()).unwrap_or("");
-    let container = manifest
-        .raw_get::<Option<Value>>(first)?
-        .and_then(|v| match v {
-            Value::Table(t) => Some(t),
-            _ => None,
-        });
-    let mut container: Option<Table> = container;
-
-    let mut node: Option<Table> = None;
-    let nav_end = path.len().saturating_sub(1);
-    for seg in path.iter().take(nav_end).skip(1) {
-        let Some(container_t) = &container else {
+    let mut cur = Value::Table(manifest);
+    for seg in path {
+        let Value::Table(t) = &cur else {
             return Ok(out);
         };
-        let Some(found) = find_named(container_t, seg)? else {
-            return Ok(out);
+        cur = match resolve_segment(t, seg)? {
+            Some(next) => next,
+            None => return Ok(out),
         };
-        node = Some(found.clone());
-        container = found.raw_get::<Option<Table>>("next")?;
     }
-    let Some(node) = node else { return Ok(out) };
-
-    let from_option = source == "option";
-    let children = if from_option {
-        node.raw_get::<Option<Table>>("option")?
-    } else {
-        node.raw_get::<Option<Table>>("next")?
-    };
-    if let Some(children) = children {
-        mount_children(lua, &children, &out)?;
+    if let Value::Table(t) = cur {
+        if t.raw_get::<Option<String>>("name")?.is_some() {
+            mount_one(lua, &t, &out)?;
+        } else {
+            mount_children(lua, &t, &out)?;
+        }
     }
     Ok(out)
+}
+
+/// One path step: an object's exact key, or an array item's `name`.
+/// Nothing else.
+fn resolve_segment(node: &Table, seg: &str) -> mlua::Result<Option<Value>> {
+    if let Some(child) = node.raw_get::<Option<Value>>(seg)? {
+        return Ok(Some(child));
+    }
+    Ok(find_named(node, seg)?.map(Value::Table))
 }
 
 fn find_named(container: &Table, name: &str) -> mlua::Result<Option<Table>> {
@@ -240,16 +292,6 @@ fn find_named(container: &Table, name: &str) -> mlua::Result<Option<Table>> {
         if let Value::Table(t) = container.raw_get::<Value>(i)? {
             if t.raw_get::<Option<String>>("name")?.as_deref() == Some(name) {
                 return Ok(Some(t));
-            }
-        }
-    }
-    for pair in container.pairs::<Value, Value>() {
-        let (k, v) = pair?;
-        if let Value::String(s) = k {
-            if s.to_str()? == name {
-                if let Value::Table(t) = v {
-                    return Ok(Some(t));
-                }
             }
         }
     }
@@ -262,21 +304,41 @@ fn mount_children(lua: &Lua, children: &Table, out: &Table) -> mlua::Result<()> 
         let Value::Table(k) = children.raw_get::<Value>(i)? else {
             continue;
         };
-        let Some(name) = k.raw_get::<Option<String>>("name")? else {
-            continue;
-        };
-        let tip = text_of(lua, k.raw_get::<Value>("tip")?)?;
-        let usage = text_of(lua, k.raw_get::<Value>("usage")?)?;
-        let example = text_of(lua, k.raw_get::<Value>("example")?)?;
+        mount_one(lua, &k, out)?;
+    }
+    Ok(())
+}
+
+/// Mount one item: copy its name/tip/usage/example.
+/// Skipped without a `name`.
+/// Aliases expand into separate items sharing the same tip, like the static menu.
+fn mount_one(lua: &Lua, k: &Table, out: &Table) -> mlua::Result<()> {
+    let Some(name) = k.raw_get::<Option<String>>("name")? else {
+        return Ok(());
+    };
+    let tip = text_of(lua, k.raw_get::<Value>("tip")?)?;
+    let usage = text_of(lua, k.raw_get::<Value>("usage")?)?;
+    let example = text_of(lua, k.raw_get::<Value>("example")?)?;
+    let mut names = vec![name];
+    if let Some(alias) = k.raw_get::<Option<Table>>("alias")? {
+        for i in 1..=alias.raw_len() {
+            if let Some(a) = alias.raw_get::<Option<String>>(i)? {
+                if !a.trim().is_empty() && !names.iter().any(|n| n == &a) {
+                    names.push(a);
+                }
+            }
+        }
+    }
+    for name in names {
         let item = lua.create_table()?;
         item.set("name", name)?;
-        if let Some(t) = tip {
+        if let Some(t) = tip.clone() {
             item.set("tip", t)?;
         }
-        if let Some(u) = usage {
+        if let Some(u) = usage.clone() {
             item.set("usage", u)?;
         }
-        if let Some(e) = example {
+        if let Some(e) = example.clone() {
             item.set("example", e)?;
         }
         let n = out.raw_len();

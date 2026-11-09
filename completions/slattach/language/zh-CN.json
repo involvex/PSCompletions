@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "url": "https://sourceforge.net/projects/net-tools",
+    "description": [
+      "将网络接口连接到串行线路。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示版本信息。"
+      ]
+    },
+    {
+      "name": "-c",
+      "usage": [
+        "-c <COMMAND>"
+      ],
+      "tip": [
+        "线路挂断时执行此命令。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-e",
+      "tip": [
+        "初始化设备后立即退出。"
+      ]
+    },
+    {
+      "name": "-h",
+      "tip": [
+        "载波丢失时退出。"
+      ]
+    },
+    {
+      "name": "-l",
+      "tip": [
+        "为设备创建 UUCP 风格的锁文件。"
+      ]
+    },
+    {
+      "name": "-L",
+      "tip": [
+        "启用三线操作。"
+      ]
+    },
+    {
+      "name": "-m",
+      "tip": [
+        "不将线路初始化为 8 位原始模式。"
+      ]
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "等同于 mesg n 命令。"
+      ]
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p <PROTOCOL>"
+      ],
+      "tip": [
+        "设置线路上使用的协议。"
+      ],
+      "next": [
+        {
+          "name": "adaptive"
+        },
+        {
+          "name": "cslip"
+        },
+        {
+          "name": "kiss"
+        },
+        {
+          "name": "ppp"
+        },
+        {
+          "name": "slip"
+        },
+        {
+          "name": "tty"
+        }
+      ]
+    },
+    {
+      "name": "-q",
+      "tip": [
+        "以静默模式运行。"
+      ]
+    },
+    {
+      "name": "-s",
+      "usage": [
+        "-s <SPEED>"
+      ],
+      "tip": [
+        "设置特定的线路速度。"
+      ],
+      "next": [
+        {
+          "name": "115200"
+        },
+        {
+          "name": "1200"
+        },
+        {
+          "name": "19200"
+        },
+        {
+          "name": "2400"
+        },
+        {
+          "name": "38400"
+        },
+        {
+          "name": "4800"
+        },
+        {
+          "name": "57600"
+        },
+        {
+          "name": "9600"
+        }
+      ]
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "启用详细输出。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "用户空间 ARP 守护进程。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h",
+        "-?"
+      ],
+      "usage": [
+        "-h, -?, --help"
+      ],
+      "tip": [
+        "打印帮助。"
+      ]
+    },
+    {
+      "name": "-a",
+      "usage": [
+        "-a <NUMBER>"
+      ],
+      "tip": [
+        "在判定目标死亡前发送广播查询。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-b",
+      "usage": [
+        "-b <DATABASE>"
+      ],
+      "tip": [
+        "设置数据库文件位置。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-B",
+      "usage": [
+        "-B <NUMBER>"
+      ],
+      "tip": [
+        "设置连续广播的数量。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-f",
+      "usage": [
+        "-f <FILE>"
+      ],
+      "tip": [
+        "从文件加载 arpd 数据库并退出。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-k",
+      "tip": [
+        "抑制内核广播查询。"
+      ]
+    },
+    {
+      "name": "-l",
+      "tip": [
+        "将 arpd 数据库转储到标准输出并退出。"
+      ]
+    },
+    {
+      "name": "-n",
+      "usage": [
+        "-n <TIME>"
+      ],
+      "tip": [
+        "设置负缓存超时。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p <TIME>"
+      ],
+      "tip": [
+        "设置内核 ARP 表的轮询间隔。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-R",
+      "usage": [
+        "-R <RATE>"
+      ],
+      "tip": [
+        "设置最大广播速率。"
+      ],
+      "next": []
+    }
+  ]
+}

@@ -1,0 +1,547 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "Dump socket statistics."
+    ]
+  },
+  "option": [
+    {
+      "name": "--all",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --all"
+      ],
+      "tip": [
+        "Display all sockets."
+      ]
+    },
+    {
+      "name": "--bound-inactive",
+      "alias": [
+        "-B"
+      ],
+      "usage": [
+        "-B, --bound-inactive"
+      ],
+      "tip": [
+        "Display TCP bound but inactive sockets."
+      ]
+    },
+    {
+      "name": "--bpf",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --bpf"
+      ],
+      "tip": [
+        "Show BPF filter socket information."
+      ]
+    },
+    {
+      "name": "--bpf-map-id",
+      "usage": [
+        "--bpf-map-id=MAP-ID"
+      ],
+      "tip": [
+        "Show the specified BPF socket-local storage map."
+      ],
+      "next": []
+    },
+    {
+      "name": "--bpf-maps",
+      "tip": [
+        "Show all BPF socket-local storage maps."
+      ]
+    },
+    {
+      "name": "--cgroup",
+      "tip": [
+        "Show cgroup information."
+      ]
+    },
+    {
+      "name": "--context",
+      "alias": [
+        "-Z"
+      ],
+      "usage": [
+        "-Z, --context"
+      ],
+      "tip": [
+        "Display task SELinux security contexts."
+      ]
+    },
+    {
+      "name": "--contexts",
+      "alias": [
+        "-z"
+      ],
+      "usage": [
+        "-z, --contexts"
+      ],
+      "tip": [
+        "Display task and socket SELinux security contexts."
+      ]
+    },
+    {
+      "name": "--dccp",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --dccp"
+      ],
+      "tip": [
+        "Display only DCCP sockets."
+      ]
+    },
+    {
+      "name": "--diag",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --diag=FILE"
+      ],
+      "tip": [
+        "Dump raw TCP socket information to the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--events",
+      "alias": [
+        "-E"
+      ],
+      "usage": [
+        "-E, --events"
+      ],
+      "tip": [
+        "Continually display sockets as they are destroyed."
+      ]
+    },
+    {
+      "name": "--extended",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --extended"
+      ],
+      "tip": [
+        "Show detailed socket information."
+      ]
+    },
+    {
+      "name": "--family",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --family=FAMILY"
+      ],
+      "tip": [
+        "Display sockets of the given family.",
+        "Possible values: inet, inet6, link, unix, netlink, vsock, tipc, xdp, help"
+      ],
+      "next": [
+        {
+          "name": "help"
+        },
+        {
+          "name": "inet"
+        },
+        {
+          "name": "inet6"
+        },
+        {
+          "name": "link"
+        },
+        {
+          "name": "netlink"
+        },
+        {
+          "name": "tipc"
+        },
+        {
+          "name": "unix"
+        },
+        {
+          "name": "vsock"
+        },
+        {
+          "name": "xdp"
+        }
+      ]
+    },
+    {
+      "name": "--filter",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --filter=FILE"
+      ],
+      "tip": [
+        "Read filter information from the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this message."
+      ]
+    },
+    {
+      "name": "--inet-sockopt",
+      "tip": [
+        "Show various inet socket options."
+      ]
+    },
+    {
+      "name": "--info",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --info"
+      ],
+      "tip": [
+        "Show internal TCP information."
+      ]
+    },
+    {
+      "name": "--ipv4",
+      "alias": [
+        "-4"
+      ],
+      "usage": [
+        "-4, --ipv4"
+      ],
+      "tip": [
+        "Display only IPv4 sockets."
+      ]
+    },
+    {
+      "name": "--ipv6",
+      "alias": [
+        "-6"
+      ],
+      "usage": [
+        "-6, --ipv6"
+      ],
+      "tip": [
+        "Display only IPv6 sockets."
+      ]
+    },
+    {
+      "name": "--kill",
+      "alias": [
+        "-K"
+      ],
+      "usage": [
+        "-K, --kill"
+      ],
+      "tip": [
+        "Forcibly close sockets and display what was closed."
+      ]
+    },
+    {
+      "name": "--listening",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --listening"
+      ],
+      "tip": [
+        "Display listening sockets."
+      ]
+    },
+    {
+      "name": "--memory",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --memory"
+      ],
+      "tip": [
+        "Show socket memory usage."
+      ]
+    },
+    {
+      "name": "--mptcp",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --mptcp"
+      ],
+      "tip": [
+        "Display only MPTCP sockets."
+      ]
+    },
+    {
+      "name": "--net",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --net"
+      ],
+      "tip": [
+        "Switch to the specified network namespace."
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-header",
+      "alias": [
+        "-H"
+      ],
+      "usage": [
+        "-H, --no-header"
+      ],
+      "tip": [
+        "Suppress the header line."
+      ]
+    },
+    {
+      "name": "--no-queues",
+      "alias": [
+        "-Q"
+      ],
+      "usage": [
+        "-Q, --no-queues"
+      ],
+      "tip": [
+        "Suppress sending and receiving queue columns."
+      ]
+    },
+    {
+      "name": "--numeric",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --numeric"
+      ],
+      "tip": [
+        "Do not resolve service names."
+      ]
+    },
+    {
+      "name": "--oneline",
+      "alias": [
+        "-O"
+      ],
+      "usage": [
+        "-O, --oneline"
+      ],
+      "tip": [
+        "Print each socket's data on a single line."
+      ]
+    },
+    {
+      "name": "--options",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --options"
+      ],
+      "tip": [
+        "Show timer information."
+      ]
+    },
+    {
+      "name": "--packet",
+      "alias": [
+        "-0"
+      ],
+      "usage": [
+        "-0, --packet"
+      ],
+      "tip": [
+        "Display PACKET sockets."
+      ]
+    },
+    {
+      "name": "--processes",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --processes"
+      ],
+      "tip": [
+        "Show the process using each socket."
+      ]
+    },
+    {
+      "name": "--raw",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --raw"
+      ],
+      "tip": [
+        "Display only RAW sockets."
+      ]
+    },
+    {
+      "name": "--resolve",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --resolve"
+      ],
+      "tip": [
+        "Resolve host names."
+      ]
+    },
+    {
+      "name": "--sctp",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --sctp"
+      ],
+      "tip": [
+        "Display only SCTP sockets."
+      ]
+    },
+    {
+      "name": "--socket",
+      "alias": [
+        "--query",
+        "-A"
+      ],
+      "usage": [
+        "-A, --query=QUERY, --socket=QUERY"
+      ],
+      "tip": [
+        "Select socket types to query, comma separated."
+      ],
+      "next": []
+    },
+    {
+      "name": "--summary",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --summary"
+      ],
+      "tip": [
+        "Show a socket usage summary."
+      ]
+    },
+    {
+      "name": "--tcp",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --tcp"
+      ],
+      "tip": [
+        "Display only TCP sockets."
+      ]
+    },
+    {
+      "name": "--threads",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --threads"
+      ],
+      "tip": [
+        "Show the thread using each socket."
+      ]
+    },
+    {
+      "name": "--tipc",
+      "tip": [
+        "Display only TIPC sockets."
+      ]
+    },
+    {
+      "name": "--tipcinfo",
+      "tip": [
+        "Show internal TIPC socket information."
+      ]
+    },
+    {
+      "name": "--tos",
+      "tip": [
+        "Show TOS and priority information."
+      ]
+    },
+    {
+      "name": "--udp",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --udp"
+      ],
+      "tip": [
+        "Display only UDP sockets."
+      ]
+    },
+    {
+      "name": "--unix",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --unix"
+      ],
+      "tip": [
+        "Display only Unix domain sockets."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Output version information."
+      ]
+    },
+    {
+      "name": "--vsock",
+      "tip": [
+        "Display only vsock sockets."
+      ]
+    },
+    {
+      "name": "--xdp",
+      "tip": [
+        "Display only XDP sockets."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,308 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "构建、检查和提取 Debian 归档。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--build",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --build <directory> [<deb>]"
+      ],
+      "tip": [
+        "构建归档。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--compression",
+      "alias": [
+        "-Z"
+      ],
+      "usage": [
+        "-Z, --compression=<compressor>"
+      ],
+      "tip": [
+        "设置构建压缩类型。"
+      ],
+      "next": [
+        {
+          "name": "gzip"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "xz"
+        },
+        {
+          "name": "zstd"
+        }
+      ]
+    },
+    {
+      "name": "--compression-level",
+      "alias": [
+        "-z"
+      ],
+      "usage": [
+        "-z, --compression-level=<level>"
+      ],
+      "tip": [
+        "设置构建压缩级别。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--compression-strategy",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --compression-strategy=<name>"
+      ],
+      "tip": [
+        "设置构建压缩策略。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--contents",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --contents <deb>"
+      ],
+      "tip": [
+        "列出归档内容。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--control",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --control <deb> [<directory>]"
+      ],
+      "tip": [
+        "提取控制信息。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--ctrl-tarfile",
+      "usage": [
+        "--ctrl-tarfile <deb>"
+      ],
+      "tip": [
+        "输出控制 tar 文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--deb-format",
+      "usage": [
+        "--deb-format=<format>"
+      ],
+      "tip": [
+        "选择归档格式。"
+      ],
+      "next": [
+        {
+          "name": "0.939000"
+        },
+        {
+          "name": "2.0"
+        }
+      ]
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --debug"
+      ],
+      "tip": [
+        "启用调试输出。"
+      ]
+    },
+    {
+      "name": "--extract",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --extract <deb> <directory>"
+      ],
+      "tip": [
+        "提取文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--field",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --field <deb> [<cfield>...]"
+      ],
+      "tip": [
+        "显示控制字段。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--fsys-tarfile",
+      "usage": [
+        "--fsys-tarfile <deb>"
+      ],
+      "tip": [
+        "输出文件系统 tar 文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "显示此帮助信息。"
+      ]
+    },
+    {
+      "name": "--info",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --info <deb> [<cfile>...]"
+      ],
+      "tip": [
+        "显示归档信息。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-check",
+      "tip": [
+        "抑制所有检查（构建坏包）。"
+      ]
+    },
+    {
+      "name": "--no-uniform-compression",
+      "tip": [
+        "不对所有成员使用压缩参数。"
+      ]
+    },
+    {
+      "name": "--nocheck",
+      "tip": [
+        "--no-check 的别名。"
+      ]
+    },
+    {
+      "name": "--raw-extract",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --raw-extract <deb> <directory>"
+      ],
+      "tip": [
+        "提取控制信息和文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--root-owner-group",
+      "tip": [
+        "强制所有者和组为 root。"
+      ]
+    },
+    {
+      "name": "--show",
+      "alias": [
+        "-W"
+      ],
+      "usage": [
+        "-W, --show <deb>"
+      ],
+      "tip": [
+        "显示软件包信息。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--showformat",
+      "usage": [
+        "--showformat=<format>"
+      ],
+      "tip": [
+        "为 --show 使用替代格式。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--threads-max",
+      "usage": [
+        "--threads-max=<threads>"
+      ],
+      "tip": [
+        "最多使用指定数量的压缩线程。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--uniform-compression",
+      "tip": [
+        "对所有成员使用压缩参数。"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "启用详细输出。"
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "显示版本。"
+      ]
+    },
+    {
+      "name": "--vextract",
+      "alias": [
+        "-X"
+      ],
+      "usage": [
+        "-X, --vextract <deb> <directory>"
+      ],
+      "tip": [
+        "提取并列出文件。"
+      ],
+      "next": []
+    }
+  ]
+}

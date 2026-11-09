@@ -1,0 +1,2160 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "Devlink tool."
+    ]
+  },
+  "next": [
+    {
+      "name": "dev",
+      "tip": [
+        "Devlink device management."
+      ],
+      "next": [
+        {
+          "name": "eswitch",
+          "tip": [
+            "Manage eswitch mode."
+          ],
+          "next": [
+            {
+              "name": "set",
+              "usage": [
+                "set DEV [ mode { legacy | switchdev } ] [ inline-mode { none | link | network | transport } ] [ encap-mode { none | basic } ]"
+              ],
+              "tip": [
+                "Set eswitch mode."
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "Device name."
+                  ]
+                },
+                {
+                  "name": "encap-mode",
+                  "usage": [
+                    "encap-mode {none|basic}"
+                  ],
+                  "tip": [
+                    "Encapsulation mode."
+                  ],
+                  "next": [
+                    {
+                      "name": "basic"
+                    },
+                    {
+                      "name": "none"
+                    }
+                  ]
+                },
+                {
+                  "name": "inline-mode",
+                  "usage": [
+                    "inline-mode {none|link|network|transport}"
+                  ],
+                  "tip": [
+                    "Inline mode."
+                  ],
+                  "next": [
+                    {
+                      "name": "link"
+                    },
+                    {
+                      "name": "network"
+                    },
+                    {
+                      "name": "none"
+                    },
+                    {
+                      "name": "transport"
+                    }
+                  ]
+                },
+                {
+                  "name": "mode",
+                  "usage": [
+                    "mode {legacy|switchdev}"
+                  ],
+                  "tip": [
+                    "Eswitch mode."
+                  ],
+                  "next": [
+                    {
+                      "name": "legacy"
+                    },
+                    {
+                      "name": "switchdev"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "usage": [
+                "show DEV"
+              ],
+              "tip": [
+                "Show eswitch mode."
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "Device name."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show dev help."
+          ]
+        },
+        {
+          "name": "info",
+          "usage": [
+            "info [ DEV ]"
+          ],
+          "tip": [
+            "Show device information."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "param",
+          "tip": [
+            "Manage device parameters."
+          ],
+          "next": [
+            {
+              "name": "set",
+              "usage": [
+                "set DEV name PARAMETER value VALUE cmode { runtime | driverinit | permanent }"
+              ],
+              "tip": [
+                "Set a device parameter."
+              ],
+              "option": [
+                {
+                  "name": "cmode",
+                  "usage": [
+                    "cmode {runtime|driverinit|permanent}"
+                  ],
+                  "tip": [
+                    "Configuration mode."
+                  ],
+                  "next": [
+                    {
+                      "name": "driverinit"
+                    },
+                    {
+                      "name": "permanent"
+                    },
+                    {
+                      "name": "runtime"
+                    }
+                  ]
+                },
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "Device name."
+                  ]
+                },
+                {
+                  "name": "name",
+                  "usage": [
+                    "name PARAMETER"
+                  ],
+                  "tip": [
+                    "Parameter name."
+                  ]
+                },
+                {
+                  "name": "value",
+                  "usage": [
+                    "value VALUE"
+                  ],
+                  "tip": [
+                    "Parameter value."
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "usage": [
+                "show [ DEV name PARAMETER ]"
+              ],
+              "tip": [
+                "Show device parameters."
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "Device name."
+                  ]
+                },
+                {
+                  "name": "name",
+                  "usage": [
+                    "name PARAMETER"
+                  ],
+                  "tip": [
+                    "Parameter name."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "reload",
+          "usage": [
+            "reload DEV [ netns { PID | NAME | ID } ] [ action { driver_reinit | fw_activate } ] [ limit no_reset ]"
+          ],
+          "tip": [
+            "Reload a device."
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action {driver_reinit|fw_activate}"
+              ],
+              "tip": [
+                "Reload action."
+              ],
+              "next": [
+                {
+                  "name": "driver_reinit"
+                },
+                {
+                  "name": "fw_activate"
+                }
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "limit",
+              "usage": [
+                "limit no_reset"
+              ],
+              "tip": [
+                "Reload limit."
+              ],
+              "next": [
+                {
+                  "name": "no_reset"
+                }
+              ]
+            },
+            {
+              "name": "netns",
+              "usage": [
+                "netns {PID|NAME|ID}"
+              ],
+              "tip": [
+                "Network namespace."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ DEV ]"
+          ],
+          "tip": [
+            "Show devlink devices."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "health",
+      "tip": [
+        "Devlink reporting and recovery."
+      ],
+      "next": [
+        {
+          "name": "diagnose",
+          "usage": [
+            "diagnose { DEV | DEV/PORT_INDEX } reporter REPORTER"
+          ],
+          "tip": [
+            "Diagnose a reporter."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "Device or port index."
+              ]
+            },
+            {
+              "name": "reporter",
+              "usage": [
+                "reporter REPORTER"
+              ],
+              "tip": [
+                "Health reporter name."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "dump",
+          "tip": [
+            "Dump health data."
+          ],
+          "next": [
+            {
+              "name": "clear",
+              "usage": [
+                "clear { DEV | DEV/PORT_INDEX } reporter REPORTER"
+              ],
+              "tip": [
+                "Clear a health dump."
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV/PORT_INDEX"
+                  ],
+                  "tip": [
+                    "Device or port index."
+                  ]
+                },
+                {
+                  "name": "reporter",
+                  "usage": [
+                    "reporter REPORTER"
+                  ],
+                  "tip": [
+                    "Health reporter name."
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "usage": [
+                "show { DEV | DEV/PORT_INDEX } reporter REPORTER"
+              ],
+              "tip": [
+                "Show a health dump."
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV/PORT_INDEX"
+                  ],
+                  "tip": [
+                    "Device or port index."
+                  ]
+                },
+                {
+                  "name": "reporter",
+                  "usage": [
+                    "reporter REPORTER"
+                  ],
+                  "tip": [
+                    "Health reporter name."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show health help."
+          ]
+        },
+        {
+          "name": "recover",
+          "usage": [
+            "recover { DEV | DEV/PORT_INDEX } reporter REPORTER"
+          ],
+          "tip": [
+            "Recover a reporter."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "Device or port index."
+              ]
+            },
+            {
+              "name": "reporter",
+              "usage": [
+                "reporter REPORTER"
+              ],
+              "tip": [
+                "Health reporter name."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set { DEV | DEV/PORT_INDEX } reporter REPORTER [ grace_period MSEC ] [ auto_recover { true | false } ] [ auto_dump { true | false } ]"
+          ],
+          "tip": [
+            "Configure a reporter."
+          ],
+          "option": [
+            {
+              "name": "auto_dump",
+              "usage": [
+                "auto_dump {true|false}"
+              ],
+              "tip": [
+                "Auto dump."
+              ],
+              "next": [
+                {
+                  "name": "false"
+                },
+                {
+                  "name": "true"
+                }
+              ]
+            },
+            {
+              "name": "auto_recover",
+              "usage": [
+                "auto_recover {true|false}"
+              ],
+              "tip": [
+                "Auto recover."
+              ],
+              "next": [
+                {
+                  "name": "false"
+                },
+                {
+                  "name": "true"
+                }
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "Device or port index."
+              ]
+            },
+            {
+              "name": "grace_period",
+              "usage": [
+                "grace_period MSEC"
+              ],
+              "tip": [
+                "Grace period."
+              ]
+            },
+            {
+              "name": "reporter",
+              "usage": [
+                "reporter REPORTER"
+              ],
+              "tip": [
+                "Health reporter name."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ { DEV | DEV/PORT_INDEX } reporter REPORTER ]"
+          ],
+          "tip": [
+            "Show health reporters."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "Device or port index."
+              ]
+            },
+            {
+              "name": "reporter",
+              "usage": [
+                "reporter REPORTER"
+              ],
+              "tip": [
+                "Health reporter name."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "test",
+          "usage": [
+            "test { DEV | DEV/PORT_INDEX } reporter REPORTER"
+          ],
+          "tip": [
+            "Test a reporter."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "Device or port index."
+              ]
+            },
+            {
+              "name": "reporter",
+              "usage": [
+                "reporter REPORTER"
+              ],
+              "tip": [
+                "Health reporter name."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "monitor",
+      "tip": [
+        "Watch for netlink messages."
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show monitor help."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "port",
+      "tip": [
+        "Devlink port management."
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add { DEV | DEV/PORT_INDEX } [ flavour FLAVOUR ] [ pfnum PFNUMBER ] [ sfnum SFNUMBER ] [ controller CNUM ]"
+          ],
+          "tip": [
+            "Add a port."
+          ],
+          "option": [
+            {
+              "name": "controller",
+              "usage": [
+                "controller CNUM"
+              ],
+              "tip": [
+                "Controller number."
+              ]
+            },
+            {
+              "name": "flavour",
+              "usage": [
+                "flavour FLAVOUR"
+              ],
+              "tip": [
+                "Port flavour."
+              ]
+            },
+            {
+              "name": "pfnum",
+              "usage": [
+                "pfnum PFNUMBER"
+              ],
+              "tip": [
+                "PF number."
+              ]
+            },
+            {
+              "name": "sfnum",
+              "usage": [
+                "sfnum SFNUMBER"
+              ],
+              "tip": [
+                "SF number."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del DEV/PORT_INDEX"
+          ],
+          "tip": [
+            "Delete a port."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "Device or port index."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "function",
+          "tip": [
+            "Manage port functions."
+          ],
+          "next": [
+            {
+              "name": "set",
+              "usage": [
+                "set DEV/PORT_INDEX [ hw_addr ADDR ] [ state { active | inactive } ] [ roce { enable | disable } ] [ migratable { enable | disable } ] [ ipsec_crypto { enable | disable } ] [ ipsec_packet { enable | disable } ] [ max_io_eqs EQS ]"
+              ],
+              "tip": [
+                "Set port function attributes."
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV/PORT_INDEX"
+                  ],
+                  "tip": [
+                    "Device or port index."
+                  ]
+                },
+                {
+                  "name": "hw_addr",
+                  "usage": [
+                    "hw_addr ADDR"
+                  ],
+                  "tip": [
+                    "Hardware address."
+                  ]
+                },
+                {
+                  "name": "ipsec_crypto",
+                  "usage": [
+                    "ipsec_crypto {enable|disable}"
+                  ],
+                  "tip": [
+                    "IPsec crypto."
+                  ],
+                  "next": [
+                    {
+                      "name": "disable"
+                    },
+                    {
+                      "name": "enable"
+                    }
+                  ]
+                },
+                {
+                  "name": "ipsec_packet",
+                  "usage": [
+                    "ipsec_packet {enable|disable}"
+                  ],
+                  "tip": [
+                    "IPsec packet."
+                  ],
+                  "next": [
+                    {
+                      "name": "disable"
+                    },
+                    {
+                      "name": "enable"
+                    }
+                  ]
+                },
+                {
+                  "name": "max_io_eqs",
+                  "usage": [
+                    "max_io_eqs EQS"
+                  ],
+                  "tip": [
+                    "Maximum I/O EQs."
+                  ]
+                },
+                {
+                  "name": "migratable",
+                  "usage": [
+                    "migratable {enable|disable}"
+                  ],
+                  "tip": [
+                    "Migratable."
+                  ],
+                  "next": [
+                    {
+                      "name": "disable"
+                    },
+                    {
+                      "name": "enable"
+                    }
+                  ]
+                },
+                {
+                  "name": "roce",
+                  "usage": [
+                    "roce {enable|disable}"
+                  ],
+                  "tip": [
+                    "RoCE."
+                  ],
+                  "next": [
+                    {
+                      "name": "disable"
+                    },
+                    {
+                      "name": "enable"
+                    }
+                  ]
+                },
+                {
+                  "name": "state",
+                  "usage": [
+                    "state {active|inactive}"
+                  ],
+                  "tip": [
+                    "Function state."
+                  ],
+                  "next": [
+                    {
+                      "name": "active"
+                    },
+                    {
+                      "name": "inactive"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "health",
+          "tip": [
+            "Manage port health."
+          ],
+          "next": [
+            {
+              "name": "diagnose",
+              "usage": [
+                "diagnose { DEV | DEV/PORT_INDEX } reporter REPORTER"
+              ],
+              "tip": [
+                "Diagnose a port."
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV/PORT_INDEX"
+                  ],
+                  "tip": [
+                    "Device or port index."
+                  ]
+                },
+                {
+                  "name": "reporter",
+                  "usage": [
+                    "reporter REPORTER"
+                  ],
+                  "tip": [
+                    "Health reporter name."
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "dump",
+              "usage": [
+                "dump { show | clear } { DEV | DEV/PORT_INDEX } reporter REPORTER"
+              ],
+              "tip": [
+                "Dump or clear port health."
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV/PORT_INDEX"
+                  ],
+                  "tip": [
+                    "Device or port index."
+                  ]
+                },
+                {
+                  "name": "reporter",
+                  "usage": [
+                    "reporter REPORTER"
+                  ],
+                  "tip": [
+                    "Health reporter name."
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "recover",
+              "usage": [
+                "recover { DEV | DEV/PORT_INDEX } reporter REPORTER"
+              ],
+              "tip": [
+                "Recover a port."
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV/PORT_INDEX"
+                  ],
+                  "tip": [
+                    "Device or port index."
+                  ]
+                },
+                {
+                  "name": "reporter",
+                  "usage": [
+                    "reporter REPORTER"
+                  ],
+                  "tip": [
+                    "Health reporter name."
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "set",
+              "usage": [
+                "set { DEV | DEV/PORT_INDEX } reporter REPORTER [ grace_period MSEC ] [ auto_recover { true | false } ] [ auto_dump { true | false } ]"
+              ],
+              "tip": [
+                "Configure port health."
+              ],
+              "option": [
+                {
+                  "name": "auto_dump",
+                  "usage": [
+                    "auto_dump {true|false}"
+                  ],
+                  "tip": [
+                    "Auto dump."
+                  ],
+                  "next": [
+                    {
+                      "name": "false"
+                    },
+                    {
+                      "name": "true"
+                    }
+                  ]
+                },
+                {
+                  "name": "auto_recover",
+                  "usage": [
+                    "auto_recover {true|false}"
+                  ],
+                  "tip": [
+                    "Auto recover."
+                  ],
+                  "next": [
+                    {
+                      "name": "false"
+                    },
+                    {
+                      "name": "true"
+                    }
+                  ]
+                },
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV/PORT_INDEX"
+                  ],
+                  "tip": [
+                    "Device or port index."
+                  ]
+                },
+                {
+                  "name": "grace_period",
+                  "usage": [
+                    "grace_period MSEC"
+                  ],
+                  "tip": [
+                    "Grace period."
+                  ]
+                },
+                {
+                  "name": "reporter",
+                  "usage": [
+                    "reporter REPORTER"
+                  ],
+                  "tip": [
+                    "Health reporter name."
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "usage": [
+                "show [ DEV/PORT_INDEX reporter REPORTER ]"
+              ],
+              "tip": [
+                "Show port health."
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV/PORT_INDEX"
+                  ],
+                  "tip": [
+                    "Device or port index."
+                  ]
+                },
+                {
+                  "name": "reporter",
+                  "usage": [
+                    "reporter REPORTER"
+                  ],
+                  "tip": [
+                    "Health reporter name."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show port help."
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set DEV/PORT_INDEX [ type { eth | ib | auto } ]"
+          ],
+          "tip": [
+            "Set port type."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "Device or port index."
+              ]
+            },
+            {
+              "name": "type",
+              "usage": [
+                "type {eth|ib|auto}"
+              ],
+              "tip": [
+                "Port type."
+              ],
+              "next": [
+                {
+                  "name": "auto"
+                },
+                {
+                  "name": "eth"
+                },
+                {
+                  "name": "ib"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ DEV/PORT_INDEX ]"
+          ],
+          "tip": [
+            "Show ports."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "Device or port index."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "split",
+          "usage": [
+            "split DEV/PORT_INDEX count COUNT"
+          ],
+          "tip": [
+            "Split a port."
+          ],
+          "option": [
+            {
+              "name": "count",
+              "usage": [
+                "count COUNT"
+              ],
+              "tip": [
+                "Number of ports."
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "Device or port index."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "unsplit",
+          "usage": [
+            "unsplit DEV/PORT_INDEX"
+          ],
+          "tip": [
+            "Unsplit a port."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "Device or port index."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "region",
+      "tip": [
+        "Devlink address region access."
+      ],
+      "next": [
+        {
+          "name": "del",
+          "usage": [
+            "del DEV/REGION snapshot SNAPSHOT_ID"
+          ],
+          "tip": [
+            "Delete a snapshot."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "Device or port index."
+              ]
+            },
+            {
+              "name": "snapshot",
+              "usage": [
+                "snapshot SNAPSHOT_ID"
+              ],
+              "tip": [
+                "Snapshot ID."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "dump",
+          "usage": [
+            "dump DEV/REGION snapshot SNAPSHOT_ID"
+          ],
+          "tip": [
+            "Dump a snapshot."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "Device or port index."
+              ]
+            },
+            {
+              "name": "snapshot",
+              "usage": [
+                "snapshot SNAPSHOT_ID"
+              ],
+              "tip": [
+                "Snapshot ID."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show region help."
+          ]
+        },
+        {
+          "name": "new",
+          "usage": [
+            "new DEV/REGION [ snapshot SNAPSHOT_ID ]"
+          ],
+          "tip": [
+            "Create a snapshot."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "Device or port index."
+              ]
+            },
+            {
+              "name": "snapshot",
+              "usage": [
+                "snapshot SNAPSHOT_ID"
+              ],
+              "tip": [
+                "Snapshot ID."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "read",
+          "usage": [
+            "read DEV/REGION [ snapshot SNAPSHOT_ID ] address ADDRESS length LENGTH"
+          ],
+          "tip": [
+            "Read a region."
+          ],
+          "option": [
+            {
+              "name": "address",
+              "usage": [
+                "address ADDRESS"
+              ],
+              "tip": [
+                "Address."
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "Device or port index."
+              ]
+            },
+            {
+              "name": "length",
+              "usage": [
+                "length LENGTH"
+              ],
+              "tip": [
+                "Length."
+              ]
+            },
+            {
+              "name": "snapshot",
+              "usage": [
+                "snapshot SNAPSHOT_ID"
+              ],
+              "tip": [
+                "Snapshot ID."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ DEV/REGION ]"
+          ],
+          "tip": [
+            "Show regions."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV/PORT_INDEX"
+              ],
+              "tip": [
+                "Device or port index."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "resource",
+      "tip": [
+        "Devlink device resource configuration."
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show resource help."
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set DEV path RESOURCE_PATH size RESOURCE_SIZE"
+          ],
+          "tip": [
+            "Set a resource size."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "path",
+              "usage": [
+                "path RESOURCE_PATH"
+              ],
+              "tip": [
+                "Resource path."
+              ]
+            },
+            {
+              "name": "size",
+              "usage": [
+                "size RESOURCE_SIZE"
+              ],
+              "tip": [
+                "Resource size."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show DEV"
+          ],
+          "tip": [
+            "Show resources."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sb",
+      "tip": [
+        "Devlink shared buffer configuration."
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show sb help."
+          ]
+        },
+        {
+          "name": "pool",
+          "tip": [
+            "Manage shared buffer pools."
+          ],
+          "next": [
+            {
+              "name": "set",
+              "usage": [
+                "set DEV [ sb SB_INDEX ] pool POOL_INDEX size POOL_SIZE thtype { static | dynamic }"
+              ],
+              "tip": [
+                "Set a pool."
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "Device name."
+                  ]
+                },
+                {
+                  "name": "pool",
+                  "usage": [
+                    "pool POOL_INDEX"
+                  ],
+                  "tip": [
+                    "Pool index."
+                  ]
+                },
+                {
+                  "name": "sb",
+                  "usage": [
+                    "sb SB_INDEX"
+                  ],
+                  "tip": [
+                    "Shared buffer index."
+                  ]
+                },
+                {
+                  "name": "size",
+                  "usage": [
+                    "size POOL_SIZE"
+                  ],
+                  "tip": [
+                    "Pool size."
+                  ]
+                },
+                {
+                  "name": "thtype",
+                  "usage": [
+                    "thtype {static|dynamic}"
+                  ],
+                  "tip": [
+                    "Threshold type."
+                  ],
+                  "next": [
+                    {
+                      "name": "dynamic"
+                    },
+                    {
+                      "name": "static"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "usage": [
+                "show [ DEV [ sb SB_INDEX ] pool POOL_INDEX ]"
+              ],
+              "tip": [
+                "Show pools."
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "Device name."
+                  ]
+                },
+                {
+                  "name": "pool",
+                  "usage": [
+                    "pool POOL_INDEX"
+                  ],
+                  "tip": [
+                    "Pool index."
+                  ]
+                },
+                {
+                  "name": "sb",
+                  "usage": [
+                    "sb SB_INDEX"
+                  ],
+                  "tip": [
+                    "Shared buffer index."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "port",
+          "tip": [
+            "Manage shared buffer ports."
+          ],
+          "next": [
+            {
+              "name": "pool",
+              "tip": [
+                "Manage port pools."
+              ],
+              "next": [
+                {
+                  "name": "set",
+                  "usage": [
+                    "set DEV/PORT_INDEX [ sb SB_INDEX ] pool POOL_INDEX th THRESHOLD"
+                  ],
+                  "tip": [
+                    "Set a port pool threshold."
+                  ],
+                  "option": [
+                    {
+                      "name": "dev",
+                      "usage": [
+                        "dev DEV/PORT_INDEX"
+                      ],
+                      "tip": [
+                        "Device or port index."
+                      ]
+                    },
+                    {
+                      "name": "pool",
+                      "usage": [
+                        "pool POOL_INDEX"
+                      ],
+                      "tip": [
+                        "Pool index."
+                      ]
+                    },
+                    {
+                      "name": "sb",
+                      "usage": [
+                        "sb SB_INDEX"
+                      ],
+                      "tip": [
+                        "Shared buffer index."
+                      ]
+                    },
+                    {
+                      "name": "th",
+                      "usage": [
+                        "th THRESHOLD"
+                      ],
+                      "tip": [
+                        "Threshold."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "show",
+                  "usage": [
+                    "show [ DEV/PORT_INDEX [ sb SB_INDEX ] pool POOL_INDEX ]"
+                  ],
+                  "tip": [
+                    "Show port pools."
+                  ],
+                  "option": [
+                    {
+                      "name": "dev",
+                      "usage": [
+                        "dev DEV/PORT_INDEX"
+                      ],
+                      "tip": [
+                        "Device or port index."
+                      ]
+                    },
+                    {
+                      "name": "pool",
+                      "usage": [
+                        "pool POOL_INDEX"
+                      ],
+                      "tip": [
+                        "Pool index."
+                      ]
+                    },
+                    {
+                      "name": "sb",
+                      "usage": [
+                        "sb SB_INDEX"
+                      ],
+                      "tip": [
+                        "Shared buffer index."
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "tc",
+              "tip": [
+                "Manage port traffic classes."
+              ],
+              "next": [
+                {
+                  "name": "set",
+                  "usage": [
+                    "set DEV/PORT_INDEX [ sb SB_INDEX ] tc TC_INDEX type { ingress | egress } pool POOL_INDEX th THRESHOLD"
+                  ],
+                  "tip": [
+                    "Bind a port traffic class."
+                  ],
+                  "option": [
+                    {
+                      "name": "dev",
+                      "usage": [
+                        "dev DEV/PORT_INDEX"
+                      ],
+                      "tip": [
+                        "Device or port index."
+                      ]
+                    },
+                    {
+                      "name": "pool",
+                      "usage": [
+                        "pool POOL_INDEX"
+                      ],
+                      "tip": [
+                        "Pool index."
+                      ]
+                    },
+                    {
+                      "name": "sb",
+                      "usage": [
+                        "sb SB_INDEX"
+                      ],
+                      "tip": [
+                        "Shared buffer index."
+                      ]
+                    },
+                    {
+                      "name": "tc",
+                      "usage": [
+                        "tc TC_INDEX"
+                      ],
+                      "tip": [
+                        "Traffic class."
+                      ]
+                    },
+                    {
+                      "name": "th",
+                      "usage": [
+                        "th THRESHOLD"
+                      ],
+                      "tip": [
+                        "Threshold."
+                      ]
+                    },
+                    {
+                      "name": "type",
+                      "usage": [
+                        "type {ingress|egress}"
+                      ],
+                      "tip": [
+                        "Direction."
+                      ],
+                      "next": [
+                        {
+                          "name": "egress"
+                        },
+                        {
+                          "name": "ingress"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "show",
+                  "usage": [
+                    "show [ DEV/PORT_INDEX [ sb SB_INDEX ] tc TC_INDEX type { ingress | egress } ]"
+                  ],
+                  "tip": [
+                    "Show port traffic class bindings."
+                  ],
+                  "option": [
+                    {
+                      "name": "dev",
+                      "usage": [
+                        "dev DEV/PORT_INDEX"
+                      ],
+                      "tip": [
+                        "Device or port index."
+                      ]
+                    },
+                    {
+                      "name": "sb",
+                      "usage": [
+                        "sb SB_INDEX"
+                      ],
+                      "tip": [
+                        "Shared buffer index."
+                      ]
+                    },
+                    {
+                      "name": "tc",
+                      "usage": [
+                        "tc TC_INDEX"
+                      ],
+                      "tip": [
+                        "Traffic class."
+                      ]
+                    },
+                    {
+                      "name": "type",
+                      "usage": [
+                        "type {ingress|egress}"
+                      ],
+                      "tip": [
+                        "Direction."
+                      ],
+                      "next": [
+                        {
+                          "name": "egress"
+                        },
+                        {
+                          "name": "ingress"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ DEV [ sb SB_INDEX ] ]"
+          ],
+          "tip": [
+            "Show shared buffers."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "sb",
+              "usage": [
+                "sb SB_INDEX"
+              ],
+              "tip": [
+                "Shared buffer index."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trap",
+      "tip": [
+        "Devlink trap configuration."
+      ],
+      "next": [
+        {
+          "name": "group",
+          "tip": [
+            "Manage trap groups."
+          ],
+          "next": [
+            {
+              "name": "set",
+              "usage": [
+                "set DEV group GROUP [ action { trap | drop | mirror } ] [ policer POLICER ] [ nopolicer ]"
+              ],
+              "tip": [
+                "Set a trap group."
+              ],
+              "option": [
+                {
+                  "name": "action",
+                  "usage": [
+                    "action {trap|drop|mirror}"
+                  ],
+                  "tip": [
+                    "Trap action."
+                  ],
+                  "next": [
+                    {
+                      "name": "drop"
+                    },
+                    {
+                      "name": "mirror"
+                    },
+                    {
+                      "name": "trap"
+                    }
+                  ]
+                },
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "Device name."
+                  ]
+                },
+                {
+                  "name": "group",
+                  "usage": [
+                    "group GROUP"
+                  ],
+                  "tip": [
+                    "Trap group."
+                  ]
+                },
+                {
+                  "name": "nopolicer",
+                  "tip": [
+                    "Remove the policer."
+                  ]
+                },
+                {
+                  "name": "policer",
+                  "usage": [
+                    "policer POLICER"
+                  ],
+                  "tip": [
+                    "Policer."
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "usage": [
+                "show [ DEV group GROUP ]"
+              ],
+              "tip": [
+                "Show trap groups."
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "Device name."
+                  ]
+                },
+                {
+                  "name": "group",
+                  "usage": [
+                    "group GROUP"
+                  ],
+                  "tip": [
+                    "Trap group."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show trap help."
+          ]
+        },
+        {
+          "name": "policer",
+          "tip": [
+            "Manage trap policers."
+          ],
+          "next": [
+            {
+              "name": "set",
+              "usage": [
+                "set DEV policer POLICER [ rate RATE ] [ burst BURST ]"
+              ],
+              "tip": [
+                "Set a policer."
+              ],
+              "option": [
+                {
+                  "name": "burst",
+                  "usage": [
+                    "burst BURST"
+                  ],
+                  "tip": [
+                    "Burst."
+                  ]
+                },
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "Device name."
+                  ]
+                },
+                {
+                  "name": "policer",
+                  "usage": [
+                    "policer POLICER"
+                  ],
+                  "tip": [
+                    "Policer."
+                  ]
+                },
+                {
+                  "name": "rate",
+                  "usage": [
+                    "rate RATE"
+                  ],
+                  "tip": [
+                    "Rate."
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "usage": [
+                "show [ DEV policer POLICER ]"
+              ],
+              "tip": [
+                "Show policers."
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "Device name."
+                  ]
+                },
+                {
+                  "name": "policer",
+                  "usage": [
+                    "policer POLICER"
+                  ],
+                  "tip": [
+                    "Policer."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set DEV trap TRAP [ action { trap | drop | mirror } ]"
+          ],
+          "tip": [
+            "Set a trap action."
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action {trap|drop|mirror}"
+              ],
+              "tip": [
+                "Trap action."
+              ],
+              "next": [
+                {
+                  "name": "drop"
+                },
+                {
+                  "name": "mirror"
+                },
+                {
+                  "name": "trap"
+                }
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "trap",
+              "usage": [
+                "trap TRAP"
+              ],
+              "tip": [
+                "Trap name."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show [ DEV trap TRAP ]"
+          ],
+          "tip": [
+            "Show traps."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ]
+            },
+            {
+              "name": "trap",
+              "usage": [
+                "trap TRAP"
+              ],
+              "tip": [
+                "Trap name."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--hex",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --hex"
+      ],
+      "tip": [
+        "Print dump numbers in hexadecimal."
+      ]
+    },
+    {
+      "name": "--iec",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --iec"
+      ],
+      "tip": [
+        "Print human-readable rates in IEC units."
+      ]
+    },
+    {
+      "name": "--json",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --json"
+      ],
+      "tip": [
+        "Generate JSON output."
+      ]
+    },
+    {
+      "name": "--no-nice-names",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --no-nice-names"
+      ],
+      "tip": [
+        "Turn off printing nice names."
+      ]
+    },
+    {
+      "name": "--pretty",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --pretty"
+      ],
+      "tip": [
+        "Pretty-print JSON output."
+      ]
+    },
+    {
+      "name": "--statistics",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --statistics"
+      ],
+      "tip": [
+        "Output statistics."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Turn on verbose output."
+      ]
+    },
+    {
+      "name": "--Version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --Version"
+      ],
+      "tip": [
+        "Print the version of devlink and exit."
+      ]
+    },
+    {
+      "name": "-batch",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, -batch <FILENAME>"
+      ],
+      "tip": [
+        "Read commands from the file or stdin."
+      ],
+      "next": []
+    },
+    {
+      "name": "-force",
+      "tip": [
+        "Do not terminate on errors in batch mode."
+      ]
+    },
+    {
+      "name": "-Netns",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, -Netns <NETNSNAME>"
+      ],
+      "tip": [
+        "Switch to the specified network namespace."
+      ],
+      "next": []
+    }
+  ]
+}

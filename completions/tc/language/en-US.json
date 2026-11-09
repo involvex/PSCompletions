@@ -1,0 +1,1643 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "Show / manipulate traffic control settings."
+    ]
+  },
+  "next": [
+    {
+      "name": "actions",
+      "alias": [
+        "action"
+      ],
+      "usage": [
+        "action|actions"
+      ],
+      "tip": [
+        "Traffic action management."
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add action ACTDETAIL [ index INDEX ] [ hw_stats HW_STATS ] [ skip_sw | skip_hw ]"
+          ],
+          "tip": [
+            "Add an action."
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action ACTNAME"
+              ],
+              "tip": [
+                "Action name."
+              ],
+              "next": []
+            },
+            {
+              "name": "hw_stats",
+              "usage": [
+                "hw_stats immediate|delayed|disabled"
+              ],
+              "tip": [
+                "Hardware stats mode."
+              ],
+              "next": [
+                {
+                  "name": "delayed"
+                },
+                {
+                  "name": "disabled"
+                },
+                {
+                  "name": "immediate"
+                }
+              ]
+            },
+            {
+              "name": "index",
+              "usage": [
+                "index INDEX"
+              ],
+              "tip": [
+                "Action index."
+              ],
+              "next": []
+            },
+            {
+              "name": "skip_hw",
+              "tip": [
+                "Skip hardware."
+              ]
+            },
+            {
+              "name": "skip_sw",
+              "tip": [
+                "Skip software."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "change",
+          "usage": [
+            "change change action ACTDETAIL [ index INDEX ]"
+          ],
+          "tip": [
+            "Change an action."
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action ACTNAME"
+              ],
+              "tip": [
+                "Action name."
+              ],
+              "next": []
+            },
+            {
+              "name": "index",
+              "usage": [
+                "index INDEX"
+              ],
+              "tip": [
+                "Action index."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "usage": [
+            "delete delete action ACTNAME [ index INDEX ]"
+          ],
+          "tip": [
+            "Delete an action."
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action ACTNAME"
+              ],
+              "tip": [
+                "Action name."
+              ],
+              "next": []
+            },
+            {
+              "name": "index",
+              "usage": [
+                "index INDEX"
+              ],
+              "tip": [
+                "Action index."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "flush",
+          "usage": [
+            "flush flush [ action ACTNAME ]"
+          ],
+          "tip": [
+            "Flush actions."
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action ACTNAME"
+              ],
+              "tip": [
+                "Action name."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "get",
+          "usage": [
+            "get get action ACTNAME [ index INDEX ]"
+          ],
+          "tip": [
+            "Get an action."
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action ACTNAME"
+              ],
+              "tip": [
+                "Action name."
+              ],
+              "next": []
+            },
+            {
+              "name": "index",
+              "usage": [
+                "index INDEX"
+              ],
+              "tip": [
+                "Action index."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show action help."
+          ]
+        },
+        {
+          "name": "list",
+          "usage": [
+            "list list [ action ACTNAME ]"
+          ],
+          "tip": [
+            "List actions."
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action ACTNAME"
+              ],
+              "tip": [
+                "Action name."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "ls",
+          "usage": [
+            "ls ls [ action ACTNAME ]"
+          ],
+          "tip": [
+            "List actions."
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action ACTNAME"
+              ],
+              "tip": [
+                "Action name."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "replace",
+          "usage": [
+            "replace replace action ACTDETAIL [ index INDEX ]"
+          ],
+          "tip": [
+            "Replace an action."
+          ],
+          "option": [
+            {
+              "name": "action",
+              "usage": [
+                "action ACTNAME"
+              ],
+              "tip": [
+                "Action name."
+              ],
+              "next": []
+            },
+            {
+              "name": "index",
+              "usage": [
+                "index INDEX"
+              ],
+              "tip": [
+                "Action index."
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "chain",
+      "tip": [
+        "Filter chain management."
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add [ dev STRING ] [ block BLOCK_INDEX ]"
+          ],
+          "tip": [
+            "Add a chain."
+          ],
+          "option": [
+            {
+              "name": "block",
+              "usage": [
+                "block BLOCK_INDEX"
+              ],
+              "tip": [
+                "Block index."
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del del [ dev STRING ] [ block BLOCK_INDEX ]"
+          ],
+          "tip": [
+            "Delete a chain."
+          ],
+          "option": [
+            {
+              "name": "block",
+              "usage": [
+                "block BLOCK_INDEX"
+              ],
+              "tip": [
+                "Block index."
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "get",
+          "usage": [
+            "get get [ dev STRING ] [ block BLOCK_INDEX ]"
+          ],
+          "tip": [
+            "Get a chain."
+          ],
+          "option": [
+            {
+              "name": "block",
+              "usage": [
+                "block BLOCK_INDEX"
+              ],
+              "tip": [
+                "Block index."
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show chain help."
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [ dev STRING ] [ block BLOCK_INDEX ]"
+          ],
+          "tip": [
+            "Show chains."
+          ],
+          "option": [
+            {
+              "name": "block",
+              "usage": [
+                "block BLOCK_INDEX"
+              ],
+              "tip": [
+                "Block index."
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "class",
+      "tip": [
+        "Traffic class management."
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add dev STRING [ classid CLASSID ] [ root | parent CLASSID ] [ QDISC_KIND [ help | OPTIONS ] ]"
+          ],
+          "tip": [
+            "Add a class."
+          ],
+          "option": [
+            {
+              "name": "classid",
+              "usage": [
+                "classid CLASSID"
+              ],
+              "tip": [
+                "Class ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "Parent class ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "Operate on the root qdisc."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "change",
+          "usage": [
+            "change change dev STRING [ classid CLASSID ] [ root | parent CLASSID ]"
+          ],
+          "tip": [
+            "Change a class."
+          ],
+          "option": [
+            {
+              "name": "classid",
+              "usage": [
+                "classid CLASSID"
+              ],
+              "tip": [
+                "Class ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "Parent class ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "Operate on the root qdisc."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del del dev STRING [ classid CLASSID ] [ root | parent CLASSID ]"
+          ],
+          "tip": [
+            "Delete a class."
+          ],
+          "option": [
+            {
+              "name": "classid",
+              "usage": [
+                "classid CLASSID"
+              ],
+              "tip": [
+                "Class ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "Parent class ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "Operate on the root qdisc."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show class help."
+          ]
+        },
+        {
+          "name": "replace",
+          "usage": [
+            "replace replace dev STRING [ classid CLASSID ] [ root | parent CLASSID ]"
+          ],
+          "tip": [
+            "Replace a class."
+          ],
+          "option": [
+            {
+              "name": "classid",
+              "usage": [
+                "classid CLASSID"
+              ],
+              "tip": [
+                "Class ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "Parent class ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "Operate on the root qdisc."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [ dev STRING ] [ root | parent CLASSID ]"
+          ],
+          "tip": [
+            "Show classes."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "Parent class ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "Operate on the root qdisc."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "exec",
+      "tip": [
+        "Execute a tc exec type."
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show exec help."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "filter",
+      "tip": [
+        "Traffic filter management."
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add [ dev STRING ] [ block BLOCK_INDEX ] [ pref PRIO ] protocol PROTO [ chain CHAIN_INDEX ] [ estimator INTERVAL TIME_CONSTANT ] [ root | ingress | egress | parent CLASSID ] [ handle FILTERID ] [ FILTER_TYPE [ help | OPTIONS ] ]"
+          ],
+          "tip": [
+            "Add a filter."
+          ],
+          "option": [
+            {
+              "name": "block",
+              "usage": [
+                "block BLOCK_INDEX"
+              ],
+              "tip": [
+                "Block index."
+              ],
+              "next": []
+            },
+            {
+              "name": "chain",
+              "usage": [
+                "chain CHAIN_INDEX"
+              ],
+              "tip": [
+                "Chain index."
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "egress",
+              "tip": [
+                "Operate on egress."
+              ]
+            },
+            {
+              "name": "estimator",
+              "usage": [
+                "estimator INTERVAL TIME_CONSTANT"
+              ],
+              "tip": [
+                "Estimator settings."
+              ],
+              "next": []
+            },
+            {
+              "name": "handle",
+              "usage": [
+                "handle FILTERID"
+              ],
+              "tip": [
+                "Filter ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "ingress",
+              "tip": [
+                "Operate on ingress."
+              ]
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "Parent class ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "pref",
+              "usage": [
+                "pref PRIO"
+              ],
+              "tip": [
+                "Filter priority."
+              ],
+              "next": []
+            },
+            {
+              "name": "protocol",
+              "usage": [
+                "protocol PROTO"
+              ],
+              "tip": [
+                "Protocol."
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "Operate on the root qdisc."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "change",
+          "usage": [
+            "change change [ dev STRING ] [ block BLOCK_INDEX ] [ pref PRIO ] protocol PROTO"
+          ],
+          "tip": [
+            "Change a filter."
+          ],
+          "option": [
+            {
+              "name": "block",
+              "usage": [
+                "block BLOCK_INDEX"
+              ],
+              "tip": [
+                "Block index."
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "pref",
+              "usage": [
+                "pref PRIO"
+              ],
+              "tip": [
+                "Filter priority."
+              ],
+              "next": []
+            },
+            {
+              "name": "protocol",
+              "usage": [
+                "protocol PROTO"
+              ],
+              "tip": [
+                "Protocol."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del del [ dev STRING ] [ block BLOCK_INDEX ] [ pref PRIO ] protocol PROTO [ chain CHAIN_INDEX ] [ root | ingress | egress | parent CLASSID ] [ handle FILTERID ]"
+          ],
+          "tip": [
+            "Delete a filter."
+          ],
+          "option": [
+            {
+              "name": "block",
+              "usage": [
+                "block BLOCK_INDEX"
+              ],
+              "tip": [
+                "Block index."
+              ],
+              "next": []
+            },
+            {
+              "name": "chain",
+              "usage": [
+                "chain CHAIN_INDEX"
+              ],
+              "tip": [
+                "Chain index."
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "egress",
+              "tip": [
+                "Operate on egress."
+              ]
+            },
+            {
+              "name": "handle",
+              "usage": [
+                "handle FILTERID"
+              ],
+              "tip": [
+                "Filter ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "ingress",
+              "tip": [
+                "Operate on ingress."
+              ]
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "Parent class ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "pref",
+              "usage": [
+                "pref PRIO"
+              ],
+              "tip": [
+                "Filter priority."
+              ],
+              "next": []
+            },
+            {
+              "name": "protocol",
+              "usage": [
+                "protocol PROTO"
+              ],
+              "tip": [
+                "Protocol."
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "Operate on the root qdisc."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "get",
+          "usage": [
+            "get get dev STRING parent CLASSID protocol PROTO handle FILTERID pref PRIO FILTER_TYPE"
+          ],
+          "tip": [
+            "Get a filter."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "handle",
+              "usage": [
+                "handle FILTERID"
+              ],
+              "tip": [
+                "Filter ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "Parent class ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "pref",
+              "usage": [
+                "pref PRIO"
+              ],
+              "tip": [
+                "Filter priority."
+              ],
+              "next": []
+            },
+            {
+              "name": "protocol",
+              "usage": [
+                "protocol PROTO"
+              ],
+              "tip": [
+                "Protocol."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show filter help."
+          ]
+        },
+        {
+          "name": "replace",
+          "usage": [
+            "replace replace [ dev STRING ] [ block BLOCK_INDEX ] [ pref PRIO ] protocol PROTO"
+          ],
+          "tip": [
+            "Replace a filter."
+          ],
+          "option": [
+            {
+              "name": "block",
+              "usage": [
+                "block BLOCK_INDEX"
+              ],
+              "tip": [
+                "Block index."
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "pref",
+              "usage": [
+                "pref PRIO"
+              ],
+              "tip": [
+                "Filter priority."
+              ],
+              "next": []
+            },
+            {
+              "name": "protocol",
+              "usage": [
+                "protocol PROTO"
+              ],
+              "tip": [
+                "Protocol."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [ dev STRING ] [ root | ingress | egress | parent CLASSID ]"
+          ],
+          "tip": [
+            "Show filters."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "egress",
+              "tip": [
+                "Operate on egress."
+              ]
+            },
+            {
+              "name": "ingress",
+              "tip": [
+                "Operate on ingress."
+              ]
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "Parent class ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "Operate on the root qdisc."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "monitor",
+      "tip": [
+        "Monitor tc events."
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show monitor help."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "qdisc",
+      "tip": [
+        "Queueing discipline management."
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add dev STRING [ handle QHANDLE ] [ root | ingress | clsact | parent CLASSID ] [ estimator INTERVAL TIME_CONSTANT ] [ stab [ help | STAB_OPTIONS] ] [ ingress_block BLOCK_INDEX ] [ egress_block BLOCK_INDEX ] [ QDISC_KIND [ help | OPTIONS ] ]"
+          ],
+          "tip": [
+            "Add a qdisc."
+          ],
+          "option": [
+            {
+              "name": "clsact",
+              "tip": [
+                "Operate on clsact."
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "egress_block",
+              "usage": [
+                "egress_block BLOCK_INDEX"
+              ],
+              "tip": [
+                "Egress block."
+              ],
+              "next": []
+            },
+            {
+              "name": "estimator",
+              "usage": [
+                "estimator INTERVAL TIME_CONSTANT"
+              ],
+              "tip": [
+                "Estimator settings."
+              ],
+              "next": []
+            },
+            {
+              "name": "handle",
+              "usage": [
+                "handle QHANDLE"
+              ],
+              "tip": [
+                "Qdisc handle."
+              ],
+              "next": []
+            },
+            {
+              "name": "ingress",
+              "tip": [
+                "Operate on ingress."
+              ]
+            },
+            {
+              "name": "ingress_block",
+              "usage": [
+                "ingress_block BLOCK_INDEX"
+              ],
+              "tip": [
+                "Ingress block."
+              ],
+              "next": []
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "Parent class ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "Operate on the root qdisc."
+              ]
+            },
+            {
+              "name": "stab",
+              "usage": [
+                "stab [help|STAB_OPTIONS]"
+              ],
+              "tip": [
+                "Size table."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "change",
+          "usage": [
+            "change change dev STRING [ handle QHANDLE ] [ root | ingress | clsact | parent CLASSID ]"
+          ],
+          "tip": [
+            "Change a qdisc."
+          ],
+          "option": [
+            {
+              "name": "clsact",
+              "tip": [
+                "Operate on clsact."
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "handle",
+              "usage": [
+                "handle QHANDLE"
+              ],
+              "tip": [
+                "Qdisc handle."
+              ],
+              "next": []
+            },
+            {
+              "name": "ingress",
+              "tip": [
+                "Operate on ingress."
+              ]
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "Parent class ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "Operate on the root qdisc."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del del dev STRING [ handle QHANDLE ] [ root | ingress | clsact | parent CLASSID ]"
+          ],
+          "tip": [
+            "Delete a qdisc."
+          ],
+          "option": [
+            {
+              "name": "clsact",
+              "tip": [
+                "Operate on clsact."
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "handle",
+              "usage": [
+                "handle QHANDLE"
+              ],
+              "tip": [
+                "Qdisc handle."
+              ],
+              "next": []
+            },
+            {
+              "name": "ingress",
+              "tip": [
+                "Operate on ingress."
+              ]
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "Parent class ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "Operate on the root qdisc."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show qdisc help."
+          ]
+        },
+        {
+          "name": "list",
+          "usage": [
+            "list list [ dev STRING ] [ QDISC_ID ] [ invisible ]"
+          ],
+          "tip": [
+            "List qdiscs."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "replace",
+          "usage": [
+            "replace replace dev STRING [ handle QHANDLE ] [ root | ingress | clsact | parent CLASSID ]"
+          ],
+          "tip": [
+            "Replace a qdisc."
+          ],
+          "option": [
+            {
+              "name": "clsact",
+              "tip": [
+                "Operate on clsact."
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "handle",
+              "usage": [
+                "handle QHANDLE"
+              ],
+              "tip": [
+                "Qdisc handle."
+              ],
+              "next": []
+            },
+            {
+              "name": "ingress",
+              "tip": [
+                "Operate on ingress."
+              ]
+            },
+            {
+              "name": "parent",
+              "usage": [
+                "parent CLASSID"
+              ],
+              "tip": [
+                "Parent class ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "root",
+              "tip": [
+                "Operate on the root qdisc."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [ dev STRING ] [ QDISC_ID ] [ invisible ]"
+          ],
+          "tip": [
+            "Show qdiscs."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev STRING"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "invisible",
+              "tip": [
+                "Show invisible qdiscs."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--color",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --color"
+      ],
+      "tip": [
+        "Use color output."
+      ]
+    },
+    {
+      "name": "--details",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --details"
+      ],
+      "tip": [
+        "Show details."
+      ]
+    },
+    {
+      "name": "--echo",
+      "tip": [
+        "Echo applied configuration."
+      ]
+    },
+    {
+      "name": "--json",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --json"
+      ],
+      "tip": [
+        "Output JSON."
+      ]
+    },
+    {
+      "name": "--oneline",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --oneline"
+      ],
+      "tip": [
+        "Print each record on one line."
+      ]
+    },
+    {
+      "name": "--pretty",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --pretty"
+      ],
+      "tip": [
+        "Pretty-print JSON."
+      ]
+    },
+    {
+      "name": "--raw",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --raw"
+      ],
+      "tip": [
+        "Show raw values."
+      ]
+    },
+    {
+      "name": "--statistics",
+      "alias": [
+        "-stats",
+        "-s"
+      ],
+      "usage": [
+        "-s, -stats, --statistics"
+      ],
+      "tip": [
+        "Show statistics."
+      ]
+    },
+    {
+      "name": "--Version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --Version"
+      ],
+      "tip": [
+        "Print the tc version."
+      ]
+    },
+    {
+      "name": "-batch",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, -batch <filename>"
+      ],
+      "tip": [
+        "Read commands from the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "-brief",
+      "alias": [
+        "-br"
+      ],
+      "usage": [
+        "-br, -brief"
+      ],
+      "tip": [
+        "Use brief output."
+      ]
+    },
+    {
+      "name": "-conf",
+      "alias": [
+        "-cf"
+      ],
+      "usage": [
+        "-cf, -conf <path>"
+      ],
+      "tip": [
+        "Use the configuration file."
+      ],
+      "next": []
+    },
+    {
+      "name": "-names",
+      "alias": [
+        "-nam"
+      ],
+      "usage": [
+        "-nam, -names"
+      ],
+      "tip": [
+        "Resolve names."
+      ]
+    },
+    {
+      "name": "-netns",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, -netns <name>"
+      ],
+      "tip": [
+        "Switch to the network namespace."
+      ],
+      "next": []
+    },
+    {
+      "name": "-nm",
+      "tip": [
+        "Do not resolve names."
+      ]
+    },
+    {
+      "name": "-Numeric",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, -Numeric"
+      ],
+      "tip": [
+        "Print numeric values."
+      ]
+    }
+  ]
+}

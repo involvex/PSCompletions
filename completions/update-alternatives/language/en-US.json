@@ -1,0 +1,210 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "Maintain symbolic links determining default commands."
+    ]
+  },
+  "option": [
+    {
+      "name": "--admindir",
+      "usage": [
+        "--admindir <directory>"
+      ],
+      "tip": [
+        "Change the administrative directory."
+      ],
+      "next": []
+    },
+    {
+      "name": "--all",
+      "tip": [
+        "Call --config on all alternatives."
+      ]
+    },
+    {
+      "name": "--altdir",
+      "usage": [
+        "--altdir <directory>"
+      ],
+      "tip": [
+        "Change the alternatives directory."
+      ],
+      "next": []
+    },
+    {
+      "name": "--auto",
+      "usage": [
+        "--auto <name>"
+      ],
+      "tip": [
+        "Switch the master link to automatic mode."
+      ],
+      "next": []
+    },
+    {
+      "name": "--config",
+      "usage": [
+        "--config <name>"
+      ],
+      "tip": [
+        "Select the alternative interactively."
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "tip": [
+        "Debug output."
+      ]
+    },
+    {
+      "name": "--display",
+      "usage": [
+        "--display <name>"
+      ],
+      "tip": [
+        "Display information about the group."
+      ],
+      "next": []
+    },
+    {
+      "name": "--force",
+      "tip": [
+        "Allow replacing files with alternative links."
+      ]
+    },
+    {
+      "name": "--get-selections",
+      "tip": [
+        "List master alternative names and status."
+      ]
+    },
+    {
+      "name": "--help",
+      "tip": [
+        "Show this help message."
+      ]
+    },
+    {
+      "name": "--install",
+      "usage": [
+        "--install <link> <name> <path> <priority> [--slave ...]"
+      ],
+      "tip": [
+        "Add a group of alternatives."
+      ],
+      "next": []
+    },
+    {
+      "name": "--instdir",
+      "usage": [
+        "--instdir <directory>"
+      ],
+      "tip": [
+        "Change the installation directory."
+      ],
+      "next": []
+    },
+    {
+      "name": "--list",
+      "usage": [
+        "--list <name>"
+      ],
+      "tip": [
+        "Display all targets of the group."
+      ],
+      "next": []
+    },
+    {
+      "name": "--log",
+      "usage": [
+        "--log <file>"
+      ],
+      "tip": [
+        "Change the log file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--query",
+      "usage": [
+        "--query <name>"
+      ],
+      "tip": [
+        "Machine-parseable version of --display."
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "tip": [
+        "Quiet operation, minimal output."
+      ]
+    },
+    {
+      "name": "--remove",
+      "usage": [
+        "--remove <name> <path>"
+      ],
+      "tip": [
+        "Remove a path from the group."
+      ],
+      "next": []
+    },
+    {
+      "name": "--remove-all",
+      "usage": [
+        "--remove-all <name>"
+      ],
+      "tip": [
+        "Remove the group from the system."
+      ],
+      "next": []
+    },
+    {
+      "name": "--root",
+      "usage": [
+        "--root <directory>"
+      ],
+      "tip": [
+        "Change the filesystem root directory."
+      ],
+      "next": []
+    },
+    {
+      "name": "--set",
+      "usage": [
+        "--set <name> <path>"
+      ],
+      "tip": [
+        "Set the path as the alternative."
+      ],
+      "next": []
+    },
+    {
+      "name": "--set-selections",
+      "tip": [
+        "Read alternative status from stdin."
+      ]
+    },
+    {
+      "name": "--skip-auto",
+      "tip": [
+        "Skip prompt for correctly configured alternatives."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "tip": [
+        "Verbose operation, more output."
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Show the version."
+      ]
+    }
+  ]
+}

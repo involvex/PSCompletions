@@ -1,0 +1,194 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "定期执行程序并显示其输出。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--beep",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --beep"
+      ],
+      "tip": [
+        "命令退出非零时发出蜂鸣。"
+      ]
+    },
+    {
+      "name": "--chgexit",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --chgexit"
+      ],
+      "tip": [
+        "命令输出变化时退出。"
+      ]
+    },
+    {
+      "name": "--color",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --color"
+      ],
+      "tip": [
+        "解析 ANSI 颜色和样式序列。"
+      ]
+    },
+    {
+      "name": "--differences",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --differences[=<permanent>]"
+      ],
+      "tip": [
+        "高亮更新之间的变化。",
+        "使用 --differences=permanent 保持高亮。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--equexit",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --equexit <cycles>"
+      ],
+      "tip": [
+        "输出在指定周期内不变时退出。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--errexit",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --errexit"
+      ],
+      "tip": [
+        "命令退出非零时退出。"
+      ]
+    },
+    {
+      "name": "--exec",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --exec"
+      ],
+      "tip": [
+        "将命令交给 exec 而不是 sh -c。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助并退出。"
+      ]
+    },
+    {
+      "name": "--interval",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --interval <secs>"
+      ],
+      "tip": [
+        "更新之间等待的秒数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-color",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --no-color"
+      ],
+      "tip": [
+        "不解析 ANSI 颜色和样式序列。"
+      ]
+    },
+    {
+      "name": "--no-rerun",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --no-rerun"
+      ],
+      "tip": [
+        "窗口大小变化时不重新运行程序。"
+      ]
+    },
+    {
+      "name": "--no-title",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --no-title"
+      ],
+      "tip": [
+        "关闭表头。"
+      ]
+    },
+    {
+      "name": "--no-wrap",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --no-wrap"
+      ],
+      "tip": [
+        "关闭自动换行。"
+      ]
+    },
+    {
+      "name": "--precise",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --precise"
+      ],
+      "tip": [
+        "尝试以精确间隔运行命令。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --version"
+      ],
+      "tip": [
+        "输出版本信息并退出。"
+      ]
+    }
+  ]
+}

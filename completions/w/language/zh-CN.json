@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "显示谁已登录以及他们在做什么。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--from",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --from"
+      ],
+      "tip": [
+        "显示远程主机名字段。"
+      ]
+    },
+    {
+      "name": "--help",
+      "tip": [
+        "显示此帮助并退出。"
+      ]
+    },
+    {
+      "name": "--ip-addr",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --ip-addr"
+      ],
+      "tip": [
+        "显示 IP 地址而不是主机名。"
+      ]
+    },
+    {
+      "name": "--no-current",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --no-current"
+      ],
+      "tip": [
+        "忽略当前进程的用户名。"
+      ]
+    },
+    {
+      "name": "--no-header",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --no-header"
+      ],
+      "tip": [
+        "不打印表头。"
+      ]
+    },
+    {
+      "name": "--old-style",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --old-style"
+      ],
+      "tip": [
+        "使用旧式输出。"
+      ]
+    },
+    {
+      "name": "--pids",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --pids"
+      ],
+      "tip": [
+        "显示 WHAT 中进程的 PID。"
+      ]
+    },
+    {
+      "name": "--short",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --short"
+      ],
+      "tip": [
+        "使用短格式。"
+      ]
+    },
+    {
+      "name": "--terminal",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --terminal"
+      ],
+      "tip": [
+        "显示终端。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "输出版本信息并退出。"
+      ]
+    }
+  ]
+}

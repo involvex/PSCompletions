@@ -1,0 +1,517 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "Display Linux processes."
+    ]
+  },
+  "option": [
+    {
+      "name": "--accum-time-toggle",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --accum-time-toggle"
+      ],
+      "tip": [
+        "Reverse the last remembered cumulative-time state."
+      ]
+    },
+    {
+      "name": "--batch-mode",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --batch-mode"
+      ],
+      "tip": [
+        "Run in non-interactive batch mode."
+      ]
+    },
+    {
+      "name": "--cmdline-toggle",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --cmdline-toggle"
+      ],
+      "tip": [
+        "Reverse the last remembered command-line state."
+      ]
+    },
+    {
+      "name": "--delay",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --delay =SECS [.TENTHS]"
+      ],
+      "tip": [
+        "Set the iterative delay as seconds and tenths."
+      ],
+      "next": []
+    },
+    {
+      "name": "--filter-any-user",
+      "alias": [
+        "-U"
+      ],
+      "usage": [
+        "-U, --filter-any-user =USER"
+      ],
+      "tip": [
+        "Show only processes owned by USER."
+      ],
+      "next": []
+    },
+    {
+      "name": "--filter-only-euser",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --filter-only-euser =USER"
+      ],
+      "tip": [
+        "Show only processes with the effective user USER."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this help and exit."
+      ]
+    },
+    {
+      "name": "--idle-toggle",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --idle-toggle"
+      ],
+      "tip": [
+        "Reverse the last remembered idle state."
+      ]
+    },
+    {
+      "name": "--iterations",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --iterations =NUMBER"
+      ],
+      "tip": [
+        "Exit after the given number of iterations."
+      ],
+      "next": []
+    },
+    {
+      "name": "--list-fields",
+      "alias": [
+        "-O"
+      ],
+      "usage": [
+        "-O, --list-fields"
+      ],
+      "tip": [
+        "Output all field names, then exit."
+      ]
+    },
+    {
+      "name": "--pid",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --pid =PIDLIST"
+      ],
+      "tip": [
+        "Monitor only the tasks in PIDLIST."
+      ],
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--scale-summary-mem",
+      "alias": [
+        "-E"
+      ],
+      "usage": [
+        "-E, --scale-summary-mem =SCALE"
+      ],
+      "tip": [
+        "Set the memory scale: k, m, g, t, p or e."
+      ],
+      "next": [
+        {
+          "name": "e"
+        },
+        {
+          "name": "g"
+        },
+        {
+          "name": "k"
+        },
+        {
+          "name": "m"
+        },
+        {
+          "name": "p"
+        },
+        {
+          "name": "t"
+        }
+      ]
+    },
+    {
+      "name": "--scale-task-mem",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --scale-task-mem =SCALE"
+      ],
+      "tip": [
+        "Set the task memory scale: k, m, g, t or p."
+      ],
+      "next": [
+        {
+          "name": "g"
+        },
+        {
+          "name": "k"
+        },
+        {
+          "name": "m"
+        },
+        {
+          "name": "p"
+        },
+        {
+          "name": "t"
+        }
+      ]
+    },
+    {
+      "name": "--secure-mode",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --secure-mode"
+      ],
+      "tip": [
+        "Run with secure mode restrictions."
+      ]
+    },
+    {
+      "name": "--single-cpu-toggle",
+      "alias": [
+        "-1"
+      ],
+      "usage": [
+        "-1, --single-cpu-toggle"
+      ],
+      "tip": [
+        "Reverse the last remembered single-CPU state."
+      ]
+    },
+    {
+      "name": "--sort-override",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --sort-override =FIELD"
+      ],
+      "tip": [
+        "Force sorting on the named field."
+      ],
+      "next": [
+        {
+          "name": "%CPU"
+        },
+        {
+          "name": "%CUC"
+        },
+        {
+          "name": "%CUU"
+        },
+        {
+          "name": "%MEM"
+        },
+        {
+          "name": "AGID"
+        },
+        {
+          "name": "AGNI"
+        },
+        {
+          "name": "CGNAME"
+        },
+        {
+          "name": "CGROUPS"
+        },
+        {
+          "name": "CODE"
+        },
+        {
+          "name": "COMMAND"
+        },
+        {
+          "name": "DATA"
+        },
+        {
+          "name": "ELAPSED"
+        },
+        {
+          "name": "ENVIRON"
+        },
+        {
+          "name": "EXE"
+        },
+        {
+          "name": "Flags"
+        },
+        {
+          "name": "GID"
+        },
+        {
+          "name": "GROUP"
+        },
+        {
+          "name": "ioR"
+        },
+        {
+          "name": "ioRop"
+        },
+        {
+          "name": "ioW"
+        },
+        {
+          "name": "ioWop"
+        },
+        {
+          "name": "LOGID"
+        },
+        {
+          "name": "LXC"
+        },
+        {
+          "name": "nDRT"
+        },
+        {
+          "name": "NI"
+        },
+        {
+          "name": "nMaj"
+        },
+        {
+          "name": "nMin"
+        },
+        {
+          "name": "nsCGROUP"
+        },
+        {
+          "name": "nsIPC"
+        },
+        {
+          "name": "nsMNT"
+        },
+        {
+          "name": "nsNET"
+        },
+        {
+          "name": "nsPID"
+        },
+        {
+          "name": "nsTIME"
+        },
+        {
+          "name": "nsUSER"
+        },
+        {
+          "name": "nsUTS"
+        },
+        {
+          "name": "nTH"
+        },
+        {
+          "name": "NU"
+        },
+        {
+          "name": "OOMa"
+        },
+        {
+          "name": "OOMs"
+        },
+        {
+          "name": "P"
+        },
+        {
+          "name": "PGRP"
+        },
+        {
+          "name": "PID"
+        },
+        {
+          "name": "PPID"
+        },
+        {
+          "name": "PR"
+        },
+        {
+          "name": "PSan"
+        },
+        {
+          "name": "PSfd"
+        },
+        {
+          "name": "PSS"
+        },
+        {
+          "name": "PSsh"
+        },
+        {
+          "name": "RES"
+        },
+        {
+          "name": "RSan"
+        },
+        {
+          "name": "RSfd"
+        },
+        {
+          "name": "RSlk"
+        },
+        {
+          "name": "RSS"
+        },
+        {
+          "name": "RSsh"
+        },
+        {
+          "name": "RUID"
+        },
+        {
+          "name": "RUSER"
+        },
+        {
+          "name": "S"
+        },
+        {
+          "name": "SHR"
+        },
+        {
+          "name": "SID"
+        },
+        {
+          "name": "STARTED"
+        },
+        {
+          "name": "SUID"
+        },
+        {
+          "name": "SUPGIDS"
+        },
+        {
+          "name": "SUPGRPS"
+        },
+        {
+          "name": "SUSER"
+        },
+        {
+          "name": "SWAP"
+        },
+        {
+          "name": "TGID"
+        },
+        {
+          "name": "TIME"
+        },
+        {
+          "name": "TIME+"
+        },
+        {
+          "name": "TPGID"
+        },
+        {
+          "name": "TTY"
+        },
+        {
+          "name": "UID"
+        },
+        {
+          "name": "USED"
+        },
+        {
+          "name": "USER"
+        },
+        {
+          "name": "USS"
+        },
+        {
+          "name": "VIRT"
+        },
+        {
+          "name": "vMj"
+        },
+        {
+          "name": "vMn"
+        },
+        {
+          "name": "WCHAN"
+        }
+      ]
+    },
+    {
+      "name": "--threads-show",
+      "alias": [
+        "-H"
+      ],
+      "usage": [
+        "-H, --threads-show"
+      ],
+      "tip": [
+        "Show tasks plus all their threads."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Output version information and exit."
+      ]
+    },
+    {
+      "name": "--width",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --width [=COLUMNS]"
+      ],
+      "tip": [
+        "Change the print width, optionally using COLUMNS."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,761 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "Display information from object files."
+    ]
+  },
+  "option": [
+    {
+      "name": "--adjust-vma",
+      "usage": [
+        "--adjust-vma=OFFSET"
+      ],
+      "tip": [
+        "Add OFFSET to all displayed section addresses."
+      ],
+      "next": []
+    },
+    {
+      "name": "--all-headers",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --all-headers"
+      ],
+      "tip": [
+        "Display all headers."
+      ]
+    },
+    {
+      "name": "--architecture",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --architecture=MACHINE"
+      ],
+      "tip": [
+        "Specify the target architecture."
+      ],
+      "next": []
+    },
+    {
+      "name": "--archive-headers",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --archive-headers"
+      ],
+      "tip": [
+        "Display archive header information."
+      ]
+    },
+    {
+      "name": "--ctf",
+      "usage": [
+        "--ctf[=SECTION]"
+      ],
+      "tip": [
+        "Display CTF info from the section (default .ctf)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--ctf-parent",
+      "usage": [
+        "--ctf-parent=NAME"
+      ],
+      "tip": [
+        "Use the CTF archive member as the CTF parent."
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug-dir",
+      "usage": [
+        "--debug-dir=<DIR>"
+      ],
+      "tip": [
+        "Search the directory for debug info files."
+      ],
+      "next": []
+    },
+    {
+      "name": "--debugging",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --debugging"
+      ],
+      "tip": [
+        "Display debug information in the object file."
+      ]
+    },
+    {
+      "name": "--debugging-tags",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --debugging-tags"
+      ],
+      "tip": [
+        "Display debug information in ctags style."
+      ]
+    },
+    {
+      "name": "--decompress",
+      "alias": [
+        "-Z"
+      ],
+      "usage": [
+        "-Z, --decompress"
+      ],
+      "tip": [
+        "Decompress sections before displaying them."
+      ]
+    },
+    {
+      "name": "--demangle",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --demangle[=STYLE]"
+      ],
+      "tip": [
+        "Decode mangled or processed symbol names.",
+        "STYLE can be none, auto, gnu-v3, java, gnat, dlang or rust."
+      ],
+      "next": [
+        {
+          "name": "auto"
+        },
+        {
+          "name": "dlang"
+        },
+        {
+          "name": "gnat"
+        },
+        {
+          "name": "gnu-v3"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "rust"
+        }
+      ]
+    },
+    {
+      "name": "--disassemble",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --disassemble"
+      ],
+      "tip": [
+        "Disassemble executable sections."
+      ]
+    },
+    {
+      "name": "--disassemble-all",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --disassemble-all"
+      ],
+      "tip": [
+        "Disassemble all sections."
+      ]
+    },
+    {
+      "name": "--disassemble-zeroes",
+      "alias": [
+        "-z"
+      ],
+      "usage": [
+        "-z, --disassemble-zeroes"
+      ],
+      "tip": [
+        "Do not skip blocks of zeroes when disassembling."
+      ]
+    },
+    {
+      "name": "--disassemble=",
+      "usage": [
+        "--disassemble=<sym>"
+      ],
+      "tip": [
+        "Disassemble starting from the given symbol."
+      ],
+      "next": []
+    },
+    {
+      "name": "--disassembler-color=",
+      "usage": [
+        "--disassembler-color=off|terminal|on|extended"
+      ],
+      "tip": [
+        "Control disassembler color output."
+      ],
+      "next": [
+        {
+          "name": "extended"
+        },
+        {
+          "name": "off"
+        },
+        {
+          "name": "on"
+        },
+        {
+          "name": "terminal"
+        }
+      ]
+    },
+    {
+      "name": "--disassembler-options",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --disassembler-options=OPT"
+      ],
+      "tip": [
+        "Pass text OPT to the disassembler.",
+        "Target-specific options are listed in objdump --help."
+      ],
+      "next": []
+    },
+    {
+      "name": "--dwarf",
+      "alias": [
+        "-W"
+      ],
+      "usage": [
+        "-W, --dwarf[=SECTION]"
+      ],
+      "tip": [
+        "Display the contents of DWARF debug sections."
+      ],
+      "next": []
+    },
+    {
+      "name": "--dwarf-check",
+      "tip": [
+        "Make additional DWARF consistency checks."
+      ]
+    },
+    {
+      "name": "--dwarf-depth",
+      "usage": [
+        "--dwarf-depth=N"
+      ],
+      "tip": [
+        "Do not display DIEs at depth N or greater."
+      ],
+      "next": []
+    },
+    {
+      "name": "--dwarf-start",
+      "usage": [
+        "--dwarf-start=N"
+      ],
+      "tip": [
+        "Display DIEs starting at offset N."
+      ],
+      "next": []
+    },
+    {
+      "name": "--dynamic-reloc",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --dynamic-reloc"
+      ],
+      "tip": [
+        "Display the dynamic relocation entries."
+      ]
+    },
+    {
+      "name": "--dynamic-syms",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --dynamic-syms"
+      ],
+      "tip": [
+        "Display the dynamic symbol table contents."
+      ]
+    },
+    {
+      "name": "--file-headers",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --file-headers"
+      ],
+      "tip": [
+        "Display the overall file header."
+      ]
+    },
+    {
+      "name": "--file-offsets",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --file-offsets"
+      ],
+      "tip": [
+        "Include file offsets when displaying information."
+      ]
+    },
+    {
+      "name": "--file-start-context",
+      "tip": [
+        "Include context from the start of the file (with -S)."
+      ]
+    },
+    {
+      "name": "--full-contents",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --full-contents"
+      ],
+      "tip": [
+        "Display the full contents of requested sections."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-H"
+      ],
+      "usage": [
+        "-H, --help"
+      ],
+      "tip": [
+        "Display this information."
+      ]
+    },
+    {
+      "name": "--include",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --include=DIR"
+      ],
+      "tip": [
+        "Add DIR to the source file search list."
+      ],
+      "next": []
+    },
+    {
+      "name": "--info",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --info"
+      ],
+      "tip": [
+        "List supported object formats and architectures."
+      ]
+    },
+    {
+      "name": "--inlines",
+      "tip": [
+        "Print all inlines for a source line (with -l)."
+      ]
+    },
+    {
+      "name": "--insn-width",
+      "usage": [
+        "--insn-width=WIDTH"
+      ],
+      "tip": [
+        "Display WIDTH bytes on a single line for -d."
+      ],
+      "next": []
+    },
+    {
+      "name": "--line-numbers",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --line-numbers"
+      ],
+      "tip": [
+        "Include line numbers and filenames in the output."
+      ]
+    },
+    {
+      "name": "--map-global-vars",
+      "tip": [
+        "Display the memory mapping of global variables."
+      ]
+    },
+    {
+      "name": "--no-addresses",
+      "tip": [
+        "Do not print addresses alongside disassembly."
+      ]
+    },
+    {
+      "name": "--no-recurse-limit",
+      "tip": [
+        "Disable the demangling recursion limit."
+      ]
+    },
+    {
+      "name": "--no-show-raw-insn",
+      "tip": [
+        "Do not display hex alongside symbolic disassembly."
+      ]
+    },
+    {
+      "name": "--prefix",
+      "usage": [
+        "--prefix=PREFIX"
+      ],
+      "tip": [
+        "Add PREFIX to absolute paths for -S."
+      ],
+      "next": []
+    },
+    {
+      "name": "--prefix-addresses",
+      "tip": [
+        "Print complete addresses alongside disassembly."
+      ]
+    },
+    {
+      "name": "--prefix-strip",
+      "usage": [
+        "--prefix-strip=LEVEL"
+      ],
+      "tip": [
+        "Strip initial directory names for -S."
+      ],
+      "next": []
+    },
+    {
+      "name": "--private",
+      "alias": [
+        "-P"
+      ],
+      "usage": [
+        "-P, --private=OPT,OPT..."
+      ],
+      "tip": [
+        "Display object-format-specific contents."
+      ],
+      "next": []
+    },
+    {
+      "name": "--private-headers",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --private-headers"
+      ],
+      "tip": [
+        "Display object-format-specific file header contents."
+      ]
+    },
+    {
+      "name": "--process-links",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --process-links"
+      ],
+      "tip": [
+        "Process non-debug sections in separate debuginfo files."
+      ]
+    },
+    {
+      "name": "--recurse-limit",
+      "tip": [
+        "Enable a demangling recursion limit (default)."
+      ]
+    },
+    {
+      "name": "--reloc",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --reloc"
+      ],
+      "tip": [
+        "Display the relocation entries."
+      ]
+    },
+    {
+      "name": "--section",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --section=NAME"
+      ],
+      "tip": [
+        "Only display information for the named section."
+      ],
+      "next": []
+    },
+    {
+      "name": "--section-headers",
+      "alias": [
+        "--headers",
+        "-h"
+      ],
+      "usage": [
+        "-h, --headers, --section-headers"
+      ],
+      "tip": [
+        "Display the section headers."
+      ]
+    },
+    {
+      "name": "--sframe",
+      "usage": [
+        "--sframe[=SECTION]"
+      ],
+      "tip": [
+        "Display SFrame info from the section (default .sframe)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--show-all-symbols",
+      "tip": [
+        "Display all symbols at a given address when disassembling."
+      ]
+    },
+    {
+      "name": "--show-raw-insn",
+      "tip": [
+        "Display hex alongside symbolic disassembly."
+      ]
+    },
+    {
+      "name": "--source",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --source"
+      ],
+      "tip": [
+        "Intermix source code with disassembly."
+      ]
+    },
+    {
+      "name": "--source-comment",
+      "usage": [
+        "--source-comment[=<txt>]"
+      ],
+      "tip": [
+        "Prefix source code lines with the given text."
+      ],
+      "next": []
+    },
+    {
+      "name": "--special-syms",
+      "tip": [
+        "Include special symbols in symbol dumps."
+      ]
+    },
+    {
+      "name": "--stabs",
+      "alias": [
+        "-G"
+      ],
+      "usage": [
+        "-G, --stabs"
+      ],
+      "tip": [
+        "Display raw STABS information."
+      ]
+    },
+    {
+      "name": "--start-address",
+      "usage": [
+        "--start-address=ADDR"
+      ],
+      "tip": [
+        "Only process data whose address is at least ADDR."
+      ],
+      "next": []
+    },
+    {
+      "name": "--stop-address",
+      "usage": [
+        "--stop-address=ADDR"
+      ],
+      "tip": [
+        "Only process data whose address is below ADDR."
+      ],
+      "next": []
+    },
+    {
+      "name": "--syms",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --syms"
+      ],
+      "tip": [
+        "Display the symbol table contents."
+      ]
+    },
+    {
+      "name": "--target",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --target=BFDNAME"
+      ],
+      "tip": [
+        "Specify the target object format."
+      ],
+      "next": []
+    },
+    {
+      "name": "--unicode",
+      "alias": [
+        "-U"
+      ],
+      "usage": [
+        "-U, --unicode={default|locale|invalid|hex|escape|highlight}"
+      ],
+      "tip": [
+        "Control the display of UTF-8 Unicode characters."
+      ],
+      "next": [
+        {
+          "name": "default"
+        },
+        {
+          "name": "escape"
+        },
+        {
+          "name": "hex"
+        },
+        {
+          "name": "highlight"
+        },
+        {
+          "name": "invalid"
+        },
+        {
+          "name": "locale"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --version"
+      ],
+      "tip": [
+        "Display the program version."
+      ]
+    },
+    {
+      "name": "--visualize-jumps",
+      "usage": [
+        "--visualize-jumps[=color|extended-color|off]"
+      ],
+      "tip": [
+        "Visualize jumps with ASCII art; optionally use color or disable."
+      ],
+      "next": []
+    },
+    {
+      "name": "--wide",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --wide"
+      ],
+      "tip": [
+        "Format output for more than 80 columns."
+      ]
+    },
+    {
+      "name": "-EB",
+      "usage": [
+        "-EB, --endian=big"
+      ],
+      "tip": [
+        "Assume big-endian format when disassembling."
+      ]
+    },
+    {
+      "name": "-EL",
+      "usage": [
+        "-EL, --endian=little"
+      ],
+      "tip": [
+        "Assume little-endian format when disassembling."
+      ]
+    },
+    {
+      "name": "-Wk",
+      "usage": [
+        "-Wk, --dwarf=links"
+      ],
+      "tip": [
+        "Display sections linking to separate debuginfo files."
+      ]
+    },
+    {
+      "name": "-WK",
+      "usage": [
+        "-WK, --dwarf=follow-links"
+      ],
+      "tip": [
+        "Follow links to separate debug info files (default)."
+      ]
+    },
+    {
+      "name": "-WN",
+      "usage": [
+        "-WN, --dwarf=no-follow-links"
+      ],
+      "tip": [
+        "Do not follow links to separate debug info files."
+      ]
+    }
+  ]
+}

@@ -1,4 +1,5 @@
-#Requires -Version 7.0
+#!/usr/bin/env pwsh
+#Requires -Version 7.6.5
 
 param(
     [ValidateSet('windows', 'darwin', 'linux', 'macos')]
@@ -11,8 +12,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-# Host platform/arch detection, mirroring the module's resolution logic in
-# module\PSCompletions\PSCompletions.ps1 (platform: windows/darwin/linux).
+# Host platform/arch detection, mirroring the module's resolution logic in module/PSCompletions/PSCompletions.ps1 (platform: windows/darwin/linux).
 $hostPlatform = if ($IsWindows) { 'windows' } elseif ($IsMacOS) { 'darwin' } else { 'linux' }
 try {
     $hostArch = [System.Runtime.InteropServices.RuntimeInformation]::ProcessArchitecture.ToString()
@@ -41,15 +41,14 @@ $tripleMap = @{
 $triple = $tripleMap["$Platform-$Arch"]
 $isHost = ($Platform -eq $hostPlatform) -and ($Arch -eq $hostArch)
 
-# Windows binaries carry an .exe extension; the module looks in bin\<platform>-<arch>.
+# Windows binaries carry an .exe extension; the module looks in bin/<platform>-<arch>.
 $moduleBinDir = [System.IO.Path]::Combine($PSScriptRoot, '..', 'module', 'PSCompletions', 'bin', "$Platform-$Arch")
 $ext = if ($Platform -eq 'windows') { '.exe' } else { '' }
 $artifactDir = if ($isHost) { @('target', 'release') } else { @('target', $triple, 'release') }
 
 $artifacts = @('psc-menu', 'psc')
 
-# Stop any process whose executable is exactly $exePath (matches by full path
-# so unrelated programs with a same-named exe are left alone).
+# Stop any process whose executable is exactly $exePath (matches by full path so unrelated programs with a same-named exe are left alone).
 function Stop-BinaryProcess([string]$exePath) {
     $name = [System.IO.Path]::GetFileNameWithoutExtension($exePath)
     $full = [System.IO.Path]::GetFullPath($exePath)
@@ -92,8 +91,7 @@ if ($LASTEXITCODE -ne 0) {
     throw 'format failed.'
 }
 
-# Cross-compilation uses cargo-zigbuild (requires `cargo install cargo-zigbuild`
-# and zig on PATH); the host build is plain cargo.
+# Cross-compilation uses cargo-zigbuild (requires `cargo install cargo-zigbuild` and zig on PATH); the host build is plain cargo.
 if ($isHost) {
     Write-Host "`n==> cargo build --release ($Platform-$Arch)" -ForegroundColor Cyan
     & cargo build --release --manifest-path $manifest

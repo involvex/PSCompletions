@@ -1,100 +1,106 @@
--- pyenv dynamic completions
-
-local shell_names = { "bash", "zsh", "fish", "powershell", "pwsh" }
-
-local python_commands = {
-    "python", "python3", "pip", "pip3",
-    "ipython", "jupyter", "pytest", "black", "flake8", "mypy",
-}
-
-local function get_installed_versions()
-    return psc.run({ "pyenv", "versions", "--bare" }) or {}
-end
-
-local function get_available_versions()
-    return psc.run({ "pyenv", "install", "--list" }) or {}
-end
-
-local function get_pyenv_commands()
-    return psc.run({ "pyenv", "commands" }) or {}
+local function add_system_version()
+    psc.add({
+        name = "system",
+        tip = {
+            ["en-US"] = "System Python",
+            ["zh-CN"] = "系统 Python",
+        },
+    })
 end
 
 local function add_installed_versions()
-    for _, v in ipairs(get_installed_versions()) do
-        local name = psc.trim(v)
-        if name ~= "" then
-            psc.add({ name = name, tip = "Installed version: " .. name })
+    for _, line in ipairs(psc.run({ "pyenv", "versions", "--bare" }) or {}) do
+        if line ~= "" and line ~= "system" then
+            psc.add({
+                name = line,
+                tip = {
+                    ["en-US"] = "Installed Python version",
+                    ["zh-CN"] = "已安装的 Python 版本",
+                },
+            })
         end
     end
 end
 
-local function add_available_versions()
-    for _, v in ipairs(get_available_versions()) do
-        local name = psc.trim(v)
-        if name ~= "" then
-            psc.add({ name = name, tip = "Available version: " .. name })
+local function add_known_versions()
+    for _, line in ipairs(psc.run({ "python-build", "--definitions" }) or {}) do
+        if line ~= "" then
+            psc.add({
+                name = line,
+                tip = {
+                    ["en-US"] = "Installable Python version",
+                    ["zh-CN"] = "可安装的 Python 版本",
+                },
+            })
         end
     end
 end
 
-local function add_version_prefixes()
-    local seen = {}
-    for _, v in ipairs(get_available_versions()) do
-        local prefix = v:match("^(%d+%.%d+)")
-        if prefix and not seen[prefix] then
-            seen[prefix] = true
-            psc.add({ name = prefix, tip = "Version prefix: " .. prefix })
+local function add_shims()
+    for _, line in ipairs(psc.run({ "pyenv", "shims", "--short" }) or {}) do
+        if line ~= "" then
+            psc.add({
+                name = line,
+                tip = {
+                    ["en-US"] = "Pyenv shim",
+                    ["zh-CN"] = "Pyenv shim 可执行文件",
+                },
+            })
         end
     end
 end
 
-local function add_pyenv_commands()
-    for _, cmd in ipairs(get_pyenv_commands()) do
-        local name = psc.trim(cmd)
-        if name ~= "" then
-            psc.add({ name = name, tip = "Command: " .. name })
+local function add_hook_commands()
+    for _, line in ipairs(psc.run({ "pyenv", "hooks", "--complete" }) or {}) do
+        if line ~= "" then
+            psc.add({
+                name = line,
+                tip = {
+                    ["en-US"] = "Command with hook scripts",
+                    ["zh-CN"] = "带 hook 脚本的命令",
+                },
+            })
         end
     end
 end
 
-local function add_shell_names()
-    for _, shell in ipairs(shell_names) do
-        psc.add({ name = shell, tip = "Shell: " .. shell })
-    end
-end
+-- `system` is offered only where upstream echoes it (uninstall/latest do not)
+psc.on({
+    { command = "global", multiple = true },
+    { command = "local",  multiple = true },
+    { command = "shell",  multiple = true },
+    { command = "prefix", multiple = true },
+}, add_system_version)
 
-local function add_python_commands()
-    for _, cmd in ipairs(python_commands) do
-        psc.add({ name = cmd, tip = "Python command: " .. cmd })
-    end
-end
+-- installed versions fill every version-name slot
+psc.on({
+    { command = "global",    multiple = true },
+    { command = "local",     multiple = true },
+    { command = "shell",     multiple = true },
+    { command = "prefix",    multiple = true },
+    { command = "uninstall", multiple = true },
+    { command = "latest" },
+}, add_installed_versions)
 
--- Version-dependent subcommands
-psc.on({ command = "local", multiple = true }, add_installed_versions)
-psc.on({ command = "global", multiple = true }, add_installed_versions)
-psc.on({ command = "shell", multiple = true }, add_installed_versions)
-psc.on({ command = "uninstall", multiple = true }, add_installed_versions)
-psc.on({ command = "prefix", multiple = true }, add_installed_versions)
+-- `latest --known` resolves against definitions instead of installed versions
+psc.on({ command = "latest", option = "--known" }, add_known_versions)
 
--- install: available versions (don't offer if --list/--list-all already typed)
-psc.on({ command = "install" }, function()
-    if not psc.token({ name = "--list" }) and not psc.token({ name = "--list-all" }) then
-        add_available_versions()
-    end
+-- `install` takes one or more definitions from python-build
+psc.on({ command = "install", multiple = true }, add_known_versions)
+
+-- first positional only: anything after it is the program's own argument
+psc.on({
+    { command = "exec" },
+    { command = "which" },
+    { command = "whence" },
+}, add_shims)
+
+psc.on({ command = "hooks" }, add_hook_commands)
+
+-- `help`/`completions` take the tool's own commands (rejected when bogus)
+psc.on({
+    { command = "help" },
+    { command = "completions" },
+}, function()
+    psc.add(psc.mount_items({ "next" }))
 end)
-
--- latest: version prefixes
-psc.on({ command = "latest" }, add_version_prefixes)
-
--- hooks/help: pyenv commands
-psc.on({ command = "hooks" }, add_pyenv_commands)
-psc.on({ command = "help" }, add_pyenv_commands)
-
--- init/completions: shell names
-psc.on({ command = "init" }, add_shell_names)
-psc.on({ command = "completions" }, add_shell_names)
-
--- which/whence/exec: common python commands
-psc.on({ command = "which" }, add_python_commands)
-psc.on({ command = "whence" }, add_python_commands)
-psc.on({ command = "exec" }, add_python_commands)

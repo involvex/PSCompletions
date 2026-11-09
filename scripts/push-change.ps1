@@ -1,3 +1,6 @@
+#!/usr/bin/env pwsh
+#Requires -Version 7.6.5
+
 param(
     [string]$branch = 'main',
     [string]$author = 'github-actions[bot]',
@@ -6,33 +9,37 @@ param(
 )
 
 git -c core.safecrlf=false add -u
-
-$has_change = git status --porcelain
-if (-not $has_change) {
+git diff --cached --quiet
+if ($LASTEXITCODE -eq 0) {
     Write-Host 'No changes to commit.' -ForegroundColor Green
     return
 }
 
 git -c user.name="$author" -c user.email="$email" commit --no-gpg-sign -m "$message"
 
-# Push changes
+# Push
 $retryDelay = 15
-for ($i = 0; $i -lt 5; $i++) {
-    Write-Host 'Rebasing local branch before push ...' -ForegroundColor Cyan
+$maxAttempts = 10
+$pushed = $false
+for ($i = 0; $i -lt $maxAttempts; $i++) {
+    Write-Host 'Pushing updates...' -ForegroundColor Cyan
+    git push origin $branch
+    if ($LASTEXITCODE -eq 0) {
+        $pushed = $true
+        break
+    }
+    Write-Warning 'Push failed, rebasing onto the remote tip.'
     git pull --rebase origin $branch
     if ($LASTEXITCODE -ne 0) {
-        Write-Error 'Pull failed.'
+        Write-Warning 'Pull failed, aborting the rebase to restore a clean state.'
+        git rebase --abort *> $null
+    }
+    if ($i -lt $maxAttempts - 1) {
         Write-Warning "Retrying in $retryDelay seconds..."
         Start-Sleep -Seconds $retryDelay
-        continue
     }
-    Write-Host 'Pushing updates ...' -ForegroundColor Cyan
-    git push origin $branch
-    if ($LASTEXITCODE -ne 0) {
-        Write-Error 'Push failed.'
-        Write-Warning "Retrying in $retryDelay seconds..."
-        Start-Sleep -Seconds $retryDelay
-        continue
-    }
-    break
+}
+
+if (-not $pushed) {
+    throw "Failed to push '$branch' after $maxAttempts attempts."
 }

@@ -1,0 +1,322 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "Remove symbols and sections from files."
+    ]
+  },
+  "option": [
+    {
+      "name": "--disable-deterministic-archives",
+      "alias": [
+        "-U"
+      ],
+      "usage": [
+        "-U, --disable-deterministic-archives"
+      ],
+      "tip": [
+        "Disable -D behavior."
+      ]
+    },
+    {
+      "name": "--discard-all",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --discard-all"
+      ],
+      "tip": [
+        "Remove all non-global symbols."
+      ]
+    },
+    {
+      "name": "--discard-locals",
+      "alias": [
+        "-X"
+      ],
+      "usage": [
+        "-X, --discard-locals"
+      ],
+      "tip": [
+        "Remove compiler-generated symbols."
+      ]
+    },
+    {
+      "name": "--enable-deterministic-archives",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --enable-deterministic-archives"
+      ],
+      "tip": [
+        "Produce deterministic output when stripping archives (default)."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this output."
+      ]
+    },
+    {
+      "name": "--info",
+      "tip": [
+        "List the supported object formats and architectures."
+      ]
+    },
+    {
+      "name": "--input-target",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --input-target=<bfdname>"
+      ],
+      "tip": [
+        "Assume the input file is in the given format."
+      ],
+      "next": []
+    },
+    {
+      "name": "--keep-file-symbols",
+      "tip": [
+        "Do not strip file symbols."
+      ]
+    },
+    {
+      "name": "--keep-section",
+      "usage": [
+        "--keep-section=<name>"
+      ],
+      "tip": [
+        "Do not strip the named section."
+      ],
+      "next": []
+    },
+    {
+      "name": "--keep-section-symbols",
+      "tip": [
+        "Do not strip section symbols."
+      ]
+    },
+    {
+      "name": "--keep-symbol",
+      "alias": [
+        "-K"
+      ],
+      "usage": [
+        "-K, --keep-symbol=<name>"
+      ],
+      "tip": [
+        "Do not strip the named symbol."
+      ],
+      "next": []
+    },
+    {
+      "name": "--merge-notes",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --merge-notes"
+      ],
+      "tip": [
+        "Remove redundant entries in note sections (default)."
+      ]
+    },
+    {
+      "name": "--no-merge-notes",
+      "tip": [
+        "Do not remove redundant notes."
+      ]
+    },
+    {
+      "name": "--only-keep-debug",
+      "tip": [
+        "Strip everything but the debug information."
+      ]
+    },
+    {
+      "name": "--output-target",
+      "alias": [
+        "-O"
+      ],
+      "usage": [
+        "-O, --output-target=<bfdname>"
+      ],
+      "tip": [
+        "Create the output file in the given format."
+      ],
+      "next": []
+    },
+    {
+      "name": "--plugin",
+      "usage": [
+        "--plugin NAME"
+      ],
+      "tip": [
+        "Load the specified plugin."
+      ],
+      "next": []
+    },
+    {
+      "name": "--preserve-dates",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --preserve-dates"
+      ],
+      "tip": [
+        "Copy modified and access timestamps to the output."
+      ]
+    },
+    {
+      "name": "--remove-relocations",
+      "usage": [
+        "--remove-relocations <name>"
+      ],
+      "tip": [
+        "Remove relocations from the named section."
+      ],
+      "next": []
+    },
+    {
+      "name": "--remove-section",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --remove-section=<name>"
+      ],
+      "tip": [
+        "Also remove the named section from the output."
+      ],
+      "next": []
+    },
+    {
+      "name": "--strip-all",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --strip-all"
+      ],
+      "tip": [
+        "Remove all symbol and relocation information."
+      ]
+    },
+    {
+      "name": "--strip-debug",
+      "alias": [
+        "-g",
+        "-S",
+        "-d"
+      ],
+      "usage": [
+        "-g, -S, -d, --strip-debug"
+      ],
+      "tip": [
+        "Remove all debugging symbols and sections."
+      ]
+    },
+    {
+      "name": "--strip-dwo",
+      "tip": [
+        "Remove all DWO sections."
+      ]
+    },
+    {
+      "name": "--strip-section-headers",
+      "tip": [
+        "Strip section headers from the output."
+      ]
+    },
+    {
+      "name": "--strip-symbol",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --strip-symbol=<name>"
+      ],
+      "tip": [
+        "Do not copy the named symbol."
+      ],
+      "next": []
+    },
+    {
+      "name": "--strip-unneeded",
+      "tip": [
+        "Remove all symbols not needed by relocations."
+      ]
+    },
+    {
+      "name": "--target",
+      "alias": [
+        "-F"
+      ],
+      "usage": [
+        "-F, --target=<bfdname>"
+      ],
+      "tip": [
+        "Set both the input and output format."
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "List all object files modified."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Display the program version."
+      ]
+    },
+    {
+      "name": "--wildcard",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --wildcard"
+      ],
+      "tip": [
+        "Permit wildcards in symbol comparison."
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o <file>"
+      ],
+      "tip": [
+        "Place the stripped output into the file."
+      ],
+      "next": []
+    }
+  ]
+}

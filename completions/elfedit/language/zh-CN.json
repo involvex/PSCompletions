@@ -1,0 +1,322 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "更新 ELF 文件的 ELF 头。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--disable-x86-feature",
+      "usage": [
+        "--disable-x86-feature [ibt|shstk|lam_u48|lam_u57]"
+      ],
+      "tip": [
+        "禁用 x86 特性。"
+      ],
+      "next": [
+        {
+          "name": "ibt"
+        },
+        {
+          "name": "lam_u48"
+        },
+        {
+          "name": "lam_u57"
+        },
+        {
+          "name": "shstk"
+        }
+      ]
+    },
+    {
+      "name": "--enable-x86-feature",
+      "usage": [
+        "--enable-x86-feature [ibt|shstk|lam_u48|lam_u57]"
+      ],
+      "tip": [
+        "启用 x86 特性。"
+      ],
+      "next": [
+        {
+          "name": "ibt"
+        },
+        {
+          "name": "lam_u48"
+        },
+        {
+          "name": "lam_u57"
+        },
+        {
+          "name": "shstk"
+        }
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此信息。"
+      ]
+    },
+    {
+      "name": "--input-abiversion",
+      "usage": [
+        "--input-abiversion [0-255]"
+      ],
+      "tip": [
+        "设置输入 ABIVERSION。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--input-mach",
+      "usage": [
+        "--input-mach [none|i386|iamcu|l1om|k1om|x86_64]"
+      ],
+      "tip": [
+        "设置输入机器类型。"
+      ],
+      "next": [
+        {
+          "name": "i386"
+        },
+        {
+          "name": "iamcu"
+        },
+        {
+          "name": "k1om"
+        },
+        {
+          "name": "l1om"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "x86_64"
+        }
+      ]
+    },
+    {
+      "name": "--input-osabi",
+      "usage": [
+        "--input-osabi [none|HPUX|NetBSD|GNU|Linux|Solaris|AIX|Irix|FreeBSD|TRU64|Modesto|OpenBSD|OpenVMS|NSK|AROS|FenixOS]"
+      ],
+      "tip": [
+        "设置输入 OSABI。"
+      ],
+      "next": [
+        {
+          "name": "AIX"
+        },
+        {
+          "name": "AROS"
+        },
+        {
+          "name": "FenixOS"
+        },
+        {
+          "name": "FreeBSD"
+        },
+        {
+          "name": "GNU"
+        },
+        {
+          "name": "HPUX"
+        },
+        {
+          "name": "Irix"
+        },
+        {
+          "name": "Linux"
+        },
+        {
+          "name": "Modesto"
+        },
+        {
+          "name": "NetBSD"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "NSK"
+        },
+        {
+          "name": "OpenBSD"
+        },
+        {
+          "name": "OpenVMS"
+        },
+        {
+          "name": "Solaris"
+        },
+        {
+          "name": "TRU64"
+        }
+      ]
+    },
+    {
+      "name": "--input-type",
+      "usage": [
+        "--input-type [none|rel|exec|dyn]"
+      ],
+      "tip": [
+        "设置输入文件类型。"
+      ],
+      "next": [
+        {
+          "name": "dyn"
+        },
+        {
+          "name": "exec"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "rel"
+        }
+      ]
+    },
+    {
+      "name": "--output-abiversion",
+      "usage": [
+        "--output-abiversion [0-255]"
+      ],
+      "tip": [
+        "设置输出 ABIVERSION。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--output-mach",
+      "usage": [
+        "--output-mach [none|i386|iamcu|l1om|k1om|x86_64]"
+      ],
+      "tip": [
+        "设置输出机器类型。"
+      ],
+      "next": [
+        {
+          "name": "i386"
+        },
+        {
+          "name": "iamcu"
+        },
+        {
+          "name": "k1om"
+        },
+        {
+          "name": "l1om"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "x86_64"
+        }
+      ]
+    },
+    {
+      "name": "--output-osabi",
+      "usage": [
+        "--output-osabi [none|HPUX|NetBSD|GNU|Linux|Solaris|AIX|Irix|FreeBSD|TRU64|Modesto|OpenBSD|OpenVMS|NSK|AROS|FenixOS]"
+      ],
+      "tip": [
+        "设置输出 OSABI。"
+      ],
+      "next": [
+        {
+          "name": "AIX"
+        },
+        {
+          "name": "AROS"
+        },
+        {
+          "name": "FenixOS"
+        },
+        {
+          "name": "FreeBSD"
+        },
+        {
+          "name": "GNU"
+        },
+        {
+          "name": "HPUX"
+        },
+        {
+          "name": "Irix"
+        },
+        {
+          "name": "Linux"
+        },
+        {
+          "name": "Modesto"
+        },
+        {
+          "name": "NetBSD"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "NSK"
+        },
+        {
+          "name": "OpenBSD"
+        },
+        {
+          "name": "OpenVMS"
+        },
+        {
+          "name": "Solaris"
+        },
+        {
+          "name": "TRU64"
+        }
+      ]
+    },
+    {
+      "name": "--output-type",
+      "usage": [
+        "--output-type [none|rel|exec|dyn]"
+      ],
+      "tip": [
+        "设置输出文件类型。"
+      ],
+      "next": [
+        {
+          "name": "dyn"
+        },
+        {
+          "name": "exec"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "rel"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --version"
+      ],
+      "tip": [
+        "显示 elfedit 的版本号。"
+      ]
+    }
+  ]
+}

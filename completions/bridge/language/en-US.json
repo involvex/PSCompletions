@@ -1,0 +1,1756 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "Show / manipulate bridge settings."
+    ]
+  },
+  "next": [
+    {
+      "name": "fdb",
+      "tip": [
+        "Forwarding database management."
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add ADDR dev DEV [ self ] [ master ] [ use ] [ router ] [ extern_learn ] [ sticky ] [ local | static | dynamic ] [ vlan VID ] { [ dst IPADDR ] [ port PORT ] [ vni VNI ] | [ nhid NHID ] } [ via DEV ] [ src_vni VNI ]"
+          ],
+          "tip": [
+            "Add an FDB entry."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "dst",
+              "usage": [
+                "dst IPADDR"
+              ],
+              "tip": [
+                "Destination IP."
+              ],
+              "next": []
+            },
+            {
+              "name": "nhid",
+              "usage": [
+                "nhid NHID"
+              ],
+              "tip": [
+                "Nexthop ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "port",
+              "usage": [
+                "port PORT"
+              ],
+              "tip": [
+                "Port."
+              ],
+              "next": []
+            },
+            {
+              "name": "src_vni",
+              "usage": [
+                "src_vni VNI"
+              ],
+              "tip": [
+                "Source VNI."
+              ],
+              "next": []
+            },
+            {
+              "name": "via",
+              "usage": [
+                "via DEV"
+              ],
+              "tip": [
+                "Via device."
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "vni",
+              "usage": [
+                "vni VNI"
+              ],
+              "tip": [
+                "VNI."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "append",
+          "usage": [
+            "append append ADDR dev DEV"
+          ],
+          "tip": [
+            "Append an FDB entry."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del del ADDR dev DEV"
+          ],
+          "tip": [
+            "Delete an FDB entry."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "flush",
+          "usage": [
+            "flush flush dev DEV [ brport DEV ] [ vlan VID ] [ src_vni VNI ] [ nhid NHID ] [ vni VNI ] [ port PORT ] [ dst IPADDR ] [ self ] [ master ]"
+          ],
+          "tip": [
+            "Flush FDB entries."
+          ],
+          "option": [
+            {
+              "name": "brport",
+              "usage": [
+                "brport DEV"
+              ],
+              "tip": [
+                "Bridge port."
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "dst",
+              "usage": [
+                "dst IPADDR"
+              ],
+              "tip": [
+                "Destination IP."
+              ],
+              "next": []
+            },
+            {
+              "name": "nhid",
+              "usage": [
+                "nhid NHID"
+              ],
+              "tip": [
+                "Nexthop ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "port",
+              "usage": [
+                "port PORT"
+              ],
+              "tip": [
+                "Port."
+              ],
+              "next": []
+            },
+            {
+              "name": "src_vni",
+              "usage": [
+                "src_vni VNI"
+              ],
+              "tip": [
+                "Source VNI."
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "vni",
+              "usage": [
+                "vni VNI"
+              ],
+              "tip": [
+                "VNI."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "get",
+          "usage": [
+            "get get [ to ] LLADDR [ br BRDEV ] { brport | dev } DEV [ vlan VID ] [ vni VNI ] [ self ] [ master ] [ dynamic ]"
+          ],
+          "tip": [
+            "Get an FDB entry."
+          ],
+          "option": [
+            {
+              "name": "br",
+              "usage": [
+                "br BRDEV"
+              ],
+              "tip": [
+                "Bridge device."
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "vni",
+              "usage": [
+                "vni VNI"
+              ],
+              "tip": [
+                "VNI."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show fdb help."
+          ]
+        },
+        {
+          "name": "replace",
+          "usage": [
+            "replace replace ADDR dev DEV"
+          ],
+          "tip": [
+            "Replace an FDB entry."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [ br BRDEV ] [ brport DEV ] [ vlan VID ] [ state STATE ] [ dynamic ]"
+          ],
+          "tip": [
+            "Show FDB entries."
+          ],
+          "option": [
+            {
+              "name": "br",
+              "usage": [
+                "br BRDEV"
+              ],
+              "tip": [
+                "Bridge device."
+              ],
+              "next": []
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "state",
+              "usage": [
+                "state STATE"
+              ],
+              "tip": [
+                "Entry state."
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID."
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "link",
+      "tip": [
+        "Bridge link management."
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show link help."
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set set dev DEV [ cost COST ] [ priority PRIO ] [ state STATE ] [ guard {on|off} ] [ hairpin {on|off} ] [ fastleave {on|off} ] [ root_block {on|off} ] [ learning {on|off} ] [ learning_sync {on|off} ] [ flood {on|off} ] [ mcast_router MULTICAST_ROUTER ] [ mcast_flood {on|off} ] [ bcast_flood {on|off} ] [ mcast_to_unicast {on|off} ] [ mcast_max_groups MAX_GROUPS ] [ neigh_suppress {on|off} ] [ neigh_vlan_suppress {on|off} ] [ vlan_tunnel {on|off} ] [ isolated {on|off} ] [ locked {on|off} ] [ mab {on|off} ] [ hwmode {vepa|veb} ] [ backup_port DEVICE ] [ nobackup_port ] [ backup_nhid NHID ] [ self ] [ master ]"
+          ],
+          "tip": [
+            "Set bridge link parameters."
+          ],
+          "option": [
+            {
+              "name": "backup_nhid",
+              "usage": [
+                "backup_nhid NHID"
+              ],
+              "tip": [
+                "Backup nexthop ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "backup_port",
+              "usage": [
+                "backup_port DEVICE"
+              ],
+              "tip": [
+                "Backup port."
+              ],
+              "next": []
+            },
+            {
+              "name": "bcast_flood",
+              "usage": [
+                "bcast_flood {on|off}"
+              ],
+              "tip": [
+                "Broadcast flooding."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "cost",
+              "usage": [
+                "cost COST"
+              ],
+              "tip": [
+                "Path cost."
+              ]
+            },
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "fastleave",
+              "usage": [
+                "fastleave {on|off}"
+              ],
+              "tip": [
+                "Fast leave."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "flood",
+              "usage": [
+                "flood {on|off}"
+              ],
+              "tip": [
+                "Flooding."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "guard",
+              "usage": [
+                "guard {on|off}"
+              ],
+              "tip": [
+                "Guard mode."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "hairpin",
+              "usage": [
+                "hairpin {on|off}"
+              ],
+              "tip": [
+                "Hairpin mode."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "hwmode",
+              "usage": [
+                "hwmode {vepa|veb}"
+              ],
+              "tip": [
+                "Hardware mode."
+              ],
+              "next": [
+                {
+                  "name": "veb"
+                },
+                {
+                  "name": "vepa"
+                }
+              ]
+            },
+            {
+              "name": "isolated",
+              "usage": [
+                "isolated {on|off}"
+              ],
+              "tip": [
+                "Isolated mode."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "learning",
+              "usage": [
+                "learning {on|off}"
+              ],
+              "tip": [
+                "Learning."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "learning_sync",
+              "usage": [
+                "learning_sync {on|off}"
+              ],
+              "tip": [
+                "Learning sync."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "locked",
+              "usage": [
+                "locked {on|off}"
+              ],
+              "tip": [
+                "Locked mode."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "mab",
+              "usage": [
+                "mab {on|off}"
+              ],
+              "tip": [
+                "MAC authentication bypass."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "master",
+              "tip": [
+                "Operate on the master."
+              ]
+            },
+            {
+              "name": "mcast_flood",
+              "usage": [
+                "mcast_flood {on|off}"
+              ],
+              "tip": [
+                "Multicast flooding."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "mcast_max_groups",
+              "usage": [
+                "mcast_max_groups MAX_GROUPS"
+              ],
+              "tip": [
+                "Maximum multicast groups."
+              ],
+              "next": []
+            },
+            {
+              "name": "mcast_router",
+              "usage": [
+                "mcast_router MULTICAST_ROUTER"
+              ],
+              "tip": [
+                "Multicast router."
+              ],
+              "next": []
+            },
+            {
+              "name": "mcast_to_unicast",
+              "usage": [
+                "mcast_to_unicast {on|off}"
+              ],
+              "tip": [
+                "Multicast to unicast."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "neigh_suppress",
+              "usage": [
+                "neigh_suppress {on|off}"
+              ],
+              "tip": [
+                "Neighbor suppression."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "neigh_vlan_suppress",
+              "usage": [
+                "neigh_vlan_suppress {on|off}"
+              ],
+              "tip": [
+                "VLAN neighbor suppression."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "nobackup_port",
+              "tip": [
+                "Disable backup port."
+              ]
+            },
+            {
+              "name": "priority",
+              "usage": [
+                "priority PRIO"
+              ],
+              "tip": [
+                "Priority."
+              ]
+            },
+            {
+              "name": "root_block",
+              "usage": [
+                "root_block {on|off}"
+              ],
+              "tip": [
+                "Root block."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "self",
+              "tip": [
+                "Operate on the device."
+              ]
+            },
+            {
+              "name": "state",
+              "usage": [
+                "state STATE"
+              ],
+              "tip": [
+                "STP state."
+              ]
+            },
+            {
+              "name": "vlan_tunnel",
+              "usage": [
+                "vlan_tunnel {on|off}"
+              ],
+              "tip": [
+                "VLAN tunnel."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [dev DEV] [master DEVICE]"
+          ],
+          "tip": [
+            "Show bridge links."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "master",
+              "usage": [
+                "master DEVICE"
+              ],
+              "tip": [
+                "Master device."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mdb",
+      "tip": [
+        "Multicast database management."
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add dev DEV port PORT grp GROUP [src SOURCE] [permanent | temp] [vid VID] [ filter_mode { include | exclude } ] [ source_list SOURCE_LIST ] [ proto PROTO ] [ dst IPADDR ] [ dst_port DST_PORT ] [ vni VNI ] [ src_vni SRC_VNI ] [ via DEV ]"
+          ],
+          "tip": [
+            "Add an MDB entry."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "dst",
+              "usage": [
+                "dst IPADDR"
+              ],
+              "tip": [
+                "Destination IP."
+              ],
+              "next": []
+            },
+            {
+              "name": "grp",
+              "usage": [
+                "grp GROUP"
+              ],
+              "tip": [
+                "Multicast group."
+              ],
+              "next": []
+            },
+            {
+              "name": "port",
+              "usage": [
+                "port PORT"
+              ],
+              "tip": [
+                "Port."
+              ],
+              "next": []
+            },
+            {
+              "name": "proto",
+              "usage": [
+                "proto PROTO"
+              ],
+              "tip": [
+                "Protocol."
+              ],
+              "next": []
+            },
+            {
+              "name": "src",
+              "usage": [
+                "src SOURCE"
+              ],
+              "tip": [
+                "Source."
+              ],
+              "next": []
+            },
+            {
+              "name": "src_vni",
+              "usage": [
+                "src_vni SRC_VNI"
+              ],
+              "tip": [
+                "Source VNI."
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "vni",
+              "usage": [
+                "vni VNI"
+              ],
+              "tip": [
+                "VNI."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del del dev DEV port PORT grp GROUP"
+          ],
+          "tip": [
+            "Delete an MDB entry."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "grp",
+              "usage": [
+                "grp GROUP"
+              ],
+              "tip": [
+                "Multicast group."
+              ],
+              "next": []
+            },
+            {
+              "name": "port",
+              "usage": [
+                "port PORT"
+              ],
+              "tip": [
+                "Port."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "flush",
+          "usage": [
+            "flush flush dev DEV [ port PORT ] [ vid VID ] [ src_vni SRC_VNI ] [ proto PROTO ] [ dst IPADDR ] [ dst_port DST_PORT ] [ vni VNI ]"
+          ],
+          "tip": [
+            "Flush MDB entries."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "dst",
+              "usage": [
+                "dst IPADDR"
+              ],
+              "tip": [
+                "Destination IP."
+              ],
+              "next": []
+            },
+            {
+              "name": "port",
+              "usage": [
+                "port PORT"
+              ],
+              "tip": [
+                "Port."
+              ],
+              "next": []
+            },
+            {
+              "name": "proto",
+              "usage": [
+                "proto PROTO"
+              ],
+              "tip": [
+                "Protocol."
+              ],
+              "next": []
+            },
+            {
+              "name": "src_vni",
+              "usage": [
+                "src_vni SRC_VNI"
+              ],
+              "tip": [
+                "Source VNI."
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID."
+              ],
+              "next": []
+            },
+            {
+              "name": "vni",
+              "usage": [
+                "vni VNI"
+              ],
+              "tip": [
+                "VNI."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "get",
+          "usage": [
+            "get get dev DEV grp GROUP [ src SOURCE ] [ vid VID ] [ src_vni SRC_VNI ]"
+          ],
+          "tip": [
+            "Get an MDB entry."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "grp",
+              "usage": [
+                "grp GROUP"
+              ],
+              "tip": [
+                "Multicast group."
+              ],
+              "next": []
+            },
+            {
+              "name": "src",
+              "usage": [
+                "src SOURCE"
+              ],
+              "tip": [
+                "Source."
+              ],
+              "next": []
+            },
+            {
+              "name": "src_vni",
+              "usage": [
+                "src_vni SRC_VNI"
+              ],
+              "tip": [
+                "Source VNI."
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show mdb help."
+          ]
+        },
+        {
+          "name": "replace",
+          "usage": [
+            "replace replace dev DEV port PORT grp GROUP"
+          ],
+          "tip": [
+            "Replace an MDB entry."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "grp",
+              "usage": [
+                "grp GROUP"
+              ],
+              "tip": [
+                "Multicast group."
+              ],
+              "next": []
+            },
+            {
+              "name": "port",
+              "usage": [
+                "port PORT"
+              ],
+              "tip": [
+                "Port."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [ dev DEV ] [ vid VID ]"
+          ],
+          "tip": [
+            "Show MDB entries."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID."
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "monitor",
+      "tip": [
+        "Monitor bridge events."
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show monitor help."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mst",
+      "tip": [
+        "Multiple spanning tree management."
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "Show mst help."
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set set dev DEV msti MSTI state STATE"
+          ],
+          "tip": [
+            "Set MSTI state."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "msti",
+              "usage": [
+                "msti MSTI"
+              ],
+              "tip": [
+                "MST instance."
+              ],
+              "next": []
+            },
+            {
+              "name": "state",
+              "usage": [
+                "state STATE"
+              ],
+              "tip": [
+                "State."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [ dev DEV ]"
+          ],
+          "tip": [
+            "Show MST configuration."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vlan",
+      "tip": [
+        "VLAN management."
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add vid VLAN_ID dev DEV [ tunnel_info id TUNNEL_ID ] [ pvid ] [ untagged ] [ self ] [ master ]"
+          ],
+          "tip": [
+            "Add a VLAN entry."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "tunnel_info",
+              "usage": [
+                "tunnel_info id TUNNEL_ID"
+              ],
+              "tip": [
+                "Tunnel info."
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del del vid VLAN_ID dev DEV"
+          ],
+          "tip": [
+            "Delete a VLAN entry."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "global",
+          "tip": [
+            "Global VLAN settings."
+          ],
+          "next": [
+            {
+              "name": "set",
+              "usage": [
+                "set set vid VLAN_ID dev DEV [ mcast_snooping MULTICAST_SNOOPING ] [ mcast_querier MULTICAST_QUERIER ] [ mcast_igmp_version IGMP_VERSION ] [ mcast_mld_version MLD_VERSION ] [ mcast_last_member_count LAST_MEMBER_COUNT ] [ mcast_last_member_interval LAST_MEMBER_INTERVAL ] [ mcast_startup_query_count STARTUP_QUERY_COUNT ] [ mcast_startup_query_interval STARTUP_QUERY_INTERVAL ] [ mcast_membership_interval MEMBERSHIP_INTERVAL ] [ mcast_querier_interval QUERIER_INTERVAL ] [ mcast_query_interval QUERY_INTERVAL ] [ mcast_query_response_interval QUERY_RESPONSE_INTERVAL ] [ msti MSTI ]"
+              ],
+              "tip": [
+                "Set global VLAN parameters."
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "Device name."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "vlan",
+                  "usage": [
+                    "vlan VID"
+                  ],
+                  "tip": [
+                    "VLAN ID."
+                  ],
+                  "next": []
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "usage": [
+                "show show [ dev DEV ] [ vid VLAN_ID ]"
+              ],
+              "tip": [
+                "Show global VLAN parameters."
+              ],
+              "option": [
+                {
+                  "name": "dev",
+                  "usage": [
+                    "dev DEV"
+                  ],
+                  "tip": [
+                    "Device name."
+                  ],
+                  "next": []
+                },
+                {
+                  "name": "vlan",
+                  "usage": [
+                    "vlan VID"
+                  ],
+                  "tip": [
+                    "VLAN ID."
+                  ],
+                  "next": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show vlan help."
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set set vid VLAN_ID dev DEV [ state STP_STATE ] [ mcast_router MULTICAST_ROUTER ] [ mcast_max_groups MAX_GROUPS ] [ neigh_suppress {on|off} ]"
+          ],
+          "tip": [
+            "Set VLAN parameters."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "mcast_router",
+              "usage": [
+                "mcast_router MULTICAST_ROUTER"
+              ],
+              "tip": [
+                "Multicast router."
+              ],
+              "next": []
+            },
+            {
+              "name": "neigh_suppress",
+              "usage": [
+                "neigh_suppress {on|off}"
+              ],
+              "tip": [
+                "Neighbor suppression."
+              ],
+              "next": [
+                {
+                  "name": "off"
+                },
+                {
+                  "name": "on"
+                }
+              ]
+            },
+            {
+              "name": "state",
+              "usage": [
+                "state STP_STATE"
+              ],
+              "tip": [
+                "STP state."
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [ dev DEV ] [ vid VLAN_ID ]"
+          ],
+          "tip": [
+            "Show VLAN entries."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "tunnelshow",
+          "usage": [
+            "tunnelshow tunnelshow [ dev DEV ] [ vid VLAN_ID ]"
+          ],
+          "tip": [
+            "Show VLAN tunnel entries."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "vlan",
+              "usage": [
+                "vlan VID"
+              ],
+              "tip": [
+                "VLAN ID."
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vni",
+      "tip": [
+        "VXLAN VNI management."
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add vni VNI [ { group | remote } IP_ADDRESS ] dev DEV"
+          ],
+          "tip": [
+            "Add a VNI entry."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            },
+            {
+              "name": "group",
+              "usage": [
+                "group IP_ADDRESS"
+              ],
+              "tip": [
+                "Group address."
+              ],
+              "next": []
+            },
+            {
+              "name": "remote",
+              "usage": [
+                "remote IP_ADDRESS"
+              ],
+              "tip": [
+                "Remote address."
+              ],
+              "next": []
+            },
+            {
+              "name": "vni",
+              "usage": [
+                "vni VNI"
+              ],
+              "tip": [
+                "VNI."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "del",
+          "usage": [
+            "del del vni VNI"
+          ],
+          "tip": [
+            "Delete a VNI entry."
+          ],
+          "option": [
+            {
+              "name": "vni",
+              "usage": [
+                "vni VNI"
+              ],
+              "tip": [
+                "VNI."
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "Show vni help."
+          ]
+        },
+        {
+          "name": "show",
+          "usage": [
+            "show show [ dev DEV ]"
+          ],
+          "tip": [
+            "Show VNI entries."
+          ],
+          "option": [
+            {
+              "name": "dev",
+              "usage": [
+                "dev DEV"
+              ],
+              "tip": [
+                "Device name."
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--color",
+      "usage": [
+        "-c, --color"
+      ],
+      "tip": [
+        "Use colored output."
+      ]
+    },
+    {
+      "name": "--details",
+      "usage": [
+        "-d, --details"
+      ],
+      "tip": [
+        "Show details."
+      ]
+    },
+    {
+      "name": "--json",
+      "usage": [
+        "-j, --json"
+      ],
+      "tip": [
+        "Generate JSON output."
+      ]
+    },
+    {
+      "name": "--netns",
+      "usage": [
+        "-n, --netns <name>"
+      ],
+      "tip": [
+        "Switch to the network namespace."
+      ],
+      "next": []
+    },
+    {
+      "name": "--oneline",
+      "usage": [
+        "-o, --oneline"
+      ],
+      "tip": [
+        "Print each record on one line."
+      ]
+    },
+    {
+      "name": "--pretty",
+      "usage": [
+        "-p, --pretty"
+      ],
+      "tip": [
+        "Pretty-print JSON."
+      ]
+    },
+    {
+      "name": "--statistics",
+      "usage": [
+        "-s, --statistics"
+      ],
+      "tip": [
+        "Show statistics."
+      ]
+    },
+    {
+      "name": "--timestamp",
+      "usage": [
+        "-t, --timestamp"
+      ],
+      "tip": [
+        "Print timestamps."
+      ]
+    },
+    {
+      "name": "--Version",
+      "usage": [
+        "-V, --Version"
+      ],
+      "tip": [
+        "Print the bridge utility version."
+      ]
+    },
+    {
+      "name": "-compressvlans",
+      "usage": [
+        "-com, -compressvlans"
+      ],
+      "tip": [
+        "Compress VLAN ranges."
+      ]
+    }
+  ]
+}

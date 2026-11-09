@@ -1,0 +1,793 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "TIPC 配置与管理工具。"
+    ]
+  },
+  "next": [
+    {
+      "name": "bearer",
+      "tip": [
+        "显示或修改 TIPC 承载。"
+      ],
+      "next": [
+        {
+          "name": "add",
+          "usage": [
+            "add add media udp name NAME remoteip REMOTEIP"
+          ],
+          "tip": [
+            "添加 UDP 承载。"
+          ],
+          "option": [
+            {
+              "name": "media",
+              "usage": [
+                "media udp"
+              ],
+              "tip": [
+                "媒体类型。"
+              ],
+              "next": []
+            },
+            {
+              "name": "name",
+              "usage": [
+                "name NAME"
+              ],
+              "tip": [
+                "承载名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "remoteip",
+              "usage": [
+                "remoteip REMOTEIP"
+              ],
+              "tip": [
+                "远程 IP 地址。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "disable",
+          "usage": [
+            "disable disable media { eth | ib } device DEVICE | media udp name NAME"
+          ],
+          "tip": [
+            "禁用承载。"
+          ],
+          "option": [
+            {
+              "name": "device",
+              "usage": [
+                "device DEVICE"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "media",
+              "usage": [
+                "media eth|ib|udp"
+              ],
+              "tip": [
+                "媒体类型。"
+              ],
+              "next": [
+                {
+                  "name": "eth"
+                },
+                {
+                  "name": "ib"
+                },
+                {
+                  "name": "udp"
+                }
+              ]
+            },
+            {
+              "name": "name",
+              "usage": [
+                "name NAME"
+              ],
+              "tip": [
+                "承载名。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "enable",
+          "usage": [
+            "enable enable [ domain DOMAIN ] [ priority PRIORITY ] media { eth | ib } device DEVICE | media udp name NAME localip LOCALIP [ localport LOCALPORT ] [ remoteip REMOTEIP ] [ remoteport REMOTEPORT ]"
+          ],
+          "tip": [
+            "启用承载。"
+          ],
+          "option": [
+            {
+              "name": "device",
+              "usage": [
+                "device DEVICE"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "domain",
+              "usage": [
+                "domain DOMAIN"
+              ],
+              "tip": [
+                "域。"
+              ],
+              "next": []
+            },
+            {
+              "name": "localip",
+              "usage": [
+                "localip LOCALIP"
+              ],
+              "tip": [
+                "本地 IP。"
+              ],
+              "next": []
+            },
+            {
+              "name": "localport",
+              "usage": [
+                "localport LOCALPORT"
+              ],
+              "tip": [
+                "本地端口。"
+              ],
+              "next": []
+            },
+            {
+              "name": "media",
+              "usage": [
+                "media eth|ib|udp"
+              ],
+              "tip": [
+                "媒体类型。"
+              ],
+              "next": [
+                {
+                  "name": "eth"
+                },
+                {
+                  "name": "ib"
+                },
+                {
+                  "name": "udp"
+                }
+              ]
+            },
+            {
+              "name": "name",
+              "usage": [
+                "name NAME"
+              ],
+              "tip": [
+                "承载名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "priority",
+              "usage": [
+                "priority PRIORITY"
+              ],
+              "tip": [
+                "优先级。"
+              ],
+              "next": []
+            },
+            {
+              "name": "remoteip",
+              "usage": [
+                "remoteip REMOTEIP"
+              ],
+              "tip": [
+                "远程 IP。"
+              ],
+              "next": []
+            },
+            {
+              "name": "remoteport",
+              "usage": [
+                "remoteport REMOTEPORT"
+              ],
+              "tip": [
+                "远程端口。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "get",
+          "usage": [
+            "get get [ priority | tolerance | window ] media { eth | ib } device DEVICE | media udp name NAME"
+          ],
+          "tip": [
+            "获取承载参数。"
+          ],
+          "option": [
+            {
+              "name": "device",
+              "usage": [
+                "device DEVICE"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "media",
+              "usage": [
+                "media eth|ib|udp"
+              ],
+              "tip": [
+                "媒体类型。"
+              ],
+              "next": [
+                {
+                  "name": "eth"
+                },
+                {
+                  "name": "ib"
+                },
+                {
+                  "name": "udp"
+                }
+              ]
+            },
+            {
+              "name": "name",
+              "usage": [
+                "name NAME"
+              ],
+              "tip": [
+                "承载名。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 bearer 帮助。"
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "列出承载。"
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set set { priority PRIORITY | tolerance TOLERANCE | window WINDOW } media { eth | ib } device DEVICE | media udp name NAME"
+          ],
+          "tip": [
+            "设置承载参数。"
+          ],
+          "option": [
+            {
+              "name": "device",
+              "usage": [
+                "device DEVICE"
+              ],
+              "tip": [
+                "设备名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "media",
+              "usage": [
+                "media eth|ib|udp"
+              ],
+              "tip": [
+                "媒体类型。"
+              ],
+              "next": [
+                {
+                  "name": "eth"
+                },
+                {
+                  "name": "ib"
+                },
+                {
+                  "name": "udp"
+                }
+              ]
+            },
+            {
+              "name": "name",
+              "usage": [
+                "name NAME"
+              ],
+              "tip": [
+                "承载名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "priority",
+              "usage": [
+                "priority PRIORITY"
+              ],
+              "tip": [
+                "优先级。"
+              ],
+              "next": []
+            },
+            {
+              "name": "tolerance",
+              "usage": [
+                "tolerance TOLERANCE"
+              ],
+              "tip": [
+                "容差。"
+              ],
+              "next": []
+            },
+            {
+              "name": "window",
+              "usage": [
+                "window WINDOW"
+              ],
+              "tip": [
+                "窗口。"
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "link",
+      "tip": [
+        "显示或修改 TIPC 链路。"
+      ],
+      "next": [
+        {
+          "name": "get",
+          "usage": [
+            "get get [ priority | tolerance | window ] [ link LINK ] [ broadcast ]"
+          ],
+          "tip": [
+            "获取链路参数。"
+          ],
+          "option": [
+            {
+              "name": "link",
+              "usage": [
+                "link LINK"
+              ],
+              "tip": [
+                "链路名。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 link 帮助。"
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "列出链路。"
+          ]
+        },
+        {
+          "name": "monitor",
+          "tip": [
+            "监视链路状态。"
+          ],
+          "next": [
+            {
+              "name": "get",
+              "usage": [
+                "get get { threshold }"
+              ],
+              "tip": [
+                "获取监视阈值。"
+              ]
+            },
+            {
+              "name": "set",
+              "usage": [
+                "set set { threshold }"
+              ],
+              "tip": [
+                "设置监视阈值。"
+              ]
+            },
+            {
+              "name": "summary",
+              "usage": [
+                "summary summary"
+              ],
+              "tip": [
+                "显示监视摘要。"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set set [ priority PRIORITY | tolerance TOLERANCE | window WINDOW ] [ link LINK ] [ broadcast [ BROADCAST | REPLICAST | AUTOSELECT [ ratio SIZE ] ] ]"
+          ],
+          "tip": [
+            "设置链路参数。"
+          ],
+          "option": [
+            {
+              "name": "broadcast",
+              "usage": [
+                "broadcast BROADCAST|REPLICAST|AUTOSELECT"
+              ],
+              "tip": [
+                "广播模式。"
+              ],
+              "next": [
+                {
+                  "name": "AUTOSELECT"
+                },
+                {
+                  "name": "BROADCAST"
+                },
+                {
+                  "name": "REPLICAST"
+                }
+              ]
+            },
+            {
+              "name": "link",
+              "usage": [
+                "link LINK"
+              ],
+              "tip": [
+                "链路名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "priority",
+              "usage": [
+                "priority PRIORITY"
+              ],
+              "tip": [
+                "优先级。"
+              ],
+              "next": []
+            },
+            {
+              "name": "ratio",
+              "usage": [
+                "ratio SIZE"
+              ],
+              "tip": [
+                "Replicast 比率。"
+              ],
+              "next": []
+            },
+            {
+              "name": "tolerance",
+              "usage": [
+                "tolerance TOLERANCE"
+              ],
+              "tip": [
+                "容差。"
+              ],
+              "next": []
+            },
+            {
+              "name": "window",
+              "usage": [
+                "window WINDOW"
+              ],
+              "tip": [
+                "窗口。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "statistics",
+          "tip": [
+            "显示或重置链路统计。"
+          ],
+          "next": [
+            {
+              "name": "reset",
+              "usage": [
+                "reset reset link LINK"
+              ],
+              "tip": [
+                "重置链路统计。"
+              ],
+              "option": [
+                {
+                  "name": "link",
+                  "usage": [
+                    "link LINK"
+                  ],
+                  "tip": [
+                    "链路名。"
+                  ],
+                  "next": []
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "usage": [
+                "show show [ link LINK ]"
+              ],
+              "tip": [
+                "显示链路统计。"
+              ],
+              "option": [
+                {
+                  "name": "link",
+                  "usage": [
+                    "link LINK"
+                  ],
+                  "tip": [
+                    "链路名。"
+                  ],
+                  "next": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "media",
+      "tip": [
+        "显示或修改 TIPC 媒体。"
+      ],
+      "next": [
+        {
+          "name": "get",
+          "usage": [
+            "get get { priority | tolerance | window } media MEDIA"
+          ],
+          "tip": [
+            "获取媒体参数。"
+          ],
+          "option": [
+            {
+              "name": "media",
+              "usage": [
+                "media MEDIA"
+              ],
+              "tip": [
+                "媒体名。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 media 帮助。"
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "列出媒体。"
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set set { priority PRIORITY | tolerance TOLERANCE | window WINDOW } media MEDIA"
+          ],
+          "tip": [
+            "设置媒体参数。"
+          ],
+          "option": [
+            {
+              "name": "media",
+              "usage": [
+                "media MEDIA"
+              ],
+              "tip": [
+                "媒体名。"
+              ],
+              "next": []
+            },
+            {
+              "name": "priority",
+              "usage": [
+                "priority PRIORITY"
+              ],
+              "tip": [
+                "优先级。"
+              ],
+              "next": []
+            },
+            {
+              "name": "tolerance",
+              "usage": [
+                "tolerance TOLERANCE"
+              ],
+              "tip": [
+                "容差。"
+              ],
+              "next": []
+            },
+            {
+              "name": "window",
+              "usage": [
+                "window WINDOW"
+              ],
+              "tip": [
+                "窗口。"
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "nametable",
+      "tip": [
+        "显示 TIPC 名称表。"
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 nametable 帮助。"
+          ]
+        },
+        {
+          "name": "show",
+          "tip": [
+            "显示名称表。"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node",
+      "tip": [
+        "显示或修改 TIPC 节点参数。"
+      ],
+      "next": [
+        {
+          "name": "get",
+          "usage": [
+            "get get { address | netid }"
+          ],
+          "tip": [
+            "获取节点参数。"
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "显示 node 帮助。"
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "列出节点。"
+          ]
+        },
+        {
+          "name": "set",
+          "usage": [
+            "set set { address ADDRESS | netid NETID }"
+          ],
+          "tip": [
+            "设置节点参数。"
+          ],
+          "option": [
+            {
+              "name": "address",
+              "usage": [
+                "address ADDRESS"
+              ],
+              "tip": [
+                "节点地址。"
+              ],
+              "next": []
+            },
+            {
+              "name": "netid",
+              "usage": [
+                "netid NETID"
+              ],
+              "tip": [
+                "网络 ID。"
+              ],
+              "next": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "socket",
+      "tip": [
+        "显示 TIPC 套接字。"
+      ],
+      "next": [
+        {
+          "name": "help",
+          "tip": [
+            "显示 socket 帮助。"
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "列出 TIPC 套接字。"
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "-h",
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示最后一个有效命令的帮助。"
+      ]
+    },
+    {
+      "name": "-j",
+      "usage": [
+        "-j, -json"
+      ],
+      "tip": [
+        "以 JSON 输出结果。"
+      ]
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p, -pretty"
+      ],
+      "tip": [
+        "缩进 JSON 输出。"
+      ]
+    }
+  ]
+}

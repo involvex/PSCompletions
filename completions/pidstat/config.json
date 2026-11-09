@@ -1,0 +1,9 @@
+{
+  "id": "3b9a8bb0-8ccc-5365-b660-8bb3f9817975",
+  "version": "sysstat 12.7.5",
+  "hooks": true,
+  "language": [
+    "en-US",
+    "zh-CN"
+  ]
+}

@@ -1,0 +1,461 @@
+{
+  "meta": {
+    "url": "https://gnupg.org",
+    "description": [
+      "使用 S/MIME 签名、检查、加密或解密。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--armor",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --armor"
+      ],
+      "tip": [
+        "创建 ASCII 装甲输出。"
+      ]
+    },
+    {
+      "name": "--assume-armor",
+      "tip": [
+        "假定输入为 PEM 格式。"
+      ]
+    },
+    {
+      "name": "--assume-base64",
+      "tip": [
+        "假定输入为 base64。"
+      ]
+    },
+    {
+      "name": "--assume-binary",
+      "tip": [
+        "假定输入为二进制。"
+      ]
+    },
+    {
+      "name": "--audit-log",
+      "usage": [
+        "--audit-log FILE"
+      ],
+      "tip": [
+        "将审计日志写入 FILE。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--auto-issuer-key-retrieve",
+      "tip": [
+        "获取缺失的颁发者证书。"
+      ]
+    },
+    {
+      "name": "--base64",
+      "tip": [
+        "创建 base64 编码输出。"
+      ]
+    },
+    {
+      "name": "--batch",
+      "tip": [
+        "批处理模式：从不询问。"
+      ]
+    },
+    {
+      "name": "--call-dirmngr",
+      "tip": [
+        "向 dirmngr 传递命令。"
+      ]
+    },
+    {
+      "name": "--call-protect-tool",
+      "tip": [
+        "调用 gpg-protect-tool。"
+      ]
+    },
+    {
+      "name": "--change-passphrase",
+      "tip": [
+        "更改密码短语。"
+      ]
+    },
+    {
+      "name": "--cipher-algo",
+      "usage": [
+        "--cipher-algo NAME"
+      ],
+      "tip": [
+        "使用密码算法 NAME。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug-level",
+      "usage": [
+        "--debug-level LEVEL"
+      ],
+      "tip": [
+        "设置调试级别。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--decrypt",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --decrypt"
+      ],
+      "tip": [
+        "解密数据（默认）。"
+      ]
+    },
+    {
+      "name": "--default-key",
+      "usage": [
+        "--default-key USER-ID"
+      ],
+      "tip": [
+        "将 USER-ID 用作默认私钥。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--delete-keys",
+      "tip": [
+        "从公钥环移除密钥。"
+      ]
+    },
+    {
+      "name": "--detach-sign",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --detach-sign"
+      ],
+      "tip": [
+        "生成分离签名。"
+      ]
+    },
+    {
+      "name": "--digest-algo",
+      "usage": [
+        "--digest-algo NAME"
+      ],
+      "tip": [
+        "使用摘要算法 NAME。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--disable-crl-checks",
+      "tip": [
+        "从不查询 CRL。"
+      ]
+    },
+    {
+      "name": "--disable-dirmngr",
+      "tip": [
+        "禁用对 dirmngr 的访问。"
+      ]
+    },
+    {
+      "name": "--disable-policy-checks",
+      "tip": [
+        "不检查证书策略。"
+      ]
+    },
+    {
+      "name": "--disable-trusted-cert-crl-check",
+      "tip": [
+        "不检查根证书的 CRL。"
+      ]
+    },
+    {
+      "name": "--dry-run",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --dry-run"
+      ],
+      "tip": [
+        "不做任何更改。"
+      ]
+    },
+    {
+      "name": "--enable-ocsp",
+      "tip": [
+        "使用 OCSP 检查有效性。"
+      ]
+    },
+    {
+      "name": "--encrypt",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --encrypt"
+      ],
+      "tip": [
+        "加密数据。"
+      ]
+    },
+    {
+      "name": "--encrypt-to",
+      "usage": [
+        "--encrypt-to NAME"
+      ],
+      "tip": [
+        "同时加密给 NAME。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--export",
+      "tip": [
+        "导出证书。"
+      ]
+    },
+    {
+      "name": "--fingerprint",
+      "tip": [
+        "列出密钥和指纹。"
+      ]
+    },
+    {
+      "name": "--generate-key",
+      "tip": [
+        "生成新密钥对。"
+      ]
+    },
+    {
+      "name": "--import",
+      "tip": [
+        "导入证书。"
+      ]
+    },
+    {
+      "name": "--include-certs",
+      "usage": [
+        "--include-certs N"
+      ],
+      "tip": [
+        "包含的证书数量。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--keyring",
+      "usage": [
+        "--keyring FILE"
+      ],
+      "tip": [
+        "将 FILE 添加到密钥环列表。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--learn-card",
+      "tip": [
+        "注册智能卡。"
+      ]
+    },
+    {
+      "name": "--list-chain",
+      "tip": [
+        "列出证书链。"
+      ]
+    },
+    {
+      "name": "--list-external-keys",
+      "tip": [
+        "列出外部密钥。"
+      ]
+    },
+    {
+      "name": "--list-keys",
+      "alias": [
+        "-k"
+      ],
+      "usage": [
+        "-k, --list-keys"
+      ],
+      "tip": [
+        "列出密钥。"
+      ]
+    },
+    {
+      "name": "--list-secret-keys",
+      "alias": [
+        "-K"
+      ],
+      "usage": [
+        "-K, --list-secret-keys"
+      ],
+      "tip": [
+        "列出私钥。"
+      ]
+    },
+    {
+      "name": "--local-user",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --local-user USER-ID"
+      ],
+      "tip": [
+        "使用 USER-ID 签名或解密。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--log-file",
+      "usage": [
+        "--log-file FILE"
+      ],
+      "tip": [
+        "将服务器模式日志写入 FILE。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--no",
+      "tip": [
+        "对大多数问题回答否。"
+      ]
+    },
+    {
+      "name": "--no-tty",
+      "tip": [
+        "完全不使用终端。"
+      ]
+    },
+    {
+      "name": "--options",
+      "usage": [
+        "--options FILE"
+      ],
+      "tip": [
+        "从 FILE 读取选项。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--output",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --output FILE"
+      ],
+      "tip": [
+        "将输出写入 FILE。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--p12-charset",
+      "usage": [
+        "--p12-charset NAME"
+      ],
+      "tip": [
+        "为 PKCS#12 密码短语使用编码 NAME。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--policy-file",
+      "usage": [
+        "--policy-file FILE"
+      ],
+      "tip": [
+        "从 FILE 获取策略信息。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "稍微安静一些。"
+      ]
+    },
+    {
+      "name": "--recipient",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --recipient USER-ID"
+      ],
+      "tip": [
+        "为 USER-ID 加密。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--server",
+      "tip": [
+        "以服务器模式运行。"
+      ]
+    },
+    {
+      "name": "--sign",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --sign"
+      ],
+      "tip": [
+        "生成签名。"
+      ]
+    },
+    {
+      "name": "--status-fd",
+      "usage": [
+        "--status-fd FD"
+      ],
+      "tip": [
+        "将状态信息写入此文件描述符。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "详细模式。"
+      ]
+    },
+    {
+      "name": "--verify",
+      "tip": [
+        "验证签名。"
+      ]
+    },
+    {
+      "name": "--yes",
+      "tip": [
+        "对大多数问题回答是。"
+      ]
+    }
+  ]
+}

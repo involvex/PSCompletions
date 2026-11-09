@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "交互式调试和修改 ext2/ext3/ext4 文件系统。"
+    ]
+  },
+  "option": [
+    {
+      "name": "-b",
+      "usage": [
+        "-b blocksize"
+      ],
+      "tip": [
+        "强制使用指定的文件系统块大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-c",
+      "tip": [
+        "以灾难恢复模式打开文件系统。"
+      ]
+    },
+    {
+      "name": "-d",
+      "usage": [
+        "-d data_source_device"
+      ],
+      "tip": [
+        "读取镜像中不存在的块时使用此设备。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-D",
+      "tip": [
+        "使用直接 I/O 打开设备。"
+      ]
+    },
+    {
+      "name": "-f",
+      "usage": [
+        "-f cmd_file"
+      ],
+      "tip": [
+        "从文件读取并执行命令。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-i",
+      "tip": [
+        "将设备视为 e2image 镜像文件。"
+      ]
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "禁用元数据校验和验证。"
+      ]
+    },
+    {
+      "name": "-R",
+      "usage": [
+        "-R request"
+      ],
+      "tip": [
+        "执行单个请求后退出。",
+        "请求语法见 debugfs(8)。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-s",
+      "usage": [
+        "-s superblock"
+      ],
+      "tip": [
+        "从此块号读取超级块。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "打印版本号并退出。"
+      ]
+    },
+    {
+      "name": "-w",
+      "tip": [
+        "以读写模式打开文件系统。"
+      ]
+    },
+    {
+      "name": "-z",
+      "usage": [
+        "-z undo_file"
+      ],
+      "tip": [
+        "将每个块的旧内容写入撤销文件。"
+      ],
+      "next": []
+    }
+  ]
+}

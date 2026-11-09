@@ -6,13 +6,14 @@ use serde_json::{json, Value};
 
 use crate::commands::run_parallel;
 use crate::data::{read_text, Index, LibraryChanges, Settings};
-use crate::messages::{msg_cli, msg_fmt};
+use crate::messages::msg_cli;
 use crate::net::{
     add_completion, download_list, local_completion_id, refresh_settings_after_add,
-    rename_completion, resolve_urls,
+    rename_completion, resolve_index_urls, resolve_urls,
 };
-use crate::output::{fail, Out};
+use crate::output::{fail, ok, Out};
 use crate::postcheck::{fetch_module_version, record_post_check};
+use crate::validate::is_valid_name;
 #[allow(clippy::too_many_arguments)]
 pub fn cmd_update(
     args: &[String],
@@ -33,13 +34,14 @@ pub fn cmd_update(
         })
         .unwrap_or_default();
     let urls = resolve_urls(settings);
-    let list = match download_list(data_dir, &urls) {
+    // The index is fetched from the index branch first; content files stay on main.
+    let list = match download_list(data_dir, &resolve_index_urls(settings)) {
         Ok(v) => {
             *index = Index::from_value(v);
             index.remote_names()
         }
         Err(e) => {
-            return fail(out, format!("error: {e}"), json);
+            return fail(out, e.code(), &format!("error: {e}"), json, false);
         }
     };
     // Rename detection: a locally installed completion whose stable id now maps to a different remote name has been renamed upstream.
@@ -120,7 +122,10 @@ pub fn cmd_update(
                 .unwrap_or_default()
                 .as_secs(),
         );
-        changes.save(data_dir);
+        if let Err(e) = changes.save(data_dir) {
+            // Nothing was persisted: that is the whole command's failure, not one item's.
+            return fail(out, "io", &format!("error: {e}"), json, false);
+        }
 
         let mut any = false;
         let updatable_no_rename: Vec<&String> = need_update
@@ -167,29 +172,25 @@ pub fn cmd_update(
             out.line(&msg_cli(lang, "update_no"));
         }
         if json {
-            println!(
-                "{}",
-                serde_json::to_string(&json!({
-                    "update": update_no_rename,
-                    "added": added,
-                    "removed": removed,
-                    "renamed": renamed.iter().map(|(a, b)| json!([a, b])).collect::<Vec<_>>(),
-                }))
-                .unwrap_or_default()
-            );
+            // The library-change report (the same four lists `change.json` carries), not a per-completion result set.
+            return ok(&json!({
+                "update": update_no_rename,
+                "added": added,
+                "removed": removed,
+                "renamed": renamed.iter().map(|(a, b)| json!([a, b])).collect::<Vec<_>>(),
+            }));
         }
         return ExitCode::SUCCESS;
     }
     let all = args.iter().any(|a| a == "--all");
     let old = args.iter().any(|a| a == "--old");
-    let named: Vec<String> = args
-        .iter()
-        .filter(|a| *a != "--all" && *a != "--old")
-        .cloned()
-        .collect();
-    // `--all` force-updates every installed completion; `--old` updates only the out-of-date
-    // ones; named targets are re-fetched unconditionally (naming a completion IS the intent to
-    // reinstall it).
+    let named = crate::commands::dedup_names(
+        args.iter()
+            .filter(|a| *a != "--all" && *a != "--old")
+            .cloned(),
+    );
+    // `--all` force-updates every installed completion; `--old` updates only the out-of-date ones; named targets are re-fetched unconditionally (naming a completion IS the intent to reinstall it).
+    // A mode flag is an explicit instruction about a whole set, so it wins over a name — the order below, the same one `--all` > `--old` already follows.
     let names: Vec<String> = if all {
         settings.list()
     } else if old {
@@ -197,25 +198,38 @@ pub fn cmd_update(
     } else {
         named
     };
+    // Bulk modes skip off-index completions silently; a named target reports it.
+    let is_bulk = all || old;
     let installed: std::collections::HashSet<String> = settings.list().into_iter().collect();
     let settings_lock = std::sync::Mutex::new(&mut *settings);
     let had_error = std::sync::atomic::AtomicBool::new(false);
-    let results: std::sync::Mutex<Vec<Value>> = std::sync::Mutex::new(Vec::new());
+    // Every processed name lands here, in both modes: the text mode prints its own line and the JSON mode serializes this (the shape `add` / `rm` use), so "nothing was reported" is `results.is_empty()` and the executed-rename list below is populated either way.
+    // Workers finish in any order, so each result takes a slot per argument position: the report — text lines and the JSON array alike — follows the arguments.
+    let results: std::sync::Mutex<Vec<(usize, Vec<String>, Value)>> =
+        std::sync::Mutex::new(Vec::new());
     let index_ref: &Index = index;
-    run_parallel(&names, 8, |name| {
-        let known = installed.contains(name)
-            || std::path::Path::new(&format!("{data_dir}/completions/{name}")).exists()
-            || list.contains(name);
+    run_parallel(&names, 8, |i, name| {
+        let mut lines: Vec<String> = Vec::new();
+        // Reject before any filesystem probe: a name carrying separators would make the entry probe below resolve outside the library directory.
+        let known = is_valid_name(name)
+            && (installed.contains(name)
+                || std::fs::symlink_metadata(format!("{data_dir}/completions/{name}")).is_ok()
+                || list.contains(name));
         if !known {
             had_error.store(true, std::sync::atomic::Ordering::SeqCst);
             let err = msg_cli(lang, "not_available");
-            results
-                .lock()
-                .unwrap()
-                .push(json!({"completion": name, "ok": false, "error": err}));
             if !json {
-                out.line(&format!("{name} {err}"));
+                lines.push(format!("{name}: {err}"));
             }
+            results.lock().unwrap().push((
+                i,
+                lines.clone(),
+                json!({
+                    "name": name,
+                    "ok": false,
+                    "error": { "code": "not_available", "message": err },
+                }),
+            ));
             return;
         }
         // Renamed upstream: migrate the old install (download new files, move settings, drop the old directory) instead of a plain update.
@@ -225,46 +239,78 @@ pub fn cmd_update(
             let mut sg = settings_lock.lock().unwrap();
             match rename_completion(&mut sg, data_dir, name, &new_name, &urls, &version) {
                 Ok(()) => {
-                    if json {
-                        results.lock().unwrap().push(json!({
-                            "completion": new_name, "ok": true, "renamed_from": name
-                        }));
-                    } else {
-                        out.line(&format!(
-                            "{name} {} {new_name}",
+                    if !json {
+                        lines.push(format!(
+                            "{name}: {} {new_name}",
                             msg_cli(lang, "rename_done")
                         ));
                     }
+                    results.lock().unwrap().push((
+                        i,
+                        lines.clone(),
+                        json!({
+                            "name": new_name, "ok": true, "renamed_from": name
+                        }),
+                    ));
                 }
                 Err(e) => {
                     had_error.store(true, std::sync::atomic::Ordering::SeqCst);
-                    if json {
-                        results
-                            .lock()
-                            .unwrap()
-                            .push(json!({"completion": name, "ok": false, "error": e}));
-                    } else {
-                        out.line(&format!("{name}: error: {e}"));
+                    if !json {
+                        lines.push(format!("{name}: error: {e}"));
                     }
+                    results.lock().unwrap().push((
+                        i,
+                        lines.clone(),
+                        json!({
+                            "name": name,
+                            "ok": false,
+                            "error": { "code": e.code(), "message": e.message() },
+                        }),
+                    ));
                 }
             }
             return;
         }
         if !list.contains(name) {
+            if is_bulk {
+                return;
+            }
+            had_error.store(true, std::sync::atomic::Ordering::SeqCst);
+            // Installed here, absent from the library: neither `not_available` (nowhere) nor `not_installed` (never added).
+            // The code and the message say the same thing.
+            let err = msg_cli(lang, "not_in_library");
+            if !json {
+                lines.push(format!("{name}: {err}"));
+            }
+            results.lock().unwrap().push((
+                i,
+                lines.clone(),
+                json!({
+                    "name": name,
+                    "ok": false,
+                    "error": { "code": "not_in_library", "message": err },
+                }),
+            ));
             return;
         }
         let version = index_ref.update.get(name).cloned().unwrap_or_default();
-        match add_completion(data_dir, name, &urls, &version) {
+        match add_completion(data_dir, name, &urls, &version, false) {
             Ok(updated) => {
                 if !updated {
+                    // A local link is a deliberate choice, not an error: reported, but it does not fail the run.
                     let err = msg_cli(lang, "update_skip");
-                    results
-                        .lock()
-                        .unwrap()
-                        .push(json!({"completion": name, "ok": false, "error": err}));
                     if !json {
-                        out.line(&format!("{name}: {err}"));
+                        lines.push(format!("{name}: {err}"));
                     }
+                    results.lock().unwrap().push((
+                        i,
+                        lines.clone(),
+                        json!({
+                            "name": name,
+                            "ok": false,
+                            "error": { "code": "not_updated", "message": err },
+                        }),
+                    ));
                     return;
                 }
                 let mut sg = settings_lock.lock().unwrap();
@@ -272,59 +318,57 @@ pub fn cmd_update(
                 match refresh_settings_after_add(&mut sg, data_dir, name, false) {
                     Err(e) => {
                         had_error.store(true, std::sync::atomic::Ordering::SeqCst);
-                        if json {
-                            results
-                                .lock()
-                                .unwrap()
-                                .push(json!({"completion": name, "ok": false, "error": e}));
-                        } else {
-                            out.line(&format!("error: {e}"));
+                        if !json {
+                            // The name, like every other per-item line.
+                            lines.push(format!("{name}: error: {e}"));
                         }
+                        results.lock().unwrap().push((
+                            i,
+                            lines.clone(),
+                            json!({
+                                "name": name,
+                                "ok": false,
+                                "error": { "code": "io", "message": e },
+                            }),
+                        ));
                     }
-                    Ok(skipped) => {
-                        if json {
-                            let mut entry = json!({"completion": name, "ok": true});
-                            if !skipped.is_empty() {
-                                entry["skipped"] = skipped
-                                    .iter()
-                                    .map(|(a, o)| json!({"alias": a, "owner": o}))
-                                    .collect();
-                            }
-                            results.lock().unwrap().push(entry);
-                        } else {
-                            out.line(&format!("{name}: {}", msg_cli(lang, "update_done")));
-                            for (a, owner) in &skipped {
-                                out.line(&format!(
-                                    "{a}: {}",
-                                    msg_fmt(lang, "alias_owned", &[("owner", owner)])
-                                ));
-                            }
+                    Ok(_) => {
+                        if !json {
+                            lines.push(format!("{name}: {}", msg_cli(lang, "update_done")));
                         }
+                        results.lock().unwrap().push((
+                            i,
+                            lines.clone(),
+                            json!({"name": name, "ok": true}),
+                        ));
                     }
                 }
             }
             Err(e) => {
                 had_error.store(true, std::sync::atomic::Ordering::SeqCst);
-                if json {
-                    results
-                        .lock()
-                        .unwrap()
-                        .push(json!({"completion": name, "ok": false, "error": e}));
-                } else {
-                    out.line(&format!("{name}: error: {e}"));
+                if !json {
+                    lines.push(format!("{name}: error: {e}"));
                 }
+                results.lock().unwrap().push((
+                    i,
+                    lines.clone(),
+                    json!({
+                        "name": name,
+                        "ok": false,
+                        "error": { "code": e.code(), "message": e.message() },
+                    }),
+                ));
             }
         }
     });
-    // Persist the renames actually executed during this update so the module's pending
-    // notifications can still show them even if the JSON results were not consumed.
+    // Persist the renames actually executed during this update so the module's pending notifications can still show them even if the JSON results were not consumed.
     let executed_renames: Vec<(String, String)> = {
         let results = results.lock().unwrap();
         results
             .iter()
-            .filter_map(|v| {
+            .filter_map(|(_, _, v)| {
                 let from = v.get("renamed_from").and_then(|x| x.as_str());
-                let to = v.get("completion").and_then(|x| x.as_str());
+                let to = v.get("name").and_then(|x| x.as_str());
                 match (from, to) {
                     (Some(f), Some(t)) => Some((f.to_string(), t.to_string())),
                     _ => None,
@@ -334,23 +378,48 @@ pub fn cmd_update(
     };
     // Refresh the persisted post-check state (added/removed/renamed/update/module) and check the module version.
     // Runs AFTER the operation, diffing the pre-operation snapshot against the fresh index.
-    record_post_check(data_dir, settings, &old_list, index, &executed_renames);
-    // Save first, print once: the payload must carry the save outcome, and `--json` mode owes
-    // the consumer exactly one JSON document.
+    if let Err(e) = record_post_check(
+        data_dir,
+        settings,
+        &old_list,
+        index,
+        &executed_renames,
+        &names,
+    ) {
+        // Nothing was persisted: that is the whole command's failure, not one item's.
+        return fail(out, "io", &format!("error: {e}"), json, false);
+    }
+    // Save first, print once: the payload must carry the save outcome, and `--json` mode owes the consumer exactly one JSON document.
     let save_err = settings.save(settings_path).err();
-    if json {
-        let mut results = results.lock().unwrap().clone();
-        if let Some(e) = save_err {
-            results.push(serde_json::json!({"ok": false, "error": e}));
-        }
-        println!("{}", serde_json::to_string(&results).unwrap_or_default());
-        return ExitCode::SUCCESS;
-    }
     if let Some(e) = save_err {
-        out.line(&format!("error: {e}"));
-        return ExitCode::FAILURE;
+        // Nothing was persisted: that is the whole command's failure, not one item's.
+        return fail(out, "io", &format!("error: {e}"), json, false);
     }
-    if had_error.load(std::sync::atomic::Ordering::SeqCst) {
+    let mut results = results.lock().unwrap().clone();
+    // The slot is the argument position; workers finish in any order.
+    results.sort_by_key(|(i, _, _)| *i);
+    let had_error = had_error.load(std::sync::atomic::Ordering::SeqCst);
+    if json {
+        let entries: Vec<Value> = results.iter().map(|(_, _, v)| v.clone()).collect();
+        ok(&json!({ "completions": entries }));
+        // Any failed item fails the run (design/json.md §6).
+        return if had_error {
+            ExitCode::FAILURE
+        } else {
+            ExitCode::SUCCESS
+        };
+    }
+    for (_, lines, _) in &results {
+        for l in lines {
+            out.line(l);
+        }
+    }
+    if results.is_empty() {
+        // Nothing was selected (everything current, or nothing eligible).
+        // The module answers an empty result array with `info.update.no`, so the text mode says the same instead of nothing — the JSON keeps its empty array.
+        out.line(&msg_cli(lang, "update_no"));
+    }
+    if had_error {
         ExitCode::FAILURE
     } else {
         ExitCode::SUCCESS

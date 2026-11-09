@@ -1,0 +1,282 @@
+{
+  "meta": {
+    "url": "https://github.com/kmod-project/kmod",
+    "description": [
+      "在 Linux 内核中添加和移除模块。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--all",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --all"
+      ],
+      "tip": [
+        "将每个非选项参数视为模块名。"
+      ]
+    },
+    {
+      "name": "--config",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --config=FILE"
+      ],
+      "tip": [
+        "使用配置文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--dirname",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --dirname=DIR"
+      ],
+      "tip": [
+        "将 DIR 用作 /lib/modules 根目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--dry-run",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --show, --dry-run"
+      ],
+      "tip": [
+        "打印操作但不执行。"
+      ]
+    },
+    {
+      "name": "--dump-modversions",
+      "usage": [
+        "--dump-modversions <filename>"
+      ],
+      "tip": [
+        "从文件转储模块版本。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--first-time",
+      "tip": [
+        "模块已插入或移除时失败。"
+      ]
+    },
+    {
+      "name": "--force",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --force"
+      ],
+      "tip": [
+        "强制插入或移除。"
+      ]
+    },
+    {
+      "name": "--force-modversion",
+      "tip": [
+        "忽略模块版本。"
+      ]
+    },
+    {
+      "name": "--force-vermagic",
+      "tip": [
+        "忽略模块版本魔术。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--ignore-install",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --ignore-remove, --ignore-install"
+      ],
+      "tip": [
+        "忽略安装或移除命令。"
+      ]
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "禁用消息。"
+      ]
+    },
+    {
+      "name": "--remove",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --remove"
+      ],
+      "tip": [
+        "移除模块而不是插入。"
+      ]
+    },
+    {
+      "name": "--remove-dependencies",
+      "tip": [
+        "已弃用：请使用 --remove-holders。"
+      ]
+    },
+    {
+      "name": "--remove-holders",
+      "tip": [
+        "同时移除模块持有者（与 -r 一起）。"
+      ]
+    },
+    {
+      "name": "--resolve-alias",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --resolve-alias"
+      ],
+      "tip": [
+        "仅查找并打印别名。"
+      ]
+    },
+    {
+      "name": "--set-version",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --set-version=VERSION"
+      ],
+      "tip": [
+        "使用 VERSION 而不是 uname -r。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--show-depends",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --show-depends"
+      ],
+      "tip": [
+        "仅打印模块依赖。"
+      ]
+    },
+    {
+      "name": "--show-exports",
+      "tip": [
+        "打印模块导出的符号版本。"
+      ]
+    },
+    {
+      "name": "--show-modversions",
+      "tip": [
+        "转储模块符号版本。"
+      ]
+    },
+    {
+      "name": "--showconfig",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --showconfig, --show-config"
+      ],
+      "tip": [
+        "打印已知配置并退出。"
+      ]
+    },
+    {
+      "name": "--syslog",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --syslog"
+      ],
+      "tip": [
+        "输出到 syslog 而不是标准错误。"
+      ]
+    },
+    {
+      "name": "--use-blacklist",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --use-blacklist"
+      ],
+      "tip": [
+        "对解析的别名应用黑名单。"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "启用更多消息。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示版本。"
+      ]
+    },
+    {
+      "name": "--wait",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --wait=<MSEC>"
+      ],
+      "tip": [
+        "等待模块引用计数变为零。"
+      ],
+      "next": []
+    }
+  ]
+}

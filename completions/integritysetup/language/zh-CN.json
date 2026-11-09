@@ -1,0 +1,469 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/cryptsetup/cryptsetup",
+    "description": [
+      "管理 dm-integrity 设备。"
+    ]
+  },
+  "next": [
+    {
+      "name": "close",
+      "usage": [
+        "close <NAME>"
+      ],
+      "tip": [
+        "关闭映射。"
+      ]
+    },
+    {
+      "name": "dump",
+      "usage": [
+        "dump <INTEGRITY_DEVICE>"
+      ],
+      "tip": [
+        "显示磁盘上的信息。"
+      ]
+    },
+    {
+      "name": "format",
+      "usage": [
+        "format <INTEGRITY_DEVICE>"
+      ],
+      "tip": [
+        "格式化带完整性标签的设备。"
+      ]
+    },
+    {
+      "name": "open",
+      "usage": [
+        "open <INTEGRITY_DEVICE> <NAME>"
+      ],
+      "tip": [
+        "打开设备并创建映射。"
+      ]
+    },
+    {
+      "name": "resize",
+      "usage": [
+        "resize <NAME>"
+      ],
+      "tip": [
+        "调整活动设备的大小。"
+      ]
+    },
+    {
+      "name": "status",
+      "usage": [
+        "status <NAME>"
+      ],
+      "tip": [
+        "显示活动设备的状态。"
+      ]
+    }
+  ],
+  "global_option": [
+    {
+      "name": "--allow-discards",
+      "tip": [
+        "允许对设备发送丢弃（TRIM）请求。"
+      ]
+    },
+    {
+      "name": "--batch-mode",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --batch-mode"
+      ],
+      "tip": [
+        "不请求确认。"
+      ]
+    },
+    {
+      "name": "--bitmap-flush-time",
+      "usage": [
+        "--bitmap-flush-time=<MS>"
+      ],
+      "tip": [
+        "位图模式刷新时间（毫秒）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--bitmap-sectors-per-bit",
+      "usage": [
+        "--bitmap-sectors-per-bit=<INT>"
+      ],
+      "tip": [
+        "每个位图位对应的 512 字节扇区数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--buffer-sectors",
+      "usage": [
+        "--buffer-sectors=<SECTORS>"
+      ],
+      "tip": [
+        "缓冲区大小（扇区）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--cancel-deferred",
+      "tip": [
+        "取消之前设置的延迟设备移除。"
+      ]
+    },
+    {
+      "name": "--data-device",
+      "usage": [
+        "--data-device=<PATH>"
+      ],
+      "tip": [
+        "分离时数据设备的路径。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "tip": [
+        "显示调试消息。"
+      ]
+    },
+    {
+      "name": "--deferred",
+      "tip": [
+        "延迟设备移除直到最后一个使用者关闭。"
+      ]
+    },
+    {
+      "name": "--device-size",
+      "usage": [
+        "--device-size=<BYTES>"
+      ],
+      "tip": [
+        "仅使用指定的设备大小（危险）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--disable-blkid",
+      "tip": [
+        "禁用 blkid 的磁盘签名检测和擦除。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "显示此帮助信息。"
+      ]
+    },
+    {
+      "name": "--integrity",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --integrity=<STRING>"
+      ],
+      "tip": [
+        "数据完整性算法。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--integrity-bitmap-mode",
+      "alias": [
+        "-B"
+      ],
+      "usage": [
+        "-B, --integrity-bitmap-mode"
+      ],
+      "tip": [
+        "使用位图跟踪更改并禁用日志。"
+      ]
+    },
+    {
+      "name": "--integrity-key-file",
+      "usage": [
+        "--integrity-key-file=<STRING>"
+      ],
+      "tip": [
+        "从此文件读取完整性密钥。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--integrity-key-size",
+      "usage": [
+        "--integrity-key-size=<BITS>"
+      ],
+      "tip": [
+        "数据完整性密钥的大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--integrity-legacy-hmac",
+      "tip": [
+        "不使用 HMAC 保护超级块。"
+      ]
+    },
+    {
+      "name": "--integrity-legacy-padding",
+      "tip": [
+        "为旧内核使用低效的传统填充。"
+      ]
+    },
+    {
+      "name": "--integrity-legacy-recalculate",
+      "tip": [
+        "允许重新计算使用 HMAC 密钥的卷。"
+      ]
+    },
+    {
+      "name": "--integrity-no-journal",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --integrity-no-journal"
+      ],
+      "tip": [
+        "禁用完整性设备的日志。"
+      ]
+    },
+    {
+      "name": "--integrity-recalculate",
+      "tip": [
+        "自动重新计算初始标签。"
+      ]
+    },
+    {
+      "name": "--integrity-recalculate-reset",
+      "tip": [
+        "重置自动重新计算位置。"
+      ]
+    },
+    {
+      "name": "--integrity-recovery-mode",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --integrity-recovery-mode"
+      ],
+      "tip": [
+        "使用无日志、无标签检查的恢复模式。"
+      ]
+    },
+    {
+      "name": "--interleave-sectors",
+      "usage": [
+        "--interleave-sectors=<SECTORS>"
+      ],
+      "tip": [
+        "交错扇区。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal-commit-time",
+      "usage": [
+        "--journal-commit-time=<MS>"
+      ],
+      "tip": [
+        "日志提交时间（毫秒）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal-crypt",
+      "usage": [
+        "--journal-crypt=<STRING>"
+      ],
+      "tip": [
+        "日志加密算法。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal-crypt-key-file",
+      "usage": [
+        "--journal-crypt-key-file=<STRING>"
+      ],
+      "tip": [
+        "从此文件读取日志加密密钥。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal-crypt-key-size",
+      "usage": [
+        "--journal-crypt-key-size=<BITS>"
+      ],
+      "tip": [
+        "日志加密密钥的大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal-integrity",
+      "usage": [
+        "--journal-integrity=<STRING>"
+      ],
+      "tip": [
+        "日志完整性算法。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal-integrity-key-file",
+      "usage": [
+        "--journal-integrity-key-file=<STRING>"
+      ],
+      "tip": [
+        "从此文件读取日志完整性密钥。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal-integrity-key-size",
+      "usage": [
+        "--journal-integrity-key-size=<BITS>"
+      ],
+      "tip": [
+        "日志完整性密钥的大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal-size",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --journal-size=<BYTES>"
+      ],
+      "tip": [
+        "日志大小。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--journal-watermark",
+      "usage": [
+        "--journal-watermark=<PERCENT>"
+      ],
+      "tip": [
+        "日志水位百分比。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-wipe",
+      "tip": [
+        "格式化后不擦除设备。"
+      ]
+    },
+    {
+      "name": "--progress-frequency",
+      "usage": [
+        "--progress-frequency=<SECS>"
+      ],
+      "tip": [
+        "进度行更新间隔（秒）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--progress-json",
+      "tip": [
+        "以 JSON 格式输出擦除进度数据。"
+      ]
+    },
+    {
+      "name": "--sector-size",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --sector-size=<BYTES>"
+      ],
+      "tip": [
+        "扇区大小（字节）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--size",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --size=<SECTORS>"
+      ],
+      "tip": [
+        "设备大小（扇区）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--tag-size",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --tag-size=<BYTES>"
+      ],
+      "tip": [
+        "每扇区标签大小（字节）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--usage",
+      "tip": [
+        "显示简短用法。"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "显示更详细的错误消息。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "打印软件包版本。"
+      ]
+    },
+    {
+      "name": "--wipe",
+      "tip": [
+        "调整大小后擦除设备末尾。"
+      ]
+    }
+  ]
+}

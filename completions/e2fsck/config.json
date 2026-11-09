@@ -1,0 +1,14 @@
+{
+  "id": "37d070ae-ab71-52ef-afed-6dfa094178a8",
+  "version": "e2fsprogs 1.47.2",
+  "alias": [
+    "e2fsck",
+    "fsck.ext2",
+    "fsck.ext3",
+    "fsck.ext4"
+  ],
+  "language": [
+    "en-US",
+    "zh-CN"
+  ]
+}

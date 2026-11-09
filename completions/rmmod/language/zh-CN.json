@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "url": "https://github.com/kmod-project/kmod",
+    "description": [
+      "从 Linux 内核移除模块。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--force",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --force"
+      ],
+      "tip": [
+        "危险：强制卸载模块。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--syslog",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --syslog"
+      ],
+      "tip": [
+        "输出到 syslog 而不是标准错误。"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "启用更多消息。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "显示版本。"
+      ]
+    }
+  ]
+}

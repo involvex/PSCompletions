@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "Send a signal to processes."
+    ]
+  },
+  "option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this help and exit."
+      ]
+    },
+    {
+      "name": "--list",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --list[=<signal>]"
+      ],
+      "tip": [
+        "List signal names or convert a signal to a name."
+      ],
+      "next": []
+    },
+    {
+      "name": "--queue",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --queue <value>"
+      ],
+      "tip": [
+        "Integer value to send with the signal."
+      ],
+      "next": []
+    },
+    {
+      "name": "--signal",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --signal <signal>"
+      ],
+      "tip": [
+        "Specify the signal to send (name or number)."
+      ],
+      "next": []
+    },
+    {
+      "name": "--table",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --table"
+      ],
+      "tip": [
+        "List all signal names in a table."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Output version information and exit."
+      ]
+    }
+  ]
+}

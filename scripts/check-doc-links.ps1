@@ -1,3 +1,6 @@
+#!/usr/bin/env pwsh
+#Requires -Version 7.6.5
+
 <#
 .SYNOPSIS
     Checks that every documentation link and cited repo path in the guidance docs resolves.
@@ -39,7 +42,7 @@
 
     **Line-level opt-out.** A backticked path may be an illustration rather than a
     reference — e.g. `design/menu.md` walks through path-history ranking using
-    `.\scripts\build.ps1`, a file that does not exist and is meant to be read as a
+    `./scripts/build.ps1`, a file that does not exist and is meant to be read as a
     generic path. Shape cannot tell the two apart, so put `<!-- nolink -->` somewhere in
     the same blank-line-delimited block as the reference to skip checks for it; an optional
     note may follow the word `nolink`. Suppression is block-scoped rather than line-scoped
@@ -60,13 +63,13 @@
     array to check everything.
 
 .PARAMETER Json
-    Emit structured output for automation instead of coloured console text.
+    Emit structured output for automation instead of colored console text.
 
 .EXAMPLE
-    .\scripts\check-doc-links.ps1
+    ./scripts/check-doc-links.ps1
 
 .EXAMPLE
-    .\scripts\check-doc-links.ps1 -Path AGENTS.md authoring -Json
+    ./scripts/check-doc-links.ps1 -Path AGENTS.md authoring -Json
 #>
 
 [CmdletBinding()]
@@ -147,7 +150,7 @@ function Get-RepoIndex {
             [void]$index.Add($rel)
         }
     }
-    # Files at the repo root itself (README.md, AGENTS.md, completions.json, ...).
+    # Files at the repo root itself (README.md, AGENTS.md, ...).
     Get-ChildItem $RepoRoot -File | ForEach-Object { [void]$index.Add($_.Name) }
     return $index
 }
@@ -168,20 +171,20 @@ foreach ($p in $Path) {
     }
 }
 
-$broken      = New-Object System.Collections.Generic.List[object]
-$checked     = 0
-$suppressed  = 0
-$repoIndex   = $null
+$broken = New-Object System.Collections.Generic.List[object]
+$checked = 0
+$suppressed = 0
+$repoIndex = $null
 $anchorCache = @{}
 
 foreach ($file in $files) {
-    $dir  = Split-Path $file -Parent
+    $dir = Split-Path $file -Parent
     $text = [System.IO.File]::ReadAllText($file)
     $lines = $text -split "`r?`n"
     $inFence = $false
 
-    # Blank-line-delimited blocks. Suppression is block-scoped, not line-scoped: prose
-    # reflows within a block, so a marker anywhere in it suppresses the whole block.
+    # Blank-line-delimited blocks.
+    # Suppression is block-scoped, not line-scoped: prose reflows within a block, so a marker anywhere in it suppresses the whole block.
     $skip = New-Object 'bool[]' $lines.Count
     $b = 0
     while ($b -lt $lines.Count) {
@@ -212,12 +215,12 @@ foreach ($file in $files) {
                     if (-not $anchorCache.ContainsKey($file)) { $anchorCache[$file] = Get-Anchors $file }
                     if (-not $anchorCache[$file].ContainsKey($target.TrimStart('#').ToLowerInvariant())) {
                         [void]$broken.Add([pscustomobject]@{
-                            File    = $file.Substring($RepoRoot.Length + 1)
-                            Line    = $i + 1
-                            Kind    = 'anchor'
-                            Target  = $target
-                            Reason  = 'anchor not found in this file'
-                        })
+                                File   = $file.Substring($RepoRoot.Length + 1)
+                                Line   = $i + 1
+                                Kind   = 'anchor'
+                                Target = $target
+                                Reason = 'anchor not found in this file'
+                            })
                     }
                 }
                 else { continue }
@@ -232,24 +235,24 @@ foreach ($file in $files) {
             $checked++
             if (-not (Test-Path $resolved -PathType Leaf)) {
                 [void]$broken.Add([pscustomobject]@{
-                    File    = $file.Substring($RepoRoot.Length + 1)
-                    Line    = $i + 1
-                    Kind    = 'link'
-                    Target  = $target
-                    Reason  = 'target file does not exist'
-                })
+                        File   = $file.Substring($RepoRoot.Length + 1)
+                        Line   = $i + 1
+                        Kind   = 'link'
+                        Target = $target
+                        Reason = 'target file does not exist'
+                    })
                 continue
             }
             if ($anchor -and $resolved -like '*.md') {
                 if (-not $anchorCache.ContainsKey($resolved)) { $anchorCache[$resolved] = Get-Anchors $resolved }
                 if (-not $anchorCache[$resolved].ContainsKey($anchor.ToLowerInvariant())) {
                     [void]$broken.Add([pscustomobject]@{
-                        File    = $file.Substring($RepoRoot.Length + 1)
-                        Line    = $i + 1
-                        Kind    = 'anchor'
-                        Target  = $target
-                        Reason  = 'anchor not found in ' + ($resolved.Substring($RepoRoot.Length + 1))
-                    })
+                            File   = $file.Substring($RepoRoot.Length + 1)
+                            Line   = $i + 1
+                            Kind   = 'anchor'
+                            Target = $target
+                            Reason = 'anchor not found in ' + ($resolved.Substring($RepoRoot.Length + 1))
+                        })
                 }
             }
         }
@@ -273,12 +276,12 @@ foreach ($file in $files) {
                     $reason = 'ambiguous: matches ' + $top
                 }
                 [void]$broken.Add([pscustomobject]@{
-                    File    = $file.Substring($RepoRoot.Length + 1)
-                    Line    = $i + 1
-                    Kind    = 'path'
-                    Target  = $rel
-                    Reason  = $reason
-                })
+                        File   = $file.Substring($RepoRoot.Length + 1)
+                        Line   = $i + 1
+                        Kind   = 'path'
+                        Target = $rel
+                        Reason = $reason
+                    })
             }
         }
     }
@@ -294,17 +297,17 @@ if ($Json) {
     } | ConvertTo-Json -Depth 4
 }
 else {
-    $summary = "Checked {0} files, {1} references." -f $files.Count, $checked
-    if ($suppressed -gt 0) { $summary += " {0} line(s) suppressed via <!-- nolink -->." -f $suppressed }
+    $summary = 'Checked {0} files, {1} references.' -f $files.Count, $checked
+    if ($suppressed -gt 0) { $summary += ' {0} line(s) suppressed via <!-- nolink -->.' -f $suppressed }
     Write-Host $summary -ForegroundColor Cyan
     if ($broken.Count -eq 0) {
         Write-Host 'All documentation links resolve.' -ForegroundColor Green
     }
     else {
-        Write-Host ("{0} broken reference(s):" -f $broken.Count) -ForegroundColor Red
+        Write-Host ('{0} broken reference(s):' -f $broken.Count) -ForegroundColor Red
         foreach ($b in $broken) {
-            Write-Host ("  {0}:{1}  [{2}] {3}" -f $b.File, $b.Line, $b.Kind, $b.Target) -ForegroundColor Yellow
-            Write-Host ("      {0}" -f $b.Reason)
+            Write-Host ('  {0}:{1}  [{2}] {3}' -f $b.File, $b.Line, $b.Kind, $b.Target) -ForegroundColor Yellow
+            Write-Host ('      {0}' -f $b.Reason)
         }
     }
 }

@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "url": "https://github.com/systemd/systemd",
+    "description": [
+      "在管道/套接字与 D-Bus 之间转发消息。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--bus-path",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --bus-path=PATH"
+      ],
+      "tip": [
+        "设置总线地址路径。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--machine",
+      "alias": [
+        "-M"
+      ],
+      "usage": [
+        "-M, --machine=CONTAINER"
+      ],
+      "tip": [
+        "连接到本机容器。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--system",
+      "tip": [
+        "连接到系统总线。"
+      ]
+    },
+    {
+      "name": "--user",
+      "tip": [
+        "连接到用户总线。"
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "显示软件包版本。"
+      ]
+    }
+  ]
+}

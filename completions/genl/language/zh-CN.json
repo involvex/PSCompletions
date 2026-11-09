@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "url": "https://github.com/iproute2/iproute2",
+    "description": [
+      "通用 netlink 工具前端。"
+    ]
+  },
+  "next": [
+    {
+      "name": "ctrl",
+      "tip": [
+        "通用 netlink 控制器。"
+      ],
+      "next": [
+        {
+          "name": "get",
+          "usage": [
+            "get get PARMS"
+          ],
+          "tip": [
+            "按名称或 ID 查询控制器。"
+          ],
+          "option": [
+            {
+              "name": "id",
+              "usage": [
+                "id ID"
+              ],
+              "tip": [
+                "用户 ID。"
+              ],
+              "next": []
+            },
+            {
+              "name": "name",
+              "usage": [
+                "name NAME"
+              ],
+              "tip": [
+                "用户名。"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "help",
+          "tip": [
+            "打印 ctrl 对象的帮助。"
+          ]
+        },
+        {
+          "name": "list",
+          "tip": [
+            "显示已注册的 netlink 用户。"
+          ]
+        },
+        {
+          "name": "monitor",
+          "tip": [
+            "监听通用 netlink 通知。"
+          ]
+        }
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--details",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --details"
+      ],
+      "tip": [
+        "显示对象详细信息。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示选项摘要。"
+      ]
+    },
+    {
+      "name": "--raw",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --raw"
+      ],
+      "tip": [
+        "仅转储原始输出。"
+      ]
+    },
+    {
+      "name": "--statistics",
+      "alias": [
+        "-stats",
+        "-s"
+      ],
+      "usage": [
+        "-s, -stats, --statistics"
+      ],
+      "tip": [
+        "显示对象统计信息。"
+      ]
+    },
+    {
+      "name": "--Version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --Version"
+      ],
+      "tip": [
+        "显示程序版本。"
+      ]
+    }
+  ]
+}

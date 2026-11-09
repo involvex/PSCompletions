@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "Save critical ext2/ext3/ext4 file system metadata to an image file."
+    ]
+  },
+  "option": [
+    {
+      "name": "-a",
+      "tip": [
+        "Include file data in the image file."
+      ]
+    },
+    {
+      "name": "-b",
+      "usage": [
+        "-b superblock"
+      ],
+      "tip": [
+        "Use the superblock at this file system block number."
+      ],
+      "next": []
+    },
+    {
+      "name": "-B",
+      "usage": [
+        "-B blocksize"
+      ],
+      "tip": [
+        "Set the file system block size in bytes."
+      ],
+      "next": []
+    },
+    {
+      "name": "-c",
+      "tip": [
+        "Compare each copied block with the corresponding block in the target image."
+      ]
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "Override the read-only requirement when saving an image."
+      ]
+    },
+    {
+      "name": "-I",
+      "tip": [
+        "Install the metadata stored in the image back to the device."
+      ]
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "Only print the block numbers that would be written."
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o src_offset"
+      ],
+      "tip": [
+        "Read the image at this byte offset from the source device."
+      ],
+      "next": []
+    },
+    {
+      "name": "-O",
+      "usage": [
+        "-O tgt_offset"
+      ],
+      "tip": [
+        "Write the image at this byte offset in the target file."
+      ],
+      "next": []
+    },
+    {
+      "name": "-p",
+      "tip": [
+        "Show progress while creating the image file."
+      ]
+    },
+    {
+      "name": "-Q",
+      "tip": [
+        "Create a QCOW2-format image file."
+      ]
+    },
+    {
+      "name": "-r",
+      "tip": [
+        "Create a raw image file."
+      ]
+    },
+    {
+      "name": "-s",
+      "tip": [
+        "Scramble directory entries and zero unused directory block space."
+      ]
+    }
+  ]
+}

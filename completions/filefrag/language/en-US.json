@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "Report file fragmentation and extent layout."
+    ]
+  },
+  "option": [
+    {
+      "name": "-b",
+      "usage": [
+        "-b{blocksize}[KMG]"
+      ],
+      "tip": [
+        "Use the given block size for output.",
+        "The value must be attached, e.g. -b4096."
+      ]
+    },
+    {
+      "name": "-B",
+      "tip": [
+        "Force the older FIBMAP ioctl."
+      ]
+    },
+    {
+      "name": "-e",
+      "tip": [
+        "Print output in extent format even for block-mapped files."
+      ]
+    },
+    {
+      "name": "-E",
+      "tip": [
+        "Display the ext4 extent status cache."
+      ]
+    },
+    {
+      "name": "-k",
+      "tip": [
+        "Use 1024-byte blocks for output."
+      ]
+    },
+    {
+      "name": "-P",
+      "tip": [
+        "Pre-load the ext4 extent status cache for the file."
+      ]
+    },
+    {
+      "name": "-s",
+      "tip": [
+        "Sync the file before requesting the mapping."
+      ]
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "Verbose mode."
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "Print the version; repeat for the FIEMAP flags."
+      ],
+      "repeat": 2
+    },
+    {
+      "name": "-x",
+      "tip": [
+        "Display the mapping of extended attributes."
+      ]
+    },
+    {
+      "name": "-X",
+      "tip": [
+        "Display extent block numbers in hexadecimal."
+      ]
+    }
+  ]
+}

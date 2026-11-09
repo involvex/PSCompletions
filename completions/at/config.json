@@ -1,0 +1,14 @@
+{
+  "id": "7564293c-6bd9-577f-ad0e-ecaa5971582a",
+  "version": "at 3.2.5",
+  "hooks": true,
+  "alias": [
+    "at",
+    "atq",
+    "atrm"
+  ],
+  "language": [
+    "en-US",
+    "zh-CN"
+  ]
+}

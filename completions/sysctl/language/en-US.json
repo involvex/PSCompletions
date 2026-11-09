@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "Configure kernel parameters at runtime."
+    ]
+  },
+  "option": [
+    {
+      "name": "--all",
+      "alias": [
+        "-a",
+        "-A",
+        "-X"
+      ],
+      "usage": [
+        "-a, -A, -X, --all"
+      ],
+      "tip": [
+        "Display all variables."
+      ]
+    },
+    {
+      "name": "--binary",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --binary"
+      ],
+      "tip": [
+        "Print values without a trailing newline."
+      ]
+    },
+    {
+      "name": "--deprecated",
+      "tip": [
+        "Include deprecated parameters in the listing."
+      ]
+    },
+    {
+      "name": "--dry-run",
+      "tip": [
+        "Print the keys and values but do not write."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h",
+        "-d"
+      ],
+      "usage": [
+        "-h, -d, --help"
+      ],
+      "tip": [
+        "Display this help and exit."
+      ]
+    },
+    {
+      "name": "--ignore",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --ignore"
+      ],
+      "tip": [
+        "Ignore errors for unknown variables."
+      ]
+    },
+    {
+      "name": "--load",
+      "alias": [
+        "-p",
+        "-f"
+      ],
+      "usage": [
+        "-p, -f, --load[=<file>]"
+      ],
+      "tip": [
+        "Read values from the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--names",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --names"
+      ],
+      "tip": [
+        "Print variable names without values."
+      ]
+    },
+    {
+      "name": "--pattern",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --pattern <expression>"
+      ],
+      "tip": [
+        "Select settings matching the expression."
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "Do not echo variable sets."
+      ]
+    },
+    {
+      "name": "--system",
+      "tip": [
+        "Read values from all system directories."
+      ]
+    },
+    {
+      "name": "--values",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --values"
+      ],
+      "tip": [
+        "Print only the values of the given variables."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Output version information and exit."
+      ]
+    },
+    {
+      "name": "--write",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --write"
+      ],
+      "tip": [
+        "Enable writing a value to a variable."
+      ]
+    },
+    {
+      "name": "-o",
+      "tip": [
+        "Does nothing."
+      ]
+    },
+    {
+      "name": "-x",
+      "tip": [
+        "Does nothing."
+      ]
+    }
+  ]
+}

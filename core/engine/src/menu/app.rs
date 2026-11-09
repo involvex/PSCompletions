@@ -1,7 +1,8 @@
 use crate::engine::completion;
+use crate::engine::hooks::{HookSession, LazyField};
 use crate::menu::model::{Config, Output, TerminalInfo};
 use crate::menu::protocol::CompleteInput;
-use crate::menu::state::{FilterOutcome, MenuState};
+use crate::menu::state::{strip_ansi, CachedTip, FilterOutcome, MenuState};
 use crate::menu::ui;
 use crossterm::event::{
     read, DisableMouseCapture, EnableMouseCapture, Event, KeyCode, KeyEvent, KeyEventKind,
@@ -14,6 +15,7 @@ use ratatui::layout::Rect;
 use ratatui::{Terminal, TerminalOptions, Viewport};
 use std::io::Write;
 use std::sync::mpsc;
+use std::sync::Mutex;
 use std::time::{Duration, Instant};
 
 /// Check if change.json's last_check is stale (>7 days or missing).
@@ -69,8 +71,7 @@ pub enum Action {
     Input(String),
 }
 
-/// Selected output with the item's text/type attached, so the host can apply the selection
-/// even when it passed a build context instead of an item list.
+/// Selected output with the item's text/type attached, so the host can apply the selection even when it passed a build context instead of an item list.
 fn selected_output(state: &MenuState, idx: usize) -> Output {
     let mut out = Output::selected(idx);
     if let Some(it) = state.items.get(idx) {
@@ -81,11 +82,9 @@ fn selected_output(state: &MenuState, idx: usize) -> Output {
     out
 }
 
-/// Delete stale menu temp files (`psc-menu-*-input.json`, `psc-menu-*-output.json`,
-/// `psc-menu-*-sort-in.json`, `psc-menu-*-sort-out.json`) older than 30 minutes. Normal menu
-/// invocations clean up immediately, but files left behind by a crashed or force-killed
-/// session accumulate forever without this sweep. Runs once per menu open in a background
-/// thread, using filesystem mtime (no JSON parsing needed).
+/// Delete stale menu temp files (`psc-menu-*-input.json`, `psc-menu-*-output.json`, `psc-menu-*-sort-in.json`, `psc-menu-*-sort-out.json`) older than 30 minutes.
+/// Normal menu invocations clean up immediately, but files left behind by a crashed or force-killed session accumulate forever without this sweep.
+/// Runs once per menu open in a background thread, using filesystem mtime (no JSON parsing needed).
 fn cleanup_stale_menu_files(menu_dir: &str) {
     let dir = menu_dir.trim_end_matches(['/', '\\']);
     if dir.is_empty() {
@@ -120,7 +119,7 @@ fn cleanup_stale_menu_files(menu_dir: &str) {
     }
 }
 
-pub fn run(input_path: &str) -> Output {
+pub fn run(input_path: &str, mut session: Option<HookSession>) -> Output {
     let input = match load_input(input_path) {
         Ok(i) => i,
         Err(e) => return Output::error(format!("failed to read input: {e}")),
@@ -129,12 +128,12 @@ pub fn run(input_path: &str) -> Output {
     if let Some(ord) = input.order.clone() {
         std::thread::spawn(move || crate::menu::order::compute_and_write_order(&ord));
     }
-    if !input.order_dir.is_empty() {
-        let dir = input.order_dir.clone();
+    if !input.dir.order.is_empty() {
+        let dir = input.dir.order.clone();
         std::thread::spawn(move || crate::menu::order::cleanup_stale_order_files(&dir));
     }
-    if !input.menu_dir.is_empty() {
-        let dir = input.menu_dir.clone();
+    if !input.dir.menu.is_empty() {
+        let dir = input.dir.menu.clone();
         std::thread::spawn(move || cleanup_stale_menu_files(&dir));
     }
 
@@ -147,7 +146,7 @@ pub fn run(input_path: &str) -> Output {
 
     let mut cfg = input.config;
     cfg.resolve_tip_flags();
-    if is_stale(&input.data_dir, &input.order_dir, &input.menu_dir) {
+    if is_stale(&input.dir.data, &input.dir.order, &input.dir.menu) {
         let stale = cfg.filter_hint_stale.trim();
         if !stale.is_empty() {
             if cfg.filter_hint.is_empty() {
@@ -158,8 +157,7 @@ pub fn run(input_path: &str) -> Output {
         }
     }
     let mut term = input.terminal;
-    // Input-line cursor position, kept for restoring the system cursor on exit (before
-    // `use_alt` rewrites `term.cursor.y` to 0).
+    // Input-line cursor position, kept for restoring the system cursor on exit (before `use_alt` rewrites `term.cursor.y` to 0).
     let origin_cursor = (term.cursor.x, term.cursor.y);
 
     let space_below = match &term.window {
@@ -167,14 +165,11 @@ pub fn run(input_path: &str) -> Output {
         None => (term.buffer.h as i32 - term.cursor.y as i32 - 1).max(0),
     };
     let has_tip = cfg.flags.enable_tip && !input.items.is_empty();
-    // `auto` renders inline below whenever the below space fits the normal menu spec (3 items +
-    // a 4-line description); below that it switches to the alternate screen. Inline is pinned
-    // below — `auto` never does an above-inline flip.
+    // `auto` renders inline below whenever the below space fits the normal menu spec (3 items + a 4-line description); below that it switches to the alternate screen.
+    // Inline is pinned below — `auto` never does an above-inline flip.
     let auto_alt = space_below < crate::menu::state::below_required(has_tip);
-    // Unix always renders via the alternate screen (`Viewport::Fullscreen`), so it always counts
-    // as "alternate" here. Windows follows `show_mode`'s rendering intent: `auto` uses the
-    // alternate screen only when the space below the cursor cannot fit the menu; `inline-follow`
-    // never does; `altscreen-follow` / `altscreen-top` / `altscreen-bottom` always do.
+    // Unix always renders via the alternate screen (`Viewport::Fullscreen`), so it always counts as "alternate" here.
+    // Windows follows `show_mode`'s rendering intent: `auto` uses the alternate screen only when the space below the cursor cannot fit the menu; `inline-follow` never does; `altscreen-follow` / `altscreen-top` / `altscreen-bottom` always do.
     let use_alt = term.platform != "windows"
         || match cfg.flags.show_mode.as_str() {
             "auto" => auto_alt,
@@ -182,8 +177,7 @@ pub fn run(input_path: &str) -> Output {
             _ => true, // altscreen-follow / altscreen-top / altscreen-bottom
         };
     // Alternate-screen menu position, per `show_mode`:
-    // - `auto` (alternate) / `inline-follow` / `altscreen-follow`: follow the input line; the
-    //   layout flips above when the space above is larger than below.
+    // - `auto` (alternate) / `inline-follow` / `altscreen-follow`: follow the input line; the layout flips above when the space above is larger than below.
     // - `altscreen-top`: always start at the top.
     // - `altscreen-bottom`: always start at the bottom (recompute_layout forces above).
     // `auto`'s inline form (below) never flips — see `force_below` in recompute_layout; on the
@@ -200,9 +194,7 @@ pub fn run(input_path: &str) -> Output {
         let rel_y = (term.cursor.y as i32 - window_top).max(0);
         match cfg.flags.show_mode.as_str() {
             "altscreen-top" => 0,
-            // Cursor one row past the last rendered row: `pos_y = cursor_y - h`, so the menu
-            // ends one row above the bottom (an empty last row, symmetric with altscreen-top's
-            // empty top row).
+            // Cursor one row past the last rendered row: `pos_y = cursor_y - h`, so the menu ends one row above the bottom (an empty last row, symmetric with altscreen-top's empty top row).
             "altscreen-bottom" => window_h.saturating_sub(1) as u16,
             _ => rel_y as u16, // auto / inline-follow / altscreen-follow follow the input line
         }
@@ -210,10 +202,8 @@ pub fn run(input_path: &str) -> Output {
         term.cursor.y
     };
     if use_alt {
-        // The alternate screen has the visible-window height; rebase the layout to it so the
-        // menu renders from the mode-dependent start position within the screen.
-        // `auto` on the alternate screen behaves like `altscreen-follow` (balance above/below
-        // by space); its inline form (below) pins below via `force_below` in recompute_layout.
+        // The alternate screen has the visible-window height; rebase the layout to it so the menu renders from the mode-dependent start position within the screen.
+        // `auto` on the alternate screen behaves like `altscreen-follow` (balance above/below by space); its inline form (below) pins below via `force_below` in recompute_layout.
         if cfg.flags.show_mode.as_str() == "auto" {
             cfg.flags.show_mode = "altscreen-follow".into();
         }
@@ -231,10 +221,8 @@ pub fn run(input_path: &str) -> Output {
     if state.filtered.is_empty() {
         return Output::cancel();
     }
-    // Async symbol refinement: menu draws immediately with static symbols
-    // (`switch` fast path, `stay` default for options). A background peek
-    // upgrades rows whose apply opens a new layer, and drops rows whose
-    // next menu is empty; only `switch` rows skip the peek.
+    // Async symbol refinement: menu draws immediately with static symbols (`switch` fast path, `stay` default for options).
+    // A background peek upgrades rows whose apply opens a new layer, and drops rows whose next menu is empty; only `switch` rows skip the peek.
     let peek_input: Option<CompleteInput> = input
         .build
         .as_ref()
@@ -244,19 +232,14 @@ pub fn run(input_path: &str) -> Output {
     let (peek_req_tx, peek_req_rx) = mpsc::channel::<(u64, usize, String)>();
     let (peek_resp_tx, peek_resp_rx) = mpsc::channel::<(u64, usize, String)>();
     if let Some(pi) = peek_input.clone() {
-        // Skip the entire peek computation when both symbols are empty —
-        // there's nothing to display regardless of the result.
+        // Skip the entire peek computation when both symbols are empty — there's nothing to display regardless of the result.
         if switch_sym.is_empty() && stay_sym.is_empty() {
-            // fall through: channels stay alive, schedule_peek sends to
-            // an unbounded mpsc whose consumer was never started, which is
-            // harmless (a few tiny allocations per menu frame).
+            // fall through: channels stay alive, schedule_peek sends to an unbounded mpsc whose consumer was never started, which is harmless (a few tiny allocations per menu frame).
         } else {
             let sw = switch_sym.clone();
             let stay = stay_sym.clone();
             std::thread::spawn(move || {
-                // Pre-parse the manifest tree once: every peek call reuses the same tree
-                // for the fast-path static-candidate check and global-option extraction,
-                // avoiding O(N) redundant manifest I/O across multiple peek requests.
+                // Pre-parse the manifest tree once: every peek call reuses the same tree for the fast-path static-candidate check and global-option extraction, avoiding O(N) redundant manifest I/O across multiple peek requests.
                 let static_tree = std::fs::read_to_string(&pi.manifest)
                     .ok()
                     .and_then(|text| {
@@ -267,7 +250,7 @@ pub fn run(input_path: &str) -> Output {
                 // Pre-compute parent items once (silent: no psc.log).
                 let mut parent_input = pi.clone();
                 parent_input.order = None;
-                parent_input.log_dir = String::new();
+                parent_input.dir.log = String::new();
                 let parent_items: Vec<crate::engine::hooks::LuaItem> =
                     match crate::menu::protocol::build_candidate_items(&parent_input) {
                         Ok((items, _)) => items,
@@ -275,9 +258,7 @@ pub fn run(input_path: &str) -> Output {
                     };
 
                 while let Ok((gen, idx, cand)) = peek_req_rx.recv() {
-                    // Drain all pending requests: when the user rapidly switches
-                    // through candidates, only the latest request matters — skip
-                    // the stale ones instead of processing them sequentially.
+                    // Drain all pending requests: when the user rapidly switches through candidates, only the latest request matters — skip the stale ones instead of processing them sequentially.
                     let mut latest = (gen, idx, cand);
                     while let Ok(next) = peek_req_rx.try_recv() {
                         latest = next;
@@ -307,9 +288,7 @@ pub fn run(input_path: &str) -> Output {
     let mut prev_len = state.filtered.len();
     let schedule_peek =
         |st: &mut MenuState, tx: &mpsc::Sender<(u64, usize, String)>, gen: &mut u64| {
-            // No peek when there is no build context or when both symbols are disabled
-            // (the peek thread is never spawned in that case, so nothing would clear the
-            // pending flag — the static symbol must be shown as-is).
+            // No peek when there is no build context or when both symbols are disabled (the peek thread is never spawned in that case, so nothing would clear the pending flag — the static symbol must be shown as-is).
             if peek_input.is_none() || (switch_sym.is_empty() && stay_sym.is_empty()) {
                 st.peek_pending = false;
                 return;
@@ -322,9 +301,7 @@ pub fn run(input_path: &str) -> Output {
                     st.peek_pending = false;
                     return;
                 }
-                // Already computed for this row in this menu session: its symbol is
-                // fixed (depends only on the manifest + row text), so re-selecting it
-                // while moving up/down must not recompute the peek.
+                // Already computed for this row in this menu session: its symbol is fixed (depends only on the manifest + row text), so re-selecting it while moving up/down must not recompute the peek.
                 if st.peeked.get(idx).copied().unwrap_or(false) {
                     st.peek_pending = false;
                     return;
@@ -345,11 +322,13 @@ pub fn run(input_path: &str) -> Output {
     if cfg.flags.enable_apply_when_single && state.filtered.len() == 1 {
         return selected_output(&state, state.filtered[0]);
     }
+    // Resolve lazy tip callbacks for the initial selection, same as below.
+    // Runs after the immediate-exit paths above so a menu that never draws spends no evaluation.
+    resolve_lazy_selected(&mut state, &mut session);
 
     let unix_fullscreen = term.platform != "windows" || use_alt;
-    // Restore the system cursor to the input line on exit only in inline (non-alternate)
-    // mode. Alternate screen (`LeaveAlternateScreen`) restores the main-screen cursor
-    // position itself, so a manual MoveTo there would use the wrong coordinate space.
+    // Restore the system cursor to the input line on exit only in inline (non-alternate) mode.
+    // Alternate screen (`LeaveAlternateScreen`) restores the main-screen cursor position itself, so a manual MoveTo there would use the wrong coordinate space.
     let restore_cursor = if unix_fullscreen {
         None
     } else {
@@ -373,16 +352,12 @@ pub fn run(input_path: &str) -> Output {
     };
 
     let mut last_click: Option<(Instant, usize)> = None;
-    // Blinking-cursor phase: flipped by time (independent of the loop rate; accurate even
-    // while idle-polling at 50ms).
+    // Blinking-cursor phase: flipped by time (independent of the loop rate; accurate even while idle-polling at 50ms).
     let mut last_blink = Instant::now();
     let mut last_heartbeat = Instant::now();
     let result = loop {
-        // Drain completed peeks: a row's symbol does not depend on the current
-        // selection, so every response is applied and remembered (avoiding a
-        // recompute when the row is selected again). Only the response matching the
-        // current request clears the pending flag — stale responses must not unhide
-        // the selected row's symbol while its own peek is still in flight.
+        // Drain completed peeks: a row's symbol does not depend on the current selection, so every response is applied and remembered (avoiding a recompute when the row is selected again).
+        // Only the response matching the current request clears the pending flag — stale responses must not unhide the selected row's symbol while its own peek is still in flight.
         while let Ok((gen, idx, sym)) = peek_resp_rx.try_recv() {
             if let Some(it) = state.items.get_mut(idx) {
                 it.symbol = sym;
@@ -442,6 +417,9 @@ pub fn run(input_path: &str) -> Output {
             prev_len = state.filtered.len();
             schedule_peek(&mut state, &peek_req_tx, &mut peek_gen);
         }
+        // Evaluate lazy tip callbacks for the selected row (idempotent: rows without pending callbacks cost one scan).
+        // Runs every event so a filter edit that swaps the row under a stationary selection still resolves.
+        resolve_lazy_selected(&mut state, &mut session);
     };
 
     drop(terminal);
@@ -538,6 +516,45 @@ fn handle_key(
     None
 }
 
+/// Evaluate pending lazy tip/usage/example callbacks for the selected row and fold the results into the item + tip cache (same normalization as construction: ANSI-stripped, cached only when displayable).
+/// Synchronous with a per-field budget; failures resolve empty (cached, logged once by the session).
+fn resolve_lazy_selected(state: &mut MenuState, session: &mut Option<HookSession>) {
+    let Some(sess) = session else {
+        return;
+    };
+    let Some(idx) = state.selected_item_index() else {
+        return;
+    };
+    let Some(item) = state.items.get(idx) else {
+        return;
+    };
+    let resolved = sess.resolve_for(&item.completion_text.clone());
+    if resolved.is_empty() {
+        return;
+    }
+    let Some(item) = state.items.get_mut(idx) else {
+        return;
+    };
+    for (field, text) in resolved {
+        let slot = match field {
+            LazyField::Tip => &mut item.tip,
+            LazyField::Usage => &mut item.usage,
+            LazyField::Example => &mut item.example,
+        };
+        *slot = text;
+    }
+    let cached = CachedTip {
+        tip: strip_ansi(item.tip.as_deref().unwrap_or_default()),
+        usage: strip_ansi(item.usage.as_deref().unwrap_or_default()),
+        example: strip_ansi(item.example.as_deref().unwrap_or_default()),
+    };
+    if cached.has_display(state.enable_tip_usage, state.enable_tip_example) {
+        state.tip_cache.insert(idx, cached);
+    } else {
+        state.tip_cache.remove(&idx);
+    }
+}
+
 fn apply_filter(state: &mut MenuState, cfg: &Config, term: &TerminalInfo) -> Option<Action> {
     match state.apply_filter(cfg, term) {
         FilterOutcome::Input(text) => Some(Action::Input(text)),
@@ -595,8 +612,7 @@ fn handle_mouse(
     }
 }
 
-/// Whether the wheel should act on the description container (the cursor is inside the
-/// description box and it is scrollable).
+/// Whether the wheel should act on the description container (the cursor is inside the description box and it is scrollable).
 fn tip_wheel_target(state: &MenuState, m: MouseEvent) -> bool {
     if state.tip_scroll_max == 0 {
         return false;
@@ -612,14 +628,42 @@ fn load_input(path: &str) -> Result<crate::menu::model::Input, String> {
     serde_json::from_str(&data).map_err(|e| e.to_string())
 }
 
-/// Restores the terminal when dropped, even during unwinding.
-struct TermGuard {
+/// What `TermGuard::install` changed about the terminal, so a **panic** can put it back too.
+///
+/// The release profile sets `panic = "abort"`, so a panicking menu never runs the guard's `Drop`:
+/// without this, a menu that dies inside the alternate screen and raw mode leaves the user's shell
+/// looking dead (no echo, no cursor) until they run `reset`.
+/// Recorded here rather than read off the
+/// guard, because the panic hook cannot reach the guard.
+static TERM_STATE: Mutex<Option<TermState>> = Mutex::new(None);
+
+struct TermState {
     unix_fullscreen: bool,
-    /// Where to move the system cursor before showing it again (the input-line position the
-    /// menu was opened from). Moving it back first prevents it flashing at the last drawn
-    /// spot (e.g. under the description container after cycling items).
+    /// Where to move the system cursor before showing it again (the input-line position the menu was opened from).
+    /// Moving it back first prevents it flashing at the last drawn spot (e.g. under the description container after cycling items).
     restore_cursor: Option<(u16, u16)>,
 }
+
+/// Put the terminal back the way `TermGuard::install` found it: mouse capture off, cursor at the input line, alternate screen left, cursor visible, raw mode off.
+///
+/// The **one** implementation behind both the guard's `Drop` and the menu's panic hook — they must not drift, because on a panic the hook is the only thing that runs.
+/// Idempotent: a second call (or one after a clean exit) just re-applies the same harmless state.
+pub fn restore_terminal() {
+    let state = TERM_STATE.lock().ok().and_then(|mut held| held.take());
+    let _ = crossterm::execute!(std::io::stdout(), DisableMouseCapture);
+    if let Some((x, y)) = state.as_ref().and_then(|s| s.restore_cursor) {
+        let _ = crossterm::execute!(std::io::stdout(), crossterm::cursor::MoveTo(x, y));
+    }
+    if state.as_ref().is_some_and(|s| s.unix_fullscreen) {
+        let _ = crossterm::execute!(std::io::stdout(), LeaveAlternateScreen);
+    }
+    let _ = crossterm::execute!(std::io::stdout(), crossterm::cursor::Show);
+    let _ = disable_raw_mode();
+}
+
+/// Restores the terminal when dropped, even during unwinding.
+/// The state it needs lives in `TERM_STATE`, so `restore_terminal` can do the same work when a panic aborts the process.
+struct TermGuard;
 
 impl TermGuard {
     fn install(
@@ -628,39 +672,28 @@ impl TermGuard {
         restore_cursor: Option<(u16, u16)>,
     ) -> Self {
         let _ = enable_raw_mode();
-        // Hide the system cursor on ALL platforms: the menu draws its own blinking bar on the
-        // filter row, so a visible system cursor (which stays near the first item in inline
-        // mode) would appear as a second cursor and flicker on open.
+        // Hide the system cursor on ALL platforms: the menu draws its own blinking bar on the filter row, so a visible system cursor (which stays near the first item in inline mode) would appear as a second cursor and flicker on open.
         let _ = crossterm::execute!(std::io::stdout(), crossterm::cursor::Hide);
         if unix_fullscreen {
-            // Enter the alternate screen first (the terminal saves the input-line cursor
-            // position so it can restore it on leave), THEN move to the menu start so the
-            // fullscreen menu draws from there (input line, or the top when it doesn't fit).
+            // Enter the alternate screen first (the terminal saves the input-line cursor position so it can restore it on leave), THEN move to the menu start so the fullscreen menu draws from there (input line, or the top when it doesn't fit).
             let _ = crossterm::execute!(std::io::stdout(), EnterAlternateScreen);
             let _ =
                 crossterm::execute!(std::io::stdout(), crossterm::cursor::MoveTo(0, alt_start_y));
         }
         let _ = crossterm::execute!(std::io::stdout(), EnableMouseCapture);
-        TermGuard {
-            unix_fullscreen,
-            restore_cursor,
+        if let Ok(mut held) = TERM_STATE.lock() {
+            *held = Some(TermState {
+                unix_fullscreen,
+                restore_cursor,
+            });
         }
+        TermGuard
     }
 }
 
 impl Drop for TermGuard {
     fn drop(&mut self) {
-        let _ = crossterm::execute!(std::io::stdout(), DisableMouseCapture);
-        if let Some((x, y)) = self.restore_cursor {
-            // Move back to the input line before showing, so the cursor never flashes at a
-            // menu-drawn position on exit.
-            let _ = crossterm::execute!(std::io::stdout(), crossterm::cursor::MoveTo(x, y));
-        }
-        if self.unix_fullscreen {
-            let _ = crossterm::execute!(std::io::stdout(), LeaveAlternateScreen);
-        }
-        let _ = crossterm::execute!(std::io::stdout(), crossterm::cursor::Show);
-        let _ = disable_raw_mode();
+        restore_terminal();
     }
 }
 
@@ -668,6 +701,74 @@ impl Drop for TermGuard {
 mod tests {
     use super::*;
     use crate::menu::model::{Config, Flags, Item, Pos, Size, TerminalInfo};
+
+    fn lazy_cfg() -> Config {
+        Config {
+            filter_hint: String::new(),
+            filter_hint_stale: String::new(),
+            flags: Flags {
+                enable_list_loop: true,
+                filter_mode: "wildcard".into(),
+                enable_tip: true,
+                enable_tip_usage: true,
+                enable_tip_example: true,
+                enable_apply_when_single: false,
+                enable_apply_when_no_match: false,
+                show_mode: "auto".into(),
+                color_focus: "red".into(),
+                color_match: "cyan".into(),
+            },
+            context_switch: "~".into(),
+            context_stay: "?".into(),
+            raw_config: None,
+        }
+    }
+
+    fn lazy_term() -> TerminalInfo {
+        TerminalInfo {
+            cursor: Pos { x: 0, y: 5 },
+            buffer: Size { w: 120, h: 30 },
+            window: None,
+            platform: "linux".into(),
+        }
+    }
+
+    fn lazy_item(text: &str) -> Item {
+        Item {
+            completion_text: text.into(),
+            list_item_text: text.into(),
+            symbol: String::new(),
+            tip: None,
+            usage: None,
+            example: None,
+            result_type: None,
+            nospace: false,
+        }
+    }
+
+    #[test]
+    fn resolve_lazy_selected_folds_into_item_and_cache() {
+        // The session's tip callback resolves into the selected row only: item fields update and the tip cache gains the row; other rows stay empty.
+        let script = r#"
+            psc.add({ name = "a", tip = function() return "tip-a" end })
+        "#;
+        let ctx = crate::engine::hooks::HookContext::default();
+        let (_, sess) = crate::engine::hooks::run_hook_keepalive(&ctx, script, &[]).unwrap();
+        let mut state = MenuState::new(
+            vec![lazy_item("a"), lazy_item("b")],
+            &lazy_cfg(),
+            &lazy_term(),
+        );
+        assert!(state.tip_cache.is_empty());
+        resolve_lazy_selected(&mut state, &mut Some(sess));
+        assert_eq!(state.items[0].tip.as_deref(), Some("tip-a"));
+        assert_eq!(
+            state.tip_cache.get(&0).map(|c| c.tip.as_str()),
+            Some("tip-a")
+        );
+        assert_eq!(state.items[1].tip, None);
+        assert!(!state.tip_cache.contains_key(&1));
+    }
 
     // --- is_stale: six-branch fs matrix guarding the stale-hint feature ---
 
@@ -761,8 +862,7 @@ mod tests {
 
     #[test]
     fn stale_legacy_derivation_fallback() {
-        // When data_dir is empty and order_dir is present, the legacy parent-chain
-        // derivation should still work.
+        // When data_dir is empty and order_dir is present, the legacy parent-chain derivation should still work.
         let d = stale_dir("legacy");
         let now = std::time::SystemTime::now()
             .duration_since(std::time::UNIX_EPOCH)
@@ -850,8 +950,7 @@ mod tests {
         handle_key(&mut s, &c, &term(), char_key('A'));
         assert_eq!(s.filter, "on", "non-matching insert reverts the filter");
         assert_eq!(s.cursor, 1, "cursor must return to its pre-edit position");
-        // Insert "^" at the start ("^on" prefix does not match) → also reverts to "on",
-        // the cursor returns to the start (no longer drifting right).
+        // Insert "^" at the start ("^on" prefix does not match) → also reverts to "on", the cursor returns to the start (no longer drifting right).
         handle_key(
             &mut s,
             &c,
@@ -881,5 +980,26 @@ mod tests {
         assert_eq!(s.filter, "^c");
         assert!(s.is_prefix);
         assert!(!s.filtered.is_empty());
+    }
+
+    /// The guard's `Drop` is not the only way the terminal gets restored: with `panic = "abort"` (release) a panicking menu never drops, so the panic hook calls `restore_terminal` instead.
+    /// Pin the record-and-take pair they rely on — without it the hook would restore nothing.
+    ///
+    /// The terminal effects themselves are not observable here (and `--panic-test` panics before the menu takes the terminal), so this covers the mechanism, not the escape codes.
+    #[test]
+    fn the_guard_records_what_a_panic_must_undo() {
+        let guard = TermGuard::install(true, 3, Some((1, 2)));
+        assert!(
+            TERM_STATE.lock().unwrap().is_some(),
+            "install must record the state for the panic hook"
+        );
+        restore_terminal();
+        assert!(
+            TERM_STATE.lock().unwrap().is_none(),
+            "restore_terminal must consume the record"
+        );
+        drop(guard);
+        // Idempotent: a second restore (the hook after a clean drop) is a harmless re-apply.
+        restore_terminal();
     }
 }

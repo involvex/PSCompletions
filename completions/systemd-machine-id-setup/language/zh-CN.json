@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "url": "https://github.com/systemd/systemd",
+    "description": [
+      "从随机源初始化 /etc/machine-id。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--commit",
+      "tip": [
+        "提交临时 ID。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此帮助。"
+      ]
+    },
+    {
+      "name": "--image",
+      "usage": [
+        "--image=PATH"
+      ],
+      "tip": [
+        "将磁盘镜像作为文件系统根目录操作。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--image-policy",
+      "usage": [
+        "--image-policy=POLICY"
+      ],
+      "tip": [
+        "指定磁盘镜像解析策略。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--print",
+      "tip": [
+        "打印使用的机器 ID。"
+      ]
+    },
+    {
+      "name": "--root",
+      "usage": [
+        "--root=PATH"
+      ],
+      "tip": [
+        "在备用文件系统根目录上操作。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "显示软件包版本。"
+      ]
+    }
+  ]
+}

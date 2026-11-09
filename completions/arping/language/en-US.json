@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "url": "https://github.com/iputils/iputils",
+    "description": [
+      "Send ARP REQUESTs to a network host."
+    ]
+  },
+  "option": [
+    {
+      "name": "-A",
+      "tip": [
+        "ARP answer mode."
+      ]
+    },
+    {
+      "name": "-b",
+      "tip": [
+        "Keep broadcasting; do not unicast."
+      ]
+    },
+    {
+      "name": "-c",
+      "usage": [
+        "-c <count>"
+      ],
+      "tip": [
+        "Number of packets to send."
+      ],
+      "next": []
+    },
+    {
+      "name": "-D",
+      "tip": [
+        "Duplicate address detection mode."
+      ]
+    },
+    {
+      "name": "-f",
+      "tip": [
+        "Quit on the first reply."
+      ]
+    },
+    {
+      "name": "-i",
+      "usage": [
+        "-i <interval>"
+      ],
+      "tip": [
+        "Interval between packets (default 1 second)."
+      ],
+      "next": []
+    },
+    {
+      "name": "-I",
+      "usage": [
+        "-I <device>"
+      ],
+      "tip": [
+        "Ethernet device to use."
+      ],
+      "next": []
+    },
+    {
+      "name": "-q",
+      "tip": [
+        "Be quiet."
+      ]
+    },
+    {
+      "name": "-s",
+      "usage": [
+        "-s <source>"
+      ],
+      "tip": [
+        "Source IP address."
+      ],
+      "next": []
+    },
+    {
+      "name": "-U",
+      "tip": [
+        "Unsolicited ARP mode."
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "Print version and exit."
+      ]
+    },
+    {
+      "name": "-w",
+      "usage": [
+        "-w <timeout>"
+      ],
+      "tip": [
+        "How long to wait for a reply."
+      ],
+      "next": []
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "Demangle C++ and Java symbols."
+    ]
+  },
+  "option": [
+    {
+      "name": "--format",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --format {none,auto,gnu-v3,java,gnat,dlang,rust}"
+      ],
+      "tip": [
+        "Select the demangling style.",
+        "Possible values: none, auto, gnu-v3, java, gnat, dlang, rust"
+      ],
+      "next": [
+        {
+          "name": "auto"
+        },
+        {
+          "name": "dlang"
+        },
+        {
+          "name": "gnat"
+        },
+        {
+          "name": "gnu-v3"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "rust"
+        }
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this information."
+      ]
+    },
+    {
+      "name": "--no-params",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --no-params"
+      ],
+      "tip": [
+        "Do not display function arguments."
+      ]
+    },
+    {
+      "name": "--no-recurse-limit",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --no-recurse-limit"
+      ],
+      "tip": [
+        "Disable the demangling recursion limit."
+      ]
+    },
+    {
+      "name": "--no-strip-underscore",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --no-strip-underscore"
+      ],
+      "tip": [
+        "Do not ignore a leading underscore (default)."
+      ]
+    },
+    {
+      "name": "--no-verbose",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --no-verbose"
+      ],
+      "tip": [
+        "Do not show implementation details."
+      ]
+    },
+    {
+      "name": "--recurse-limit",
+      "alias": [
+        "-R"
+      ],
+      "usage": [
+        "-R, --recurse-limit"
+      ],
+      "tip": [
+        "Enable a demangling recursion limit (default)."
+      ]
+    },
+    {
+      "name": "--strip-underscore",
+      "alias": [
+        "-_"
+      ],
+      "usage": [
+        "-_, --strip-underscore"
+      ],
+      "tip": [
+        "Ignore the first leading underscore."
+      ]
+    },
+    {
+      "name": "--types",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --types"
+      ],
+      "tip": [
+        "Also attempt to demangle type encodings."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --version"
+      ],
+      "tip": [
+        "Show the version information."
+      ]
+    }
+  ]
+}

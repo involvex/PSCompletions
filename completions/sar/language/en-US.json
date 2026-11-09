@@ -1,0 +1,410 @@
+{
+  "meta": {
+    "url": "https://github.com/sysstat/sysstat",
+    "description": [
+      "Collect, report or save system activity information."
+    ]
+  },
+  "option": [
+    {
+      "name": "--dec",
+      "usage": [
+        "--dec={0|1|2}"
+      ],
+      "tip": [
+        "Set the decimal precision."
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        },
+        {
+          "name": "2"
+        }
+      ]
+    },
+    {
+      "name": "--human",
+      "tip": [
+        "Print sizes in human-readable format."
+      ]
+    },
+    {
+      "name": "--pretty",
+      "tip": [
+        "Pretty-print JSON output."
+      ]
+    },
+    {
+      "name": "-A",
+      "tip": [
+        "Report all statistics."
+      ]
+    },
+    {
+      "name": "-b",
+      "tip": [
+        "Report I/O and transfer rate statistics."
+      ]
+    },
+    {
+      "name": "-B",
+      "tip": [
+        "Report paging statistics."
+      ]
+    },
+    {
+      "name": "-d",
+      "tip": [
+        "Report block device statistics."
+      ]
+    },
+    {
+      "name": "-f",
+      "usage": [
+        "-f <filename>"
+      ],
+      "tip": [
+        "Read data from the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "-F",
+      "usage": [
+        "-F [ MOUNT ]"
+      ],
+      "tip": [
+        "Report filesystem statistics."
+      ],
+      "next": []
+    },
+    {
+      "name": "-h",
+      "tip": [
+        "Print sizes in human-readable format."
+      ]
+    },
+    {
+      "name": "-H",
+      "tip": [
+        "Report hugepage statistics."
+      ]
+    },
+    {
+      "name": "-i",
+      "usage": [
+        "-i <interval>"
+      ],
+      "tip": [
+        "Select the record interval."
+      ],
+      "next": []
+    },
+    {
+      "name": "-I",
+      "usage": [
+        "-I [ SUM | ALL ]"
+      ],
+      "tip": [
+        "Report interrupt statistics."
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        },
+        {
+          "name": "SUM"
+        }
+      ]
+    },
+    {
+      "name": "-j",
+      "usage": [
+        "-j {ID|LABEL|PATH|UUID|...}"
+      ],
+      "tip": [
+        "Display persistent device names."
+      ],
+      "next": [
+        {
+          "name": "ID"
+        },
+        {
+          "name": "LABEL"
+        },
+        {
+          "name": "PATH"
+        },
+        {
+          "name": "UUID"
+        }
+      ]
+    },
+    {
+      "name": "-k",
+      "tip": [
+        "Display sizes in kilobytes."
+      ]
+    },
+    {
+      "name": "-m",
+      "usage": [
+        "-m {<keyword> [...]|ALL}"
+      ],
+      "tip": [
+        "Report power management statistics."
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        },
+        {
+          "name": "BAT"
+        },
+        {
+          "name": "CPU"
+        },
+        {
+          "name": "FAN"
+        },
+        {
+          "name": "FREQ"
+        },
+        {
+          "name": "IN"
+        },
+        {
+          "name": "TEMP"
+        },
+        {
+          "name": "USB"
+        }
+      ]
+    },
+    {
+      "name": "-n",
+      "usage": [
+        "-n {<keyword> [...]|ALL}"
+      ],
+      "tip": [
+        "Report network statistics."
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        },
+        {
+          "name": "DEV"
+        },
+        {
+          "name": "EDEV"
+        },
+        {
+          "name": "EICMP"
+        },
+        {
+          "name": "EICMP6"
+        },
+        {
+          "name": "EIP"
+        },
+        {
+          "name": "EIP6"
+        },
+        {
+          "name": "ETCP"
+        },
+        {
+          "name": "FC"
+        },
+        {
+          "name": "ICMP"
+        },
+        {
+          "name": "ICMP6"
+        },
+        {
+          "name": "IP"
+        },
+        {
+          "name": "IP6"
+        },
+        {
+          "name": "NFS"
+        },
+        {
+          "name": "NFSD"
+        },
+        {
+          "name": "SOCK"
+        },
+        {
+          "name": "SOCK6"
+        },
+        {
+          "name": "SOFT"
+        },
+        {
+          "name": "TCP"
+        },
+        {
+          "name": "UDP"
+        },
+        {
+          "name": "UDP6"
+        }
+      ]
+    },
+    {
+      "name": "-N",
+      "usage": [
+        "-N {<node_list>|ALL}"
+      ],
+      "tip": [
+        "Select nodes."
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        }
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o JSON"
+      ],
+      "tip": [
+        "Output in JSON format."
+      ],
+      "next": [
+        {
+          "name": "JSON"
+        }
+      ]
+    },
+    {
+      "name": "-P",
+      "usage": [
+        "-P {<cpu> [...]|ALL}"
+      ],
+      "tip": [
+        "Select CPUs."
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        }
+      ]
+    },
+    {
+      "name": "-q",
+      "usage": [
+        "-q [ <keyword> [...]|PSI|ALL ]"
+      ],
+      "tip": [
+        "Report system load and pressure statistics."
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        },
+        {
+          "name": "CPU"
+        },
+        {
+          "name": "IO"
+        },
+        {
+          "name": "LOAD"
+        },
+        {
+          "name": "MEM"
+        },
+        {
+          "name": "PSI"
+        }
+      ]
+    },
+    {
+      "name": "-r",
+      "usage": [
+        "-r [ ALL ]"
+      ],
+      "tip": [
+        "Report memory utilization statistics."
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        }
+      ]
+    },
+    {
+      "name": "-S",
+      "tip": [
+        "Report swap space utilization."
+      ]
+    },
+    {
+      "name": "-t",
+      "tip": [
+        "Display timestamps."
+      ]
+    },
+    {
+      "name": "-u",
+      "usage": [
+        "-u [ ALL ]"
+      ],
+      "tip": [
+        "Report CPU utilization."
+      ],
+      "next": [
+        {
+          "name": "ALL"
+        }
+      ]
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "Report kernel table statistics."
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "Print version information."
+      ]
+    },
+    {
+      "name": "-w",
+      "tip": [
+        "Report task creation and switching statistics."
+      ]
+    },
+    {
+      "name": "-W",
+      "tip": [
+        "Report swapping statistics."
+      ]
+    },
+    {
+      "name": "-y",
+      "tip": [
+        "Report TTY device statistics."
+      ]
+    },
+    {
+      "name": "-z",
+      "tip": [
+        "Omit zero statistics."
+      ]
+    }
+  ]
+}

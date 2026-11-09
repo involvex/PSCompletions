@@ -1,0 +1,461 @@
+{
+  "meta": {
+    "url": "https://gnupg.org",
+    "description": [
+      "Sign, check, encrypt or decrypt using S/MIME."
+    ]
+  },
+  "option": [
+    {
+      "name": "--armor",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --armor"
+      ],
+      "tip": [
+        "Create ASCII-armored output."
+      ]
+    },
+    {
+      "name": "--assume-armor",
+      "tip": [
+        "Assume the input is in PEM format."
+      ]
+    },
+    {
+      "name": "--assume-base64",
+      "tip": [
+        "Assume the input is base-64."
+      ]
+    },
+    {
+      "name": "--assume-binary",
+      "tip": [
+        "Assume the input is binary."
+      ]
+    },
+    {
+      "name": "--audit-log",
+      "usage": [
+        "--audit-log FILE"
+      ],
+      "tip": [
+        "Write an audit log to FILE."
+      ],
+      "next": []
+    },
+    {
+      "name": "--auto-issuer-key-retrieve",
+      "tip": [
+        "Fetch missing issuer certificates."
+      ]
+    },
+    {
+      "name": "--base64",
+      "tip": [
+        "Create base-64 encoded output."
+      ]
+    },
+    {
+      "name": "--batch",
+      "tip": [
+        "Batch mode: never ask."
+      ]
+    },
+    {
+      "name": "--call-dirmngr",
+      "tip": [
+        "Pass a command to the dirmngr."
+      ]
+    },
+    {
+      "name": "--call-protect-tool",
+      "tip": [
+        "Invoke gpg-protect-tool."
+      ]
+    },
+    {
+      "name": "--change-passphrase",
+      "tip": [
+        "Change a passphrase."
+      ]
+    },
+    {
+      "name": "--cipher-algo",
+      "usage": [
+        "--cipher-algo NAME"
+      ],
+      "tip": [
+        "Use the cipher algorithm NAME."
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug-level",
+      "usage": [
+        "--debug-level LEVEL"
+      ],
+      "tip": [
+        "Set the debugging level."
+      ],
+      "next": []
+    },
+    {
+      "name": "--decrypt",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --decrypt"
+      ],
+      "tip": [
+        "Decrypt data (default)."
+      ]
+    },
+    {
+      "name": "--default-key",
+      "usage": [
+        "--default-key USER-ID"
+      ],
+      "tip": [
+        "Use USER-ID as the default secret key."
+      ],
+      "next": []
+    },
+    {
+      "name": "--delete-keys",
+      "tip": [
+        "Remove keys from the public keyring."
+      ]
+    },
+    {
+      "name": "--detach-sign",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --detach-sign"
+      ],
+      "tip": [
+        "Make a detached signature."
+      ]
+    },
+    {
+      "name": "--digest-algo",
+      "usage": [
+        "--digest-algo NAME"
+      ],
+      "tip": [
+        "Use the digest algorithm NAME."
+      ],
+      "next": []
+    },
+    {
+      "name": "--disable-crl-checks",
+      "tip": [
+        "Never consult a CRL."
+      ]
+    },
+    {
+      "name": "--disable-dirmngr",
+      "tip": [
+        "Disable access to the dirmngr."
+      ]
+    },
+    {
+      "name": "--disable-policy-checks",
+      "tip": [
+        "Do not check certificate policies."
+      ]
+    },
+    {
+      "name": "--disable-trusted-cert-crl-check",
+      "tip": [
+        "Do not check CRLs for root certificates."
+      ]
+    },
+    {
+      "name": "--dry-run",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --dry-run"
+      ],
+      "tip": [
+        "Do not make any changes."
+      ]
+    },
+    {
+      "name": "--enable-ocsp",
+      "tip": [
+        "Check validity using OCSP."
+      ]
+    },
+    {
+      "name": "--encrypt",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --encrypt"
+      ],
+      "tip": [
+        "Encrypt data."
+      ]
+    },
+    {
+      "name": "--encrypt-to",
+      "usage": [
+        "--encrypt-to NAME"
+      ],
+      "tip": [
+        "Also encrypt to NAME."
+      ],
+      "next": []
+    },
+    {
+      "name": "--export",
+      "tip": [
+        "Export certificates."
+      ]
+    },
+    {
+      "name": "--fingerprint",
+      "tip": [
+        "List keys and fingerprints."
+      ]
+    },
+    {
+      "name": "--generate-key",
+      "tip": [
+        "Generate a new key pair."
+      ]
+    },
+    {
+      "name": "--import",
+      "tip": [
+        "Import certificates."
+      ]
+    },
+    {
+      "name": "--include-certs",
+      "usage": [
+        "--include-certs N"
+      ],
+      "tip": [
+        "Number of certificates to include."
+      ],
+      "next": []
+    },
+    {
+      "name": "--keyring",
+      "usage": [
+        "--keyring FILE"
+      ],
+      "tip": [
+        "Add FILE to the keyring list."
+      ],
+      "next": []
+    },
+    {
+      "name": "--learn-card",
+      "tip": [
+        "Register a smartcard."
+      ]
+    },
+    {
+      "name": "--list-chain",
+      "tip": [
+        "List the certificate chain."
+      ]
+    },
+    {
+      "name": "--list-external-keys",
+      "tip": [
+        "List external keys."
+      ]
+    },
+    {
+      "name": "--list-keys",
+      "alias": [
+        "-k"
+      ],
+      "usage": [
+        "-k, --list-keys"
+      ],
+      "tip": [
+        "List keys."
+      ]
+    },
+    {
+      "name": "--list-secret-keys",
+      "alias": [
+        "-K"
+      ],
+      "usage": [
+        "-K, --list-secret-keys"
+      ],
+      "tip": [
+        "List secret keys."
+      ]
+    },
+    {
+      "name": "--local-user",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --local-user USER-ID"
+      ],
+      "tip": [
+        "Use USER-ID to sign or decrypt."
+      ],
+      "next": []
+    },
+    {
+      "name": "--log-file",
+      "usage": [
+        "--log-file FILE"
+      ],
+      "tip": [
+        "Write server mode logs to FILE."
+      ],
+      "next": []
+    },
+    {
+      "name": "--no",
+      "tip": [
+        "Assume no on most questions."
+      ]
+    },
+    {
+      "name": "--no-tty",
+      "tip": [
+        "Do not use the terminal at all."
+      ]
+    },
+    {
+      "name": "--options",
+      "usage": [
+        "--options FILE"
+      ],
+      "tip": [
+        "Read options from FILE."
+      ],
+      "next": []
+    },
+    {
+      "name": "--output",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --output FILE"
+      ],
+      "tip": [
+        "Write output to FILE."
+      ],
+      "next": []
+    },
+    {
+      "name": "--p12-charset",
+      "usage": [
+        "--p12-charset NAME"
+      ],
+      "tip": [
+        "Use encoding NAME for PKCS#12 passphrases."
+      ],
+      "next": []
+    },
+    {
+      "name": "--policy-file",
+      "usage": [
+        "--policy-file FILE"
+      ],
+      "tip": [
+        "Take policy information from FILE."
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "Be somewhat more quiet."
+      ]
+    },
+    {
+      "name": "--recipient",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --recipient USER-ID"
+      ],
+      "tip": [
+        "Encrypt for USER-ID."
+      ],
+      "next": []
+    },
+    {
+      "name": "--server",
+      "tip": [
+        "Run in server mode."
+      ]
+    },
+    {
+      "name": "--sign",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --sign"
+      ],
+      "tip": [
+        "Make a signature."
+      ]
+    },
+    {
+      "name": "--status-fd",
+      "usage": [
+        "--status-fd FD"
+      ],
+      "tip": [
+        "Write status info to this file descriptor."
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Verbose mode."
+      ]
+    },
+    {
+      "name": "--verify",
+      "tip": [
+        "Verify a signature."
+      ]
+    },
+    {
+      "name": "--yes",
+      "tip": [
+        "Assume yes on most questions."
+      ]
+    }
+  ]
+}

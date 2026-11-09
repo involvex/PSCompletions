@@ -1,0 +1,245 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "显示文件中可打印的字符串。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--all",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --all"
+      ],
+      "tip": [
+        "扫描整个文件，而不仅是 data 节（默认）。"
+      ]
+    },
+    {
+      "name": "--bytes",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --bytes=<number>"
+      ],
+      "tip": [
+        "查找至少包含此数量可打印字符的序列（默认 4）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--data",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --data"
+      ],
+      "tip": [
+        "仅扫描 data 节。"
+      ]
+    },
+    {
+      "name": "--encoding",
+      "alias": [
+        "-e"
+      ],
+      "usage": [
+        "-e, --encoding={s,S,b,l,B,L}"
+      ],
+      "tip": [
+        "选择字符大小和字节序。",
+        "可能值: s, S, b, l, B, L"
+      ],
+      "next": [
+        {
+          "name": "b"
+        },
+        {
+          "name": "B"
+        },
+        {
+          "name": "l"
+        },
+        {
+          "name": "L"
+        },
+        {
+          "name": "s"
+        },
+        {
+          "name": "S"
+        }
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示此信息。"
+      ]
+    },
+    {
+      "name": "--include-all-whitespace",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --include-all-whitespace"
+      ],
+      "tip": [
+        "将所有空白视为有效字符串字符。"
+      ]
+    },
+    {
+      "name": "--output-separator",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --output-separator=<string>"
+      ],
+      "tip": [
+        "用于分隔输出中字符串的字符串。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--print-file-name",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --print-file-name"
+      ],
+      "tip": [
+        "在每个字符串前打印文件名。"
+      ]
+    },
+    {
+      "name": "--radix",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --radix={o,d,x}"
+      ],
+      "tip": [
+        "以 8、10 或 16 进制打印字符串位置。",
+        "可能值: o, d, x"
+      ],
+      "next": [
+        {
+          "name": "d"
+        },
+        {
+          "name": "o"
+        },
+        {
+          "name": "x"
+        }
+      ]
+    },
+    {
+      "name": "--target",
+      "alias": [
+        "-T"
+      ],
+      "usage": [
+        "-T, --target=<BFDNAME>"
+      ],
+      "tip": [
+        "指定二进制文件格式。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--unicode",
+      "usage": [
+        "--unicode={default|locale|invalid|hex|escape|highlight}"
+      ],
+      "tip": [
+        "指定如何处理 UTF-8 编码的 Unicode 字符。",
+        "可能值: default, locale, invalid, hex, escape, highlight"
+      ],
+      "next": [
+        {
+          "name": "default"
+        },
+        {
+          "name": "escape"
+        },
+        {
+          "name": "hex"
+        },
+        {
+          "name": "highlight"
+        },
+        {
+          "name": "invalid"
+        },
+        {
+          "name": "locale"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v",
+        "-V"
+      ],
+      "usage": [
+        "-v, -V, --version"
+      ],
+      "tip": [
+        "打印程序版本。"
+      ]
+    },
+    {
+      "name": "-o",
+      "tip": [
+        "--radix=o 的别名。"
+      ]
+    },
+    {
+      "name": "-U",
+      "usage": [
+        "-U {d|l|i|x|e|h}"
+      ],
+      "tip": [
+        "指定如何处理 UTF-8 编码的 Unicode 字符。",
+        "可能值: d, l, i, x, e, h"
+      ],
+      "next": [
+        {
+          "name": "d"
+        },
+        {
+          "name": "e"
+        },
+        {
+          "name": "h"
+        },
+        {
+          "name": "i"
+        },
+        {
+          "name": "l"
+        },
+        {
+          "name": "x"
+        }
+      ]
+    }
+  ]
+}

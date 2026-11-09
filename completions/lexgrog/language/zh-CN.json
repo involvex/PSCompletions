@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/man-db/man-db",
+    "description": [
+      "解析手册页中的头信息。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--cat",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --cat"
+      ],
+      "tip": [
+        "作为 cat 页解析。"
+      ]
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "输出调试消息。"
+      ]
+    },
+    {
+      "name": "--encoding",
+      "alias": [
+        "-E"
+      ],
+      "usage": [
+        "-E, --encoding=ENCODING"
+      ],
+      "tip": [
+        "使用选定的输出编码。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--filters",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --filters"
+      ],
+      "tip": [
+        "显示推测的预处理过滤器。"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "给出此帮助列表。"
+      ]
+    },
+    {
+      "name": "--man",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --man"
+      ],
+      "tip": [
+        "作为手册页解析。"
+      ]
+    },
+    {
+      "name": "--usage",
+      "tip": [
+        "给出简短用法消息。"
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "打印程序版本。"
+      ]
+    },
+    {
+      "name": "--whatis",
+      "alias": [
+        "-w"
+      ],
+      "usage": [
+        "-w, --whatis"
+      ],
+      "tip": [
+        "显示 whatis 信息。"
+      ]
+    }
+  ]
+}

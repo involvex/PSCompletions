@@ -1,0 +1,441 @@
+{
+  "meta": {
+    "url": "https://www.gnu.org/software/binutils",
+    "description": [
+      "List symbols from object files."
+    ]
+  },
+  "option": [
+    {
+      "name": "--debug-syms",
+      "alias": [
+        "-a"
+      ],
+      "usage": [
+        "-a, --debug-syms"
+      ],
+      "tip": [
+        "Display debugger-only symbols."
+      ]
+    },
+    {
+      "name": "--defined-only",
+      "alias": [
+        "-U"
+      ],
+      "usage": [
+        "-U, --defined-only"
+      ],
+      "tip": [
+        "Display only defined symbols."
+      ]
+    },
+    {
+      "name": "--demangle",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --demangle[=STYLE]"
+      ],
+      "tip": [
+        "Decode mangled or processed symbol names.",
+        "STYLE can be none, auto, gnu-v3, java, gnat, dlang or rust."
+      ],
+      "next": [
+        {
+          "name": "auto"
+        },
+        {
+          "name": "dlang"
+        },
+        {
+          "name": "gnat"
+        },
+        {
+          "name": "gnu-v3"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "rust"
+        }
+      ]
+    },
+    {
+      "name": "--dynamic",
+      "alias": [
+        "-D"
+      ],
+      "usage": [
+        "-D, --dynamic"
+      ],
+      "tip": [
+        "Display dynamic symbols instead of normal symbols."
+      ]
+    },
+    {
+      "name": "--extern-only",
+      "alias": [
+        "-g"
+      ],
+      "usage": [
+        "-g, --extern-only"
+      ],
+      "tip": [
+        "Display only external symbols."
+      ]
+    },
+    {
+      "name": "--format",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --format=FORMAT"
+      ],
+      "tip": [
+        "Use the given output format.",
+        "FORMAT can be bsd, sysv, posix or just-symbols."
+      ],
+      "next": [
+        {
+          "name": "bsd"
+        },
+        {
+          "name": "just-symbols"
+        },
+        {
+          "name": "posix"
+        },
+        {
+          "name": "sysv"
+        }
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this information."
+      ]
+    },
+    {
+      "name": "--ifunc-chars",
+      "usage": [
+        "--ifunc-chars=CHARS"
+      ],
+      "tip": [
+        "Characters to use when displaying ifunc symbols."
+      ],
+      "next": []
+    },
+    {
+      "name": "--just-symbols",
+      "alias": [
+        "-j"
+      ],
+      "usage": [
+        "-j, --just-symbols"
+      ],
+      "tip": [
+        "Same as --format=just-symbols."
+      ]
+    },
+    {
+      "name": "--line-numbers",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --line-numbers"
+      ],
+      "tip": [
+        "Use debugging information to find a filename and line number."
+      ]
+    },
+    {
+      "name": "--no-demangle",
+      "tip": [
+        "Do not demangle low-level symbol names."
+      ]
+    },
+    {
+      "name": "--no-recurse-limit",
+      "tip": [
+        "Disable the demangling recursion limit."
+      ]
+    },
+    {
+      "name": "--no-sort",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --no-sort"
+      ],
+      "tip": [
+        "Do not sort the symbols."
+      ]
+    },
+    {
+      "name": "--no-weak",
+      "alias": [
+        "-W"
+      ],
+      "usage": [
+        "-W, --no-weak"
+      ],
+      "tip": [
+        "Ignore weak symbols."
+      ]
+    },
+    {
+      "name": "--numeric-sort",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --numeric-sort"
+      ],
+      "tip": [
+        "Sort symbols numerically by address."
+      ]
+    },
+    {
+      "name": "--plugin",
+      "usage": [
+        "--plugin NAME"
+      ],
+      "tip": [
+        "Load the specified plugin."
+      ],
+      "next": []
+    },
+    {
+      "name": "--portability",
+      "alias": [
+        "-P"
+      ],
+      "usage": [
+        "-P, --portability"
+      ],
+      "tip": [
+        "Same as --format=posix."
+      ]
+    },
+    {
+      "name": "--print-armap",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --print-armap"
+      ],
+      "tip": [
+        "Include the index for symbols from archive members."
+      ]
+    },
+    {
+      "name": "--print-file-name",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --print-file-name"
+      ],
+      "tip": [
+        "Print the input file name before every symbol."
+      ]
+    },
+    {
+      "name": "--print-size",
+      "alias": [
+        "-S"
+      ],
+      "usage": [
+        "-S, --print-size"
+      ],
+      "tip": [
+        "Print the size of defined symbols."
+      ]
+    },
+    {
+      "name": "--quiet",
+      "tip": [
+        "Suppress the no-symbols diagnostic."
+      ]
+    },
+    {
+      "name": "--radix",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --radix=RADIX"
+      ],
+      "tip": [
+        "Use RADIX for printing symbol values.",
+        "Possible values: d, o, x"
+      ],
+      "next": [
+        {
+          "name": "d"
+        },
+        {
+          "name": "o"
+        },
+        {
+          "name": "x"
+        }
+      ]
+    },
+    {
+      "name": "--recurse-limit",
+      "tip": [
+        "Enable a demangling recursion limit (default)."
+      ]
+    },
+    {
+      "name": "--reverse-sort",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --reverse-sort"
+      ],
+      "tip": [
+        "Reverse the sense of the sort."
+      ]
+    },
+    {
+      "name": "--size-sort",
+      "tip": [
+        "Sort symbols by size."
+      ]
+    },
+    {
+      "name": "--special-syms",
+      "tip": [
+        "Include special symbols in the output."
+      ]
+    },
+    {
+      "name": "--synthetic",
+      "tip": [
+        "Display synthetic symbols as well."
+      ]
+    },
+    {
+      "name": "--target",
+      "usage": [
+        "--target=BFDNAME"
+      ],
+      "tip": [
+        "Specify the target object format."
+      ],
+      "next": []
+    },
+    {
+      "name": "--undefined-only",
+      "alias": [
+        "-u"
+      ],
+      "usage": [
+        "-u, --undefined-only"
+      ],
+      "tip": [
+        "Display only undefined symbols."
+      ]
+    },
+    {
+      "name": "--unicode",
+      "usage": [
+        "--unicode={default|show|invalid|hex|escape|highlight}"
+      ],
+      "tip": [
+        "Specify how to treat UTF-8 encoded Unicode characters.",
+        "Possible values: default, show, invalid, hex, escape, highlight"
+      ],
+      "next": [
+        {
+          "name": "default"
+        },
+        {
+          "name": "escape"
+        },
+        {
+          "name": "hex"
+        },
+        {
+          "name": "highlight"
+        },
+        {
+          "name": "invalid"
+        },
+        {
+          "name": "show"
+        }
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Display the program version."
+      ]
+    },
+    {
+      "name": "--without-symbol-versions",
+      "tip": [
+        "Do not display version strings after symbol names."
+      ]
+    },
+    {
+      "name": "-B",
+      "tip": [
+        "Same as --format=bsd."
+      ]
+    },
+    {
+      "name": "-e",
+      "tip": [
+        "Ignored."
+      ]
+    },
+    {
+      "name": "-o",
+      "tip": [
+        "Same as -A."
+      ]
+    },
+    {
+      "name": "-X",
+      "usage": [
+        "-X 32_64"
+      ],
+      "tip": [
+        "Ignored."
+      ],
+      "next": [
+        {
+          "name": "32_64"
+        }
+      ]
+    }
+  ]
+}

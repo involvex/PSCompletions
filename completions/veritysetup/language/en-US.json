@@ -1,0 +1,317 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/cryptsetup/cryptsetup",
+    "description": [
+      "Manage dm-verity devices."
+    ]
+  },
+  "next": [
+    {
+      "name": "close",
+      "usage": [
+        "close <NAME>"
+      ],
+      "tip": [
+        "Close a mapping."
+      ]
+    },
+    {
+      "name": "dump",
+      "usage": [
+        "dump <HASH_DEVICE>"
+      ],
+      "tip": [
+        "Show on-disk information."
+      ]
+    },
+    {
+      "name": "format",
+      "usage": [
+        "format <DATA_DEVICE> <HASH_DEVICE>"
+      ],
+      "tip": [
+        "Format a verity device."
+      ]
+    },
+    {
+      "name": "open",
+      "usage": [
+        "open <DATA_DEVICE> <NAME> <HASH_DEVICE> [<ROOT_HASH>]"
+      ],
+      "tip": [
+        "Open a device and create a mapping."
+      ]
+    },
+    {
+      "name": "status",
+      "usage": [
+        "status <NAME>"
+      ],
+      "tip": [
+        "Show the status of an active device."
+      ]
+    },
+    {
+      "name": "verify",
+      "usage": [
+        "verify <DATA_DEVICE> <HASH_DEVICE> [<ROOT_HASH>]"
+      ],
+      "tip": [
+        "Verify a device."
+      ]
+    }
+  ],
+  "global_option": [
+    {
+      "name": "--cancel-deferred",
+      "tip": [
+        "Cancel a previously set deferred device removal."
+      ]
+    },
+    {
+      "name": "--check-at-most-once",
+      "tip": [
+        "Verify a data block only the first time it is read."
+      ]
+    },
+    {
+      "name": "--data-block-size",
+      "usage": [
+        "--data-block-size=<BYTES>"
+      ],
+      "tip": [
+        "Block size on the data device."
+      ],
+      "next": []
+    },
+    {
+      "name": "--data-blocks",
+      "usage": [
+        "--data-blocks=<BLOCKS>"
+      ],
+      "tip": [
+        "Number of blocks in the data file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "tip": [
+        "Show debug messages."
+      ]
+    },
+    {
+      "name": "--deferred",
+      "tip": [
+        "Defer device removal until the last user closes it."
+      ]
+    },
+    {
+      "name": "--fec-device",
+      "usage": [
+        "--fec-device=<PATH>"
+      ],
+      "tip": [
+        "Path to the device with error correction data."
+      ],
+      "next": []
+    },
+    {
+      "name": "--fec-offset",
+      "usage": [
+        "--fec-offset=<BYTES>"
+      ],
+      "tip": [
+        "Starting offset on the FEC device."
+      ],
+      "next": []
+    },
+    {
+      "name": "--fec-roots",
+      "usage": [
+        "--fec-roots=<BYTES>"
+      ],
+      "tip": [
+        "Number of FEC parity bytes."
+      ],
+      "next": []
+    },
+    {
+      "name": "--format",
+      "usage": [
+        "--format=<NUMBER>"
+      ],
+      "tip": [
+        "Format type: 1 for normal, 0 for original Chrome OS."
+      ],
+      "next": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "1"
+        }
+      ]
+    },
+    {
+      "name": "--hash",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --hash=<STRING>"
+      ],
+      "tip": [
+        "Hash algorithm."
+      ],
+      "next": []
+    },
+    {
+      "name": "--hash-block-size",
+      "usage": [
+        "--hash-block-size=<BYTES>"
+      ],
+      "tip": [
+        "Block size on the hash device."
+      ],
+      "next": []
+    },
+    {
+      "name": "--hash-offset",
+      "usage": [
+        "--hash-offset=<BYTES>"
+      ],
+      "tip": [
+        "Starting offset on the hash device."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-?"
+      ],
+      "usage": [
+        "-?, --help"
+      ],
+      "tip": [
+        "Show this help message."
+      ]
+    },
+    {
+      "name": "--ignore-corruption",
+      "tip": [
+        "Ignore corruption and only log it."
+      ]
+    },
+    {
+      "name": "--ignore-zero-blocks",
+      "tip": [
+        "Do not verify zeroed blocks."
+      ]
+    },
+    {
+      "name": "--no-superblock",
+      "tip": [
+        "Do not use a verity superblock."
+      ]
+    },
+    {
+      "name": "--panic-on-corruption",
+      "tip": [
+        "Panic the kernel if corruption is detected."
+      ]
+    },
+    {
+      "name": "--restart-on-corruption",
+      "tip": [
+        "Restart the kernel if corruption is detected."
+      ]
+    },
+    {
+      "name": "--root-hash-file",
+      "usage": [
+        "--root-hash-file=<STRING>"
+      ],
+      "tip": [
+        "Path to the root hash file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--root-hash-signature",
+      "usage": [
+        "--root-hash-signature=<STRING>"
+      ],
+      "tip": [
+        "Path to the root hash signature file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--salt",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --salt=<HEX>"
+      ],
+      "tip": [
+        "Salt as a hexadecimal string."
+      ],
+      "next": []
+    },
+    {
+      "name": "--shared",
+      "tip": [
+        "Share the data device with another verity segment."
+      ]
+    },
+    {
+      "name": "--usage",
+      "tip": [
+        "Display brief usage."
+      ]
+    },
+    {
+      "name": "--use-tasklets",
+      "tip": [
+        "Use kernel tasklets for performance."
+      ]
+    },
+    {
+      "name": "--uuid",
+      "usage": [
+        "--uuid=<STRING>"
+      ],
+      "tip": [
+        "UUID for the device to use."
+      ],
+      "next": []
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Show more detailed error messages."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Print package version."
+      ]
+    }
+  ]
+}

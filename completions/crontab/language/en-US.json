@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "url": "https://cron.sourceforge.net",
+    "description": [
+      "Maintain crontab files for individual users."
+    ]
+  },
+  "option": [
+    {
+      "name": "-e",
+      "tip": [
+        "Edit the user's crontab."
+      ]
+    },
+    {
+      "name": "-h",
+      "tip": [
+        "Display this help message."
+      ]
+    },
+    {
+      "name": "-i",
+      "tip": [
+        "Prompt before deleting the crontab."
+      ]
+    },
+    {
+      "name": "-l",
+      "tip": [
+        "List the user's crontab."
+      ]
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "Dry run: check syntax, then exit."
+      ]
+    },
+    {
+      "name": "-r",
+      "tip": [
+        "Delete the user's crontab."
+      ]
+    },
+    {
+      "name": "-u",
+      "usage": [
+        "-u user"
+      ],
+      "tip": [
+        "Choose the user whose crontab is touched."
+      ],
+      "next": []
+    }
+  ]
+}

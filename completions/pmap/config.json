@@ -1,0 +1,9 @@
+{
+  "id": "c482a2d6-ecbd-51c3-a70f-8cc28978be5b",
+  "version": "procps-ng 4.0.4",
+  "hooks": true,
+  "language": [
+    "en-US",
+    "zh-CN"
+  ]
+}

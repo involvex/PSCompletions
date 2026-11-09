@@ -1,0 +1,445 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/lvmteam/lvm2",
+    "description": [
+      "Resize a logical volume"
+    ]
+  },
+  "option": [
+    {
+      "name": "--alloc",
+      "usage": [
+        "--alloc contiguous|cling|cling_by_tags|normal|anywhere|inherit"
+      ],
+      "tip": [
+        "Determines the allocation policy when a command needs to allocate Physical Extents (PEs) from the VG."
+      ],
+      "next": [
+        {
+          "name": "anywhere"
+        },
+        {
+          "name": "cling"
+        },
+        {
+          "name": "cling_by_tags"
+        },
+        {
+          "name": "contiguous"
+        },
+        {
+          "name": "inherit"
+        },
+        {
+          "name": "normal"
+        }
+      ]
+    },
+    {
+      "name": "--autobackup",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --autobackup y|n"
+      ],
+      "tip": [
+        "Specifies if metadata should be backed up automatically after a change."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--commandprofile",
+      "usage": [
+        "--commandprofile String"
+      ],
+      "tip": [
+        "The command profile to use for command configuration."
+      ],
+      "next": []
+    },
+    {
+      "name": "--config",
+      "usage": [
+        "--config String"
+      ],
+      "tip": [
+        "Config settings for the command."
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --debug"
+      ],
+      "tip": [
+        "Set debug level."
+      ],
+      "repeat": 6
+    },
+    {
+      "name": "--devices",
+      "usage": [
+        "--devices PV"
+      ],
+      "tip": [
+        "Restricts the devices that are visible and accessible to the command."
+      ],
+      "repeat": 99,
+      "separator": ",",
+      "next": []
+    },
+    {
+      "name": "--devicesfile",
+      "usage": [
+        "--devicesfile String"
+      ],
+      "tip": [
+        "A file listing devices that LVM should use."
+      ],
+      "next": []
+    },
+    {
+      "name": "--driverloaded",
+      "usage": [
+        "--driverloaded y|n"
+      ],
+      "tip": [
+        "If set to no, the command will not attempt to use device-mapper."
+      ],
+      "next": [
+        {
+          "name": "n"
+        },
+        {
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "name": "--extents",
+      "alias": [
+        "-l"
+      ],
+      "usage": [
+        "-l, --extents [+|-]Number[PERCENT]"
+      ],
+      "tip": [
+        "Specifies the new size of the LV in logical extents."
+      ],
+      "next": []
+    },
+    {
+      "name": "--force",
+      "alias": [
+        "-f"
+      ],
+      "usage": [
+        "-f, --force"
+      ],
+      "tip": [
+        "Override various checks, confirmations and protections."
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--fs",
+      "usage": [
+        "--fs String"
+      ],
+      "tip": [
+        "Control file system resizing when resizing an LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--fsmode",
+      "usage": [
+        "--fsmode String"
+      ],
+      "tip": [
+        "Control file system mounting behavior for fs resize."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display help text."
+      ]
+    },
+    {
+      "name": "--journal",
+      "usage": [
+        "--journal String"
+      ],
+      "tip": [
+        "Record information in the systemd journal."
+      ],
+      "next": []
+    },
+    {
+      "name": "--lockopt",
+      "usage": [
+        "--lockopt String"
+      ],
+      "tip": [
+        "Used to pass options for special cases to lvmlockd."
+      ],
+      "next": []
+    },
+    {
+      "name": "--longhelp",
+      "tip": [
+        "Display long help text."
+      ]
+    },
+    {
+      "name": "--nofsck",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --nofsck"
+      ],
+      "tip": [
+        "Do not perform fsck when resizing the file system with --resizefs."
+      ]
+    },
+    {
+      "name": "--nohints",
+      "tip": [
+        "Do not use the hints file to locate devices for PVs."
+      ]
+    },
+    {
+      "name": "--nolocking",
+      "tip": [
+        "Disable locking."
+      ]
+    },
+    {
+      "name": "--nosync",
+      "tip": [
+        "Causes the creation of mirror, raid1, raid4, raid5 and raid10 to skip the initial synchronization."
+      ]
+    },
+    {
+      "name": "--noudevsync",
+      "tip": [
+        "Disables udev synchronization."
+      ]
+    },
+    {
+      "name": "--poolmetadatasize",
+      "usage": [
+        "--poolmetadatasize [+]Size[m|UNIT]"
+      ],
+      "tip": [
+        "Specifies the new size of the pool metadata LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--profile",
+      "usage": [
+        "--profile String"
+      ],
+      "tip": [
+        "An alias for --commandprofile or --metadataprofile, depending on the command."
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "Suppress output and log messages."
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--reportformat",
+      "usage": [
+        "--reportformat basic|json|json_std"
+      ],
+      "tip": [
+        "Overrides current output format for reports which is defined globally by the report/output_format setting in lvm.conf(5)."
+      ],
+      "next": [
+        {
+          "name": "basic"
+        },
+        {
+          "name": "json"
+        },
+        {
+          "name": "json_std"
+        }
+      ]
+    },
+    {
+      "name": "--resizefs",
+      "alias": [
+        "-r"
+      ],
+      "usage": [
+        "-r, --resizefs"
+      ],
+      "tip": [
+        "Resize the fs using the fs-specific resize command."
+      ]
+    },
+    {
+      "name": "--size",
+      "alias": [
+        "-L"
+      ],
+      "usage": [
+        "-L, --size [+|-]Size[m|UNIT]"
+      ],
+      "tip": [
+        "Specifies the new size of the LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--stripes",
+      "alias": [
+        "-i"
+      ],
+      "usage": [
+        "-i, --stripes Number"
+      ],
+      "tip": [
+        "Specifies the number of stripes in a striped LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--stripesize",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --stripesize Size[k|UNIT]"
+      ],
+      "tip": [
+        "The amount of data that is written to one device before moving to the next in a striped LV."
+      ],
+      "next": []
+    },
+    {
+      "name": "--test",
+      "alias": [
+        "-t"
+      ],
+      "usage": [
+        "-t, --test"
+      ],
+      "tip": [
+        "Run in test mode."
+      ]
+    },
+    {
+      "name": "--type",
+      "usage": [
+        "--type linear|striped|snapshot|raid|mirror|thin|thin-pool|cache|cache-pool|writecache|vdo|vdo-pool"
+      ],
+      "tip": [
+        "The LV type, also known as segment type."
+      ],
+      "next": [
+        {
+          "name": "cache"
+        },
+        {
+          "name": "cache-pool"
+        },
+        {
+          "name": "linear"
+        },
+        {
+          "name": "mirror"
+        },
+        {
+          "name": "raid"
+        },
+        {
+          "name": "snapshot"
+        },
+        {
+          "name": "striped"
+        },
+        {
+          "name": "thin"
+        },
+        {
+          "name": "thin-pool"
+        },
+        {
+          "name": "vdo"
+        },
+        {
+          "name": "vdo-pool"
+        },
+        {
+          "name": "writecache"
+        }
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Set verbose level."
+      ],
+      "repeat": 99
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "Display version information."
+      ]
+    },
+    {
+      "name": "--yes",
+      "alias": [
+        "-y"
+      ],
+      "usage": [
+        "-y, --yes"
+      ],
+      "tip": [
+        "Do not prompt for confirmation interactively but always assume the answer yes."
+      ]
+    }
+  ]
+}

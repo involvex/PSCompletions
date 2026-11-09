@@ -1,5 +1,4 @@
-//! Shared validation helpers: completion-name status, uniform error emission, and
-//! settings-map utilities used by several commands.
+//! Shared validation helpers: completion-name status, uniform error emission, and settings-map utilities used by several commands.
 
 use std::process::ExitCode;
 
@@ -7,18 +6,17 @@ use serde_json::Value;
 
 use crate::data::{read_text, Index, Settings};
 use crate::messages::msg_cli;
-use crate::output::{fail, Out};
+use crate::output::{err, Out};
 
 /// Completion name status: 2=installed/local link (alias set or dir on disk), 1=remote-only, 0=unknown.
 /// All subcommands that accept a completion name share this same determination.
 pub fn name_status(settings: &Settings, index: &Index, completions_dir: &str, name: &str) -> u8 {
-    // Reject before touching the filesystem: a name carrying separators would make the
-    // `completions_dir/name` probe resolve outside the library directory.
+    // Reject before touching the filesystem: a name carrying separators would make the `completions_dir/name` probe resolve outside the library directory.
     if !is_valid_name(name) {
         return 0;
     }
     if settings.alias.contains_key(name)
-        || std::path::Path::new(&format!("{completions_dir}/{name}")).exists()
+        || std::fs::symlink_metadata(format!("{completions_dir}/{name}")).is_ok()
     {
         return 2;
     }
@@ -42,25 +40,50 @@ pub fn is_valid_name(name: &str) -> bool {
     true
 }
 
-/// Validate a completion name uniformly and report errors. `need_installed`: whether the command
-/// requires the completion to be installed (rm/update/completion/alias).
-/// Returns the error message when the name is invalid.
-pub fn name_error(lang: &str, name: &str, status: u8, need_installed: bool) -> Option<String> {
-    if !is_valid_name(name) {
-        return Some(format!("{name} {}", msg_cli(lang, "not_available")));
-    }
-    if status == 0 {
-        return Some(format!("{name} {}", msg_cli(lang, "not_available")));
+/// Validate a completion name uniformly and report errors.
+/// `need_installed`: whether the command requires the completion to be installed (rm/update/completion/alias).
+///
+/// Returns the stable `code` a machine branches on together with the message a human reads (design/json.md): `not_available` for a name that is not usable, `not_installed` for one that exists remotely but is not installed here.
+pub fn name_error(
+    lang: &str,
+    name: &str,
+    status: u8,
+    need_installed: bool,
+) -> Option<(&'static str, String)> {
+    if !is_valid_name(name) || status == 0 {
+        return Some((
+            "not_available",
+            format!("{name}: {}", msg_cli(lang, "not_available")),
+        ));
     }
     if need_installed && status == 1 {
-        return Some(format!("{name}: {}", msg_cli(lang, "no_completion")));
+        return Some((
+            "not_installed",
+            format!("{name}: {}", msg_cli(lang, "not_installed")),
+        ));
     }
     None
 }
 
-/// Parameter-count validation error: routed through the output contract (`fail`).
-pub fn param_err(out: &Out, lang: &str, json: bool) -> ExitCode {
-    fail(out, msg_cli(lang, "param_min"), json)
+/// Parameter-count validation error: the envelope's `too_few_params`, a usage error (exit 2).
+pub fn too_few_params(out: &Out, lang: &str, json: bool) -> ExitCode {
+    let msg = msg_cli(lang, "too_few_params");
+    if json {
+        return err("too_few_params", &msg, None, true);
+    }
+    out.line(&msg);
+    ExitCode::from(2)
+}
+
+/// The mirror of `too_few_params`: a command that takes no arguments was given some.
+/// Also a usage error (exit 2) — a mistyped flag must not look like a normal run.
+pub fn too_many_params(out: &Out, lang: &str, json: bool) -> ExitCode {
+    let msg = msg_cli(lang, "too_many_params");
+    if json {
+        return err("too_many_params", &msg, None, true);
+    }
+    out.line(&msg);
+    ExitCode::from(2)
 }
 
 /// `<data>` dir from the settings path (`<data>/settings.json`).
@@ -86,34 +109,45 @@ pub fn ensure_completion_map(settings: &mut Settings) -> &mut serde_json::Map<St
     comp.as_object_mut().unwrap()
 }
 
-/// Split `desired` trigger aliases for `name` into `(kept, skipped)`.
-/// A word already owned by another completion stays with its owner;
-/// each skipped word pairs with its owner's name for the warning.
-pub fn filter_owned_triggers(
-    settings: &Settings,
+/// Get (creating if needed) one completion's config map, repairing a non-object entry.
+/// `settings.config` and `config.completion` may hold anything a hand-edited file put there; a non-object is replaced rather than unwrapped.
+pub fn ensure_completion_entry<'a>(
+    settings: &'a mut Settings,
     name: &str,
-    desired: Vec<String>,
-) -> (Vec<String>, Vec<(String, String)>) {
-    let mut kept = Vec::new();
-    let mut skipped = Vec::new();
-    for a in desired {
-        match settings
-            .alias
-            .iter()
-            .find(|(k, v)| k.as_str() != name && v.iter().any(|x| x == &a))
-            .map(|(k, _)| k.clone())
-        {
-            Some(owner) => skipped.push((a, owner)),
-            None => kept.push(a),
+) -> &'a mut serde_json::Map<String, Value> {
+    let comp = ensure_completion_map(settings);
+    let entry = comp
+        .entry(name.to_string())
+        .or_insert_with(|| serde_json::json!({}));
+    if !entry.is_object() {
+        *entry = serde_json::json!({});
+    }
+    entry.as_object_mut().unwrap()
+}
+
+/// Canonical spelling of a trigger alias: whitespace-separated words joined by one space.
+/// The hosts join the typed tokens the same way, so `"npx  vite"` and `"npx vite"` must not become two keys.
+pub fn normalize_alias(alias: &str) -> String {
+    alias.split_whitespace().collect::<Vec<_>>().join(" ")
+}
+
+/// Canonical, de-duplicated alias list: a hand-edited run of spaces is the same word, not a second one.
+pub fn normalize_alias_list(words: &[String]) -> Vec<String> {
+    let mut out: Vec<String> = Vec::new();
+    for w in words {
+        let n = normalize_alias(w);
+        if !n.is_empty() && !out.contains(&n) {
+            out.push(n);
         }
     }
-    (kept, skipped)
+    out
 }
 
 /// Restore a completion's trigger aliases to its config.json alias (or the name itself).
-/// Words already owned by another completion stay with their owner;
-/// skipped words are returned for the warning.
-pub fn reset_alias(settings: &mut Settings, data_dir: &str, name: &str) -> Vec<(String, String)> {
+///
+/// The alias map's order **is** the claim order, and the hosts build their `word -> completion` table by inserting in it, so declaring the words here — moving the completion to the end — is what makes a later declaration win.
+/// Conflicts are deliberately not resolved: the last claim simply wins, and `psc alias` shows the current ownership.
+pub fn reset_alias(settings: &mut Settings, data_dir: &str, name: &str) {
     let config_path = format!("{data_dir}/completions/{name}/config.json");
     let desired: Vec<String> = read_text(&config_path)
         .and_then(|t| serde_json::from_str::<Value>(&t).ok())
@@ -122,17 +156,18 @@ pub fn reset_alias(settings: &mut Settings, data_dir: &str, name: &str) -> Vec<(
                 .get("alias")
                 .and_then(|a| a.as_array())
                 .map(|a| {
-                    a.iter()
+                    let words: Vec<String> = a
+                        .iter()
                         .filter_map(|x| x.as_str().map(String::from))
-                        .collect::<Vec<_>>()
+                        .collect();
+                    normalize_alias_list(&words)
                 })
                 .filter(|a: &Vec<String>| !a.is_empty())
                 .unwrap_or_else(|| vec![name.to_string()])
         })
         .unwrap_or_else(|| vec![name.to_string()]);
-    let (kept, skipped) = filter_owned_triggers(settings, name, desired);
-    settings.alias.insert(name.to_string(), kept);
-    skipped
+    settings.alias.shift_remove(name);
+    settings.alias.insert(name.to_string(), desired);
 }
 
 #[cfg(test)]
@@ -140,28 +175,25 @@ mod tests {
     use super::*;
 
     #[test]
-    fn filter_owned_triggers_keeps_earlier_owner() {
-        let mut s = Settings::default();
-        s.alias.insert(
-            "helix".to_string(),
-            vec!["helix".to_string(), "hx".to_string()],
-        );
-        let (kept, skipped) = filter_owned_triggers(
-            &s,
-            "helix-xxx",
-            vec!["helix-xxx".to_string(), "hx".to_string()],
-        );
-        assert_eq!(kept, vec!["helix-xxx".to_string()]);
-        assert_eq!(skipped, vec![("hx".to_string(), "helix".to_string())]);
-        // A completion's own words are never filtered.
-        let (kept, skipped) =
-            filter_owned_triggers(&s, "helix", vec!["helix".to_string(), "hx".to_string()]);
-        assert_eq!(kept.len(), 2);
-        assert!(skipped.is_empty());
+    fn normalize_alias_collapses_whitespace() {
+        assert_eq!(normalize_alias("npx  vite"), "npx vite");
+        assert_eq!(normalize_alias("  npx\tvite  "), "npx vite");
+        assert_eq!(normalize_alias("   "), "");
     }
 
     #[test]
-    fn reset_alias_skips_words_owned_by_earlier_completion() {
+    fn normalize_alias_list_dedupes_after_collapsing() {
+        let words = vec![
+            "npx  vite".to_string(),
+            "npx vite".to_string(),
+            "   ".to_string(),
+        ];
+        assert_eq!(normalize_alias_list(&words), vec!["npx vite".to_string()]);
+    }
+
+    #[test]
+    fn reset_alias_declares_the_config_words_in_order() {
+        // The config's words are declared in order after canonicalizing whitespace, and the completion moves to the end of the map — that order is what makes a later declaration win for the hosts.
         let base = std::env::temp_dir().join(format!("psc-validate-test-{}", std::process::id()));
         let dir = base.join("completions/new");
         std::fs::create_dir_all(&dir).unwrap();
@@ -175,10 +207,54 @@ mod tests {
             "helix".to_string(),
             vec!["helix".to_string(), "hx".to_string()],
         );
-        let skipped = reset_alias(&mut s, base.to_str().unwrap(), "new");
-        assert_eq!(skipped, vec![("hx".to_string(), "helix".to_string())]);
-        assert_eq!(s.alias.get("new").unwrap(), &vec!["new".to_string()]);
+        s.alias.insert("new".to_string(), vec!["old".to_string()]);
+        reset_alias(&mut s, base.to_str().unwrap(), "new");
+        assert_eq!(
+            s.alias.get("new").unwrap(),
+            &vec!["hx".to_string(), "new".to_string()]
+        );
+        // Declared last, so it is last in the map.
+        assert_eq!(s.alias.keys().last().unwrap(), "new");
         std::fs::remove_dir_all(&base).ok();
+    }
+
+    #[test]
+    fn reset_alias_falls_back_to_the_name_without_a_config_alias() {
+        let base = std::env::temp_dir().join(format!("psc-validate-name-{}", std::process::id()));
+        let dir = base.join("completions/solo");
+        std::fs::create_dir_all(&dir).unwrap();
+        std::fs::write(dir.join("config.json"), r#"{"language":["en-US"]}"#).unwrap();
+        let mut s = Settings::default();
+        reset_alias(&mut s, base.to_str().unwrap(), "solo");
+        assert_eq!(s.alias.get("solo").unwrap(), &vec!["solo".to_string()]);
+        std::fs::remove_dir_all(&base).ok();
+    }
+
+    #[test]
+    fn name_status_counts_dangling_link_as_present() {
+        #[cfg(unix)]
+        {
+            use std::sync::atomic::{AtomicU64, Ordering};
+            static COUNTER: AtomicU64 = AtomicU64::new(0);
+            let n = COUNTER.fetch_add(1, Ordering::Relaxed);
+            let base = std::env::temp_dir()
+                .join(format!("psc-validate-dangle-{}-{n}", std::process::id()));
+            let dir = base.join("completions");
+            std::fs::create_dir_all(&dir).unwrap();
+            std::os::unix::fs::symlink(base.join("gone"), dir.join("dangle")).unwrap();
+            let s = Settings::default();
+            let index = Index::default();
+            assert_eq!(
+                name_status(
+                    &s,
+                    &index,
+                    base.join("completions").to_str().unwrap(),
+                    "dangle"
+                ),
+                2
+            );
+            std::fs::remove_dir_all(&base).ok();
+        }
     }
 
     #[test]

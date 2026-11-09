@@ -1,0 +1,2591 @@
+{
+  "meta": {
+    "url": "https://git.kernel.org/pub/scm/utils/mdadm/mdadm.git",
+    "description": [
+      "Build, manage and monitor Linux md RAID arrays."
+    ]
+  },
+  "next": [
+    {
+      "name": "--assemble",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --assemble device [options]"
+      ],
+      "tip": [
+        "Assemble a previously created array."
+      ],
+      "option": [
+        {
+          "name": "--backup-file",
+          "usage": [
+            "--backup-file <FILE>"
+          ],
+          "tip": [
+            "Provide the backup file needed to finish an interrupted reshape."
+          ],
+          "next": []
+        },
+        {
+          "name": "--bitmap",
+          "usage": [
+            "--bitmap <FILE>"
+          ],
+          "tip": [
+            "Use this bitmap file with the array."
+          ],
+          "next": []
+        },
+        {
+          "name": "--config",
+          "alias": [
+            "-c"
+          ],
+          "usage": [
+            "-c, --config <FILE>"
+          ],
+          "tip": [
+            "Use this configuration file or directory."
+          ],
+          "next": []
+        },
+        {
+          "name": "--force",
+          "alias": [
+            "-f"
+          ],
+          "usage": [
+            "-f, --force"
+          ],
+          "tip": [
+            "Override normal checks and be more forceful."
+          ]
+        },
+        {
+          "name": "--freeze-reshape",
+          "tip": [
+            "Stop a reshape after its critical section during assembly."
+          ]
+        },
+        {
+          "name": "--home-cluster",
+          "usage": [
+            "--home-cluster <CLUSTER>"
+          ],
+          "tip": [
+            "Set the cluster name required to assemble the array."
+          ],
+          "next": []
+        },
+        {
+          "name": "--homehost",
+          "usage": [
+            "--homehost <HOST>"
+          ],
+          "tip": [
+            "Set the home host identity recorded in the metadata."
+          ],
+          "next": [
+            {
+              "name": "any"
+            }
+          ]
+        },
+        {
+          "name": "--invalid-backup",
+          "tip": [
+            "Declare the backup file invalid as a last resort."
+          ]
+        },
+        {
+          "name": "--metadata",
+          "alias": [
+            "-e"
+          ],
+          "usage": [
+            "-e, --metadata <METADATA>"
+          ],
+          "tip": [
+            "Declare the RAID metadata format."
+          ],
+          "next": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "0.90"
+            },
+            {
+              "name": "1"
+            },
+            {
+              "name": "1.0"
+            },
+            {
+              "name": "1.1"
+            },
+            {
+              "name": "1.2"
+            },
+            {
+              "name": "ddf"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "imsm"
+            }
+          ]
+        },
+        {
+          "name": "--name",
+          "alias": [
+            "-N"
+          ],
+          "usage": [
+            "-N, --name <NAME>"
+          ],
+          "tip": [
+            "Assemble the array with this name."
+          ],
+          "next": []
+        },
+        {
+          "name": "--no-degraded",
+          "tip": [
+            "Do not start an array unless all expected devices are present."
+          ]
+        },
+        {
+          "name": "--readonly",
+          "alias": [
+            "-o"
+          ],
+          "usage": [
+            "-o, --readonly"
+          ],
+          "tip": [
+            "Mark the array read-only."
+          ]
+        },
+        {
+          "name": "--run",
+          "alias": [
+            "-R"
+          ],
+          "usage": [
+            "-R, --run"
+          ],
+          "tip": [
+            "Start the array even if not all devices are present."
+          ]
+        },
+        {
+          "name": "--scan",
+          "alias": [
+            "-s"
+          ],
+          "usage": [
+            "-s, --scan"
+          ],
+          "tip": [
+            "Scan the configuration file for missing information."
+          ]
+        },
+        {
+          "name": "--super-minor",
+          "alias": [
+            "-m"
+          ],
+          "usage": [
+            "-m, --super-minor <MINOR>"
+          ],
+          "tip": [
+            "Assemble only devices with this superblock minor number."
+          ],
+          "next": [
+            {
+              "name": "dev"
+            }
+          ]
+        },
+        {
+          "name": "--update",
+          "alias": [
+            "-U"
+          ],
+          "usage": [
+            "-U, --update <UPDATE>"
+          ],
+          "tip": [
+            "Update a superblock field while assembling."
+          ],
+          "next": [
+            {
+              "name": "bbl"
+            },
+            {
+              "name": "byteorder"
+            },
+            {
+              "name": "devicesize"
+            },
+            {
+              "name": "home-cluster"
+            },
+            {
+              "name": "homehost"
+            },
+            {
+              "name": "layout-alternate"
+            },
+            {
+              "name": "layout-original"
+            },
+            {
+              "name": "layout-unspecified"
+            },
+            {
+              "name": "metadata"
+            },
+            {
+              "name": "name"
+            },
+            {
+              "name": "no-bbl"
+            },
+            {
+              "name": "no-bitmap"
+            },
+            {
+              "name": "no-ppl"
+            },
+            {
+              "name": "nodes"
+            },
+            {
+              "name": "ppl"
+            },
+            {
+              "name": "resync"
+            },
+            {
+              "name": "summaries"
+            },
+            {
+              "name": "super-minor"
+            },
+            {
+              "name": "uuid"
+            }
+          ]
+        },
+        {
+          "name": "--uuid",
+          "alias": [
+            "-u"
+          ],
+          "usage": [
+            "-u, --uuid <UUID>"
+          ],
+          "tip": [
+            "Assemble only devices with this UUID."
+          ],
+          "next": []
+        }
+      ]
+    },
+    {
+      "name": "--auto-detect",
+      "tip": [
+        "Ask the kernel to start auto-detected arrays."
+      ]
+    },
+    {
+      "name": "--build",
+      "alias": [
+        "-B"
+      ],
+      "usage": [
+        "-B, --build device --chunk=X --level=Y --raid-devices=Z devices"
+      ],
+      "tip": [
+        "Build a legacy array without a superblock."
+      ],
+      "option": [
+        {
+          "name": "--assume-clean",
+          "tip": [
+            "Assume the array is already clean and skip the initial resync."
+          ]
+        },
+        {
+          "name": "--bitmap",
+          "alias": [
+            "-b"
+          ],
+          "usage": [
+            "-b, --bitmap <FILE|internal|none>"
+          ],
+          "tip": [
+            "Store or find bitmap information in this file."
+          ],
+          "next": [
+            {
+              "name": "clustered"
+            },
+            {
+              "name": "internal"
+            },
+            {
+              "name": "none"
+            }
+          ]
+        },
+        {
+          "name": "--bitmap-chunk",
+          "usage": [
+            "--bitmap-chunk <SIZE>"
+          ],
+          "tip": [
+            "Set the bitmap chunk size in kilobytes."
+          ],
+          "next": []
+        },
+        {
+          "name": "--chunk",
+          "alias": [
+            "-c"
+          ],
+          "usage": [
+            "-c, --chunk <SIZE>"
+          ],
+          "tip": [
+            "Set the chunk size in kilobytes."
+          ],
+          "next": []
+        },
+        {
+          "name": "--delay",
+          "alias": [
+            "-d"
+          ],
+          "usage": [
+            "-d, --delay <SECONDS>"
+          ],
+          "tip": [
+            "Set the bitmap update delay in seconds."
+          ],
+          "next": []
+        },
+        {
+          "name": "--force",
+          "alias": [
+            "-f"
+          ],
+          "usage": [
+            "-f, --force"
+          ],
+          "tip": [
+            "Override normal checks and be more forceful."
+          ]
+        },
+        {
+          "name": "--level",
+          "alias": [
+            "-l"
+          ],
+          "usage": [
+            "-l, --level <LEVEL>"
+          ],
+          "tip": [
+            "Set the RAID level."
+          ],
+          "next": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "1"
+            },
+            {
+              "name": "10"
+            },
+            {
+              "name": "faulty"
+            },
+            {
+              "name": "linear"
+            },
+            {
+              "name": "mp"
+            },
+            {
+              "name": "multipath"
+            },
+            {
+              "name": "raid0"
+            },
+            {
+              "name": "raid1"
+            },
+            {
+              "name": "raid10"
+            },
+            {
+              "name": "stripe"
+            }
+          ]
+        },
+        {
+          "name": "--metadata",
+          "alias": [
+            "-e"
+          ],
+          "usage": [
+            "-e, --metadata <METADATA>"
+          ],
+          "tip": [
+            "Declare the RAID metadata format."
+          ],
+          "next": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "0.90"
+            },
+            {
+              "name": "1"
+            },
+            {
+              "name": "1.0"
+            },
+            {
+              "name": "1.1"
+            },
+            {
+              "name": "1.2"
+            },
+            {
+              "name": "ddf"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "imsm"
+            }
+          ]
+        },
+        {
+          "name": "--raid-devices",
+          "alias": [
+            "-n"
+          ],
+          "usage": [
+            "-n, --raid-devices <NUM>"
+          ],
+          "tip": [
+            "Set the number of active devices."
+          ],
+          "next": []
+        },
+        {
+          "name": "--readonly",
+          "alias": [
+            "-o"
+          ],
+          "usage": [
+            "-o, --readonly"
+          ],
+          "tip": [
+            "Mark the array read-only."
+          ]
+        },
+        {
+          "name": "--rounding",
+          "usage": [
+            "--rounding <FACTOR>"
+          ],
+          "tip": [
+            "Set the rounding factor for a linear array."
+          ],
+          "next": []
+        },
+        {
+          "name": "--run",
+          "alias": [
+            "-R"
+          ],
+          "usage": [
+            "-R, --run"
+          ],
+          "tip": [
+            "Start the array even if not all devices are present."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--create",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --create device --chunk=X --level=Y --raid-devices=Z devices"
+      ],
+      "tip": [
+        "Create a new array from unused devices."
+      ],
+      "option": [
+        {
+          "name": "--assume-clean",
+          "tip": [
+            "Assume the array is already clean and skip the initial resync."
+          ]
+        },
+        {
+          "name": "--bitmap",
+          "alias": [
+            "-b"
+          ],
+          "usage": [
+            "-b, --bitmap <FILE|internal|clustered|none>"
+          ],
+          "tip": [
+            "Create a write-intent bitmap for the array."
+          ],
+          "next": [
+            {
+              "name": "clustered"
+            },
+            {
+              "name": "internal"
+            },
+            {
+              "name": "none"
+            }
+          ]
+        },
+        {
+          "name": "--bitmap-chunk",
+          "usage": [
+            "--bitmap-chunk <SIZE>"
+          ],
+          "tip": [
+            "Set the bitmap chunk size in kilobytes."
+          ],
+          "next": []
+        },
+        {
+          "name": "--chunk",
+          "alias": [
+            "-c"
+          ],
+          "usage": [
+            "-c, --chunk <SIZE>"
+          ],
+          "tip": [
+            "Set the chunk size in kilobytes."
+          ],
+          "next": []
+        },
+        {
+          "name": "--consistency-policy",
+          "alias": [
+            "-k"
+          ],
+          "usage": [
+            "-k, --consistency-policy <POLICY>"
+          ],
+          "tip": [
+            "Set the consistency policy of the array."
+          ],
+          "next": [
+            {
+              "name": "bitmap"
+            },
+            {
+              "name": "journal"
+            },
+            {
+              "name": "ppl"
+            },
+            {
+              "name": "resync"
+            }
+          ]
+        },
+        {
+          "name": "--data-offset",
+          "usage": [
+            "--data-offset <OFFSET>"
+          ],
+          "tip": [
+            "Leave a gap between the device start and the array data."
+          ],
+          "next": [
+            {
+              "name": "variable"
+            }
+          ]
+        },
+        {
+          "name": "--delay",
+          "alias": [
+            "-d"
+          ],
+          "usage": [
+            "-d, --delay <SECONDS>"
+          ],
+          "tip": [
+            "Set the bitmap update delay in seconds."
+          ],
+          "next": []
+        },
+        {
+          "name": "--failfast",
+          "tip": [
+            "Flag subsequent devices as failfast."
+          ]
+        },
+        {
+          "name": "--force",
+          "alias": [
+            "-f"
+          ],
+          "usage": [
+            "-f, --force"
+          ],
+          "tip": [
+            "Override normal checks and be more forceful."
+          ]
+        },
+        {
+          "name": "--homehost",
+          "usage": [
+            "--homehost <HOST>"
+          ],
+          "tip": [
+            "Set the home host identity recorded in the metadata."
+          ],
+          "next": [
+            {
+              "name": "any"
+            }
+          ]
+        },
+        {
+          "name": "--layout",
+          "usage": [
+            "--layout <LAYOUT>"
+          ],
+          "tip": [
+            "Set the data layout (same as --parity)."
+          ],
+          "next": [
+            {
+              "name": "alternate"
+            },
+            {
+              "name": "clear"
+            },
+            {
+              "name": "dangerous"
+            },
+            {
+              "name": "ddf-N-continue"
+            },
+            {
+              "name": "ddf-N-restart"
+            },
+            {
+              "name": "ddf-zero-restart"
+            },
+            {
+              "name": "f2"
+            },
+            {
+              "name": "flush"
+            },
+            {
+              "name": "la"
+            },
+            {
+              "name": "left-asymmetric"
+            },
+            {
+              "name": "left-asymmetric-6"
+            },
+            {
+              "name": "left-symmetric"
+            },
+            {
+              "name": "left-symmetric-6"
+            },
+            {
+              "name": "ls"
+            },
+            {
+              "name": "n2"
+            },
+            {
+              "name": "none"
+            },
+            {
+              "name": "normalise"
+            },
+            {
+              "name": "o2"
+            },
+            {
+              "name": "original"
+            },
+            {
+              "name": "parity-first"
+            },
+            {
+              "name": "parity-first-6"
+            },
+            {
+              "name": "parity-last"
+            },
+            {
+              "name": "preserve"
+            },
+            {
+              "name": "ra"
+            },
+            {
+              "name": "read-fixable"
+            },
+            {
+              "name": "read-persistent"
+            },
+            {
+              "name": "read-transient"
+            },
+            {
+              "name": "rf"
+            },
+            {
+              "name": "right-asymmetric"
+            },
+            {
+              "name": "right-asymmetric-6"
+            },
+            {
+              "name": "right-symmetric"
+            },
+            {
+              "name": "right-symmetric-6"
+            },
+            {
+              "name": "rp"
+            },
+            {
+              "name": "rs"
+            },
+            {
+              "name": "rt"
+            },
+            {
+              "name": "wp"
+            },
+            {
+              "name": "write-all"
+            },
+            {
+              "name": "write-persistent"
+            },
+            {
+              "name": "write-transient"
+            },
+            {
+              "name": "wt"
+            }
+          ]
+        },
+        {
+          "name": "--level",
+          "alias": [
+            "-l"
+          ],
+          "usage": [
+            "-l, --level <LEVEL>"
+          ],
+          "tip": [
+            "Set the RAID level."
+          ],
+          "next": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "1"
+            },
+            {
+              "name": "10"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "5"
+            },
+            {
+              "name": "6"
+            },
+            {
+              "name": "container"
+            },
+            {
+              "name": "faulty"
+            },
+            {
+              "name": "linear"
+            },
+            {
+              "name": "mirror"
+            },
+            {
+              "name": "mp"
+            },
+            {
+              "name": "multipath"
+            },
+            {
+              "name": "raid0"
+            },
+            {
+              "name": "raid1"
+            },
+            {
+              "name": "raid10"
+            },
+            {
+              "name": "raid4"
+            },
+            {
+              "name": "raid5"
+            },
+            {
+              "name": "raid6"
+            },
+            {
+              "name": "stripe"
+            }
+          ]
+        },
+        {
+          "name": "--metadata",
+          "alias": [
+            "-e"
+          ],
+          "usage": [
+            "-e, --metadata <METADATA>"
+          ],
+          "tip": [
+            "Declare the RAID metadata format."
+          ],
+          "next": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "0.90"
+            },
+            {
+              "name": "1"
+            },
+            {
+              "name": "1.0"
+            },
+            {
+              "name": "1.1"
+            },
+            {
+              "name": "1.2"
+            },
+            {
+              "name": "ddf"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "imsm"
+            }
+          ]
+        },
+        {
+          "name": "--name",
+          "alias": [
+            "-N"
+          ],
+          "usage": [
+            "-N, --name <NAME>"
+          ],
+          "tip": [
+            "Set the array name (max 32 characters)."
+          ],
+          "next": []
+        },
+        {
+          "name": "--nodes",
+          "usage": [
+            "--nodes <NUM>"
+          ],
+          "tip": [
+            "Set the maximum number of cluster nodes."
+          ],
+          "next": []
+        },
+        {
+          "name": "--parity",
+          "alias": [
+            "-p"
+          ],
+          "usage": [
+            "-p, --parity <ALGORITHM>"
+          ],
+          "tip": [
+            "Set the RAID5/6 parity algorithm."
+          ],
+          "next": [
+            {
+              "name": "alternate"
+            },
+            {
+              "name": "clear"
+            },
+            {
+              "name": "dangerous"
+            },
+            {
+              "name": "ddf-N-continue"
+            },
+            {
+              "name": "ddf-N-restart"
+            },
+            {
+              "name": "ddf-zero-restart"
+            },
+            {
+              "name": "f2"
+            },
+            {
+              "name": "flush"
+            },
+            {
+              "name": "la"
+            },
+            {
+              "name": "left-asymmetric"
+            },
+            {
+              "name": "left-asymmetric-6"
+            },
+            {
+              "name": "left-symmetric"
+            },
+            {
+              "name": "left-symmetric-6"
+            },
+            {
+              "name": "ls"
+            },
+            {
+              "name": "n2"
+            },
+            {
+              "name": "none"
+            },
+            {
+              "name": "normalise"
+            },
+            {
+              "name": "o2"
+            },
+            {
+              "name": "original"
+            },
+            {
+              "name": "parity-first"
+            },
+            {
+              "name": "parity-first-6"
+            },
+            {
+              "name": "parity-last"
+            },
+            {
+              "name": "preserve"
+            },
+            {
+              "name": "ra"
+            },
+            {
+              "name": "read-fixable"
+            },
+            {
+              "name": "read-persistent"
+            },
+            {
+              "name": "read-transient"
+            },
+            {
+              "name": "rf"
+            },
+            {
+              "name": "right-asymmetric"
+            },
+            {
+              "name": "right-asymmetric-6"
+            },
+            {
+              "name": "right-symmetric"
+            },
+            {
+              "name": "right-symmetric-6"
+            },
+            {
+              "name": "rp"
+            },
+            {
+              "name": "rs"
+            },
+            {
+              "name": "rt"
+            },
+            {
+              "name": "wp"
+            },
+            {
+              "name": "write-all"
+            },
+            {
+              "name": "write-persistent"
+            },
+            {
+              "name": "write-transient"
+            },
+            {
+              "name": "wt"
+            }
+          ]
+        },
+        {
+          "name": "--raid-devices",
+          "alias": [
+            "-n"
+          ],
+          "usage": [
+            "-n, --raid-devices <NUM>"
+          ],
+          "tip": [
+            "Set the number of active devices."
+          ],
+          "next": []
+        },
+        {
+          "name": "--readonly",
+          "alias": [
+            "-o"
+          ],
+          "usage": [
+            "-o, --readonly"
+          ],
+          "tip": [
+            "Mark the array read-only."
+          ]
+        },
+        {
+          "name": "--rounding",
+          "usage": [
+            "--rounding <FACTOR>"
+          ],
+          "tip": [
+            "Set the rounding factor for a linear array."
+          ],
+          "next": []
+        },
+        {
+          "name": "--run",
+          "alias": [
+            "-R"
+          ],
+          "usage": [
+            "-R, --run"
+          ],
+          "tip": [
+            "Start the array even if not all devices are present."
+          ]
+        },
+        {
+          "name": "--size",
+          "alias": [
+            "-z"
+          ],
+          "usage": [
+            "-z, --size <SIZE>"
+          ],
+          "tip": [
+            "Set the amount of each device to use, in kilobytes."
+          ],
+          "next": [
+            {
+              "name": "max"
+            }
+          ]
+        },
+        {
+          "name": "--spare-devices",
+          "alias": [
+            "-x"
+          ],
+          "usage": [
+            "-x, --spare-devices <NUM>"
+          ],
+          "tip": [
+            "Set the number of spare devices."
+          ],
+          "next": []
+        },
+        {
+          "name": "--uuid",
+          "alias": [
+            "-u"
+          ],
+          "usage": [
+            "-u, --uuid <UUID>"
+          ],
+          "tip": [
+            "Choose the UUID of the new array."
+          ],
+          "next": []
+        },
+        {
+          "name": "--write-behind",
+          "usage": [
+            "--write-behind[=<COUNT>]"
+          ],
+          "tip": [
+            "Enable write-behind mode with an optional outstanding-write limit."
+          ],
+          "next": []
+        },
+        {
+          "name": "--write-journal",
+          "usage": [
+            "--write-journal <DEVICE>"
+          ],
+          "tip": [
+            "Specify a journal device for a RAID4/5/6 array."
+          ],
+          "next": []
+        },
+        {
+          "name": "--write-mostly",
+          "alias": [
+            "-W"
+          ],
+          "usage": [
+            "-W, --write-mostly"
+          ],
+          "tip": [
+            "Flag subsequent devices as write-mostly."
+          ]
+        },
+        {
+          "name": "--write-zeroes",
+          "tip": [
+            "Write zeroes to the disks before creating the array."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--grow",
+      "alias": [
+        "-G"
+      ],
+      "usage": [
+        "-G, --grow device options"
+      ],
+      "tip": [
+        "Resize or reshape an active array."
+      ],
+      "option": [
+        {
+          "name": "--add",
+          "alias": [
+            "-a"
+          ],
+          "usage": [
+            "-a, --add <DEVICE>"
+          ],
+          "tip": [
+            "Add devices as part of the reshape."
+          ],
+          "next": []
+        },
+        {
+          "name": "--array-size",
+          "alias": [
+            "-Z"
+          ],
+          "usage": [
+            "-Z, --array-size <SIZE>"
+          ],
+          "tip": [
+            "Change the visible size of the array."
+          ],
+          "next": [
+            {
+              "name": "max"
+            }
+          ]
+        },
+        {
+          "name": "--assume-clean",
+          "tip": [
+            "Avoid a resync of the new space after growing."
+          ]
+        },
+        {
+          "name": "--backup-file",
+          "usage": [
+            "--backup-file <FILE>"
+          ],
+          "tip": [
+            "Store reshape data on a separate device."
+          ],
+          "next": []
+        },
+        {
+          "name": "--bitmap",
+          "alias": [
+            "-b"
+          ],
+          "usage": [
+            "-b, --bitmap <FILE|internal|none>"
+          ],
+          "tip": [
+            "Add or remove a write-intent bitmap."
+          ],
+          "next": [
+            {
+              "name": "clustered"
+            },
+            {
+              "name": "internal"
+            },
+            {
+              "name": "none"
+            }
+          ]
+        },
+        {
+          "name": "--chunk",
+          "alias": [
+            "-c"
+          ],
+          "usage": [
+            "-c, --chunk <SIZE>"
+          ],
+          "tip": [
+            "Change the chunk size of the array."
+          ],
+          "next": []
+        },
+        {
+          "name": "--consistency-policy",
+          "alias": [
+            "-k"
+          ],
+          "usage": [
+            "-k, --consistency-policy <POLICY>"
+          ],
+          "tip": [
+            "Change the consistency policy of an active array."
+          ],
+          "next": [
+            {
+              "name": "bitmap"
+            },
+            {
+              "name": "journal"
+            },
+            {
+              "name": "ppl"
+            },
+            {
+              "name": "resync"
+            }
+          ]
+        },
+        {
+          "name": "--continue",
+          "tip": [
+            "Continue a reshape that was interrupted or frozen."
+          ]
+        },
+        {
+          "name": "--data-offset",
+          "usage": [
+            "--data-offset <OFFSET>"
+          ],
+          "tip": [
+            "Move the start of the data on the devices."
+          ],
+          "next": []
+        },
+        {
+          "name": "--force",
+          "alias": [
+            "-f"
+          ],
+          "usage": [
+            "-f, --force"
+          ],
+          "tip": [
+            "Override normal checks and be more forceful."
+          ]
+        },
+        {
+          "name": "--layout",
+          "alias": [
+            "-p"
+          ],
+          "usage": [
+            "-p, --layout <LAYOUT>"
+          ],
+          "tip": [
+            "Change the array layout or the faulty error mode."
+          ],
+          "next": [
+            {
+              "name": "alternate"
+            },
+            {
+              "name": "clear"
+            },
+            {
+              "name": "dangerous"
+            },
+            {
+              "name": "ddf-N-continue"
+            },
+            {
+              "name": "ddf-N-restart"
+            },
+            {
+              "name": "ddf-zero-restart"
+            },
+            {
+              "name": "f2"
+            },
+            {
+              "name": "flush"
+            },
+            {
+              "name": "la"
+            },
+            {
+              "name": "left-asymmetric"
+            },
+            {
+              "name": "left-asymmetric-6"
+            },
+            {
+              "name": "left-symmetric"
+            },
+            {
+              "name": "left-symmetric-6"
+            },
+            {
+              "name": "ls"
+            },
+            {
+              "name": "n2"
+            },
+            {
+              "name": "none"
+            },
+            {
+              "name": "normalise"
+            },
+            {
+              "name": "o2"
+            },
+            {
+              "name": "original"
+            },
+            {
+              "name": "parity-first"
+            },
+            {
+              "name": "parity-first-6"
+            },
+            {
+              "name": "parity-last"
+            },
+            {
+              "name": "preserve"
+            },
+            {
+              "name": "ra"
+            },
+            {
+              "name": "read-fixable"
+            },
+            {
+              "name": "read-persistent"
+            },
+            {
+              "name": "read-transient"
+            },
+            {
+              "name": "rf"
+            },
+            {
+              "name": "right-asymmetric"
+            },
+            {
+              "name": "right-asymmetric-6"
+            },
+            {
+              "name": "right-symmetric"
+            },
+            {
+              "name": "right-symmetric-6"
+            },
+            {
+              "name": "rp"
+            },
+            {
+              "name": "rs"
+            },
+            {
+              "name": "rt"
+            },
+            {
+              "name": "wp"
+            },
+            {
+              "name": "write-all"
+            },
+            {
+              "name": "write-persistent"
+            },
+            {
+              "name": "write-transient"
+            },
+            {
+              "name": "wt"
+            }
+          ]
+        },
+        {
+          "name": "--level",
+          "alias": [
+            "-l"
+          ],
+          "usage": [
+            "-l, --level <LEVEL>"
+          ],
+          "tip": [
+            "Set the RAID level to convert the array to."
+          ],
+          "next": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "1"
+            },
+            {
+              "name": "10"
+            },
+            {
+              "name": "5"
+            },
+            {
+              "name": "6"
+            },
+            {
+              "name": "linear"
+            },
+            {
+              "name": "multipath"
+            }
+          ]
+        },
+        {
+          "name": "--raid-devices",
+          "alias": [
+            "-n"
+          ],
+          "usage": [
+            "-n, --raid-devices <NUM>"
+          ],
+          "tip": [
+            "Change the number of active devices."
+          ],
+          "next": []
+        },
+        {
+          "name": "--readonly",
+          "alias": [
+            "-o"
+          ],
+          "usage": [
+            "-o, --readonly"
+          ],
+          "tip": [
+            "Mark the array read-only."
+          ]
+        },
+        {
+          "name": "--run",
+          "alias": [
+            "-R"
+          ],
+          "usage": [
+            "-R, --run"
+          ],
+          "tip": [
+            "Start the array even if not all devices are present."
+          ]
+        },
+        {
+          "name": "--size",
+          "alias": [
+            "-z"
+          ],
+          "usage": [
+            "-z, --size <SIZE>"
+          ],
+          "tip": [
+            "Change the active size of the devices."
+          ],
+          "next": [
+            {
+              "name": "max"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--incremental",
+      "alias": [
+        "-I"
+      ],
+      "usage": [
+        "-I, --incremental [options] device"
+      ],
+      "tip": [
+        "Add or remove a single device to or from an array."
+      ],
+      "option": [
+        {
+          "name": "--export",
+          "alias": [
+            "-Y"
+          ],
+          "usage": [
+            "-Y, --export"
+          ],
+          "tip": [
+            "Use key=value output for easy environment import."
+          ]
+        },
+        {
+          "name": "--fail",
+          "alias": [
+            "-f"
+          ],
+          "usage": [
+            "-f, --fail"
+          ],
+          "tip": [
+            "Fail and remove the device from any array it belongs to."
+          ]
+        },
+        {
+          "name": "--force",
+          "tip": [
+            "Override normal checks."
+          ]
+        },
+        {
+          "name": "--path",
+          "usage": [
+            "--path <PATH>"
+          ],
+          "tip": [
+            "Record the device path for automatic replacement."
+          ],
+          "next": []
+        },
+        {
+          "name": "--rebuild-map",
+          "alias": [
+            "-r"
+          ],
+          "usage": [
+            "-r, --rebuild-map"
+          ],
+          "tip": [
+            "Rebuild the map file used to track partial arrays."
+          ]
+        },
+        {
+          "name": "--run",
+          "alias": [
+            "-R"
+          ],
+          "usage": [
+            "-R, --run"
+          ],
+          "tip": [
+            "Run arrays as soon as a minimal number of devices is present."
+          ]
+        },
+        {
+          "name": "--scan",
+          "alias": [
+            "-s"
+          ],
+          "usage": [
+            "-s, --scan"
+          ],
+          "tip": [
+            "Start incrementally assembled arrays that are not yet started."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--manage",
+      "usage": [
+        "--manage device options... devices..."
+      ],
+      "tip": [
+        "Change the component devices of an array."
+      ],
+      "option": [
+        {
+          "name": "--add",
+          "alias": [
+            "-a"
+          ],
+          "usage": [
+            "-a, --add"
+          ],
+          "tip": [
+            "Hot-add subsequent devices to the array."
+          ]
+        },
+        {
+          "name": "--add-journal",
+          "tip": [
+            "Add a journal to an existing read-only RAID4/5/6 array."
+          ]
+        },
+        {
+          "name": "--add-spare",
+          "tip": [
+            "Add a device as a spare without trying to re-add it."
+          ]
+        },
+        {
+          "name": "--cluster-confirm",
+          "usage": [
+            "--cluster-confirm <SLOT:DEVICE>"
+          ],
+          "tip": [
+            "Confirm the existence of a device in a cluster."
+          ],
+          "next": []
+        },
+        {
+          "name": "--fail",
+          "alias": [
+            "-f"
+          ],
+          "usage": [
+            "-f, --fail"
+          ],
+          "tip": [
+            "Mark subsequent devices as faulty."
+          ]
+        },
+        {
+          "name": "--failfast",
+          "tip": [
+            "Set the failfast flag on subsequent devices."
+          ]
+        },
+        {
+          "name": "--force",
+          "tip": [
+            "Override normal checks."
+          ]
+        },
+        {
+          "name": "--nofailfast",
+          "tip": [
+            "Clear the failfast flag when re-adding devices."
+          ]
+        },
+        {
+          "name": "--re-add",
+          "tip": [
+            "Re-add devices that were recently members of the array."
+          ]
+        },
+        {
+          "name": "--readonly",
+          "alias": [
+            "-o"
+          ],
+          "usage": [
+            "-o, --readonly"
+          ],
+          "tip": [
+            "Mark the array read-only."
+          ]
+        },
+        {
+          "name": "--readwrite",
+          "alias": [
+            "-w"
+          ],
+          "usage": [
+            "-w, --readwrite"
+          ],
+          "tip": [
+            "Clear the write-mostly flag on subsequent devices."
+          ]
+        },
+        {
+          "name": "--remove",
+          "alias": [
+            "-r"
+          ],
+          "usage": [
+            "-r, --remove"
+          ],
+          "tip": [
+            "Remove subsequent devices, which must not be active."
+          ]
+        },
+        {
+          "name": "--replace",
+          "tip": [
+            "Mark devices as requiring replacement by a spare."
+          ]
+        },
+        {
+          "name": "--run",
+          "alias": [
+            "-R"
+          ],
+          "usage": [
+            "-R, --run"
+          ],
+          "tip": [
+            "Start the array even if not all devices are present."
+          ]
+        },
+        {
+          "name": "--set-faulty",
+          "tip": [
+            "Same as --fail."
+          ]
+        },
+        {
+          "name": "--stop",
+          "alias": [
+            "-S"
+          ],
+          "usage": [
+            "-S, --stop"
+          ],
+          "tip": [
+            "Deactivate the array and release its resources."
+          ]
+        },
+        {
+          "name": "--test",
+          "alias": [
+            "-t"
+          ],
+          "usage": [
+            "-t, --test"
+          ],
+          "tip": [
+            "Report failure when an indirect device specifier found no match."
+          ]
+        },
+        {
+          "name": "--update",
+          "alias": [
+            "-U"
+          ],
+          "usage": [
+            "-U, --update <UPDATE>"
+          ],
+          "tip": [
+            "Update superblock fields while re-adding."
+          ],
+          "next": [
+            {
+              "name": "bbl"
+            },
+            {
+              "name": "byteorder"
+            },
+            {
+              "name": "devicesize"
+            },
+            {
+              "name": "home-cluster"
+            },
+            {
+              "name": "homehost"
+            },
+            {
+              "name": "layout-alternate"
+            },
+            {
+              "name": "layout-original"
+            },
+            {
+              "name": "layout-unspecified"
+            },
+            {
+              "name": "metadata"
+            },
+            {
+              "name": "name"
+            },
+            {
+              "name": "no-bbl"
+            },
+            {
+              "name": "no-bitmap"
+            },
+            {
+              "name": "no-ppl"
+            },
+            {
+              "name": "nodes"
+            },
+            {
+              "name": "ppl"
+            },
+            {
+              "name": "resync"
+            },
+            {
+              "name": "summaries"
+            },
+            {
+              "name": "super-minor"
+            },
+            {
+              "name": "uuid"
+            }
+          ]
+        },
+        {
+          "name": "--with",
+          "tip": [
+            "Prefer these spares for a previous --replace."
+          ]
+        },
+        {
+          "name": "--write-mostly",
+          "tip": [
+            "Set the write-mostly flag on subsequent devices."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--misc",
+      "usage": [
+        "--misc options... devices..."
+      ],
+      "tip": [
+        "Report on or modify md devices and components."
+      ],
+      "option": [
+        {
+          "name": "--action",
+          "usage": [
+            "--action <ACTION>"
+          ],
+          "tip": [
+            "Set the sync_action of the devices."
+          ],
+          "next": [
+            {
+              "name": "check"
+            },
+            {
+              "name": "frozen"
+            },
+            {
+              "name": "idle"
+            },
+            {
+              "name": "repair"
+            }
+          ]
+        },
+        {
+          "name": "--brief",
+          "alias": [
+            "-b"
+          ],
+          "usage": [
+            "-b, --brief"
+          ],
+          "tip": [
+            "Be less verbose with --detail and --examine."
+          ]
+        },
+        {
+          "name": "--config",
+          "usage": [
+            "--config <FILE>"
+          ],
+          "tip": [
+            "Use this configuration file or directory."
+          ],
+          "next": []
+        },
+        {
+          "name": "--detail",
+          "alias": [
+            "-D"
+          ],
+          "usage": [
+            "-D, --detail"
+          ],
+          "tip": [
+            "Display details of an array."
+          ]
+        },
+        {
+          "name": "--detail-platform",
+          "usage": [
+            "--detail-platform [<DEVICE>]"
+          ],
+          "tip": [
+            "Display the platform RAID capabilities."
+          ],
+          "next": []
+        },
+        {
+          "name": "--dump",
+          "usage": [
+            "--dump=<DIRECTORY>"
+          ],
+          "tip": [
+            "Write the metadata of the listed devices into this directory."
+          ],
+          "next": []
+        },
+        {
+          "name": "--examine",
+          "alias": [
+            "-E"
+          ],
+          "usage": [
+            "-E, --examine"
+          ],
+          "tip": [
+            "Print the metadata stored on the named devices."
+          ]
+        },
+        {
+          "name": "--examine-badblocks",
+          "tip": [
+            "List the recorded bad blocks of a device."
+          ]
+        },
+        {
+          "name": "--examine-bitmap",
+          "alias": [
+            "-X"
+          ],
+          "usage": [
+            "-X, --examine-bitmap"
+          ],
+          "tip": [
+            "Report information about a bitmap."
+          ]
+        },
+        {
+          "name": "--export",
+          "alias": [
+            "-Y"
+          ],
+          "usage": [
+            "-Y, --export"
+          ],
+          "tip": [
+            "Use key=value output for easy environment import."
+          ]
+        },
+        {
+          "name": "--force",
+          "tip": [
+            "Override normal checks."
+          ]
+        },
+        {
+          "name": "--homehost",
+          "usage": [
+            "--homehost <HOST>"
+          ],
+          "tip": [
+            "Set the home host identity recorded in the metadata."
+          ],
+          "next": [
+            {
+              "name": "any"
+            }
+          ]
+        },
+        {
+          "name": "--kill-subarray",
+          "usage": [
+            "--kill-subarray <SUBARRAY>"
+          ],
+          "tip": [
+            "Delete an inactive subarray from a container."
+          ],
+          "next": []
+        },
+        {
+          "name": "--metadata",
+          "alias": [
+            "-e"
+          ],
+          "usage": [
+            "-e, --metadata <METADATA>"
+          ],
+          "tip": [
+            "Declare the RAID metadata format."
+          ],
+          "next": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "0.90"
+            },
+            {
+              "name": "1"
+            },
+            {
+              "name": "1.0"
+            },
+            {
+              "name": "1.1"
+            },
+            {
+              "name": "1.2"
+            },
+            {
+              "name": "ddf"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "imsm"
+            }
+          ]
+        },
+        {
+          "name": "--prefer",
+          "usage": [
+            "--prefer <COMPONENT>"
+          ],
+          "tip": [
+            "Prefer device names containing this path component."
+          ],
+          "next": [
+            {
+              "name": "by-id"
+            },
+            {
+              "name": "by-path"
+            },
+            {
+              "name": "by-uuid"
+            }
+          ]
+        },
+        {
+          "name": "--query",
+          "alias": [
+            "-Q"
+          ],
+          "usage": [
+            "-Q, --query"
+          ],
+          "tip": [
+            "Report how a device relates to the md driver."
+          ]
+        },
+        {
+          "name": "--readonly",
+          "alias": [
+            "-o"
+          ],
+          "usage": [
+            "-o, --readonly"
+          ],
+          "tip": [
+            "Mark the array read-only."
+          ]
+        },
+        {
+          "name": "--readwrite",
+          "alias": [
+            "-w"
+          ],
+          "usage": [
+            "-w, --readwrite"
+          ],
+          "tip": [
+            "Mark the array read-write."
+          ]
+        },
+        {
+          "name": "--restore",
+          "usage": [
+            "--restore=<DIRECTORY>"
+          ],
+          "tip": [
+            "Restore metadata from this directory to the listed devices."
+          ],
+          "next": []
+        },
+        {
+          "name": "--run",
+          "alias": [
+            "-R"
+          ],
+          "usage": [
+            "-R, --run"
+          ],
+          "tip": [
+            "Start the array even if not all devices are present."
+          ]
+        },
+        {
+          "name": "--scan",
+          "alias": [
+            "-s"
+          ],
+          "usage": [
+            "-s, --scan"
+          ],
+          "tip": [
+            "Apply the operation to all arrays listed in /proc/mdstat."
+          ]
+        },
+        {
+          "name": "--stop",
+          "alias": [
+            "-S"
+          ],
+          "usage": [
+            "-S, --stop"
+          ],
+          "tip": [
+            "Deactivate the array and release its resources."
+          ]
+        },
+        {
+          "name": "--test",
+          "alias": [
+            "-t"
+          ],
+          "usage": [
+            "-t, --test"
+          ],
+          "tip": [
+            "Set the exit status to reflect the array status."
+          ]
+        },
+        {
+          "name": "--udev-rules",
+          "usage": [
+            "--udev-rules=<FILE>"
+          ],
+          "tip": [
+            "Generate the udev rules into this file."
+          ],
+          "next": []
+        },
+        {
+          "name": "--update",
+          "alias": [
+            "-U"
+          ],
+          "usage": [
+            "-U, --update <UPDATE>"
+          ],
+          "tip": [
+            "Select the superblock field to update."
+          ],
+          "next": [
+            {
+              "name": "bbl"
+            },
+            {
+              "name": "byteorder"
+            },
+            {
+              "name": "devicesize"
+            },
+            {
+              "name": "home-cluster"
+            },
+            {
+              "name": "homehost"
+            },
+            {
+              "name": "layout-alternate"
+            },
+            {
+              "name": "layout-original"
+            },
+            {
+              "name": "layout-unspecified"
+            },
+            {
+              "name": "metadata"
+            },
+            {
+              "name": "name"
+            },
+            {
+              "name": "no-bbl"
+            },
+            {
+              "name": "no-bitmap"
+            },
+            {
+              "name": "no-ppl"
+            },
+            {
+              "name": "nodes"
+            },
+            {
+              "name": "ppl"
+            },
+            {
+              "name": "resync"
+            },
+            {
+              "name": "summaries"
+            },
+            {
+              "name": "super-minor"
+            },
+            {
+              "name": "uuid"
+            }
+          ]
+        },
+        {
+          "name": "--update-subarray",
+          "usage": [
+            "--update-subarray <SUBARRAY>"
+          ],
+          "tip": [
+            "Update a superblock field of a container subarray."
+          ],
+          "next": []
+        },
+        {
+          "name": "--wait",
+          "alias": [
+            "-W"
+          ],
+          "usage": [
+            "-W, --wait"
+          ],
+          "tip": [
+            "Wait for resync, recovery or reshape activity to finish."
+          ]
+        },
+        {
+          "name": "--wait-clean",
+          "tip": [
+            "Arrange for the array to be marked clean as soon as possible."
+          ]
+        },
+        {
+          "name": "--zero-superblock",
+          "tip": [
+            "Overwrite a valid md superblock with zeros."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "--monitor",
+      "alias": [
+        "--follow",
+        "-F"
+      ],
+      "usage": [
+        "-F, --follow, --monitor options... devices..."
+      ],
+      "tip": [
+        "Monitor arrays for significant changes."
+      ],
+      "option": [
+        {
+          "name": "--config",
+          "alias": [
+            "-c"
+          ],
+          "usage": [
+            "-c, --config <FILE>"
+          ],
+          "tip": [
+            "Use this configuration file or directory."
+          ],
+          "next": []
+        },
+        {
+          "name": "--daemonise",
+          "alias": [
+            "-f"
+          ],
+          "usage": [
+            "-f, --daemonise"
+          ],
+          "tip": [
+            "Fork and continue in the background."
+          ]
+        },
+        {
+          "name": "--delay",
+          "alias": [
+            "-d"
+          ],
+          "usage": [
+            "-d, --delay <SECONDS>"
+          ],
+          "tip": [
+            "Set the delay between polls in seconds."
+          ],
+          "next": []
+        },
+        {
+          "name": "--increment",
+          "alias": [
+            "-r"
+          ],
+          "usage": [
+            "-r, --increment <PERCENT>"
+          ],
+          "tip": [
+            "Report RebuildNN events at this percentage increment."
+          ],
+          "next": []
+        },
+        {
+          "name": "--mail",
+          "alias": [
+            "-m"
+          ],
+          "usage": [
+            "-m, --mail <ADDRESS>"
+          ],
+          "tip": [
+            "Mail alerts of failures to this address."
+          ],
+          "next": []
+        },
+        {
+          "name": "--no-sharing",
+          "tip": [
+            "Inhibit moving spares between arrays."
+          ]
+        },
+        {
+          "name": "--oneshot",
+          "alias": [
+            "-1"
+          ],
+          "usage": [
+            "-1, --oneshot"
+          ],
+          "tip": [
+            "Check arrays only once, then exit."
+          ]
+        },
+        {
+          "name": "--pid-file",
+          "alias": [
+            "-i"
+          ],
+          "usage": [
+            "-i, --pid-file <FILE>"
+          ],
+          "tip": [
+            "Write the daemon pid to this file instead of stdout."
+          ],
+          "next": []
+        },
+        {
+          "name": "--prefer",
+          "usage": [
+            "--prefer <COMPONENT>"
+          ],
+          "tip": [
+            "Prefer device names containing this path component."
+          ],
+          "next": [
+            {
+              "name": "by-id"
+            },
+            {
+              "name": "by-path"
+            },
+            {
+              "name": "by-uuid"
+            }
+          ]
+        },
+        {
+          "name": "--program",
+          "alias": [
+            "--alert",
+            "-p"
+          ],
+          "usage": [
+            "-p, --alert, --program <PROGRAM>"
+          ],
+          "tip": [
+            "Run this program when an event is detected."
+          ],
+          "next": []
+        },
+        {
+          "name": "--scan",
+          "alias": [
+            "-s"
+          ],
+          "usage": [
+            "-s, --scan"
+          ],
+          "tip": [
+            "Find mail addresses and programs in the config file."
+          ]
+        },
+        {
+          "name": "--syslog",
+          "alias": [
+            "-y"
+          ],
+          "usage": [
+            "-y, --syslog"
+          ],
+          "tip": [
+            "Report alerts through syslog."
+          ]
+        },
+        {
+          "name": "--test",
+          "alias": [
+            "-t"
+          ],
+          "usage": [
+            "-t, --test"
+          ],
+          "tip": [
+            "Generate a TestMessage event against each array."
+          ]
+        }
+      ]
+    }
+  ],
+  "global_option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display general or mode-specific help."
+      ]
+    },
+    {
+      "name": "--help-options",
+      "tip": [
+        "Display detailed help about command-line parsing and common options."
+      ]
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "Avoid printing purely informative messages."
+      ]
+    },
+    {
+      "name": "--verbose",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --verbose"
+      ],
+      "tip": [
+        "Be more verbose; use twice for extra detail."
+      ],
+      "repeat": 2
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Print version information."
+      ]
+    }
+  ]
+}

@@ -1,11 +1,12 @@
-<h1 align="center">✨<a href="https://pscompletions.abgox.com">PSCompletions(psc)</a>✨</h1>
+<h1 align="center"><a href="https://pscompletions.abgox.com">PSCompletions</a></h1>
 
 <p align="center">
+    <span>English</span> |
     <a href="README.zh-CN.md">简体中文</a> |
-    <a href="https://www.powershellgallery.com/packages/PSCompletions">Powershell Gallery</a> |
+    <a href="https://www.powershellgallery.com/packages/PSCompletions">PowerShell Gallery</a> |
     <a href="https://github.com/abgox/PSCompletions">GitHub</a> |
-    <a href="https://gitee.com/abgox/PSCompletions">Gitee</a> |
-    <a href="https://atomgit.com/abgox/PSCompletions">AtomGit</a>
+    <a href="https://atomgit.com/abgox/PSCompletions">AtomGit</a> |
+    <a href="https://gitee.com/abgox/PSCompletions">Gitee</a>
 </p>
 
 <p align="center">
@@ -15,8 +16,8 @@
     <a href="https://www.powershellgallery.com/packages/PSCompletions">
         <img src="https://img.shields.io/powershellgallery/v/PSCompletions?label=version" alt="module version" />
     </a>
-    <a href="./completions.md">
-        <img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fabgox%2FPSCompletions%2Frefs%2Fheads%2Fmain%2Fcompletions.json&query=%24.count&label=completions" alt="completions" />
+    <a href="../index/completions.md">
+        <img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fabgox%2FPSCompletions%2Frefs%2Fheads%2Findex%2Fcompletions.json&query=%24.count&label=completions" alt="completions" />
     </a>
     <a href="https://www.powershellgallery.com/packages/PSCompletions">
         <img src="https://img.shields.io/powershellgallery/dt/PSCompletions" alt="PowerShell Gallery" />
@@ -26,11 +27,18 @@
     </a>
 </p>
 
+<p align="center">
+    <a href="https://pscompletions.abgox.com">
+        <img src="https://pscompletions.abgox.com/og-image.svg" alt="PSCompletions — Powerful Shell Completions"/>
+    </a>
+</p>
+
 ## Introduction
 
-A tab-completion manager for [PowerShell](https://microsoft.com/powershell), built with [Rust and Lua](https://pscompletions.abgox.com/docs/how-it-works).
+Powerful Shell Completions for PowerShell and other shells, powered by Rust and Lua.
 
-- [Built-in completion library.](./completions.md)
+- [One engine, many shells.](https://pscompletions.abgox.com/docs/shells)
+- [Built-in completion library.](../index/completions.md)
 - [More powerful completion menu.](https://pscompletions.abgox.com/docs/completion-menu)
 - [Multilingual support: en-US, zh-CN, etc.](https://pscompletions.abgox.com/docs/language)
 - [Dynamic sorting of completion items based on command history.](https://pscompletions.abgox.com/docs/sort-completion-items)
@@ -41,57 +49,43 @@ A tab-completion manager for [PowerShell](https://microsoft.com/powershell), bui
 
 ## How to get
 
-1. Install the module.
-
-   - [Install-Module](https://learn.microsoft.com/powershell/module/powershellget/install-module)
+1. Install it.
+   - PowerShell - install the module.
 
      ```powershell
-     Install-Module PSCompletions
+     Install-Module PSCompletions # Install-PSResource PSCompletions
      ```
 
-   - [Install-PSResource](https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/install-psresource)
+   - bash / zsh / fish - run the [install script](install.sh).
 
-     ```powershell
-     Install-PSResource PSCompletions
+     ```shell
+     curl -fsSL https://raw.githubusercontent.com/abgox/PSCompletions/main/install.sh | sh
      ```
 
    - [Scoop](https://scoop.sh)
 
-     - Use [main](https://github.com/ScoopInstaller/Main) bucket
+     ```shell
+     scoop install pscompletions # scoop install abyss/abgox.PSCompletions
+     ```
 
-       ```shell
-       scoop install pscompletions
-       ```
+2. Load it.
+   - PowerShell - [import the module directly](https://pscompletions.abgox.com/docs/direct-import-module).
 
-     - Use [abyss](https://abyss.abgox.com) bucket ([GitHub](https://github.com/abgox/abyss) or [Gitee](https://gitee.com/abgox/abyss))
+     ```powershell
+     Import-Module PSCompletions
+     ```
 
-       ```shell
-       scoop install abyss/abgox.PSCompletions
-       ```
+   - bash / zsh / fish - the [install script](install.sh) will tell you how to load it.
 
-2. [Import the module.](https://pscompletions.abgox.com/docs/direct-import-module)
+3. Use it.
 
-   ```powershell
-   Import-Module PSCompletions
+   ```shell
+   psc
    ```
 
-## How to use
-
-- [Built-in completion library](./completions.md): add a completion with `psc add git`.
-- [Native completion integration](https://pscompletions.abgox.com/docs/native-completion): use PowerShell's native completions.
-  - If a command has an official completion, a similar command may be run:
-
-    ```powershell
-    xxx completion powershell | Out-String | Invoke-Expression
-    ```
-
-  - Register completions with the PowerShell argument completer:
-
-    ```powershell
-    Register-ArgumentCompleter [-Native] -CommandName <Name> -ScriptBlock { }
-    ```
-
-  - Use other completion libraries such as [Carapace](https://pscompletions.abgox.com/docs/tools/carapace).
+   ```shell
+   psc add git
+   ```
 
 ## What's new
 
@@ -103,12 +97,16 @@ See the [contribution guide](./.github/contributing.md) for details.
 
 ## Support
 
-If you like this project, feel free to give it a Star ⭐️ or [Donate 💰](https://me.abgox.com/donate).
+<!-- One line per sponsor, newest last: `- [Name](https://…) — what they do.` -->
+
+> [!TIP]
+>
+> If you like this project, Star ⭐️ is always welcome, and so is [sponsorship](https://pscompletions.abgox.com/docs/sponsors).
 
 ## Acknowledgements
 
-- [PSReadLine](https://github.com/PowerShell/PSReadLine) — PowerShell's editing and completion foundation.
-- [fzf](https://github.com/junegunn/fzf)/[PSFzf](https://github.com/kelleyma49/PSFzf) — UI inspiration for the [completion menu](https://pscompletions.abgox.com/docs/completion-menu).
+- [PSReadLine](https://github.com/PowerShell/PSReadLine) - PowerShell's editing and completion foundation.
+- [fzf](https://github.com/junegunn/fzf)/[PSFzf](https://github.com/kelleyma49/PSFzf) - UI inspiration for the [completion menu](https://pscompletions.abgox.com/docs/completion-menu).
 
 ## License
 

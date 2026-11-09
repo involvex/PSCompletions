@@ -1,0 +1,346 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "创建 ext2/ext3/ext4 文件系统。"
+    ]
+  },
+  "option": [
+    {
+      "name": "-b",
+      "usage": [
+        "-b block-size"
+      ],
+      "tip": [
+        "指定块大小（字节）。",
+        "有效值为 1024 到 65536 之间的 2 的幂。"
+      ],
+      "next": [
+        {
+          "name": "1024"
+        },
+        {
+          "name": "16384"
+        },
+        {
+          "name": "2048"
+        },
+        {
+          "name": "32768"
+        },
+        {
+          "name": "4096"
+        },
+        {
+          "name": "65536"
+        },
+        {
+          "name": "8192"
+        }
+      ]
+    },
+    {
+      "name": "-c",
+      "tip": [
+        "创建文件系统前检查设备的坏块。",
+        "指定两次可使用较慢的读写测试。"
+      ],
+      "repeat": 2
+    },
+    {
+      "name": "-C",
+      "usage": [
+        "-C cluster-size"
+      ],
+      "tip": [
+        "指定 bigalloc 文件系统的簇大小（字节）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-d",
+      "usage": [
+        "-d root-directory|tarball"
+      ],
+      "tip": [
+        "将目录或 tar 包的内容复制到文件系统根目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-D",
+      "tip": [
+        "写入磁盘时使用直接 I/O。"
+      ]
+    },
+    {
+      "name": "-e",
+      "usage": [
+        "-e error-behavior"
+      ],
+      "tip": [
+        "设置检测到错误时的内核行为。",
+        "可能值: continue, remount-ro, panic"
+      ],
+      "next": [
+        {
+          "name": "continue"
+        },
+        {
+          "name": "panic"
+        },
+        {
+          "name": "remount-ro"
+        }
+      ]
+    },
+    {
+      "name": "-E",
+      "usage": [
+        "-E extended-options"
+      ],
+      "tip": [
+        "设置以逗号分隔的扩展文件系统选项。",
+        "支持的选项见 mke2fs(8)。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-F",
+      "tip": [
+        "即使设备或参数看起来不正确也强制创建文件系统。"
+      ]
+    },
+    {
+      "name": "-g",
+      "usage": [
+        "-g blocks-per-group"
+      ],
+      "tip": [
+        "指定每个块组的块数。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-G",
+      "usage": [
+        "-G number-of-groups"
+      ],
+      "tip": [
+        "指定多少个块组打包为一个更大的虚拟块组。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-i",
+      "usage": [
+        "-i bytes-per-inode"
+      ],
+      "tip": [
+        "指定字节/inode 比率。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-I",
+      "usage": [
+        "-I inode-size"
+      ],
+      "tip": [
+        "指定每个 inode 的大小（字节）。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-j",
+      "tip": [
+        "创建带 ext3 日志的文件系统。"
+      ]
+    },
+    {
+      "name": "-J",
+      "usage": [
+        "-J journal-options"
+      ],
+      "tip": [
+        "设置以逗号分隔的日志选项，例如 size=、device= 或 location=。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-l",
+      "usage": [
+        "-l filename"
+      ],
+      "tip": [
+        "从文件读取坏块列表。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-L",
+      "usage": [
+        "-L new-volume-label"
+      ],
+      "tip": [
+        "设置卷标，最多 16 字节。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-m",
+      "usage": [
+        "-m reserved-blocks-percentage"
+      ],
+      "tip": [
+        "设置保留给超级用户的块百分比。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-M",
+      "usage": [
+        "-M last-mounted-directory"
+      ],
+      "tip": [
+        "设置文件系统的最后挂载目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "不创建文件系统，仅显示将要执行的操作。"
+      ]
+    },
+    {
+      "name": "-N",
+      "usage": [
+        "-N number-of-inodes"
+      ],
+      "tip": [
+        "覆盖要保留的 inode 数量。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o creator-os"
+      ],
+      "tip": [
+        "覆盖创建者操作系统字段。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-O",
+      "usage": [
+        "-O [^]feature[,...]"
+      ],
+      "tip": [
+        "创建具有指定特性的文件系统。",
+        "在特性前加 ^ 可禁用该特性。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-q",
+      "tip": [
+        "静默执行。"
+      ]
+    },
+    {
+      "name": "-R",
+      "usage": [
+        "-R extended-options"
+      ],
+      "tip": [
+        "-E 的已弃用写法。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-S",
+      "tip": [
+        "仅写入超级块和块组描述符。"
+      ]
+    },
+    {
+      "name": "-t",
+      "usage": [
+        "-t fs-type"
+      ],
+      "tip": [
+        "指定要创建的文件系统类型。",
+        "可能值: ext2, ext3, ext4"
+      ],
+      "next": [
+        {
+          "name": "ext2"
+        },
+        {
+          "name": "ext3"
+        },
+        {
+          "name": "ext4"
+        }
+      ]
+    },
+    {
+      "name": "-T",
+      "usage": [
+        "-T usage-type[,...]"
+      ],
+      "tip": [
+        "设置用途类型，以便 mke2fs 选择最优参数。",
+        "用途类型定义在 /etc/mke2fs.conf 中。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-U",
+      "usage": [
+        "-U UUID"
+      ],
+      "tip": [
+        "设置文件系统 UUID。",
+        "可能值: clear, random, time",
+        "也接受显式指定的 UUID。"
+      ],
+      "next": [
+        {
+          "name": "clear"
+        },
+        {
+          "name": "random"
+        },
+        {
+          "name": "time"
+        }
+      ]
+    },
+    {
+      "name": "-v",
+      "tip": [
+        "详细输出。"
+      ]
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "打印版本号并退出。"
+      ]
+    },
+    {
+      "name": "-z",
+      "usage": [
+        "-z undo_file"
+      ],
+      "tip": [
+        "将每个块的旧内容写入撤销文件。"
+      ],
+      "next": []
+    }
+  ]
+}

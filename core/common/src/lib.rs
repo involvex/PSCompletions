@@ -1,15 +1,19 @@
 //! Dependency-free helpers shared by the `psc` CLI and the `psc-menu` engine.
-//! Keep this crate lean: nothing here may pull in dependencies (the engine's
-//! hot-path binary must stay small).
+//! Keep this crate lean: nothing here may pull in dependencies (the engine's hot-path binary must stay small).
 
-/// Strip a leading UTF-8 BOM if present. Legacy PowerShell 5.1 `Out-File -Encoding utf8`
-/// writes one, which breaks serde_json parsing; `ReadAllText`-style readers consume it,
-/// but raw `read_to_string` surfaces it as `\u{FEFF}`.
+/// Strip a leading UTF-8 BOM if present.
+/// Legacy PowerShell 5.1 `Out-File -Encoding utf8` writes one, which breaks serde_json parsing; `ReadAllText`-style readers consume it, but raw `read_to_string` surfaces it as `\u{FEFF}`.
 pub fn strip_bom(s: &str) -> &str {
     s.strip_prefix('\u{feff}').unwrap_or(s)
 }
 
-/// Read a UTF-8 text file, stripping a leading BOM. `None` when the file cannot be read.
+/// Byte-slice form of [`strip_bom`], for `serde_json::from_slice` callers that never materialize a `String`.
+pub fn strip_bom_bytes(s: &[u8]) -> &[u8] {
+    s.strip_prefix(b"\xef\xbb\xbf").unwrap_or(s)
+}
+
+/// Read a UTF-8 text file, stripping a leading BOM.
+/// `None` when the file cannot be read.
 pub fn read_text(path: &str) -> Option<String> {
     let text = std::fs::read_to_string(path).ok()?;
     Some(strip_bom(&text).to_string())
@@ -26,6 +30,9 @@ mod tests {
         // A BOM elsewhere is content, not metadata.
         assert_eq!(strip_bom("a\u{feff}b"), "a\u{feff}b");
         assert_eq!(strip_bom(""), "");
+        assert_eq!(strip_bom_bytes(b"\xef\xbb\xbf{\"a\":1}"), b"{\"a\":1}");
+        assert_eq!(strip_bom_bytes(b"{\"a\":1}"), b"{\"a\":1}");
+        assert_eq!(strip_bom_bytes(b""), b"");
     }
 
     #[test]

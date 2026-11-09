@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/cryptsetup/cryptsetup",
+    "description": [
+      "停止 /etc/crypttab 中列出的加密磁盘。"
+    ]
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "维护决定默认命令的符号链接。"
+    ]
+  },
+  "option": [
+    {
+      "name": "--admindir",
+      "usage": [
+        "--admindir <directory>"
+      ],
+      "tip": [
+        "更改管理目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--all",
+      "tip": [
+        "对所有替代项调用 --config。"
+      ]
+    },
+    {
+      "name": "--altdir",
+      "usage": [
+        "--altdir <directory>"
+      ],
+      "tip": [
+        "更改替代项目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--auto",
+      "usage": [
+        "--auto <name>"
+      ],
+      "tip": [
+        "将主链接切换为自动模式。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--config",
+      "usage": [
+        "--config <name>"
+      ],
+      "tip": [
+        "交互式选择替代项。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--debug",
+      "tip": [
+        "调试输出。"
+      ]
+    },
+    {
+      "name": "--display",
+      "usage": [
+        "--display <name>"
+      ],
+      "tip": [
+        "显示组信息。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--force",
+      "tip": [
+        "允许用替代链接替换文件。"
+      ]
+    },
+    {
+      "name": "--get-selections",
+      "tip": [
+        "列出主替代名称和状态。"
+      ]
+    },
+    {
+      "name": "--help",
+      "tip": [
+        "显示此帮助信息。"
+      ]
+    },
+    {
+      "name": "--install",
+      "usage": [
+        "--install <link> <name> <path> <priority> [--slave ...]"
+      ],
+      "tip": [
+        "添加替代组。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--instdir",
+      "usage": [
+        "--instdir <directory>"
+      ],
+      "tip": [
+        "更改安装目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--list",
+      "usage": [
+        "--list <name>"
+      ],
+      "tip": [
+        "显示组的所有目标。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--log",
+      "usage": [
+        "--log <file>"
+      ],
+      "tip": [
+        "更改日志文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--query",
+      "usage": [
+        "--query <name>"
+      ],
+      "tip": [
+        "--display 的机器可解析版本。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--quiet",
+      "tip": [
+        "静默操作，输出最少。"
+      ]
+    },
+    {
+      "name": "--remove",
+      "usage": [
+        "--remove <name> <path>"
+      ],
+      "tip": [
+        "从组中移除路径。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--remove-all",
+      "usage": [
+        "--remove-all <name>"
+      ],
+      "tip": [
+        "从系统移除组。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--root",
+      "usage": [
+        "--root <directory>"
+      ],
+      "tip": [
+        "更改文件系统根目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--set",
+      "usage": [
+        "--set <name> <path>"
+      ],
+      "tip": [
+        "将路径设置为替代项。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--set-selections",
+      "tip": [
+        "从标准输入读取替代状态。"
+      ]
+    },
+    {
+      "name": "--skip-auto",
+      "tip": [
+        "跳过已正确配置替代项的提示。"
+      ]
+    },
+    {
+      "name": "--verbose",
+      "tip": [
+        "详细操作，输出更多。"
+      ]
+    },
+    {
+      "name": "--version",
+      "tip": [
+        "显示版本。"
+      ]
+    }
+  ]
+}

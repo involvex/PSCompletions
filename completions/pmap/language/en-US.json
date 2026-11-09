@@ -1,0 +1,157 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "Report the memory map of a process."
+    ]
+  },
+  "option": [
+    {
+      "name": "--create-rc",
+      "alias": [
+        "-n"
+      ],
+      "usage": [
+        "-n, --create-rc"
+      ],
+      "tip": [
+        "Create a new default rc."
+      ]
+    },
+    {
+      "name": "--create-rc-to",
+      "alias": [
+        "-N"
+      ],
+      "usage": [
+        "-N, --create-rc-to=<file>"
+      ],
+      "tip": [
+        "Create a new rc in the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--device",
+      "alias": [
+        "-d"
+      ],
+      "usage": [
+        "-d, --device"
+      ],
+      "tip": [
+        "Show the device format."
+      ]
+    },
+    {
+      "name": "--extended",
+      "alias": [
+        "-x"
+      ],
+      "usage": [
+        "-x, --extended"
+      ],
+      "tip": [
+        "Show details."
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Display this help and exit."
+      ]
+    },
+    {
+      "name": "--quiet",
+      "alias": [
+        "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
+      ],
+      "tip": [
+        "Do not display the header and footer."
+      ]
+    },
+    {
+      "name": "--range",
+      "alias": [
+        "-A"
+      ],
+      "usage": [
+        "-A, --range=<low>[,<high>]"
+      ],
+      "tip": [
+        "Limit results to the given address range."
+      ],
+      "next": []
+    },
+    {
+      "name": "--read-rc",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --read-rc"
+      ],
+      "tip": [
+        "Read the default rc."
+      ]
+    },
+    {
+      "name": "--read-rc-from",
+      "alias": [
+        "-C"
+      ],
+      "usage": [
+        "-C, --read-rc-from=<file>"
+      ],
+      "tip": [
+        "Read the rc from the file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--show-path",
+      "alias": [
+        "-p"
+      ],
+      "usage": [
+        "-p, --show-path"
+      ],
+      "tip": [
+        "Show the path in the mapping."
+      ]
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-V"
+      ],
+      "usage": [
+        "-V, --version"
+      ],
+      "tip": [
+        "Output version information and exit."
+      ]
+    },
+    {
+      "name": "-X",
+      "tip": [
+        "Show even more details."
+      ]
+    },
+    {
+      "name": "-XX",
+      "tip": [
+        "Show everything the kernel provides."
+      ]
+    }
+  ]
+}

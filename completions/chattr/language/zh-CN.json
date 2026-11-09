@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "url": "https://e2fsprogs.sourceforge.net",
+    "description": [
+      "更改 ext2/ext3/ext4 文件系统的文件属性。"
+    ]
+  },
+  "option": [
+    {
+      "name": "-f",
+      "tip": [
+        "抑制大多数错误消息。"
+      ]
+    },
+    {
+      "name": "-p",
+      "usage": [
+        "-p project"
+      ],
+      "tip": [
+        "设置文件的项目号。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-R",
+      "tip": [
+        "递归更改目录及其内容的属性。"
+      ]
+    },
+    {
+      "name": "-v",
+      "usage": [
+        "-v version"
+      ],
+      "tip": [
+        "设置文件的版本/生成号。"
+      ],
+      "next": []
+    },
+    {
+      "name": "-V",
+      "tip": [
+        "详细输出并打印程序版本。"
+      ]
+    }
+  ]
+}

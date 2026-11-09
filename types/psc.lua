@@ -32,22 +32,22 @@
 ---@field name string
 --- `[Description]`: 提示文本。
 ---
---- - 接受字符串或本地化表（键为语言代码，值对应该语言文本）。
+--- - 接受字符串、本地化表（键为语言代码，值对应该语言文本），或选中时求值的函数。
 --- - 不传时默认为 `name`。传入空字符串 `""` 表示明确不要描述。
 ---
 --- `[Description]`: Tip text.
 ---
---- - Accepts a plain string or a localized table (keys are language codes).
+--- - Accepts a plain string, a localized table (keys are language codes), or a function evaluated on selection.
 --- - Defaults to `name` when omitted. Pass `""` to opt out explicitly.
----@field tip? string|psc_localized
---- `[Usage]`: 用法文本。
+---@field tip? string|psc_localized|fun():string|psc_localized|nil
+--- `[Usage]`: 用法文本，字符串、`{ cmd, desc }` 对象，或选中时求值的函数（渲染为 `cmd  # desc`）。
 ---
---- `[Usage]`: Usage text.
----@field usage? string
---- `[Example]`: 示例文本。
+--- `[Usage]`: Usage text, a string, a `{ cmd, desc }` object, or a function evaluated on selection (rendered as `cmd  # desc`).
+---@field usage? string|psc_usage_example|fun():string|psc_usage_example|nil
+--- `[Example]`: 示例文本，字符串、`{ cmd, desc }` 对象，或选中时求值的函数（渲染为 `cmd  # desc`）。
 ---
---- `[Example]`: Example text.
----@field example? string
+--- `[Example]`: Example text, a string, a `{ cmd, desc }` object, or a function evaluated on selection (rendered as `cmd  # desc`).
+---@field example? string|psc_usage_example|fun():string|psc_usage_example|nil
 --- 可重复使用次数。
 ---
 --- How many times it may be used.
@@ -203,10 +203,7 @@ psc.platform = "windows"
 --- Description of the completion command.
 ---@field description string[]
 
---- 清单中 usage / example 的对象形式。
----
---- Object form of usage / example in the manifest.
----@class psc_manifest_usage_example
+---@class psc_usage_example
 --- 调用语法。
 ---
 --- Invocation syntax.
@@ -235,11 +232,11 @@ psc.platform = "windows"
 --- 用法行。
 ---
 --- Usage lines.
----@field usage? (string|psc_manifest_usage_example)[]
+---@field usage? (string|psc_usage_example)[]
 --- 示例行。
 ---
 --- Example lines.
----@field example? (string|psc_manifest_usage_example)[]
+---@field example? (string|psc_usage_example)[]
 --- 该命令的选项。
 ---
 --- Options of this command.
@@ -268,11 +265,11 @@ psc.platform = "windows"
 --- 用法行。
 ---
 --- Usage lines.
----@field usage? (string|psc_manifest_usage_example)[]
+---@field usage? (string|psc_usage_example)[]
 --- 示例行。
 ---
 --- Example lines.
----@field example? (string|psc_manifest_usage_example)[]
+---@field example? (string|psc_usage_example)[]
 --- 最大重复次数。
 ---
 --- Maximum repeat count.
@@ -392,15 +389,17 @@ function psc.on(spec, handler) end
 ---@return psc_item[]
 function psc.items(items, fn) end
 
---- 把清单路径上指定数组的 **直接子项** 转换为补全项。
+--- 挂载静态清单中已有的内容为补全项（纯转换，需用 `psc.add` 注入）。
 ---
---- - `manifest_path`：从清单的根出发的路径，最后一段必须是 `"next"` 或 `"option"`
---- - 主要用于复用清单中已经定义好的 `next` 或 `option` 数组
+--- - 路径从清单根开始逐段匹配（大小写敏感）：对象按键名，数组按项的 `name`
+--- - 落在数组上挂载其子项，落在带 `name` 的单项上挂载该项本身，例如 `{ "next", "config", "next", "set", "next" }`
+--- - 别名展开为独立候选项，共用同一份提示
 ---
---- Converts the **direct children** of the specified array at the manifest path to completion items.
+--- Mount existing content from the static manifest as completion items (pure transform, inject via `psc.add`).
 ---
---- - `manifest_path`: a path from the manifest root; the last segment must be `"next"` or `"option"`
---- - It is mainly used to reuse the `next` or `option` arrays already defined in the list.
+--- - The path matches segment by segment from the manifest root (case-sensitive): objects by key, arrays by item `name`
+--- - Landing on an array mounts its children, landing on a single item with a `name` mounts that item, e.g. `{ "next", "config", "next", "set", "next" }`
+--- - Aliases expand as separate candidates sharing the same tip
 ---@param manifest_path_chain string[]
 ---@return psc_item[]
 function psc.mount_items(manifest_path_chain) end
@@ -859,9 +858,9 @@ function psc.eq(s1, s2, opts) end
 --- 调试输出
 ---
 --- - 接受任意参数，写入 `data/temp/log/debug.log`
----     ```powershell
----     Join-Path $PSCompletions.path.log 'debug.log'
----     Join-Path $PSCompletions.path.log 'error.log'
+---     ```shell
+---     psc --json | jq -r .data.file.debug
+---     psc --json | jq -r .data.file.error
 ---     ```
 --- - **注意**：
 ---   - hooks 默认有 10 秒的结果缓存，10 秒内仅运行一次
@@ -870,9 +869,9 @@ function psc.eq(s1, s2, opts) end
 --- Debug output.
 ---
 --- - Accepts any number of arguments, and writes to `data/temp/log/debug.log`
----     ```powershell
----     Join-Path $PSCompletions.path.log 'debug.log'
----     Join-Path $PSCompletions.path.log 'error.log'
+---     ```shell
+---     psc --json | jq -r .data.file.debug
+---     psc --json | jq -r .data.file.error
 ---     ```
 --- - **Note**:
 ---   - Hooks have a default 10-second result cache and will run only once within 10 seconds

@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "url": "https://wiki.debian.org/Teams/Dpkg",
+    "description": [
+      "Query APT configuration settings."
+    ]
+  },
+  "next": [
+    {
+      "name": "dump",
+      "tip": [
+        "Show the active configuration settings."
+      ]
+    },
+    {
+      "name": "shell",
+      "tip": [
+        "Get configuration values via shell evaluation."
+      ]
+    }
+  ],
+  "option": [
+    {
+      "name": "--config-file",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --config-file"
+      ],
+      "tip": [
+        "Use the configuration file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "Show this help."
+      ]
+    },
+    {
+      "name": "--option",
+      "alias": [
+        "-o"
+      ],
+      "usage": [
+        "-o, --option"
+      ],
+      "tip": [
+        "Set a configuration option."
+      ],
+      "next": []
+    }
+  ]
+}

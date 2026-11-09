@@ -1,4 +1,5 @@
-#Requires -Version 7.0
+#!/usr/bin/env pwsh
+#Requires -Version 7.6.5
 
 param(
     [Parameter(Position = 0, ValueFromRemainingArguments)]
@@ -11,11 +12,11 @@ param(
 
 Set-StrictMode -Off
 
-. $PSScriptRoot\utils.ps1
+. $PSScriptRoot/utils.ps1
 
 # Compiled diff engine (scripts/psc-tools.cs); consumes the Hashtables parsed below.
 if (-not ('PscTools.Diff' -as [type])) {
-    try { Add-Type -Path "$PSScriptRoot\psc-tools.cs" } catch { Write-Verbose "PscTools unavailable: $_" }
+    try { Add-Type -Path "$PSScriptRoot/psc-tools.cs" } catch { Write-Verbose "PscTools unavailable: $_" }
 }
 
 $textPath = "$PSScriptRoot/language/$PSCulture.json"
@@ -24,24 +25,24 @@ if (!(Test-Path -LiteralPath $textPath)) {
 }
 $text = Get-Content -Path $textPath -Encoding utf8 | ConvertFrom-Json
 
-if (!$PSCompletions) { . $PSScriptRoot\..\module\PSCompletions\PSCompletions.ps1 -SkipMigration }
+if (!$PSCompletions) { . $PSScriptRoot/../module/PSCompletions/PSCompletions.ps1 -SkipMigration }
 $PSCompletions.initialize($true)
 
 $text = $text.'compare-json'
 
 function outText {
-    param($text)
+    param($text, $ctx = @{})
     if ($text -is [array]) { $text = $text -join "`n" }
-    $PSCompletions.write_with_color($PSCompletions.replace_content($text))
+    $PSCompletions.write_with_color((Format-PscText $text $ctx))
 }
 
 if (-not $BaseLang) { $BaseLang = 'en-US' }
 if (-not $CompletionList) {
     if ($All) {
-        $CompletionList = (Get-ChildItem "$PSScriptRoot\..\completions" -Directory).Name
+        $CompletionList = (Get-ChildItem "$PSScriptRoot/../completions" -Directory).Name
     }
     else {
-        $CompletionList = Get-RecentCompletions -CompletionsDir "$PSScriptRoot\..\completions"
+        $CompletionList = Get-RecentCompletions -CompletionsDir "$PSScriptRoot/../completions"
         if ($CompletionList.Count -eq 0) {
             outText $text.noRecent
             return
@@ -131,10 +132,10 @@ foreach ($CompletionName in $CompletionList) {
     }
     $baseJson = [System.IO.Path]::Combine($langDir, $BaseLang + '.json')
     if (!(Test-Path -LiteralPath $baseJson)) {
-        outText $text.invalidLang
+        outText $text.invalidLang @{ CompletionName = $CompletionName }
         continue
     }
-    & $PSScriptRoot\sort-json.ps1 $CompletionName -Quiet
+    & $PSScriptRoot/sort-json.ps1 $CompletionName -Quiet
 
     foreach ($lang in $otherLangs) {
         $targetJson = [System.IO.Path]::Combine($langDir, $lang + '.json')
@@ -212,7 +213,7 @@ $totalFiles = $allResults.Count
 $issueFiles = $issueResults.Count
 $completedFiles = $completeResults.Count
 
-outText $text.summary
+outText $text.summary @{ TotalFiles = $totalFiles; CompletedFiles = $completedFiles; IssueFiles = $issueFiles }
 
 if ($issueFiles -gt 0) {
     foreach ($r in $issueResults) {
@@ -223,7 +224,7 @@ if ($issueFiles -gt 0) {
         $total = $r.total
         $rate = $r.rate
         $count = $r.stats.untranslated.Count
-        outText $text.langHeader
+        outText $text.langHeader @{ TargetShortPath = $targetShortPath; Missing = $missing; Extra = $extra; Translated = $translated; Total = $total; Rate = $rate }
 
         if ($r.stats.missingInTarget.Count -gt 0) {
             outText $text.missingInTarget
@@ -257,7 +258,7 @@ if ($issueFiles -gt 0) {
             foreach ($item in $r.stats.duplicateItems) { outText "<@Cyan>  $($item.path)" }
         }
         if ($r.stats.untranslated.Count -gt 0) {
-            outText $text.untranslated
+            outText $text.untranslated @{ Count = $count; Total = $total }
             foreach ($item in $r.stats.untranslated) { outText "<@Cyan>  $($item.path)" }
         }
         if ($r.stats.meaninglessUsage.Count -gt 0) {
@@ -306,6 +307,6 @@ if ($completedFiles -gt 0) {
         $translated = $r.translated
         $total = $r.total
         $rate = $r.rate
-        outText $text.langHeaderComplete
+        outText $text.langHeaderComplete @{ TargetShortPath = $targetShortPath; Translated = $translated; Total = $total; Rate = $rate }
     }
 }

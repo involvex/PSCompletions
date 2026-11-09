@@ -89,6 +89,56 @@ local function add_remote()
     end))
 end
 
+-- Positional words already typed after the subcommand; an option's value is its own token, and a stray `-`-led word (`--rebase=merges`) fills no positional slot.
+local function positionals()
+    local words = {}
+    for _, t in ipairs(psc.tokens) do
+        if t.type == "unknown" and t.input:sub(1, 1) ~= "-" then
+            table.insert(words, t.input)
+        end
+    end
+    return words
+end
+
+-- A refspec names the branch on the remote side; `git fetch origin origin/main` is rejected, so the remote prefix is stripped.
+local function add_remote_ref_of(remote)
+    local prefix = remote .. "/"
+    for _, line in ipairs(psc.run({ "git", "for-each-ref", "--format=%(refname:short)|%(symref)", "refs/remotes/" .. remote }) or {}) do
+        local name, symref = line:match("^([^|]*)|(.*)$")
+        -- `%(symref)` is empty for a real ref, which drops the <remote>/HEAD pseudo-ref.
+        if name and symref == "" and name:sub(1, #prefix) == prefix then
+            psc.add({ name = name:sub(#prefix + 1), tip = "remote branch --- " .. name })
+        end
+    end
+end
+
+local function add_remote_ref()
+    local words = positionals()
+    if words[1] then
+        add_remote_ref_of(words[1])
+    end
+end
+
+-- A push refspec names a local ref, except under --delete, where it names the remote branch to remove.
+local function add_push_ref()
+    if #positionals() >= 1 and not psc.token({ name = "--delete" }) then
+        add_branch()
+    end
+end
+
+local function add_push_tag()
+    if #positionals() >= 1 and not psc.token({ name = "--delete" }) then
+        add_tag()
+    end
+end
+
+local function add_push_delete_ref()
+    local words = positionals()
+    if words[1] and psc.token({ name = "--delete" }) then
+        add_remote_ref_of(words[1])
+    end
+end
+
 -- Porcelain status lines are "XY <path>" (X=index, Y=worktree). Cover modified /
 -- added / deleted / renamed / copied and conflict shapes (UU/AA/AU/UA/DU/UD/DD);
 -- renames and copies print "old -> new", so complete the new path.
@@ -157,22 +207,12 @@ psc.on({
     { command = "format-patch" },
     { command = "archive" },
     { command = { "bisect", "start" }, multiple = true },
-    { command = "switch",              option = "--create" },
-    { command = "switch",              option = "--force-create" },
-    { command = "switch",              option = "--orphan" },
-    { command = "checkout",            option = "--orphan" },
-    { command = "checkout",            option = "-b" },
-    { command = "branch",              option = "--move" },
-    { command = "branch",              option = "-M" },
-    { command = "branch",              option = "--copy" },
-    { command = "branch",              option = "-C" },
-    { command = "branch",              option = "-d" },
     { command = "branch",              option = "--set-upstream-to" },
     { command = "branch",              option = "--points-at" },
     { command = "tag",                 option = "--points-at" },
     { command = "rebase",              option = "--onto" },
     { command = "restore",             option = "--source" },
-    { command = "fetch",               option = "--shallow-exclude" }
+    { command = "merge-tree" },
 }, add_branch)
 
 psc.on({
@@ -197,7 +237,7 @@ psc.on({
 }, add_head)
 
 psc.on({
-    { command = "commit" },
+    { command = "merge" },
     { command = "rebase" },
     { command = "checkout" },
     { command = "cherry-pick" },
@@ -227,7 +267,91 @@ psc.on({
     { command = "tag",                 option = "--no-merged" },
     { command = "tag",                 option = "--points-at" },
     { command = "commit",              option = "--squash" },
-    { command = "commit",              option = "--reedit-message" }
+    { command = "commit",              option = "--reedit-message" },
+    { command = "annotate" },
+    { command = "annotate", option = "--ignore-rev" },
+    { command = "branch", option = "--forked" },
+    { command = "branch", option = "--no-contains" },
+    { command = "check-attr", option = "--source" },
+    { command = "commit", option = "--fixup" },
+    { command = "commit", option = "--reuse-message" },
+    { command = "fetch", option = "--negotiation-include" },
+    { command = "fetch", option = "--negotiation-restrict" },
+    { command = "fetch", option = "--negotiation-tip" },
+    { command = "for-each-ref", option = "--points-at" },
+    { command = "format-patch", option = "--base" },
+    { command = { "history", "drop" } },
+    { command = { "history", "fixup" } },
+    { command = { "history", "reword" } },
+    { command = { "history", "split" } },
+    { command = "log", option = "--ancestry-path" },
+    { command = "log", option = "--find-object" },
+    { command = "ls-files", option = "--with-tree" },
+    { command = "merge-tree", option = "--merge-base" },
+    { command = "notes" },
+    { command = "notes", option = "--reedit-message" },
+    { command = "notes", option = "--reuse-message" },
+    { command = "pickaxe", option = "--ignore-rev" },
+    { command = "pull", option = "--negotiation-include" },
+    { command = "pull", option = "--negotiation-restrict" },
+    { command = "pull", option = "--negotiation-tip" },
+    { command = "refs", option = "--contains" },
+    { command = "refs", option = "--merged" },
+    { command = "refs", option = "--no-contains" },
+    { command = "refs", option = "--no-merged" },
+    { command = "refs", option = "--points-at" },
+    { command = { "refs", "create" }, option = "--contains" },
+    { command = { "refs", "create" }, option = "--merged" },
+    { command = { "refs", "create" }, option = "--no-contains" },
+    { command = { "refs", "create" }, option = "--no-merged" },
+    { command = { "refs", "create" }, option = "--points-at" },
+    { command = { "refs", "delete" }, option = "--contains" },
+    { command = { "refs", "delete" }, option = "--merged" },
+    { command = { "refs", "delete" }, option = "--no-contains" },
+    { command = { "refs", "delete" }, option = "--no-merged" },
+    { command = { "refs", "delete" }, option = "--points-at" },
+    { command = { "refs", "list" }, option = "--contains" },
+    { command = { "refs", "list" }, option = "--merged" },
+    { command = { "refs", "list" }, option = "--no-contains" },
+    { command = { "refs", "list" }, option = "--no-merged" },
+    { command = { "refs", "list" }, option = "--points-at" },
+    { command = { "refs", "migrate" }, option = "--contains" },
+    { command = { "refs", "migrate" }, option = "--merged" },
+    { command = { "refs", "migrate" }, option = "--no-contains" },
+    { command = { "refs", "migrate" }, option = "--no-merged" },
+    { command = { "refs", "migrate" }, option = "--points-at" },
+    { command = { "refs", "optimize" }, option = "--contains" },
+    { command = { "refs", "optimize" }, option = "--merged" },
+    { command = { "refs", "optimize" }, option = "--no-contains" },
+    { command = { "refs", "optimize" }, option = "--no-merged" },
+    { command = { "refs", "optimize" }, option = "--points-at" },
+    { command = { "refs", "rename" }, option = "--contains" },
+    { command = { "refs", "rename" }, option = "--merged" },
+    { command = { "refs", "rename" }, option = "--no-contains" },
+    { command = { "refs", "rename" }, option = "--no-merged" },
+    { command = { "refs", "rename" }, option = "--points-at" },
+    { command = { "refs", "update" }, option = "--contains" },
+    { command = { "refs", "update" }, option = "--merged" },
+    { command = { "refs", "update" }, option = "--no-contains" },
+    { command = { "refs", "update" }, option = "--no-merged" },
+    { command = { "refs", "update" }, option = "--points-at" },
+    { command = { "refs", "verify" }, option = "--contains" },
+    { command = { "refs", "verify" }, option = "--merged" },
+    { command = { "refs", "verify" }, option = "--no-contains" },
+    { command = { "refs", "verify" }, option = "--no-merged" },
+    { command = { "refs", "verify" }, option = "--points-at" },
+    { command = "replace" },
+    { command = "replace", option = "--edit" },
+    { command = "replace", option = "--graft" },
+    { command = "replay" },
+    { command = "replay", option = "--ancestry-path" },
+    { command = "replay", option = "--onto" },
+    { command = "rev-list" },
+    { command = "rev-list", option = "--ancestry-path" },
+    { command = "shortlog", option = "--ancestry-path" },
+    { command = { "stash", "import" } },
+    { command = { "stash", "store" } },
+    { command = "tag", option = "--no-contains" },
 }, add_commit)
 
 -- A tag is a ref, so every slot that already takes a branch takes a tag too;
@@ -247,27 +371,14 @@ psc.on({
     { command = "merge-base" },
     { command = "format-patch" },
     { command = "archive" },
-    { command = "tag" },
     { command = "verify-tag" },
+    { command = "tag" },
     { command = { "bisect", "start" }, multiple = true },
-    { command = "switch",              option = "--create" },
-    { command = "switch",              option = "--force-create" },
-    { command = "switch",              option = "--orphan" },
-    { command = "checkout",            option = "--orphan" },
-    { command = "checkout",            option = "-b" },
-    { command = "branch",              option = "--move" },
-    { command = "branch",              option = "-M" },
-    { command = "branch",              option = "--copy" },
-    { command = "branch",              option = "-C" },
-    { command = "branch",              option = "-d" },
     { command = "branch",              option = "--set-upstream-to" },
     { command = "branch",              option = "--points-at" },
     { command = "tag",                 option = "--points-at" },
     { command = "rebase",              option = "--onto" },
     { command = "restore",             option = "--source" },
-    { command = "fetch",               option = "--shallow-exclude" },
-    { command = "tag",                 option = "--delete" },
-    { command = "tag",                 option = "--verify" }
 }, add_tag)
 
 psc.on({
@@ -295,10 +406,22 @@ psc.on({
     { command = { "remote", "prune" } },
     { command = { "remote", "set-head" } },
     { command = { "remote", "set-branches" } },
-    { command = { "lfs", "fetch" } },
-    { command = { "lfs", "pull" } },
-    { command = { "lfs", "push" } }
 }, add_remote)
+
+-- `fetch`/`pull`/`ls-remote` address a remote branch by its remote-side name once the repository is typed; `push` addresses a local ref, or a remote branch under --delete.
+local PUSH_REF_SLOTS = { command = "push", multiple = true }
+
+psc.on({
+    { command = "fetch",     multiple = true },
+    { command = "pull",      multiple = true },
+    { command = "ls-remote", multiple = true },
+}, add_remote_ref)
+
+psc.on(PUSH_REF_SLOTS, add_push_ref)
+
+psc.on(PUSH_REF_SLOTS, add_push_tag)
+
+psc.on(PUSH_REF_SLOTS, add_push_delete_ref)
 
 psc.on({
     { command = "stage",            multiple = true },
@@ -323,7 +446,7 @@ psc.on({
     { command = { "config", "unset" } },
     { command = { "config", "get" } }
 }, function()
-    psc.add(psc.mount_items({ "next", "config", "set", "next" }))
+    psc.add(psc.mount_items({ "next", "config", "next", "set", "next" }))
     add_alias_keys()
 end)
 

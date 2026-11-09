@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "url": "https://gitlab.com/procps-ng/procps",
+    "description": [
+      "Find the process ID of a running program."
+    ]
+  },
+  "option": [
+    {
+      "name": "-c",
+      "tip": [
+        "Only return processes with the same root directory."
+      ]
+    },
+    {
+      "name": "-d",
+      "usage": [
+        "-d sep"
+      ],
+      "tip": [
+        "Use sep as the output separator."
+      ],
+      "next": []
+    },
+    {
+      "name": "-h",
+      "tip": [
+        "Display usage information."
+      ]
+    },
+    {
+      "name": "-n",
+      "tip": [
+        "Avoid stat on binaries on network file systems."
+      ]
+    },
+    {
+      "name": "-o",
+      "usage": [
+        "-o omitpid"
+      ],
+      "tip": [
+        "Omit the process with this PID.",
+        "Use %PPID for the parent process."
+      ],
+      "next": []
+    },
+    {
+      "name": "-q",
+      "tip": [
+        "Do not display matched PIDs; only set the exit status."
+      ]
+    },
+    {
+      "name": "-s",
+      "tip": [
+        "Return only one PID."
+      ]
+    },
+    {
+      "name": "-x",
+      "tip": [
+        "Also return shells running the named scripts."
+      ]
+    },
+    {
+      "name": "-z",
+      "tip": [
+        "Also detect processes stuck in zombie state."
+      ]
+    }
+  ]
+}
