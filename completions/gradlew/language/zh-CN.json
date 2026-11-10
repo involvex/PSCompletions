@@ -1,54 +1,11 @@
 {
   "meta": {
-    "url": "https:/docs.gradle.org/current/userguide/command_line_interface.html",
+    "url": "https://docs.gradle.org/current/userguide/command_line_interface.html",
     "description": [
       "Gradle Wrapper - 构建自动化工具包装脚本。"
     ]
   },
-  "option": [
-    {
-      "name": "--build-file",
-      "alias": [
-        "-b"
-      ],
-      "tip": [
-        "U: --build-file, -b <file>",
-        "指定构建文件。"
-      ]
-    },
-    {
-      "name": "--gradle-user-home",
-      "tip": [
-        "U: --gradle-user-home <dir>",
-        "指定 Gradle 用户主目录。"
-      ]
-    },
-    {
-      "name": "--project-cache-dir",
-      "tip": [
-        "U: --project-cache-dir <dir>",
-        "指定项目缓存目录。"
-      ]
-    },
-    {
-      "name": "--project-dir",
-      "tip": [
-        "U: --project-dir <dir>",
-        "指定项目目录。"
-      ]
-    },
-    {
-      "name": "--settings-file",
-      "alias": [
-        "-c"
-      ],
-      "tip": [
-        "U: --settings-file, -c <file>",
-        "指定设置文件。"
-      ]
-    }
-  ],
-  "root": [
+  "next": [
     {
       "name": "assemble",
       "tip": [
@@ -148,13 +105,21 @@
     {
       "name": "tasks",
       "tip": [
-        "显示所有可用任务。"
-      ]
-    },
-    {
-      "name": "tasks --all",
-      "tip": [
-        "显示所有任务，包括隐藏任务。"
+        "显示所有可用的任务。"
+      ],
+      "option": [
+        {
+          "name": "--all",
+          "tip": [
+            "显示额外的任务和详细信息。"
+          ]
+        },
+        {
+          "name": "--no-all",
+          "tip": [
+            "禁用 --all 选项。"
+          ]
+        }
       ]
     },
     {
@@ -176,7 +141,65 @@
       ]
     }
   ],
-  "common_option": [
+  "option": [
+    {
+      "name": "--build-file",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --build-file <file>"
+      ],
+      "tip": [
+        "指定构建文件。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--gradle-user-home",
+      "usage": [
+        "--gradle-user-home <dir>"
+      ],
+      "tip": [
+        "指定 Gradle 用户主目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--project-cache-dir",
+      "usage": [
+        "--project-cache-dir <dir>"
+      ],
+      "tip": [
+        "指定项目缓存目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--project-dir",
+      "usage": [
+        "--project-dir <dir>"
+      ],
+      "tip": [
+        "指定项目目录。"
+      ],
+      "next": []
+    },
+    {
+      "name": "--settings-file",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --settings-file <file>"
+      ],
+      "tip": [
+        "指定设置文件。"
+      ],
+      "next": []
+    }
+  ],
+  "global_option": [
     {
       "name": "--build-cache",
       "tip": [
@@ -190,12 +213,14 @@
       ]
     },
     {
+      "name": "--continuous",
       "alias": [
         "-t"
       ],
-      "name": "--continuous",
+      "usage": [
+        "-t, --continuous"
+      ],
       "tip": [
-        "U: --continuous, -t",
         "检测到更改时持续构建。"
       ]
     },
@@ -206,22 +231,26 @@
       ]
     },
     {
+      "name": "--debug",
       "alias": [
         "-d"
       ],
-      "name": "--debug",
+      "usage": [
+        "-d, --debug"
+      ],
       "tip": [
-        "U: --debug, -d",
         "设置日志级别为 debug。"
       ]
     },
     {
+      "name": "--dry-run",
       "alias": [
         "-m"
       ],
-      "name": "--dry-run",
+      "usage": [
+        "-m, --dry-run"
+      ],
       "tip": [
-        "U: --dry-run, -m",
         "运行但不执行操作。"
       ]
     },
@@ -232,23 +261,27 @@
       ]
     },
     {
+      "name": "--help",
       "alias": [
         "-h",
         "-?"
       ],
-      "name": "--help",
+      "usage": [
+        "-?, -h, --help"
+      ],
       "tip": [
-        "U: --help, -h, -?",
         "显示帮助信息。"
       ]
     },
     {
+      "name": "--info",
       "alias": [
         "-i"
       ],
-      "name": "--info",
+      "usage": [
+        "-i, --info"
+      ],
       "tip": [
-        "U: --info, -i",
         "设置日志级别为 info。"
       ]
     },
@@ -295,12 +328,14 @@
       ]
     },
     {
+      "name": "--quiet",
       "alias": [
         "-q"
       ],
-      "name": "--quiet",
+      "usage": [
+        "-q, --quiet"
+      ],
       "tip": [
-        "U: --quiet, -q",
         "仅记录错误。"
       ]
     },
@@ -314,7 +349,8 @@
       "name": "--rerun",
       "tip": [
         "指定要重新运行的任务。"
-      ]
+      ],
+      "next": []
     },
     {
       "name": "--rerun-tasks",
@@ -335,20 +371,35 @@
       ]
     },
     {
+      "name": "--version",
       "alias": [
         "-v"
       ],
-      "name": "--version",
+      "usage": [
+        "-v, --version"
+      ],
       "tip": [
-        "U: --version, -v",
         "打印版本信息。"
       ]
     },
     {
       "name": "--warning-mode",
+      "usage": [
+        "--warning-mode <mode>"
+      ],
       "tip": [
-        "U: --warning-mode <mode>",
         "指定警告模式：all, summary, none。"
+      ],
+      "next": [
+        {
+          "name": "all"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "summary"
+        }
       ]
     }
   ]

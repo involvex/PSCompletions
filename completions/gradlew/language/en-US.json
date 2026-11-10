@@ -5,55 +5,7 @@
       "Gradle Wrapper - Build automation tool wrapper script."
     ]
   },
-  "option": [
-    {
-      "name": "--build-file",
-      "alias": [
-        "-b"
-      ],
-      "tip": [
-        "U: --build-file, -b <file>",
-        "Specifies the build file."
-      ],
-      "next": 0
-    },
-    {
-      "name": "--gradle-user-home",
-      "tip": [
-        "U: --gradle-user-home <dir>",
-        "Specifies the Gradle user home directory."
-      ],
-      "next": 0
-    },
-    {
-      "name": "--project-cache-dir",
-      "tip": [
-        "U: --project-cache-dir <dir>",
-        "Specifies the project cache directory."
-      ],
-      "next": 0
-    },
-    {
-      "name": "--project-dir",
-      "tip": [
-        "U: --project-dir <dir>",
-        "Specifies the project directory."
-      ],
-      "next": 0
-    },
-    {
-      "name": "--settings-file",
-      "alias": [
-        "-c"
-      ],
-      "tip": [
-        "U: --settings-file, -c <file>",
-        "Specifies the settings file."
-      ],
-      "next": 0
-    }
-  ],
-  "root": [
+  "next": [
     {
       "name": "assemble",
       "tip": [
@@ -154,12 +106,20 @@
       "name": "tasks",
       "tip": [
         "Displays all available tasks."
-      ]
-    },
-    {
-      "name": "tasks --all",
-      "tip": [
-        "Displays all tasks including hidden ones."
+      ],
+      "option": [
+        {
+          "name": "--all",
+          "tip": [
+            "Show additional tasks and detail."
+          ]
+        },
+        {
+          "name": "--no-all",
+          "tip": [
+            "Disables option --all."
+          ]
+        }
       ]
     },
     {
@@ -181,7 +141,65 @@
       ]
     }
   ],
-  "common_option": [
+  "option": [
+    {
+      "name": "--build-file",
+      "alias": [
+        "-b"
+      ],
+      "usage": [
+        "-b, --build-file <file>"
+      ],
+      "tip": [
+        "Specifies the build file."
+      ],
+      "next": []
+    },
+    {
+      "name": "--gradle-user-home",
+      "usage": [
+        "--gradle-user-home <dir>"
+      ],
+      "tip": [
+        "Specifies the Gradle user home directory."
+      ],
+      "next": []
+    },
+    {
+      "name": "--project-cache-dir",
+      "usage": [
+        "--project-cache-dir <dir>"
+      ],
+      "tip": [
+        "Specifies the project cache directory."
+      ],
+      "next": []
+    },
+    {
+      "name": "--project-dir",
+      "usage": [
+        "--project-dir <dir>"
+      ],
+      "tip": [
+        "Specifies the project directory."
+      ],
+      "next": []
+    },
+    {
+      "name": "--settings-file",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --settings-file <file>"
+      ],
+      "tip": [
+        "Specifies the settings file."
+      ],
+      "next": []
+    }
+  ],
+  "global_option": [
     {
       "name": "--build-cache",
       "tip": [
@@ -195,12 +213,14 @@
       ]
     },
     {
+      "name": "--continuous",
       "alias": [
         "-t"
       ],
-      "name": "--continuous",
+      "usage": [
+        "-t, --continuous"
+      ],
       "tip": [
-        "U: --continuous, -t",
         "Continuously builds when changes are detected."
       ]
     },
@@ -211,22 +231,26 @@
       ]
     },
     {
+      "name": "--debug",
       "alias": [
         "-d"
       ],
-      "name": "--debug",
+      "usage": [
+        "-d, --debug"
+      ],
       "tip": [
-        "U: --debug, -d",
         "Set log level to debug."
       ]
     },
     {
+      "name": "--dry-run",
       "alias": [
         "-m"
       ],
-      "name": "--dry-run",
+      "usage": [
+        "-m, --dry-run"
+      ],
       "tip": [
-        "U: --dry-run, -m",
         "Run without executing actions."
       ]
     },
@@ -237,23 +261,27 @@
       ]
     },
     {
+      "name": "--help",
       "alias": [
         "-h",
         "-?"
       ],
-      "name": "--help",
+      "usage": [
+        "-?, -h, --help"
+      ],
       "tip": [
-        "U: --help, -h, -?",
         "Shows help message."
       ]
     },
     {
+      "name": "--info",
       "alias": [
         "-i"
       ],
-      "name": "--info",
+      "usage": [
+        "-i, --info"
+      ],
       "tip": [
-        "U: --info, -i",
         "Set log level to info."
       ]
     },
@@ -300,12 +328,14 @@
       ]
     },
     {
+      "name": "--quiet",
       "alias": [
         "-q"
       ],
-      "name": "--quiet",
+      "usage": [
+        "-q, --quiet"
+      ],
       "tip": [
-        "U: --quiet, -q",
         "Log errors only."
       ]
     },
@@ -317,10 +347,10 @@
     },
     {
       "name": "--rerun",
-      "next": 0,
       "tip": [
         "Specifies tasks to re-run."
-      ]
+      ],
+      "next": []
     },
     {
       "name": "--rerun-tasks",
@@ -341,17 +371,25 @@
       ]
     },
     {
+      "name": "--version",
       "alias": [
         "-v"
       ],
-      "name": "--version",
+      "usage": [
+        "-v, --version"
+      ],
       "tip": [
-        "U: --version, -v",
         "Prints version info."
       ]
     },
     {
       "name": "--warning-mode",
+      "usage": [
+        "--warning-mode <mode>"
+      ],
+      "tip": [
+        "Specify warning mode: all, summary, none."
+      ],
       "next": [
         {
           "name": "all"
@@ -362,10 +400,6 @@
         {
           "name": "summary"
         }
-      ],
-      "tip": [
-        "U: --warning-mode <mode>",
-        "Specify warning mode: all, summary, none."
       ]
     }
   ]
