@@ -24,22 +24,30 @@
       "alias": [
         "-b"
       ],
+      "usage": [
+        "-b, --binary"
+      ],
       "tip": [
         "read in binary mode (default)"
       ]
     },
     {
       "name": "--bits",
+      "usage": [
+        "--bits <BITS>"
+      ],
       "tip": [
-        "U: --bits <BITS>",
         "set the size of the output (only for SHAKE)"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--check",
       "alias": [
         "-c"
+      ],
+      "usage": [
+        "-c, --check"
       ],
       "tip": [
         "read hashsums from the FILEs and check them"
@@ -67,6 +75,9 @@
       "name": "--quiet",
       "alias": [
         "-q"
+      ],
+      "usage": [
+        "-q, --quiet"
       ],
       "tip": [
         "don't print OK for each successfully verified file"
@@ -149,6 +160,9 @@
       "alias": [
         "-s"
       ],
+      "usage": [
+        "-s, --status"
+      ],
       "tip": [
         "don't output anything, status code shows success"
       ]
@@ -170,6 +184,9 @@
       "alias": [
         "-t"
       ],
+      "usage": [
+        "-t, --text"
+      ],
       "tip": [
         "read in text mode"
       ]
@@ -178,6 +195,9 @@
       "name": "--version",
       "alias": [
         "-V"
+      ],
+      "usage": [
+        "-V, --version"
       ],
       "tip": [
         "Show the version."
@@ -188,6 +208,9 @@
       "alias": [
         "-w"
       ],
+      "usage": [
+        "-w, --warn"
+      ],
       "tip": [
         "warn about improperly formatted checksum lines"
       ]
@@ -197,17 +220,23 @@
       "alias": [
         "-z"
       ],
+      "usage": [
+        "-z, --zero"
+      ],
       "tip": [
         "end each output line with NUL, not newline"
       ]
     }
   ],
-  "common_option": [
+  "global_option": [
     {
+      "name": "--help",
       "alias": [
         "-h"
       ],
-      "name": "--help",
+      "usage": [
+        "-h, --help"
+      ],
       "tip": [
         "Show the help."
       ]
