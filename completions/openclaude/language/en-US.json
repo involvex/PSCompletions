@@ -5,30 +5,122 @@
       "openclaude - OpenClaude, an open-source AI coding agent for your terminal (a fork of Claude Code)."
     ]
   },
+  "next": [
+    {
+      "name": "agents",
+      "tip": [
+        "List configured agents."
+      ]
+    },
+    {
+      "name": "aimlapi",
+      "tip": [
+        "AI/ML API (aimlapi.com) — top up balance and configure the provider."
+      ]
+    },
+    {
+      "name": "auth",
+      "tip": [
+        "Manage authentication."
+      ]
+    },
+    {
+      "name": "auto-mode",
+      "tip": [
+        "Inspect auto mode classifier configuration."
+      ]
+    },
+    {
+      "name": "doctor",
+      "tip": [
+        "Check the health of your OpenClaude auto-updater."
+      ]
+    },
+    {
+      "name": "install",
+      "tip": [
+        "Install OpenClaude native build."
+      ]
+    },
+    {
+      "name": "mcp",
+      "tip": [
+        "Configure and manage MCP servers."
+      ]
+    },
+    {
+      "name": "plugins",
+      "alias": [
+        "plugin"
+      ],
+      "usage": [
+        "plugin|plugins"
+      ],
+      "tip": [
+        "Manage OpenClaude plugins."
+      ]
+    },
+    {
+      "name": "report",
+      "tip": [
+        "Generate a deterministic task report for an OpenClaude session."
+      ]
+    },
+    {
+      "name": "setup-token",
+      "tip": [
+        "Set up a long-lived authentication token (requires Claude subscription)."
+      ]
+    },
+    {
+      "name": "skills",
+      "tip": [
+        "List, inspect, validate, and manage OpenClaude skills."
+      ]
+    },
+    {
+      "name": "upgrade",
+      "alias": [
+        "update"
+      ],
+      "usage": [
+        "update|upgrade"
+      ],
+      "tip": [
+        "Check for updates and install if available."
+      ]
+    }
+  ],
   "option": [
     {
       "name": "--add-dir",
+      "usage": [
+        "--add-dir <directories...>"
+      ],
       "tip": [
-        "U: --add-dir <directories...>",
         "Additional directories to allow tool access to."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--agent",
+      "usage": [
+        "--agent <agent>"
+      ],
       "tip": [
-        "U: --agent <agent>",
         "Agent for the current session. Overrides the 'agent' setting."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--agents",
+      "usage": [
+        "--agents <json>"
+      ],
       "tip": [
-        "U: --agents <json>",
         "JSON object defining custom agents."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--allow-dangerously-skip-permissions",
@@ -41,19 +133,23 @@
       "alias": [
         "--allowedTools"
       ],
+      "usage": [
+        "--allowedTools, --allowed-tools <tools...>"
+      ],
       "tip": [
-        "U: --allowedTools <tools...>",
         "Comma or space-separated list of tool names to allow."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--append-system-prompt",
+      "usage": [
+        "--append-system-prompt <prompt>"
+      ],
       "tip": [
-        "U: --append-system-prompt <prompt>",
         "Append a system prompt to the default system prompt."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--bare",
@@ -63,11 +159,13 @@
     },
     {
       "name": "--betas",
+      "usage": [
+        "--betas <betas...>"
+      ],
       "tip": [
-        "U: --betas <betas...>",
         "Beta headers to include in API requests (API key users only)."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--chrome",
@@ -80,6 +178,9 @@
       "alias": [
         "-c"
       ],
+      "usage": [
+        "-c, --continue"
+      ],
       "tip": [
         "Continue the most recent conversation in the current directory."
       ]
@@ -88,6 +189,9 @@
       "name": "--dangerously-skip-permissions",
       "alias": [
         "--yolo"
+      ],
+      "usage": [
+        "--yolo, --dangerously-skip-permissions"
       ],
       "tip": [
         "Bypass all permission checks. Recommended only for sandboxes with no internet access."
@@ -98,19 +202,23 @@
       "alias": [
         "-d"
       ],
+      "usage": [
+        "-d, --debug"
+      ],
       "tip": [
-        "U: -d, --debug [filter]",
         "Enable debug mode with optional category filtering."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--debug-file",
+      "usage": [
+        "--debug-file <path>"
+      ],
       "tip": [
-        "U: --debug-file <path>",
         "Write debug logs to a specific file path (implicitly enables debug mode)."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--disable-slash-commands",
@@ -123,16 +231,20 @@
       "alias": [
         "--disallowedTools"
       ],
+      "usage": [
+        "--disallowedTools, --disallowed-tools <tools...>"
+      ],
       "tip": [
-        "U: --disallowedTools <tools...>",
         "Comma or space-separated list of tool names to deny."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--effort",
+      "usage": [
+        "--effort <level>"
+      ],
       "tip": [
-        "U: --effort <level>",
         "Effort level for the current session."
       ],
       "next": [
@@ -158,19 +270,23 @@
     },
     {
       "name": "--fallback-model",
+      "usage": [
+        "--fallback-model <model>"
+      ],
       "tip": [
-        "U: --fallback-model <model>",
         "Enable automatic fallback to specified model when default model is overloaded."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--file",
+      "usage": [
+        "--file <specs...>"
+      ],
       "tip": [
-        "U: --file <specs...>",
         "File resources to download at startup. Format: file_id:relative_path."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--fork-session",
@@ -180,19 +296,23 @@
     },
     {
       "name": "--from-pr",
+      "usage": [
+        "--from-pr [value]"
+      ],
       "tip": [
-        "U: --from-pr [value]",
         "Resume a session linked to a PR by PR number/URL, or open interactive picker."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--heartbeat",
+      "usage": [
+        "--heartbeat <duration>"
+      ],
       "tip": [
-        "U: --heartbeat <duration>",
         "Emit a headless liveness heartbeat while output is quiet (only works with --print)."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--ide",
@@ -214,8 +334,10 @@
     },
     {
       "name": "--input-format",
+      "usage": [
+        "--input-format <format>"
+      ],
       "tip": [
-        "U: --input-format <format>",
         "Input format (only works with --print): \"text\" (default), or \"stream-json\"."
       ],
       "next": [
@@ -229,35 +351,43 @@
     },
     {
       "name": "--json-schema",
+      "usage": [
+        "--json-schema <schema>"
+      ],
       "tip": [
-        "U: --json-schema <schema>",
         "JSON Schema for structured output validation."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--max-budget-usd",
+      "usage": [
+        "--max-budget-usd <amount>"
+      ],
       "tip": [
-        "U: --max-budget-usd <amount>",
         "Maximum dollar amount to spend on API calls (only works with --print)."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--max-turns",
+      "usage": [
+        "--max-turns <turns>"
+      ],
       "tip": [
-        "U: --max-turns <turns>",
         "Maximum number of agentic turns per prompt."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--mcp-config",
+      "usage": [
+        "--mcp-config <configs...>"
+      ],
       "tip": [
-        "U: --mcp-config <configs...>",
         "Load MCP servers from JSON files or strings (space-separated)."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--mcp-debug",
@@ -270,22 +400,26 @@
       "alias": [
         "-m"
       ],
+      "usage": [
+        "-m, --model <model>"
+      ],
       "tip": [
-        "U: --model <model>",
         "Model for the current session. Provide an alias (e.g. 'sonnet' or 'opus') or a full model name."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--name",
       "alias": [
         "-n"
       ],
+      "usage": [
+        "-n, --name <name>"
+      ],
       "tip": [
-        "U: -n, --name <name>",
         "Set a display name for this session."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--no-chrome",
@@ -301,8 +435,10 @@
     },
     {
       "name": "--output-format",
+      "usage": [
+        "--output-format <format>"
+      ],
       "tip": [
-        "U: --output-format <format>",
         "Output format (only works with --print): \"text\", \"json\", or \"stream-json\"."
       ],
       "next": [
@@ -319,8 +455,10 @@
     },
     {
       "name": "--permission-mode",
+      "usage": [
+        "--permission-mode <mode>"
+      ],
       "tip": [
-        "U: --permission-mode <mode>",
         "Permission mode to use for the session."
       ],
       "next": [
@@ -349,16 +487,21 @@
     },
     {
       "name": "--plugin-dir",
+      "usage": [
+        "--plugin-dir <path>"
+      ],
       "tip": [
-        "U: --plugin-dir <path>",
         "Load plugins from a directory for this session only (repeatable)."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--print",
       "alias": [
         "-p"
+      ],
+      "usage": [
+        "-p, --print"
       ],
       "tip": [
         "Print response and exit (useful for pipes)."
@@ -366,16 +509,20 @@
     },
     {
       "name": "--prompt-suggestions",
+      "usage": [
+        "--prompt-suggestions [value]"
+      ],
       "tip": [
-        "U: --prompt-suggestions [value]",
         "Enable prompt suggestions. In print/SDK mode, emits a prompt_suggestion message after each turn."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--provider",
+      "usage": [
+        "--provider <provider>"
+      ],
       "tip": [
-        "U: --provider <provider>",
         "AI provider to use (anthropic, openai, gemini, github, bedrock, vertex, ollama)."
       ],
       "next": [
@@ -404,11 +551,13 @@
     },
     {
       "name": "--provider-env-file",
+      "usage": [
+        "--provider-env-file <path>"
+      ],
       "tip": [
-        "U: --provider-env-file <path>",
         "Load provider environment variables from a file before validation (repeatable)."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--replay-user-messages",
@@ -421,35 +570,43 @@
       "alias": [
         "-r"
       ],
+      "usage": [
+        "-r, --resume"
+      ],
       "tip": [
-        "U: -r, --resume [value]",
         "Resume a conversation by session ID, or open interactive picker."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--session-id",
+      "usage": [
+        "--session-id <uuid>"
+      ],
       "tip": [
-        "U: --session-id <uuid>",
         "Use a specific session ID for the conversation."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--setting-sources",
+      "usage": [
+        "--setting-sources <sources>"
+      ],
       "tip": [
-        "U: --setting-sources <sources>",
         "Comma-separated list of setting sources to load (user, project, local)."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--settings",
+      "usage": [
+        "--settings <file-or-json>"
+      ],
       "tip": [
-        "U: --settings <file-or-json>",
         "Path to a settings JSON file or a JSON string to load additional settings from."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--strict-mcp-config",
@@ -459,16 +616,20 @@
     },
     {
       "name": "--system-prompt",
+      "usage": [
+        "--system-prompt <prompt>"
+      ],
       "tip": [
-        "U: --system-prompt <prompt>",
         "System prompt to use for the session."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--system-prompt-snapshot",
+      "usage": [
+        "--system-prompt-snapshot <on|off>"
+      ],
       "tip": [
-        "U: --system-prompt-snapshot <on|off>",
         "Record the system prompt once per conversation and reuse it verbatim."
       ],
       "next": [
@@ -488,16 +649,21 @@
     },
     {
       "name": "--tools",
+      "usage": [
+        "--tools <tools...>"
+      ],
       "tip": [
-        "U: --tools <tools...>",
         "Specify the list of available tools from the built-in set."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--version",
       "alias": [
         "-v"
+      ],
+      "usage": [
+        "-v, --version"
       ],
       "tip": [
         "Output the version number."
@@ -508,111 +674,24 @@
       "alias": [
         "-w"
       ],
+      "usage": [
+        "-w, --worktree"
+      ],
       "tip": [
-        "U: -w, --worktree [name]",
         "Create a new git worktree for this session (optionally specify a name)."
       ],
-      "next": 0
+      "next": []
     }
   ],
-  "root": [
+  "global_option": [
     {
-      "name": "agents",
-      "next": [],
-      "tip": [
-        "List configured agents."
-      ]
-    },
-    {
-      "name": "aimlapi",
-      "next": [],
-      "tip": [
-        "AI/ML API (aimlapi.com) — top up balance and configure the provider."
-      ]
-    },
-    {
-      "name": "auth",
-      "next": [],
-      "tip": [
-        "Manage authentication."
-      ]
-    },
-    {
-      "name": "auto-mode",
-      "next": [],
-      "tip": [
-        "Inspect auto mode classifier configuration."
-      ]
-    },
-    {
-      "name": "doctor",
-      "next": [],
-      "tip": [
-        "Check the health of your OpenClaude auto-updater."
-      ]
-    },
-    {
-      "name": "install",
-      "next": 0,
-      "tip": [
-        "Install OpenClaude native build."
-      ]
-    },
-    {
-      "name": "mcp",
-      "next": [],
-      "tip": [
-        "Configure and manage MCP servers."
-      ]
-    },
-    {
+      "name": "--help",
       "alias": [
-        "plugins"
+        "-h"
       ],
-      "name": "plugin",
-      "next": [],
-      "tip": [
-        "Manage OpenClaude plugins."
-      ]
-    },
-    {
-      "name": "report",
-      "next": [],
-      "tip": [
-        "Generate a deterministic task report for an OpenClaude session."
-      ]
-    },
-    {
-      "name": "setup-token",
-      "next": [],
-      "tip": [
-        "Set up a long-lived authentication token (requires Claude subscription)."
-      ]
-    },
-    {
-      "name": "skills",
-      "next": [],
-      "tip": [
-        "List, inspect, validate, and manage OpenClaude skills."
-      ]
-    },
-    {
-      "alias": [
-        "upgrade"
+      "usage": [
+        "-h, --help"
       ],
-      "name": "update",
-      "next": [],
-      "tip": [
-        "Check for updates and install if available."
-      ]
-    }
-  ],
-  "common_option": [
-    {
-      "alias": [
-        "--help"
-      ],
-      "name": "-h",
       "tip": [
         "Display help for command."
       ]

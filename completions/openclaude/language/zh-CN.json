@@ -5,30 +5,122 @@
       "openclaude - OpenClaude，一个开源的 AI 编程助手，运行在你的终端中（Claude Code 的一个分支）。"
     ]
   },
+  "next": [
+    {
+      "name": "agents",
+      "tip": [
+        "列出已配置的代理。"
+      ]
+    },
+    {
+      "name": "aimlapi",
+      "tip": [
+        "AI/ML API（aimlapi.com) — 充值余额并配置提供商。"
+      ]
+    },
+    {
+      "name": "auth",
+      "tip": [
+        "管理身份认证。"
+      ]
+    },
+    {
+      "name": "auto-mode",
+      "tip": [
+        "检查自动模式分类器配置。"
+      ]
+    },
+    {
+      "name": "doctor",
+      "tip": [
+        "检查 OpenClaude 自动更新程序的健康状况。"
+      ]
+    },
+    {
+      "name": "install",
+      "tip": [
+        "安装 OpenClaude 原生构建。"
+      ]
+    },
+    {
+      "name": "mcp",
+      "tip": [
+        "配置和管理 MCP 服务器。"
+      ]
+    },
+    {
+      "name": "plugins",
+      "alias": [
+        "plugin"
+      ],
+      "usage": [
+        "plugin|plugins"
+      ],
+      "tip": [
+        "管理 OpenClaude 插件。"
+      ]
+    },
+    {
+      "name": "report",
+      "tip": [
+        "为 OpenClaude 会话生成确定性任务报告。"
+      ]
+    },
+    {
+      "name": "setup-token",
+      "tip": [
+        "设置长期身份认证令牌（需要 Claude 订阅）。"
+      ]
+    },
+    {
+      "name": "skills",
+      "tip": [
+        "列出、检查、验证和管理 OpenClaude 技能。"
+      ]
+    },
+    {
+      "name": "upgrade",
+      "alias": [
+        "update"
+      ],
+      "usage": [
+        "update|upgrade"
+      ],
+      "tip": [
+        "检查更新并在可用时安装。"
+      ]
+    }
+  ],
   "option": [
     {
       "name": "--add-dir",
+      "usage": [
+        "--add-dir <directories...>"
+      ],
       "tip": [
-        "U: --add-dir <directories...>",
         "允许工具访问的其他目录。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--agent",
+      "usage": [
+        "--agent <agent>"
+      ],
       "tip": [
-        "U: --agent <agent>",
         "当前会话的代理。覆盖 'agent' 设置。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--agents",
+      "usage": [
+        "--agents <json>"
+      ],
       "tip": [
-        "U: --agents <json>",
         "定义自定义代理的 JSON 对象。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--allow-dangerously-skip-permissions",
@@ -41,19 +133,23 @@
       "alias": [
         "--allowedTools"
       ],
+      "usage": [
+        "--allowedTools, --allowed-tools <tools...>"
+      ],
       "tip": [
-        "U: --allowedTools <tools...>",
         "允许的工具名称列表（逗号或空格分隔）。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--append-system-prompt",
+      "usage": [
+        "--append-system-prompt <prompt>"
+      ],
       "tip": [
-        "U: --append-system-prompt <prompt>",
         "附加到默认系统提示的系统提示。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--bare",
@@ -63,11 +159,13 @@
     },
     {
       "name": "--betas",
+      "usage": [
+        "--betas <betas...>"
+      ],
       "tip": [
-        "U: --betas <betas...>",
         "包含在 API 请求中的测试版标头（仅 API 密钥用户）。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--chrome",
@@ -80,6 +178,9 @@
       "alias": [
         "-c"
       ],
+      "usage": [
+        "-c, --continue"
+      ],
       "tip": [
         "继续当前目录中最近的对话。"
       ]
@@ -88,6 +189,9 @@
       "name": "--dangerously-skip-permissions",
       "alias": [
         "--yolo"
+      ],
+      "usage": [
+        "--yolo, --dangerously-skip-permissions"
       ],
       "tip": [
         "绕过所有权限检查。建议仅在无互联网访问的沙箱中使用。"
@@ -98,19 +202,23 @@
       "alias": [
         "-d"
       ],
+      "usage": [
+        "-d, --debug"
+      ],
       "tip": [
-        "U: -d, --debug [filter]",
         "启用调试模式，可选类别过滤。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--debug-file",
+      "usage": [
+        "--debug-file <path>"
+      ],
       "tip": [
-        "U: --debug-file <path>",
         "将调试日志写入指定文件路径（隐式启用调试模式）。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--disable-slash-commands",
@@ -123,16 +231,20 @@
       "alias": [
         "--disallowedTools"
       ],
+      "usage": [
+        "--disallowedTools, --disallowed-tools <tools...>"
+      ],
       "tip": [
-        "U: --disallowedTools <tools...>",
         "要拒绝的工具名称列表（逗号或空格分隔）。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--effort",
+      "usage": [
+        "--effort <level>"
+      ],
       "tip": [
-        "U: --effort <level>",
         "当前会话的效果级别。"
       ],
       "next": [
@@ -158,19 +270,23 @@
     },
     {
       "name": "--fallback-model",
+      "usage": [
+        "--fallback-model <model>"
+      ],
       "tip": [
-        "U: --fallback-model <model>",
         "当默认模型过载或不可用时，自动回退到指定模型。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--file",
+      "usage": [
+        "--file <specs...>"
+      ],
       "tip": [
-        "U: --file <specs...>",
         "启动时要下载的文件资源。格式：file_id:relative_path。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--fork-session",
@@ -180,19 +296,23 @@
     },
     {
       "name": "--from-pr",
+      "usage": [
+        "--from-pr [value]"
+      ],
       "tip": [
-        "U: --from-pr [value]",
         "通过 PR 编号/URL 恢复与 PR 链接的会话，或打开交互式选择器。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--heartbeat",
+      "usage": [
+        "--heartbeat <duration>"
+      ],
       "tip": [
-        "U: --heartbeat <duration>",
         "在输出静默时发出无头存活心跳（仅与 --print 配合使用）。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--ide",
@@ -214,8 +334,10 @@
     },
     {
       "name": "--input-format",
+      "usage": [
+        "--input-format <format>"
+      ],
       "tip": [
-        "U: --input-format <format>",
         "输入格式（仅与 --print 配合使用）：\"text\"（默认）或 \"stream-json\"。"
       ],
       "next": [
@@ -229,35 +351,43 @@
     },
     {
       "name": "--json-schema",
+      "usage": [
+        "--json-schema <schema>"
+      ],
       "tip": [
-        "U: --json-schema <schema>",
         "用于结构化输出验证的 JSON 模式。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--max-budget-usd",
+      "usage": [
+        "--max-budget-usd <amount>"
+      ],
       "tip": [
-        "U: --max-budget-usd <amount>",
         "在 API 调用上花费的最大美元金额（仅与 --print 配合使用）。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--max-turns",
+      "usage": [
+        "--max-turns <turns>"
+      ],
       "tip": [
-        "U: --max-turns <turns>",
         "每个提示的最大代理回合数。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--mcp-config",
+      "usage": [
+        "--mcp-config <configs...>"
+      ],
       "tip": [
-        "U: --mcp-config <configs...>",
         "从 JSON 文件或字符串加载 MCP 服务器（空格分隔）。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--mcp-debug",
@@ -270,22 +400,26 @@
       "alias": [
         "-m"
       ],
+      "usage": [
+        "-m, --model <model>"
+      ],
       "tip": [
-        "U: --model <model>",
         "当前会话的模型。提供别名（例如 'sonnet' 或 'opus'）或完整模型名称。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--name",
       "alias": [
         "-n"
       ],
+      "usage": [
+        "-n, --name <name>"
+      ],
       "tip": [
-        "U: -n, --name <name>",
         "为此会话设置显示名称。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--no-chrome",
@@ -301,8 +435,10 @@
     },
     {
       "name": "--output-format",
+      "usage": [
+        "--output-format <format>"
+      ],
       "tip": [
-        "U: --output-format <format>",
         "输出格式（仅与 --print 配合使用）：\"text\"、\"json\" 或 \"stream-json\"。"
       ],
       "next": [
@@ -319,8 +455,10 @@
     },
     {
       "name": "--permission-mode",
+      "usage": [
+        "--permission-mode <mode>"
+      ],
       "tip": [
-        "U: --permission-mode <mode>",
         "会话使用的权限模式。"
       ],
       "next": [
@@ -349,16 +487,21 @@
     },
     {
       "name": "--plugin-dir",
+      "usage": [
+        "--plugin-dir <path>"
+      ],
       "tip": [
-        "U: --plugin-dir <path>",
         "为此会话从目录加载插件（可重复）。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--print",
       "alias": [
         "-p"
+      ],
+      "usage": [
+        "-p, --print"
       ],
       "tip": [
         "打印响应并退出（适用于管道）。"
@@ -366,16 +509,20 @@
     },
     {
       "name": "--prompt-suggestions",
+      "usage": [
+        "--prompt-suggestions [value]"
+      ],
       "tip": [
-        "U: --prompt-suggestions [value]",
         "启用提示建议。在 print/SDK 模式下，每个回合后发出提示建议消息。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--provider",
+      "usage": [
+        "--provider <provider>"
+      ],
       "tip": [
-        "U: --provider <provider>",
         "要使用的 AI 提供商（anthropic, openai, gemini, github, bedrock, vertex, ollama）。"
       ],
       "next": [
@@ -404,11 +551,13 @@
     },
     {
       "name": "--provider-env-file",
+      "usage": [
+        "--provider-env-file <path>"
+      ],
       "tip": [
-        "U: --provider-env-file <path>",
         "在验证之前从文件加载提供商环境变量（可重复）。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--replay-user-messages",
@@ -421,35 +570,43 @@
       "alias": [
         "-r"
       ],
+      "usage": [
+        "-r, --resume"
+      ],
       "tip": [
-        "U: -r, --resume [value]",
         "通过会话 ID 恢复对话，或打开交互式选择器。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--session-id",
+      "usage": [
+        "--session-id <uuid>"
+      ],
       "tip": [
-        "U: --session-id <uuid>",
         "为对话使用指定的会话 ID。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--setting-sources",
+      "usage": [
+        "--setting-sources <sources>"
+      ],
       "tip": [
-        "U: --setting-sources <sources>",
         "要加载的设置来源列表（user, project, local），逗号分隔。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--settings",
+      "usage": [
+        "--settings <file-or-json>"
+      ],
       "tip": [
-        "U: --settings <file-or-json>",
         "要加载的额外设置的设置 JSON 文件路径或 JSON 字符串。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--strict-mcp-config",
@@ -459,16 +616,20 @@
     },
     {
       "name": "--system-prompt",
+      "usage": [
+        "--system-prompt <prompt>"
+      ],
       "tip": [
-        "U: --system-prompt <prompt>",
         "会话使用的系统提示。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--system-prompt-snapshot",
+      "usage": [
+        "--system-prompt-snapshot <on|off>"
+      ],
       "tip": [
-        "U: --system-prompt-snapshot <on|off>",
         "一次记录系统提示并在后续重复使用。"
       ],
       "next": [
@@ -488,16 +649,21 @@
     },
     {
       "name": "--tools",
+      "usage": [
+        "--tools <tools...>"
+      ],
       "tip": [
-        "U: --tools <tools...>",
         "从内置工具集中指定可用的工具列表。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--version",
       "alias": [
         "-v"
+      ],
+      "usage": [
+        "-v, --version"
       ],
       "tip": [
         "输出版本号。"
@@ -508,111 +674,24 @@
       "alias": [
         "-w"
       ],
+      "usage": [
+        "-w, --worktree"
+      ],
       "tip": [
-        "U: -w, --worktree [name]",
         "为此会话创建一个新的 git 工作树（可指定名称）。"
       ],
-      "next": 0
+      "next": []
     }
   ],
-  "root": [
+  "global_option": [
     {
-      "name": "agents",
-      "next": [],
-      "tip": [
-        "列出已配置的代理。"
-      ]
-    },
-    {
-      "name": "aimlapi",
-      "next": [],
-      "tip": [
-        "AI/ML API（aimlapi.com) — 充值余额并配置提供商。"
-      ]
-    },
-    {
-      "name": "auth",
-      "next": [],
-      "tip": [
-        "管理身份认证。"
-      ]
-    },
-    {
-      "name": "auto-mode",
-      "next": [],
-      "tip": [
-        "检查自动模式分类器配置。"
-      ]
-    },
-    {
-      "name": "doctor",
-      "next": [],
-      "tip": [
-        "检查 OpenClaude 自动更新程序的健康状况。"
-      ]
-    },
-    {
-      "name": "install",
-      "next": 0,
-      "tip": [
-        "安装 OpenClaude 原生构建。"
-      ]
-    },
-    {
-      "name": "mcp",
-      "next": [],
-      "tip": [
-        "配置和管理 MCP 服务器。"
-      ]
-    },
-    {
+      "name": "--help",
       "alias": [
-        "plugins"
+        "-h"
       ],
-      "name": "plugin",
-      "next": [],
-      "tip": [
-        "管理 OpenClaude 插件。"
-      ]
-    },
-    {
-      "name": "report",
-      "next": [],
-      "tip": [
-        "为 OpenClaude 会话生成确定性任务报告。"
-      ]
-    },
-    {
-      "name": "setup-token",
-      "next": [],
-      "tip": [
-        "设置长期身份认证令牌（需要 Claude 订阅）。"
-      ]
-    },
-    {
-      "name": "skills",
-      "next": [],
-      "tip": [
-        "列出、检查、验证和管理 OpenClaude 技能。"
-      ]
-    },
-    {
-      "alias": [
-        "upgrade"
+      "usage": [
+        "-h, --help"
       ],
-      "name": "update",
-      "next": [],
-      "tip": [
-        "检查更新并在可用时安装。"
-      ]
-    }
-  ],
-  "common_option": [
-    {
-      "alias": [
-        "--help"
-      ],
-      "name": "-h",
       "tip": [
         "显示命令的帮助信息。"
       ]
