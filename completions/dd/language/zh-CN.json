@@ -12,17 +12,23 @@
       "alias": [
         "-V"
       ],
+      "usage": [
+        "-V, --version"
+      ],
       "tip": [
         "显示版本信息。"
       ]
     }
   ],
-  "common_option": [
+  "global_option": [
     {
+      "name": "--help",
       "alias": [
         "-h"
       ],
-      "name": "--help",
+      "usage": [
+        "-h, --help"
+      ],
       "tip": [
         "显示帮助信息。"
       ]
