@@ -9,8 +9,10 @@
   "option": [
     {
       "name": "--channel",
+      "usage": [
+        "--channel=<ID>"
+      ],
       "tip": [
-        "用法: --channel=<ID>",
         "包含不超过 <ID> 的渠道的包。",
         "0 = 稳定版, 1 = 测试版, 2 = 开发版, 3 = 金丝雀版。"
       ],
@@ -87,17 +89,21 @@
     },
     {
       "name": "--package_file",
+      "usage": [
+        "--package_file=<文件>"
+      ],
       "tip": [
-        "用法: --package_file=<文件>",
         "一个文本文件，每行是一个 sdk 风格的路径，",
         "表示要安装或卸载的包。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--proxy",
+      "usage": [
+        "--proxy=<类型>"
+      ],
       "tip": [
-        "用法: --proxy=<类型>",
         "通过指定类型的代理进行连接。"
       ],
       "next": [
@@ -117,27 +123,33 @@
     },
     {
       "name": "--proxy_host",
+      "usage": [
+        "--proxy_host=<主机>"
+      ],
       "tip": [
-        "用法: --proxy_host=<主机>",
         "代理的 IP 或 DNS 地址。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--proxy_port",
+      "usage": [
+        "--proxy_port=<端口>"
+      ],
       "tip": [
-        "用法: --proxy_port=<端口>",
         "要连接的代理端口。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--sdk_root",
+      "usage": [
+        "--sdk_root=<路径>"
+      ],
       "tip": [
-        "用法: --sdk_root=<路径>",
         "使用指定的 SDK 根目录，而不是包含此工具的 SDK。"
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--uninstall",
@@ -164,8 +176,7 @@
       ]
     }
   ],
-  "root": [],
-  "common_option": [
+  "global_option": [
     {
       "name": "--help",
       "tip": [

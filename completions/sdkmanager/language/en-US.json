@@ -9,8 +9,10 @@
   "option": [
     {
       "name": "--channel",
+      "usage": [
+        "--channel=<id>"
+      ],
       "tip": [
-        "U: --channel=<id>",
         "Include packages in channels up to <id>.",
         "0 = Stable, 1 = Beta, 2 = Dev, 3 = Canary."
       ],
@@ -87,17 +89,21 @@
     },
     {
       "name": "--package_file",
+      "usage": [
+        "--package_file=<file>"
+      ],
       "tip": [
-        "U: --package_file=<file>",
         "A text file where each line is a sdk-style path",
         "of a package to install or uninstall."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--proxy",
+      "usage": [
+        "--proxy=<type>"
+      ],
       "tip": [
-        "U: --proxy=<type>",
         "Connect via a proxy of the given type."
       ],
       "next": [
@@ -117,28 +123,34 @@
     },
     {
       "name": "--proxy_host",
+      "usage": [
+        "--proxy_host=<host>"
+      ],
       "tip": [
-        "U: --proxy_host=<host>",
         "IP or DNS address of the proxy to use."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--proxy_port",
+      "usage": [
+        "--proxy_port=<port>"
+      ],
       "tip": [
-        "U: --proxy_port=<port>",
         "Proxy port to connect to."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--sdk_root",
+      "usage": [
+        "--sdk_root=<path>"
+      ],
       "tip": [
-        "U: --sdk_root=<path>",
         "Use the specified SDK root instead of the SDK",
         "containing this tool."
       ],
-      "next": 0
+      "next": []
     },
     {
       "name": "--uninstall",
@@ -165,8 +177,7 @@
       ]
     }
   ],
-  "root": [],
-  "common_option": [
+  "global_option": [
     {
       "name": "--help",
       "tip": [
