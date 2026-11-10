@@ -22,6 +22,7 @@
 |[apt-get](https://wiki.debian.org/Apt)|APT 软件包处理工具，软件包管理的命令行后端。|
 |[apt-mark](https://wiki.debian.org/Teams/Dpkg)|将软件包标记为自动或手动安装。|
 |[ar](https://www.gnu.org/software/binutils)|创建、修改和提取归档。|
+|[arch](https://github.com/uutils/coreutils)|显示当前系统架构。<br>补全基于 [uutils/coreutils](https://github.com/uutils/coreutils) 编写。|
 |[arch@GNU](https://www.gnu.org/software/coreutils/)|打印机器架构。|
 |[arch@uutils](https://uutils.org)|显示机器架构|
 |[aria2c](https://aria2.github.io)|轻量级多协议多源下载工具。|
@@ -37,6 +38,7 @@
 |[aube](https://aube.jdx.dev)|一个快速的 Node.js 包管理器|
 |[aubr](https://aube.jdx.dev)|运行 package.json 中定义的脚本（aube run 独立版本）|
 |[aubx](https://aube.jdx.dev)|将包下载到临时环境并运行其二进制文件 (aube dlx 独立版)|
+|[avdmanager](https://developer.android.com/studio/run/managing-avds)|avdmanager - Android 虚拟设备管理器。<br>创建、管理和删除 Android 模拟器的虚拟设备 (AVD)。|
 |[awk@GNU](https://www.gnu.org/software/gawk)|GNU 版 AWK 编程语言实现。|
 |[awk@mawk](https://invisible-island.net/mawk)|模式扫描与文本处理语言。|
 |[aws](https://aws.amazon.com/cli/)|AWS 命令行界面是一个统一管理 AWS 服务的工具。|
@@ -137,6 +139,7 @@
 |[date@GNU](https://www.gnu.org/software/coreutils/)|以给定的 FORMAT 显示日期和时间。|
 |[date@uutils](https://uutils.org)|显示或设置系统日期和时间。|
 |[dcb](https://github.com/iproute2/iproute2)|显示/操作 DCB 设置。|
+|[dd](https://github.com/uutils/coreutils)|复制并转换文件系统资源。<br>补全基于 [uutils/coreutils](https://github.com/uutils/coreutils) 编写。|
 |[dd@GNU](https://www.gnu.org/software/coreutils/)|按操作数的规定转换并格式化，从而复制文件。|
 |[dd@uutils](https://uutils.org)|复制文件系统资源，并可选择转换|
 |[debugfs](https://e2fsprogs.sourceforge.net)|交互式调试和修改 ext2/ext3/ext4 文件系统。|
@@ -191,6 +194,7 @@
 |[echo@uutils](https://uutils.org)|显示一行文本|
 |[eddy](https://github.com/70sh1/eddy)|简单快速的文件加密工具|
 |[elfedit](https://www.gnu.org/software/binutils)|更新 ELF 文件的 ELF 头。|
+|[emulator](https://developer.android.com/studio/run/emulator)|emulator - Android 模拟器。<br>Android 模拟器在您的计算机上模拟 Android 设备，以便您无需物理设备即可测试应用程序。|
 |[env@GNU](https://www.gnu.org/software/coreutils/)|把每个 NAME 在环境中设为 VALUE，然后运行 COMMAND。|
 |[env@uutils](https://uutils.org)|设置环境中的每个 NAME 为 VALUE 并运行 COMMAND。|
 |[esbuild](https://esbuild.github.io/)|极速 JavaScript 和 CSS 打包器与压缩器。|
@@ -198,6 +202,7 @@
 |[expand@GNU](https://www.gnu.org/software/coreutils/)|把每个 FILE 中的制表符转换成空格，输出到标准输出。|
 |[expand@uutils](https://uutils.org)|将每个文件中的制表符转换为空格。|
 |[expiry](https://github.com/shadow-maint/shadow)|检查并执行密码过期策略。|
+|[expo](https://docs.expo.dev/more/expo-cli)|Expo CLI - 用于开发、构建和部署 Expo / React Native 应用的工具集<br>通常通过 npx expo 或 bunx expo 调用|
 |[expr@GNU](https://www.gnu.org/software/coreutils/)|把 EXPRESSION 的值打印到标准输出。|
 |[expr@uutils](https://uutils.org)|将 EXPRESSION 的值打印到标准输出|
 |[eza](https://eza.rocks)|ls 的现代替代品。|
@@ -207,6 +212,7 @@
 |[fallocate](https://github.com/util-linux/util-linux)|为文件预分配空间或释放文件空间。|
 |[false@GNU](https://www.gnu.org/software/coreutils/)|以表示失败的状态码退出。|
 |[false@uutils](https://uutils.org)|返回 false，非成功的退出状态|
+|[fastboot](https://android.googlesource.com/platform/system/core/+/refs/heads/main/fastboot)|fastboot 是一个用于在 Android 设备上刷写分区的命令行工具。<br>它通过 USB 或网络与 bootloader 模式下的设备通信。|
 |[fastfetch](https://github.com/fastfetch-cli/fastfetch)|一个类似 neofetch 的工具，用于获取系统信息并以美观的方式显示。|
 |[fd](https://github.com/sharkdp/fd)|在文件系统中查找条目的程序。|
 |[fdisk](https://github.com/util-linux/util-linux)|显示或操作磁盘分区表。|
@@ -256,6 +262,7 @@
 |[gprof](https://www.gnu.org/software/binutils)|显示调用图性能数据。|
 |[gprofng](https://www.gnu.org/software/binutils)|gprofng 性能分析工具的驱动程序。|
 |[gradle](https://gradle.org)|JVM 的强大构建系统。|
+|[gradlew](https://docs.gradle.org/current/userguide/command_line_interface.html)|Gradle Wrapper - 构建自动化工具包装脚本。|
 |[grep@BSD](https://cgit.freebsd.org/src/tree/usr.bin/grep)|在每个 FILE 中搜索 PATTERNS。<br>BSD grep 是 macOS 和 FreeBSD 上的默认实现。<br>标记为 (macOS only) 的选项不被 FreeBSD 的 grep 接受。|
 |[grep@GNU](https://www.gnu.org/software/grep)|在每个 FILE 中搜索 PATTERNS。<br>GNU grep 是 Linux、WSL、Git for Windows 和 NetBSD 上的默认实现。|
 |[groupadd](https://github.com/shadow-maint/shadow)|创建一个新组。|
@@ -268,7 +275,9 @@
 |[grpconv](https://github.com/shadow-maint/shadow)|从 group 文件创建或更新 gshadow 文件。|
 |[grpunconv](https://github.com/shadow-maint/shadow)|从 gshadow 文件创建 group 文件，并删除 gshadow 文件。|
 |[gum](https://github.com/charmbracelet/gum)|用于编写炫酷 Shell 脚本的工具|
+|[gws](https://github.com/googleworkspace/cli)|Google Workspace CLI (gws)。<br>与 Drive、Gmail、Calendar、Sheets、Docs、Chat、Admin 等交互。|
 |[gzip](https://www.gnu.org/software/gzip)|压缩或解压缩文件。|
+|[hashsum](https://github.com/uutils/coreutils)|计算并校验消息摘要。<br>补全基于 [uutils/coreutils](https://github.com/uutils/coreutils) 编写。|
 |[head@GNU](https://www.gnu.org/software/coreutils/)|把每个 FILE 的前 10 行打印到标准输出。|
 |[head@uutils](https://uutils.org)|输出每个文件的前 10 行到标准输出。|
 |[helm](https://helm.sh)|Kubernetes 包管理器。|
@@ -319,6 +328,7 @@
 |[kernel-install](https://github.com/systemd/systemd)|在启动分区中添加和移除内核与 initrd 镜像。|
 |[kill](https://gitlab.com/procps-ng/procps)|向进程发送信号。|
 |[killall](https://gitlab.com/psmisc/psmisc)|按名称终止进程。|
+|[kilo](https://kilocode.ai)|kilo - 终端中的 AI 编程智能体。|
 |[kind](https://kind.sigs.k8s.io/)|kind 是一个使用 Docker 容器 'nodes' 运行本地 Kubernetes 集群的工具。<br>kind 最初主要用于测试 Kubernetes 本身，但也可用于本地开发或 CI。|
 |[kmod](https://github.com/kmod-project/kmod)|管理内核模块。|
 |[komac](https://github.com/russellbanks/Komac)|WinGet 的社区清单创建器。|
@@ -335,6 +345,7 @@
 |[lefthook](https://github.com/evilmartians/lefthook)|Git 钩子管理器。|
 |[less](https://greenwoodsoftware.com/less)|在终端中逐屏显示文件内容。|
 |[lexgrog](https://gitlab.com/man-db/man-db)|解析手册页中的头信息。|
+|[link](https://github.com/uutils/coreutils)|调用 link 函数为现有的 FILE1 创建名为 FILE2 的链接。<br>补全基于 [uutils/coreutils](https://github.com/uutils/coreutils) 编写。|
 |[link@GNU](https://www.gnu.org/software/coreutils/)|调用 link 函数，创建一个名为 FILE2、指向已存在的 FILE1 的链接。|
 |[link@uutils](https://uutils.org)|调用 link 函数，创建指向已存在 FILE1 的名为 FILE2 的链接|
 |[ln@GNU](https://www.gnu.org/software/coreutils/)|创建文件之间的链接。|
@@ -471,8 +482,9 @@
 |[oh-my-posh](https://ohmyposh.dev)|跨平台终端提示符渲染工具。|
 |[ollama](https://docs.ollama.com/cli)|本地大语言模型运行器。|
 |[omp](https://github.com/can1357/oh-my-pi)|Oh My Pi - 终端中的 AI 编程助手。|
+|[openclaude](https://opencode.ai)|openclaude - OpenClaude，一个开源的 AI 编程助手，运行在你的终端中（Claude Code 的一个分支）。|
 |[openclaw](https://docs.openclaw.ai/cli)|OpenClaw 的命令行界面 (CLI)|
-|[opencode](https://github.com/nicholaswatertank/opencode)|终端中的 AI 编程智能体。|
+|[opencode](https://opencode.ai)|面向终端的 AI 编码智能体。|
 |[openssl](https://www.openssl.org)|OpenSSL 命令行工具|
 |[ouch](https://github.com/ouch-org/ouch)|一个用于轻松压缩和解压文件与目录的命令行工具<br>支持格式：tar、zip、gz、7z、xz、lzma、bz2、bz3、lz4、zst、rar、br|
 |[oxfmt](https://oxc.rs)|一个极快的 JavaScript、TypeScript、JSX 和 TSX 格式化工具和代码风格指南检查器|
@@ -618,6 +630,7 @@
 |[scriptlive](https://github.com/util-linux/util-linux)|执行终端 typescript。|
 |[scriptreplay](https://github.com/util-linux/util-linux)|使用计时信息回放终端 typescript。|
 |[sd](https://github.com/chmln/sd)|直觉化的查找与替换 CLI<br>sed 替代工具|
+|[sdkmanager](https://developer.android.com/studio/intro/update#sdk-manager)|sdkmanager - Android SDK 管理器。<br>安装、更新和管理 Android SDK 包、平台、构建工具等。|
 |[sed@GNU](https://www.gnu.org/software/sed)|GNU 流编辑器，用于过滤和转换文本。|
 |[seq@GNU](https://www.gnu.org/software/coreutils/)|从 FIRST 到 LAST 按 INCREMENT 为步长打印数字。|
 |[seq@uutils](https://uutils.org)|按 INCREMENT 步长显示从 FIRST 到 LAST 的数字|

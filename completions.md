@@ -22,6 +22,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[apt-get](https://wiki.debian.org/Apt)|APT package handling utility, the command-line back-end for package management.|
 |[apt-mark](https://wiki.debian.org/Teams/Dpkg)|Mark packages as automatically or manually installed.|
 |[ar](https://www.gnu.org/software/binutils)|Create, modify and extract from archives.|
+|[arch](https://github.com/uutils/coreutils)|Display machine architecture.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
 |[arch@GNU](https://www.gnu.org/software/coreutils/)|Print machine architecture.|
 |[arch@uutils](https://uutils.org)|Display machine architecture|
 |[aria2c](https://aria2.github.io)|Lightweight multi-protocol and multi-source download utility.|
@@ -37,6 +38,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[aube](https://aube.jdx.dev)|A fast Node.js package manager|
 |[aubr](https://aube.jdx.dev)|Run a script defined in package.json (aube run standalone)|
 |[aubx](https://aube.jdx.dev)|Fetch a package into a throwaway environment and run its binary (aube dlx standalone)|
+|[avdmanager](https://developer.android.com/studio/run/managing-avds)|avdmanager - Android Virtual Device Manager.<br>Create, manage, and delete Android Virtual Devices (AVDs) for the Android emulator.|
 |[awk@GNU](https://www.gnu.org/software/gawk)|The GNU implementation of the AWK programming language.|
 |[awk@mawk](https://invisible-island.net/mawk)|Pattern scanning and text processing language.|
 |[aws](https://aws.amazon.com/cli/)|The AWS Command Line Interface is a unified tool to manage your AWS services.|
@@ -137,6 +139,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[date@GNU](https://www.gnu.org/software/coreutils/)|Display date and time in the given FORMAT.|
 |[date@uutils](https://uutils.org)|Print or set the system date and time.|
 |[dcb](https://github.com/iproute2/iproute2)|Show / manipulate DCB settings.|
+|[dd](https://github.com/uutils/coreutils)|Copy, and optionally convert, a file system resource.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
 |[dd@GNU](https://www.gnu.org/software/coreutils/)|Copy a file, converting and formatting according to the operands.|
 |[dd@uutils](https://uutils.org)|Copy, and optionally convert, a file system resource|
 |[debugfs](https://e2fsprogs.sourceforge.net)|Debug and modify an ext2/ext3/ext4 file system interactively.|
@@ -191,6 +194,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[echo@uutils](https://uutils.org)|Display a line of text|
 |[eddy](https://github.com/70sh1/eddy)|Simple and fast file encryption|
 |[elfedit](https://www.gnu.org/software/binutils)|Update the ELF header of ELF files.|
+|[emulator](https://developer.android.com/studio/run/emulator)|emulator - Android Emulator.<br>The Android Emulator simulates Android devices on your computer to let you test your app without a physical device.|
 |[env@GNU](https://www.gnu.org/software/coreutils/)|Set each NAME to VALUE in the environment and run COMMAND.|
 |[env@uutils](https://uutils.org)|Set each NAME to VALUE in the environment and run COMMAND.|
 |[esbuild](https://esbuild.github.io/)|Extremely fast JavaScript and CSS bundler and minifier.|
@@ -198,6 +202,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[expand@GNU](https://www.gnu.org/software/coreutils/)|Convert tabs in each FILE to spaces, writing to standard output.|
 |[expand@uutils](https://uutils.org)|Convert tabs in each FILE to spaces.|
 |[expiry](https://github.com/shadow-maint/shadow)|Check and enforce password expiration policy.|
+|[expo](https://docs.expo.dev/more/expo-cli)|Expo CLI - Tools to develop, build, and deploy Expo / React Native apps<br>Usually invoked via npx expo or bunx expo|
 |[expr@GNU](https://www.gnu.org/software/coreutils/)|Print the value of EXPRESSION to standard output.|
 |[expr@uutils](https://uutils.org)|Print the value of EXPRESSION to standard output|
 |[eza](https://eza.rocks)|A modern replacement for ls.|
@@ -207,6 +212,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[fallocate](https://github.com/util-linux/util-linux)|Preallocate space to, or deallocate space from a file.|
 |[false@GNU](https://www.gnu.org/software/coreutils/)|Exit with a status code indicating failure.|
 |[false@uutils](https://uutils.org)|Returns false, an unsuccessful exit status.|
+|[fastboot](https://android.googlesource.com/platform/system/core/+/refs/heads/main/fastboot)|fastboot is a command-line tool for flashing partitions on Android devices.<br>It communicates with a device in bootloader mode via USB or network.|
 |[fastfetch](https://github.com/fastfetch-cli/fastfetch)|A neofetch-like tool for fetching system information and displaying them in a pretty way.|
 |[fd](https://github.com/sharkdp/fd)|Program to find entries in your filesystem.|
 |[fdisk](https://github.com/util-linux/util-linux)|Display or manipulate a disk partition table.|
@@ -256,6 +262,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[gprof](https://www.gnu.org/software/binutils)|Display call graph profile data.|
 |[gprofng](https://www.gnu.org/software/binutils)|Driver for the gprofng profiling tools.|
 |[gradle](https://gradle.org)|Powerful build system for the JVM.|
+|[gradlew](https://docs.gradle.org/current/userguide/command_line_interface.html)|Gradle Wrapper - Build automation tool wrapper script.|
 |[grep@BSD](https://cgit.freebsd.org/src/tree/usr.bin/grep)|Search for PATTERNS in each FILE.<br>BSD grep is the default on macOS and FreeBSD.<br>Options marked (macOS only) are not accepted by FreeBSD's grep.|
 |[grep@GNU](https://www.gnu.org/software/grep)|Search for PATTERNS in each FILE.<br>GNU grep is the default on Linux, WSL, Git for Windows and NetBSD.|
 |[groupadd](https://github.com/shadow-maint/shadow)|Create a new group.|
@@ -268,7 +275,9 @@ English | [简体中文](./completions.zh-CN.md)
 |[grpconv](https://github.com/shadow-maint/shadow)|Create or update the gshadow file from the group file.|
 |[grpunconv](https://github.com/shadow-maint/shadow)|Create the group file from the gshadow file and remove the gshadow file.|
 |[gum](https://github.com/charmbracelet/gum)|A tool for glamorous shell scripts|
+|[gws](https://github.com/googleworkspace/cli)|Google Workspace CLI (gws).<br>Interact with Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more.|
 |[gzip](https://www.gnu.org/software/gzip)|Compress or uncompress files.|
+|[hashsum](https://github.com/uutils/coreutils)|Compute and check message digests.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
 |[head@GNU](https://www.gnu.org/software/coreutils/)|Print the first 10 lines of each FILE to standard output.|
 |[head@uutils](https://uutils.org)|Print the first 10 lines of each FILE to standard output.|
 |[helm](https://helm.sh)|Kubernetes package manager.|
@@ -319,6 +328,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[kernel-install](https://github.com/systemd/systemd)|Add and remove kernel and initrd images to and from the boot partition.|
 |[kill](https://gitlab.com/procps-ng/procps)|Send a signal to processes.|
 |[killall](https://gitlab.com/psmisc/psmisc)|Kill processes by name.|
+|[kilo](https://kilocode.ai)|kilo - AI-powered coding agent for your terminal.|
 |[kind](https://kind.sigs.k8s.io/)|kind is a tool for running local Kubernetes clusters using Docker container 'nodes'.<br>kind was primarily designed for testing Kubernetes itself, but may be used for local development or CI.|
 |[kmod](https://github.com/kmod-project/kmod)|Manage kernel modules.|
 |[komac](https://github.com/russellbanks/Komac)|The Community Manifest Creator for WinGet.|
@@ -335,6 +345,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[lefthook](https://github.com/evilmartians/lefthook)|Git hooks manager.|
 |[less](https://greenwoodsoftware.com/less)|Display the contents of a file in a terminal.|
 |[lexgrog](https://gitlab.com/man-db/man-db)|Parse header information in man pages.|
+|[link](https://github.com/uutils/coreutils)|Call the link function to create a link named FILE2 to an existing FILE1.<br>Completion was written based on [uutils/coreutils](https://github.com/uutils/coreutils).|
 |[link@GNU](https://www.gnu.org/software/coreutils/)|Call the link function to create a link named FILE2 to an existing FILE1.|
 |[link@uutils](https://uutils.org)|Call the link function to create a link named FILE2 to an existing FILE1.|
 |[ln@GNU](https://www.gnu.org/software/coreutils/)|Make links between files.|
@@ -471,8 +482,9 @@ English | [简体中文](./completions.zh-CN.md)
 |[oh-my-posh](https://ohmyposh.dev)|Cross-platform tool to render your prompt.|
 |[ollama](https://docs.ollama.com/cli)|Local large language model runner.|
 |[omp](https://github.com/can1357/oh-my-pi)|Oh My Pi - AI-powered coding assistant in the terminal.|
+|[openclaude](https://opencode.ai)|openclaude - OpenClaude, an open-source AI coding agent for your terminal (a fork of Claude Code).|
 |[openclaw](https://docs.openclaw.ai/cli)|The Command Line Interface (CLI) of OpenClaw|
-|[opencode](https://github.com/nicholaswatertank/opencode)|AI-powered coding agent for the terminal.|
+|[opencode](https://opencode.ai)|AI-powered coding agent for your terminal.|
 |[openssl](https://www.openssl.org)|OpenSSL command line tool|
 |[ouch](https://github.com/ouch-org/ouch)|A command-line utility for easily compressing and decompressing files and directories<br>Supported formats: tar, zip, gz, 7z, xz, lzma, bz2, bz3, lz4, zst, rar, br|
 |[oxfmt](https://oxc.rs)|An extremely fast formatter and code style guide linter for JavaScript, TypeScript, JSX, and TSX|
@@ -618,6 +630,7 @@ English | [简体中文](./completions.zh-CN.md)
 |[scriptlive](https://github.com/util-linux/util-linux)|Execute terminal typescript.|
 |[scriptreplay](https://github.com/util-linux/util-linux)|Play back terminal typescripts, using timing information.|
 |[sd](https://github.com/chmln/sd)|An intuitive find & replace CLI<br>sed alternative|
+|[sdkmanager](https://developer.android.com/studio/intro/update#sdk-manager)|sdkmanager - Android SDK Manager.<br>Install, update, and manage Android SDK packages, platforms, build tools, and more.|
 |[sed@GNU](https://www.gnu.org/software/sed)|GNU stream editor for filtering and transforming text.|
 |[seq@GNU](https://www.gnu.org/software/coreutils/)|Print numbers from FIRST to LAST, in steps of INCREMENT.|
 |[seq@uutils](https://uutils.org)|Display numbers from FIRST to LAST, in steps of INCREMENT.|
