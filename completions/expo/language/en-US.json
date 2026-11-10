@@ -1,26 +1,17 @@
 {
   "meta": {
-    "url": "https://docs.expo.dev/more/expo-cli/",
+    "url": "https://docs.expo.dev/more/expo-cli",
     "description": [
       "Expo CLI - Tools to develop, build, and deploy Expo / React Native apps",
       "Usually invoked via npx expo or bunx expo"
     ]
   },
-  "option": [
-    {
-      "name": "--version",
-      "alias": [
-        "-v"
-      ],
-      "tip": [
-        "U: -v, --version",
-        "Version number"
-      ]
-    }
-  ],
-  "root": [
+  "next": [
     {
       "name": "config",
+      "tip": [
+        "Show the project config"
+      ],
       "option": [
         {
           "name": "--full",
@@ -35,18 +26,28 @@
           ]
         },
         {
+          "name": "--type",
           "alias": [
             "-t"
           ],
-          "name": "--type",
+          "usage": [
+            "-t, --type <public|prebuild|introspect>"
+          ],
           "tip": [
-            "U: -t, --type <public|prebuild|introspect>",
             "Type of config to show"
+          ],
+          "next": [
+            {
+              "name": "introspect"
+            },
+            {
+              "name": "prebuild"
+            },
+            {
+              "name": "public"
+            }
           ]
         }
-      ],
-      "tip": [
-        "Show the project config"
       ]
     },
     {
@@ -57,14 +58,31 @@
     },
     {
       "name": "export",
+      "tip": [
+        "Export the static files of the app for hosting it on a web server"
+      ],
       "option": [
         {
+          "name": "--api-only",
+          "alias": [
+            "--no-ssg"
+          ],
+          "usage": [
+            "--no-ssg, --api-only"
+          ],
+          "tip": [
+            "Skip exporting static HTML files and only export API routes for web"
+          ]
+        },
+        {
+          "name": "--clear",
           "alias": [
             "-c"
           ],
-          "name": "--clear",
+          "usage": [
+            "-c, --clear"
+          ],
           "tip": [
-            "U: -c, --clear",
             "Clear the bundler cache"
           ]
         },
@@ -99,48 +117,56 @@
           ]
         },
         {
-          "alias": [
-            "--api-only"
-          ],
-          "name": "--no-ssg",
-          "tip": [
-            "U: --no-ssg|--api-only",
-            "Skip exporting static HTML files and only export API routes for web"
-          ]
-        },
-        {
           "name": "--output-dir",
           "tip": [
             "Directory to export the static files to. Default: dist"
           ]
         },
         {
+          "name": "--platform",
           "alias": [
             "-p"
           ],
-          "name": "--platform",
+          "usage": [
+            "-p, --platform <all|android|ios|web>"
+          ],
           "tip": [
-            "U: -p, --platform <all|android|ios|web>",
             "Platform to export. Default: all"
+          ],
+          "next": [
+            {
+              "name": "all"
+            },
+            {
+              "name": "android"
+            },
+            {
+              "name": "ios"
+            },
+            {
+              "name": "web"
+            }
           ]
         },
         {
+          "name": "--source-maps",
           "alias": [
             "-s"
           ],
-          "name": "--source-maps",
+          "usage": [
+            "-s, --source-maps"
+          ],
           "tip": [
-            "U: -s, --source-maps [true|false|inline|external]",
             "Emit JavaScript source maps. Default: false"
           ]
         }
-      ],
-      "tip": [
-        "Export the static files of the app for hosting it on a web server"
       ]
     },
     {
       "name": "install",
+      "tip": [
+        "Install a module or other package to a project"
+      ],
       "option": [
         {
           "name": "--bun",
@@ -190,21 +216,23 @@
             "Use Yarn to install dependencies. Default when yarn.lock exists"
           ]
         }
-      ],
-      "tip": [
-        "Install a module or other package to a project"
       ]
     },
     {
       "name": "login",
+      "tip": [
+        "Log in to an Expo account"
+      ],
       "option": [
         {
+          "name": "--browser",
           "alias": [
             "-b"
           ],
-          "name": "--browser",
+          "usage": [
+            "-b, --browser"
+          ],
           "tip": [
-            "U: -b, --browser",
             "Log in with a browser"
           ]
         },
@@ -215,38 +243,43 @@
           ]
         },
         {
+          "name": "--password",
           "alias": [
             "-p"
           ],
-          "name": "--password",
+          "usage": [
+            "-p, --password <string>"
+          ],
           "tip": [
-            "U: -p, --password <string>",
             "Password (\"-\" for stdin)"
-          ]
+          ],
+          "next": []
         },
         {
+          "name": "--sso",
           "alias": [
             "-s"
           ],
-          "name": "--sso",
+          "usage": [
+            "-s, --sso"
+          ],
           "tip": [
-            "U: -s, --sso",
             "Log in with SSO"
           ]
         },
         {
+          "name": "--username",
           "alias": [
             "-u"
           ],
-          "name": "--username",
+          "usage": [
+            "-u, --username <string>"
+          ],
           "tip": [
-            "U: -u, --username <string>",
             "Username"
-          ]
+          ],
+          "next": []
         }
-      ],
-      "tip": [
-        "Log in to an Expo account"
       ]
     },
     {
@@ -257,6 +290,9 @@
     },
     {
       "name": "prebuild",
+      "tip": [
+        "Create native iOS and Android project files for building natively"
+      ],
       "option": [
         {
           "name": "--bun",
@@ -283,13 +319,26 @@
           ]
         },
         {
+          "name": "--platform",
           "alias": [
             "-p"
           ],
-          "name": "--platform",
+          "usage": [
+            "-p, --platform <all|android|ios>"
+          ],
           "tip": [
-            "U: -p, --platform <all|android|ios>",
             "Platforms to sync. Default: all"
+          ],
+          "next": [
+            {
+              "name": "all"
+            },
+            {
+              "name": "android"
+            },
+            {
+              "name": "ios"
+            }
           ]
         },
         {
@@ -316,9 +365,6 @@
             "Use Yarn to install dependencies. Default when yarn.lock exists"
           ]
         }
-      ],
-      "tip": [
-        "Create native iOS and Android project files for building natively"
       ]
     },
     {
@@ -329,6 +375,9 @@
     },
     {
       "name": "run:android",
+      "tip": [
+        "Run the native Android app locally"
+      ],
       "option": [
         {
           "name": "--app-id",
@@ -343,12 +392,14 @@
           ]
         },
         {
+          "name": "--device",
           "alias": [
             "-d"
           ],
-          "name": "--device",
+          "usage": [
+            "-d, --device"
+          ],
           "tip": [
-            "U: -d, --device [device]",
             "Device name to run the app on"
           ]
         },
@@ -371,14 +422,17 @@
           ]
         },
         {
+          "name": "--port",
           "alias": [
             "-p"
           ],
-          "name": "--port",
+          "usage": [
+            "-p, --port <port>"
+          ],
           "tip": [
-            "U: -p, --port <port>",
             "Port to start the dev server on. Default: 8081"
-          ]
+          ],
+          "next": []
         },
         {
           "name": "--variant",
@@ -386,13 +440,13 @@
             "Build variant or product flavor. Default: debug"
           ]
         }
-      ],
-      "tip": [
-        "Run the native Android app locally"
       ]
     },
     {
       "name": "run:ios",
+      "tip": [
+        "Run the iOS app binary locally"
+      ],
       "option": [
         {
           "name": "--binary",
@@ -407,12 +461,14 @@
           ]
         },
         {
+          "name": "--device",
           "alias": [
             "-d"
           ],
-          "name": "--device",
+          "usage": [
+            "-d, --device"
+          ],
           "tip": [
-            "U: -d, --device [device]",
             "Device name, UDID, or \"generic\" for build-only"
           ]
         },
@@ -435,24 +491,30 @@
           ]
         },
         {
+          "name": "--output",
           "alias": [
             "-o"
           ],
-          "name": "--output",
+          "usage": [
+            "-o, --output <path>"
+          ],
           "tip": [
-            "U: -o, --output <path>",
             "Directory to output the built app binary"
-          ]
+          ],
+          "next": []
         },
         {
+          "name": "--port",
           "alias": [
             "-p"
           ],
-          "name": "--port",
+          "usage": [
+            "-p, --port <port>"
+          ],
           "tip": [
-            "U: -p, --port <port>",
             "Port to start the Metro bundler on. Default: 8081"
-          ]
+          ],
+          "next": []
         },
         {
           "name": "--scheme",
@@ -460,13 +522,13 @@
             "Scheme to build"
           ]
         }
-      ],
-      "tip": [
-        "Run the iOS app binary locally"
       ]
     },
     {
       "name": "serve",
+      "tip": [
+        "Host the production server locally"
+      ],
       "option": [
         {
           "name": "--port",
@@ -474,62 +536,83 @@
             "Port to host the server on"
           ]
         }
-      ],
-      "tip": [
-        "Host the production server locally"
       ]
     },
     {
       "name": "start",
+      "tip": [
+        "Start a local dev server for the app"
+      ],
       "option": [
         {
+          "name": "--android",
           "alias": [
             "-a"
           ],
-          "name": "--android",
+          "usage": [
+            "-a, --android"
+          ],
           "tip": [
-            "U: -a, --android",
             "Open on a connected Android device"
           ]
         },
         {
+          "name": "--clear",
           "alias": [
             "-c"
           ],
-          "name": "--clear",
+          "usage": [
+            "-c, --clear"
+          ],
           "tip": [
-            "U: -c, --clear",
             "Clear the bundler cache"
           ]
         },
         {
+          "name": "--dev-client",
           "alias": [
             "-d"
           ],
-          "name": "--dev-client",
+          "usage": [
+            "-d, --dev-client"
+          ],
           "tip": [
-            "U: -d, --dev-client",
             "Launch in a custom native app"
           ]
         },
         {
+          "name": "--go",
           "alias": [
             "-g"
           ],
-          "name": "--go",
+          "usage": [
+            "-g, --go"
+          ],
           "tip": [
-            "U: -g, --go",
             "Launch in Expo Go"
           ]
         },
         {
+          "name": "--host",
           "alias": [
             "-m"
           ],
-          "name": "--host",
+          "usage": [
+            "-m, --host <lan|tunnel|localhost>"
+          ],
           "tip": [
-            "U: -m, --host <lan|tunnel|localhost>",
             "Dev server hosting type. Default: lan"
+          ],
+          "next": [
+            {
+              "name": "lan"
+            },
+            {
+              "name": "localhost"
+            },
+            {
+              "name": "tunnel"
+            }
           ]
         },
         {
@@ -539,12 +622,14 @@
           ]
         },
         {
+          "name": "--ios",
           "alias": [
             "-i"
           ],
-          "name": "--ios",
+          "usage": [
+            "-i, --ios"
+          ],
           "tip": [
-            "U: -i, --ios",
             "Open in an iOS simulator"
           ]
         },
@@ -585,14 +670,17 @@
           ]
         },
         {
+          "name": "--port",
           "alias": [
             "-p"
           ],
-          "name": "--port",
+          "usage": [
+            "-p, --port <number>"
+          ],
           "tip": [
-            "U: -p, --port <number>",
             "Port to start the dev server on (does not apply to web or tunnel). Default: 8081"
-          ]
+          ],
+          "next": []
         },
         {
           "name": "--private-key-path",
@@ -613,18 +701,17 @@
           ]
         },
         {
+          "name": "--web",
           "alias": [
             "-w"
           ],
-          "name": "--web",
+          "usage": [
+            "-w, --web"
+          ],
           "tip": [
-            "U: -w, --web",
             "Open in a web browser"
           ]
         }
-      ],
-      "tip": [
-        "Start a local dev server for the app"
       ]
     },
     {
@@ -634,14 +721,30 @@
       ]
     }
   ],
-  "common_option": [
+  "option": [
     {
+      "name": "--version",
       "alias": [
-        "--help"
+        "-v"
       ],
-      "name": "-h",
+      "usage": [
+        "-v, --version"
+      ],
       "tip": [
-        "U: -h, --help",
+        "Version number"
+      ]
+    }
+  ],
+  "global_option": [
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
         "Usage info"
       ]
     }
