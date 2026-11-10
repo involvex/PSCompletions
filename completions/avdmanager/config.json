@@ -1,4 +1,6 @@
 {
+  "id": "ba14eddf-82e1-4888-b9bd-b8a71ca48aca",
+  "version": "cmdline-tools;21.0",
   "hooks": true,
   "language": [
     "en-US",

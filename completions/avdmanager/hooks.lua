@@ -37,17 +37,13 @@ local function add_tag_options()
 end
 
 -- create/move/delete avd: option value completions
-psc.on({ command = { "create", "avd" }, option = "-n" }, add_name_options)
+-- The action is a verb and a direct object, so the chain has two segments; psc.on matches each segment against the canonical name.
+-- The option target is the canonical name too: typing `-n` still yields the canonical `--name`.
 psc.on({ command = { "create", "avd" }, option = "--name" }, add_name_options)
-psc.on({ command = { "create", "avd" }, option = "-d" }, add_device_options)
 psc.on({ command = { "create", "avd" }, option = "--device" }, add_device_options)
-psc.on({ command = { "create", "avd" }, option = "-k" }, add_package_options)
 psc.on({ command = { "create", "avd" }, option = "--package" }, add_package_options)
-psc.on({ command = { "create", "avd" }, option = "-g" }, add_tag_options)
 psc.on({ command = { "create", "avd" }, option = "--tag" }, add_tag_options)
 
-psc.on({ command = { "move", "avd" }, option = "-n" }, add_name_options)
 psc.on({ command = { "move", "avd" }, option = "--name" }, add_name_options)
 
-psc.on({ command = { "delete", "avd" }, option = "-n" }, add_name_options)
 psc.on({ command = { "delete", "avd" }, option = "--name" }, add_name_options)
