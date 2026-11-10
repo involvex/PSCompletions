@@ -5,177 +5,12 @@
       "kilo - 终端中的 AI 编程智能体。"
     ]
   },
-  "option": [
-    {
-      "name": "--agent",
-      "tip": [
-        "要使用的智能体"
-      ],
-      "next": 0
-    },
-    {
-      "name": "--auto",
-      "tip": [
-        "自动批准未被明确拒绝的权限(危险!)"
-      ]
-    },
-    {
-      "name": "--cloud-fork",
-      "tip": [
-        "从云端获取会话并在本地继续(与 --session 配合使用)"
-      ]
-    },
-    {
-      "name": "--continue",
-      "alias": [
-        "-c"
-      ],
-      "tip": [
-        "继续上一个会话"
-      ]
-    },
-    {
-      "name": "--cors",
-      "tip": [
-        "允许 CORS 的其他域名"
-      ]
-    },
-    {
-      "name": "--fork",
-      "tip": [
-        "在继续时分叉会话(与 --continue 或 --session 配合使用)"
-      ]
-    },
-    {
-      "name": "--help",
-      "alias": [
-        "-h"
-      ],
-      "tip": [
-        "显示帮助"
-      ]
-    },
-    {
-      "name": "--hostname",
-      "tip": [
-        "监听主机名"
-      ]
-    },
-    {
-      "name": "--log-level",
-      "tip": [
-        "日志级别"
-      ],
-      "next": [
-        {
-          "name": "DEBUG"
-        },
-        {
-          "name": "ERROR"
-        },
-        {
-          "name": "INFO"
-        },
-        {
-          "name": "WARN"
-        }
-      ]
-    },
-    {
-      "name": "--mdns",
-      "tip": [
-        "启用 mDNS 服务发现(主机名默认为 0.0.0.0)"
-      ]
-    },
-    {
-      "name": "--mdns-domain",
-      "tip": [
-        "mDNS 服务的自定义域名(默认: kilo.local)"
-      ]
-    },
-    {
-      "name": "--mini",
-      "tip": [
-        "启动极简交互界面"
-      ]
-    },
-    {
-      "name": "--model",
-      "alias": [
-        "-m"
-      ],
-      "tip": [
-        "要使用的模型, 格式为 provider/model"
-      ],
-      "next": 0
-    },
-    {
-      "name": "--no-replay",
-      "tip": [
-        "在恢复和调整窗口大小后禁用 mini 会话历史回放"
-      ]
-    },
-    {
-      "name": "--port",
-      "tip": [
-        "监听端口"
-      ]
-    },
-    {
-      "name": "--print-logs",
-      "tip": [
-        "将日志打印到 stderr"
-      ]
-    },
-    {
-      "name": "--prompt",
-      "tip": [
-        "要使用的提示词"
-      ],
-      "next": 0
-    },
-    {
-      "name": "--pure",
-      "tip": [
-        "在不加载外部插件的情况下运行"
-      ]
-    },
-    {
-      "name": "--replay-limit",
-      "tip": [
-        "限制 mini 回放仅显示最新的 N 条消息"
-      ]
-    },
-    {
-      "name": "--session",
-      "alias": [
-        "-s"
-      ],
-      "tip": [
-        "要继续的会话 ID"
-      ],
-      "next": 0
-    },
-    {
-      "name": "--version",
-      "alias": [
-        "-v"
-      ],
-      "tip": [
-        "显示版本号"
-      ]
-    },
-    {
-      "name": "--worktree",
-      "tip": [
-        "以此名称创建(或复用)git 工作树并在其中启动 kilo"
-      ],
-      "next": 0
-    }
-  ],
-  "root": [
+  "next": [
     {
       "name": "acp",
+      "tip": [
+        "启动 ACP(Agent Client Protocol)服务器"
+      ],
       "option": [
         {
           "name": "--cors",
@@ -185,10 +20,10 @@
         },
         {
           "name": "--cwd",
-          "next": 0,
           "tip": [
             "工作目录"
-          ]
+          ],
+          "next": []
         },
         {
           "name": "--hostname",
@@ -214,13 +49,13 @@
             "监听端口"
           ]
         }
-      ],
-      "tip": [
-        "启动 ACP(Agent Client Protocol)服务器"
       ]
     },
     {
       "name": "agent",
+      "tip": [
+        "管理智能体"
+      ],
       "next": [
         {
           "name": "create",
@@ -234,76 +69,19 @@
             "列出所有可用的智能体"
           ]
         }
-      ],
-      "tip": [
-        "管理智能体"
       ]
     },
     {
       "name": "attach",
-      "next": 0,
       "tip": [
         "连接到正在运行的 kilo 服务器"
       ]
     },
     {
-      "alias": [
-        "providers"
-      ],
-      "name": "auth",
-      "next": [
-        {
-          "alias": [
-            "ls"
-          ],
-          "name": "list",
-          "tip": [
-            "列出提供商和凭据"
-          ]
-        },
-        {
-          "name": "login",
-          "next": 0,
-          "option": [
-            {
-              "alias": [
-                "--method"
-              ],
-              "name": "-m",
-              "next": 0,
-              "tip": [
-                "登录方式标签(跳过方式选择)"
-              ]
-            },
-            {
-              "alias": [
-                "--provider"
-              ],
-              "name": "-p",
-              "next": 0,
-              "tip": [
-                "要登录的提供商 ID 或名称(跳过提供商选择)"
-              ]
-            }
-          ],
-          "tip": [
-            "登录提供商"
-          ]
-        },
-        {
-          "name": "logout",
-          "next": 0,
-          "tip": [
-            "退出已配置的提供商"
-          ]
-        }
-      ],
-      "tip": [
-        "管理 AI 提供商和凭据"
-      ]
-    },
-    {
       "name": "cloud",
+      "tip": [
+        "运行云端智能体任务"
+      ],
       "next": [
         {
           "name": "result",
@@ -329,9 +107,6 @@
             "显示云端智能体任务状态"
           ]
         }
-      ],
-      "tip": [
-        "运行云端智能体任务"
       ]
     },
     {
@@ -342,6 +117,9 @@
     },
     {
       "name": "config",
+      "tip": [
+        "配置工具"
+      ],
       "next": [
         {
           "name": "check",
@@ -349,26 +127,30 @@
             "检查配置中的警告和错误"
           ]
         }
-      ],
-      "tip": [
-        "配置工具"
       ]
     },
     {
       "name": "console",
-      "next": [
-        {
-          "name": "stop",
-          "tip": [
-            "停止本地 kilo 守护进程"
-          ]
-        }
+      "tip": [
+        "打开或停止本地 Kilo Console(已弃用)"
       ],
       "option": [
         {
           "name": "--cors",
           "tip": [
             "允许 CORS 的其他域名"
+          ]
+        },
+        {
+          "name": "--foreground",
+          "alias": [
+            "-f"
+          ],
+          "usage": [
+            "-f, --foreground"
+          ],
+          "tip": [
+            "保持命令活跃直到被中断"
           ]
         },
         {
@@ -394,54 +176,39 @@
           "tip": [
             "监听端口"
           ]
-        },
-        {
-          "alias": [
-            "--foreground"
-          ],
-          "name": "-f",
-          "tip": [
-            "保持命令活跃直到被中断"
-          ]
         }
       ],
-      "tip": [
-        "打开或停止本地 Kilo Console(已弃用)"
-      ]
-    },
-    {
-      "name": "daemon",
       "next": [
-        {
-          "name": "restart",
-          "tip": [
-            "重启本地 kilo 守护进程"
-          ]
-        },
-        {
-          "name": "start",
-          "tip": [
-            "启动本地 kilo 守护进程"
-          ]
-        },
-        {
-          "name": "status",
-          "tip": [
-            "显示本地 kilo 守护进程状态"
-          ]
-        },
         {
           "name": "stop",
           "tip": [
             "停止本地 kilo 守护进程"
           ]
         }
+      ]
+    },
+    {
+      "name": "daemon",
+      "tip": [
+        "管理本地 kilo 守护进程"
       ],
       "option": [
         {
           "name": "--cors",
           "tip": [
             "允许 CORS 的其他域名"
+          ]
+        },
+        {
+          "name": "--foreground",
+          "alias": [
+            "-f"
+          ],
+          "usage": [
+            "-f, --foreground"
+          ],
+          "tip": [
+            "保持命令活跃直到被中断"
           ]
         },
         {
@@ -473,34 +240,46 @@
           "tip": [
             "监听端口"
           ]
-        },
-        {
-          "alias": [
-            "--foreground"
-          ],
-          "name": "-f",
-          "tip": [
-            "保持命令活跃直到被中断"
-          ]
         }
       ],
-      "tip": [
-        "管理本地 kilo 守护进程"
+      "next": [
+        {
+          "name": "restart",
+          "tip": [
+            "重启本地 kilo 守护进程"
+          ]
+        },
+        {
+          "name": "start",
+          "tip": [
+            "启动本地 kilo 守护进程"
+          ]
+        },
+        {
+          "name": "status",
+          "tip": [
+            "显示本地 kilo 守护进程状态"
+          ]
+        },
+        {
+          "name": "stop",
+          "tip": [
+            "停止本地 kilo 守护进程"
+          ]
+        }
       ]
     },
     {
       "name": "db",
-      "next": [
-        {
-          "name": "path",
-          "tip": [
-            "打印数据库路径"
-          ]
-        }
+      "tip": [
+        "数据库工具"
       ],
       "option": [
         {
           "name": "--format",
+          "tip": [
+            "输出格式"
+          ],
           "next": [
             {
               "name": "json"
@@ -508,22 +287,26 @@
             {
               "name": "tsv"
             }
-          ],
-          "tip": [
-            "输出格式"
           ]
         }
       ],
-      "tip": [
-        "数据库工具"
+      "next": [
+        {
+          "name": "path",
+          "tip": [
+            "打印数据库路径"
+          ]
+        }
       ]
     },
     {
       "name": "debug",
+      "tip": [
+        "调试和故障排除工具"
+      ],
       "next": [
         {
           "name": "agent",
-          "next": 0,
           "tip": [
             "显示智能体配置详情"
           ]
@@ -600,14 +383,13 @@
             "无限等待(用于调试)"
           ]
         }
-      ],
-      "tip": [
-        "调试和故障排除工具"
       ]
     },
     {
       "name": "export",
-      "next": 0,
+      "tip": [
+        "将会话数据导出为 JSON"
+      ],
       "option": [
         {
           "name": "--sanitize",
@@ -615,13 +397,13 @@
             "脱敏敏感的对话记录和文件数据"
           ]
         }
-      ],
-      "tip": [
-        "将会话数据导出为 JSON"
       ]
     },
     {
       "name": "github",
+      "tip": [
+        "管理 GitHub 智能体"
+      ],
       "next": [
         {
           "name": "install",
@@ -635,31 +417,31 @@
             "运行 GitHub 智能体"
           ]
         }
-      ],
-      "tip": [
-        "管理 GitHub 智能体"
       ]
     },
     {
       "name": "help",
-      "next": 0,
       "tip": [
         "显示完整 CLI 参考"
       ]
     },
     {
       "name": "import",
-      "next": 0,
       "tip": [
         "从 JSON 文件或 URL 导入会话数据"
       ]
     },
     {
       "name": "mcp",
+      "tip": [
+        "管理 MCP(Model Context Protocol)服务器"
+      ],
       "next": [
         {
           "name": "add",
-          "next": 0,
+          "tip": [
+            "添加 MCP 服务器"
+          ],
           "option": [
             {
               "name": "--env",
@@ -675,54 +457,50 @@
             },
             {
               "name": "--url",
-              "next": 0,
               "tip": [
                 "远程 MCP 服务器的 URL"
-              ]
+              ],
+              "next": []
             }
-          ],
-          "tip": [
-            "添加 MCP 服务器"
           ]
         },
         {
           "name": "auth",
-          "next": 0,
           "tip": [
             "对支持 OAuth 的 MCP 服务器进行身份验证"
           ]
         },
         {
           "name": "debug",
-          "next": 0,
           "tip": [
             "调试 MCP 服务器的 OAuth 连接"
           ]
         },
         {
+          "name": "list",
           "alias": [
             "ls"
           ],
-          "name": "list",
+          "usage": [
+            "ls|list"
+          ],
           "tip": [
             "列出 MCP 服务器及其状态"
           ]
         },
         {
           "name": "logout",
-          "next": 0,
           "tip": [
             "移除 MCP 服务器的 OAuth 凭据"
           ]
         }
-      ],
-      "tip": [
-        "管理 MCP(Model Context Protocol)服务器"
       ]
     },
     {
       "name": "models",
-      "next": 0,
+      "tip": [
+        "列出所有可用模型"
+      ],
       "option": [
         {
           "name": "--refresh",
@@ -736,54 +514,60 @@
             "使用更详细的模型输出(包含成本等元数据)"
           ]
         }
-      ],
-      "tip": [
-        "列出所有可用模型"
       ]
     },
     {
+      "name": "plugin",
       "alias": [
         "plug"
       ],
-      "name": "plugin",
-      "next": 0,
+      "usage": [
+        "plug|plugin"
+      ],
+      "tip": [
+        "安装插件并更新配置"
+      ],
       "option": [
         {
+          "name": "--force",
           "alias": [
-            "--force"
+            "-f"
           ],
-          "name": "-f",
+          "usage": [
+            "-f, --force"
+          ],
           "tip": [
             "替换已有的插件版本"
           ]
         },
         {
+          "name": "--global",
           "alias": [
-            "--global"
+            "-g"
           ],
-          "name": "-g",
+          "usage": [
+            "-g, --global"
+          ],
           "tip": [
             "安装到全局配置"
           ]
         }
-      ],
-      "tip": [
-        "安装插件并更新配置"
       ]
     },
     {
       "name": "pr",
+      "tip": [
+        "管理拉取请求"
+      ],
       "next": [
         {
           "name": "checkout",
-          "next": 0,
           "tip": [
             "拉取并检出 GitHub PR 分支, 然后运行 kilo"
           ]
         },
         {
           "name": "link",
-          "next": 0,
           "tip": [
             "将当前工作树链接到拉取请求"
           ]
@@ -800,13 +584,13 @@
             "清除已链接的拉取请求"
           ]
         }
-      ],
-      "tip": [
-        "管理拉取请求"
       ]
     },
     {
       "name": "profile",
+      "tip": [
+        "显示 Kilo 账户资料"
+      ],
       "option": [
         {
           "name": "--json",
@@ -814,9 +598,72 @@
             "以 JSON 格式输出账户资料"
           ]
         }
+      ]
+    },
+    {
+      "name": "providers",
+      "alias": [
+        "auth"
+      ],
+      "usage": [
+        "auth|providers"
       ],
       "tip": [
-        "显示 Kilo 账户资料"
+        "管理 AI 提供商和凭据"
+      ],
+      "next": [
+        {
+          "name": "list",
+          "alias": [
+            "ls"
+          ],
+          "usage": [
+            "ls|list"
+          ],
+          "tip": [
+            "列出提供商和凭据"
+          ]
+        },
+        {
+          "name": "login",
+          "tip": [
+            "登录提供商"
+          ],
+          "option": [
+            {
+              "name": "--method",
+              "alias": [
+                "-m"
+              ],
+              "usage": [
+                "-m, --method"
+              ],
+              "tip": [
+                "登录方式标签(跳过方式选择)"
+              ],
+              "next": []
+            },
+            {
+              "name": "--provider",
+              "alias": [
+                "-p"
+              ],
+              "usage": [
+                "-p, --provider"
+              ],
+              "tip": [
+                "要登录的提供商 ID 或名称(跳过提供商选择)"
+              ],
+              "next": []
+            }
+          ]
+        },
+        {
+          "name": "logout",
+          "tip": [
+            "退出已配置的提供商"
+          ]
+        }
       ]
     },
     {
@@ -827,10 +674,15 @@
     },
     {
       "name": "roll-call",
-      "next": 0,
+      "tip": [
+        "批量测试匹配过滤器的文本模型的连通性和延迟"
+      ],
       "option": [
         {
           "name": "--output",
+          "tip": [
+            "输出格式(table、json 或 md)"
+          ],
           "next": [
             {
               "name": "json"
@@ -841,9 +693,6 @@
             {
               "name": "table"
             }
-          ],
-          "tip": [
-            "输出格式(table、json 或 md)"
           ]
         },
         {
@@ -854,10 +703,10 @@
         },
         {
           "name": "--prompt",
-          "next": 0,
           "tip": [
             "发送给每个模型的提示词"
-          ]
+          ],
+          "next": []
         },
         {
           "name": "--quiet",
@@ -877,28 +726,27 @@
             "显示详细输出"
           ]
         }
-      ],
-      "tip": [
-        "批量测试匹配过滤器的文本模型的连通性和延迟"
       ]
     },
     {
       "name": "run",
-      "next": 0,
+      "tip": [
+        "使用消息运行 kilo"
+      ],
       "option": [
         {
           "name": "--agent",
-          "next": 0,
           "tip": [
             "要使用的智能体"
-          ]
+          ],
+          "next": []
         },
         {
           "name": "--attach",
-          "next": 0,
           "tip": [
             "连接到正在运行的 kilo 服务器(例如: http://localhost:4096)"
-          ]
+          ],
+          "next": []
         },
         {
           "name": "--auto",
@@ -914,17 +762,42 @@
         },
         {
           "name": "--command",
-          "next": 0,
           "tip": [
             "要运行的命令, 消息作为参数"
+          ],
+          "next": []
+        },
+        {
+          "name": "--continue",
+          "alias": [
+            "-c"
+          ],
+          "usage": [
+            "-c, --continue"
+          ],
+          "tip": [
+            "继续上一个会话"
           ]
         },
         {
           "name": "--dir",
-          "next": 0,
           "tip": [
             "运行目录, 连接时为远程服务器上的路径"
-          ]
+          ],
+          "next": []
+        },
+        {
+          "name": "--file",
+          "alias": [
+            "-f"
+          ],
+          "usage": [
+            "-f, --file"
+          ],
+          "tip": [
+            "附加到消息的文件"
+          ],
+          "next": []
         },
         {
           "name": "--fork",
@@ -934,6 +807,9 @@
         },
         {
           "name": "--format",
+          "tip": [
+            "格式: default(格式化)或 json(原始 JSON 事件)"
+          ],
           "next": [
             {
               "name": "default"
@@ -941,16 +817,51 @@
             {
               "name": "json"
             }
+          ]
+        },
+        {
+          "name": "--interactive",
+          "alias": [
+            "-i"
+          ],
+          "usage": [
+            "-i, --interactive"
           ],
           "tip": [
-            "格式: default(格式化)或 json(原始 JSON 事件)"
+            "以直接交互的分栏页脚模式运行"
           ]
+        },
+        {
+          "name": "--model",
+          "alias": [
+            "-m"
+          ],
+          "usage": [
+            "-m, --model"
+          ],
+          "tip": [
+            "要使用的模型, 格式为 provider/model"
+          ],
+          "next": []
         },
         {
           "name": "--port",
           "tip": [
             "本地服务器端口(未提供时使用随机端口)"
           ]
+        },
+        {
+          "name": "--session",
+          "alias": [
+            "-s"
+          ],
+          "usage": [
+            "-s, --session"
+          ],
+          "tip": [
+            "要继续的会话 ID"
+          ],
+          "next": []
         },
         {
           "name": "--share",
@@ -966,73 +877,25 @@
         },
         {
           "name": "--title",
-          "next": 0,
           "tip": [
             "会话标题(未提供时使用截断后的提示词)"
-          ]
+          ],
+          "next": []
         },
         {
           "name": "--variant",
-          "next": 0,
           "tip": [
             "模型变体(提供商特定的推理力度, 例如: high、max、minimal)"
-          ]
-        },
-        {
-          "alias": [
-            "--continue"
           ],
-          "name": "-c",
-          "tip": [
-            "继续上一个会话"
-          ]
-        },
-        {
-          "alias": [
-            "--file"
-          ],
-          "name": "-f",
-          "next": 0,
-          "tip": [
-            "附加到消息的文件"
-          ]
-        },
-        {
-          "alias": [
-            "--interactive"
-          ],
-          "name": "-i",
-          "tip": [
-            "以直接交互的分栏页脚模式运行"
-          ]
-        },
-        {
-          "alias": [
-            "--model"
-          ],
-          "name": "-m",
-          "next": 0,
-          "tip": [
-            "要使用的模型, 格式为 provider/model"
-          ]
-        },
-        {
-          "alias": [
-            "--session"
-          ],
-          "name": "-s",
-          "next": 0,
-          "tip": [
-            "要继续的会话 ID"
-          ]
+          "next": []
         }
-      ],
-      "tip": [
-        "使用消息运行 kilo"
       ]
     },
     {
       "name": "serve",
+      "tip": [
+        "启动无界面的 kilo 服务器"
+      ],
       "option": [
         {
           "name": "--cors",
@@ -1064,26 +927,43 @@
             "监听端口"
           ]
         }
-      ],
-      "tip": [
-        "启动无界面的 kilo 服务器"
       ]
     },
     {
       "name": "session",
+      "tip": [
+        "管理会话"
+      ],
       "next": [
         {
           "name": "delete",
-          "next": 0,
           "tip": [
             "删除会话"
           ]
         },
         {
           "name": "list",
+          "tip": [
+            "列出会话"
+          ],
           "option": [
             {
+              "name": "--all",
+              "alias": [
+                "-a"
+              ],
+              "usage": [
+                "-a, --all"
+              ],
+              "tip": [
+                "列出所有项目的会话"
+              ]
+            },
+            {
               "name": "--format",
+              "tip": [
+                "输出格式"
+              ],
               "next": [
                 {
                   "name": "json"
@@ -1091,47 +971,35 @@
                 {
                   "name": "table"
                 }
-              ],
-              "tip": [
-                "输出格式"
               ]
             },
             {
+              "name": "--max-count",
               "alias": [
-                "--all"
+                "-n"
               ],
-              "name": "-a",
-              "tip": [
-                "列出所有项目的会话"
-              ]
-            },
-            {
-              "alias": [
-                "--max-count"
+              "usage": [
+                "-n, --max-count"
               ],
-              "name": "-n",
               "tip": [
                 "限制为最近 N 个会话"
               ]
             },
             {
+              "name": "--search",
               "alias": [
-                "--search"
+                "-s"
               ],
-              "name": "-s",
-              "next": 0,
+              "usage": [
+                "-s, --search"
+              ],
               "tip": [
                 "按标题筛选会话"
-              ]
+              ],
+              "next": []
             }
-          ],
-          "tip": [
-            "列出会话"
           ]
         }
-      ],
-      "tip": [
-        "管理会话"
       ]
     },
     {
@@ -1142,6 +1010,9 @@
     },
     {
       "name": "uninstall",
+      "tip": [
+        "卸载 kilo 并移除所有相关文件"
+      ],
       "option": [
         {
           "name": "--dry-run",
@@ -1150,46 +1021,60 @@
           ]
         },
         {
+          "name": "--force",
           "alias": [
-            "--keep-config"
+            "-f"
           ],
-          "name": "-c",
+          "usage": [
+            "-f, --force"
+          ],
+          "tip": [
+            "跳过确认提示"
+          ]
+        },
+        {
+          "name": "--keep-config",
+          "alias": [
+            "-c"
+          ],
+          "usage": [
+            "-c, --keep-config"
+          ],
           "tip": [
             "保留配置文件"
           ]
         },
         {
+          "name": "--keep-data",
           "alias": [
-            "--keep-data"
+            "-d"
           ],
-          "name": "-d",
+          "usage": [
+            "-d, --keep-data"
+          ],
           "tip": [
             "保留会话数据和快照"
           ]
-        },
-        {
-          "alias": [
-            "--force"
-          ],
-          "name": "-f",
-          "tip": [
-            "跳过确认提示"
-          ]
         }
-      ],
-      "tip": [
-        "卸载 kilo 并移除所有相关文件"
       ]
     },
     {
       "name": "upgrade",
-      "next": 0,
+      "tip": [
+        "将 kilo 升级到最新或指定版本"
+      ],
       "option": [
         {
+          "name": "--method",
           "alias": [
-            "--method"
+            "-m"
           ],
-          "name": "-m",
+          "usage": [
+            "-m, --method"
+          ],
+          "tip": [
+            "要使用的安装方式"
+          ],
           "next": [
             {
               "name": "brew"
@@ -1215,22 +1100,18 @@
             {
               "name": "yarn"
             }
-          ],
-          "tip": [
-            "要使用的安装方式"
           ]
         }
-      ],
-      "tip": [
-        "将 kilo 升级到最新或指定版本"
       ]
     },
     {
       "name": "worktree",
+      "tip": [
+        "管理 git 工作树"
+      ],
       "next": [
         {
           "name": "create",
-          "next": 0,
           "tip": [
             "按名称创建(或复用)git 工作树"
           ]
@@ -1243,18 +1124,197 @@
         },
         {
           "name": "remove",
-          "next": 0,
           "tip": [
             "按名称移除 git 工作树, 同时删除其分支"
           ]
         }
-      ],
-      "tip": [
-        "管理 git 工作树"
       ]
     }
   ],
-  "common_option": [
+  "option": [
+    {
+      "name": "--agent",
+      "tip": [
+        "要使用的智能体"
+      ],
+      "next": []
+    },
+    {
+      "name": "--auto",
+      "tip": [
+        "自动批准未被明确拒绝的权限(危险!)"
+      ]
+    },
+    {
+      "name": "--cloud-fork",
+      "tip": [
+        "从云端获取会话并在本地继续(与 --session 配合使用)"
+      ]
+    },
+    {
+      "name": "--continue",
+      "alias": [
+        "-c"
+      ],
+      "usage": [
+        "-c, --continue"
+      ],
+      "tip": [
+        "继续上一个会话"
+      ]
+    },
+    {
+      "name": "--cors",
+      "tip": [
+        "允许 CORS 的其他域名"
+      ]
+    },
+    {
+      "name": "--fork",
+      "tip": [
+        "在继续时分叉会话(与 --continue 或 --session 配合使用)"
+      ]
+    },
+    {
+      "name": "--help",
+      "alias": [
+        "-h"
+      ],
+      "usage": [
+        "-h, --help"
+      ],
+      "tip": [
+        "显示帮助"
+      ]
+    },
+    {
+      "name": "--hostname",
+      "tip": [
+        "监听主机名"
+      ]
+    },
+    {
+      "name": "--log-level",
+      "tip": [
+        "日志级别"
+      ],
+      "next": [
+        {
+          "name": "DEBUG"
+        },
+        {
+          "name": "ERROR"
+        },
+        {
+          "name": "INFO"
+        },
+        {
+          "name": "WARN"
+        }
+      ]
+    },
+    {
+      "name": "--mdns",
+      "tip": [
+        "启用 mDNS 服务发现(主机名默认为 0.0.0.0)"
+      ]
+    },
+    {
+      "name": "--mdns-domain",
+      "tip": [
+        "mDNS 服务的自定义域名(默认: kilo.local)"
+      ]
+    },
+    {
+      "name": "--mini",
+      "tip": [
+        "启动极简交互界面"
+      ]
+    },
+    {
+      "name": "--model",
+      "alias": [
+        "-m"
+      ],
+      "usage": [
+        "-m, --model"
+      ],
+      "tip": [
+        "要使用的模型, 格式为 provider/model"
+      ],
+      "next": []
+    },
+    {
+      "name": "--no-replay",
+      "tip": [
+        "在恢复和调整窗口大小后禁用 mini 会话历史回放"
+      ]
+    },
+    {
+      "name": "--port",
+      "tip": [
+        "监听端口"
+      ]
+    },
+    {
+      "name": "--print-logs",
+      "tip": [
+        "将日志打印到 stderr"
+      ]
+    },
+    {
+      "name": "--prompt",
+      "tip": [
+        "要使用的提示词"
+      ],
+      "next": []
+    },
+    {
+      "name": "--pure",
+      "tip": [
+        "在不加载外部插件的情况下运行"
+      ]
+    },
+    {
+      "name": "--replay-limit",
+      "tip": [
+        "限制 mini 回放仅显示最新的 N 条消息"
+      ]
+    },
+    {
+      "name": "--session",
+      "alias": [
+        "-s"
+      ],
+      "usage": [
+        "-s, --session"
+      ],
+      "tip": [
+        "要继续的会话 ID"
+      ],
+      "next": []
+    },
+    {
+      "name": "--version",
+      "alias": [
+        "-v"
+      ],
+      "usage": [
+        "-v, --version"
+      ],
+      "tip": [
+        "显示版本号"
+      ]
+    },
+    {
+      "name": "--worktree",
+      "tip": [
+        "以此名称创建(或复用)git 工作树并在其中启动 kilo"
+      ],
+      "next": []
+    }
+  ],
+  "global_option": [
     {
       "name": "--help",
       "tip": [
